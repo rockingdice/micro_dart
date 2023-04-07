@@ -1,0 +1,535 @@
+{
+    "xtype": "Component",
+    "libraries": [
+        {
+            "xtype": "Library",
+            "name": null,
+            "languageVersion.major": 2,
+            "languageVersion.minor": 18,
+            "importUri": "org-dartlang-test:///a/b/c/main.dart",
+            "isSynthetic": false,
+            "nonNullableByDefaultCompiledMode": "Strong",
+            "isNonNullableByDefault": true,
+            "isUnsupported": false,
+            "problemsAsJson": null,
+            "annotations": [],
+            "dependencies": [],
+            "parts": [],
+            "typedefs": [],
+            "classes": [],
+            "extensions": [],
+            "procedures": [
+                {
+                    "xtype": "Procedure",
+                    "isAbstract": false,
+                    "isAccessor": false,
+                    "isConst": false,
+                    "isExternal": false,
+                    "isFactory": false,
+                    "isExtensionMember": false,
+                    "isForwardingSemiStub": false,
+                    "isForwardingStub": false,
+                    "isGetter": false,
+                    "isSetter": false,
+                    "isStatic": true,
+                    "isInstanceMember": false,
+                    "isInternalImplementation": false,
+                    "isMemberSignature": false,
+                    "isNoSuchMethodForwarder": false,
+                    "isSynthetic": false,
+                    "isNonNullableByDefault": true,
+                    "isRedirectingFactory": false,
+                    "isSyntheticForwarder": false,
+                    "name": {
+                        "xtype": "Name",
+                        "text": "main",
+                        "libraryName": null,
+                        "isPrivate": false
+                    },
+                    "kind": "Method",
+                    "stubKind": "Regular",
+                    "function": {
+                        "xtype": "FunctionNode",
+                        "typeParameters": [],
+                        "positionalParameters": [],
+                        "namedParameters": [],
+                        "requiredParameterCount": 0,
+                        "returnType": {
+                            "xtype": "InterfaceType",
+                            "classNode": {
+                                "xtype": "ClassReference",
+                                "importUri": "dart:core",
+                                "name": "int"
+                            },
+                            "typeArguments": []
+                        },
+                        "asyncMarker": "Sync",
+                        "dartAsyncMarker": "Sync",
+                        "futureValueType": null,
+                        "body": {
+                            "xtype": "Block",
+                            "statements": [
+                                {
+                                    "xtype": "VariableDeclaration",
+                                    "name": "i",
+                                    "initializer": {
+                                        "xtype": "IntLiteral",
+                                        "value": 3
+                                    },
+                                    "type": {
+                                        "xtype": "InterfaceType",
+                                        "classNode": {
+                                            "xtype": "ClassReference",
+                                            "importUri": "dart:core",
+                                            "name": "int"
+                                        },
+                                        "typeArguments": []
+                                    },
+                                    "isFinal": false,
+                                    "isConst": false,
+                                    "isInitializingFormal": false,
+                                    "isCovariantByDeclaration": false,
+                                    "isLate": false,
+                                    "isRequired": false,
+                                    "isLowered": false,
+                                    "hasDeclaredInitializer": true,
+                                    "annotations": []
+                                },
+                                {
+                                    "xtype": "Block",
+                                    "statements": [
+                                        {
+                                            "xtype": "VariableDeclaration",
+                                            "name": "k",
+                                            "initializer": {
+                                                "xtype": "StaticInvocation",
+                                                "isConst": false,
+                                                "name": {
+                                                    "xtype": "Name",
+                                                    "text": "addOne",
+                                                    "libraryName": null,
+                                                    "isPrivate": false
+                                                },
+                                                "target": {
+                                                    "xtype": "ProcedureReference",
+                                                    "libraryUri": "org-dartlang-test:///a/b/c/main.dart",
+                                                    "libraryName": null,
+                                                    "className": null,
+                                                    "name": {
+                                                        "xtype": "Name",
+                                                        "text": "addOne",
+                                                        "libraryName": null,
+                                                        "isPrivate": false
+                                                    },
+                                                    "positionalParameters": [
+                                                        {
+                                                            "xtype": "VariableDeclaration",
+                                                            "name": "n",
+                                                            "initializer": null,
+                                                            "type": {
+                                                                "xtype": "InterfaceType",
+                                                                "classNode": {
+                                                                    "xtype": "ClassReference",
+                                                                    "importUri": "dart:core",
+                                                                    "name": "int"
+                                                                },
+                                                                "typeArguments": []
+                                                            },
+                                                            "isFinal": false,
+                                                            "isConst": false,
+                                                            "isInitializingFormal": false,
+                                                            "isCovariantByDeclaration": false,
+                                                            "isLate": false,
+                                                            "isRequired": false,
+                                                            "isLowered": false,
+                                                            "hasDeclaredInitializer": false,
+                                                            "annotations": []
+                                                        }
+                                                    ],
+                                                    "namedParameters": [
+                                                        {
+                                                            "xtype": "VariableDeclaration",
+                                                            "name": "m",
+                                                            "initializer": {
+                                                                "xtype": "ConstantExpression",
+                                                                "constant": {
+                                                                    "xtype": "IntConstantReference",
+                                                                    "value": 1
+                                                                },
+                                                                "type": {
+                                                                    "xtype": "InterfaceType",
+                                                                    "classNode": {
+                                                                        "xtype": "ClassReference",
+                                                                        "importUri": "dart:core",
+                                                                        "name": "int"
+                                                                    },
+                                                                    "typeArguments": []
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "xtype": "InterfaceType",
+                                                                "classNode": {
+                                                                    "xtype": "ClassReference",
+                                                                    "importUri": "dart:core",
+                                                                    "name": "int"
+                                                                },
+                                                                "typeArguments": []
+                                                            },
+                                                            "isFinal": false,
+                                                            "isConst": false,
+                                                            "isInitializingFormal": false,
+                                                            "isCovariantByDeclaration": false,
+                                                            "isLate": false,
+                                                            "isRequired": false,
+                                                            "isLowered": false,
+                                                            "hasDeclaredInitializer": true,
+                                                            "annotations": []
+                                                        }
+                                                    ]
+                                                },
+                                                "arguments": {
+                                                    "xtype": "Arguments",
+                                                    "types": [],
+                                                    "positional": [
+                                                        {
+                                                            "xtype": "VariableGet",
+                                                            "variableName": "i",
+                                                            "promotedType": null
+                                                        }
+                                                    ],
+                                                    "named": [
+                                                        {
+                                                            "xtype": "NamedExpression",
+                                                            "name": "m",
+                                                            "value": {
+                                                                "xtype": "IntLiteral",
+                                                                "value": 2
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "type": {
+                                                "xtype": "InterfaceType",
+                                                "classNode": {
+                                                    "xtype": "ClassReference",
+                                                    "importUri": "dart:core",
+                                                    "name": "int"
+                                                },
+                                                "typeArguments": []
+                                            },
+                                            "isFinal": false,
+                                            "isConst": false,
+                                            "isInitializingFormal": false,
+                                            "isCovariantByDeclaration": false,
+                                            "isLate": false,
+                                            "isRequired": false,
+                                            "isLowered": false,
+                                            "hasDeclaredInitializer": true,
+                                            "annotations": []
+                                        },
+                                        {
+                                            "xtype": "ExpressionStatement",
+                                            "expression": {
+                                                "xtype": "VariableSet",
+                                                "variable": {
+                                                    "xtype": "VariableDeclaration",
+                                                    "name": "i",
+                                                    "initializer": {
+                                                        "xtype": "IntLiteral",
+                                                        "value": 3
+                                                    },
+                                                    "type": {
+                                                        "xtype": "InterfaceType",
+                                                        "classNode": {
+                                                            "xtype": "ClassReference",
+                                                            "importUri": "dart:core",
+                                                            "name": "int"
+                                                        },
+                                                        "typeArguments": []
+                                                    },
+                                                    "isFinal": false,
+                                                    "isConst": false,
+                                                    "isInitializingFormal": false,
+                                                    "isCovariantByDeclaration": false,
+                                                    "isLate": false,
+                                                    "isRequired": false,
+                                                    "isLowered": false,
+                                                    "hasDeclaredInitializer": true,
+                                                    "annotations": []
+                                                },
+                                                "value": {
+                                                    "xtype": "VariableGet",
+                                                    "variableName": "k",
+                                                    "promotedType": null
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "xtype": "ReturnStatement",
+                                    "expression": {
+                                        "xtype": "VariableGet",
+                                        "variableName": "i",
+                                        "promotedType": null
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "xtype": "Procedure",
+                    "isAbstract": false,
+                    "isAccessor": false,
+                    "isConst": false,
+                    "isExternal": false,
+                    "isFactory": false,
+                    "isExtensionMember": false,
+                    "isForwardingSemiStub": false,
+                    "isForwardingStub": false,
+                    "isGetter": false,
+                    "isSetter": false,
+                    "isStatic": true,
+                    "isInstanceMember": false,
+                    "isInternalImplementation": false,
+                    "isMemberSignature": false,
+                    "isNoSuchMethodForwarder": false,
+                    "isSynthetic": false,
+                    "isNonNullableByDefault": true,
+                    "isRedirectingFactory": false,
+                    "isSyntheticForwarder": false,
+                    "name": {
+                        "xtype": "Name",
+                        "text": "addOne",
+                        "libraryName": null,
+                        "isPrivate": false
+                    },
+                    "kind": "Method",
+                    "stubKind": "Regular",
+                    "function": {
+                        "xtype": "FunctionNode",
+                        "typeParameters": [],
+                        "positionalParameters": [
+                            {
+                                "xtype": "VariableDeclaration",
+                                "name": "n",
+                                "initializer": null,
+                                "type": {
+                                    "xtype": "InterfaceType",
+                                    "classNode": {
+                                        "xtype": "ClassReference",
+                                        "importUri": "dart:core",
+                                        "name": "int"
+                                    },
+                                    "typeArguments": []
+                                },
+                                "isFinal": false,
+                                "isConst": false,
+                                "isInitializingFormal": false,
+                                "isCovariantByDeclaration": false,
+                                "isLate": false,
+                                "isRequired": false,
+                                "isLowered": false,
+                                "hasDeclaredInitializer": false,
+                                "annotations": []
+                            }
+                        ],
+                        "namedParameters": [
+                            {
+                                "xtype": "VariableDeclaration",
+                                "name": "m",
+                                "initializer": {
+                                    "xtype": "ConstantExpression",
+                                    "constant": {
+                                        "xtype": "IntConstantReference",
+                                        "value": 1
+                                    },
+                                    "type": {
+                                        "xtype": "InterfaceType",
+                                        "classNode": {
+                                            "xtype": "ClassReference",
+                                            "importUri": "dart:core",
+                                            "name": "int"
+                                        },
+                                        "typeArguments": []
+                                    }
+                                },
+                                "type": {
+                                    "xtype": "InterfaceType",
+                                    "classNode": {
+                                        "xtype": "ClassReference",
+                                        "importUri": "dart:core",
+                                        "name": "int"
+                                    },
+                                    "typeArguments": []
+                                },
+                                "isFinal": false,
+                                "isConst": false,
+                                "isInitializingFormal": false,
+                                "isCovariantByDeclaration": false,
+                                "isLate": false,
+                                "isRequired": false,
+                                "isLowered": false,
+                                "hasDeclaredInitializer": true,
+                                "annotations": []
+                            }
+                        ],
+                        "requiredParameterCount": 1,
+                        "returnType": {
+                            "xtype": "InterfaceType",
+                            "classNode": {
+                                "xtype": "ClassReference",
+                                "importUri": "dart:core",
+                                "name": "int"
+                            },
+                            "typeArguments": []
+                        },
+                        "asyncMarker": "Sync",
+                        "dartAsyncMarker": "Sync",
+                        "futureValueType": null,
+                        "body": {
+                            "xtype": "Block",
+                            "statements": [
+                                {
+                                    "xtype": "ReturnStatement",
+                                    "expression": {
+                                        "xtype": "InstanceInvocation",
+                                        "name": {
+                                            "xtype": "Name",
+                                            "text": "+",
+                                            "libraryName": null,
+                                            "isPrivate": false
+                                        },
+                                        "kind": "Instance",
+                                        "receiver": {
+                                            "xtype": "VariableGet",
+                                            "variableName": "n",
+                                            "promotedType": null
+                                        },
+                                        "interfaceTarget": {
+                                            "xtype": "ProcedureReference",
+                                            "libraryUri": "dart:core",
+                                            "libraryName": "dart.core",
+                                            "className": "num",
+                                            "name": {
+                                                "xtype": "Name",
+                                                "text": "+",
+                                                "libraryName": null,
+                                                "isPrivate": false
+                                            },
+                                            "positionalParameters": [
+                                                {
+                                                    "xtype": "VariableDeclaration",
+                                                    "name": "other",
+                                                    "initializer": null,
+                                                    "type": {
+                                                        "xtype": "InterfaceType",
+                                                        "classNode": {
+                                                            "xtype": "ClassReference",
+                                                            "importUri": "dart:core",
+                                                            "name": "num"
+                                                        },
+                                                        "typeArguments": []
+                                                    },
+                                                    "isFinal": false,
+                                                    "isConst": false,
+                                                    "isInitializingFormal": false,
+                                                    "isCovariantByDeclaration": false,
+                                                    "isLate": false,
+                                                    "isRequired": false,
+                                                    "isLowered": false,
+                                                    "hasDeclaredInitializer": false,
+                                                    "annotations": []
+                                                }
+                                            ],
+                                            "namedParameters": []
+                                        },
+                                        "arguments": {
+                                            "xtype": "Arguments",
+                                            "types": [],
+                                            "positional": [
+                                                {
+                                                    "xtype": "VariableGet",
+                                                    "variableName": "m",
+                                                    "promotedType": null
+                                                }
+                                            ],
+                                            "named": []
+                                        },
+                                        "functionType": {
+                                            "xtype": "FunctionType",
+                                            "typeParameters": [],
+                                            "positionalParameters": [
+                                                {
+                                                    "xtype": "InterfaceType",
+                                                    "classNode": {
+                                                        "xtype": "ClassReference",
+                                                        "importUri": "dart:core",
+                                                        "name": "num"
+                                                    },
+                                                    "typeArguments": []
+                                                }
+                                            ],
+                                            "namedParameters": []
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "fields": [
+                {
+                    "xtype": "Field",
+                    "isConst": true,
+                    "isCovariantByClass": false,
+                    "isCovariantByDeclaration": false,
+                    "isLate": false,
+                    "isFinal": false,
+                    "isStatic": true,
+                    "isInstanceMember": false,
+                    "isInternalImplementation": false,
+                    "isNonNullableByDefault": true,
+                    "hasGetter": true,
+                    "hasSetter": false,
+                    "isAbstract": false,
+                    "annotations": [],
+                    "type": {
+                        "xtype": "InterfaceType",
+                        "classNode": {
+                            "xtype": "ClassReference",
+                            "importUri": "dart:core",
+                            "name": "int"
+                        },
+                        "typeArguments": []
+                    },
+                    "name": {
+                        "xtype": "Name",
+                        "text": "defaultAddO",
+                        "libraryName": null,
+                        "isPrivate": false
+                    },
+                    "initializer": {
+                        "xtype": "ConstantExpression",
+                        "constant": {
+                            "xtype": "IntConstantReference",
+                            "value": 1
+                        },
+                        "type": {
+                            "xtype": "InterfaceType",
+                            "classNode": {
+                                "xtype": "ClassReference",
+                                "importUri": "dart:core",
+                                "name": "int"
+                            },
+                            "typeArguments": []
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
