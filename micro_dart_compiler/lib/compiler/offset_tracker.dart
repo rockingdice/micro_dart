@@ -16,8 +16,11 @@ class OffsetTracker {
     _deferredOffsets.forEach((pos, offset) {
       final op = source[pos];
       if (op is Call) {
-        final resolvedOffset = context.topLevelDeclarationPositions[
-            context.libraryIndexes[offset.libraryUri]]![offset.name!]!;
+        final resolvedOffset =
+            context.rumtimetopLevelDeclarationOpIndex[offset.name];
+        if (resolvedOffset == null) {
+          return;
+        }
         final newOp = Call.make(resolvedOffset);
         source[pos] = newOp;
       }
@@ -26,36 +29,32 @@ class OffsetTracker {
   }
 }
 
-/// An structure pointing to a function that may or may not have been generated already. If it hasn't, the exact program
-/// offset will be resolved later by the [OffsetTracker]
+enum DeferredOrOffsetKind {
+  Class,
+  Procedure,
+  Field,
+  Constructor,
+  RedirectingFactory
+}
+
 class DeferredOrOffset {
   DeferredOrOffset(
-      {this.offset,
-      this.libraryUri,
-      this.name,
-      this.className,
-      this.methodType,
-      this.targetScopeFrameOffset})
-      : assert(offset != null || name != null);
+      {required this.offset, required this.name, required this.kind});
 
-  final int? offset;
-  final String? libraryUri;
-  final String? className;
-  final int? methodType;
-  final String? name;
-  final int? targetScopeFrameOffset;
+  final int offset;
+  final String name;
+  final DeferredOrOffsetKind kind;
 
-  factory DeferredOrOffset.lookupStatic(
-      MicroCompilerContext ctx, String libraryUri, String name) {
+  factory DeferredOrOffset.create(MicroCompilerContext ctx, String name,
+      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure}) {
     return DeferredOrOffset(
-        libraryUri: libraryUri,
-        offset: ctx.topLevelDeclarationPositions[ctx.fieldIndexes[libraryUri]]
-            ?[name],
-        name: name);
+        offset: ctx.rumtimetopLevelDeclarationOpIndex[name] ?? -1,
+        name: name,
+        kind: kind);
   }
 
   @override
   String toString() {
-    return 'DeferredOrOffset{offset: $offset, libraryUri: $libraryUri, name: $name}';
+    return 'DeferredOrOffset{offset: $offset, name: $name, kind: $kind}';
   }
 }

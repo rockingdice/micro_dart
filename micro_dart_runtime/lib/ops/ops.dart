@@ -201,6 +201,11 @@ class Ops {
 
   static const OP_GET_PARAM = 63;
 
+  static const OP_SET_PARAM_NULL = 64;
+
+  static const OP_SET_POSATIONAL_PARAM = 65;
+  static const OP_SET_NAMED_PARAM = 66;
+
   static const BASE_OPLEN = 1;
   static const I8_LEN = 1;
   static const I16_LEN = 2;
@@ -308,4 +313,7 @@ final Map<int, OpLoader> opLoaders = {
   53: (MicroRuntime rt) => LogicalNot(rt), // 53
   62: (MicroRuntime rt) => SetParam(rt), // 62
   63: (MicroRuntime rt) => GetParam(rt), // 63
+  64: (MicroRuntime rt) => SetParamNull(rt), // 64
+  65: (MicroRuntime rt) => SetPosationalParam(rt), // 65
+  66: (MicroRuntime rt) => SetNamedParam(rt), // 66
 };

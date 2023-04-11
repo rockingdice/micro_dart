@@ -11,57 +11,16 @@ import 'ast_to_text.dart';
 import 'package:kernel/ast.dart';
 import 'package:vm/transformations/type_flow/utils.dart';
 
-class PrintTransformer {
-  static const _internalLibraries = <String>[
-    "dart:_internal",
-    "dart:isolate",
-    "dart:math",
-    "dart:mirrors",
-    "dart:typed_data",
-    "dart:nativewrappers",
-    "dart:io",
-    "dart:ui",
-    "dart:vmservice_io",
-    "dart:core",
-    "dart:_http",
-    "dart:_spirv",
-    "dart:_vmservice",
-    "dart:async",
-    "dart:collection",
-    "dart:convert",
-    "dart:developer",
-    "dart:ffi",
-    "dart:html",
-    "dart:_internal",
-  ];
-
-  void transform(String pluginUri, Component? component) {
-    if (component == null) {
-      return;
-    }
-
-    component.libraries.removeWhere(((element) {
-      if (element.importUri.toString().startsWith("dart:_")) {
-        //print("${element.importUri.toString()} removed");
-        return true;
-      }
-      return false;
-    }));
-
-    component.libraries
-        .removeWhere((element) => element.importUri.toString() != pluginUri);
-
-    //component = _ExternalTransformer(pluginUri).transform(component);
-
-    print("visit start");
-    //node.visitChildren(this);
-    var map = _Visitor(pluginUri).visitComponent(component);
-    StringBuffer buffer = StringBuffer();
-    buffer.write(jsonEncode(map));
-    File("output.json").writeAsStringSync('$buffer');
-    print("visit end");
-    writeComponentToText(component, path: "output.txt", showMetadata: true);
+void astToJson(String fileName, String pluginUri, Component? component) {
+  if (component == null) {
+    return;
   }
+
+  var map = _Visitor(pluginUri).visitComponent(component);
+  StringBuffer buffer = StringBuffer();
+  buffer.write(jsonEncode(map));
+  File("$fileName.json").writeAsStringSync('$buffer');
+  //writeComponentToText(component, path: "$fileName.txt", showMetadata: true);
 }
 
 List<R>? visitList<R>(List<Node>? nodes, Visitor<R> visitor) {

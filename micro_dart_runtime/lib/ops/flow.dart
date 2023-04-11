@@ -27,10 +27,6 @@ class PushScope implements Op {
   @override
   void run(MicroRuntime runtime) {
     var scope = Scope(frName);
-    runtime.initArgs.forEach((key, value) {
-      scope.setParam(key, value);
-    });
-    runtime.initArgs.clear();
     runtime.scopes.add(scope);
   }
 
@@ -75,13 +71,80 @@ class SetParam implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    var value = runtime.scope.frame.removeLast();
+    var value = runtime.scope.frames.removeLast();
     runtime.scope.framePointer--;
     runtime.setParam(name, value);
   }
 
   @override
   String toString() => "SetParam($name)";
+}
+
+class SetPosationalParam implements Op {
+  SetPosationalParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+
+  SetPosationalParam.make(this.name);
+
+  final String name;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.I16_LEN + Ops.istr_len(name);
+
+  @override
+  List<int> get bytes => [Ops.OP_SET_POSATIONAL_PARAM, ...Ops.istr(name)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    runtime.setParam(name, runtime.parentScope.frames.removeLast());
+  }
+
+  @override
+  String toString() => "SetPosationalParam($name)";
+}
+
+class SetNamedParam implements Op {
+  SetNamedParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+
+  SetNamedParam.make(this.name);
+  final String name;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.istr_len(name);
+
+  @override
+  List<int> get bytes => [Ops.OP_SET_NAMED_PARAM, ...Ops.istr(name)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    if (runtime.parentScope.hasParam(name)) {
+      runtime.setParam(name, runtime.parentScope.getParam(name));
+    }
+  }
+
+  @override
+  String toString() => "SetNamedParam($name)";
+}
+
+class SetParamNull implements Op {
+  SetParamNull(MicroRuntime runtime) : name = Ops.readString(runtime);
+
+  SetParamNull.make(this.name);
+
+  final String name;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.istr_len(name);
+
+  @override
+  List<int> get bytes => [Ops.OP_SET_PARAM_NULL, ...Ops.istr(name)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    runtime.setParam(name, null);
+  }
+
+  @override
+  String toString() => "SetParamNull($name)";
 }
 
 class GetParam implements Op {
@@ -99,7 +162,7 @@ class GetParam implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    runtime.scope[runtime.scope.framePointer++] = runtime.getParam(name);
+    runtime.scope.pushFrame(runtime.getParam(name));
   }
 
   @override
@@ -118,19 +181,17 @@ class Return implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    Object? returnValue;
-    if (_location != -1) {
-      returnValue = runtime.scope[_location];
-    }
-
-    runtime.removeScope();
+    //runtime.removeScope();
     runtime.catchStack.removeLast();
     final prOffset = runtime.callStack.removeLast();
+    //Object? returnValue;
+    if (_location != -1) {
+      //returnValue = ;
+      runtime.scope.returnValue = runtime.scope[_location];
+    }
+
     if (prOffset == -1) {
-      runtime.returnValue = returnValue;
       throw ProgramExit(0);
-    } else if (runtime.scopes.isNotEmpty) {
-      runtime.scope[runtime.scope.framePointer++] = returnValue;
     }
     runtime.opPointer = prOffset;
   }
@@ -180,7 +241,9 @@ class Call implements Op {
 
   @override
   void run(MicroRuntime runtime) {
+    //缓存当前操作指向
     runtime.callStack.add(runtime.opPointer);
+    //缓存抛出堆栈
     runtime.catchStack.add([]);
     runtime.opPointer = _offset;
   }

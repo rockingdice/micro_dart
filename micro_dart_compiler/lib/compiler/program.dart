@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'dart:typed_data';
-
+import 'package:kernel/ast.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 /// A Program is a compiled EVC bytecode program that can be executed using
@@ -9,23 +9,26 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 class Program {
   /// Construct a [Program] with bytecode and metadata.
   Program(
-    this.topLevelDeclarations,
-    this.instanceDeclarations,
-    this.typeIds,
-    //this.typeNames,
-    this.typeTypes,
-    this.ops,
-    this.bridgeLibraryMappings,
-    this.bridgeFunctionMappings,
-    this.constantPool,
-    //  this.runtimeTypes,
-    this.globalInitializers,
-    this.enumMappings,
-    //  this.overrideMap
-  );
+      {required this.topLevelDeclarations,
+      required this.instanceDeclarations,
+      required this.typeIds,
+      //this.typeNames,
+      required this.typeTypes,
+      required this.ops,
+      //required this.bridgeLibraryMappings,
+      required this.bridgeFunctionMappings,
+      required this.constantPool,
+      //  this.runtimeTypes,
+      required this.globalInitializers,
+      required this.enumMappings,
+      this.component
+      //  this.overrideMap
+      });
+
+  Component? component;
 
   /// Global bytecode offsets of the program's top-level declarations.
-  Map<int, Map<String, int>> topLevelDeclarations;
+  Map<String, int> topLevelDeclarations;
 
   /// Global bytecode offsets of the program's instance-level declarations.
   ///
@@ -51,7 +54,7 @@ class Program {
   Map<int, Map<String, int>> typeIds;
 
   /// Mappings from library URIs to internal library IDs.
-  Map<String, int> bridgeLibraryMappings;
+  //Map<String, int> bridgeLibraryMappings;
 
   /// Mappings from bridge function names to internal InvokeExternal IDs.
   Map<int, Map<String, int>> bridgeFunctionMappings;
@@ -76,10 +79,7 @@ class Program {
   Uint8List write() {
     final b = BytesBuilder(copy: false);
 
-    _writeMetaBlock(
-        b,
-        topLevelDeclarations
-            .map((key, value) => MapEntry(key.toString(), value)));
+    _writeMetaBlock(b, topLevelDeclarations);
     _writeMetaBlock(
         b,
         instanceDeclarations
@@ -88,7 +88,7 @@ class Program {
     _writeMetaBlock(b, [for (final t in typeTypes) t.toList()]);
     _writeMetaBlock(
         b, typeIds.map((key, value) => MapEntry(key.toString(), value)));
-    _writeMetaBlock(b, bridgeLibraryMappings);
+    //_writeMetaBlock(b, bridgeLibraryMappings);
     _writeMetaBlock(
         b,
         bridgeFunctionMappings

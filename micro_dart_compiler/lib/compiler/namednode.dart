@@ -1,4 +1,5 @@
 import 'package:kernel/kernel.dart';
+import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 import 'context.dart';
@@ -133,28 +134,40 @@ void compileTopLecelNamedNode(MicroCompilerContext context, int libraryIndex,
 
 void compileField(MicroCompilerContext context, String name, Field node) {}
 
-int compileTopLevelProcedure(MicroCompilerContext context, int libraryIndex,
-    String functionName, Procedure node) {
+int compileTopLevelProcedure(
+    MicroCompilerContext context, int index, String name, Procedure node) {
   //表示该方法已经编译过了,直接返回
-  if (context.topLevelDeclarationPositions[libraryIndex]![functionName] !=
-      null) {
-    return context.topLevelDeclarationPositions[context.currentlibraryIndex]![
-        functionName]!;
+  if (context.rumtimetopLevelDeclarationOpIndex[name] != null) {
+    return context.rumtimetopLevelDeclarationOpIndex[name]!;
   }
 
   //开启一个作用域
-  int pos = context.addScope(functionName, node.fileOffset);
-  context.topLevelDeclarationPositions[context.currentlibraryIndex]![
-      functionName] = pos;
+  int pos = context.addScope(name, node.fileOffset);
+  context.rumtimetopLevelDeclarationOpIndex[name] = pos;
 
-  //处理参数初始化
-  //node.function.positionalParameters.forEach((element) {});
-  //node.function.namedParameters.forEach((element) {});
+  //参数初始化
+
+  node.function.positionalParameters.forEach((element) {
+    compileVariableDeclaration(context, element);
+    //将上个作用域中的参数copy到这个作用域
+    context.pushOp(SetPosationalParam.make(element.name!));
+  });
+  node.function.namedParameters.forEach((element) {
+    compileVariableDeclaration(context, element);
+    context.pushOp(SetNamedParam.make(element.name!));
+  });
 
   //编译body
   if (node.function.body != null) {
     compileStatement(context, node.function.body);
+    var b = node.function.body;
+    if (b is Block) {
+      if (b.statements.isNotEmpty && !(b.statements.last is ReturnStatement)) {
+        context.pushOp(Return.make(-1));
+      }
+    }
   }
+
   context.removeScope();
   return pos;
 }
@@ -185,9 +198,11 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileVariableGet(context, node);
   } else if (node is StaticInvocation) {
     return compileStaticInvocation(context, node);
+  } else if (node is ConstantExpression) {
+    return compileConstantExpression(context, node);
   }
 
-  return -1;
+  throw Exception("expression type not found : ${node.runtimeType.toString()}");
 }
 
 void compileExpressionStatement(
@@ -206,49 +221,65 @@ void compileReturnStatement(
 }
 
 void compileArguments(MicroCompilerContext context, Arguments arguments) {
-  arguments.positional.forEach((element) {});
+  int pLength = arguments.positional.length;
+  for (int i = pLength - 1; i >= 0; i--) {
+    compileExpression(context, arguments.positional[i]);
+  }
+
+  arguments.named.forEach((element) {
+    compileExpression(context, element.value);
+    // if (res != -1) {
+    //   context.pushOp(SetParam.make(element.name));
+    // }
+  });
 }
 
 int compileStaticInvocation(
     MicroCompilerContext context, StaticInvocation node) {
-  //处理参数
-  var arguments = node.arguments;
-
   var procedure = node.target;
-  var procedureName = procedure.name.text;
-  if (procedure.isGetter) {
-    procedureName = "$procedureName#get";
-  } else if (procedure.isSetter) {
-    procedureName = "$procedureName#set";
-  }
-  String? libraryUri;
-  if (procedure.parent is Library) {
-    libraryUri = (procedure.parent as Library).importUri.toString();
-  } else if (procedure.parent?.parent is Library) {
-    libraryUri = (procedure.parent?.parent as Library).importUri.toString();
-  }
+  var name = procedure.getNamedName();
 
-  if (libraryUri == null) {
-    return -1;
-  }
-  var libraryIndex = context.libraryIndexes[libraryUri];
+  //新增一个作用域
+  //context.addScope("<StaticInvocation>", node.fileOffset);
 
-  if (libraryIndex != null) {
-    //需要编译
-    int pos = compileTopLevelProcedure(
-        context, libraryIndex, procedureName, procedure);
+  //将参数压入当前作用域
+  var arguments = node.arguments;
+  compileArguments(context, arguments);
 
-    //跳转到方法执行的部分
-    context.pushOp(JumpConstant.make(pos));
-  } else {
-    //调用的是外部的Procedure
+  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
+  int opOffset = context.rumtimetopLevelDeclarationOpIndex[name] ?? -1;
+  //调用Call方法,并且返回位置
+  int location = context.pushOp(Call.make(opOffset));
+  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
+  if (opOffset == -1) {
+    context.offsetTracker.setOffset(
+        location,
+        DeferredOrOffset(
+            offset: opOffset,
+            name: name,
+            kind: DeferredOrOffsetKind.Procedure));
   }
 
+  //调用方法结束之后
+  //删除一个作用域
+  //context.removeScope();
   return 0;
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
   return context.pushOp(PushConstantInt.make(node.value));
+}
+
+int compileConstantExpression(
+    MicroCompilerContext context, ConstantExpression node) {
+  return compileConstant(context, node.constant);
+}
+
+int compileConstant(MicroCompilerContext context, Constant node) {
+  if (node is IntConstant) {
+    return context.pushOp(PushConstantInt.make(node.value));
+  }
+  throw Exception("constant type not found: ${node.runtimeType.toString()}");
 }
 
 int compileVariableSet(MicroCompilerContext context, VariableSet node) {
@@ -276,18 +307,19 @@ void compileBlock(MicroCompilerContext context, Block node) {
     node.statements.forEach((element) {
       compileStatement(context, element);
     });
+
     context.removeScope();
   }
 }
 
 void compileVariableDeclaration(
     MicroCompilerContext context, VariableDeclaration node) {
-  int res = -1;
   if (node.initializer != null) {
-    res = compileExpression(context, node.initializer!);
-  }
-
-  if (node.name != null && res != -1) {
+    //有初始值
+    compileExpression(context, node.initializer!);
     context.pushOp(SetParam.make(node.name!));
+  } else {
+    //没有初始值则先填充null
+    context.pushOp(SetParamNull.make(node.name!));
   }
 }

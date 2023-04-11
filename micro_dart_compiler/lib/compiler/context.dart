@@ -3,38 +3,17 @@ import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+import 'namednode.dart';
 import 'constant_pool.dart';
 
 class MicroCompilerContext {
-  final List<NamedNode> declarations = [];
+  final List<NamedNode> compileDeclarations = [];
+
+  final Map<String, int> compileDeclarationIndexes = <String, int>{};
+
+  final Map<String, int> rumtimetopLevelDeclarationOpIndex = {};
 
   //library自增序列
-  int librarySeq = 0;
-  final Map<String, int> libraryIndexes = <String, int>{};
-
-  final Map<int, Map<String, int>> topLevelProceduresIndexes =
-      <int, Map<String, int>>{};
-
-  final Map<int, Map<String, int>> topLevelFieldIndexes =
-      <int, Map<String, int>>{};
-
-  final Map<int, Map<String, int>> topLevelConstructors =
-      <int, Map<String, int>>{};
-
-  final Map<int, Map<String, int>> topLevelRedirectingFactories =
-      <int, Map<String, int>>{};
-
-  final Map<int, Map<String, int>> classIndexes = <int, Map<String, int>>{};
-
-  final Map<int, Map<String, Map<String, int>>> proceduresIndexes =
-      <int, Map<String, Map<String, int>>>{};
-
-  final Map<int, Map<String, Map<String, int>>> fieldIndexes =
-      <int, Map<String, Map<String, int>>>{};
-
-  /// <libraryIndex,<declarationName,opIndex>>
-  final Map<int, Map<String, int>> topLevelDeclarationPositions =
-      <int, Map<String, int>>{};
 
   final constantPool = ConstantPool<Object>();
 
@@ -52,21 +31,15 @@ class MicroCompilerContext {
 
   MicroCompilerContext(this.coreTypes);
 
-  int lookupLibraryIndex(String importUri) {
-    if (libraryIndexes.containsKey(importUri)) {
-      return libraryIndexes[importUri]!;
-    }
-    libraryIndexes[importUri] = librarySeq;
-    librarySeq++;
-    return libraryIndexes[importUri]!;
-  }
-
   int lookupDeclarationIndex(NamedNode node) {
-    if (declarations.contains(node)) {
-      return declarations.indexOf(node);
+    String name = node.getNamedName();
+    if (compileDeclarationIndexes.containsKey(name)) {
+      return compileDeclarationIndexes[name]!;
     }
-    declarations.add(node);
-    return declarations.indexOf(node);
+    compileDeclarations.add(node);
+    var index = compileDeclarations.length - 1;
+    compileDeclarationIndexes[name] = compileDeclarations.length - 1;
+    return index;
   }
 
   int pushOp(Op op) {
