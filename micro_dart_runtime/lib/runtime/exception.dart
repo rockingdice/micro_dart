@@ -55,10 +55,11 @@ class RuntimeException implements Exception {
   @override
   String toString() {
     var prStr = '';
-    final maxIdx = min(runtime.ops.length - 1, runtime.opPointer + 3);
+    final maxIdx =
+        min(runtime.interpreter.ops.length - 1, runtime.opPointer + 3);
 
     for (var i = max(0, runtime.opPointer - 7); i < maxIdx; i++) {
-      prStr += '$i: ${runtime.ops[i]}';
+      prStr += '$i: ${runtime.interpreter.ops[i]}';
       if (i == runtime.opPointer - 1) {
         prStr += '  <<< EXCEPTION';
       }
@@ -70,7 +71,7 @@ class RuntimeException implements Exception {
         'RUNTIME STATE\n'
         '=============\n'
         'Program offset: ${runtime.opPointer - 1}\n'
-        'Stack sample: ${runtime.scopes.isEmpty ? null : formatStackSample(runtime.scope.take(10).toList(), 10)}\n'
+        'Stack sample: ${runtime.isScopeEmpty ? null : formatStackSample(runtime.scope.take(10).toList(), 10)}\n'
         'Call stack: ${runtime.callStack}\n'
         'TRACE:\n$prStr';
   }

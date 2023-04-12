@@ -1,30 +1,7 @@
 part of 'ops.dart';
 
-class PushConstant implements Op {
-  PushConstant(MicroRuntime runtime) : _const = Ops.readInt32(runtime);
-
-  PushConstant.make(this._const);
-
-  final int _const;
-
-  @override
-  int get opLen => Ops.BASE_OPLEN + Ops.I32_LEN;
-
-  // Set value at position to constant
-  @override
-  void run(MicroRuntime runtime) {
-    runtime.scope[runtime.scope.framePointer++] = runtime.constants[_const];
-  }
-
-  @override
-  String toString() => 'PushConstant (C$_const)';
-
-  @override
-  List<int> get bytes => [Ops.OP_PUSH_CONST, ...Ops.i32b(_const)];
-}
-
 class PushConstantInt implements Op {
-  PushConstantInt(MicroRuntime runtime) : _value = Ops.readInt32(runtime);
+  PushConstantInt(MicroDartInterpreter runtime) : _value = runtime.readInt32();
 
   PushConstantInt.make(this._value);
 
@@ -47,7 +24,8 @@ class PushConstantInt implements Op {
 }
 
 class PushConstantDouble implements Op {
-  PushConstantDouble(MicroRuntime runtime) : _value = Ops.readFloat32(runtime);
+  PushConstantDouble(MicroDartInterpreter runtime)
+      : _value = runtime.readFloat32();
 
   PushConstantDouble.make(this._value);
 
@@ -70,7 +48,7 @@ class PushConstantDouble implements Op {
 }
 
 class PushNull implements Op {
-  PushNull(MicroRuntime exec);
+  PushNull(MicroDartInterpreter exec);
 
   PushNull.make();
 
@@ -91,9 +69,9 @@ class PushNull implements Op {
 }
 
 class NumAdd implements Op {
-  NumAdd(MicroRuntime runtime)
-      : _location1 = Ops.readInt16(runtime),
-        _location2 = Ops.readInt16(runtime);
+  NumAdd(MicroDartInterpreter runtime)
+      : _location1 = runtime.readInt16(),
+        _location2 = runtime.readInt16();
 
   NumAdd.make(this._location1, this._location2);
 
@@ -119,9 +97,9 @@ class NumAdd implements Op {
 }
 
 class NumSub implements Op {
-  NumSub(MicroRuntime runtime)
-      : _location1 = Ops.readInt16(runtime),
-        _location2 = Ops.readInt16(runtime);
+  NumSub(MicroDartInterpreter runtime)
+      : _location1 = runtime.readInt16(),
+        _location2 = runtime.readInt16();
 
   NumSub.make(this._location1, this._location2);
 
@@ -147,9 +125,9 @@ class NumSub implements Op {
 }
 
 class NumLt implements Op {
-  NumLt(MicroRuntime runtime)
-      : _location1 = Ops.readInt16(runtime),
-        _location2 = Ops.readInt16(runtime);
+  NumLt(MicroDartInterpreter runtime)
+      : _location1 = runtime.readInt16(),
+        _location2 = runtime.readInt16();
 
   NumLt.make(this._location1, this._location2);
 
@@ -174,9 +152,9 @@ class NumLt implements Op {
 }
 
 class NumLtEq implements Op {
-  NumLtEq(MicroRuntime runtime)
-      : _location1 = Ops.readInt16(runtime),
-        _location2 = Ops.readInt16(runtime);
+  NumLtEq(MicroDartInterpreter runtime)
+      : _location1 = runtime.readInt16(),
+        _location2 = runtime.readInt16();
 
   NumLtEq.make(this._location1, this._location2);
 
@@ -201,7 +179,7 @@ class NumLtEq implements Op {
 }
 
 class PushList implements Op {
-  PushList(MicroRuntime runtime);
+  PushList(MicroDartInterpreter runtime);
 
   PushList.make();
   @override
@@ -220,9 +198,9 @@ class PushList implements Op {
 }
 
 class ListAppend implements Op {
-  ListAppend(MicroRuntime runtime)
-      : _reg = Ops.readInt16(runtime),
-        _value = Ops.readInt16(runtime);
+  ListAppend(MicroDartInterpreter runtime)
+      : _reg = runtime.readInt16(),
+        _value = runtime.readInt16();
 
   ListAppend.make(this._reg, this._value);
 
@@ -245,9 +223,9 @@ class ListAppend implements Op {
 }
 
 class IndexList implements Op {
-  IndexList(MicroRuntime runtime)
-      : _position = Ops.readInt16(runtime),
-        _index = Ops.readInt32(runtime);
+  IndexList(MicroDartInterpreter runtime)
+      : _position = runtime.readInt16(),
+        _index = runtime.readInt32();
 
   IndexList.make(this._position, this._index);
 
@@ -271,10 +249,10 @@ class IndexList implements Op {
 }
 
 class ListSetIndexed implements Op {
-  ListSetIndexed(MicroRuntime runtime)
-      : _position = Ops.readInt16(runtime),
-        _index = Ops.readInt32(runtime),
-        _value = Ops.readInt16(runtime);
+  ListSetIndexed(MicroDartInterpreter runtime)
+      : _position = runtime.readInt16(),
+        _index = runtime.readInt32(),
+        _value = runtime.readInt16();
 
   ListSetIndexed.make(this._position, this._index, this._value);
 
@@ -303,7 +281,8 @@ class ListSetIndexed implements Op {
 }
 
 class PushIterableLength implements Op {
-  PushIterableLength(MicroRuntime runtime) : _position = Ops.readInt16(runtime);
+  PushIterableLength(MicroDartInterpreter runtime)
+      : _position = runtime.readInt16();
 
   PushIterableLength.make(this._position);
 
@@ -325,7 +304,7 @@ class PushIterableLength implements Op {
 }
 
 class PushMap implements Op {
-  PushMap(MicroRuntime runtime);
+  PushMap(MicroDartInterpreter runtime);
 
   PushMap.make();
   @override
@@ -344,10 +323,10 @@ class PushMap implements Op {
 }
 
 class MapSet implements Op {
-  MapSet(MicroRuntime runtime)
-      : _map = Ops.readInt16(runtime),
-        _index = Ops.readInt16(runtime),
-        _value = Ops.readInt16(runtime);
+  MapSet(MicroDartInterpreter runtime)
+      : _map = runtime.readInt16(),
+        _index = runtime.readInt16(),
+        _value = runtime.readInt16();
 
   MapSet.make(this._map, this._index, this._value);
 
@@ -376,9 +355,9 @@ class MapSet implements Op {
 }
 
 class IndexMap implements Op {
-  IndexMap(MicroRuntime runtime)
-      : _map = Ops.readInt16(runtime),
-        _index = Ops.readInt16(runtime);
+  IndexMap(MicroDartInterpreter runtime)
+      : _map = runtime.readInt16(),
+        _index = runtime.readInt16();
 
   IndexMap.make(this._map, this._index);
 
@@ -402,7 +381,7 @@ class IndexMap implements Op {
 }
 
 class PushTrue implements Op {
-  PushTrue(MicroRuntime runtime);
+  PushTrue(MicroDartInterpreter runtime);
 
   PushTrue.make();
   @override
@@ -422,7 +401,7 @@ class PushTrue implements Op {
 }
 
 class LogicalNot implements Op {
-  LogicalNot(MicroRuntime runtime) : _index = Ops.readInt16(runtime);
+  LogicalNot(MicroDartInterpreter runtime) : _index = runtime.readInt16();
 
   LogicalNot.make(this._index);
 

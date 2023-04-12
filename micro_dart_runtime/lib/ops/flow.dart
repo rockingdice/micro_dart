@@ -1,11 +1,10 @@
 part of 'ops.dart';
 
-/// Push a new frame onto the stack, populated with any current args
 class PushScope implements Op {
-  PushScope(MicroRuntime runtime)
-      : libraryIndex = Ops.readInt32(runtime),
-        sourceOffset = Ops.readInt32(runtime),
-        frName = Ops.readString(runtime);
+  PushScope(MicroDartInterpreter interpreter)
+      : libraryIndex = interpreter.readInt32(),
+        sourceOffset = interpreter.readInt32(),
+        frName = interpreter.readString();
 
   PushScope.make(this.libraryIndex, this.sourceOffset, this.frName);
 
@@ -26,8 +25,7 @@ class PushScope implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    var scope = Scope(frName);
-    runtime.scopes.add(scope);
+    runtime.addScope(frName);
   }
 
   @override
@@ -36,7 +34,7 @@ class PushScope implements Op {
 }
 
 class PopScope implements Op {
-  PopScope(MicroRuntime runtime);
+  PopScope(MicroDartInterpreter interpreter);
 
   PopScope.make();
 
@@ -48,7 +46,7 @@ class PopScope implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    var scope = runtime.scopes.removeLast();
+    var scope = runtime.removeScope();
     scope.clean();
   }
 
@@ -57,7 +55,7 @@ class PopScope implements Op {
 }
 
 class SetParam implements Op {
-  SetParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+  SetParam(MicroDartInterpreter interpreter) : name = interpreter.readString();
 
   SetParam.make(this.name);
 
@@ -80,8 +78,34 @@ class SetParam implements Op {
   String toString() => "SetParam($name)";
 }
 
+class SetGlobalParam implements Op {
+  SetGlobalParam(MicroDartInterpreter interpreter)
+      : name = interpreter.readString();
+
+  SetGlobalParam.make(this.name);
+
+  final String name;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.istr_len(name);
+
+  @override
+  List<int> get bytes => [Ops.OP_SET_GLOBAL_PARAM, ...Ops.istr(name)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    var value = runtime.scope.frames.removeLast();
+    runtime.scope.framePointer--;
+    runtime.setGlobalParam(name, value);
+  }
+
+  @override
+  String toString() => "SetGlobalParam($name)";
+}
+
 class SetPosationalParam implements Op {
-  SetPosationalParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+  SetPosationalParam(MicroDartInterpreter interpreter)
+      : name = interpreter.readString();
 
   SetPosationalParam.make(this.name);
 
@@ -103,7 +127,8 @@ class SetPosationalParam implements Op {
 }
 
 class SetNamedParam implements Op {
-  SetNamedParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+  SetNamedParam(MicroDartInterpreter interpreter)
+      : name = interpreter.readString();
 
   SetNamedParam.make(this.name);
   final String name;
@@ -126,7 +151,8 @@ class SetNamedParam implements Op {
 }
 
 class SetParamNull implements Op {
-  SetParamNull(MicroRuntime runtime) : name = Ops.readString(runtime);
+  SetParamNull(MicroDartInterpreter interpreter)
+      : name = interpreter.readString();
 
   SetParamNull.make(this.name);
 
@@ -148,7 +174,7 @@ class SetParamNull implements Op {
 }
 
 class GetParam implements Op {
-  GetParam(MicroRuntime runtime) : name = Ops.readString(runtime);
+  GetParam(MicroDartInterpreter interpreter) : name = interpreter.readString();
 
   GetParam.make(this.name);
 
@@ -169,8 +195,42 @@ class GetParam implements Op {
   String toString() => "GetParam($name)";
 }
 
+class GetGlobalParam implements Op {
+  GetGlobalParam(MicroDartInterpreter interpreter)
+      : _name = interpreter.readString(),
+        _location = interpreter.readInt32();
+
+  GetGlobalParam.make(this._name, this._location);
+
+  final String _name;
+  final int _location;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.istr_len(_name);
+
+  @override
+  List<int> get bytes =>
+      [Ops.OP_GET_GLOBAL_PARAM, ...Ops.istr(_name), ...Ops.i32b(_location)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    //有可能出现属性没有初始化的情况,这个时候先执行初始化
+    if (!runtime.hasGlobalParam(_name)) {
+      runtime.callStack.add(runtime.opPointer);
+      runtime.catchStack.add([]);
+      runtime.opPointer = _location;
+    } else {
+      runtime.scope.pushFrame(runtime.getGlobalParam(_name));
+    }
+  }
+
+  @override
+  String toString() => "GetGlobalParam($_name,$_location)";
+}
+
 class Return implements Op {
-  Return(MicroRuntime exec) : _location = Ops.readInt16(exec);
+  Return(MicroDartInterpreter interpreter)
+      : _location = interpreter.readInt16();
 
   Return.make(this._location);
 
@@ -181,15 +241,14 @@ class Return implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    //runtime.removeScope();
     runtime.catchStack.removeLast();
     final prOffset = runtime.callStack.removeLast();
-    //Object? returnValue;
-    if (_location != -1) {
-      //returnValue = ;
-      runtime.scope.returnValue = runtime.scope[_location];
-    }
 
+    var oldScope = runtime.removeScope();
+    if (oldScope.frames.isNotEmpty) {
+      runtime.scope.pushFrame(oldScope.frames.last);
+    }
+    oldScope.clean();
     if (prOffset == -1) {
       throw ProgramExit(0);
     }
@@ -203,9 +262,9 @@ class Return implements Op {
   List<int> get bytes => [Ops.OP_RETURN, ...Ops.i16b(_location)];
 }
 
-// Jump to constant program offset
 class JumpConstant implements Op {
-  JumpConstant(MicroRuntime exec) : _offset = Ops.readInt32(exec);
+  JumpConstant(MicroDartInterpreter interpreter)
+      : _offset = interpreter.readInt32();
 
   JumpConstant.make(this._offset);
 
@@ -226,8 +285,9 @@ class JumpConstant implements Op {
   String toString() => 'JumpConstant ($_offset)';
 }
 
+///调用方法
 class Call implements Op {
-  Call(MicroRuntime exec) : _offset = Ops.readInt32(exec);
+  Call(MicroDartInterpreter interpreter) : _offset = interpreter.readInt32();
 
   Call.make(this._offset);
 

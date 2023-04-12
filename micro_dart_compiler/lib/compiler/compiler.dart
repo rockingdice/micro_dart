@@ -8,26 +8,31 @@ import 'package:micro_dart_compiler/compiler/program.dart';
 
 import 'compile_source.dart';
 import 'context.dart';
-import 'namednode.dart';
+import 'ast/ast.dart';
 
 class MicroCompiler {
-  void compilePlugin(Uri mainSource, List<Uri> additionalSources,
-      String pluginUri, CompilerOptions compilerOptions) async {
+  ///从目录中编译项目,目录结构必须是dart项目的目录结构
+  static Future<Program> compilePlugin(
+      Uri mainSource,
+      List<Uri> additionalSources,
+      String pluginUri,
+      CompilerOptions compilerOptions) async {
     var result = await kernelForProgramInternal(mainSource, compilerOptions,
         additionalSources: additionalSources, requireMain: false);
 
-    transformComponent(pluginUri, result!.component!);
+    return compileComponent(pluginUri, result!.component!);
   }
 
-  Future<Program> compileSource(String pluginUri, CompilerOptions options,
-      Map<String, String> sources) async {
+  ///编译文本代码,一般用于测试
+  static Future<Program> compileSource(String pluginUri,
+      CompilerOptions options, Map<String, String> sources) async {
     var component =
         await compileUnit(sources.keys.toList(), sources, options: options);
 
-    return transformComponent(pluginUri, component!);
+    return compileComponent(pluginUri, component!);
   }
 
-  Program transformComponent(String pluginUri, Component component) {
+  static Program compileComponent(String pluginUri, Component component) {
     //删除pluginUri以外的library
     component.libraries
         .removeWhere((element) => element.importUri.toString() != pluginUri);
@@ -38,50 +43,56 @@ class MicroCompiler {
     component.libraries.forEach((library) {
       //顶部方法索引
       library.procedures.forEach((node) {
-        compilerContext.lookupDeclarationIndex(node);
+        String name = node.getNamedName();
+        compilerContext.lookupDeclarationIndex(name, node);
       });
 
       //顶部参数索引
       library.fields.forEach((node) {
-        compilerContext.lookupDeclarationIndex(node);
-      });
+        String name = node.getNamedName();
 
+        ///Library全局变量
+        int p = compilerContext.lookupDeclarationIndex(name, node);
+        compilerContext.compileGlobalFieldIndexes.add(p);
+      });
+      //对类进行索引
       library.classes.forEach((clazz) {
-        compilerContext.lookupDeclarationIndex(clazz);
+        String className = clazz.getNamedName();
+        compilerContext.lookupDeclarationIndex(className, clazz);
+        //对类中的参数进行索引
         clazz.fields.forEach((field) {
-          compilerContext.lookupDeclarationIndex(field);
-        });
+          String name = field.getNamedName();
+          int p = compilerContext.lookupDeclarationIndex(name, field);
 
+          if (field.isStatic) {
+            compilerContext.compileGlobalFieldIndexes.add(p);
+          }
+        });
+        //对类中方法进行索引
         clazz.procedures.forEach((procedure) {
-          compilerContext.lookupDeclarationIndex(procedure);
+          String name = procedure.getNamedName();
+          compilerContext.lookupDeclarationIndex(name, procedure);
         });
-
+        //对类的构造函数进行索引
         clazz.constructors.forEach((constructor) {
-          compilerContext.lookupDeclarationIndex(constructor);
+          String name = constructor.getNamedName();
+          compilerContext.lookupDeclarationIndex(name, constructor);
         });
-
+        //对类的构造工厂进行索引
         clazz.redirectingFactories.forEach((redirectingFactory) {
-          compilerContext.lookupDeclarationIndex(redirectingFactory);
+          String name = redirectingFactory.getNamedName();
+          compilerContext.lookupDeclarationIndex(name, redirectingFactory);
         });
       });
     });
 
-    compilerContext.compileDeclarationIndexes.forEach((name, index) {
-      compileTopLecelNamedNode(compilerContext, index, name,
-          compilerContext.compileDeclarations[index]);
-    });
+    //编译
+    compileContext(compilerContext);
 
     return Program(
-        topLevelDeclarations: compilerContext.rumtimetopLevelDeclarationOpIndex,
-        instanceDeclarations: {},
-        typeIds: {},
-        typeTypes: [],
-        ops: compilerContext.offsetTracker.apply(compilerContext.ops),
-        //bridgeLibraryMappings: compilerContext.libraryIndexes,
-        bridgeFunctionMappings: {},
-        constantPool: compilerContext.constantPool.pool,
-        globalInitializers: [],
-        enumMappings: {},
+        rumtimeDeclarationOpIndexes:
+            compilerContext.rumtimeDeclarationOpIndexes,
+        ops: compilerContext.offsetTracker.apply(),
         component: component);
   }
 }

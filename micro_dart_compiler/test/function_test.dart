@@ -4,8 +4,8 @@ import 'dart:io';
 
 import 'package:front_end/src/api_unstable/vm.dart';
 import 'package:micro_dart_compiler/micro_dart_compiler.dart';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-import 'package:micro_dart_runtime/runtime/runtime.dart';
 import 'package:test/test.dart';
 
 import 'ast_to_json.dart';
@@ -23,46 +23,76 @@ final CompilerOptions options = CompilerOptions()
   ..nnbdMode = NnbdMode.Strong;
 
 const bool astToJsonFlag = true;
+const bool printOp = true;
 
 void main() {
   group('Function tests', () {
-    MicroCompiler compiler;
-    setUp(() {
-      compiler = MicroCompiler();
-    });
-    test('test scope', () async {
+    test(':test scope', () async {
       String fileName = "test_scope.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compiler.compileSource(pluginUri, options, sources);
+      var program =
+          await MicroCompiler.compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
+      var interpreter =
+          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
 
-      var runtime = MicroRuntime(program.write().buffer.asByteData())..setup();
-      runtime.printOpcodes();
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+
+      var runtime = interpreter.createRuntime();
 
       var returnValue =
           runtime.executeLib(pluginUri, "main", [], {}, debug: true);
-      print(returnValue);
       expect(returnValue, 2);
     });
 
-    test('test call', () async {
+    test(':test call', () async {
       String fileName = "test_call.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compiler.compileSource(pluginUri, options, sources);
+      var program =
+          await MicroCompiler.compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
-      var runtime = MicroRuntime(program.write().buffer.asByteData())..setup();
-      runtime.printOpcodes();
+      var interpreter =
+          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+
+      var runtime = interpreter.createRuntime();
 
       var returnValue =
           runtime.executeLib(pluginUri, "main", [], {}, debug: true);
-      print(returnValue);
-      expect(returnValue, 10);
+      expect(returnValue, 3);
+    });
+
+    test(':test global field', () async {
+      String fileName = "test_global_field.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program =
+          await MicroCompiler.compileSource(pluginUri, options, sources);
+      if (astToJsonFlag) {
+        astToJson("testprint/$fileName", pluginUri, program.component);
+      }
+      var interpreter =
+          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+
+      var runtime = interpreter.createRuntime();
+
+      var returnValue =
+          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+
+      expect(returnValue, 2);
     });
   });
 }

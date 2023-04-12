@@ -1,12 +1,17 @@
 int main() {
   var i = 3;
   {
-    var k = addOne(i);
+    var k = fn1(0, i);
     i = k;
+    nothing();
   }
   return i;
 }
 
-int addOne(int n, {int m = 10}) {
-  return m;
+int fn1(int a, int b, {int c = 11, int d = 12, int e = 13}) {
+  return b;
+}
+
+void nothing() {
+  fn1(1, 3);
 }

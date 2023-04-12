@@ -3,17 +3,15 @@ import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-import 'namednode.dart';
 import 'constant_pool.dart';
 
 class MicroCompilerContext {
   final List<NamedNode> compileDeclarations = [];
 
   final Map<String, int> compileDeclarationIndexes = <String, int>{};
+  final List<int> compileGlobalFieldIndexes = [];
 
-  final Map<String, int> rumtimetopLevelDeclarationOpIndex = {};
-
-  //library自增序列
+  final Map<String, int> rumtimeDeclarationOpIndexes = {};
 
   final constantPool = ConstantPool<Object>();
 
@@ -31,14 +29,13 @@ class MicroCompilerContext {
 
   MicroCompilerContext(this.coreTypes);
 
-  int lookupDeclarationIndex(NamedNode node) {
-    String name = node.getNamedName();
-    if (compileDeclarationIndexes.containsKey(name)) {
-      return compileDeclarationIndexes[name]!;
+  int lookupDeclarationIndex(String key, NamedNode node) {
+    if (compileDeclarationIndexes.containsKey(key)) {
+      return compileDeclarationIndexes[key]!;
     }
     compileDeclarations.add(node);
     var index = compileDeclarations.length - 1;
-    compileDeclarationIndexes[name] = compileDeclarations.length - 1;
+    compileDeclarationIndexes[key] = compileDeclarations.length - 1;
     return index;
   }
 

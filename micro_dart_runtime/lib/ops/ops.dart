@@ -3,9 +3,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:micro_dart_runtime/runtime/runtime.dart';
-
-import '../runtime/exception.dart';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 part 'flow.dart';
 part 'primitives.dart';
@@ -206,6 +204,9 @@ class Ops {
   static const OP_SET_POSATIONAL_PARAM = 65;
   static const OP_SET_NAMED_PARAM = 66;
 
+  static const OP_SET_GLOBAL_PARAM = 67;
+  static const OP_GET_GLOBAL_PARAM = 68;
+
   static const BASE_OPLEN = 1;
   static const I8_LEN = 1;
   static const I16_LEN = 2;
@@ -215,46 +216,6 @@ class Ops {
 
   static int istr_len(String str) {
     return I32_LEN + utf8.encode(str).length;
-  }
-
-  @pragma('vm:always-inline')
-  static int readUint8(MicroRuntime runtime) {
-    final i = runtime.data.getUint8(runtime.fileOffset);
-    runtime.fileOffset += 1;
-    return i;
-  }
-
-  @pragma('vm:always-inline')
-  static int readInt32(MicroRuntime runtime) {
-    final i = runtime.data.getInt32(runtime.fileOffset);
-    runtime.fileOffset += 4;
-    return i;
-  }
-
-  @pragma('vm:always-inline')
-  static double readFloat32(MicroRuntime runtime) {
-    final i = runtime.data.getFloat32(runtime.fileOffset);
-    runtime.fileOffset += 4;
-    return i;
-  }
-
-  @pragma('vm:always-inline')
-  static String readString(MicroRuntime runtime) {
-    final len = runtime.data.getInt32(runtime.fileOffset);
-    runtime.fileOffset += 4;
-    final codeUnits = List.filled(len, 0);
-    for (var i = 0; i < len; i++) {
-      codeUnits[i] = runtime.data.getUint8(runtime.fileOffset + i);
-    }
-    runtime.fileOffset += len;
-    return utf8.decode(codeUnits);
-  }
-
-  @pragma('vm:always-inline')
-  static int readInt16(MicroRuntime runtime) {
-    final i = runtime.data.getInt16(runtime.fileOffset);
-    runtime.fileOffset += 2;
-    return i;
   }
 
   static List<int> i16b(int i16) {
@@ -287,33 +248,45 @@ class Ops {
   }
 }
 
-typedef OpLoader = Op Function(MicroRuntime);
+//操作
+abstract class Op {
+  //运行操作
+  void run(MicroRuntime runtime);
+  //操作占用的字节长度
+  int get opLen;
+
+  List<int> get bytes;
+}
+
+typedef OpLoader = Op Function(MicroDartInterpreter);
 final Map<int, OpLoader> opLoaders = {
-  0: (MicroRuntime rt) => JumpConstant(rt), // 0
-  4: (MicroRuntime rt) => NumAdd(rt), // 4
-  6: (MicroRuntime rt) => PushConstantInt(rt), // 6
-  10: (MicroRuntime rt) => PushScope(rt), // 10
-  15: (MicroRuntime rt) => Return(rt), // 15
-  16: (MicroRuntime rt) => PopScope(rt), // 16
-  17: (MicroRuntime rt) => Call(rt), // 17
-  20: (MicroRuntime rt) => PushNull(rt), // 20
-  24: (MicroRuntime rt) => NumLt(rt), // 24
-  25: (MicroRuntime rt) => NumLtEq(rt), // 25
-  30: (MicroRuntime rt) => NumSub(rt), // 30
-  31: (MicroRuntime rt) => PushList(rt), // 31
-  32: (MicroRuntime rt) => ListAppend(rt), // 32
-  33: (MicroRuntime rt) => IndexList(rt), // 33
-  34: (MicroRuntime rt) => PushIterableLength(rt), // 34
-  35: (MicroRuntime rt) => ListSetIndexed(rt), // 35
-  45: (MicroRuntime rt) => PushMap(rt), // 45
-  46: (MicroRuntime rt) => MapSet(rt), // 46
-  47: (MicroRuntime rt) => IndexMap(rt), // 47
-  48: (MicroRuntime rt) => PushConstantDouble(rt), // 48
-  52: (MicroRuntime rt) => PushTrue(rt), // 52
-  53: (MicroRuntime rt) => LogicalNot(rt), // 53
-  62: (MicroRuntime rt) => SetParam(rt), // 62
-  63: (MicroRuntime rt) => GetParam(rt), // 63
-  64: (MicroRuntime rt) => SetParamNull(rt), // 64
-  65: (MicroRuntime rt) => SetPosationalParam(rt), // 65
-  66: (MicroRuntime rt) => SetNamedParam(rt), // 66
+  0: (MicroDartInterpreter rt) => JumpConstant(rt), // 0
+  4: (MicroDartInterpreter rt) => NumAdd(rt), // 4
+  6: (MicroDartInterpreter rt) => PushConstantInt(rt), // 6
+  10: (MicroDartInterpreter rt) => PushScope(rt), // 10
+  15: (MicroDartInterpreter rt) => Return(rt), // 15
+  16: (MicroDartInterpreter rt) => PopScope(rt), // 16
+  17: (MicroDartInterpreter rt) => Call(rt), // 17
+  20: (MicroDartInterpreter rt) => PushNull(rt), // 20
+  24: (MicroDartInterpreter rt) => NumLt(rt), // 24
+  25: (MicroDartInterpreter rt) => NumLtEq(rt), // 25
+  30: (MicroDartInterpreter rt) => NumSub(rt), // 30
+  31: (MicroDartInterpreter rt) => PushList(rt), // 31
+  32: (MicroDartInterpreter rt) => ListAppend(rt), // 32
+  33: (MicroDartInterpreter rt) => IndexList(rt), // 33
+  34: (MicroDartInterpreter rt) => PushIterableLength(rt), // 34
+  35: (MicroDartInterpreter rt) => ListSetIndexed(rt), // 35
+  45: (MicroDartInterpreter rt) => PushMap(rt), // 45
+  46: (MicroDartInterpreter rt) => MapSet(rt), // 46
+  47: (MicroDartInterpreter rt) => IndexMap(rt), // 47
+  48: (MicroDartInterpreter rt) => PushConstantDouble(rt), // 48
+  52: (MicroDartInterpreter rt) => PushTrue(rt), // 52
+  53: (MicroDartInterpreter rt) => LogicalNot(rt), // 53
+  62: (MicroDartInterpreter rt) => SetParam(rt), // 62
+  63: (MicroDartInterpreter rt) => GetParam(rt), // 63
+  64: (MicroDartInterpreter rt) => SetParamNull(rt), // 64
+  65: (MicroDartInterpreter rt) => SetPosationalParam(rt), // 65
+  66: (MicroDartInterpreter rt) => SetNamedParam(rt), // 66
+  67: (MicroDartInterpreter rt) => SetGlobalParam(rt), // 67
+  68: (MicroDartInterpreter rt) => GetGlobalParam(rt), // 67
 };

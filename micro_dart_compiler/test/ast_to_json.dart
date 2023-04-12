@@ -1416,7 +1416,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //node.visitChildren(this);
     return {
       "xtype": "StaticGet",
-      "target": node.target.accept(this),
+      "target": node.target.acceptReference(this),
     };
   }
 
@@ -1426,7 +1426,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //node.visitChildren(this);
     return {
       "xtype": "StaticSet",
-      "target": node.target.accept(this),
+      "target": node.target.acceptReference(this),
       "value": node.value.accept(this)
     };
   }

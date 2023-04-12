@@ -12,12 +12,12 @@ class OffsetTracker {
     _deferredOffsets[location] = offset;
   }
 
-  List<Op> apply(List<Op> source) {
+  List<Op> apply() {
+    var source = this.context.ops;
     _deferredOffsets.forEach((pos, offset) {
       final op = source[pos];
       if (op is Call) {
-        final resolvedOffset =
-            context.rumtimetopLevelDeclarationOpIndex[offset.name];
+        final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.name];
         if (resolvedOffset == null) {
           return;
         }
@@ -48,7 +48,7 @@ class DeferredOrOffset {
   factory DeferredOrOffset.create(MicroCompilerContext ctx, String name,
       {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure}) {
     return DeferredOrOffset(
-        offset: ctx.rumtimetopLevelDeclarationOpIndex[name] ?? -1,
+        offset: ctx.rumtimeDeclarationOpIndexes[name] ?? -1,
         name: name,
         kind: kind);
   }
