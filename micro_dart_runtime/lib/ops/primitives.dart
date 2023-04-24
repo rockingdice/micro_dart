@@ -1,5 +1,28 @@
 part of 'ops.dart';
 
+class PushConstant implements Op {
+  PushConstant(MicroDartInterpreter runtime) : _const = runtime.readInt32();
+
+  PushConstant.make(this._const);
+
+  final int _const;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.I32_LEN;
+
+  @override
+  List<int> get bytes => [Ops.OP_PUSH_CONST, ...Ops.i32b(_const)];
+
+  // Set value at position to constant
+  @override
+  void run(MicroRuntime runtime) {
+    runtime.scope.pushFrame(runtime.interpreter.constants[_const]);
+  }
+
+  @override
+  String toString() => 'PushConstant($_const)';
+}
+
 class PushConstantInt implements Op {
   PushConstantInt(MicroDartInterpreter runtime) : _value = runtime.readInt32();
 

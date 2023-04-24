@@ -15,9 +15,39 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileStaticGet(context, node);
   } else if (node is StaticSet) {
     return compileStaticSet(context, node);
+  } else if (node is ConstructorInvocation) {
+    return compileConstructorInvocation(context, node);
+  } else if (node is InstanceGet) {
+    return compileInstanceGet(context, node);
+  } else if (node is StringLiteral) {
+    return compileStringLiteral(context, node);
+  } else if (node is InstanceInvocation) {
+    return compileInstanceInvocation(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
+}
+
+int compileStringLiteral(MicroCompilerContext context, StringLiteral node) {
+  return context
+      .pushOp(PushConstant.make(context.constantPool.addOrGet(node.value)));
+}
+
+int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
+  return -1;
+}
+
+int compileConstructorInvocation(
+    MicroCompilerContext context, ConstructorInvocation node) {
+  return -1;
+}
+
+int compileInstanceInvocation(
+    MicroCompilerContext context, InstanceInvocation node) {
+  var procedure = node.interfaceTarget;
+  var arguments = node.arguments;
+  compileExpression(context, node.receiver);
+  return compileCallProcedure(context, arguments, procedure);
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
@@ -80,6 +110,7 @@ int compileStaticInvocation(
     MicroCompilerContext context, StaticInvocation node) {
   var procedure = node.target;
   var arguments = node.arguments;
+
   return compileCallProcedure(context, arguments, procedure);
 }
 
@@ -93,6 +124,11 @@ int compileCallProcedure(
   //将参数压入当前作用域
   compileArguments(context, arguments);
 
+  //如果不是静态方法则将instance加入栈
+  //if (!procedure.isStatic) {
+  //  context.pushOp(GetParam.make(name));
+  //}
+
   //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
   int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
   //调用Call方法,并且返回位置
@@ -103,8 +139,10 @@ int compileCallProcedure(
         location,
         DeferredOrOffset(
             offset: opOffset,
-            name: name,
-            kind: DeferredOrOffsetKind.Procedure));
+            kind: DeferredOrOffsetKind.Procedure,
+            node: procedure,
+            namedList: arguments.named.map((e) => e.name).toList(),
+            posationalLengh: arguments.positional.length));
   }
 
   //调用方法结束之后

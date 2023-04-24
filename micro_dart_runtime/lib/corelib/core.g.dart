@@ -1,0 +1,842 @@
+import 'dart:core';
+
+var coreLibrary = {
+  'dart:core@@deprecated:static:get': () => deprecated,
+  'dart:core@@override:static:get': () => override,
+  'dart:core@@provisional:static:get': () => provisional,
+  'dart:core@@proxy:static:get': () => proxy,
+  'dart:core@Deprecated@message:get': (Deprecated target) => target.message,
+  'dart:core@Deprecated@expires:get': (Deprecated target) => target.expires,
+  'dart:core@Deprecated:constructor@': (List p, Map<String, dynamic> n) =>
+      Deprecated(p[0]),
+  'dart:core@Deprecated:procedure@toString': (Deprecated target) =>
+      target.toString,
+  'dart:core@Provisional@message:get': (Provisional target) => target.message,
+  'dart:core@Provisional:constructor@': (List p, Map<String, dynamic> n) =>
+      Provisional(message: n['message']),
+  'dart:core@pragma@name:get': (pragma target) => target.name,
+  'dart:core@pragma@options:get': (pragma target) => target.options,
+  'dart:core@pragma:constructor@': (List p, Map<String, dynamic> n) =>
+      pragma(p[0], p[1]),
+  'dart:core@BigInt@zero:static:get': () => BigInt.zero,
+  'dart:core@BigInt@one:static:get': () => BigInt.one,
+  'dart:core@BigInt@two:static:get': () => BigInt.two,
+  'dart:core@BigInt@bitLength:get': (BigInt target) => target.bitLength,
+  'dart:core@BigInt@sign:get': (BigInt target) => target.sign,
+  'dart:core@BigInt@isEven:get': (BigInt target) => target.isEven,
+  'dart:core@BigInt@isOdd:get': (BigInt target) => target.isOdd,
+  'dart:core@BigInt@isNegative:get': (BigInt target) => target.isNegative,
+  'dart:core@BigInt@isValidInt:get': (BigInt target) => target.isValidInt,
+  'dart:core@BigInt:procedure@parse:static': () => BigInt.parse,
+  'dart:core@BigInt:procedure@tryParse:static': () => BigInt.tryParse,
+  'dart:core@BigInt:procedure@abs': (BigInt target) => target.abs,
+  'dart:core@BigInt:procedure@unary-': (BigInt target) => -target,
+  'dart:core@BigInt:procedure@+': (BigInt target, other) => target + other,
+  'dart:core@BigInt:procedure@-': (BigInt target, other) => target - other,
+  'dart:core@BigInt:procedure@*': (BigInt target, other) => target * other,
+  'dart:core@BigInt:procedure@/': (BigInt target, other) => target / other,
+  'dart:core@BigInt:procedure@~/': (BigInt target, other) => target ~/ other,
+  'dart:core@BigInt:procedure@%': (BigInt target, other) => target % other,
+  'dart:core@BigInt:procedure@remainder': (BigInt target) => target.remainder,
+  'dart:core@BigInt:procedure@<<': (BigInt target, other) => target << other,
+  'dart:core@BigInt:procedure@>>': (BigInt target, other) => target >> other,
+  'dart:core@BigInt:procedure@&': (BigInt target, other) => target & other,
+  'dart:core@BigInt:procedure@|': (BigInt target, other) => target | other,
+  'dart:core@BigInt:procedure@^': (BigInt target, other) => target ^ other,
+  'dart:core@BigInt:procedure@~': (BigInt target) => ~target,
+  'dart:core@BigInt:procedure@<': (BigInt target, other) => target < other,
+  'dart:core@BigInt:procedure@<=': (BigInt target, other) => target <= other,
+  'dart:core@BigInt:procedure@>': (BigInt target, other) => target > other,
+  'dart:core@BigInt:procedure@>=': (BigInt target, other) => target >= other,
+  'dart:core@BigInt:procedure@compareTo': (BigInt target) => target.compareTo,
+  'dart:core@BigInt:procedure@pow': (BigInt target) => target.pow,
+  'dart:core@BigInt:procedure@modPow': (BigInt target) => target.modPow,
+  'dart:core@BigInt:procedure@modInverse': (BigInt target) => target.modInverse,
+  'dart:core@BigInt:procedure@gcd': (BigInt target) => target.gcd,
+  'dart:core@BigInt:procedure@toUnsigned': (BigInt target) => target.toUnsigned,
+  'dart:core@BigInt:procedure@toSigned': (BigInt target) => target.toSigned,
+  'dart:core@BigInt:procedure@toInt': (BigInt target) => target.toInt,
+  'dart:core@BigInt:procedure@toDouble': (BigInt target) => target.toDouble,
+  'dart:core@BigInt:procedure@toString': (BigInt target) => target.toString,
+  'dart:core@BigInt:procedure@toRadixString': (BigInt target) =>
+      target.toRadixString,
+  'dart:core@bool@hashCode:get': (bool target) => target.hashCode,
+  'dart:core@bool:constructor@fromEnvironment':
+      (List p, Map<String, dynamic> n) =>
+          bool.fromEnvironment(p[0], defaultValue: n['defaultValue']),
+  'dart:core@bool:constructor@hasEnvironment':
+      (List p, Map<String, dynamic> n) => bool.hasEnvironment(p[0]),
+  'dart:core@bool:procedure@&': (bool target, other) => target & other,
+  'dart:core@bool:procedure@|': (bool target, other) => target | other,
+  'dart:core@bool:procedure@^': (bool target, other) => target ^ other,
+  'dart:core@bool:procedure@toString': (bool target) => target.toString,
+  'dart:core@Comparable:procedure@compareTo': (Comparable target) =>
+      target.compareTo,
+  'dart:core@Comparable:procedure@compare:static': () => Comparable.compare,
+  'dart:core@DateTime@monday:static:get': () => DateTime.monday,
+  'dart:core@DateTime@tuesday:static:get': () => DateTime.tuesday,
+  'dart:core@DateTime@wednesday:static:get': () => DateTime.wednesday,
+  'dart:core@DateTime@thursday:static:get': () => DateTime.thursday,
+  'dart:core@DateTime@friday:static:get': () => DateTime.friday,
+  'dart:core@DateTime@saturday:static:get': () => DateTime.saturday,
+  'dart:core@DateTime@sunday:static:get': () => DateTime.sunday,
+  'dart:core@DateTime@daysPerWeek:static:get': () => DateTime.daysPerWeek,
+  'dart:core@DateTime@january:static:get': () => DateTime.january,
+  'dart:core@DateTime@february:static:get': () => DateTime.february,
+  'dart:core@DateTime@march:static:get': () => DateTime.march,
+  'dart:core@DateTime@april:static:get': () => DateTime.april,
+  'dart:core@DateTime@may:static:get': () => DateTime.may,
+  'dart:core@DateTime@june:static:get': () => DateTime.june,
+  'dart:core@DateTime@july:static:get': () => DateTime.july,
+  'dart:core@DateTime@august:static:get': () => DateTime.august,
+  'dart:core@DateTime@september:static:get': () => DateTime.september,
+  'dart:core@DateTime@october:static:get': () => DateTime.october,
+  'dart:core@DateTime@november:static:get': () => DateTime.november,
+  'dart:core@DateTime@december:static:get': () => DateTime.december,
+  'dart:core@DateTime@monthsPerYear:static:get': () => DateTime.monthsPerYear,
+  'dart:core@DateTime@isUtc:get': (DateTime target) => target.isUtc,
+  'dart:core@DateTime@hashCode:get': (DateTime target) => target.hashCode,
+  'dart:core@DateTime@millisecondsSinceEpoch:get': (DateTime target) =>
+      target.millisecondsSinceEpoch,
+  'dart:core@DateTime@microsecondsSinceEpoch:get': (DateTime target) =>
+      target.microsecondsSinceEpoch,
+  'dart:core@DateTime@timeZoneName:get': (DateTime target) =>
+      target.timeZoneName,
+  'dart:core@DateTime@timeZoneOffset:get': (DateTime target) =>
+      target.timeZoneOffset,
+  'dart:core@DateTime@year:get': (DateTime target) => target.year,
+  'dart:core@DateTime@month:get': (DateTime target) => target.month,
+  'dart:core@DateTime@day:get': (DateTime target) => target.day,
+  'dart:core@DateTime@hour:get': (DateTime target) => target.hour,
+  'dart:core@DateTime@minute:get': (DateTime target) => target.minute,
+  'dart:core@DateTime@second:get': (DateTime target) => target.second,
+  'dart:core@DateTime@millisecond:get': (DateTime target) => target.millisecond,
+  'dart:core@DateTime@microsecond:get': (DateTime target) => target.microsecond,
+  'dart:core@DateTime@weekday:get': (DateTime target) => target.weekday,
+  'dart:core@DateTime:constructor@': (List p, Map<String, dynamic> n) =>
+      DateTime(p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]),
+  'dart:core@DateTime:constructor@utc': (List p, Map<String, dynamic> n) =>
+      DateTime.utc(p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]),
+  'dart:core@DateTime:constructor@now': (List p, Map<String, dynamic> n) =>
+      DateTime.now(),
+  'dart:core@DateTime:constructor@fromMillisecondsSinceEpoch':
+      (List p, Map<String, dynamic> n) =>
+          DateTime.fromMillisecondsSinceEpoch(p[0], isUtc: n['isUtc']),
+  'dart:core@DateTime:constructor@fromMicrosecondsSinceEpoch':
+      (List p, Map<String, dynamic> n) =>
+          DateTime.fromMicrosecondsSinceEpoch(p[0], isUtc: n['isUtc']),
+  'dart:core@DateTime:procedure@parse:static': () => DateTime.parse,
+  'dart:core@DateTime:procedure@tryParse:static': () => DateTime.tryParse,
+  'dart:core@DateTime:procedure@==': (DateTime target, other) =>
+      target == other,
+  'dart:core@DateTime:procedure@isBefore': (DateTime target) => target.isBefore,
+  'dart:core@DateTime:procedure@isAfter': (DateTime target) => target.isAfter,
+  'dart:core@DateTime:procedure@isAtSameMomentAs': (DateTime target) =>
+      target.isAtSameMomentAs,
+  'dart:core@DateTime:procedure@compareTo': (DateTime target) =>
+      target.compareTo,
+  'dart:core@DateTime:procedure@toLocal': (DateTime target) => target.toLocal,
+  'dart:core@DateTime:procedure@toUtc': (DateTime target) => target.toUtc,
+  'dart:core@DateTime:procedure@toString': (DateTime target) => target.toString,
+  'dart:core@DateTime:procedure@toIso8601String': (DateTime target) =>
+      target.toIso8601String,
+  'dart:core@DateTime:procedure@add': (DateTime target) => target.add,
+  'dart:core@DateTime:procedure@subtract': (DateTime target) => target.subtract,
+  'dart:core@DateTime:procedure@difference': (DateTime target) =>
+      target.difference,
+  'dart:core@double@nan:static:get': () => double.nan,
+  'dart:core@double@infinity:static:get': () => double.infinity,
+  'dart:core@double@negativeInfinity:static:get': () => double.negativeInfinity,
+  'dart:core@double@minPositive:static:get': () => double.minPositive,
+  'dart:core@double@maxFinite:static:get': () => double.maxFinite,
+  'dart:core@double@sign:get': (double target) => target.sign,
+  'dart:core@double:procedure@remainder': (double target) => target.remainder,
+  'dart:core@double:procedure@+': (double target, other) => target + other,
+  'dart:core@double:procedure@-': (double target, other) => target - other,
+  'dart:core@double:procedure@*': (double target, other) => target * other,
+  'dart:core@double:procedure@%': (double target, other) => target % other,
+  'dart:core@double:procedure@/': (double target, other) => target / other,
+  'dart:core@double:procedure@~/': (double target, other) => target ~/ other,
+  'dart:core@double:procedure@unary-': (double target) => -target,
+  'dart:core@double:procedure@abs': (double target) => target.abs,
+  'dart:core@double:procedure@round': (double target) => target.round,
+  'dart:core@double:procedure@floor': (double target) => target.floor,
+  'dart:core@double:procedure@ceil': (double target) => target.ceil,
+  'dart:core@double:procedure@truncate': (double target) => target.truncate,
+  'dart:core@double:procedure@roundToDouble': (double target) =>
+      target.roundToDouble,
+  'dart:core@double:procedure@floorToDouble': (double target) =>
+      target.floorToDouble,
+  'dart:core@double:procedure@ceilToDouble': (double target) =>
+      target.ceilToDouble,
+  'dart:core@double:procedure@truncateToDouble': (double target) =>
+      target.truncateToDouble,
+  'dart:core@double:procedure@toString': (double target) => target.toString,
+  'dart:core@double:procedure@parse:static': () => double.parse,
+  'dart:core@double:procedure@tryParse:static': () => double.tryParse,
+  'dart:core@Duration@microsecondsPerMillisecond:static:get': () =>
+      Duration.microsecondsPerMillisecond,
+  'dart:core@Duration@millisecondsPerSecond:static:get': () =>
+      Duration.millisecondsPerSecond,
+  'dart:core@Duration@secondsPerMinute:static:get': () =>
+      Duration.secondsPerMinute,
+  'dart:core@Duration@minutesPerHour:static:get': () => Duration.minutesPerHour,
+  'dart:core@Duration@hoursPerDay:static:get': () => Duration.hoursPerDay,
+  'dart:core@Duration@microsecondsPerSecond:static:get': () =>
+      Duration.microsecondsPerSecond,
+  'dart:core@Duration@microsecondsPerMinute:static:get': () =>
+      Duration.microsecondsPerMinute,
+  'dart:core@Duration@microsecondsPerHour:static:get': () =>
+      Duration.microsecondsPerHour,
+  'dart:core@Duration@microsecondsPerDay:static:get': () =>
+      Duration.microsecondsPerDay,
+  'dart:core@Duration@millisecondsPerMinute:static:get': () =>
+      Duration.millisecondsPerMinute,
+  'dart:core@Duration@millisecondsPerHour:static:get': () =>
+      Duration.millisecondsPerHour,
+  'dart:core@Duration@millisecondsPerDay:static:get': () =>
+      Duration.millisecondsPerDay,
+  'dart:core@Duration@secondsPerHour:static:get': () => Duration.secondsPerHour,
+  'dart:core@Duration@secondsPerDay:static:get': () => Duration.secondsPerDay,
+  'dart:core@Duration@minutesPerDay:static:get': () => Duration.minutesPerDay,
+  'dart:core@Duration@zero:static:get': () => Duration.zero,
+  'dart:core@Duration@inDays:get': (Duration target) => target.inDays,
+  'dart:core@Duration@inHours:get': (Duration target) => target.inHours,
+  'dart:core@Duration@inMinutes:get': (Duration target) => target.inMinutes,
+  'dart:core@Duration@inSeconds:get': (Duration target) => target.inSeconds,
+  'dart:core@Duration@inMilliseconds:get': (Duration target) =>
+      target.inMilliseconds,
+  'dart:core@Duration@inMicroseconds:get': (Duration target) =>
+      target.inMicroseconds,
+  'dart:core@Duration@hashCode:get': (Duration target) => target.hashCode,
+  'dart:core@Duration@isNegative:get': (Duration target) => target.isNegative,
+  'dart:core@Duration:constructor@': (List p, Map<String, dynamic> n) =>
+      Duration(
+          days: n['days'],
+          hours: n['hours'],
+          minutes: n['minutes'],
+          seconds: n['seconds'],
+          milliseconds: n['milliseconds'],
+          microseconds: n['microseconds']),
+  'dart:core@Duration:procedure@+': (Duration target, other) => target + other,
+  'dart:core@Duration:procedure@-': (Duration target, other) => target - other,
+  'dart:core@Duration:procedure@*': (Duration target, other) => target * other,
+  'dart:core@Duration:procedure@~/': (Duration target, other) =>
+      target ~/ other,
+  'dart:core@Duration:procedure@<': (Duration target, other) => target < other,
+  'dart:core@Duration:procedure@>': (Duration target, other) => target > other,
+  'dart:core@Duration:procedure@<=': (Duration target, other) =>
+      target <= other,
+  'dart:core@Duration:procedure@>=': (Duration target, other) =>
+      target >= other,
+  'dart:core@Duration:procedure@==': (Duration target, other) =>
+      target == other,
+  'dart:core@Duration:procedure@compareTo': (Duration target) =>
+      target.compareTo,
+  'dart:core@Duration:procedure@toString': (Duration target) => target.toString,
+  'dart:core@Duration:procedure@abs': (Duration target) => target.abs,
+  'dart:core@Duration:procedure@unary-': (Duration target) => -target,
+  'dart:core@Enum@index:get': (Enum target) => target.index,
+  'dart:core@Enum:procedure@compareByIndex:static': () => Enum.compareByIndex,
+  'dart:core@Enum:procedure@compareByName:static': () => Enum.compareByName,
+  'dart:core@Error@stackTrace:get': (Error target) => target.stackTrace,
+  'dart:core@Error:constructor@': (List p, Map<String, dynamic> n) => Error(),
+  'dart:core@Error:procedure@safeToString:static': () => Error.safeToString,
+  'dart:core@Error:procedure@throwWithStackTrace:static': () =>
+      Error.throwWithStackTrace,
+  'dart:core@AssertionError@message:get': (AssertionError target) =>
+      target.message,
+  'dart:core@AssertionError:constructor@': (List p, Map<String, dynamic> n) =>
+      AssertionError(p[0]),
+  'dart:core@AssertionError:procedure@toString': (AssertionError target) =>
+      target.toString,
+  'dart:core@TypeError:constructor@': (List p, Map<String, dynamic> n) =>
+      TypeError(),
+  'dart:core@CastError:constructor@': (List p, Map<String, dynamic> n) =>
+      CastError(),
+  'dart:core@NullThrownError:constructor@': (List p, Map<String, dynamic> n) =>
+      NullThrownError(),
+  'dart:core@NullThrownError:procedure@toString': (NullThrownError target) =>
+      target.toString,
+  'dart:core@ArgumentError@invalidValue:get': (ArgumentError target) =>
+      target.invalidValue,
+  'dart:core@ArgumentError@name:get': (ArgumentError target) => target.name,
+  'dart:core@ArgumentError@message:get': (ArgumentError target) =>
+      target.message,
+  'dart:core@ArgumentError:constructor@': (List p, Map<String, dynamic> n) =>
+      ArgumentError(p[0], p[1]),
+  'dart:core@ArgumentError:constructor@value':
+      (List p, Map<String, dynamic> n) => ArgumentError.value(p[0], p[1], p[2]),
+  'dart:core@ArgumentError:constructor@notNull':
+      (List p, Map<String, dynamic> n) => ArgumentError.notNull(p[0]),
+  'dart:core@ArgumentError:procedure@checkNotNull:static': () =>
+      ArgumentError.checkNotNull,
+  'dart:core@ArgumentError:procedure@toString': (ArgumentError target) =>
+      target.toString,
+  'dart:core@RangeError@start:get': (RangeError target) => target.start,
+  'dart:core@RangeError@end:get': (RangeError target) => target.end,
+  'dart:core@RangeError:constructor@': (List p, Map<String, dynamic> n) =>
+      RangeError(p[0]),
+  'dart:core@RangeError:constructor@value': (List p, Map<String, dynamic> n) =>
+      RangeError.value(p[0], p[1], p[2]),
+  'dart:core@RangeError:constructor@range': (List p, Map<String, dynamic> n) =>
+      RangeError.range(p[0], p[1], p[2], p[3], p[4]),
+  'dart:core@RangeError:constructor@index': (List p, Map<String, dynamic> n) =>
+      RangeError.index(p[0], p[1], p[2], p[3], p[4]),
+  'dart:core@RangeError:procedure@checkValueInInterval:static': () =>
+      RangeError.checkValueInInterval,
+  'dart:core@RangeError:procedure@checkValidIndex:static': () =>
+      RangeError.checkValidIndex,
+  'dart:core@RangeError:procedure@checkValidRange:static': () =>
+      RangeError.checkValidRange,
+  'dart:core@RangeError:procedure@checkNotNegative:static': () =>
+      RangeError.checkNotNegative,
+  'dart:core@IndexError@indexable:get': (IndexError target) => target.indexable,
+  'dart:core@IndexError@length:get': (IndexError target) => target.length,
+  'dart:core@IndexError@start:get': (IndexError target) => target.start,
+  'dart:core@IndexError@end:get': (IndexError target) => target.end,
+  'dart:core@IndexError:constructor@': (List p, Map<String, dynamic> n) =>
+      IndexError(p[0], p[1], p[2], p[3], p[4]),
+  'dart:core@FallThroughError:constructor@': (List p, Map<String, dynamic> n) =>
+      FallThroughError(),
+  'dart:core@FallThroughError:procedure@toString': (FallThroughError target) =>
+      target.toString,
+  'dart:core@AbstractClassInstantiationError:constructor@':
+      (List p, Map<String, dynamic> n) => AbstractClassInstantiationError(p[0]),
+  'dart:core@AbstractClassInstantiationError:procedure@toString':
+      (AbstractClassInstantiationError target) => target.toString,
+  'dart:core@NoSuchMethodError:constructor@withInvocation':
+      (List p, Map<String, dynamic> n) =>
+          NoSuchMethodError.withInvocation(p[0], p[1]),
+  'dart:core@NoSuchMethodError:constructor@':
+      (List p, Map<String, dynamic> n) =>
+          NoSuchMethodError(p[0], p[1], p[2], p[3]),
+  'dart:core@NoSuchMethodError:procedure@toString':
+      (NoSuchMethodError target) => target.toString,
+  'dart:core@UnsupportedError@message:get': (UnsupportedError target) =>
+      target.message,
+  'dart:core@UnsupportedError:constructor@': (List p, Map<String, dynamic> n) =>
+      UnsupportedError(p[0]),
+  'dart:core@UnsupportedError:procedure@toString': (UnsupportedError target) =>
+      target.toString,
+  'dart:core@UnimplementedError@message:get': (UnimplementedError target) =>
+      target.message,
+  'dart:core@UnimplementedError:constructor@':
+      (List p, Map<String, dynamic> n) => UnimplementedError(p[0]),
+  'dart:core@UnimplementedError:procedure@toString':
+      (UnimplementedError target) => target.toString,
+  'dart:core@StateError@message:get': (StateError target) => target.message,
+  'dart:core@StateError:constructor@': (List p, Map<String, dynamic> n) =>
+      StateError(p[0]),
+  'dart:core@StateError:procedure@toString': (StateError target) =>
+      target.toString,
+  'dart:core@ConcurrentModificationError@modifiedObject:get':
+      (ConcurrentModificationError target) => target.modifiedObject,
+  'dart:core@ConcurrentModificationError:constructor@':
+      (List p, Map<String, dynamic> n) => ConcurrentModificationError(p[0]),
+  'dart:core@ConcurrentModificationError:procedure@toString':
+      (ConcurrentModificationError target) => target.toString,
+  'dart:core@OutOfMemoryError@stackTrace:get': (OutOfMemoryError target) =>
+      target.stackTrace,
+  'dart:core@OutOfMemoryError:constructor@': (List p, Map<String, dynamic> n) =>
+      OutOfMemoryError(),
+  'dart:core@OutOfMemoryError:procedure@toString': (OutOfMemoryError target) =>
+      target.toString,
+  'dart:core@StackOverflowError@stackTrace:get': (StackOverflowError target) =>
+      target.stackTrace,
+  'dart:core@StackOverflowError:constructor@':
+      (List p, Map<String, dynamic> n) => StackOverflowError(),
+  'dart:core@StackOverflowError:procedure@toString':
+      (StackOverflowError target) => target.toString,
+  'dart:core@CyclicInitializationError@variableName:get':
+      (CyclicInitializationError target) => target.variableName,
+  'dart:core@CyclicInitializationError:constructor@':
+      (List p, Map<String, dynamic> n) => CyclicInitializationError(p[0]),
+  'dart:core@CyclicInitializationError:procedure@toString':
+      (CyclicInitializationError target) => target.toString,
+  'dart:core@FormatException@message:get': (FormatException target) =>
+      target.message,
+  'dart:core@FormatException@source:get': (FormatException target) =>
+      target.source,
+  'dart:core@FormatException@offset:get': (FormatException target) =>
+      target.offset,
+  'dart:core@FormatException:constructor@': (List p, Map<String, dynamic> n) =>
+      FormatException(p[0], p[1], p[2]),
+  'dart:core@FormatException:procedure@toString': (FormatException target) =>
+      target.toString,
+  'dart:core@IntegerDivisionByZeroException@message:get':
+      (IntegerDivisionByZeroException target) => target.message,
+  'dart:core@IntegerDivisionByZeroException@stackTrace:get':
+      (IntegerDivisionByZeroException target) => target.stackTrace,
+  'dart:core@IntegerDivisionByZeroException:constructor@':
+      (List p, Map<String, dynamic> n) => IntegerDivisionByZeroException(),
+  'dart:core@IntegerDivisionByZeroException:procedure@toString':
+      (IntegerDivisionByZeroException target) => target.toString,
+  'dart:core@Function@hashCode:get': (Function target) => target.hashCode,
+  'dart:core@Function:procedure@apply:static': () => Function.apply,
+  'dart:core@Function:procedure@==': (Function target, other) =>
+      target == other,
+  'dart:core@:procedure@identical:static': () => identical,
+  'dart:core@:procedure@identityHashCode:static': () => identityHashCode,
+  'dart:core@int@isEven:get': (int target) => target.isEven,
+  'dart:core@int@isOdd:get': (int target) => target.isOdd,
+  'dart:core@int@bitLength:get': (int target) => target.bitLength,
+  'dart:core@int@sign:get': (int target) => target.sign,
+  'dart:core@int:procedure@&': (int target, other) => target & other,
+  'dart:core@int:procedure@|': (int target, other) => target | other,
+  'dart:core@int:procedure@^': (int target, other) => target ^ other,
+  'dart:core@int:procedure@~': (int target) => ~target,
+  'dart:core@int:procedure@<<': (int target, other) => target << other,
+  'dart:core@int:procedure@>>': (int target, other) => target >> other,
+  'dart:core@int:procedure@>>>': (int target, other) => target >>> other,
+  'dart:core@int:procedure@modPow': (int target) => target.modPow,
+  'dart:core@int:procedure@modInverse': (int target) => target.modInverse,
+  'dart:core@int:procedure@gcd': (int target) => target.gcd,
+  'dart:core@int:procedure@toUnsigned': (int target) => target.toUnsigned,
+  'dart:core@int:procedure@toSigned': (int target) => target.toSigned,
+  'dart:core@int:procedure@unary-': (int target) => -target,
+  'dart:core@int:procedure@abs': (int target) => target.abs,
+  'dart:core@int:procedure@round': (int target) => target.round,
+  'dart:core@int:procedure@floor': (int target) => target.floor,
+  'dart:core@int:procedure@ceil': (int target) => target.ceil,
+  'dart:core@int:procedure@truncate': (int target) => target.truncate,
+  'dart:core@int:procedure@roundToDouble': (int target) => target.roundToDouble,
+  'dart:core@int:procedure@floorToDouble': (int target) => target.floorToDouble,
+  'dart:core@int:procedure@ceilToDouble': (int target) => target.ceilToDouble,
+  'dart:core@int:procedure@truncateToDouble': (int target) =>
+      target.truncateToDouble,
+  'dart:core@int:procedure@toString': (int target) => target.toString,
+  'dart:core@int:procedure@toRadixString': (int target) => target.toRadixString,
+  'dart:core@int:procedure@parse:static': () => int.parse,
+  'dart:core@int:procedure@tryParse:static': () => int.tryParse,
+  'dart:core@Invocation@memberName:get': (Invocation target) =>
+      target.memberName,
+  'dart:core@Invocation@typeArguments:get': (Invocation target) =>
+      target.typeArguments,
+  'dart:core@Invocation@positionalArguments:get': (Invocation target) =>
+      target.positionalArguments,
+  'dart:core@Invocation@namedArguments:get': (Invocation target) =>
+      target.namedArguments,
+  'dart:core@Invocation@isMethod:get': (Invocation target) => target.isMethod,
+  'dart:core@Invocation@isGetter:get': (Invocation target) => target.isGetter,
+  'dart:core@Invocation@isSetter:get': (Invocation target) => target.isSetter,
+  'dart:core@Invocation@isAccessor:get': (Invocation target) =>
+      target.isAccessor,
+  'dart:core@Iterable@iterator:get': (Iterable target) => target.iterator,
+  'dart:core@Iterable@length:get': (Iterable target) => target.length,
+  'dart:core@Iterable@isEmpty:get': (Iterable target) => target.isEmpty,
+  'dart:core@Iterable@isNotEmpty:get': (Iterable target) => target.isNotEmpty,
+  'dart:core@Iterable@first:get': (Iterable target) => target.first,
+  'dart:core@Iterable@last:get': (Iterable target) => target.last,
+  'dart:core@Iterable@single:get': (Iterable target) => target.single,
+  'dart:core@Iterable:procedure@castFrom:static': () => Iterable.castFrom,
+  'dart:core@Iterable:procedure@cast': (Iterable target) => target.cast,
+  'dart:core@Iterable:procedure@followedBy': (Iterable target) =>
+      target.followedBy,
+  'dart:core@Iterable:procedure@map': (Iterable target) => target.map,
+  'dart:core@Iterable:procedure@where': (Iterable target) => target.where,
+  'dart:core@Iterable:procedure@whereType': (Iterable target) =>
+      target.whereType,
+  'dart:core@Iterable:procedure@expand': (Iterable target) => target.expand,
+  'dart:core@Iterable:procedure@contains': (Iterable target) => target.contains,
+  'dart:core@Iterable:procedure@forEach': (Iterable target) => target.forEach,
+  'dart:core@Iterable:procedure@reduce': (Iterable target) => target.reduce,
+  'dart:core@Iterable:procedure@fold': (Iterable target) => target.fold,
+  'dart:core@Iterable:procedure@every': (Iterable target) => target.every,
+  'dart:core@Iterable:procedure@join': (Iterable target) => target.join,
+  'dart:core@Iterable:procedure@any': (Iterable target) => target.any,
+  'dart:core@Iterable:procedure@toList': (Iterable target) => target.toList,
+  'dart:core@Iterable:procedure@toSet': (Iterable target) => target.toSet,
+  'dart:core@Iterable:procedure@take': (Iterable target) => target.take,
+  'dart:core@Iterable:procedure@takeWhile': (Iterable target) =>
+      target.takeWhile,
+  'dart:core@Iterable:procedure@skip': (Iterable target) => target.skip,
+  'dart:core@Iterable:procedure@skipWhile': (Iterable target) =>
+      target.skipWhile,
+  'dart:core@Iterable:procedure@firstWhere': (Iterable target) =>
+      target.firstWhere,
+  'dart:core@Iterable:procedure@lastWhere': (Iterable target) =>
+      target.lastWhere,
+  'dart:core@Iterable:procedure@singleWhere': (Iterable target) =>
+      target.singleWhere,
+  'dart:core@Iterable:procedure@elementAt': (Iterable target) =>
+      target.elementAt,
+  'dart:core@Iterable:procedure@toString': (Iterable target) => target.toString,
+  'dart:core@BidirectionalIterator:procedure@movePrevious':
+      (BidirectionalIterator target) => target.movePrevious,
+  'dart:core@Iterator@current:get': (Iterator target) => target.current,
+  'dart:core@Iterator:procedure@moveNext': (Iterator target) => target.moveNext,
+  'dart:core@List@first:set': (List target, other) => target.first = other,
+  'dart:core@List@last:set': (List target, other) => target.last = other,
+  'dart:core@List@length:get': (List target) => target.length,
+  'dart:core@List@length:set': (List target, other) => target.length = other,
+  'dart:core@List@reversed:get': (List target) => target.reversed,
+  'dart:core@List:procedure@castFrom:static': () => List.castFrom,
+  'dart:core@List:procedure@copyRange:static': () => List.copyRange,
+  'dart:core@List:procedure@writeIterable:static': () => List.writeIterable,
+  'dart:core@List:procedure@cast': (List target) => target.cast,
+  'dart:core@List:procedure@[]': (List target, index) => target[index],
+  'dart:core@List:procedure@[]=': (List target, index, other) =>
+      target[index] = other,
+  'dart:core@List:procedure@add': (List target) => target.add,
+  'dart:core@List:procedure@addAll': (List target) => target.addAll,
+  'dart:core@List:procedure@sort': (List target) => target.sort,
+  'dart:core@List:procedure@shuffle': (List target) => target.shuffle,
+  'dart:core@List:procedure@indexOf': (List target) => target.indexOf,
+  'dart:core@List:procedure@indexWhere': (List target) => target.indexWhere,
+  'dart:core@List:procedure@lastIndexWhere': (List target) =>
+      target.lastIndexWhere,
+  'dart:core@List:procedure@lastIndexOf': (List target) => target.lastIndexOf,
+  'dart:core@List:procedure@clear': (List target) => target.clear,
+  'dart:core@List:procedure@insert': (List target) => target.insert,
+  'dart:core@List:procedure@insertAll': (List target) => target.insertAll,
+  'dart:core@List:procedure@setAll': (List target) => target.setAll,
+  'dart:core@List:procedure@remove': (List target) => target.remove,
+  'dart:core@List:procedure@removeAt': (List target) => target.removeAt,
+  'dart:core@List:procedure@removeLast': (List target) => target.removeLast,
+  'dart:core@List:procedure@removeWhere': (List target) => target.removeWhere,
+  'dart:core@List:procedure@retainWhere': (List target) => target.retainWhere,
+  'dart:core@List:procedure@+': (List target, other) => target + other,
+  'dart:core@List:procedure@sublist': (List target) => target.sublist,
+  'dart:core@List:procedure@getRange': (List target) => target.getRange,
+  'dart:core@List:procedure@setRange': (List target) => target.setRange,
+  'dart:core@List:procedure@removeRange': (List target) => target.removeRange,
+  'dart:core@List:procedure@fillRange': (List target) => target.fillRange,
+  'dart:core@List:procedure@replaceRange': (List target) => target.replaceRange,
+  'dart:core@List:procedure@asMap': (List target) => target.asMap,
+  'dart:core@List:procedure@==': (List target, other) => target == other,
+  'dart:core@Map@entries:get': (Map target) => target.entries,
+  'dart:core@Map@keys:get': (Map target) => target.keys,
+  'dart:core@Map@values:get': (Map target) => target.values,
+  'dart:core@Map@length:get': (Map target) => target.length,
+  'dart:core@Map@isEmpty:get': (Map target) => target.isEmpty,
+  'dart:core@Map@isNotEmpty:get': (Map target) => target.isNotEmpty,
+  'dart:core@Map:procedure@castFrom:static': () => Map.castFrom,
+  'dart:core@Map:procedure@cast': (Map target) => target.cast,
+  'dart:core@Map:procedure@containsValue': (Map target) => target.containsValue,
+  'dart:core@Map:procedure@containsKey': (Map target) => target.containsKey,
+  'dart:core@Map:procedure@[]': (Map target, index) => target[index],
+  'dart:core@Map:procedure@[]=': (Map target, index, other) =>
+      target[index] = other,
+  'dart:core@Map:procedure@map': (Map target) => target.map,
+  'dart:core@Map:procedure@addEntries': (Map target) => target.addEntries,
+  'dart:core@Map:procedure@update': (Map target) => target.update,
+  'dart:core@Map:procedure@updateAll': (Map target) => target.updateAll,
+  'dart:core@Map:procedure@removeWhere': (Map target) => target.removeWhere,
+  'dart:core@Map:procedure@putIfAbsent': (Map target) => target.putIfAbsent,
+  'dart:core@Map:procedure@addAll': (Map target) => target.addAll,
+  'dart:core@Map:procedure@remove': (Map target) => target.remove,
+  'dart:core@Map:procedure@clear': (Map target) => target.clear,
+  'dart:core@Map:procedure@forEach': (Map target) => target.forEach,
+  'dart:core@MapEntry@key:get': (MapEntry target) => target.key,
+  'dart:core@MapEntry@value:get': (MapEntry target) => target.value,
+  'dart:core@MapEntry:constructor@': (List p, Map<String, dynamic> n) =>
+      MapEntry(p[0], p[1]),
+  'dart:core@MapEntry:procedure@toString': (MapEntry target) => target.toString,
+  'dart:core@Null@hashCode:get': (Null target) => target.hashCode,
+  'dart:core@Null:procedure@toString': (Null target) => target.toString,
+  'dart:core@num@hashCode:get': (num target) => target.hashCode,
+  'dart:core@num@isNaN:get': (num target) => target.isNaN,
+  'dart:core@num@isNegative:get': (num target) => target.isNegative,
+  'dart:core@num@isInfinite:get': (num target) => target.isInfinite,
+  'dart:core@num@isFinite:get': (num target) => target.isFinite,
+  'dart:core@num@sign:get': (num target) => target.sign,
+  'dart:core@num:procedure@==': (num target, other) => target == other,
+  'dart:core@num:procedure@compareTo': (num target) => target.compareTo,
+  'dart:core@num:procedure@+': (num target, other) => target + other,
+  'dart:core@num:procedure@-': (num target, other) => target - other,
+  'dart:core@num:procedure@*': (num target, other) => target * other,
+  'dart:core@num:procedure@%': (num target, other) => target % other,
+  'dart:core@num:procedure@/': (num target, other) => target / other,
+  'dart:core@num:procedure@~/': (num target, other) => target ~/ other,
+  'dart:core@num:procedure@unary-': (num target) => -target,
+  'dart:core@num:procedure@remainder': (num target) => target.remainder,
+  'dart:core@num:procedure@<': (num target, other) => target < other,
+  'dart:core@num:procedure@<=': (num target, other) => target <= other,
+  'dart:core@num:procedure@>': (num target, other) => target > other,
+  'dart:core@num:procedure@>=': (num target, other) => target >= other,
+  'dart:core@num:procedure@abs': (num target) => target.abs,
+  'dart:core@num:procedure@round': (num target) => target.round,
+  'dart:core@num:procedure@floor': (num target) => target.floor,
+  'dart:core@num:procedure@ceil': (num target) => target.ceil,
+  'dart:core@num:procedure@truncate': (num target) => target.truncate,
+  'dart:core@num:procedure@roundToDouble': (num target) => target.roundToDouble,
+  'dart:core@num:procedure@floorToDouble': (num target) => target.floorToDouble,
+  'dart:core@num:procedure@ceilToDouble': (num target) => target.ceilToDouble,
+  'dart:core@num:procedure@truncateToDouble': (num target) =>
+      target.truncateToDouble,
+  'dart:core@num:procedure@clamp': (num target) => target.clamp,
+  'dart:core@num:procedure@toInt': (num target) => target.toInt,
+  'dart:core@num:procedure@toDouble': (num target) => target.toDouble,
+  'dart:core@num:procedure@toStringAsFixed': (num target) =>
+      target.toStringAsFixed,
+  'dart:core@num:procedure@toStringAsExponential': (num target) =>
+      target.toStringAsExponential,
+  'dart:core@num:procedure@toStringAsPrecision': (num target) =>
+      target.toStringAsPrecision,
+  'dart:core@num:procedure@toString': (num target) => target.toString,
+  'dart:core@num:procedure@parse:static': () => num.parse,
+  'dart:core@num:procedure@tryParse:static': () => num.tryParse,
+  'dart:core@Object@hashCode:get': (Object target) => target.hashCode,
+  'dart:core@Object@runtimeType:get': (Object target) => target.runtimeType,
+  'dart:core@Object:constructor@': (List p, Map<String, dynamic> n) => Object(),
+  'dart:core@Object:procedure@==': (Object target, other) => target == other,
+  'dart:core@Object:procedure@toString': (Object target) => target.toString,
+  'dart:core@Object:procedure@noSuchMethod': (Object target) =>
+      target.noSuchMethod,
+  'dart:core@Object:procedure@hash:static': () => Object.hash,
+  'dart:core@Object:procedure@hashAll:static': () => Object.hashAll,
+  'dart:core@Object:procedure@hashAllUnordered:static': () =>
+      Object.hashAllUnordered,
+  'dart:core@Pattern:procedure@allMatches': (Pattern target) =>
+      target.allMatches,
+  'dart:core@Pattern:procedure@matchAsPrefix': (Pattern target) =>
+      target.matchAsPrefix,
+  'dart:core@Match@start:get': (Match target) => target.start,
+  'dart:core@Match@end:get': (Match target) => target.end,
+  'dart:core@Match@groupCount:get': (Match target) => target.groupCount,
+  'dart:core@Match@input:get': (Match target) => target.input,
+  'dart:core@Match@pattern:get': (Match target) => target.pattern,
+  'dart:core@Match:procedure@group': (Match target) => target.group,
+  'dart:core@Match:procedure@[]': (Match target, index) => target[index],
+  'dart:core@Match:procedure@groups': (Match target) => target.groups,
+  'dart:core@:procedure@print:static': () => print,
+  'dart:core@RegExp@pattern:get': (RegExp target) => target.pattern,
+  'dart:core@RegExp@isMultiLine:get': (RegExp target) => target.isMultiLine,
+  'dart:core@RegExp@isCaseSensitive:get': (RegExp target) =>
+      target.isCaseSensitive,
+  'dart:core@RegExp@isUnicode:get': (RegExp target) => target.isUnicode,
+  'dart:core@RegExp@isDotAll:get': (RegExp target) => target.isDotAll,
+  'dart:core@RegExp:procedure@escape:static': () => RegExp.escape,
+  'dart:core@RegExp:procedure@firstMatch': (RegExp target) => target.firstMatch,
+  'dart:core@RegExp:procedure@allMatches': (RegExp target) => target.allMatches,
+  'dart:core@RegExp:procedure@hasMatch': (RegExp target) => target.hasMatch,
+  'dart:core@RegExp:procedure@stringMatch': (RegExp target) =>
+      target.stringMatch,
+  'dart:core@RegExpMatch@groupNames:get': (RegExpMatch target) =>
+      target.groupNames,
+  'dart:core@RegExpMatch:procedure@namedGroup': (RegExpMatch target) =>
+      target.namedGroup,
+  'dart:core@Set@iterator:get': (Set target) => target.iterator,
+  'dart:core@Set:procedure@castFrom:static': () => Set.castFrom,
+  'dart:core@Set:procedure@cast': (Set target) => target.cast,
+  'dart:core@Set:procedure@contains': (Set target) => target.contains,
+  'dart:core@Set:procedure@add': (Set target) => target.add,
+  'dart:core@Set:procedure@addAll': (Set target) => target.addAll,
+  'dart:core@Set:procedure@remove': (Set target) => target.remove,
+  'dart:core@Set:procedure@lookup': (Set target) => target.lookup,
+  'dart:core@Set:procedure@removeAll': (Set target) => target.removeAll,
+  'dart:core@Set:procedure@retainAll': (Set target) => target.retainAll,
+  'dart:core@Set:procedure@removeWhere': (Set target) => target.removeWhere,
+  'dart:core@Set:procedure@retainWhere': (Set target) => target.retainWhere,
+  'dart:core@Set:procedure@containsAll': (Set target) => target.containsAll,
+  'dart:core@Set:procedure@intersection': (Set target) => target.intersection,
+  'dart:core@Set:procedure@union': (Set target) => target.union,
+  'dart:core@Set:procedure@difference': (Set target) => target.difference,
+  'dart:core@Set:procedure@clear': (Set target) => target.clear,
+  'dart:core@Set:procedure@toSet': (Set target) => target.toSet,
+  'dart:core@Sink:procedure@add': (Sink target) => target.add,
+  'dart:core@Sink:procedure@close': (Sink target) => target.close,
+  'dart:core@StackTrace@empty:static:get': () => StackTrace.empty,
+  'dart:core@StackTrace@current:static:get': () => StackTrace.current,
+  'dart:core@StackTrace:procedure@toString': (StackTrace target) =>
+      target.toString,
+  'dart:core@Stopwatch@frequency:get': (Stopwatch target) => target.frequency,
+  'dart:core@Stopwatch@elapsedTicks:get': (Stopwatch target) =>
+      target.elapsedTicks,
+  'dart:core@Stopwatch@elapsed:get': (Stopwatch target) => target.elapsed,
+  'dart:core@Stopwatch@elapsedMicroseconds:get': (Stopwatch target) =>
+      target.elapsedMicroseconds,
+  'dart:core@Stopwatch@elapsedMilliseconds:get': (Stopwatch target) =>
+      target.elapsedMilliseconds,
+  'dart:core@Stopwatch@isRunning:get': (Stopwatch target) => target.isRunning,
+  'dart:core@Stopwatch:constructor@': (List p, Map<String, dynamic> n) =>
+      Stopwatch(),
+  'dart:core@Stopwatch:procedure@start': (Stopwatch target) => target.start,
+  'dart:core@Stopwatch:procedure@stop': (Stopwatch target) => target.stop,
+  'dart:core@Stopwatch:procedure@reset': (Stopwatch target) => target.reset,
+  'dart:core@String@length:get': (String target) => target.length,
+  'dart:core@String@hashCode:get': (String target) => target.hashCode,
+  'dart:core@String@isEmpty:get': (String target) => target.isEmpty,
+  'dart:core@String@isNotEmpty:get': (String target) => target.isNotEmpty,
+  'dart:core@String@codeUnits:get': (String target) => target.codeUnits,
+  'dart:core@String@runes:get': (String target) => target.runes,
+  'dart:core@String:procedure@[]': (String target, index) => target[index],
+  'dart:core@String:procedure@codeUnitAt': (String target) => target.codeUnitAt,
+  'dart:core@String:procedure@==': (String target, other) => target == other,
+  'dart:core@String:procedure@compareTo': (String target) => target.compareTo,
+  'dart:core@String:procedure@endsWith': (String target) => target.endsWith,
+  'dart:core@String:procedure@startsWith': (String target) => target.startsWith,
+  'dart:core@String:procedure@indexOf': (String target) => target.indexOf,
+  'dart:core@String:procedure@lastIndexOf': (String target) =>
+      target.lastIndexOf,
+  'dart:core@String:procedure@+': (String target, other) => target + other,
+  'dart:core@String:procedure@substring': (String target) => target.substring,
+  'dart:core@String:procedure@trim': (String target) => target.trim,
+  'dart:core@String:procedure@trimLeft': (String target) => target.trimLeft,
+  'dart:core@String:procedure@trimRight': (String target) => target.trimRight,
+  'dart:core@String:procedure@*': (String target, other) => target * other,
+  'dart:core@String:procedure@padLeft': (String target) => target.padLeft,
+  'dart:core@String:procedure@padRight': (String target) => target.padRight,
+  'dart:core@String:procedure@contains': (String target) => target.contains,
+  'dart:core@String:procedure@replaceFirst': (String target) =>
+      target.replaceFirst,
+  'dart:core@String:procedure@replaceFirstMapped': (String target) =>
+      target.replaceFirstMapped,
+  'dart:core@String:procedure@replaceAll': (String target) => target.replaceAll,
+  'dart:core@String:procedure@replaceAllMapped': (String target) =>
+      target.replaceAllMapped,
+  'dart:core@String:procedure@replaceRange': (String target) =>
+      target.replaceRange,
+  'dart:core@String:procedure@split': (String target) => target.split,
+  'dart:core@String:procedure@splitMapJoin': (String target) =>
+      target.splitMapJoin,
+  'dart:core@String:procedure@toLowerCase': (String target) =>
+      target.toLowerCase,
+  'dart:core@String:procedure@toUpperCase': (String target) =>
+      target.toUpperCase,
+  'dart:core@Runes@string:get': (Runes target) => target.string,
+  'dart:core@Runes@iterator:get': (Runes target) => target.iterator,
+  'dart:core@Runes@last:get': (Runes target) => target.last,
+  'dart:core@Runes:constructor@': (List p, Map<String, dynamic> n) =>
+      Runes(p[0]),
+  'dart:core@RuneIterator@string:get': (RuneIterator target) => target.string,
+  'dart:core@RuneIterator@rawIndex:get': (RuneIterator target) =>
+      target.rawIndex,
+  'dart:core@RuneIterator@rawIndex:set': (RuneIterator target, other) =>
+      target.rawIndex = other,
+  'dart:core@RuneIterator@current:get': (RuneIterator target) => target.current,
+  'dart:core@RuneIterator@currentSize:get': (RuneIterator target) =>
+      target.currentSize,
+  'dart:core@RuneIterator@currentAsString:get': (RuneIterator target) =>
+      target.currentAsString,
+  'dart:core@RuneIterator:constructor@': (List p, Map<String, dynamic> n) =>
+      RuneIterator(p[0]),
+  'dart:core@RuneIterator:constructor@at': (List p, Map<String, dynamic> n) =>
+      RuneIterator.at(p[0], p[1]),
+  'dart:core@RuneIterator:procedure@reset': (RuneIterator target) =>
+      target.reset,
+  'dart:core@RuneIterator:procedure@moveNext': (RuneIterator target) =>
+      target.moveNext,
+  'dart:core@RuneIterator:procedure@movePrevious': (RuneIterator target) =>
+      target.movePrevious,
+  'dart:core@StringBuffer@length:get': (StringBuffer target) => target.length,
+  'dart:core@StringBuffer@isEmpty:get': (StringBuffer target) => target.isEmpty,
+  'dart:core@StringBuffer@isNotEmpty:get': (StringBuffer target) =>
+      target.isNotEmpty,
+  'dart:core@StringBuffer:constructor@': (List p, Map<String, dynamic> n) =>
+      StringBuffer(p[0]),
+  'dart:core@StringBuffer:procedure@write': (StringBuffer target) =>
+      target.write,
+  'dart:core@StringBuffer:procedure@writeCharCode': (StringBuffer target) =>
+      target.writeCharCode,
+  'dart:core@StringBuffer:procedure@writeAll': (StringBuffer target) =>
+      target.writeAll,
+  'dart:core@StringBuffer:procedure@writeln': (StringBuffer target) =>
+      target.writeln,
+  'dart:core@StringBuffer:procedure@clear': (StringBuffer target) =>
+      target.clear,
+  'dart:core@StringBuffer:procedure@toString': (StringBuffer target) =>
+      target.toString,
+  'dart:core@StringSink:procedure@write': (StringSink target) => target.write,
+  'dart:core@StringSink:procedure@writeAll': (StringSink target) =>
+      target.writeAll,
+  'dart:core@StringSink:procedure@writeln': (StringSink target) =>
+      target.writeln,
+  'dart:core@StringSink:procedure@writeCharCode': (StringSink target) =>
+      target.writeCharCode,
+  'dart:core@Symbol@unaryMinus:static:get': () => Symbol.unaryMinus,
+  'dart:core@Symbol@empty:static:get': () => Symbol.empty,
+  'dart:core@Symbol@hashCode:get': (Symbol target) => target.hashCode,
+  'dart:core@Symbol:procedure@==': (Symbol target, other) => target == other,
+  'dart:core@Type@hashCode:get': (Type target) => target.hashCode,
+  'dart:core@Type:procedure@==': (Type target, other) => target == other,
+  'dart:core@Type:procedure@toString': (Type target) => target.toString,
+  'dart:core@Uri@base:static:get': () => Uri.base,
+  'dart:core@Uri@scheme:get': (Uri target) => target.scheme,
+  'dart:core@Uri@authority:get': (Uri target) => target.authority,
+  'dart:core@Uri@userInfo:get': (Uri target) => target.userInfo,
+  'dart:core@Uri@host:get': (Uri target) => target.host,
+  'dart:core@Uri@port:get': (Uri target) => target.port,
+  'dart:core@Uri@path:get': (Uri target) => target.path,
+  'dart:core@Uri@query:get': (Uri target) => target.query,
+  'dart:core@Uri@fragment:get': (Uri target) => target.fragment,
+  'dart:core@Uri@pathSegments:get': (Uri target) => target.pathSegments,
+  'dart:core@Uri@queryParameters:get': (Uri target) => target.queryParameters,
+  'dart:core@Uri@queryParametersAll:get': (Uri target) =>
+      target.queryParametersAll,
+  'dart:core@Uri@isAbsolute:get': (Uri target) => target.isAbsolute,
+  'dart:core@Uri@hasScheme:get': (Uri target) => target.hasScheme,
+  'dart:core@Uri@hasAuthority:get': (Uri target) => target.hasAuthority,
+  'dart:core@Uri@hasPort:get': (Uri target) => target.hasPort,
+  'dart:core@Uri@hasQuery:get': (Uri target) => target.hasQuery,
+  'dart:core@Uri@hasFragment:get': (Uri target) => target.hasFragment,
+  'dart:core@Uri@hasEmptyPath:get': (Uri target) => target.hasEmptyPath,
+  'dart:core@Uri@hasAbsolutePath:get': (Uri target) => target.hasAbsolutePath,
+  'dart:core@Uri@origin:get': (Uri target) => target.origin,
+  'dart:core@Uri@data:get': (Uri target) => target.data,
+  'dart:core@Uri@hashCode:get': (Uri target) => target.hashCode,
+  'dart:core@Uri:procedure@isScheme': (Uri target) => target.isScheme,
+  'dart:core@Uri:procedure@toFilePath': (Uri target) => target.toFilePath,
+  'dart:core@Uri:procedure@==': (Uri target, other) => target == other,
+  'dart:core@Uri:procedure@toString': (Uri target) => target.toString,
+  'dart:core@Uri:procedure@replace': (Uri target) => target.replace,
+  'dart:core@Uri:procedure@removeFragment': (Uri target) =>
+      target.removeFragment,
+  'dart:core@Uri:procedure@resolve': (Uri target) => target.resolve,
+  'dart:core@Uri:procedure@resolveUri': (Uri target) => target.resolveUri,
+  'dart:core@Uri:procedure@normalizePath': (Uri target) => target.normalizePath,
+  'dart:core@Uri:procedure@parse:static': () => Uri.parse,
+  'dart:core@Uri:procedure@tryParse:static': () => Uri.tryParse,
+  'dart:core@Uri:procedure@encodeComponent:static': () => Uri.encodeComponent,
+  'dart:core@Uri:procedure@encodeQueryComponent:static': () =>
+      Uri.encodeQueryComponent,
+  'dart:core@Uri:procedure@decodeComponent:static': () => Uri.decodeComponent,
+  'dart:core@Uri:procedure@decodeQueryComponent:static': () =>
+      Uri.decodeQueryComponent,
+  'dart:core@Uri:procedure@encodeFull:static': () => Uri.encodeFull,
+  'dart:core@Uri:procedure@decodeFull:static': () => Uri.decodeFull,
+  'dart:core@Uri:procedure@splitQueryString:static': () => Uri.splitQueryString,
+  'dart:core@Uri:procedure@parseIPv4Address:static': () => Uri.parseIPv4Address,
+  'dart:core@Uri:procedure@parseIPv6Address:static': () => Uri.parseIPv6Address,
+  'dart:core@UriData@uri:get': (UriData target) => target.uri,
+  'dart:core@UriData@mimeType:get': (UriData target) => target.mimeType,
+  'dart:core@UriData@charset:get': (UriData target) => target.charset,
+  'dart:core@UriData@isBase64:get': (UriData target) => target.isBase64,
+  'dart:core@UriData@contentText:get': (UriData target) => target.contentText,
+  'dart:core@UriData@parameters:get': (UriData target) => target.parameters,
+  'dart:core@UriData:constructor@fromString':
+      (List p, Map<String, dynamic> n) => UriData.fromString(p[0],
+          mimeType: n['mimeType'],
+          encoding: n['encoding'],
+          parameters: n['parameters'],
+          base64: n['base64']),
+  'dart:core@UriData:constructor@fromBytes': (List p, Map<String, dynamic> n) =>
+      UriData.fromBytes(p[0],
+          mimeType: n['mimeType'],
+          parameters: n['parameters'],
+          percentEncoded: n['percentEncoded']),
+  'dart:core@UriData:constructor@fromUri': (List p, Map<String, dynamic> n) =>
+      UriData.fromUri(p[0]),
+  'dart:core@UriData:procedure@parse:static': () => UriData.parse,
+  'dart:core@UriData:procedure@isMimeType': (UriData target) =>
+      target.isMimeType,
+  'dart:core@UriData:procedure@isCharset': (UriData target) => target.isCharset,
+  'dart:core@UriData:procedure@isEncoding': (UriData target) =>
+      target.isEncoding,
+  'dart:core@UriData:procedure@contentAsBytes': (UriData target) =>
+      target.contentAsBytes,
+  'dart:core@UriData:procedure@contentAsString': (UriData target) =>
+      target.contentAsString,
+  'dart:core@UriData:procedure@toString': (UriData target) => target.toString,
+  'dart:core@Expando@name:get': (Expando target) => target.name,
+  'dart:core@Expando:constructor@': (List p, Map<String, dynamic> n) =>
+      Expando(p[0]),
+  'dart:core@Expando:procedure@toString': (Expando target) => target.toString,
+  'dart:core@Expando:procedure@[]': (Expando target, index) => target[index],
+  'dart:core@Expando:procedure@[]=': (Expando target, index, other) =>
+      target[index] = other,
+  'dart:core@WeakReference@target:get': (WeakReference target) => target.target,
+  'dart:core@Finalizer:procedure@attach': (Finalizer target) => target.attach,
+  'dart:core@Finalizer:procedure@detach': (Finalizer target) => target.detach,
+};

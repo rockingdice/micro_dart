@@ -1829,6 +1829,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitClass(Class node) {
     //print("visitClass: ${node.name}");
     //node.visitChildren(this);
+
     return {
       "xtype": "Class",
       "name": node.name,

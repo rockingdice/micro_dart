@@ -94,5 +94,29 @@ void main() {
 
       expect(returnValue, 2);
     });
+
+    test(':test call external', () async {
+      String fileName = "test_call_external.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program =
+          await MicroCompiler.compileSource(pluginUri, options, sources);
+      if (astToJsonFlag) {
+        astToJson("testprint/$fileName", pluginUri, program.component);
+      }
+      var interpreter =
+          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+      interpreter.addExternalFunctions(coreLibrary);
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+
+      var runtime = interpreter.createRuntime();
+
+      var returnValue =
+          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+
+      expect(returnValue, 10);
+    });
   });
 }

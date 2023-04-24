@@ -5,6 +5,7 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+part 'bridge.dart';
 part 'flow.dart';
 part 'primitives.dart';
 
@@ -207,6 +208,8 @@ class Ops {
   static const OP_SET_GLOBAL_PARAM = 67;
   static const OP_GET_GLOBAL_PARAM = 68;
 
+  static const OP_CALL_EXTERNAL = 69;
+
   static const BASE_OPLEN = 1;
   static const I8_LEN = 1;
   static const I16_LEN = 2;
@@ -243,6 +246,23 @@ class Ops {
     return [...i32b(u.length), ...u];
   }
 
+  static List<int> istrlist(List<String> list) {
+    List<int> result = [...i32b(list.length)];
+
+    for (var element in list) {
+      result.addAll(istr(element));
+    }
+    return result;
+  }
+
+  static int istrlist_len(List<String> list) {
+    int len = I32_LEN;
+    for (var element in list) {
+      len += istr_len(element);
+    }
+    return len;
+  }
+
   static List<int> opcodeFrom(Op op) {
     return op.bytes;
   }
@@ -276,6 +296,7 @@ final Map<int, OpLoader> opLoaders = {
   33: (MicroDartInterpreter rt) => IndexList(rt), // 33
   34: (MicroDartInterpreter rt) => PushIterableLength(rt), // 34
   35: (MicroDartInterpreter rt) => ListSetIndexed(rt), // 35
+  39: (MicroDartInterpreter rt) => PushConstant(rt), // 39
   45: (MicroDartInterpreter rt) => PushMap(rt), // 45
   46: (MicroDartInterpreter rt) => MapSet(rt), // 46
   47: (MicroDartInterpreter rt) => IndexMap(rt), // 47
@@ -289,4 +310,5 @@ final Map<int, OpLoader> opLoaders = {
   66: (MicroDartInterpreter rt) => SetNamedParam(rt), // 66
   67: (MicroDartInterpreter rt) => SetGlobalParam(rt), // 67
   68: (MicroDartInterpreter rt) => GetGlobalParam(rt), // 67
+  69: (MicroDartInterpreter rt) => CallExternal(rt), // 67
 };

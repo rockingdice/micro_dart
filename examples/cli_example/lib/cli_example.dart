@@ -1,6 +1,6 @@
 library example;
 
-export 'test2.dart';
+import 'package:cli_example/test2.dart';
 
 int calculate() {
   return 6 * 7;

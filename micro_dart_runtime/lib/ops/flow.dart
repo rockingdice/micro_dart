@@ -78,6 +78,31 @@ class SetParam implements Op {
   String toString() => "SetParam($name)";
 }
 
+class SetParamIfNull implements Op {
+  SetParamIfNull(MicroDartInterpreter interpreter)
+      : name = interpreter.readString();
+
+  SetParamIfNull.make(this.name);
+
+  final String name;
+
+  @override
+  int get opLen => Ops.BASE_OPLEN + Ops.istr_len(name);
+
+  @override
+  List<int> get bytes => [Ops.OP_SET_PARAM, ...Ops.istr(name)];
+
+  @override
+  void run(MicroRuntime runtime) {
+    var value = runtime.scope.popFrame();
+
+    runtime.setParam(name, value);
+  }
+
+  @override
+  String toString() => "SetParam($name)";
+}
+
 class SetGlobalParam implements Op {
   SetGlobalParam(MicroDartInterpreter interpreter)
       : name = interpreter.readString();

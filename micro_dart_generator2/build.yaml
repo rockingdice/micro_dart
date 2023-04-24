@@ -1,0 +1,18 @@
+builders:
+  reflectable:
+    target: ":micro_dart_generator2"
+    import: "package:micro_dart_generator2/reflectable_builder.dart"
+    builder_factories: ["reflectableBuilder"]
+    build_extensions: {".dart": [".reflectable.dart"]}
+    auto_apply: root_package
+    build_to: source
+    defaults:
+      generate_for:
+        include:
+        - benchmark/**.dart
+        - bin/**.dart
+        - example/**.dart
+        - lib/main.dart
+        - test/**.dart
+        - tool/**.dart
+        - web/**.dart

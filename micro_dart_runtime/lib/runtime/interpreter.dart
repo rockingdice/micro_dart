@@ -3,6 +3,8 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+import '../bridge/bridge.dart';
+
 /// 解释器,字节码转换成操作集合
 /// 一个解释器可以执行多个运行时
 class MicroDartInterpreter {
@@ -16,7 +18,7 @@ class MicroDartInterpreter {
   final declarations = <String, int>{};
 
   /// 静态变量
-  ///final constants = <Object>[];
+  final constants = <Object>[];
 
   /// 二进制文件读取偏移量，仅在加载时使用
   int _fileOffset = 0;
@@ -24,12 +26,18 @@ class MicroDartInterpreter {
   /// 全局作用域
   final Scope rootScope = Scope("<root>");
 
+  final Map<String, Function> externalFunctions = {};
+
   MicroDartInterpreter._(this._data);
 
   factory MicroDartInterpreter.fromData(ByteData data) {
     var interpreter = MicroDartInterpreter._(data).._load();
 
     return interpreter;
+  }
+
+  void addExternalFunctions(Map<String, Function> functions) {
+    externalFunctions.addAll(functions);
   }
 
   @pragma('vm:always-inline')
@@ -65,6 +73,16 @@ class MicroDartInterpreter {
     return utf8.decode(codeUnits);
   }
 
+  List<String> readStringList() {
+    final len = _data.getInt32(_fileOffset);
+    _fileOffset += 4;
+    final List<String> result = [];
+    for (int i = 0; i < len; i++) {
+      result.add(readString());
+    }
+    return result;
+  }
+
   @pragma('vm:always-inline')
   int readInt16() {
     final i = _data.getInt16(_fileOffset);
@@ -75,6 +93,9 @@ class MicroDartInterpreter {
   void _load() {
     ///加载全局声明
     declarations.addAll(json.decode(readString()).cast<String, int>());
+
+    ///加载静态变量
+    constants.addAll((json.decode(readString()) as List).cast());
 
     ///加载操作结合
     while (_fileOffset < _data.lengthInBytes) {

@@ -1,3 +1,5 @@
+import 'package:kernel/ast.dart';
+import 'package:micro_dart_compiler/compiler/ast/ast.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 import 'context.dart';
@@ -17,8 +19,23 @@ class OffsetTracker {
     _deferredOffsets.forEach((pos, offset) {
       final op = source[pos];
       if (op is Call) {
-        final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.name];
+        final resolvedOffset =
+            context.rumtimeDeclarationOpIndexes[offset.node.getNamedName()];
         if (resolvedOffset == null) {
+          //表示这是个外部的调用
+          print("no such node: ${offset.node.getNamedName()} ");
+          final newOp = CallExternal.make(
+              className: offset.node.stringClassName ?? "",
+              isGetter: offset.node.isGetter,
+              isSetter: offset.node.isSetter,
+              isStatic: offset.node.isStatic,
+              key: offset.node.getNamedName(),
+              kind: offset.kind.index,
+              libraryUri: offset.node.stringLibraryUri,
+              name: offset.node.stringName,
+              namedList: offset.namedList,
+              posationalLengh: offset.posationalLengh);
+          source[pos] = newOp;
           return;
         }
         final newOp = Call.make(resolvedOffset);
@@ -38,23 +55,21 @@ enum DeferredOrOffsetKind {
 }
 
 class DeferredOrOffset {
-  DeferredOrOffset(
-      {required this.offset, required this.name, required this.kind});
-
-  final int offset;
-  final String name;
   final DeferredOrOffsetKind kind;
+  final int offset;
+  final NamedNode node;
+  final int posationalLengh;
+  List<String> namedList;
 
-  factory DeferredOrOffset.create(MicroCompilerContext ctx, String name,
-      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure}) {
-    return DeferredOrOffset(
-        offset: ctx.rumtimeDeclarationOpIndexes[name] ?? -1,
-        name: name,
-        kind: kind);
-  }
+  DeferredOrOffset(
+      {required this.kind,
+      required this.offset,
+      required this.node,
+      required this.posationalLengh,
+      required this.namedList});
 
   @override
   String toString() {
-    return 'DeferredOrOffset{offset: $offset, name: $name, kind: $kind}';
+    return 'DeferredOrOffset{kind: $kind,offset: $offset, node:${node.getNamedName()}}';
   }
 }

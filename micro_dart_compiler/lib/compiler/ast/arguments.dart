@@ -8,5 +8,6 @@ void compileArguments(MicroCompilerContext context, Arguments arguments) {
 
   arguments.named.forEach((element) {
     compileExpression(context, element.value);
+    context.pushOp(SetParam.make(element.name));
   });
 }

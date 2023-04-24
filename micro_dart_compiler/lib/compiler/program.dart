@@ -11,16 +11,19 @@ class Program {
   final Map<String, int> rumtimeDeclarationOpIndexes;
 
   final List<Op> ops;
+  final List<Object> constantPool;
 
   Program(
       {required this.rumtimeDeclarationOpIndexes,
       required this.ops,
+      required this.constantPool,
       this.component});
 
   Uint8List write() {
     final builder = BytesBuilder(copy: false);
 
     _writeMetaBlock(builder, rumtimeDeclarationOpIndexes);
+    _writeMetaBlock(builder, constantPool);
 
     for (final op in ops) {
       builder.add(Ops.opcodeFrom(op));

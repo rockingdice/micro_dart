@@ -3,8 +3,13 @@ part of 'ast.dart';
 int compileProcedure(MicroCompilerContext context, Procedure node) {
   if (node.isStatic) {
     return compileStaticProcedure(context, node);
+  } else {
+    return compileClassProcedure(context, node);
   }
-  throw Exception("not support procedure: ${node.getNamedName()}");
+}
+
+int compileClassProcedure(MicroCompilerContext context, Procedure node) {
+  return -1;
 }
 
 int compileStaticProcedure(MicroCompilerContext context, Procedure node) {
@@ -19,7 +24,6 @@ int compileStaticProcedure(MicroCompilerContext context, Procedure node) {
   context.rumtimeDeclarationOpIndexes[name] = pos;
 
   //参数初始化
-
   node.function.positionalParameters.forEach((element) {
     compileVariableDeclaration(context, element);
     //将上个作用域中的参数copy到这个作用域

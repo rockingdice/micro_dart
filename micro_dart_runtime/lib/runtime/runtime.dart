@@ -116,7 +116,7 @@ class MicroRuntime {
     return _scopes[location].hasParam(key);
   }
 
-  Object? executeLib(String importUri, String functionName, List posational,
+  dynamic executeLib(String importUri, String functionName, List posational,
       Map<String, dynamic> named,
       {bool debug = false}) {
     try {
@@ -128,7 +128,7 @@ class MicroRuntime {
 
       //获取当前操作数指针
       opPointer = interpreter
-          .declarations['$importUri@:procedure@$functionName@static']!;
+          .declarations['$importUri@:procedure@$functionName:static']!;
 
       addScope("<execute>");
 

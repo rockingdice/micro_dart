@@ -41,6 +41,33 @@ extension ExtensionNamedNode on NamedNode {
     return (this as RedirectingFactory);
   }
 
+  bool get isStatic {
+    if (isField) {
+      return asField.isStatic;
+    } else if (isProcedure) {
+      return asProcedure.isStatic;
+    }
+    return false;
+  }
+
+  bool get isGetter {
+    if (isField) {
+      return asField.isGetter;
+    } else if (isProcedure) {
+      return asProcedure.isGetter;
+    }
+    return false;
+  }
+
+  bool get isSetter {
+    if (isField) {
+      return asField.isSetter;
+    } else if (isProcedure) {
+      return asProcedure.isSetter;
+    }
+    return false;
+  }
+
   String getNamedName() {
     if (isClass) {
       return getClassName();
@@ -71,6 +98,69 @@ extension ExtensionNamedNode on NamedNode {
     String libraryUri = (clazz.parent as Library).importUri.toString();
 
     return "$libraryUri@$className:constructor@$constructorName";
+  }
+
+  String get stringLibraryUri {
+    if (isClass) {
+      return (this.parent as Library).importUri.toString();
+    } else if (isConstructor) {
+      var thiz = this.asConstructor;
+      var clazz = (thiz.parent as Class);
+      return (clazz.parent as Library).importUri.toString();
+    } else if (isField) {
+      if (this.parent is Class) {
+        return (this.parent!.parent as Library).importUri.toString();
+      } else if (this.parent is Library) {
+        return (this.parent as Library).importUri.toString();
+      }
+    } else if (isRedirectingFactory) {
+      return (this.parent!.parent as Library).importUri.toString();
+    } else if (isProcedure) {
+      if (this.parent is Class) {
+        return (this.parent!.parent as Library).importUri.toString();
+      } else if (this.parent is Library) {
+        return (this.parent as Library).importUri.toString();
+      }
+    }
+    throw Exception("not support ${this.runtimeType.toString()}");
+  }
+
+  String? get stringClassName {
+    if (isClass) {
+      return this.asClass.name;
+    } else if (isConstructor) {
+      return (this.parent as Class).name;
+    } else if (isField) {
+      if (this.parent is Class) {
+        return (this.parent as Class).name;
+      } else if (this.parent is Library) {
+        return null;
+      }
+    } else if (isRedirectingFactory) {
+      return (this.parent as Class).name;
+    } else if (isProcedure) {
+      if (this.parent is Class) {
+        return (this.parent as Class).name;
+      } else if (this.parent is Library) {
+        return null;
+      }
+    }
+    throw Exception("not support ${this.runtimeType.toString()}");
+  }
+
+  String get stringName {
+    if (isClass) {
+      return this.asClass.name;
+    } else if (isConstructor) {
+      return this.asConstructor.name.text;
+    } else if (isField) {
+      return this.asField.name.text;
+    } else if (isRedirectingFactory) {
+      return asRedirectingFactory.name.text;
+    } else if (isProcedure) {
+      return asProcedure.name.text;
+    }
+    throw Exception("not support ${this.runtimeType.toString()}");
   }
 
   String getFieldName() {
@@ -114,13 +204,13 @@ extension ExtensionNamedNode on NamedNode {
     }
 
     if (thiz.isStatic) {
-      procedureName = "$procedureName@static";
+      procedureName = "$procedureName:static";
     }
 
     if (thiz.isGetter) {
-      procedureName = "$procedureName@get";
+      procedureName = "$procedureName:get";
     } else if (thiz.isSetter) {
-      procedureName = "$procedureName@set";
+      procedureName = "$procedureName:set";
     }
 
     return "$libraryUri@$className:procedure@$procedureName";

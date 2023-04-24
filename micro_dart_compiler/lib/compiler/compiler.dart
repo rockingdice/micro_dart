@@ -90,9 +90,10 @@ class MicroCompiler {
     compileContext(compilerContext);
 
     return Program(
-        rumtimeDeclarationOpIndexes:
-            compilerContext.rumtimeDeclarationOpIndexes,
-        ops: compilerContext.offsetTracker.apply(),
-        component: component);
+      rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
+      constantPool: compilerContext.constantPool.pool,
+      ops: compilerContext.offsetTracker.apply(),
+      component: component,
+    );
   }
 }
