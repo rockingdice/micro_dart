@@ -401,28 +401,124 @@
                                         {
                                             "xtype": "ReturnStatement",
                                             "expression": {
-                                                "xtype": "InstanceGet",
-                                                "receiver": {
-                                                    "xtype": "ThisExpression"
-                                                },
-                                                "interfaceTarget": {
-                                                    "xtype": "FieldReference",
-                                                    "name": "_p2"
-                                                },
+                                                "xtype": "InstanceInvocation",
                                                 "name": {
                                                     "xtype": "Name",
-                                                    "text": "_p2",
+                                                    "text": "+",
                                                     "libraryName": null,
-                                                    "isPrivate": true
+                                                    "isPrivate": false
                                                 },
-                                                "resultType": {
-                                                    "xtype": "InterfaceType",
-                                                    "classNode": {
-                                                        "xtype": "ClassReference",
-                                                        "importUri": "dart:core",
-                                                        "name": "int"
+                                                "kind": "Instance",
+                                                "receiver": {
+                                                    "xtype": "InstanceGet",
+                                                    "receiver": {
+                                                        "xtype": "ThisExpression"
                                                     },
-                                                    "typeArguments": []
+                                                    "interfaceTarget": {
+                                                        "xtype": "FieldReference",
+                                                        "name": "p1"
+                                                    },
+                                                    "name": {
+                                                        "xtype": "Name",
+                                                        "text": "p1",
+                                                        "libraryName": null,
+                                                        "isPrivate": false
+                                                    },
+                                                    "resultType": {
+                                                        "xtype": "InterfaceType",
+                                                        "classNode": {
+                                                            "xtype": "ClassReference",
+                                                            "importUri": "dart:core",
+                                                            "name": "int"
+                                                        },
+                                                        "typeArguments": []
+                                                    }
+                                                },
+                                                "interfaceTarget": {
+                                                    "xtype": "ProcedureReference",
+                                                    "libraryUri": "dart:core",
+                                                    "libraryName": "dart.core",
+                                                    "className": "num",
+                                                    "name": {
+                                                        "xtype": "Name",
+                                                        "text": "+",
+                                                        "libraryName": null,
+                                                        "isPrivate": false
+                                                    },
+                                                    "positionalParameters": [
+                                                        {
+                                                            "xtype": "VariableDeclaration",
+                                                            "name": "other",
+                                                            "initializer": null,
+                                                            "type": {
+                                                                "xtype": "InterfaceType",
+                                                                "classNode": {
+                                                                    "xtype": "ClassReference",
+                                                                    "importUri": "dart:core",
+                                                                    "name": "num"
+                                                                },
+                                                                "typeArguments": []
+                                                            },
+                                                            "isFinal": false,
+                                                            "isConst": false,
+                                                            "isInitializingFormal": false,
+                                                            "isCovariantByDeclaration": false,
+                                                            "isLate": false,
+                                                            "isRequired": false,
+                                                            "isLowered": false,
+                                                            "hasDeclaredInitializer": false,
+                                                            "annotations": []
+                                                        }
+                                                    ],
+                                                    "namedParameters": []
+                                                },
+                                                "arguments": {
+                                                    "xtype": "Arguments",
+                                                    "types": [],
+                                                    "positional": [
+                                                        {
+                                                            "xtype": "InstanceGet",
+                                                            "receiver": {
+                                                                "xtype": "ThisExpression"
+                                                            },
+                                                            "interfaceTarget": {
+                                                                "xtype": "FieldReference",
+                                                                "name": "_p2"
+                                                            },
+                                                            "name": {
+                                                                "xtype": "Name",
+                                                                "text": "_p2",
+                                                                "libraryName": null,
+                                                                "isPrivate": true
+                                                            },
+                                                            "resultType": {
+                                                                "xtype": "InterfaceType",
+                                                                "classNode": {
+                                                                    "xtype": "ClassReference",
+                                                                    "importUri": "dart:core",
+                                                                    "name": "int"
+                                                                },
+                                                                "typeArguments": []
+                                                            }
+                                                        }
+                                                    ],
+                                                    "named": []
+                                                },
+                                                "functionType": {
+                                                    "xtype": "FunctionType",
+                                                    "typeParameters": [],
+                                                    "positionalParameters": [
+                                                        {
+                                                            "xtype": "InterfaceType",
+                                                            "classNode": {
+                                                                "xtype": "ClassReference",
+                                                                "importUri": "dart:core",
+                                                                "name": "num"
+                                                            },
+                                                            "typeArguments": []
+                                                        }
+                                                    ],
+                                                    "namedParameters": []
                                                 }
                                             }
                                         }
@@ -602,11 +698,11 @@
                                             "positional": [
                                                 {
                                                     "xtype": "IntLiteral",
-                                                    "value": 0
+                                                    "value": 1
                                                 },
                                                 {
                                                     "xtype": "IntLiteral",
-                                                    "value": 1
+                                                    "value": 2
                                                 }
                                             ],
                                             "named": []

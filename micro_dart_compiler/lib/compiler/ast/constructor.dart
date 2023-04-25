@@ -2,9 +2,6 @@ part of 'ast.dart';
 
 int compileConstructor(MicroCompilerContext context, Constructor node) {
   var name = node.getNamedName();
-  //   name.accept(v);
-  //  visitList(initializers, v);
-  //  function.accept(v);
 
   if (context.rumtimeDeclarationOpIndexes[name] != null) {
     return context.rumtimeDeclarationOpIndexes[name]!;
@@ -13,10 +10,33 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   int pos = context.addScope(name, node.fileOffset);
   context.rumtimeDeclarationOpIndexes[name] = pos;
 
+  //参数初始化
+  node.function.positionalParameters.forEach((element) {
+    compileVariableDeclaration(context, element);
+    //将上个作用域中的参数copy到这个作用域
+    context.pushOp(SetPosationalParam.make(element.name!));
+  });
+  node.function.namedParameters.forEach((element) {
+    compileVariableDeclaration(context, element);
+    context.pushOp(SetNamedParam.make(element.name!));
+  });
+
+  //filed初始化
   node.initializers.forEach((element) {
     compileInitializer(context, element);
   });
 
+  //编译body
+  var b = node.function.body;
+  if (b != null) {
+    if (b is Block) {
+      compileBlock(context, b, createScope: false);
+    } else {
+      compileStatement(context, b);
+    }
+  }
+  //将当前的scope赋予Instance
+  //context.removeScope();
   return -1;
 }
 
@@ -35,7 +55,9 @@ void compileInitializer(MicroCompilerContext context, Initializer initializer) {
 }
 
 void compileFieldInitializer(
-    MicroCompilerContext context, FieldInitializer initializer) {}
+    MicroCompilerContext context, FieldInitializer initializer) {
+  compileExpression(context, initializer.value);
+}
 
 void compileSuperInitializer(
     MicroCompilerContext context, SuperInitializer initializer) {}

@@ -20,10 +20,8 @@ void compileStatement(MicroCompilerContext context, Statement? node,
 void compileBlock(MicroCompilerContext context, Block node,
     {bool createScope = true}) {
   if (node.statements.isNotEmpty) {
-    ReturnStatement? returnStatement;
-    if (node.statements.last is ReturnStatement) {
-      returnStatement = node.statements.last as ReturnStatement;
-    }
+    //ReturnStatement? returnStatement;
+
     if (createScope) {
       context.addScope("<block>", node.fileOffset);
     }
@@ -34,9 +32,6 @@ void compileBlock(MicroCompilerContext context, Block node,
     if (createScope) {
       context.removeScope();
     }
-    if (returnStatement != null) {
-      compileReturnStatement(context, returnStatement);
-    }
   }
 }
 
@@ -44,11 +39,12 @@ void compileVariableDeclaration(
     MicroCompilerContext context, VariableDeclaration node) {
   if (node.initializer != null) {
     //有初始值
+
     compileExpression(context, node.initializer!);
-    context.pushOp(SetParam.make(node.name!));
+    context.pushOp(SetScopeParam.make(-1, node.name!));
   } else {
     //没有初始值则先填充null
-    context.pushOp(SetParamNull.make(node.name!));
+    context.pushOp(SetScopeParamNull.make(-1, node.name!));
   }
 }
 

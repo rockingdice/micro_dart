@@ -1,7 +1,7 @@
 int main() {
   var i = 3;
   {
-    var k = fn1(0, i);
+    var k = fn1(0, i, c: i);
     i = k;
     nothing();
   }
@@ -9,7 +9,7 @@ int main() {
 }
 
 int fn1(int a, int b, {int c = 11, int d = 12, int e = 13}) {
-  return b;
+  return c;
 }
 
 void nothing() {

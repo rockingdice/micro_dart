@@ -46,8 +46,11 @@ int compileInstanceInvocation(
     MicroCompilerContext context, InstanceInvocation node) {
   var procedure = node.interfaceTarget;
   var arguments = node.arguments;
+  context.addScope("<InstanceInvocation>", node.fileOffset);
   compileExpression(context, node.receiver);
-  return compileCallProcedure(context, arguments, procedure);
+  int p = compileCallProcedure(context, arguments, procedure);
+  context.removeScope();
+  return p;
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
@@ -68,7 +71,10 @@ int compileStaticGet(MicroCompilerContext context, StaticGet node) {
   } else if (target is Procedure && target.isGetter) {
     var procedure = target;
     var arguments = Arguments.empty();
-    return compileCallProcedure(context, arguments, procedure);
+    context.addScope("<StaticGet>", node.fileOffset);
+    int p = compileCallProcedure(context, arguments, procedure);
+    context.removeScope();
+    return p;
     //context.pushOp(GetGlobalParam.make(target.name.text));
   }
   return -1;
@@ -81,7 +87,10 @@ int compileStaticSet(MicroCompilerContext context, StaticSet node) {
     if (target is Field) {
       return context.pushOp(SetGlobalParam.make(node.target.name.text));
     } else if (target is Procedure) {
-      return compileCallProcedure(context, Arguments.empty(), target);
+      context.addScope("<StaticSet>", node.fileOffset);
+      int p = compileCallProcedure(context, Arguments([node.value]), target);
+      context.removeScope();
+      return p;
     }
   }
   return -1;
@@ -110,24 +119,18 @@ int compileStaticInvocation(
     MicroCompilerContext context, StaticInvocation node) {
   var procedure = node.target;
   var arguments = node.arguments;
-
-  return compileCallProcedure(context, arguments, procedure);
+  context.addScope("<StaticInvocation>", node.fileOffset);
+  int p = compileCallProcedure(context, arguments, procedure);
+  context.removeScope();
+  return p;
 }
 
 int compileCallProcedure(
     MicroCompilerContext context, Arguments arguments, Procedure procedure) {
   var name = procedure.getNamedName();
 
-  //新增一个作用域
-  //context.addScope("<StaticInvocation>", node.fileOffset);
-
   //将参数压入当前作用域
   compileArguments(context, arguments);
-
-  //如果不是静态方法则将instance加入栈
-  //if (!procedure.isStatic) {
-  //  context.pushOp(GetParam.make(name));
-  //}
 
   //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
   int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;

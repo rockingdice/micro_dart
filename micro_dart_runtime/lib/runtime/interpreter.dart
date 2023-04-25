@@ -3,8 +3,6 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-import '../bridge/bridge.dart';
-
 /// 解释器,字节码转换成操作集合
 /// 一个解释器可以执行多个运行时
 class MicroDartInterpreter {
@@ -26,6 +24,7 @@ class MicroDartInterpreter {
   /// 全局作用域
   final Scope rootScope = Scope("<root>");
 
+  //外部全局方法调用
   final Map<String, Function> externalFunctions = {};
 
   MicroDartInterpreter._(this._data);

@@ -1,6 +1,7 @@
 int main() {
   var i = 3;
   {
+    int c = 3;
     var k = fn1(0, i, c: 2);
     i = k;
     nothing();

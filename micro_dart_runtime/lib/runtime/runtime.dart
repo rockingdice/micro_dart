@@ -20,6 +20,10 @@ class MicroRuntime {
 
   final catchStack = <List<int>>[];
 
+  int get scopeIndex {
+    return _scopes.length - 1;
+  }
+
   Scope get scope {
     return _scopes.last;
   }
@@ -107,6 +111,21 @@ class MicroRuntime {
     return -1;
   }
 
+  void setScopeParam(String key, Object? value, {int location = -1}) {
+    if (location == -1) {
+      location = _scopes.length - 1;
+    }
+    _scopes[location].setParam(key, value);
+  }
+
+  /// 获取临时参数
+  Object? getScopeParam(String key, {int location = -1}) {
+    if (location == -1) {
+      location = _scopes.length - 1;
+    }
+    return _scopes[location].getParam(key);
+  }
+
   //作用域中是否存在参数,-1表示当前作用域
   bool scopeHasParam(String key, {int location = -1}) {
     if (location == -1) {
@@ -116,15 +135,14 @@ class MicroRuntime {
     return _scopes[location].hasParam(key);
   }
 
-  dynamic executeLib(String importUri, String functionName, List posational,
-      Map<String, dynamic> named,
+  dynamic callStaticFunction(String importUri, String functionName,
+      List posational, Map<String, dynamic> named,
       {bool debug = false}) {
     try {
       //清理
       _scopes.clear();
       callStack.clear();
       catchStack.clear();
-      //returnValue = null;
 
       //获取当前操作数指针
       opPointer = interpreter

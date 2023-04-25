@@ -46,7 +46,7 @@ void main() {
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
       expect(returnValue, 2);
     });
 
@@ -68,7 +68,7 @@ void main() {
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
       expect(returnValue, 3);
     });
 
@@ -90,7 +90,7 @@ void main() {
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
 
       expect(returnValue, 2);
     });
@@ -114,7 +114,7 @@ void main() {
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
 
       expect(returnValue, 10);
     });

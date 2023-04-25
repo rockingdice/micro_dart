@@ -46,8 +46,8 @@ void main() {
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.executeLib(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 1);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      expect(returnValue, 3);
     });
   });
 }

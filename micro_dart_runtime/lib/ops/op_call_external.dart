@@ -1,4 +1,4 @@
-part of 'ops.dart';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 const List<String> _operatorFunctions1 = ["unary-", "unary+", "~"];
 const List<String> _operatorFunctions2 = [
@@ -64,28 +64,28 @@ class CallExternal implements Op {
 
   @override
   int get opLen =>
-      Ops.BASE_OPLEN +
-      Ops.I16_LEN * 4 +
-      Ops.istr_len(key) +
-      Ops.istr_len(libraryUri) +
-      Ops.istr_len(className) +
-      Ops.istr_len(name) +
-      Ops.I32_LEN +
-      Ops.istrlist_len(namedList);
+      Ops.lenBegin +
+      Ops.lenI16 * 4 +
+      Ops.lenStr(key) +
+      Ops.lenStr(libraryUri) +
+      Ops.lenStr(className) +
+      Ops.lenStr(name) +
+      Ops.lenI32 +
+      Ops.lenStrlist(namedList);
 
   @override
   List<int> get bytes => [
-        Ops.OP_CALL_EXTERNAL,
+        Ops.opCallExternal,
         ...Ops.i16b(kind),
         ...Ops.i16b(isStatic ? 1 : 0),
         ...Ops.i16b(isGetter ? 1 : 0),
         ...Ops.i16b(isSetter ? 1 : 0),
-        ...Ops.istr(key),
-        ...Ops.istr(libraryUri),
-        ...Ops.istr(className),
-        ...Ops.istr(name),
+        ...Ops.str(key),
+        ...Ops.str(libraryUri),
+        ...Ops.str(className),
+        ...Ops.str(name),
         ...Ops.i32b(posationalLengh),
-        ...Ops.istrlist(namedList)
+        ...Ops.strlist(namedList)
       ];
 
   @override

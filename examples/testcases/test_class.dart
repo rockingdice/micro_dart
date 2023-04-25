@@ -12,11 +12,15 @@ class C {
         _p2 = 2;
 
   int get p2 {
-    return _p2;
+    return p1 + _p2;
+  }
+
+  int add(int p) {
+    return p2 + p;
   }
 }
 
 int main() {
-  var c1 = C(0, 1);
-  return c1.p2;
+  var c1 = C(1, 2);
+  return c1.add(3);
 }
