@@ -3,6 +3,8 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_push_list.dart';
+
 export 'op_set_object_property.dart';
 
 export 'op_return_field.dart';
@@ -56,6 +58,8 @@ class Ops {
   static const opGetObjectProperty = 20;
   static const opSetObjectProperty = 21;
   static const opReturnField = 22;
+
+  static const opPushList = 23;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -155,4 +159,5 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opGetObjectProperty: (MicroDartInterpreter rt) => GetObjectProperty(rt),
   Ops.opSetThisProperty: (MicroDartInterpreter rt) => SetThisProperty(rt),
   Ops.opReturnField: (MicroDartInterpreter rt) => ReturnField(rt),
+  Ops.opPushList: (MicroDartInterpreter rt) => PushList(rt),
 };

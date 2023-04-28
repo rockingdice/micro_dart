@@ -169,10 +169,14 @@ class MicroRuntime {
         op.run(this);
       }
     } on ProgramExit catch (_) {
-      if (scope.frames.isEmpty) {
+      final s = removeScope();
+      if (s.frames.isEmpty) {
+        s.clean();
         return null;
       }
-      return scope.frames.last;
+      var result = s.frames.last;
+      s.clean();
+      return result;
     } on RuntimeException catch (_) {
       rethrow;
     } on WrappedException catch (e) {

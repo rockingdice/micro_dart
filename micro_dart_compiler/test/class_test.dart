@@ -9,6 +9,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 import 'package:test/test.dart';
 
 import 'ast_to_json.dart';
+import 'ast_to_text.dart';
 
 const String pluginUri = "test:///main.dart";
 const String testCasePath = "../examples/testcases/";
@@ -35,6 +36,8 @@ void main() {
           await MicroCompiler.compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath$fileName", pluginUri, program.component);
+        writeComponentToText(program.component,
+            path: "$testCasePath$fileName.txt");
       }
       var interpreter =
           MicroDartInterpreter.fromData(program.write().buffer.asByteData());
@@ -47,7 +50,7 @@ void main() {
 
       var returnValue =
           runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 122);
+      expect(returnValue, 14);
     });
   });
 }

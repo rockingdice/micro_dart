@@ -30,6 +30,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileInstanceSet(context, node);
   } else if (node is ThisExpression) {
     return compileThisExpression(context, node);
+  } else if (node is ListLiteral) {
+    return compileListLiteral(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
@@ -44,19 +46,29 @@ int compileStringLiteral(MicroCompilerContext context, StringLiteral node) {
       .pushOp(PushConstant.make(context.constantPool.addOrGet(node.value)));
 }
 
+int compileListLiteral(MicroCompilerContext context, ListLiteral node) {
+  node.expressions.forEach((element) {
+    compileExpression(context, element);
+  });
+  context.pushOp(PushList.make(node.expressions.length));
+  return -1;
+}
+
 int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
   var target = node.interfaceTarget;
 
   if (target is Procedure) {
-    context.addScope("<InstanceGet>", node.fileOffset);
     compileExpression(context, node.receiver);
     int p = compileCallProcedure(context, Arguments([]), target);
-    context.removeScope();
     return p;
   } else if (target is Field) {
     compileExpression(context, node.receiver);
     int opOffset =
         context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
+    if (opOffset == -1) {
+      print("object ${target.getNamedName()} not found ");
+      return -1;
+    }
     return context.pushOp(GetObjectProperty.make(node.name.text, opOffset));
   }
 
@@ -68,12 +80,9 @@ int compileInstanceSet(MicroCompilerContext context, InstanceSet node) {
   if (target is Field) {
     compileExpression(context, node.value);
     compileExpression(context, node.receiver);
-
     return context.pushOp(SetObjectProperty.make(node.name.text));
   } else if (target is Procedure) {
-    context.addScope("<InstanceSet>", node.fileOffset);
     int p = compileCallProcedure(context, Arguments([node.value]), target);
-    context.removeScope();
     return p;
   }
 
@@ -85,7 +94,6 @@ int compileConstructorInvocation(
   var target = node.target;
   var arguments = node.arguments;
   context.addScope("<ConstructorInvocation>", node.fileOffset);
-
   int p = compileCallConstructor(context, arguments, target);
   context.removeScope();
   return p;
@@ -111,6 +119,13 @@ int compileConstantExpression(
   var constant = node.constant;
   if (constant is IntConstant) {
     return context.pushOp(PushConstantInt.make(constant.value));
+  } else if (constant is ConstructorTearOffConstant) {
+    var target = constant.target;
+    if (target is Constructor) {
+      return compileCallConstructor(context, Arguments.empty(), target);
+    } else if (target is Procedure) {
+      return compileCallProcedure(context, Arguments.empty(), target);
+    }
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
@@ -124,9 +139,9 @@ int compileStaticGet(MicroCompilerContext context, StaticGet node) {
   } else if (target is Procedure && target.isGetter) {
     var procedure = target;
     var arguments = Arguments.empty();
-    context.addScope("<StaticGet>", node.fileOffset);
+    //context.addScope("<StaticGet>", node.fileOffset);
     int p = compileCallProcedure(context, arguments, procedure);
-    context.removeScope();
+    //context.removeScope();
     return p;
   }
   return -1;
@@ -139,9 +154,7 @@ int compileStaticSet(MicroCompilerContext context, StaticSet node) {
     if (target is Field) {
       return context.pushOp(SetGlobalParam.make(node.target.name.text));
     } else if (target is Procedure) {
-      context.addScope("<StaticSet>", node.fileOffset);
       int p = compileCallProcedure(context, Arguments([node.value]), target);
-      context.removeScope();
       return p;
     }
   }

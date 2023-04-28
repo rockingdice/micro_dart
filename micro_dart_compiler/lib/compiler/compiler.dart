@@ -3,7 +3,6 @@ import 'package:front_end/src/api_unstable/vm.dart';
 import 'package:front_end/src/api_prototype/kernel_generator.dart'
     show kernelForProgramInternal;
 import 'package:kernel/ast.dart';
-import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/program.dart';
 
 import 'compile_source.dart';
@@ -53,10 +52,8 @@ class MicroCompiler {
       //顶部参数索引
       library.fields.forEach((node) {
         String name = node.getNamedName();
-
-        ///Library全局变量
         int p = compilerContext.lookupDeclarationIndex(name, node);
-        compilerContext.compileGlobalFieldIndexes.add(p);
+        compilerContext.compileFieldIndexes.add(p);
       });
       //对类进行索引
       library.classes.forEach((clazz) {
@@ -66,10 +63,7 @@ class MicroCompiler {
         clazz.fields.forEach((field) {
           String name = field.getNamedName();
           int p = compilerContext.lookupDeclarationIndex(name, field);
-
-          if (field.isStatic) {
-            compilerContext.compileGlobalFieldIndexes.add(p);
-          }
+          compilerContext.compileFieldIndexes.add(p);
         });
         //对类中方法进行索引
         clazz.procedures.forEach((procedure) {

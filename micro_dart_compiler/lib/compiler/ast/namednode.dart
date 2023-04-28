@@ -230,8 +230,8 @@ void compileNamedNode(MicroCompilerContext context, NamedNode node) {
   }
 }
 
-void compileGlobalFields(MicroCompilerContext context) {
-  context.compileGlobalFieldIndexes.forEach((index) {
+void compileFields(MicroCompilerContext context) {
+  context.compileFieldIndexes.forEach((index) {
     compileNamedNode(context, context.compileDeclarations[index]);
   });
 }
@@ -244,7 +244,7 @@ void compileDeclarations(MicroCompilerContext context) {
 
 void compileContext(MicroCompilerContext context) {
   //对全局参数进行编译
-  compileGlobalFields(context);
+  compileFields(context);
   //对所有声明进行编译
   compileDeclarations(context);
 }

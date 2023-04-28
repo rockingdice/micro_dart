@@ -115,8 +115,5 @@ int compileCallProcedure(
             posationalLengh: arguments.positional.length));
   }
 
-  //调用方法结束之后
-  //删除一个作用域
-  //context.removeScope();
   return location;
 }

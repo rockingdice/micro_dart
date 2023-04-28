@@ -8,7 +8,7 @@ class MicroCompilerContext {
   final List<NamedNode> compileDeclarations = [];
 
   final Map<String, int> compileDeclarationIndexes = <String, int>{};
-  final List<int> compileGlobalFieldIndexes = [];
+  final List<int> compileFieldIndexes = [];
 
   final Map<String, int> rumtimeDeclarationOpIndexes = {};
 
