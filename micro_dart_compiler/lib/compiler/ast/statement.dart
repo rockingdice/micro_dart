@@ -1,11 +1,10 @@
 part of 'ast.dart';
 
-void compileStatement(MicroCompilerContext context, Statement? node,
-    {DartType? returnType}) {
-  if (node == null) {
-    return;
-  }
-
+void compileStatement(
+  MicroCompilerContext context,
+  Statement node,
+) {
+  context.printCompileNode(node);
   if (node is Block) {
     compileBlock(context, node);
   } else if (node is VariableDeclaration) {
@@ -20,8 +19,6 @@ void compileStatement(MicroCompilerContext context, Statement? node,
 void compileBlock(MicroCompilerContext context, Block node,
     {bool createScope = true}) {
   if (node.statements.isNotEmpty) {
-    //ReturnStatement? returnStatement;
-
     if (createScope) {
       context.addScope("<block>", node.fileOffset);
     }
@@ -41,10 +38,10 @@ void compileVariableDeclaration(
     //有初始值
 
     compileExpression(context, node.initializer!);
-    context.pushOp(SetScopeParam.make(-1, node.name!));
+    context.pushOp(SetScopeParam.make(node.name!));
   } else {
     //没有初始值则先填充null
-    context.pushOp(SetScopeParamNull.make(-1, node.name!));
+    context.pushOp(SetScopeParamNull.make(node.name!));
   }
 }
 
@@ -58,7 +55,7 @@ void compileReturnStatement(
   if (node.expression != null) {
     int res = compileExpression(context, node.expression!);
     if (res != -1) {
-      context.pushOp(Return.make(res));
+      context.pushOp(Return.make());
     }
   }
 }

@@ -9,7 +9,7 @@ class SetPosationalParam implements Op {
   final String name;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenI16 + Ops.lenStr(name);
+  int get opLen => Ops.lenBegin + Ops.lenStr(name);
 
   @override
   List<int> get bytes => [Ops.opSetPosationalParam, ...Ops.str(name)];

@@ -16,29 +16,32 @@ class MicroCompiler {
       Uri mainSource,
       List<Uri> additionalSources,
       String pluginUri,
-      CompilerOptions compilerOptions) async {
+      CompilerOptions compilerOptions,
+      {bool debug = false}) async {
     var result = await kernelForProgramInternal(mainSource, compilerOptions,
         additionalSources: additionalSources, requireMain: false);
 
-    return compileComponent(pluginUri, result!.component!);
+    return compileComponent(pluginUri, result!.component!, debug);
   }
 
   ///编译文本代码,一般用于测试
-  static Future<Program> compileSource(String pluginUri,
-      CompilerOptions options, Map<String, String> sources) async {
+  static Future<Program> compileSource(
+      String pluginUri, CompilerOptions options, Map<String, String> sources,
+      {bool debug = false}) async {
     var component =
         await compileUnit(sources.keys.toList(), sources, options: options);
 
-    return compileComponent(pluginUri, component!);
+    return compileComponent(pluginUri, component!, debug);
   }
 
-  static Program compileComponent(String pluginUri, Component component) {
+  static Program compileComponent(
+      String pluginUri, Component component, bool debug) {
     //删除pluginUri以外的library
     component.libraries
         .removeWhere((element) => element.importUri.toString() != pluginUri);
 
     //初始化编译上下文
-    var compilerContext = MicroCompilerContext(CoreTypes(component));
+    var compilerContext = MicroCompilerContext(debug);
 
     component.libraries.forEach((library) {
       //顶部方法索引

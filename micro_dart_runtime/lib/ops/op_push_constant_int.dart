@@ -20,5 +20,5 @@ class PushConstantInt implements Op {
   }
 
   @override
-  String toString() => 'PushConstantInt ($_value)';
+  String toString() => 'PushConstantInt($_value)';
 }

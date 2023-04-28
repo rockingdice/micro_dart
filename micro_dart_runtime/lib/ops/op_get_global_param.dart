@@ -11,7 +11,7 @@ class GetGlobalParam implements Op {
   final int _location;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_name);
+  int get opLen => Ops.lenBegin + Ops.lenStr(_name) + Ops.lenI32;
 
   @override
   List<int> get bytes =>

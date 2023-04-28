@@ -14,7 +14,7 @@ class Scope {
 
   @override
   String toString() {
-    return "Scope(name:$name,params:${_params.toString()},frames:${frames.toString()})";
+    return "Scope($_params,$frames)";
   }
 
   /// 获取参数

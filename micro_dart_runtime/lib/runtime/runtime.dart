@@ -4,10 +4,8 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 class MicroRuntime {
   //解释器
   final MicroDartInterpreter interpreter;
-  //全局作用域
-  final Scope? _rootScope;
 
-  MicroRuntime(this.interpreter, {Scope? rootScope}) : _rootScope = rootScope;
+  MicroRuntime(this.interpreter);
 
   /// 作用域集合
   final _scopes = <Scope>[];
@@ -68,15 +66,15 @@ class MicroRuntime {
   }
 
   Object? getGlobalParam(String key) {
-    return _rootScope?.getParam(key);
+    return interpreter.globals[key];
   }
 
   void setGlobalParam(String key, Object? value) {
-    _rootScope?.setParam(key, value);
+    interpreter.globals[key] = value;
   }
 
   bool hasGlobalParam(String key) {
-    return _rootScope?.hasParam(key) ?? false;
+    return interpreter.globals.containsKey(key);
   }
 
   Object? getParamFromScope(String key, {int location = -1}) {
@@ -162,13 +160,13 @@ class MicroRuntime {
       catchStack.add([]);
       //执行方法
       while (true) {
-        final oldPointer = opPointer;
+        int oldPointer = opPointer;
         final op = interpreter.ops[opPointer++];
-        op.run(this);
         if (debug) {
           print(
-              "$oldPointer start run: ${op.toString()} scope:${scope.toString()}");
+              "$oldPointer ${_scopes.length} start:${op.toString()}:${toString()}");
         }
+        op.run(this);
       }
     } on ProgramExit catch (_) {
       if (scope.frames.isEmpty) {
@@ -182,5 +180,10 @@ class MicroRuntime {
     } catch (e, stk) {
       throw RuntimeException(this, e, stk);
     }
+  }
+
+  @override
+  String toString() {
+    return "(g:${interpreter.globals},s:${_scopes.toString()}}";
   }
 }

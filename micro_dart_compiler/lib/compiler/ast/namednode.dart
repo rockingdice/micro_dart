@@ -218,6 +218,7 @@ extension ExtensionNamedNode on NamedNode {
 }
 
 void compileNamedNode(MicroCompilerContext context, NamedNode node) {
+  context.printCompileNode(node);
   if (node is Procedure) {
     compileProcedure(context, node);
   } else if (node is Field) {

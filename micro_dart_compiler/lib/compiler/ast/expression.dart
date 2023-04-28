@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileExpression(MicroCompilerContext context, Expression node) {
+  context.printCompileNode(node);
   if (node is IntLiteral) {
     return compileIntLiteral(context, node);
   } else if (node is VariableSet) {
@@ -23,9 +24,19 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileStringLiteral(context, node);
   } else if (node is InstanceInvocation) {
     return compileInstanceInvocation(context, node);
+  } else if (node is InstanceGet) {
+    return compileInstanceGet(context, node);
+  } else if (node is InstanceSet) {
+    return compileInstanceSet(context, node);
+  } else if (node is ThisExpression) {
+    return compileThisExpression(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
+}
+
+int compileThisExpression(MicroCompilerContext context, ThisExpression node) {
+  return context.pushOp(GetParam.make("#this"));
 }
 
 int compileStringLiteral(MicroCompilerContext context, StringLiteral node) {
@@ -34,12 +45,50 @@ int compileStringLiteral(MicroCompilerContext context, StringLiteral node) {
 }
 
 int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
+  var target = node.interfaceTarget;
+
+  if (target is Procedure) {
+    context.addScope("<InstanceGet>", node.fileOffset);
+    compileExpression(context, node.receiver);
+    int p = compileCallProcedure(context, Arguments([]), target);
+    context.removeScope();
+    return p;
+  } else if (target is Field) {
+    compileExpression(context, node.receiver);
+    int opOffset =
+        context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
+    return context.pushOp(GetObjectProperty.make(node.name.text, opOffset));
+  }
+
+  return -1;
+}
+
+int compileInstanceSet(MicroCompilerContext context, InstanceSet node) {
+  var target = node.interfaceTarget;
+  if (target is Field) {
+    compileExpression(context, node.value);
+    compileExpression(context, node.receiver);
+
+    return context.pushOp(SetObjectProperty.make(node.name.text));
+  } else if (target is Procedure) {
+    context.addScope("<InstanceSet>", node.fileOffset);
+    int p = compileCallProcedure(context, Arguments([node.value]), target);
+    context.removeScope();
+    return p;
+  }
+
   return -1;
 }
 
 int compileConstructorInvocation(
     MicroCompilerContext context, ConstructorInvocation node) {
-  return -1;
+  var target = node.target;
+  var arguments = node.arguments;
+  context.addScope("<ConstructorInvocation>", node.fileOffset);
+
+  int p = compileCallConstructor(context, arguments, target);
+  context.removeScope();
+  return p;
 }
 
 int compileInstanceInvocation(
@@ -59,7 +108,11 @@ int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
 
 int compileConstantExpression(
     MicroCompilerContext context, ConstantExpression node) {
-  return compileConstant(context, node.constant);
+  var constant = node.constant;
+  if (constant is IntConstant) {
+    return context.pushOp(PushConstantInt.make(constant.value));
+  }
+  throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
 
 int compileStaticGet(MicroCompilerContext context, StaticGet node) {
@@ -75,7 +128,6 @@ int compileStaticGet(MicroCompilerContext context, StaticGet node) {
     int p = compileCallProcedure(context, arguments, procedure);
     context.removeScope();
     return p;
-    //context.pushOp(GetGlobalParam.make(target.name.text));
   }
   return -1;
 }
@@ -111,7 +163,6 @@ int compileVariableGet(MicroCompilerContext context, VariableGet node) {
   if (name != null) {
     context.pushOp(GetParam.make(name));
   }
-
   return 0;
 }
 
@@ -123,33 +174,4 @@ int compileStaticInvocation(
   int p = compileCallProcedure(context, arguments, procedure);
   context.removeScope();
   return p;
-}
-
-int compileCallProcedure(
-    MicroCompilerContext context, Arguments arguments, Procedure procedure) {
-  var name = procedure.getNamedName();
-
-  //将参数压入当前作用域
-  compileArguments(context, arguments);
-
-  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
-  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
-  //调用Call方法,并且返回位置
-  int location = context.pushOp(Call.make(opOffset));
-  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
-  if (opOffset == -1) {
-    context.offsetTracker.setOffset(
-        location,
-        DeferredOrOffset(
-            offset: opOffset,
-            kind: DeferredOrOffsetKind.Procedure,
-            node: procedure,
-            namedList: arguments.named.map((e) => e.name).toList(),
-            posationalLengh: arguments.positional.length));
-  }
-
-  //调用方法结束之后
-  //删除一个作用域
-  //context.removeScope();
-  return location;
 }

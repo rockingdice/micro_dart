@@ -22,7 +22,7 @@ class MicroDartInterpreter {
   int _fileOffset = 0;
 
   /// 全局作用域
-  final Scope rootScope = Scope("<root>");
+  final Map<String, Object?> globals = {};
 
   //外部全局方法调用
   final Map<String, Function> externalFunctions = {};
@@ -119,6 +119,6 @@ class MicroDartInterpreter {
   }
 
   MicroRuntime createRuntime() {
-    return MicroRuntime(this, rootScope: rootScope);
+    return MicroRuntime(this);
   }
 }

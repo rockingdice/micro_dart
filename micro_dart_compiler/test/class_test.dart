@@ -34,7 +34,7 @@ void main() {
       var program =
           await MicroCompiler.compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
-        astToJson("testprint/$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUri, program.component);
       }
       var interpreter =
           MicroDartInterpreter.fromData(program.write().buffer.asByteData());
@@ -42,12 +42,12 @@ void main() {
       if (printOp) {
         interpreter.printOpcodes();
       }
-
+      interpreter.addExternalFunctions(coreLibrary);
       var runtime = interpreter.createRuntime();
 
       var returnValue =
           runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 3);
+      expect(returnValue, 122);
     });
   });
 }

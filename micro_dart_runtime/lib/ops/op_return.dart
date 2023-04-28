@@ -1,15 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class Return implements Op {
-  Return(MicroDartInterpreter interpreter)
-      : _location = interpreter.readInt16();
+  Return(MicroDartInterpreter interpreter);
 
-  Return.make(this._location);
-
-  final int _location;
+  Return.make();
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenI16;
+  int get opLen => Ops.lenBegin;
 
   @override
   void run(MicroRuntime runtime) {
@@ -28,8 +25,8 @@ class Return implements Op {
   }
 
   @override
-  String toString() => 'Return (L:$_location)';
+  String toString() => 'Return()';
 
   @override
-  List<int> get bytes => [Ops.opReturn, ...Ops.i16b(_location)];
+  List<int> get bytes => [Ops.opReturn];
 }

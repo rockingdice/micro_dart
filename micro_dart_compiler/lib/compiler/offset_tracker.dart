@@ -57,7 +57,7 @@ enum DeferredOrOffsetKind {
 class DeferredOrOffset {
   final DeferredOrOffsetKind kind;
   final int offset;
-  final NamedNode node;
+  final Member node;
   final int posationalLengh;
   List<String> namedList;
 

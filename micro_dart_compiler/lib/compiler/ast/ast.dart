@@ -8,7 +8,6 @@ import '../context.dart';
 part 'namednode.dart';
 part 'statement.dart';
 part 'expression.dart';
-part 'constant.dart';
 part 'arguments.dart';
 part 'procedure.dart';
 part 'field.dart';

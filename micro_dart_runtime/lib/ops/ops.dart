@@ -3,6 +3,16 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_set_object_property.dart';
+
+export 'op_return_field.dart';
+
+export 'op_set_this_property.dart';
+
+export 'op_get_object_property.dart';
+
+export 'op_create_instance.dart';
+
 export 'op_push_constant.dart';
 
 export 'op_call.dart';
@@ -41,6 +51,11 @@ class Ops {
   static const opCallExternal = 15;
   static const opSetScopeParam = 16;
   static const opSetScopeParamNull = 17;
+  static const opCreateInstance = 18;
+  static const opSetThisProperty = 19;
+  static const opGetObjectProperty = 20;
+  static const opSetObjectProperty = 21;
+  static const opReturnField = 22;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -51,6 +66,12 @@ class Ops {
 
   static int lenStr(String str) {
     return lenI32 + utf8.encode(str).length;
+  }
+
+  static List<int> i8b(int i8) {
+    final x = ByteData(1);
+    x.setInt8(0, i8);
+    return [x.getUint8(0)];
   }
 
   static List<int> i16b(int i16) {
@@ -129,4 +150,9 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opCallExternal: (MicroDartInterpreter rt) => CallExternal(rt),
   Ops.opSetScopeParam: (MicroDartInterpreter rt) => SetScopeParam(rt),
   Ops.opSetScopeParamNull: (MicroDartInterpreter rt) => SetScopeParamNull(rt),
+  Ops.opCreateInstance: (MicroDartInterpreter rt) => CreateInstance(rt),
+  Ops.opSetObjectProperty: (MicroDartInterpreter rt) => SetObjectProperty(rt),
+  Ops.opGetObjectProperty: (MicroDartInterpreter rt) => GetObjectProperty(rt),
+  Ops.opSetThisProperty: (MicroDartInterpreter rt) => SetThisProperty(rt),
+  Ops.opReturnField: (MicroDartInterpreter rt) => ReturnField(rt),
 };

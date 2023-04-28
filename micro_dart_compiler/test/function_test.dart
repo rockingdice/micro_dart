@@ -92,7 +92,7 @@ void main() {
       var returnValue =
           runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
 
-      expect(returnValue, 2);
+      expect(returnValue, 100);
     });
 
     test(':test call external', () async {

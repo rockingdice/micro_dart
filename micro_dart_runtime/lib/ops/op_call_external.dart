@@ -26,10 +26,10 @@ const List<String> _operatorFunctions3 = ["[]="];
 ///调用外部方法
 class CallExternal implements Op {
   CallExternal(MicroDartInterpreter interpreter)
-      : kind = interpreter.readInt16(),
-        isStatic = interpreter.readInt16() == 1 ? true : false,
-        isGetter = interpreter.readInt16() == 1 ? true : false,
-        isSetter = interpreter.readInt16() == 1 ? true : false,
+      : kind = interpreter.readUint8(),
+        isStatic = interpreter.readUint8() == 1 ? true : false,
+        isGetter = interpreter.readUint8() == 1 ? true : false,
+        isSetter = interpreter.readUint8() == 1 ? true : false,
         key = interpreter.readString(),
         libraryUri = interpreter.readString(),
         className = interpreter.readString(),
@@ -65,7 +65,7 @@ class CallExternal implements Op {
   @override
   int get opLen =>
       Ops.lenBegin +
-      Ops.lenI16 * 4 +
+      Ops.lenI8 * 4 +
       Ops.lenStr(key) +
       Ops.lenStr(libraryUri) +
       Ops.lenStr(className) +
@@ -76,10 +76,10 @@ class CallExternal implements Op {
   @override
   List<int> get bytes => [
         Ops.opCallExternal,
-        ...Ops.i16b(kind),
-        ...Ops.i16b(isStatic ? 1 : 0),
-        ...Ops.i16b(isGetter ? 1 : 0),
-        ...Ops.i16b(isSetter ? 1 : 0),
+        ...Ops.i8b(kind),
+        ...Ops.i8b(isStatic ? 1 : 0),
+        ...Ops.i8b(isGetter ? 1 : 0),
+        ...Ops.i8b(isSetter ? 1 : 0),
         ...Ops.str(key),
         ...Ops.str(libraryUri),
         ...Ops.str(className),
@@ -127,8 +127,11 @@ class CallExternal implements Op {
             .pushFrame(runtime.interpreter.externalFunctions[key]!(target));
         return;
       } else if (_operatorFunctions2.contains(name)) {
-        runtime.scope.pushFrame(runtime.interpreter.externalFunctions[key]!(
-            target, positionalArguments.first));
+        var function = runtime.interpreter.externalFunctions[key];
+        if (function == null) {
+          print("$key is null");
+        }
+        runtime.scope.pushFrame(function!(target, positionalArguments.first));
         return;
       } else if (_operatorFunctions3.contains(name)) {
         runtime.scope.pushFrame(runtime.interpreter.externalFunctions[key]!(
@@ -145,5 +148,5 @@ class CallExternal implements Op {
 
   @override
   String toString() =>
-      'CallExternal ($kind,$isStatic,$isGetter,$isSetter,$key,$libraryUri,$className,$name)';
+      'CallExternal($kind,$isStatic,$isGetter,$isSetter,$key,$libraryUri,$className,$name,$posationalLengh,$namedList)';
 }

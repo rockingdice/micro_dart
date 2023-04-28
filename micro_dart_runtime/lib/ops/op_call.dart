@@ -24,5 +24,5 @@ class Call implements Op {
   }
 
   @override
-  String toString() => 'Call (@$_offset)';
+  String toString() => 'Call(@$_offset)';
 }

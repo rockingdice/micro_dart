@@ -2,25 +2,21 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetScopeParam implements Op {
   SetScopeParam(MicroDartInterpreter interpreter)
-      : location = interpreter.readInt32(),
-        name = interpreter.readString();
+      : name = interpreter.readString();
 
-  SetScopeParam.make(this.location, this.name);
-
-  final int location;
+  SetScopeParam.make(this.name);
   final String name;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenI32 + Ops.lenStr(name);
+  int get opLen => Ops.lenBegin + Ops.lenStr(name);
 
   @override
-  List<int> get bytes =>
-      [Ops.opSetScopeParam, ...Ops.i32b(location), ...Ops.str(name)];
+  List<int> get bytes => [Ops.opSetScopeParam, ...Ops.str(name)];
 
   @override
   void run(MicroRuntime runtime) {
     var value = runtime.scope.popFrame();
-    runtime.setScopeParam(name, value, location: location);
+    runtime.setScopeParam(name, value);
   }
 
   @override
