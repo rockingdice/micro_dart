@@ -25,7 +25,7 @@ const List<String> _operatorFunctions3 = ["[]="];
 
 ///调用外部方法
 class CallExternal implements Op {
-  CallExternal(MicroDartInterpreter interpreter)
+  CallExternal(MicroDartEngine interpreter)
       : kind = interpreter.readUint8(),
         isStatic = interpreter.readUint8() == 1 ? true : false,
         isGetter = interpreter.readUint8() == 1 ? true : false,
@@ -94,10 +94,30 @@ class CallExternal implements Op {
     for (int i = 0; i < posationalLengh; i++) {
       positionalArguments.add(runtime.scope.popFrame());
     }
+
+    //表示这是构造函数初始化
+    if (kind == 3) {
+      var function = runtime.interpreter.externalFunctions[key];
+      Map<String, dynamic> namedArguments = {};
+      for (var element in namedList) {
+        namedArguments[element] = runtime.getParam(element);
+      }
+      //这里需要修改
+      var instance = InstanceBridge(
+        runtime.interpreter,
+        function!(positionalArguments, namedArguments),
+        libraryUri,
+        className,
+      );
+      runtime.scope.pushFrame(instance);
+      return;
+    }
+
     Map<Symbol, dynamic> namedArguments = {};
     for (var element in namedList) {
       namedArguments[Symbol(element)] = runtime.getParam(element);
     }
+
     if (isStatic) {
       if (isGetter) {
         runtime.scope.pushFrame(runtime.interpreter.externalFunctions[key]!);
@@ -128,9 +148,6 @@ class CallExternal implements Op {
         return;
       } else if (_operatorFunctions2.contains(name)) {
         var function = runtime.interpreter.externalFunctions[key];
-        if (function == null) {
-          print("$key is null");
-        }
         runtime.scope.pushFrame(function!(target, positionalArguments.first));
         return;
       } else if (_operatorFunctions3.contains(name)) {

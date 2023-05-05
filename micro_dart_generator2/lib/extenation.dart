@@ -27,12 +27,12 @@ String _getClassElementKey(ClassElement element) {
 }
 
 String _getConstructorElementKey(ConstructorElement element) {
-  return "${element.library.identifier}@${(element.enclosingElement as ClassElement).name}:constructor@${element.name}";
+  return "${element.library.identifier}@${(element.enclosingElement as ClassElement).name}@${element.name}";
 }
 
 String _getMethodKey(MethodElement element) {
   var key =
-      "${element.library.identifier}@${(element.enclosingElement as ClassElement).displayName}:procedure@${element.name}";
+      "${element.library.identifier}@${(element.enclosingElement as ClassElement).displayName}@${element.name}";
   if (element.isStatic) {
     key = "$key:static";
   }
@@ -40,16 +40,16 @@ String _getMethodKey(MethodElement element) {
 }
 
 String _getFunctionKey(FunctionElement element) {
-  return "${element.library.identifier}@:procedure@${element.name}:static";
+  return "${element.library.identifier}@@${element.name}:static";
 }
 
 String _getTopLevelVariableKey(TopLevelVariableElement element) {
-  return "${element.library.identifier}@:field@${element.name}:static";
+  return "${element.library.identifier}@@${element.name}:static";
 }
 
 String _getFieldKey(FieldElement element) {
   var key =
-      "${element.library.identifier}@${(element.enclosingElement as ClassElement).displayName}:field@${element.name}";
+      "${element.library.identifier}@${(element.enclosingElement as ClassElement).displayName}@${element.name}";
   if (element.isStatic) {
     key = "$key:static";
   }
@@ -65,9 +65,6 @@ String _getPropertyAccessorKey(PropertyAccessorElement element) {
   var key = "${element.library.identifier}@$className@${element.displayName}";
   if (element.isStatic) {
     key = "$key:static";
-  }
-  if (element.isGetter) {
-    key = "$key:get";
   }
   if (element.isSetter) {
     key = "$key:set";

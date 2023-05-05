@@ -22,8 +22,8 @@ final CompilerOptions options = CompilerOptions()
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;
 
 void main() {
   group('Function tests', () {
@@ -37,7 +37,7 @@ void main() {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
       var interpreter =
-          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
 
       if (printOp) {
         interpreter.printOpcodes();
@@ -45,8 +45,7 @@ void main() {
 
       var runtime = interpreter.createRuntime();
 
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      var returnValue = runtime.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 2);
     });
 
@@ -60,15 +59,14 @@ void main() {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
       var interpreter =
-          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
       if (printOp) {
         interpreter.printOpcodes();
       }
 
       var runtime = interpreter.createRuntime();
 
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      var returnValue = runtime.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 3);
     });
 
@@ -82,15 +80,14 @@ void main() {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
       var interpreter =
-          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
       if (printOp) {
         interpreter.printOpcodes();
       }
 
       var runtime = interpreter.createRuntime();
 
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      var returnValue = runtime.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 100);
     });
@@ -105,7 +102,7 @@ void main() {
         astToJson("testprint/$fileName", pluginUri, program.component);
       }
       var interpreter =
-          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
       interpreter.addExternalFunctions(coreLibrary);
       if (printOp) {
         interpreter.printOpcodes();
@@ -113,8 +110,7 @@ void main() {
 
       var runtime = interpreter.createRuntime();
 
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      var returnValue = runtime.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 10);
     });

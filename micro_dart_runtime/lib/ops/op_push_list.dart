@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class PushList implements Op {
-  PushList(MicroDartInterpreter runtime) : _length = runtime.readInt32();
+  PushList(MicroDartEngine runtime) : _length = runtime.readInt32();
 
   PushList.make(this._length);
 

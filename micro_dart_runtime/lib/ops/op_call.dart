@@ -2,7 +2,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class Call implements Op {
-  Call(MicroDartInterpreter interpreter) : _offset = interpreter.readInt32();
+  Call(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
 
   Call.make(this._offset);
 

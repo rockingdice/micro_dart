@@ -1,8 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetGlobalParam implements Op {
-  SetGlobalParam(MicroDartInterpreter interpreter)
-      : name = interpreter.readString();
+  SetGlobalParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
   SetGlobalParam.make(this.name);
 

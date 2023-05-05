@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class GetParam implements Op {
-  GetParam(MicroDartInterpreter interpreter) : name = interpreter.readString();
+  GetParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
   GetParam.make(this.name);
 

@@ -1,8 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetScopeParam implements Op {
-  SetScopeParam(MicroDartInterpreter interpreter)
-      : name = interpreter.readString();
+  SetScopeParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
   SetScopeParam.make(this.name);
   final String name;

@@ -1,8 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetParamNull implements Op {
-  SetParamNull(MicroDartInterpreter interpreter)
-      : name = interpreter.readString();
+  SetParamNull(MicroDartEngine interpreter) : name = interpreter.readString();
 
   SetParamNull.make(this.name);
 

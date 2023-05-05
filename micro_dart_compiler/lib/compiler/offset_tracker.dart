@@ -4,6 +4,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 import 'context.dart';
 
+//用于调用重定向,使调用重定向到到正确的位置
 class OffsetTracker {
   OffsetTracker(this.context);
 
@@ -23,7 +24,8 @@ class OffsetTracker {
             context.rumtimeDeclarationOpIndexes[offset.node.getNamedName()];
         if (resolvedOffset == null) {
           //表示这是个外部的调用
-          print("no such node: ${offset.node.getNamedName()} ");
+          print("call external: ${offset.node.getNamedName()} ");
+
           final newOp = CallExternal.make(
               className: offset.node.stringClassName ?? "",
               isGetter: offset.node.isGetter,

@@ -23,7 +23,7 @@ final CompilerOptions options = CompilerOptions()
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
 
-const bool astToJsonFlag = true;
+const bool astToJsonFlag = false;
 const bool printOp = true;
 
 void main() {
@@ -40,7 +40,7 @@ void main() {
             path: "$testCasePath$fileName.txt");
       }
       var interpreter =
-          MicroDartInterpreter.fromData(program.write().buffer.asByteData());
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
 
       if (printOp) {
         interpreter.printOpcodes();
@@ -51,6 +51,31 @@ void main() {
       var returnValue =
           runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
       expect(returnValue, 14);
+    });
+
+    test(':test class extends', () async {
+      String fileName = "test_class_extends.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program =
+          await MicroCompiler.compileSource(pluginUri, options, sources);
+      if (astToJsonFlag) {
+        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        //writeComponentToText(program.component,
+        //    path: "$testCasePath$fileName.txt");
+      }
+      var interpreter =
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
+
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+      interpreter.addExternalFunctions(coreLibrary);
+      var runtime = interpreter.createRuntime();
+
+      var returnValue =
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
+      expect(returnValue, 20);
     });
   });
 }

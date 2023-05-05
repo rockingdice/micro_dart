@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetScopeParamNull implements Op {
-  SetScopeParamNull(MicroDartInterpreter interpreter)
+  SetScopeParamNull(MicroDartEngine interpreter)
       : name = interpreter.readString();
 
   SetScopeParamNull.make(this.name);

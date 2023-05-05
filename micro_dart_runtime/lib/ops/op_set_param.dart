@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetParam implements Op {
-  SetParam(MicroDartInterpreter interpreter) : name = interpreter.readString();
+  SetParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
   SetParam.make(this.name);
 
@@ -16,7 +16,7 @@ class SetParam implements Op {
   @override
   void run(MicroRuntime runtime) {
     var value = runtime.scope.popFrame();
-    runtime.setParam(name, value);
+    runtime.scope.setParam(name, value);
   }
 
   @override

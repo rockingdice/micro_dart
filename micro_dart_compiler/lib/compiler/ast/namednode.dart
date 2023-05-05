@@ -97,7 +97,7 @@ extension ExtensionNamedNode on NamedNode {
     String className = clazz.name;
     String libraryUri = (clazz.parent as Library).importUri.toString();
 
-    return "$libraryUri@$className:constructor@$constructorName";
+    return "$libraryUri@$className@$constructorName";
   }
 
   String get stringLibraryUri {
@@ -176,10 +176,10 @@ extension ExtensionNamedNode on NamedNode {
     }
 
     if (thiz.isStatic) {
-      fieldName = "$fieldName@static";
+      fieldName = "$fieldName:static";
     }
 
-    return "$libraryUri@$className:field@$fieldName";
+    return "$libraryUri@$className@$fieldName";
   }
 
   String getRedirectingFactoryName() {
@@ -188,7 +188,7 @@ extension ExtensionNamedNode on NamedNode {
     String className = (this.parent as Class).name;
     String libraryUri = (this.parent!.parent as Library).importUri.toString();
 
-    return "$libraryUri@$className:factory@$factoryName";
+    return "$libraryUri@$className@$factoryName";
   }
 
   String getProcedureName() {
@@ -207,13 +207,11 @@ extension ExtensionNamedNode on NamedNode {
       procedureName = "$procedureName:static";
     }
 
-    if (thiz.isGetter) {
-      procedureName = "$procedureName:get";
-    } else if (thiz.isSetter) {
+    if (thiz.isSetter) {
       procedureName = "$procedureName:set";
     }
 
-    return "$libraryUri@$className:procedure@$procedureName";
+    return "$libraryUri@$className@$procedureName";
   }
 }
 

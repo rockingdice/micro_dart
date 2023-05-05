@@ -22,7 +22,8 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   });
 
   //context.removeScope();
-  context.pushOp(CreateInstance.make());
+  context.pushOp(
+      CreateInstance.make(node.stringLibraryUri, node.stringClassName!));
   context.pushOp(SetParam.make("#this"));
 
   //filed初始化
@@ -67,7 +68,15 @@ void compileFieldInitializer(
 }
 
 void compileSuperInitializer(
-    MicroCompilerContext context, SuperInitializer initializer) {}
+    MicroCompilerContext context, SuperInitializer initializer) {
+  var target = initializer.target;
+  var arguments = initializer.arguments;
+  context.addScope("<SuperInitializer>", initializer.fileOffset);
+  compileCallConstructor(context, arguments, target);
+
+  context.pushOp(SetThisProperty.make("#super"));
+  context.removeScope();
+}
 
 void compileRedirectingInitializer(
     MicroCompilerContext context, RedirectingInitializer initializer) {}
@@ -83,6 +92,10 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   var name = constructor.getNamedName();
   //将参数压入当前作用域
   compileArguments(context, arguments);
+
+  if (!context.compileDeclarations.contains(name)) {
+    //表示这是外部的类,这个类可能是抽象类也可能是实体类
+  }
 
   //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
   int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;

@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class GetGlobalParam implements Op {
-  GetGlobalParam(MicroDartInterpreter interpreter)
+  GetGlobalParam(MicroDartEngine interpreter)
       : _name = interpreter.readString(),
         _location = interpreter.readInt32();
 

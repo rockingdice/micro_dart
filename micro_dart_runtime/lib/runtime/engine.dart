@@ -5,7 +5,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 /// 解释器,字节码转换成操作集合
 /// 一个解释器可以执行多个运行时
-class MicroDartInterpreter {
+class MicroDartEngine {
   /// 执行字节码
   final ByteData _data;
 
@@ -27,10 +27,10 @@ class MicroDartInterpreter {
   //外部全局方法调用
   final Map<String, Function> externalFunctions = {};
 
-  MicroDartInterpreter._(this._data);
+  MicroDartEngine._(this._data);
 
-  factory MicroDartInterpreter.fromData(ByteData data) {
-    var interpreter = MicroDartInterpreter._(data).._load();
+  factory MicroDartEngine.fromData(ByteData data) {
+    var interpreter = MicroDartEngine._(data).._load();
 
     return interpreter;
   }

@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class PushNull implements Op {
-  PushNull(MicroDartInterpreter exec);
+  PushNull(MicroDartEngine exec);
 
   PushNull.make();
 

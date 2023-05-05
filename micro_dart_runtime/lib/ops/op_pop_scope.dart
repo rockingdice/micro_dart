@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class PopScope implements Op {
-  PopScope(MicroDartInterpreter interpreter);
+  PopScope(MicroDartEngine interpreter);
 
   PopScope.make();
 

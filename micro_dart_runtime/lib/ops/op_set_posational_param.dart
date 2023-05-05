@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetPosationalParam implements Op {
-  SetPosationalParam(MicroDartInterpreter interpreter)
+  SetPosationalParam(MicroDartEngine interpreter)
       : name = interpreter.readString();
 
   SetPosationalParam.make(this.name);

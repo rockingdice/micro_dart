@@ -32,9 +32,44 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileThisExpression(context, node);
   } else if (node is ListLiteral) {
     return compileListLiteral(context, node);
+  } else if (node is SuperMethodInvocation) {
+    return compileSuperMethodInvocation(context, node);
+  } else if (node is SuperPropertyGet) {
+    return compileSuperPropertyGet(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
+}
+
+int compileSuperPropertyGet(
+    MicroCompilerContext context, SuperPropertyGet node) {
+  var target = node.interfaceTarget;
+  context.pushOp(GetParam.make("#this"));
+  if (target is Procedure) {
+    int p = compileCallProcedure(context, Arguments([]), target);
+    return p;
+  } else if (target is Field) {
+    int opOffset =
+        context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
+    if (opOffset == -1) {
+      print("object ${target.getNamedName()} not found ");
+      return -1;
+    }
+    return context.pushOp(GetObjectProperty.make(node.name.text, opOffset));
+  }
+
+  return -1;
+}
+
+int compileSuperMethodInvocation(
+    MicroCompilerContext context, SuperMethodInvocation node) {
+  var procedure = node.interfaceTarget;
+  var arguments = node.arguments;
+  context.addScope("<SuperMethodInvocation>", node.fileOffset);
+  context.pushOp(GetParam.make("#this"));
+  int p = compileCallProcedure(context, arguments, procedure);
+  context.removeScope();
+  return p;
 }
 
 int compileThisExpression(MicroCompilerContext context, ThisExpression node) {

@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class PushConstant implements Op {
-  PushConstant(MicroDartInterpreter runtime) : _const = runtime.readInt32();
+  PushConstant(MicroDartEngine runtime) : _const = runtime.readInt32();
 
   PushConstant.make(this._const);
 

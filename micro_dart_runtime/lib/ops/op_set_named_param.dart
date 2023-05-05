@@ -1,8 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetNamedParam implements Op {
-  SetNamedParam(MicroDartInterpreter interpreter)
-      : name = interpreter.readString();
+  SetNamedParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
   SetNamedParam.make(this.name);
   final String name;

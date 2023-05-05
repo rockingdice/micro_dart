@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class Return implements Op {
-  Return(MicroDartInterpreter interpreter);
+  Return(MicroDartEngine interpreter);
 
   Return.make();
 

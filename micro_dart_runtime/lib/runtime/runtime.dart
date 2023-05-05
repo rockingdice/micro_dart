@@ -3,7 +3,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 //运行时
 class MicroRuntime {
   //解释器
-  final MicroDartInterpreter interpreter;
+  final MicroDartEngine interpreter;
 
   MicroRuntime(this.interpreter);
 
@@ -143,8 +143,7 @@ class MicroRuntime {
       catchStack.clear();
 
       //获取当前操作数指针
-      opPointer = interpreter
-          .declarations['$importUri@:procedure@$functionName:static']!;
+      opPointer = interpreter.declarations['$importUri@@$functionName:static']!;
 
       addScope("<execute>");
 

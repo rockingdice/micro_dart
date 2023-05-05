@@ -24,7 +24,8 @@ int compileStaticField(MicroCompilerContext context, Field node) {
   } else {
     context.pushOp(PushNull.make());
   }
-  context.pushOp(ReturnField.make(node.isStatic, node.name.text));
+  context.pushOp(ReturnField.make(
+      node.stringLibraryUri, "", node.isStatic, node.name.text));
 
   return pos;
 }
@@ -45,7 +46,8 @@ int compileClassField(MicroCompilerContext context, Field node) {
   } else {
     context.pushOp(PushNull.make());
   }
-  context.pushOp(Return.make());
+  context.pushOp(ReturnField.make(node.stringLibraryUri, node.stringClassName!,
+      node.isStatic, node.name.text));
 
   return pos;
 }
