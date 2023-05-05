@@ -20,21 +20,19 @@ class OffsetTracker {
     _deferredOffsets.forEach((pos, offset) {
       final op = source[pos];
       if (op is Call) {
-        final resolvedOffset =
-            context.rumtimeDeclarationOpIndexes[offset.node.getNamedName()];
+        final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.key];
         if (resolvedOffset == null) {
           //表示这是个外部的调用
-          print("call external: ${offset.node.getNamedName()} ");
 
           final newOp = CallExternal.make(
-              className: offset.node.stringClassName ?? "",
-              isGetter: offset.node.isGetter,
-              isSetter: offset.node.isSetter,
-              isStatic: offset.node.isStatic,
-              key: offset.node.getNamedName(),
+              className: offset.className,
+              key: offset.key,
+              isGetter: offset.isGetter,
+              isSetter: offset.isSetter,
+              isStatic: offset.isStatic,
+              libraryUri: offset.libraryUri,
+              name: offset.name,
               kind: offset.kind.index,
-              libraryUri: offset.node.stringLibraryUri,
-              name: offset.node.stringName,
               namedList: offset.namedList,
               posationalLengh: offset.posationalLengh);
           source[pos] = newOp;
@@ -56,22 +54,78 @@ enum DeferredOrOffsetKind {
   RedirectingFactory
 }
 
-class DeferredOrOffset {
-  final DeferredOrOffsetKind kind;
-  final int offset;
-  final Member node;
-  final int posationalLengh;
-  List<String> namedList;
+abstract class DeferredOrOffset {
+  DeferredOrOffsetKind get kind;
+  bool get isGetter;
+  bool get isSetter;
+  bool get isStatic;
+  String get libraryUri;
+  String get className;
+  String get name;
+  String get key;
 
-  DeferredOrOffset(
-      {required this.kind,
-      required this.offset,
-      required this.node,
-      required this.posationalLengh,
-      required this.namedList});
+  int get posationalLengh;
+  List<String> get namedList;
+
+  factory DeferredOrOffset.fromMember(Member node,
+      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
+      int posationalLengh = 0,
+      List<String> namedList = const []}) {
+    return _DeferredOrOffsetImpl(
+        kind,
+        node.getNamedName(),
+        posationalLengh,
+        namedList,
+        node.stringClassName ?? "",
+        node.stringLibraryUri,
+        node.name.text,
+        node.isGetter,
+        node.isSetter,
+        node.isStatic);
+  }
+
+  factory DeferredOrOffset(String key,
+      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
+      int posationalLengh = 0,
+      List<String> namedList = const [],
+      required String className,
+      required String libraryUri,
+      required String name,
+      bool isGetter = false,
+      bool isSetter = false,
+      bool isStatic = false}) {
+    return _DeferredOrOffsetImpl(kind, key, posationalLengh, namedList,
+        className, libraryUri, name, isGetter, isSetter, isStatic);
+  }
 
   @override
   String toString() {
-    return 'DeferredOrOffset{kind: $kind,offset: $offset, node:${node.getNamedName()}}';
+    return 'DeferredOrOffset{kind: $kind, key:$key}';
   }
+}
+
+class _DeferredOrOffsetImpl implements DeferredOrOffset {
+  final DeferredOrOffsetKind kind;
+  final String className;
+  final String key;
+  final String libraryUri;
+  final String name;
+  final int posationalLengh;
+  final List<String> namedList;
+
+  final bool isGetter;
+  final bool isSetter;
+  final bool isStatic;
+
+  _DeferredOrOffsetImpl(
+      this.kind,
+      this.key,
+      this.posationalLengh,
+      this.namedList,
+      this.className,
+      this.libraryUri,
+      this.name,
+      this.isGetter,
+      this.isSetter,
+      this.isStatic);
 }

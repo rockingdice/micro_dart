@@ -36,9 +36,64 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileSuperMethodInvocation(context, node);
   } else if (node is SuperPropertyGet) {
     return compileSuperPropertyGet(context, node);
+  } else if (node is FunctionExpression) {
+    return compileFunctionExpression(context, node);
+  } else if (node is LocalFunctionInvocation) {
+    return compileLocalFunctionInvocation(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
+}
+
+int compileLocalFunctionInvocation(
+    MicroCompilerContext context, LocalFunctionInvocation node) {
+  var arguments = node.arguments;
+  context.addScope("<LocalFunctionInvocation>", node.fileOffset);
+  int p = compileCall(
+    context,
+    arguments,
+    node.localFunction.getNamedName(),
+    className: node.localFunction.stringClassName ?? "",
+    libraryUri: node.localFunction.stringLibraryUri,
+    name: node.localFunction.stringName,
+  );
+  context.removeScope();
+  return p;
+}
+
+int compileFunctionExpression(
+    MicroCompilerContext context, FunctionExpression node) {
+  //开启一个作用域
+  int pos = context.addScope("FunctionExpression", node.fileOffset);
+
+  //参数初始化
+  node.function.positionalParameters.forEach((element) {
+    compileStatement(context, element);
+    //将上个作用域中的参数copy到这个作用域
+    context.pushOp(SetPosationalParam.make(element.name!));
+  });
+  node.function.namedParameters.forEach((element) {
+    compileStatement(context, element);
+    context.pushOp(SetNamedParam.make(element.name!));
+  });
+  var b = node.function.body;
+  //编译body
+  if (b != null) {
+    if (b is Block) {
+      compileBlock(context, b, createScope: false);
+      if (b.statements.isNotEmpty && !(b.statements.last is ReturnStatement)) {
+        context.pushOp(Return.make());
+      }
+    } else {
+      compileStatement(context, b);
+      if (!(b is ReturnStatement)) {
+        context.pushOp(Return.make());
+      }
+    }
+  } else {
+    context.pushOp(Return.make());
+  }
+  return pos;
 }
 
 int compileSuperPropertyGet(

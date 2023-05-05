@@ -16,7 +16,7 @@ class SetParam implements Op {
   @override
   void run(MicroRuntime runtime) {
     var value = runtime.scope.popFrame();
-    runtime.scope.setParam(name, value);
+    runtime.setParam(name, value);
   }
 
   @override

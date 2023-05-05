@@ -46,6 +46,14 @@ class MicroCompilerContext {
     return p;
   }
 
+  int rewriteOp(Op op, int index) {
+    var oldOp = ops[index];
+    position -= oldOp.opLen;
+    ops[index] = op;
+    position += op.opLen;
+    return index;
+  }
+
   int addScope(String name, int fileOffset) {
     final position = ops.length;
     var op = PushScope.make(fileOffset, name);

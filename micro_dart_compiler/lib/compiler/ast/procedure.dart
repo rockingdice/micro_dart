@@ -107,12 +107,46 @@ int compileCallProcedure(
   if (opOffset == -1) {
     context.offsetTracker.setOffset(
         location,
-        DeferredOrOffset(
-            offset: opOffset,
+        DeferredOrOffset.fromMember(procedure,
             kind: DeferredOrOffsetKind.Procedure,
-            node: procedure,
             namedList: arguments.named.map((e) => e.name).toList(),
             posationalLengh: arguments.positional.length));
+  }
+
+  return location;
+}
+
+int compileCall(MicroCompilerContext context, Arguments arguments, String key,
+    {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
+    int posationalLengh = 0,
+    List<String> namedList = const [],
+    required String className,
+    required String libraryUri,
+    required String name,
+    bool isGetter = false,
+    bool isSetter = false,
+    bool isStatic = false}) {
+  //将参数压入当前作用域
+  compileArguments(context, arguments);
+
+  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
+  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
+  //调用Call方法,并且返回位置
+  int location = context.pushOp(Call.make(opOffset));
+  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
+  if (opOffset == -1) {
+    context.offsetTracker.setOffset(
+        location,
+        DeferredOrOffset(key,
+            kind: kind,
+            posationalLengh: posationalLengh,
+            namedList: namedList,
+            className: className,
+            libraryUri: libraryUri,
+            name: name,
+            isGetter: isGetter,
+            isSetter: isSetter,
+            isStatic: isStatic));
   }
 
   return location;

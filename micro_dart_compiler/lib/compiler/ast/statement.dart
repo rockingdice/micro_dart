@@ -13,7 +13,53 @@ void compileStatement(
     compileExpressionStatement(context, node);
   } else if (node is ReturnStatement) {
     compileReturnStatement(context, node);
+  } else if (node is FunctionDeclaration) {
+    compileFunctionDeclaration(context, node);
   }
+}
+
+void compileFunctionDeclaration(
+    MicroCompilerContext context, FunctionDeclaration node) {
+  var name = node.getNamedName();
+  //表示该方法已经编译过了,直接返回
+  if (context.rumtimeDeclarationOpIndexes[name] != null) {
+    return;
+  }
+
+  int jumpOver = context.pushOp(Jump.make(-1));
+  //开启一个作用域
+  int pos = context.addScope(name, node.fileOffset);
+  context.rumtimeDeclarationOpIndexes[name] = pos;
+
+  //参数初始化
+  node.function.positionalParameters.forEach((element) {
+    compileStatement(context, element);
+    //将上个作用域中的参数copy到这个作用域
+    context.pushOp(SetPosationalParam.make(element.name!));
+  });
+  node.function.namedParameters.forEach((element) {
+    compileStatement(context, element);
+    context.pushOp(SetNamedParam.make(element.name!));
+  });
+  var b = node.function.body;
+  //编译body
+  if (b != null) {
+    if (b is Block) {
+      compileBlock(context, b, createScope: false);
+      if (b.statements.isNotEmpty && !(b.statements.last is ReturnStatement)) {
+        context.pushOp(Return.make());
+      }
+    } else {
+      compileStatement(context, b);
+      if (!(b is ReturnStatement)) {
+        context.pushOp(Return.make());
+      }
+    }
+  } else {
+    context.pushOp(Return.make());
+  }
+
+  context.rewriteOp(Jump.make(context.ops.length), jumpOver);
 }
 
 void compileBlock(MicroCompilerContext context, Block node,

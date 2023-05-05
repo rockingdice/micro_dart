@@ -1059,7 +1059,9 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //node.visitChildren(this);
     return {
       "xtype": "LocalFunctionInvocation",
+      "name": node.name.accept(this),
       "arguments": node.arguments.accept(this),
+      "variable": node.variable.accept(this),
       "functionType": node.functionType.accept(this),
     };
   }

@@ -5,7 +5,7 @@ class A {
   A.c1(this.a);
 }
 
-class B extends A {
+class B extends A with MixinB {
   int c;
   int d = 2;
   B.c1(int a, this.c) : super.c1(a);
@@ -15,19 +15,15 @@ class B extends A {
   }
 }
 
-class C extends B {
-  int e;
-  int f = 3;
-  C(int a, int c, this.e) : super.c1(a, c);
-
-  @override
-  int fn1(int n) {
-    return super.a + b + c + d + e + f + super.fn1(n);
+mixin MixinB on A {
+  void testA() {
+    print("testA");
   }
 }
 
 int main() {
-  var v1 = C(3, 2, 1);
+  var v1 = B.c1(3, 2);
+  v1.testA();
   var r = v1.fn1(4);
   print(r);
   return r;

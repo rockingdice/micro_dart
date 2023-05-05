@@ -1,4 +1,5 @@
 import 'package:kernel/kernel.dart';
+import 'package:micro_dart_compiler/util.dart';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 

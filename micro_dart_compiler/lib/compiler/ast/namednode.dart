@@ -1,5 +1,28 @@
 part of 'ast.dart';
 
+extension ExtensionFunctionDeclaration on FunctionDeclaration {
+  String getNamedName() {
+    var parentName = procedure.getNamedName();
+    return "$parentName@${variable.name}";
+  }
+
+  Procedure get procedure {
+    return findProcedure(this)!;
+  }
+
+  String get stringLibraryUri {
+    return procedure.stringLibraryUri;
+  }
+
+  String? get stringClassName {
+    return procedure.stringClassName;
+  }
+
+  String get stringName {
+    return "${variable.name}@${procedure.stringName}";
+  }
+}
+
 extension ExtensionNamedNode on NamedNode {
   bool get isClass {
     return (this is Class);

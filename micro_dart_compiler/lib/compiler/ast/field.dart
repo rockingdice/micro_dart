@@ -63,10 +63,8 @@ int compileCallField(MicroCompilerContext context, Field field) {
   if (opOffset == -1) {
     context.offsetTracker.setOffset(
         location,
-        DeferredOrOffset(
-            offset: opOffset,
+        DeferredOrOffset.fromMember(field,
             kind: DeferredOrOffsetKind.Field,
-            node: field,
             namedList: [],
             posationalLengh: 0));
   }

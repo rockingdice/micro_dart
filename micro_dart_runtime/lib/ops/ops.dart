@@ -3,20 +3,14 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_jump.dart';
 export 'op_push_list.dart';
-
 export 'op_set_object_property.dart';
-
 export 'op_return_field.dart';
-
 export 'op_set_this_property.dart';
-
 export 'op_get_object_property.dart';
-
 export 'op_create_instance.dart';
-
 export 'op_push_constant.dart';
-
 export 'op_call.dart';
 export 'op_call_external.dart';
 export 'op_get_global_param.dart';
@@ -58,8 +52,8 @@ class Ops {
   static const opGetObjectProperty = 20;
   static const opSetObjectProperty = 21;
   static const opReturnField = 22;
-
   static const opPushList = 23;
+  static const opJump = 24;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -160,4 +154,5 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opSetThisProperty: (MicroDartEngine rt) => SetThisProperty(rt),
   Ops.opReturnField: (MicroDartEngine rt) => ReturnField(rt),
   Ops.opPushList: (MicroDartEngine rt) => PushList(rt),
+  Ops.opJump: (MicroDartEngine rt) => Jump(rt),
 };

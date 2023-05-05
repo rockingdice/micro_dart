@@ -14,5 +14,5 @@ int fn1(int a, int b, {int c = 1, int d = 2, int e = 3}) {
 }
 
 void nothing() {
-  print("nothing");
+  print("print nothing");
 }

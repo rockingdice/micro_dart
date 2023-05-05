@@ -24,7 +24,7 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   //context.removeScope();
   context.pushOp(
       CreateInstance.make(node.stringLibraryUri, node.stringClassName!));
-  context.pushOp(SetParam.make("#this"));
+  context.pushOp(SetScopeParam.make("#this"));
 
   //filed初始化
   node.initializers.forEach((element) {
@@ -105,10 +105,8 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   if (opOffset == -1) {
     context.offsetTracker.setOffset(
         location,
-        DeferredOrOffset(
-            offset: opOffset,
+        DeferredOrOffset.fromMember(constructor,
             kind: DeferredOrOffsetKind.Constructor,
-            node: constructor,
             namedList: arguments.named.map((e) => e.name).toList(),
             posationalLengh: arguments.positional.length));
   }
