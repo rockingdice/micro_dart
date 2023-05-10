@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileProcedure(MicroCompilerContext context, Procedure node) {
+  compileDartType(context, node.function.returnType);
   if (node.isStatic) {
     return compileStaticProcedure(context, node);
   } else {
@@ -64,12 +65,12 @@ int compileStaticProcedure(MicroCompilerContext context, Procedure node) {
 
   //参数初始化
   node.function.positionalParameters.forEach((element) {
-    compileStatement(context, element);
+    compileVariableDeclaration(context, element);
     //将上个作用域中的参数copy到这个作用域
     context.pushOp(SetPosationalParam.make(element.name!));
   });
   node.function.namedParameters.forEach((element) {
-    compileStatement(context, element);
+    compileVariableDeclaration(context, element);
     context.pushOp(SetNamedParam.make(element.name!));
   });
   var b = node.function.body;

@@ -34,103 +34,6 @@ List<R>? visitList<R>(List<Node>? nodes, Visitor<R> visitor) {
   return list;
 }
 
-class _ExternalTransformer extends RemovingTransformer {
-  final String pluginUri;
-
-  _ExternalTransformer(this.pluginUri);
-
-  @override
-  void transformClassList(List<Class> nodes, TreeNode parent) {
-    nodes.removeWhere((element) => element.name.startsWith("_"));
-  }
-
-  @override
-  TreeNode visitRedirectingFactory(RedirectingFactory node, TreeNode? arg) {
-    Library? library;
-    if (node.parent is Library) {
-      library = node.parent as Library?;
-    } else if (node.parent?.parent is Library) {
-      library = node.parent?.parent as Library?;
-    }
-    if (library == null) {
-      return super.visitRedirectingFactory(node, arg);
-    }
-    if (library.importUri.toString() == pluginUri) {
-      return super.visitRedirectingFactory(node, arg);
-    }
-    return RedirectingFactory(
-      node.targetReference,
-      name: node.name,
-      isConst: node.isConst,
-      isExternal: true,
-      transformerFlags: node.transformerFlags,
-      typeArguments: node.typeArguments,
-      function: node.function,
-      fileUri: node.fileUri,
-      reference: node.reference,
-    );
-  }
-
-  @override
-  TreeNode visitConstructor(Constructor node, TreeNode? arg) {
-    Library? library;
-    if (node.parent is Library) {
-      library = node.parent as Library?;
-    } else if (node.parent?.parent is Library) {
-      library = node.parent?.parent as Library?;
-    }
-    if (library == null) {
-      return super.visitConstructor(node, arg);
-    }
-    if (library.importUri.toString() == pluginUri) {
-      return super.visitConstructor(node, arg);
-    }
-
-    return Constructor(FunctionNode(EmptyStatement()),
-        name: node.name,
-        isConst: node.isConst,
-        isExternal: true,
-        isSynthetic: node.isSynthetic,
-        initializers: node.initializers,
-        transformerFlags: node.transformerFlags,
-        fileUri: node.fileUri,
-        reference: node.reference);
-  }
-
-  @override
-  TreeNode visitProcedure(Procedure node, TreeNode? arg) {
-    Library? library;
-    if (node.parent is Library) {
-      library = node.parent as Library?;
-    } else if (node.parent?.parent is Library) {
-      library = node.parent?.parent as Library?;
-    }
-    if (library == null) {
-      return super.visitProcedure(node, arg);
-    }
-    if (library.importUri.toString() == pluginUri) {
-      return super.visitProcedure(node, arg);
-    }
-    return Procedure(node.name, node.kind, FunctionNode(EmptyStatement()),
-        isAbstract: node.isAbstract,
-        isStatic: node.isStatic,
-        isExternal: true,
-        isConst: node.isStatic,
-        isExtensionMember: node.isExtensionMember,
-        isSynthetic: node.isStatic,
-        transformerFlags: node.transformerFlags,
-        fileUri: node.fileUri,
-        reference: node.reference,
-        stubKind: node.stubKind,
-        stubTarget: node.stubTarget);
-  }
-
-  TreeNode defaultTreeNode2(TreeNode node, TreeNode? arg) {
-    print("defaultTreeNode: ${node.runtimeType.toString()}");
-    return super.defaultTreeNode(node, arg);
-  }
-}
-
 class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
   final String pluginUri;
 
@@ -1458,7 +1361,10 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
       StaticTearOffConstant node) {
     //print("visitStaticTearOffConstantReference: ${node.toString()}");
     //node.visitChildren(this);
-    return {"xtype": "StaticTearOffConstantReference"};
+    return {
+      "xtype": "StaticTearOffConstantReference",
+      "target": node.target.acceptReference(this)
+    };
   }
 
   @override

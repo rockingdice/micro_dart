@@ -9,10 +9,15 @@ class OffsetTracker {
   OffsetTracker(this.context);
 
   final Map<int, DeferredOrOffset> _deferredOffsets = {};
-  MicroCompilerContext context;
+  final Map<int, String> _callPointerOffsets = {};
+  final MicroCompilerContext context;
 
   void setOffset(int location, DeferredOrOffset offset) {
     _deferredOffsets[location] = offset;
+  }
+
+  void setCallPointerOffset(int location, String key) {
+    _callPointerOffsets[location] = key;
   }
 
   List<Op> apply() {
@@ -34,13 +39,19 @@ class OffsetTracker {
               name: offset.name,
               kind: offset.kind.index,
               namedList: offset.namedList,
-              posationalLengh: offset.posationalLengh);
+              posationalLength: offset.posationalLengh);
           source[pos] = newOp;
           return;
         }
         final newOp = Call.make(resolvedOffset);
         source[pos] = newOp;
       }
+    });
+
+    _callPointerOffsets.forEach((pos, key) {
+      final offset = context.rumtimeDeclarationOpIndexes[key]!;
+      final newOp = PushPointer.make(offset);
+      source[pos] = newOp;
     });
     return source;
   }

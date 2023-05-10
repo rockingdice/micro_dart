@@ -1,5 +1,7 @@
 export 'runtime/scope.dart';
 export 'runtime/runtime.dart';
+export 'runtime/dynamic.dart';
+export 'runtime/type.dart';
 export 'runtime/engine.dart';
 export 'runtime/exception.dart';
 export 'runtime/instance.dart';

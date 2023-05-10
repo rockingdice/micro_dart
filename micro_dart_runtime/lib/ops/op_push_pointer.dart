@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushConstantInt implements Op {
-  PushConstantInt(MicroDartEngine runtime) : _value = runtime.readInt32();
+class PushPointer implements Op {
+  PushPointer(MicroDartEngine runtime) : _value = runtime.readInt32();
 
-  PushConstantInt.make(this._value);
+  PushPointer.make(this._value);
 
   final int _value;
 
@@ -11,7 +11,7 @@ class PushConstantInt implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opPushConstantInt, ...Ops.i32b(_value)];
+  List<int> get bytes => [Ops.opPushPointer, ...Ops.i32b(_value)];
 
   // Set value at position to constant
   @override
@@ -20,5 +20,5 @@ class PushConstantInt implements Op {
   }
 
   @override
-  String toString() => 'PushConstantInt($_value)';
+  String toString() => 'PushPointer($_value)';
 }

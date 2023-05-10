@@ -40,9 +40,55 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileFunctionExpression(context, node);
   } else if (node is LocalFunctionInvocation) {
     return compileLocalFunctionInvocation(context, node);
+  } else if (node is FunctionInvocation) {
+    return compileFunctionInvocation(context, node);
+  } else if (node is AsExpression) {
+    return compileAsExpression(context, node);
+  } else if (node is DynamicInvocation) {
+    return compileDynamicInvocation(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
+}
+
+int compileDynamicInvocation(
+    MicroCompilerContext context, DynamicInvocation node) {
+  return -1;
+}
+
+int compileAsExpression(MicroCompilerContext context, AsExpression node) {
+  int pos = compileExpression(context, node.operand);
+  final type = node.type;
+  if (type is InterfaceType) {
+    //这里表示它是一个外部类
+    if (!context.compileDeclarations.contains(type.classNode)) {
+      return context.pushOp(CallExternal.make(
+          className: type.classNode.stringClassName!,
+          key: "${type.classNode.getNamedName()}@#as",
+          isGetter: false,
+          isSetter: false,
+          isStatic: false,
+          libraryUri: type.classNode.stringLibraryUri,
+          name: "#as",
+          kind: DeferredOrOffsetKind.Procedure.index,
+          namedList: [],
+          posationalLength: 0));
+    }
+  } else {
+    throw Exception(" type not support : ${type.runtimeType.toString()}");
+  }
+  return pos;
+}
+
+int compileFunctionInvocation(
+    MicroCompilerContext context, FunctionInvocation node) {
+  var arguments = node.arguments;
+  context.addScope("<FunctionInvocation>", node.fileOffset);
+  compileArguments(context, arguments);
+  compileExpression(context, node.receiver);
+  int pos = context.pushOp(CallPointer.make());
+  context.removeScope();
+  return pos;
 }
 
 int compileLocalFunctionInvocation(
@@ -63,6 +109,7 @@ int compileLocalFunctionInvocation(
 
 int compileFunctionExpression(
     MicroCompilerContext context, FunctionExpression node) {
+  int jumpOver = context.pushOp(Jump.make(-1));
   //开启一个作用域
   int pos = context.addScope("FunctionExpression", node.fileOffset);
 
@@ -93,7 +140,9 @@ int compileFunctionExpression(
   } else {
     context.pushOp(Return.make());
   }
-  return pos;
+  context.rewriteOp(Jump.make(context.ops.length), jumpOver);
+
+  return context.pushOp(PushPointer.make(pos));
 }
 
 int compileSuperPropertyGet(
@@ -120,6 +169,7 @@ int compileSuperMethodInvocation(
     MicroCompilerContext context, SuperMethodInvocation node) {
   var procedure = node.interfaceTarget;
   var arguments = node.arguments;
+
   context.addScope("<SuperMethodInvocation>", node.fileOffset);
   context.pushOp(GetParam.make("#this"));
   int p = compileCallProcedure(context, arguments, procedure);
@@ -209,6 +259,20 @@ int compileConstantExpression(
   var constant = node.constant;
   if (constant is IntConstant) {
     return context.pushOp(PushConstantInt.make(constant.value));
+  } else if (constant is StaticTearOffConstant) {
+    if (context.compileDeclarations.contains(constant.target)) {
+      String key = constant.target.getNamedName();
+      int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+      int pos = context.pushOp(PushPointer.make(opOffset));
+      if (opOffset == -1) {
+        context.offsetTracker.setCallPointerOffset(pos, key);
+      }
+      return pos;
+    } else {
+      throw Exception("currently not support external static tearoff");
+    }
+  } else if (constant is NullConstant) {
+    return context.pushOp(PushNull.make());
   } else if (constant is ConstructorTearOffConstant) {
     var target = constant.target;
     if (target is Constructor) {

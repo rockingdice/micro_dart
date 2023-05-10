@@ -1,17 +1,22 @@
 import 'engine.dart';
+import 'type.dart';
 
 abstract class Instance {
-  final String libraryName;
-  final String className;
+  final TypeRef type;
 
-  const Instance(this.libraryName, this.className);
+  const Instance(this.type);
+
+  bool get isDynamic {
+    return type == TypeRef.dynamicType;
+  }
 
   Object? getParam(String name);
-  void setParam(String name, Object? value, {String? lName, String? cName});
+  void setParam(String name, Object? value, {TypeRef? type});
   bool hasParam(String name);
 
-  bool same(String lName, String cName) {
-    return libraryName == lName && className == cName;
+  bool same(TypeRef? stype) {
+    return type.libraryName == stype?.libraryName &&
+        type.className == stype?.className;
   }
 }
 
@@ -19,12 +24,12 @@ class InstanceBridge extends Instance {
   final Object _target;
   final MicroDartEngine _interpreter;
 
-  const InstanceBridge(
-      this._interpreter, this._target, String libraryName, String className)
-      : super(libraryName, className);
+  const InstanceBridge(this._interpreter, this._target, TypeRef type)
+      : super(type);
   @override
   Object? getParam(String name) {
-    final key = "$libraryName@$className@$name";
+    var key = type.getKey(name);
+    //这里需要考虑是父类属性的问题
     return _interpreter.externalFunctions[key]!(_target);
   }
 
@@ -34,14 +39,16 @@ class InstanceBridge extends Instance {
   }
 
   @override
-  void setParam(String name, Object? value, {String? lName, String? cName}) {
-    final key = "$libraryName@$className@$name:set";
+  void setParam(String name, Object? value, {TypeRef? type}) {
+    final key = type?.getKey(name, isSetter: true);
+    //这里需要考虑是父类属性的问题
+    print("key:$key");
     _interpreter.externalFunctions[key]!(_target, value);
   }
 
   @override
   String toString() {
-    return "InstanceBridge($libraryName,$className)";
+    return "InstanceBridge($type)";
   }
 }
 
@@ -50,8 +57,7 @@ class InstanceImpl extends Instance {
 
   Instance? _superInstance;
 
-  InstanceImpl(String libraryName, String className)
-      : super(libraryName, className);
+  InstanceImpl(super.type);
 
   @override
   Object? getParam(String name) {
@@ -66,15 +72,15 @@ class InstanceImpl extends Instance {
   }
 
   @override
-  void setParam(String name, Object? value, {String? lName, String? cName}) {
+  void setParam(String name, Object? value, {TypeRef? type}) {
     if (name == "#super") {
       _superInstance = value as Instance;
       return;
     }
-    if (lName == null || cName == null || same(lName, cName)) {
+    if (type == null || same(type)) {
       _params[name] = value;
     } else {
-      return _superInstance?.setParam(name, value, lName: lName, cName: cName);
+      return _superInstance?.setParam(name, value, type: type);
     }
   }
 
@@ -88,6 +94,6 @@ class InstanceImpl extends Instance {
 
   @override
   String toString() {
-    return "InstanceImpl($libraryName,$className,$_superInstance,$_params)";
+    return "InstanceImpl($type,$_superInstance,$_params)";
   }
 }

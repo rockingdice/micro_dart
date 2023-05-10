@@ -44,7 +44,7 @@ class ReturnField implements Op {
     } else {
       var instance = runtime.getParam("#this") as Instance;
       instance.setParam(_name, oldScope.frames.last,
-          lName: _libraryName, cName: _className);
+          type: TypeRef(_libraryName, _className, instance is InstanceBridge));
       runtime.scope.pushFrame(oldScope.frames.last);
     }
 

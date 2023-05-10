@@ -18,6 +18,10 @@ class MicroDartEngine {
   /// 静态变量
   final constants = <Object>[];
 
+  /// 类型
+  final List<TypeRef> types = <TypeRef>[];
+  final Map<String, int> typeIndexes = <String, int>{};
+
   /// 二进制文件读取偏移量，仅在加载时使用
   int _fileOffset = 0;
 
@@ -30,9 +34,7 @@ class MicroDartEngine {
   MicroDartEngine._(this._data);
 
   factory MicroDartEngine.fromData(ByteData data) {
-    var interpreter = MicroDartEngine._(data).._load();
-
-    return interpreter;
+    return MicroDartEngine._(data).._load();
   }
 
   void addExternalFunctions(Map<String, Function> functions) {
@@ -95,6 +97,12 @@ class MicroDartEngine {
 
     ///加载静态变量
     constants.addAll((json.decode(readString()) as List).cast());
+
+    types.addAll((json.decode(readString()) as List)
+        .map((e) => TypeRef.fromList(e))
+        .toList());
+
+    typeIndexes.addAll(json.decode(readString()).cast<String, int>());
 
     ///加载操作结合
     while (_fileOffset < _data.lengthInBytes) {

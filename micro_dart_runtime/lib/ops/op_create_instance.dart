@@ -21,7 +21,8 @@ class CreateInstance implements Op {
 
   @override
   void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(InstanceImpl(_libraryName, _className));
+    runtime.scope
+        .pushFrame(InstanceImpl(TypeRef(_libraryName, _className, false)));
   }
 
   @override

@@ -14,3 +14,4 @@ part 'procedure.dart';
 part 'field.dart';
 part 'constructor.dart';
 part 'redirecting_factory.dart';
+part 'dart_type.dart';

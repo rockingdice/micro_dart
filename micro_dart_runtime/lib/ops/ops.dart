@@ -3,6 +3,9 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_push_pointer.dart';
+
+export 'op_call_pointer.dart';
 export 'op_jump.dart';
 export 'op_push_list.dart';
 export 'op_set_object_property.dart';
@@ -54,6 +57,8 @@ class Ops {
   static const opReturnField = 22;
   static const opPushList = 23;
   static const opJump = 24;
+  static const opCallPointer = 25;
+  static const opPushPointer = 26;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -155,4 +160,6 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opReturnField: (MicroDartEngine rt) => ReturnField(rt),
   Ops.opPushList: (MicroDartEngine rt) => PushList(rt),
   Ops.opJump: (MicroDartEngine rt) => Jump(rt),
+  Ops.opCallPointer: (MicroDartEngine rt) => CallPointer(rt),
+  Ops.opPushPointer: (MicroDartEngine rt) => PushPointer(rt)
 };

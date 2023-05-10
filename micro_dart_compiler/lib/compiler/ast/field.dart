@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileField(MicroCompilerContext context, Field node) {
+  compileDartType(context, node.type);
   if (node.isStatic) {
     return compileStaticField(context, node);
   } else {

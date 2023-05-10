@@ -80,12 +80,18 @@ void compileBlock(MicroCompilerContext context, Block node,
 
 void compileVariableDeclaration(
     MicroCompilerContext context, VariableDeclaration node) {
+  compileDartType(context, node.type);
   if (node.initializer != null) {
     //有初始值
-
     compileExpression(context, node.initializer!);
+    if (node.type is DynamicType) {
+      print("${node.name!} is dynamic");
+    }
     context.pushOp(SetScopeParam.make(node.name!));
   } else {
+    if (node.type is DynamicType) {
+      print("${node.name!} is dynamic");
+    }
     //没有初始值则先填充null
     context.pushOp(SetScopeParamNull.make(node.name!));
   }
@@ -99,9 +105,7 @@ void compileExpressionStatement(
 void compileReturnStatement(
     MicroCompilerContext context, ReturnStatement node) {
   if (node.expression != null) {
-    int res = compileExpression(context, node.expression!);
-    if (res != -1) {
-      context.pushOp(Return.make());
-    }
+    compileExpression(context, node.expression!);
+    context.pushOp(Return.make());
   }
 }

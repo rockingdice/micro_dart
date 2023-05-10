@@ -264,6 +264,8 @@ void compileDeclarations(MicroCompilerContext context) {
 }
 
 void compileContext(MicroCompilerContext context) {
+  //初始化classType
+  context.setupTypes();
   //对全局参数进行编译
   compileFields(context);
   //对所有声明进行编译

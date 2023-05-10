@@ -1,6 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-const List<String> _operatorFunctions1 = ["unary-", "unary+", "~"];
+const List<String> _operatorFunctions1 = [
+  "unary-",
+  "unary+",
+  "~",
+  "#as",
+  "#is"
+];
 const List<String> _operatorFunctions2 = [
   "&",
   "|",
@@ -19,7 +25,7 @@ const List<String> _operatorFunctions2 = [
   "<<",
   ">>",
   ">>>",
-  "[]"
+  "[]",
 ];
 const List<String> _operatorFunctions3 = ["[]="];
 
@@ -34,7 +40,7 @@ class CallExternal implements Op {
         libraryUri = interpreter.readString(),
         className = interpreter.readString(),
         name = interpreter.readString(),
-        posationalLengh = interpreter.readInt32(),
+        posationalLength = interpreter.readInt32(),
         namedList = interpreter.readStringList();
   final int kind;
   final bool isStatic;
@@ -46,7 +52,7 @@ class CallExternal implements Op {
   final String className;
   final String name;
 
-  final int posationalLengh;
+  final int posationalLength;
   final List<String> namedList;
 
   CallExternal.make({
@@ -58,7 +64,7 @@ class CallExternal implements Op {
     required this.isSetter,
     required this.className,
     required this.name,
-    required this.posationalLengh,
+    required this.posationalLength,
     required this.namedList,
   });
 
@@ -84,15 +90,15 @@ class CallExternal implements Op {
         ...Ops.str(libraryUri),
         ...Ops.str(className),
         ...Ops.str(name),
-        ...Ops.i32b(posationalLengh),
+        ...Ops.i32b(posationalLength),
         ...Ops.strlist(namedList)
       ];
 
   @override
   void run(MicroRuntime runtime) {
-    List<Object?> positionalArguments = List.empty(growable: true);
-    for (int i = 0; i < posationalLengh; i++) {
-      positionalArguments.add(runtime.scope.popFrame());
+    List<Object?> positionalArguments = List.filled(posationalLength, null);
+    for (int i = 0; i < posationalLength; i++) {
+      positionalArguments[i] = runtime.scope.popFrame();
     }
 
     //表示这是构造函数初始化
@@ -104,11 +110,9 @@ class CallExternal implements Op {
       }
       //这里需要修改
       var instance = InstanceBridge(
-        runtime.interpreter,
-        function!(positionalArguments, namedArguments),
-        libraryUri,
-        className,
-      );
+          runtime.interpreter,
+          function!(positionalArguments, namedArguments),
+          TypeRef(libraryUri, className, true));
       runtime.scope.pushFrame(instance);
       return;
     }
@@ -165,5 +169,5 @@ class CallExternal implements Op {
 
   @override
   String toString() =>
-      'CallExternal($kind,$isStatic,$isGetter,$isSetter,$key,$libraryUri,$className,$name,$posationalLengh,$namedList)';
+      'CallExternal($kind,$isStatic,$isGetter,$isSetter,$key,$libraryUri,$className,$name,$posationalLength,$namedList)';
 }

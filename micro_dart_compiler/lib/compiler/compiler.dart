@@ -58,27 +58,29 @@ class MicroCompiler {
       //对类进行索引
       library.classes.forEach((clazz) {
         String className = clazz.getNamedName();
-        compilerContext.lookupDeclarationIndex(className, clazz);
+        int p = compilerContext.lookupDeclarationIndex(className, clazz);
+        compilerContext.compileClassIndexes.add(p);
         //对类中的参数进行索引
         clazz.fields.forEach((field) {
           String name = field.getNamedName();
           int p = compilerContext.lookupDeclarationIndex(name, field);
           compilerContext.compileFieldIndexes.add(p);
         });
-        //对类中方法进行索引
-        clazz.procedures.forEach((procedure) {
-          String name = procedure.getNamedName();
-          compilerContext.lookupDeclarationIndex(name, procedure);
-        });
         //对类的构造函数进行索引
         clazz.constructors.forEach((constructor) {
           String name = constructor.getNamedName();
           compilerContext.lookupDeclarationIndex(name, constructor);
         });
+
         //对类的构造工厂进行索引
         clazz.redirectingFactories.forEach((redirectingFactory) {
           String name = redirectingFactory.getNamedName();
           compilerContext.lookupDeclarationIndex(name, redirectingFactory);
+        });
+        //对类中方法进行索引
+        clazz.procedures.forEach((procedure) {
+          String name = procedure.getNamedName();
+          compilerContext.lookupDeclarationIndex(name, procedure);
         });
       });
     });
@@ -88,6 +90,8 @@ class MicroCompiler {
 
     return Program(
       rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
+      runtimeTypes: compilerContext.visibleTypes,
+      runtimeTypeIndexes: compilerContext.visibleTypeIndex,
       constantPool: compilerContext.constantPool.pool,
       ops: compilerContext.offsetTracker.apply(),
       component: component,
