@@ -55,9 +55,11 @@ class MicroCompilerContext {
       superTypeKey = superClazz.getNamedName();
     }
     if (compileDeclarationIndexes.containsKey(key)) {
-      type = TypeRef(node.stringLibraryUri, node.name, false, superTypeKey);
+      type = TypeRef(node.stringLibraryUri, node.name, false,
+          superTypeKey: superTypeKey);
     } else {
-      type = TypeRef(node.stringLibraryUri, node.name, true, superTypeKey);
+      type = TypeRef(node.stringLibraryUri, node.name, true,
+          superTypeKey: superTypeKey);
     }
     visibleTypes[key] = type;
 

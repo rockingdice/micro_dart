@@ -6,10 +6,13 @@ class Types {
   static final TypeRef nullType = TypeRef("", "null", false);
 
   static final TypeRef objectType = TypeRef("dart:core", "Object", true);
+
+  static final TypeRef listType = TypeRef("dart:core", "List", true);
+
   static final TypeRef numType =
-      TypeRef("dart:core", "num", true, "dart:core@Object");
+      TypeRef("dart:core", "num", true, superTypeKey: "dart:core@Object");
   static final TypeRef intType =
-      TypeRef("dart:core", "int", true, "dart:core@num");
+      TypeRef("dart:core", "int", true, superTypeKey: "dart:core@num");
 
   final Map<String, TypeRef> types;
 
@@ -29,12 +32,14 @@ class TypeRef {
   final bool isExternal;
   final String? superTypeKey;
 
+  final List<String> implementTypes;
+
   String get key {
     return "$libraryName@$className";
   }
 
   const TypeRef(this.libraryName, this.className, this.isExternal,
-      [this.superTypeKey]);
+      {this.superTypeKey, this.implementTypes = const []});
 
   bool same(TypeRef typeRef) {
     return typeRef.key == key;
@@ -53,7 +58,7 @@ class TypeRef {
   }
 
   factory TypeRef.fromList(List list) {
-    return TypeRef(list[0], list[1], list[2], list[3]);
+    return TypeRef(list[0], list[1], list[2], superTypeKey: list[3]);
   }
 
   @override
