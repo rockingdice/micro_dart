@@ -1,6 +1,16 @@
 import 'dart:core';
+import 'dart:typed_data';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
 
-var coreLibrary = {
+late m.MicroDartEngine _engine;
+
+m.MicroDartEngine initMicroDartRumtime(ByteData data) {
+  _engine = m.MicroDartEngine.fromData(data);
+  _engine.addExternalFunctions(_coreLibrary);
+  return _engine;
+}
+
+var _coreLibrary = {
   'dart:core@@deprecated:static': () => deprecated,
   'dart:core@@override:static': () => override,
   'dart:core@@provisional:static': () => provisional,
@@ -345,8 +355,10 @@ var coreLibrary = {
   'dart:core@@identical:static': () => identical,
   'dart:core@@identityHashCode:static': () => identityHashCode,
   'dart:core@int@#super': () => "dart:core@num",
-  'dart:core@int@#as': (dynamic target) => target as int,
-  'dart:core@int@#is': (dynamic target) => target is int,
+  'dart:core@int@#as': (dynamic target) =>
+      m.InstanceBridge(_engine, target as int, m.Types.intType),
+  'dart:core@int@#is': (dynamic target) =>
+      target is int || (target is m.InstanceBridge && target.target is int),
   'dart:core@int@isEven': (int target) => target.isEven,
   'dart:core@int@isOdd': (int target) => target.isOdd,
   'dart:core@int@bitLength': (int target) => target.bitLength,
@@ -498,7 +510,8 @@ var coreLibrary = {
   'dart:core@num@sign': (num target) => target.sign,
   'dart:core@num@==': (num target, other) => target == other,
   'dart:core@num@compareTo': (num target) => target.compareTo,
-  'dart:core@num@+': (num target, other) => target + other,
+  'dart:core@num@+': (num target, other) =>
+      m.InstanceBridge(_engine, target + other, m.Types.intType),
   'dart:core@num@-': (num target, other) => target - other,
   'dart:core@num@*': (num target, other) => target * other,
   'dart:core@num@%': (num target, other) => target % other,

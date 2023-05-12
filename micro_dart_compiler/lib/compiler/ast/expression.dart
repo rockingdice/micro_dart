@@ -46,14 +46,50 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileAsExpression(context, node);
   } else if (node is DynamicInvocation) {
     return compileDynamicInvocation(context, node);
+  } else if (node is DynamicGet) {
+    return compileDynamicGet(context, node);
+  } else if (node is DynamicSet) {
+    return compileDynamicSet(context, node);
   }
 
   throw Exception("expression type not found : ${node.runtimeType.toString()}");
 }
 
+int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
+  context.addScope("<DynamicSet>", node.fileOffset);
+  compileExpression(context, node.receiver);
+  compileExpression(context, node.value);
+
+  int pos =
+      context.pushOp(CallDynamic.make(node.name.text, false, true, 1, []));
+  context.removeScope();
+  return pos;
+}
+
+int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
+  context.addScope("<DynamicGet>", node.fileOffset);
+  compileExpression(context, node.receiver);
+
+  int pos =
+      context.pushOp(CallDynamic.make(node.name.text, true, false, 0, []));
+  context.removeScope();
+  return pos;
+}
+
 int compileDynamicInvocation(
     MicroCompilerContext context, DynamicInvocation node) {
-  return -1;
+  context.addScope("<DynamicInvocation>", node.fileOffset);
+  compileExpression(context, node.receiver);
+  compileArguments(context, node.arguments);
+
+  int pos = context.pushOp(CallDynamic.make(
+      node.name.text,
+      false,
+      false,
+      node.arguments.positional.length,
+      node.arguments.named.map((e) => e.name).toList()));
+  context.removeScope();
+  return pos;
 }
 
 int compileAsExpression(MicroCompilerContext context, AsExpression node) {
@@ -251,14 +287,14 @@ int compileInstanceInvocation(
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
-  return context.pushOp(PushConstantInt.make(node.value));
+  return context.pushOp(PushBoxInt.make(node.value));
 }
 
 int compileConstantExpression(
     MicroCompilerContext context, ConstantExpression node) {
   var constant = node.constant;
   if (constant is IntConstant) {
-    return context.pushOp(PushConstantInt.make(constant.value));
+    return context.pushOp(PushBoxInt.make(constant.value));
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();

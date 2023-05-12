@@ -13,13 +13,11 @@ class Program {
   final List<Op> ops;
   final List<Object> constantPool;
 
-  final List<TypeRef> runtimeTypes;
-  final Map<String, int> runtimeTypeIndexes;
+  final Map<String, TypeRef> runtimeTypes;
 
   Program(
       {required this.rumtimeDeclarationOpIndexes,
       required this.runtimeTypes,
-      required this.runtimeTypeIndexes,
       required this.ops,
       required this.constantPool,
       this.component});
@@ -29,8 +27,10 @@ class Program {
 
     _writeMetaBlock(builder, rumtimeDeclarationOpIndexes);
     _writeMetaBlock(builder, constantPool);
-    _writeMetaBlock(builder, runtimeTypes.map((e) => e.toList()).toList());
-    _writeMetaBlock(builder, runtimeTypeIndexes);
+    _writeMetaBlock(
+        builder,
+        runtimeTypes
+            .map<String, List>((key, value) => MapEntry(key, value.toList())));
 
     for (final op in ops) {
       builder.add(Ops.opcodeFrom(op));

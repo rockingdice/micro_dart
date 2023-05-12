@@ -412,6 +412,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
 
     return {
       "xtype": "DynamicGet",
+      "kind": node.kind.name,
       "receiver": node.receiver.accept(this),
       "name": node.name.accept(this),
     };
@@ -424,6 +425,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
 
     return {
       "xtype": "DynamicInvocation",
+      "kind": node.kind.name,
       "receiver": node.receiver.accept(this),
       "name": node.name.accept(this),
       "arguments": node.arguments.accept(this),

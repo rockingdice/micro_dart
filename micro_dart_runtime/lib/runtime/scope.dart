@@ -50,9 +50,20 @@ class Scope {
     framePointer++;
   }
 
-  Object? popFrame() {
+  Object? popFrame({int posation = -1}) {
     framePointer--;
-    return frames.removeLast();
+    if (posation == -1) {
+      return frames.removeLast();
+    }
+    return frames.removeAt(posation);
+  }
+
+  Object? getFrame({int posation = -1}) {
+    framePointer--;
+    if (posation == -1) {
+      return frames.last;
+    }
+    return frames[posation];
   }
 
   Iterable<Object?> take(int count) {

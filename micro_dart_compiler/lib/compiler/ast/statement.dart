@@ -84,14 +84,9 @@ void compileVariableDeclaration(
   if (node.initializer != null) {
     //有初始值
     compileExpression(context, node.initializer!);
-    if (node.type is DynamicType) {
-      print("${node.name!} is dynamic");
-    }
+
     context.pushOp(SetScopeParam.make(node.name!));
   } else {
-    if (node.type is DynamicType) {
-      print("${node.name!} is dynamic");
-    }
     //没有初始值则先填充null
     context.pushOp(SetScopeParamNull.make(node.name!));
   }

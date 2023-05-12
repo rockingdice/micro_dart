@@ -1,4 +1,5 @@
 import 'package:kernel/ast.dart';
+import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
@@ -16,21 +17,20 @@ class MicroCompilerContext {
 
   final constantPool = ConstantPool<Object>();
 
-  final List<TypeRef> visibleTypes = [];
-
-  final Map<String, int> visibleTypeIndex = {};
+  final Map<String, TypeRef> visibleTypes = {};
 
   //op操作集合
   final ops = <Op>[];
 
-  //op占用的总字节长度
-  int position = 0;
-
   final bool debug;
+
+  final Component component;
 
   late OffsetTracker offsetTracker = OffsetTracker(this);
 
-  MicroCompilerContext(this.debug);
+  late CoreTypes coreTypes = CoreTypes(component);
+
+  MicroCompilerContext(this.component, this.debug);
 
   int lookupDeclarationIndex(String key, NamedNode node) {
     if (compileDeclarationIndexes.containsKey(key)) {
@@ -42,27 +42,27 @@ class MicroCompilerContext {
     return index;
   }
 
-  int? lookupType(Class node) {
+  TypeRef? lookupType(Class node) {
     String key = node.getNamedName();
 
-    var index = visibleTypeIndex[key];
-    if (index != null) {
-      return index;
+    var type = visibleTypes[key];
+    if (type != null) {
+      return type;
     }
-    TypeRef? type;
-    if (compileDeclarationIndexes.containsKey(key)) {
-      type = TypeRef(node.stringLibraryUri, node.name, false);
-    } else {
-      type = TypeRef(node.stringLibraryUri, node.name, true);
-    }
-    visibleTypes.add(type);
-    visibleTypeIndex[key] = visibleTypes.length - 1;
     var superClazz = node.superclass;
+    String? superTypeKey;
     if (superClazz != null) {
-      type.superTypeIndex = lookupType(superClazz);
+      superTypeKey = superClazz.getNamedName();
     }
+    if (compileDeclarationIndexes.containsKey(key)) {
+      type = TypeRef(node.stringLibraryUri, node.name, false, superTypeKey);
+    } else {
+      type = TypeRef(node.stringLibraryUri, node.name, true, superTypeKey);
+    }
+    visibleTypes[key] = type;
+
     print("lookupType:$type");
-    return visibleTypeIndex[key];
+    return type;
   }
 
   void setupTypes() {
@@ -75,7 +75,7 @@ class MicroCompilerContext {
 
   int pushOp(Op op) {
     ops.add(op);
-    position += op.opLen;
+    //position += op.opLen;
     int p = ops.length - 1;
     if (debug) {
       print('$p: $op');
@@ -84,10 +84,7 @@ class MicroCompilerContext {
   }
 
   int rewriteOp(Op op, int index) {
-    var oldOp = ops[index];
-    position -= oldOp.opLen;
     ops[index] = op;
-    position += op.opLen;
     return index;
   }
 

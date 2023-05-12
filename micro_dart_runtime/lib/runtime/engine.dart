@@ -19,8 +19,7 @@ class MicroDartEngine {
   final constants = <Object>[];
 
   /// 类型
-  final List<TypeRef> types = <TypeRef>[];
-  final Map<String, int> typeIndexes = <String, int>{};
+  final Map<String, TypeRef> types = <String, TypeRef>{};
 
   /// 二进制文件读取偏移量，仅在加载时使用
   int _fileOffset = 0;
@@ -92,17 +91,20 @@ class MicroDartEngine {
   }
 
   void _load() {
+    declarations.clear();
+    constants.clear();
+    types.clear();
+    ops.clear();
+
     ///加载全局声明
     declarations.addAll(json.decode(readString()).cast<String, int>());
 
     ///加载静态变量
     constants.addAll((json.decode(readString()) as List).cast());
-
-    types.addAll((json.decode(readString()) as List)
-        .map((e) => TypeRef.fromList(e))
-        .toList());
-
-    typeIndexes.addAll(json.decode(readString()).cast<String, int>());
+    var maps = json.decode(readString()) as Map;
+    types.addAll(maps.map<String, TypeRef>((key, value) =>
+        MapEntry<String, TypeRef>(key, TypeRef.fromList(value))));
+    types.addAll(Types.internalTypes);
 
     ///加载操作结合
     while (_fileOffset < _data.lengthInBytes) {
@@ -128,5 +130,23 @@ class MicroDartEngine {
 
   MicroRuntime createRuntime() {
     return MicroRuntime(this);
+  }
+
+  TypeRef getType(String key) {
+    return types[key]!;
+  }
+
+  String? getKeyByType(TypeRef type, String name, {bool isSetter = false}) {
+    var key = type.getNameKey(name, isSetter: isSetter);
+
+    if (declarations.containsKey(key)) {
+      return key;
+    } else if (externalFunctions.containsKey(key)) {
+      return key;
+    } else if (type.superTypeKey != null &&
+        types.containsKey(type.superTypeKey)) {
+      return getKeyByType(getType(type.superTypeKey!), name);
+    }
+    return null;
   }
 }

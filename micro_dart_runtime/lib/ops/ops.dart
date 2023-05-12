@@ -3,6 +3,9 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_call_dynamic.dart';
+export 'op_push_box_int.dart';
+
 export 'op_push_pointer.dart';
 
 export 'op_call_pointer.dart';
@@ -30,6 +33,29 @@ export 'op_set_param_null.dart';
 export 'op_set_posational_param.dart';
 export 'op_set_scope_param.dart';
 export 'op_set_scope_param_null.dart';
+
+const List<String> operator1 = ["unary-", "unary+", "~", "#as", "#is"];
+const List<String> operator2 = [
+  "&",
+  "|",
+  "^",
+  "==",
+  "+",
+  "-",
+  "*",
+  "~/",
+  "<",
+  ">",
+  "<=",
+  ">=",
+  "/",
+  "%",
+  "<<",
+  ">>",
+  ">>>",
+  "[]"
+];
+const List<String> operator3 = ["[]="];
 
 class Ops {
   static const opJumpConstant = 0;
@@ -59,6 +85,8 @@ class Ops {
   static const opJump = 24;
   static const opCallPointer = 25;
   static const opPushPointer = 26;
+  static const opPushBoxInt = 27;
+  static const opCallDynamic = 28;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -136,30 +164,36 @@ abstract class Op {
 
 typedef OpLoader = Op Function(MicroDartEngine);
 final Map<int, OpLoader> opLoaders = {
-  Ops.opPushScope: (MicroDartEngine rt) => PushScope(rt),
-  Ops.opPopScope: (MicroDartEngine rt) => PopScope(rt),
-  Ops.opReturn: (MicroDartEngine rt) => Return(rt),
-  Ops.opPushConstantInt: (MicroDartEngine rt) => PushConstantInt(rt),
-  Ops.opCall: (MicroDartEngine rt) => Call(rt),
-  Ops.opPushNull: (MicroDartEngine rt) => PushNull(rt),
-  Ops.opPushConstant: (MicroDartEngine rt) => PushConstant(rt),
-  Ops.opSetParam: (MicroDartEngine rt) => SetParam(rt),
-  Ops.opGetParam: (MicroDartEngine rt) => GetParam(rt),
-  Ops.opSetParamNull: (MicroDartEngine rt) => SetParamNull(rt),
-  Ops.opSetPosationalParam: (MicroDartEngine rt) => SetPosationalParam(rt),
-  Ops.opSetNamedParam: (MicroDartEngine rt) => SetNamedParam(rt),
-  Ops.opSetGlobalParam: (MicroDartEngine rt) => SetGlobalParam(rt),
-  Ops.opGetGlobalParam: (MicroDartEngine rt) => GetGlobalParam(rt),
-  Ops.opCallExternal: (MicroDartEngine rt) => CallExternal(rt),
-  Ops.opSetScopeParam: (MicroDartEngine rt) => SetScopeParam(rt),
-  Ops.opSetScopeParamNull: (MicroDartEngine rt) => SetScopeParamNull(rt),
-  Ops.opCreateInstance: (MicroDartEngine rt) => CreateInstance(rt),
-  Ops.opSetObjectProperty: (MicroDartEngine rt) => SetObjectProperty(rt),
-  Ops.opGetObjectProperty: (MicroDartEngine rt) => GetObjectProperty(rt),
-  Ops.opSetThisProperty: (MicroDartEngine rt) => SetThisProperty(rt),
-  Ops.opReturnField: (MicroDartEngine rt) => ReturnField(rt),
-  Ops.opPushList: (MicroDartEngine rt) => PushList(rt),
-  Ops.opJump: (MicroDartEngine rt) => Jump(rt),
-  Ops.opCallPointer: (MicroDartEngine rt) => CallPointer(rt),
-  Ops.opPushPointer: (MicroDartEngine rt) => PushPointer(rt)
+  Ops.opPushScope: (MicroDartEngine engine) => PushScope(engine),
+  Ops.opPopScope: (MicroDartEngine engine) => PopScope(engine),
+  Ops.opReturn: (MicroDartEngine engine) => Return(engine),
+  Ops.opPushConstantInt: (MicroDartEngine engine) => PushConstantInt(engine),
+  Ops.opCall: (MicroDartEngine engine) => Call(engine),
+  Ops.opPushNull: (MicroDartEngine engine) => PushNull(engine),
+  Ops.opPushConstant: (MicroDartEngine engine) => PushConstant(engine),
+  Ops.opSetParam: (MicroDartEngine engine) => SetParam(engine),
+  Ops.opGetParam: (MicroDartEngine engine) => GetParam(engine),
+  Ops.opSetParamNull: (MicroDartEngine engine) => SetParamNull(engine),
+  Ops.opSetPosationalParam: (MicroDartEngine engine) =>
+      SetPosationalParam(engine),
+  Ops.opSetNamedParam: (MicroDartEngine engine) => SetNamedParam(engine),
+  Ops.opSetGlobalParam: (MicroDartEngine engine) => SetGlobalParam(engine),
+  Ops.opGetGlobalParam: (MicroDartEngine engine) => GetGlobalParam(engine),
+  Ops.opCallExternal: (MicroDartEngine engine) => CallExternal(engine),
+  Ops.opSetScopeParam: (MicroDartEngine engine) => SetScopeParam(engine),
+  Ops.opSetScopeParamNull: (MicroDartEngine engine) =>
+      SetScopeParamNull(engine),
+  Ops.opCreateInstance: (MicroDartEngine engine) => CreateInstance(engine),
+  Ops.opSetObjectProperty: (MicroDartEngine engine) =>
+      SetObjectProperty(engine),
+  Ops.opGetObjectProperty: (MicroDartEngine engine) =>
+      GetObjectProperty(engine),
+  Ops.opSetThisProperty: (MicroDartEngine engine) => SetThisProperty(engine),
+  Ops.opReturnField: (MicroDartEngine engine) => ReturnField(engine),
+  Ops.opPushList: (MicroDartEngine engine) => PushList(engine),
+  Ops.opJump: (MicroDartEngine engine) => Jump(engine),
+  Ops.opCallPointer: (MicroDartEngine engine) => CallPointer(engine),
+  Ops.opPushPointer: (MicroDartEngine engine) => PushPointer(engine),
+  Ops.opPushBoxInt: (MicroDartEngine engine) => PushBoxInt(engine),
+  Ops.opCallDynamic: (MicroDartEngine engine) => CallDynamic(engine)
 };

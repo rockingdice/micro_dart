@@ -1,6 +1,6 @@
 part of 'ast.dart';
 
-int compileDartType(MicroCompilerContext context, DartType dartType) {
+TypeRef? compileDartType(MicroCompilerContext context, DartType dartType) {
   if (dartType is DynamicType) {
     return compileDynamicType(context, dartType);
   } else if (dartType is InvalidType) {
@@ -25,43 +25,49 @@ int compileDartType(MicroCompilerContext context, DartType dartType) {
   throw Exception("not support ${dartType.runtimeType.toString()}");
 }
 
-int compileDynamicType(MicroCompilerContext context, DynamicType dartType) {
-  return -1;
+TypeRef? compileDynamicType(
+    MicroCompilerContext context, DynamicType dartType) {
+  return Types.dynamicType;
 }
 
-int compileInvalidType(MicroCompilerContext context, InvalidType dartType) {
-  return -1;
+TypeRef? compileInvalidType(
+    MicroCompilerContext context, InvalidType dartType) {
+  return Types.invalidType;
 }
 
-int compileVoidType(MicroCompilerContext context, VoidType dartType) {
-  return -1;
+TypeRef? compileVoidType(MicroCompilerContext context, VoidType dartType) {
+  return Types.voidType;
 }
 
-int compileNeverType(MicroCompilerContext context, NeverType dartType) {
-  return -1;
+TypeRef? compileNeverType(MicroCompilerContext context, NeverType dartType) {
+  return Types.neverType;
 }
 
-int compileNullType(MicroCompilerContext context, NullType dartType) {
-  return -1;
+TypeRef? compileNullType(MicroCompilerContext context, NullType dartType) {
+  return Types.nullType;
 }
 
-int compileInterfaceType(MicroCompilerContext context, InterfaceType dartType) {
-  return context.lookupType(dartType.classNode) ?? -1;
+TypeRef? compileInterfaceType(
+    MicroCompilerContext context, InterfaceType dartType) {
+  return context.lookupType(dartType.classNode) ?? Types.dynamicType;
 }
 
-int compileFunctionType(MicroCompilerContext context, FunctionType dartType) {
-  return -1;
+TypeRef? compileFunctionType(
+    MicroCompilerContext context, FunctionType dartType) {
+  return null;
 }
 
-int compileFutureOrType(MicroCompilerContext context, FutureOrType dartType) {
-  return -1;
+TypeRef? compileFutureOrType(
+    MicroCompilerContext context, FutureOrType dartType) {
+  return null;
 }
 
-int compileExtensionType(MicroCompilerContext context, ExtensionType dartType) {
-  return -1;
+TypeRef? compileExtensionType(
+    MicroCompilerContext context, ExtensionType dartType) {
+  return null;
 }
 
-int compileTypeParameterType(
+TypeRef? compileTypeParameterType(
     MicroCompilerContext context, TypeParameterType dartType) {
-  return -1;
+  return null;
 }

@@ -7,8 +7,13 @@ micro_dart_runtime:Dart解释器
 
 编译逻辑
 
-1.首先通过front_end解析代码成AST
-2.将AST编译成字节码
+1.首先通过front_end解析代码成AST（Abstract Syntax Tree，抽象语法树）
+2.将AST编译成可供解释器执行的字节码
+3.通过解释器对字节码进行解释执行
+
+
+
+
 
 
 
@@ -29,7 +34,15 @@ micro_dart_runtime:Dart解释器
 本类函数
 扩展函数
 
-InstanceImpl(
+CallDynamic(func3,false,true,1,[]):
+
+
+(g:{},s:[
+    Scope({},[]), 
     
-    test:///main.dart,C,InstanceImpl(test:///main.dart,B,InstanceImpl(test:///main.dart,A,InstanceBridge(dart:core,Object),{a: 1}),{c: 2}),{e: 3, b: 1, d: 2, f: 3})
+    Scope({a: InstanceImpl(TypeRef(test:///main.dart,B,false,test:///main.dart@A),InstanceImpl(TypeRef(test:///main.dart,A,false,dart:core@Object),InstanceBridge(Instance of 'Object'),{}),{}), b: InstanceImpl(TypeRef(test:///main.dart,B,false,test:///main.dart@A),InstanceImpl(TypeRef(test:///main.dart,A,false,dart:core@Object),InstanceBridge(Instance of 'Object'),{}),{})},[]), 
+    
+    Scope({},[
+        InstanceBridge(4), 
+        InstanceImpl(TypeRef(test:///main.dart,B,false,test:///main.dart@A),InstanceImpl(TypeRef(test:///main.dart,A,false,dart:core@Object),InstanceBridge(Instance of 'Object'),{}),{})])]}
 

@@ -13,10 +13,9 @@ class PushConstant implements Op {
   @override
   List<int> get bytes => [Ops.opPushConstant, ...Ops.i32b(_const)];
 
-  // Set value at position to constant
   @override
   void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(runtime.interpreter.constants[_const]);
+    runtime.scope.pushFrame(runtime.engine.constants[_const]);
   }
 
   @override

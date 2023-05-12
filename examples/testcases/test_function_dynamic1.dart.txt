@@ -1,0 +1,8 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  static method main() → dart.core::int {
+    dynamic a = 1;
+    return a{dynamic}.+(1){dynamic}.+(2) as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int;
+  }
+}

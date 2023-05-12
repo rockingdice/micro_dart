@@ -40,7 +40,7 @@ class MicroCompiler {
         .removeWhere((element) => element.importUri.toString() != pluginUri);
 
     //初始化编译上下文
-    var compilerContext = MicroCompilerContext(debug);
+    var compilerContext = MicroCompilerContext(component, debug);
 
     component.libraries.forEach((library) {
       //顶部方法索引
@@ -91,7 +91,6 @@ class MicroCompiler {
     return Program(
       rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
       runtimeTypes: compilerContext.visibleTypes,
-      runtimeTypeIndexes: compilerContext.visibleTypeIndex,
       constantPool: compilerContext.constantPool.pool,
       ops: compilerContext.offsetTracker.apply(),
       component: component,

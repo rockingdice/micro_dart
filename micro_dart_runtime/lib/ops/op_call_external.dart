@@ -1,34 +1,5 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-const List<String> _operatorFunctions1 = [
-  "unary-",
-  "unary+",
-  "~",
-  "#as",
-  "#is"
-];
-const List<String> _operatorFunctions2 = [
-  "&",
-  "|",
-  "^",
-  "==",
-  "+",
-  "-",
-  "*",
-  "~/",
-  "<",
-  ">",
-  "<=",
-  ">=",
-  "/",
-  "%",
-  "<<",
-  ">>",
-  ">>>",
-  "[]",
-];
-const List<String> _operatorFunctions3 = ["[]="];
-
 ///调用外部方法
 class CallExternal implements Op {
   CallExternal(MicroDartEngine interpreter)
@@ -103,16 +74,17 @@ class CallExternal implements Op {
 
     //表示这是构造函数初始化
     if (kind == 3) {
-      var function = runtime.interpreter.externalFunctions[key];
+      var function = runtime.engine.externalFunctions[key];
       Map<String, dynamic> namedArguments = {};
       for (var element in namedList) {
         namedArguments[element] = runtime.getParam(element);
       }
       //这里需要修改
+
       var instance = InstanceBridge(
-          runtime.interpreter,
+          runtime.engine,
           function!(positionalArguments, namedArguments),
-          TypeRef(libraryUri, className, true));
+          runtime.engine.getType("$libraryUri@$className"));
       runtime.scope.pushFrame(instance);
       return;
     }
@@ -124,44 +96,57 @@ class CallExternal implements Op {
 
     if (isStatic) {
       if (isGetter) {
-        runtime.scope.pushFrame(runtime.interpreter.externalFunctions[key]!);
+        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!);
         return;
       } else if (isSetter) {
-        runtime.interpreter.externalFunctions[key]!(positionalArguments.first);
+        runtime.engine.externalFunctions[key]!(positionalArguments.first);
         return;
       }
 
       Function.apply(
-          runtime.interpreter.externalFunctions[key]!(), positionalArguments);
+          runtime.engine.externalFunctions[key]!(), positionalArguments);
     } else {
-      var target = runtime.scope.popFrame();
+      dynamic target = runtime.scope.popFrame();
+      if (target is InstanceBridge) {
+        target = target.target;
+      }
 
-      if (isSetter) {
-        runtime.scope
-            .pushFrame(runtime.interpreter.externalFunctions[key]!(target));
+      if (isGetter) {
+        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
         return;
       } else if (isSetter) {
-        runtime.interpreter.externalFunctions[key]!(
+        runtime.engine.externalFunctions[key]!(
             target, positionalArguments.first);
         return;
       }
 
-      if (_operatorFunctions1.contains(name)) {
-        runtime.scope
-            .pushFrame(runtime.interpreter.externalFunctions[key]!(target));
+      if (operator1.contains(name)) {
+        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
         return;
-      } else if (_operatorFunctions2.contains(name)) {
-        var function = runtime.interpreter.externalFunctions[key];
-        runtime.scope.pushFrame(function!(target, positionalArguments.first));
+      } else if (operator2.contains(name)) {
+        var function = runtime.engine.externalFunctions[key];
+        dynamic other = positionalArguments.first;
+        if (other is InstanceBridge) {
+          other = other.target;
+        }
+        runtime.scope.pushFrame(function!(target, other));
         return;
-      } else if (_operatorFunctions3.contains(name)) {
-        runtime.scope.pushFrame(runtime.interpreter.externalFunctions[key]!(
-            target, positionalArguments.first, positionalArguments[1]));
+      } else if (operator3.contains(name)) {
+        dynamic first = positionalArguments.first;
+        if (first is InstanceBridge) {
+          first = first.target;
+        }
+        dynamic second = positionalArguments[1];
+        if (second is InstanceBridge) {
+          second = first.target;
+        }
+        runtime.scope.pushFrame(
+            runtime.engine.externalFunctions[key]!(target, first, second));
         return;
       }
 
       runtime.scope.pushFrame(Function.apply(
-          runtime.interpreter.externalFunctions[key]!(target),
+          runtime.engine.externalFunctions[key]!(target),
           positionalArguments,
           namedArguments));
     }

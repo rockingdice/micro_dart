@@ -3,9 +3,9 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 //运行时
 class MicroRuntime {
   //解释器
-  final MicroDartEngine interpreter;
+  final MicroDartEngine engine;
 
-  MicroRuntime(this.interpreter);
+  MicroRuntime(this.engine);
 
   /// 作用域集合
   final _scopes = <Scope>[];
@@ -66,15 +66,15 @@ class MicroRuntime {
   }
 
   Object? getGlobalParam(String key) {
-    return interpreter.globals[key];
+    return engine.globals[key];
   }
 
   void setGlobalParam(String key, Object? value) {
-    interpreter.globals[key] = value;
+    engine.globals[key] = value;
   }
 
   bool hasGlobalParam(String key) {
-    return interpreter.globals.containsKey(key);
+    return engine.globals.containsKey(key);
   }
 
   Object? getParamFromScope(String key, {int location = -1}) {
@@ -143,7 +143,7 @@ class MicroRuntime {
       catchStack.clear();
 
       //获取当前操作数指针
-      opPointer = interpreter.declarations['$importUri@@$functionName:static']!;
+      opPointer = engine.declarations['$importUri@@$functionName:static']!;
 
       addScope("<execute>");
 
@@ -160,7 +160,7 @@ class MicroRuntime {
       //执行方法
       while (true) {
         int oldPointer = opPointer;
-        final op = interpreter.ops[opPointer++];
+        final op = engine.ops[opPointer++];
         if (debug) {
           print(
               "$oldPointer ${_scopes.length} start:${op.toString()}:${toString()}");
@@ -175,6 +175,9 @@ class MicroRuntime {
       }
       var result = s.frames.last;
       s.clean();
+      if (result is InstanceBridge) {
+        return result.target;
+      }
       return result;
     } on RuntimeException catch (_) {
       rethrow;
@@ -187,6 +190,6 @@ class MicroRuntime {
 
   @override
   String toString() {
-    return "(g:${interpreter.globals},s:${_scopes.toString()}}";
+    return "(g:${engine.globals},s:${_scopes.toString()}}";
   }
 }

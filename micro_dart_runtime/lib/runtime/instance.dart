@@ -6,12 +6,8 @@ abstract class Instance {
 
   const Instance(this.type);
 
-  bool get isDynamic {
-    return type == TypeRef.dynamicType;
-  }
-
   Object? getParam(String name);
-  void setParam(String name, Object? value, {TypeRef? type});
+  void setParam(String name, Object? value);
   bool hasParam(String name);
 
   bool same(TypeRef? stype) {
@@ -21,16 +17,16 @@ abstract class Instance {
 }
 
 class InstanceBridge extends Instance {
-  final Object _target;
+  final Object target;
   final MicroDartEngine _interpreter;
 
-  const InstanceBridge(this._interpreter, this._target, TypeRef type)
+  const InstanceBridge(this._interpreter, this.target, TypeRef type)
       : super(type);
   @override
   Object? getParam(String name) {
-    var key = type.getKey(name);
+    var key = _interpreter.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
-    return _interpreter.externalFunctions[key]!(_target);
+    return _interpreter.externalFunctions[key]!(target);
   }
 
   @override
@@ -39,16 +35,16 @@ class InstanceBridge extends Instance {
   }
 
   @override
-  void setParam(String name, Object? value, {TypeRef? type}) {
-    final key = type?.getKey(name, isSetter: true);
+  void setParam(String name, Object? value) {
+    final key = _interpreter.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
     print("key:$key");
-    _interpreter.externalFunctions[key]!(_target, value);
+    _interpreter.externalFunctions[key]!(target, value);
   }
 
   @override
   String toString() {
-    return "InstanceBridge($type)";
+    return "InstanceBridge($target)";
   }
 }
 
@@ -72,16 +68,12 @@ class InstanceImpl extends Instance {
   }
 
   @override
-  void setParam(String name, Object? value, {TypeRef? type}) {
+  void setParam(String name, Object? value) {
     if (name == "#super") {
       _superInstance = value as Instance;
       return;
     }
-    if (type == null || same(type)) {
-      _params[name] = value;
-    } else {
-      return _superInstance?.setParam(name, value, type: type);
-    }
+    _params[name] = value;
   }
 
   @override
