@@ -1,6 +1,7 @@
 // @dart = 2.9
 
 import 'dart:io';
+
 import 'env.dart';
 import 'package:test/test.dart';
 
@@ -8,60 +9,62 @@ const bool astToJsonFlag = true;
 const bool printOp = true;
 
 void main() {
-  group('Class tests', () {
-    test(':test class basic', () async {
-      String fileName = "test_class_basic.dart";
+  group('Dynamic tests', () {
+    test(':test function dynamic1', () async {
+      String fileName = "test_function_dynamic1.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+      if (true) {
+        astToJson("$testCasePath/$fileName", pluginUri, program.component);
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
       var interpreter =
           initMicroDartRumtime(program.write().buffer.asByteData());
-
       if (printOp) {
         interpreter.printOpcodes();
       }
+
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 14);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+
+      expect(returnValue, 4);
     });
 
-    test(':test class extends', () async {
-      String fileName = "test_class_extends.dart";
+    test(':test function dynamic2', () async {
+      String fileName = "test_function_dynamic2.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+      if (true) {
+        astToJson("$testCasePath/$fileName", pluginUri, program.component);
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
       var interpreter =
           initMicroDartRumtime(program.write().buffer.asByteData());
-
       if (printOp) {
         interpreter.printOpcodes();
       }
+
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 22);
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+
+      expect(returnValue, 9);
     });
 
-    test(':test class extension', () async {
-      String fileName = "test_class_extension.dart";
+    test(':test function anonymous inline args', () async {
+      String fileName = "test_function_anonymous_inline_args.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath/$fileName", pluginUri, program.component);
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
@@ -71,34 +74,13 @@ void main() {
       if (printOp) {
         interpreter.printOpcodes();
       }
+
       var runtime = interpreter.createRuntime();
 
       var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 10);
-    });
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
 
-    test(':test class mixin', () async {
-      String fileName = "test_class_mixin.dart";
-      var file = File("$testCasePath$fileName");
-      var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
-      if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
-      }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
-
-      if (printOp) {
-        interpreter.printOpcodes();
-      }
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: true);
-      expect(returnValue, 10);
+      expect(returnValue, 9);
     });
   });
 }

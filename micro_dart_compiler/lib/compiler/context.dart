@@ -5,6 +5,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 import 'constant_pool.dart';
 import 'ast/ast.dart';
+import 'namer.dart';
 
 class MicroCompilerContext {
   final List<NamedNode> compileDeclarations = [];
@@ -29,6 +30,9 @@ class MicroCompilerContext {
   late OffsetTracker offsetTracker = OffsetTracker(this);
 
   late CoreTypes coreTypes = CoreTypes(component);
+
+  final Namer<VariableDeclaration> variableNamer =
+      NormalNamer<VariableDeclaration>('#v');
 
   MicroCompilerContext(this.component, this.debug);
 

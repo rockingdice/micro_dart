@@ -13,8 +13,7 @@ void main() {
       String fileName = "test_collection_iterable_join.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program =
-          await MicroCompiler.compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath$fileName", pluginUri, program.component);
         writeComponentToText(program.component,

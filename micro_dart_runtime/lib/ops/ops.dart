@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_string_concat.dart';
 export 'op_call_dynamic.dart';
 export 'op_push_box_int.dart';
 
@@ -87,6 +88,8 @@ class Ops {
   static const opPushPointer = 26;
   static const opPushBoxInt = 27;
   static const opCallDynamic = 28;
+
+  static const opStringConcat = 29;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -195,5 +198,6 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opCallPointer: (MicroDartEngine engine) => CallPointer(engine),
   Ops.opPushPointer: (MicroDartEngine engine) => PushPointer(engine),
   Ops.opPushBoxInt: (MicroDartEngine engine) => PushBoxInt(engine),
-  Ops.opCallDynamic: (MicroDartEngine engine) => CallDynamic(engine)
+  Ops.opCallDynamic: (MicroDartEngine engine) => CallDynamic(engine),
+  Ops.opStringConcat: (MicroDartEngine engine) => StringConcat(engine)
 };

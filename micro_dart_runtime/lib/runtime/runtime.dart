@@ -164,6 +164,7 @@ class MicroRuntime {
         if (debug) {
           print(
               "$oldPointer ${_scopes.length} start:${op.toString()}:${toString()}");
+          print("----------------");
         }
         op.run(this);
       }

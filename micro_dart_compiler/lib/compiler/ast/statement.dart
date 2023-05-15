@@ -80,15 +80,27 @@ void compileBlock(MicroCompilerContext context, Block node,
 
 void compileVariableDeclaration(
     MicroCompilerContext context, VariableDeclaration node) {
+  var type = node.type;
+
   compileDartType(context, node.type);
+
+  //表示这是一个函数引用
+  var name = node.name;
+  if (name == null) {
+    name = context.variableNamer.getName(node);
+  }
+
   if (node.initializer != null) {
     //有初始值
     compileExpression(context, node.initializer!);
 
-    context.pushOp(SetScopeParam.make(node.name!));
+    // if (type is InterfaceType) {
+    // } else if (type is FunctionType) {}
+
+    context.pushOp(SetScopeParam.make(name));
   } else {
     //没有初始值则先填充null
-    context.pushOp(SetScopeParamNull.make(node.name!));
+    context.pushOp(SetScopeParamNull.make(name));
   }
 }
 

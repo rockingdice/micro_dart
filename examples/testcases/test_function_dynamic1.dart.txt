@@ -1,8 +1,30 @@
-main = main::main;
+main = <No Member>;
 library from "test:///main.dart" as main {
 
-  static method main() → dart.core::int {
-    dynamic a = 1;
-    return a{dynamic}.+(1){dynamic}.+(2) as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int;
+  abstract class A extends dart.core::Object {
+    constructor •() → main::A
+      : super dart.core::Object::•()
+      ;
+    method func1() → dart.core::int {
+      return 1;
+    }
+  }
+  class B extends main::A {
+    field dart.core::int _i = 3;
+    constructor •() → main::B
+      : super main::A::•()
+      ;
+    method func2() → main::A {
+      return new main::B::•();
+    }
+    get func3() → dart.core::int {
+      return this.{main::B::_i}{dart.core::int};
+    }
+    set func3(dynamic c) → void {
+      this.{main::B::_i} = c as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int;
+    }
+    method func4() → dart.core::int {
+      return 4;
+    }
   }
 }

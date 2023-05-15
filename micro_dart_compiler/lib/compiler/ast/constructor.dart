@@ -34,13 +34,15 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
 
   var b = node.function.body;
   if (b != null) {
-    context.addScope("<ConstructorBlock>", node.fileOffset);
-    if (b is Block) {
+    if (b is Block && b.statements.isNotEmpty) {
+      context.addScope("<ConstructorBlock>", node.fileOffset);
       compileBlock(context, b, createScope: false);
+      context.removeScope();
     } else {
+      context.addScope("<ConstructorBlock>", node.fileOffset);
       compileStatement(context, b);
+      context.removeScope();
     }
-    context.removeScope();
   }
   context.pushOp(GetParam.make("#this"));
   context.pushOp(Return.make());

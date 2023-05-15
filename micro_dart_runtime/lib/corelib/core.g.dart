@@ -355,8 +355,7 @@ var _coreLibrary = {
   'dart:core@@identical:static': () => identical,
   'dart:core@@identityHashCode:static': () => identityHashCode,
   'dart:core@int@#super': () => "dart:core@num",
-  'dart:core@int@#as': (dynamic target) =>
-      m.InstanceBridge(_engine, target as int, m.Types.intType),
+  'dart:core@int@#as': (dynamic target) => target as int,
   'dart:core@int@#is': (dynamic target) =>
       target is int || (target is m.InstanceBridge && target.target is int),
   'dart:core@int@isEven': (int target) => target.isEven,
@@ -510,8 +509,7 @@ var _coreLibrary = {
   'dart:core@num@sign': (num target) => target.sign,
   'dart:core@num@==': (num target, other) => target == other,
   'dart:core@num@compareTo': (num target) => target.compareTo,
-  'dart:core@num@+': (num target, other) =>
-      m.InstanceBridge(_engine, target + other, m.Types.intType),
+  'dart:core@num@+': (num target, other) => target + other,
   'dart:core@num@-': (num target, other) => target - other,
   'dart:core@num@*': (num target, other) => target * other,
   'dart:core@num@%': (num target, other) => target % other,

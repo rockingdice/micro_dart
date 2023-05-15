@@ -1,0 +1,27 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  static field dart.core::int g1 = 1;
+  static method main() → dart.core::int {
+    (dart.core::int, dart.core::int) → dart.core::int fn1 = (dart.core::int i, dart.core::int j) → dart.core::int {
+      return j.{dart.core::num::-}(i){(dart.core::num) → dart.core::int};
+    };
+    () → dart.core::Function fn2 = #C1;
+    dart.core::int d = 7;
+    function add(dart.core::int a, dart.core::int b, {dart.core::int c = #C2}) → dart.core::int {
+      return a.{dart.core::num::+}(b){(dart.core::num) → dart.core::int}.{dart.core::num::+}(c){(dart.core::num) → dart.core::int}.{dart.core::num::+}(d){(dart.core::num) → dart.core::int};
+    }
+    dart.core::int r = add(fn2(){() → dart.core::Function}() as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int, fn1(4, 5){(dart.core::int, dart.core::int) → dart.core::int}, c: 6){(dart.core::int, dart.core::int, {c: dart.core::int}) → dart.core::int};
+    dart.core::print(r);
+    return r;
+  }
+  static method gFun() → dart.core::Function {
+    return () → dart.core::int {
+      return 2.{dart.core::num::+}(main::g1){(dart.core::num) → dart.core::int};
+    };
+  }
+}
+constants  {
+  #C1 = static-tearoff main::gFun
+  #C2 = 0
+}

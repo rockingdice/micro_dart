@@ -7,16 +7,19 @@ int main() {
 
   var fn2 = gFun;
 
-  int add(int a, int b, {int c = 0, int d = 0}) {
+  int d = 7;
+
+  int add(int a, int b, {int c = 0}) {
     return a + b + c + d;
   }
 
-  int r = add(fn2()(), fn1(4, 5), c: 6, d: 7);
+  int r = add(fn2()(), fn1(4, 5), c: 6);
+  print(r);
   return r;
 }
 
 Function gFun() {
   return () {
-    return 2;
+    return 2 + g1;
   };
 }

@@ -9,15 +9,15 @@ class OffsetTracker {
   OffsetTracker(this.context);
 
   final Map<int, DeferredOrOffset> _deferredOffsets = {};
-  final Map<int, String> _callPointerOffsets = {};
+  final Map<int, CallPointerOffset> _callPointerOffsets = {};
   final MicroCompilerContext context;
 
   void setOffset(int location, DeferredOrOffset offset) {
     _deferredOffsets[location] = offset;
   }
 
-  void setCallPointerOffset(int location, String key) {
-    _callPointerOffsets[location] = key;
+  void setCallPointerOffset(int location, String key, bool isStatic) {
+    _callPointerOffsets[location] = CallPointerOffset(key, isStatic);
   }
 
   List<Op> apply() {
@@ -48,10 +48,10 @@ class OffsetTracker {
       }
     });
 
-    _callPointerOffsets.forEach((pos, key) {
-      final offset = context.rumtimeDeclarationOpIndexes[key]!;
-      final newOp = PushPointer.make(offset);
-      source[pos] = newOp;
+    _callPointerOffsets.forEach((index, value) {
+      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
+      final newOp = PushPointer.make(offset, value.isStatic);
+      source[index] = newOp;
     });
     return source;
   }
@@ -63,6 +63,13 @@ enum DeferredOrOffsetKind {
   Field,
   Constructor,
   RedirectingFactory
+}
+
+class CallPointerOffset {
+  final String key;
+  final bool isStatic;
+
+  const CallPointerOffset(this.key, this.isStatic);
 }
 
 abstract class DeferredOrOffset {

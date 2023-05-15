@@ -44,15 +44,54 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileFunctionInvocation(context, node);
   } else if (node is AsExpression) {
     return compileAsExpression(context, node);
-  } else if (node is DynamicInvocation) {
-    return compileDynamicInvocation(context, node);
-  } else if (node is DynamicGet) {
-    return compileDynamicGet(context, node);
-  } else if (node is DynamicSet) {
-    return compileDynamicSet(context, node);
+  } else if (node is StringConcatenation) {
+    return compileStringConcatenation(context, node);
+  } else if (node is InstanceTearOff) {
+    return compileInstanceTearOff(context, node);
+  } else if (node is Let) {
+    return compileLet(context, node);
   }
+  //else if (node is DynamicInvocation) {
+  //   return compileDynamicInvocation(context, node);
+  // } else if (node is DynamicGet) {
+  //   return compileDynamicGet(context, node);
+  // } else if (node is DynamicSet) {
+  //   return compileDynamicSet(context, node);
+  // }
 
-  throw Exception("expression type not found : ${node.runtimeType.toString()}");
+  throw Exception(
+      "currently expression type  ${node.runtimeType.toString()} not support ");
+}
+
+int compileLet(MicroCompilerContext context, Let node) {
+  context.addScope("<Let>", node.fileOffset);
+  compileVariableDeclaration(context, node.variable);
+  int pos = compileExpression(context, node.body);
+  context.removeScope();
+  return pos;
+}
+
+int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
+  if (context.compileDeclarations.contains(node.interfaceTarget)) {
+    compileExpression(context, node.receiver);
+    String key = node.interfaceTarget.getNamedName();
+    int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+    int pos = context.pushOp(PushPointer.make(opOffset, false));
+    if (opOffset == -1) {
+      context.offsetTracker.setCallPointerOffset(pos, key, false);
+    }
+    return pos;
+  } else {
+    throw Exception("currently not support InstanceTearOff");
+  }
+}
+
+int compileStringConcatenation(
+    MicroCompilerContext context, StringConcatenation node) {
+  node.expressions.forEach((element) {
+    compileExpression(context, element);
+  });
+  return context.pushOp(StringConcat.make(node.expressions.length));
 }
 
 int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
@@ -122,7 +161,7 @@ int compileFunctionInvocation(
   context.addScope("<FunctionInvocation>", node.fileOffset);
   compileArguments(context, arguments);
   compileExpression(context, node.receiver);
-  int pos = context.pushOp(CallPointer.make());
+  int pos = context.pushOp(CallPointer.make(arguments.positional.length));
   context.removeScope();
   return pos;
 }
@@ -178,7 +217,7 @@ int compileFunctionExpression(
   }
   context.rewriteOp(Jump.make(context.ops.length), jumpOver);
 
-  return context.pushOp(PushPointer.make(pos));
+  return context.pushOp(PushPointer.make(pos, true));
 }
 
 int compileSuperPropertyGet(
@@ -287,21 +326,23 @@ int compileInstanceInvocation(
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
-  return context.pushOp(PushBoxInt.make(node.value));
+  //return context.pushOp(PushBoxInt.make(node.value));
+  return context.pushOp(PushConstantInt.make(node.value));
 }
 
 int compileConstantExpression(
     MicroCompilerContext context, ConstantExpression node) {
   var constant = node.constant;
   if (constant is IntConstant) {
-    return context.pushOp(PushBoxInt.make(constant.value));
+    //return context.pushOp(PushBoxInt.make(constant.value));
+    return context.pushOp(PushConstantInt.make(constant.value));
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
       int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
-      int pos = context.pushOp(PushPointer.make(opOffset));
+      int pos = context.pushOp(PushPointer.make(opOffset, true));
       if (opOffset == -1) {
-        context.offsetTracker.setCallPointerOffset(pos, key);
+        context.offsetTracker.setCallPointerOffset(pos, key, true);
       }
       return pos;
     } else {
@@ -316,6 +357,9 @@ int compileConstantExpression(
     } else if (target is Procedure) {
       return compileCallProcedure(context, Arguments.empty(), target);
     }
+  } else if (constant is InstanceConstant) {
+    print("not support InstanceConstant currently");
+    return -1;
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
@@ -352,21 +396,21 @@ int compileStaticSet(MicroCompilerContext context, StaticSet node) {
 }
 
 int compileVariableSet(MicroCompilerContext context, VariableSet node) {
-  int res = compileExpression(context, node.value);
+  compileExpression(context, node.value);
 
   var name = node.variable.name;
-  if (name != null && res != -1) {
-    return context.pushOp(SetParam.make(name));
+  if (name == null) {
+    name = context.variableNamer.getName(node.variable);
   }
-  return -1;
+  return context.pushOp(SetParam.make(name));
 }
 
 int compileVariableGet(MicroCompilerContext context, VariableGet node) {
   var name = node.variable.name;
-  if (name != null) {
-    context.pushOp(GetParam.make(name));
+  if (name == null) {
+    name = context.variableNamer.getName(node.variable);
   }
-  return 0;
+  return context.pushOp(GetParam.make(name));
 }
 
 int compileStaticInvocation(
