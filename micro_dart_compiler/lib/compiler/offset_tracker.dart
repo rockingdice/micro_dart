@@ -10,6 +10,7 @@ class OffsetTracker {
 
   final Map<int, DeferredOrOffset> _deferredOffsets = {};
   final Map<int, CallPointerOffset> _callPointerOffsets = {};
+  final Map<int, BreakOffset> _breakPointerOffsets = {};
   final MicroCompilerContext context;
 
   void setOffset(int location, DeferredOrOffset offset) {
@@ -20,6 +21,10 @@ class OffsetTracker {
     _callPointerOffsets[location] = CallPointerOffset(key, isStatic);
   }
 
+  void setBreakOffset(int location, BreakOffset key) {
+    _breakPointerOffsets[location] = key;
+  }
+
   List<Op> apply() {
     var source = this.context.ops;
     _deferredOffsets.forEach((pos, offset) {
@@ -28,7 +33,6 @@ class OffsetTracker {
         final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.key];
         if (resolvedOffset == null) {
           //表示这是个外部的调用
-
           final newOp = CallExternal.make(
               className: offset.className,
               key: offset.key,
@@ -53,6 +57,13 @@ class OffsetTracker {
       final newOp = PushPointer.make(offset, value.isStatic);
       source[index] = newOp;
     });
+
+    _breakPointerOffsets.forEach((index, value) {
+      int offset =
+          context.labeledNamer.getParam(value.statement, "endOpOffset") as int;
+      final newOp = Jump.make(offset);
+      source[index] = newOp;
+    });
     return source;
   }
 }
@@ -70,6 +81,12 @@ class CallPointerOffset {
   final bool isStatic;
 
   const CallPointerOffset(this.key, this.isStatic);
+}
+
+class BreakOffset {
+  final LabeledStatement statement;
+
+  const BreakOffset(this.statement);
 }
 
 abstract class DeferredOrOffset {

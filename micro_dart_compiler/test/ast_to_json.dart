@@ -216,7 +216,9 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitBreakStatement(BreakStatement node) {
     //print("visitBreakStatement: ${node.toString()}");
     //node.visitChildren(this);
-    return {"xtype": "BreakStatement"};
+    return {
+      "xtype": "BreakStatement",
+    };
   }
 
   @override
@@ -224,7 +226,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitCatch: ${node.toString()}");
     //node.visitChildren(this);
     return {
-      "xtype": "BreakStatement",
+      "xtype": "Catch",
       "guard": node.guard.accept(this),
       "exception": node.exception?.accept(this),
       "stackTrace": node.stackTrace?.accept(this),
@@ -1457,8 +1459,10 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //node.visitChildren(this);
     return {
       "xtype": "SwitchCase",
-      "classNode": node.body.accept(this),
-      "typeArguments": visitList(node.expressions, this)
+      "isDefault": node.isDefault,
+      "expressionOffsets": node.expressionOffsets.join(","),
+      "body": node.body.accept(this),
+      "expressions": visitList(node.expressions, this)
     };
   }
 

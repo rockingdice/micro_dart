@@ -34,6 +34,9 @@ class MicroCompilerContext {
   final Namer<VariableDeclaration> variableNamer =
       NormalNamer<VariableDeclaration>('#v');
 
+  final Namer<LabeledStatement> labeledNamer =
+      NormalNamer<LabeledStatement>('#l');
+
   MicroCompilerContext(this.component, this.debug);
 
   int lookupDeclarationIndex(String key, NamedNode node) {
@@ -42,11 +45,11 @@ class MicroCompilerContext {
     }
     compileDeclarations.add(node);
     var index = compileDeclarations.length - 1;
-    compileDeclarationIndexes[key] = compileDeclarations.length - 1;
+    compileDeclarationIndexes[key] = index;
     return index;
   }
 
-  TypeRef? lookupType(Class node) {
+  TypeRef lookupType(Class node) {
     String key = node.getNamedName();
 
     var type = visibleTypes[key];
@@ -81,7 +84,6 @@ class MicroCompilerContext {
 
   int pushOp(Op op) {
     ops.add(op);
-    //position += op.opLen;
     int p = ops.length - 1;
     if (debug) {
       print('$p: $op');

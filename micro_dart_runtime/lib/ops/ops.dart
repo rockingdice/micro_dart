@@ -3,12 +3,20 @@ import 'dart:typed_data';
 
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+export 'op_is.dart';
+
+export 'op_throw.dart';
+export 'op_pop_catch.dart';
+export 'op_try.dart';
+export 'op_call_jump_if_equal.dart';
+export 'op_call_jump_if_true.dart';
+export 'op_call_jump_if_false.dart';
+export 'op_call_assert.dart';
+export 'op_call_equals.dart';
 export 'op_string_concat.dart';
 export 'op_call_dynamic.dart';
 export 'op_push_box_int.dart';
-
 export 'op_push_pointer.dart';
-
 export 'op_call_pointer.dart';
 export 'op_jump.dart';
 export 'op_push_list.dart';
@@ -59,7 +67,7 @@ const List<String> operator2 = [
 const List<String> operator3 = ["[]="];
 
 class Ops {
-  static const opJumpConstant = 0;
+  //static const opJumpConstant = 0;
   static const opPushConstantInt = 1;
   static const opPushScope = 2;
   static const opReturn = 3;
@@ -88,8 +96,17 @@ class Ops {
   static const opPushPointer = 26;
   static const opPushBoxInt = 27;
   static const opCallDynamic = 28;
-
   static const opStringConcat = 29;
+  static const opEquals = 30;
+  static const opAssert = 31;
+  static const opJumpIfFalse = 32;
+  static const opJumpIfTrue = 33;
+  static const opJumpIfEqual = 34;
+  static const opTry = 35;
+  static const opPopCatch = 36;
+  static const opThrow = 37;
+
+  static const opIs = 38;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -199,5 +216,14 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opPushPointer: (MicroDartEngine engine) => PushPointer(engine),
   Ops.opPushBoxInt: (MicroDartEngine engine) => PushBoxInt(engine),
   Ops.opCallDynamic: (MicroDartEngine engine) => CallDynamic(engine),
-  Ops.opStringConcat: (MicroDartEngine engine) => StringConcat(engine)
+  Ops.opStringConcat: (MicroDartEngine engine) => StringConcat(engine),
+  Ops.opEquals: (MicroDartEngine engine) => Equals(engine),
+  Ops.opAssert: (MicroDartEngine engine) => Assert(engine),
+  Ops.opJumpIfFalse: (MicroDartEngine engine) => JumpIfFalse(engine),
+  Ops.opJumpIfTrue: (MicroDartEngine engine) => JumpIfTrue(engine),
+  Ops.opJumpIfEqual: (MicroDartEngine engine) => JumpIfEqual(engine),
+  Ops.opTry: (MicroDartEngine engine) => Try(engine),
+  Ops.opPopCatch: (MicroDartEngine engine) => PopCatch(engine),
+  Ops.opThrow: (MicroDartEngine engine) => ThrowReturn(engine),
+  Ops.opIs: (MicroDartEngine engine) => Is(engine),
 };

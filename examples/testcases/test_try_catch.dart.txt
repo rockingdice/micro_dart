@@ -1,0 +1,33 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  static method main() → dart.core::int {
+    try {
+      main::throwTest1();
+    }
+    on dart.core::Object catch(final dart.core::Object exception, final dart.core::StackTrace stackTrace) {
+      dart.core::print("${exception} ${stackTrace}");
+    }
+    try {
+      main::throwTest2();
+    }
+    on dart.core::Object catch(final dart.core::Object exception, final dart.core::StackTrace stackTrace) {
+      dart.core::print("${exception} ${stackTrace}");
+    }
+    return 1;
+  }
+  static method throwTest1() → void {
+    throw 112;
+  }
+  static method throwTest2() → void {
+    try {
+      main::throwTest3();
+    }
+    on dart.core::Object catch(final dart.core::Object exception, final dart.core::StackTrace stackTrace) {
+      dart.core::print("throwTest2 ${exception} ${stackTrace}");
+    }
+  }
+  static method throwTest3() → void {
+    throw "throwTest3";
+  }
+}

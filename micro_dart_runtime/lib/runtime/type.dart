@@ -1,3 +1,5 @@
+import 'package:micro_dart_runtime/runtime/runtime.dart';
+
 class Types {
   static final TypeRef dynamicType = TypeRef("", "dynamic", false);
   static final TypeRef invalidType = TypeRef("", "invalid", false);
@@ -43,6 +45,18 @@ class TypeRef {
 
   bool same(TypeRef typeRef) {
     return typeRef.key == key;
+  }
+
+  bool isType(TypeRef typeRef, MicroRuntime runtime) {
+    if (same(typeRef)) {
+      return true;
+    }
+    if (superTypeKey != null &&
+        runtime.engine.types.containsKey(superTypeKey)) {
+      return runtime.engine.types[superTypeKey!]?.isType(typeRef, runtime) ??
+          false;
+    }
+    return false;
   }
 
   String getNameKey(String name, {bool isSetter = false}) {

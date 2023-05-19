@@ -50,7 +50,23 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileInstanceTearOff(context, node);
   } else if (node is Let) {
     return compileLet(context, node);
+  } else if (node is EqualsCall) {
+    return compileEqualsCall(context, node);
+  } else if (node is EqualsNull) {
+    return compileEqualsNull(context, node);
+  } else if (node is Throw) {
+    return compileThrow(context, node);
+  } else if (node is Rethrow) {
+    return compileRethrow(context, node);
+  } else if (node is IsExpression) {
+    return compileIsExpression(context, node);
   }
+
+  // else if (node is FunctionTearOff) {
+  //   return compileFunctionTearOff(context, node);
+  // }
+
+  // not support dynamic currently
   //else if (node is DynamicInvocation) {
   //   return compileDynamicInvocation(context, node);
   // } else if (node is DynamicGet) {
@@ -61,6 +77,55 @@ int compileExpression(MicroCompilerContext context, Expression node) {
 
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
+}
+
+int compileRethrow(MicroCompilerContext context, Rethrow node) {
+  context.pushOp(GetParam.make("#exception"));
+  return context.pushOp(ThrowReturn.make());
+}
+
+int compileIsExpression(MicroCompilerContext context, IsExpression node) {
+  int pos = compileExpression(context, node.operand);
+  final type = node.type;
+  if (type is InterfaceType) {
+    //这里表示它是一个外部类
+    if (!context.compileDeclarations.contains(type.classNode)) {
+      return context.pushOp(CallExternal.make(
+          className: type.classNode.stringClassName!,
+          key: "${type.classNode.getNamedName()}@#is",
+          isGetter: false,
+          isSetter: false,
+          isStatic: false,
+          libraryUri: type.classNode.stringLibraryUri,
+          name: "#is",
+          kind: DeferredOrOffsetKind.Procedure.index,
+          namedList: [],
+          posationalLength: 0));
+    }
+  } else {
+    throw Exception(
+        "IsExpression type not support : ${type.runtimeType.toString()}");
+  }
+  return pos;
+}
+
+int compileThrow(MicroCompilerContext context, Throw node) {
+  compileExpression(context, node.expression);
+  return context.pushOp(ThrowReturn.make());
+}
+
+int compileEqualsNull(MicroCompilerContext context, EqualsNull node) {
+  throw Exception("currently expression type  EqualsNull not support ");
+}
+
+int compileFunctionTearOff(MicroCompilerContext context, FunctionTearOff node) {
+  return -1;
+}
+
+int compileEqualsCall(MicroCompilerContext context, EqualsCall node) {
+  compileExpression(context, node.left);
+  compileExpression(context, node.right);
+  return context.pushOp(Equals.make());
 }
 
 int compileLet(MicroCompilerContext context, Let node) {
@@ -150,7 +215,8 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
           posationalLength: 0));
     }
   } else {
-    throw Exception(" type not support : ${type.runtimeType.toString()}");
+    throw Exception(
+        "AsExpression  not support : ${type.runtimeType.toString()}");
   }
   return pos;
 }
@@ -373,9 +439,7 @@ int compileStaticGet(MicroCompilerContext context, StaticGet node) {
   } else if (target is Procedure && target.isGetter) {
     var procedure = target;
     var arguments = Arguments.empty();
-    //context.addScope("<StaticGet>", node.fileOffset);
     int p = compileCallProcedure(context, arguments, procedure);
-    //context.removeScope();
     return p;
   }
   return -1;
@@ -400,7 +464,7 @@ int compileVariableSet(MicroCompilerContext context, VariableSet node) {
 
   var name = node.variable.name;
   if (name == null) {
-    name = context.variableNamer.getName(node.variable);
+    name = context.variableNamer.getName(node.variable).text;
   }
   return context.pushOp(SetParam.make(name));
 }
@@ -408,7 +472,7 @@ int compileVariableSet(MicroCompilerContext context, VariableSet node) {
 int compileVariableGet(MicroCompilerContext context, VariableGet node) {
   var name = node.variable.name;
   if (name == null) {
-    name = context.variableNamer.getName(node.variable);
+    name = context.variableNamer.getName(node.variable).text;
   }
   return context.pushOp(GetParam.make(name));
 }

@@ -18,6 +18,8 @@ var _coreLibrary = {
   'dart:core@Deprecated@message': (Deprecated target) => target.message,
   'dart:core@Deprecated@expires': (Deprecated target) => target.expires,
   'dart:core@Deprecated@': (List p, Map<String, dynamic> n) => Deprecated(p[0]),
+  'dart:core@Exception@:static': (List p, Map<String, dynamic> n) =>
+      Exception(p[0]),
   'dart:core@Deprecated@toString': (Deprecated target) => target.toString,
   'dart:core@Provisional@message': (Provisional target) => target.message,
   'dart:core@Provisional@': (List p, Map<String, dynamic> n) =>
@@ -472,6 +474,7 @@ var _coreLibrary = {
   'dart:core@List@replaceRange': (List target) => target.replaceRange,
   'dart:core@List@asMap': (List target) => target.asMap,
   'dart:core@List@==': (List target, other) => target == other,
+  'dart:core@List@generate:static': () => List.generate,
   'dart:core@Map@entries': (Map target) => target.entries,
   'dart:core@Map@keys': (Map target) => target.keys,
   'dart:core@Map@values': (Map target) => target.values,
@@ -541,6 +544,9 @@ var _coreLibrary = {
   'dart:core@num@toString': (num target) => target.toString,
   'dart:core@num@parse:static': () => num.parse,
   'dart:core@num@tryParse:static': () => num.tryParse,
+  'dart:core@Object@#is': (dynamic target) =>
+      target is Object ||
+      (target is m.InstanceBridge && target.target is Object),
   'dart:core@Object@hashCode': (Object target) => target.hashCode,
   'dart:core@Object@runtimeType': (Object target) => target.runtimeType,
   'dart:core@Object@': (List p, Map<String, dynamic> n) => Object(),
@@ -608,6 +614,9 @@ var _coreLibrary = {
   'dart:core@Stopwatch@start': (Stopwatch target) => target.start,
   'dart:core@Stopwatch@stop': (Stopwatch target) => target.stop,
   'dart:core@Stopwatch@reset': (Stopwatch target) => target.reset,
+  'dart:core@String@#is': (dynamic target) =>
+      target is String ||
+      (target is m.InstanceBridge && target.target is String),
   'dart:core@String@length': (String target) => target.length,
   'dart:core@String@hashCode': (String target) => target.hashCode,
   'dart:core@String@isEmpty': (String target) => target.isEmpty,

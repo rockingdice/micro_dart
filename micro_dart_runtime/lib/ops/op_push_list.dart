@@ -16,9 +16,9 @@ class PushList implements Op {
   // Set value at position to constant
   @override
   void run(MicroRuntime runtime) {
-    final list = List.empty(growable: true);
-    for (int i = 0; i < _length; i++) {
-      list.add(runtime.scope.popFrame());
+    final List<Object?> list = List.filled(_length, null);
+    for (int i = _length - 1; i >= 0; i--) {
+      list[i] = runtime.scope.popFrame();
     }
     runtime.scope.pushFrame(list);
   }

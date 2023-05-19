@@ -1,4 +1,3 @@
-import 'package:kernel/core_types.dart';
 import 'package:kernel/kernel.dart';
 import 'package:micro_dart_compiler/util.dart';
 
