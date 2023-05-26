@@ -56,18 +56,23 @@ int compileClassField(MicroCompilerContext context, Field node) {
 int compileCallField(MicroCompilerContext context, Field field) {
   var name = field.getNamedName();
 
-  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
-  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
-  //调用Call方法,并且返回位置
-  int location = context.pushOp(Call.make(opOffset));
-  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
-  if (opOffset == -1) {
-    context.offsetTracker.setOffset(
-        location,
-        DeferredOrOffset.fromMember(field,
-            kind: DeferredOrOffsetKind.Field,
-            namedList: [],
-            posationalLengh: 0));
+  Op? op;
+  if (context.compileDeclarationIndexes.containsKey(name)) {
+    op = CallDynamic.make(name, true, false, false, 0, List.empty());
+  } else {
+    op = CallExternal.make(
+      className: field.stringClassName ?? "",
+      key: name,
+      isGetter: field.isGetter,
+      isSetter: field.isSetter,
+      isStatic: field.isStatic,
+      libraryUri: field.stringLibraryUri,
+      name: field.name.text,
+      kind: DeferredOrOffsetKind.Field.index,
+      posationalLength: 0,
+      namedList: List.empty(),
+    );
   }
-  return -1;
+
+  return context.pushOp(op);
 }

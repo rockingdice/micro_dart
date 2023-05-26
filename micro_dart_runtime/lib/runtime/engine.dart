@@ -129,7 +129,7 @@ class MicroDartEngine {
   }
 
   MicroRuntime createRuntime() {
-    return MicroRuntime(this);
+    return MicroRuntime(this, <Scope>[]);
   }
 
   TypeRef getType(String key) {
@@ -138,14 +138,59 @@ class MicroDartEngine {
 
   String? getKeyByType(TypeRef type, String name, {bool isSetter = false}) {
     var key = type.getNameKey(name, isSetter: isSetter);
-
     if (declarations.containsKey(key)) {
       return key;
     } else if (externalFunctions.containsKey(key)) {
       return key;
     } else if (type.superTypeKey != null &&
         types.containsKey(type.superTypeKey)) {
-      return getKeyByType(getType(type.superTypeKey!), name);
+      return getKeyByType(getType(type.superTypeKey!), name,
+          isSetter: isSetter);
+    }
+    return null;
+  }
+
+  String? getKeyBySuperType(TypeRef type, String superKey, String name,
+      {bool isSetter = false}) {
+    //如果没有父类则直接返回null
+    if (type.superTypeKey == null) {
+      return null;
+    }
+    //当前类的父类不是需要调用的父类则轮询
+    bool isSuper = false;
+    if (superKey == type.superTypeKey) {
+      isSuper = true;
+    } else if (superKey == type.mixinTypeKey) {
+      isSuper = true;
+    } else if (type.implementTypes.contains(superKey)) {
+      isSuper = true;
+    }
+    if (!isSuper) {
+      return getKeyBySuperType(getType(type.superTypeKey!), superKey, name,
+          isSetter: isSetter);
+    }
+
+    var superType = getType(type.superTypeKey!);
+
+    var callback = getKeyByType2(superType, name, isSetter: isSetter);
+    if (callback == null) {
+      superType = getType(superKey);
+      callback = getKeyByType2(superType, name, isSetter: isSetter);
+    }
+    return callback;
+  }
+
+  String? getKeyByType2(TypeRef type, String name, {bool isSetter = false}) {
+    if (type.isExternal) {
+      return type.getNameKey(name, isSetter: isSetter);
+    } else if (type.isMixinDeclaration || type.isAnonymousMixin) {
+      return getKeyByType(getType(type.superTypeKey!), name,
+          isSetter: isSetter);
+    } else {
+      var key = type.getNameKey(name, isSetter: isSetter);
+      if (declarations.containsKey(key)) {
+        return key;
+      }
     }
     return null;
   }

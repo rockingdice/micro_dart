@@ -8,14 +8,14 @@ import 'context.dart';
 class OffsetTracker {
   OffsetTracker(this.context);
 
-  final Map<int, DeferredOrOffset> _deferredOffsets = {};
+  //final Map<int, DeferredOrOffset> _deferredOffsets = {};
   final Map<int, CallPointerOffset> _callPointerOffsets = {};
   final Map<int, BreakOffset> _breakPointerOffsets = {};
   final MicroCompilerContext context;
 
-  void setOffset(int location, DeferredOrOffset offset) {
-    _deferredOffsets[location] = offset;
-  }
+  //void setOffset(int location, DeferredOrOffset offset) {
+  //  _deferredOffsets[location] = offset;
+  // }
 
   void setCallPointerOffset(int location, String key, bool isStatic) {
     _callPointerOffsets[location] = CallPointerOffset(key, isStatic);
@@ -27,30 +27,30 @@ class OffsetTracker {
 
   List<Op> apply() {
     var source = this.context.ops;
-    _deferredOffsets.forEach((pos, offset) {
-      final op = source[pos];
-      if (op is Call) {
-        final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.key];
-        if (resolvedOffset == null) {
-          //表示这是个外部的调用
-          final newOp = CallExternal.make(
-              className: offset.className,
-              key: offset.key,
-              isGetter: offset.isGetter,
-              isSetter: offset.isSetter,
-              isStatic: offset.isStatic,
-              libraryUri: offset.libraryUri,
-              name: offset.name,
-              kind: offset.kind.index,
-              namedList: offset.namedList,
-              posationalLength: offset.posationalLengh);
-          source[pos] = newOp;
-          return;
-        }
-        final newOp = Call.make(resolvedOffset);
-        source[pos] = newOp;
-      }
-    });
+    // _deferredOffsets.forEach((pos, offset) {
+    //   final op = source[pos];
+    //   if (op is Call) {
+    //     final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.key];
+    //     if (resolvedOffset == null) {
+    //       //表示这是个外部的调用
+    //       final newOp = CallExternal.make(
+    //           className: offset.className,
+    //           key: offset.key,
+    //           isGetter: offset.isGetter,
+    //           isSetter: offset.isSetter,
+    //           isStatic: offset.isStatic,
+    //           libraryUri: offset.libraryUri,
+    //           name: offset.name,
+    //           kind: offset.kind.index,
+    //           namedList: offset.namedList,
+    //           posationalLength: offset.posationalLengh);
+    //       source[pos] = newOp;
+    //       return;
+    //     }
+    //     final newOp = Call.make(resolvedOffset);
+    //     source[pos] = newOp;
+    //   }
+    // });
 
     _callPointerOffsets.forEach((index, value) {
       final offset = context.rumtimeDeclarationOpIndexes[value.key]!;

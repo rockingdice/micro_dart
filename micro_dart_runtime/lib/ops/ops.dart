@@ -1,10 +1,21 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:micro_dart_runtime/micro_dart_runtime.dart';
-
+import '../micro_dart_runtime.dart';
+export 'op_async_box.dart';
+export 'op_await.dart';
+export 'op_push_map.dart';
+export 'op_push_set.dart';
+export 'op_symbol.dart';
+export 'op_null_check.dart';
+export 'op_map_concat.dart';
+export 'op_set_concat.dart';
+export 'op_list_concat.dart';
+export 'op_conditional.dart';
+export 'op_logical.dart';
+export 'op_not.dart';
+export 'op_call_super.dart';
 export 'op_is.dart';
-
 export 'op_throw.dart';
 export 'op_pop_catch.dart';
 export 'op_try.dart';
@@ -105,8 +116,20 @@ class Ops {
   static const opTry = 35;
   static const opPopCatch = 36;
   static const opThrow = 37;
-
   static const opIs = 38;
+  static const opCallSuper = 39;
+  static const opNot = 40;
+  static const opLogical = 41;
+  static const opConditional = 42;
+  static const opListConcat = 43;
+  static const opSetConcat = 44;
+  static const opMapConcat = 45;
+  static const opNullCheck = 46;
+  static const opSymbol = 47;
+  static const opPushSet = 48;
+  static const opPushMap = 49;
+  static const opAwait = 50;
+  static const opAsyncBox = 51;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -226,4 +249,17 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opPopCatch: (MicroDartEngine engine) => PopCatch(engine),
   Ops.opThrow: (MicroDartEngine engine) => ThrowReturn(engine),
   Ops.opIs: (MicroDartEngine engine) => Is(engine),
+  Ops.opCallSuper: (MicroDartEngine engine) => CallSuper(engine),
+  Ops.opNot: (MicroDartEngine engine) => OpNot(engine),
+  Ops.opLogical: (MicroDartEngine engine) => Logical(engine),
+  Ops.opConditional: (MicroDartEngine engine) => Conditional(engine),
+  Ops.opListConcat: (MicroDartEngine engine) => ListConcat(engine),
+  Ops.opSetConcat: (MicroDartEngine engine) => SetConcat(engine),
+  Ops.opMapConcat: (MicroDartEngine engine) => MapConcat(engine),
+  Ops.opNullCheck: (MicroDartEngine engine) => OpNullCheck(engine),
+  Ops.opSymbol: (MicroDartEngine engine) => OpSymbol(engine),
+  Ops.opPushSet: (MicroDartEngine engine) => PushSet(engine),
+  Ops.opPushMap: (MicroDartEngine engine) => PushMap(engine),
+  Ops.opAwait: (MicroDartEngine engine) => Await(engine),
+  Ops.opAsyncBox: (MicroDartEngine engine) => AsyncBox(engine),
 };

@@ -2,6 +2,7 @@ part of 'ast.dart';
 
 int compileExpression(MicroCompilerContext context, Expression node) {
   context.printCompileNode(node);
+
   if (node is IntLiteral) {
     return compileIntLiteral(context, node);
   } else if (node is VariableSet) {
@@ -36,6 +37,14 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileSuperMethodInvocation(context, node);
   } else if (node is SuperPropertyGet) {
     return compileSuperPropertyGet(context, node);
+  } else if (node is SuperPropertySet) {
+    //return compileSuperPropertySet(context, node);
+  } else if (node is SuperPropertyGet) {
+    return compileSuperPropertyGet(context, node);
+  } else if (node is AbstractSuperPropertyGet) {
+    //return compileAbstractSuperPropertyGet(context, node);
+  } else if (node is AbstractSuperPropertySet) {
+    //return compileAbstractSuperPropertySet(context, node);
   } else if (node is FunctionExpression) {
     return compileFunctionExpression(context, node);
   } else if (node is LocalFunctionInvocation) {
@@ -60,23 +69,146 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileRethrow(context, node);
   } else if (node is IsExpression) {
     return compileIsExpression(context, node);
+  } else if (node is FunctionTearOff) {
+    //return compileFunctionTearOff(context, node);
+  } else if (node is AbstractSuperPropertySet) {
+    //return compileAbstractSuperPropertySet(context, node);
+  } else if (node is StaticTearOff) {
+    // return compileStaticTearOff(context, node);
+  } else if (node is InstanceInvocationExpression) {
+    //return compileInstanceInvocationExpression(context, node);
+  } else if (node is InstanceGetterInvocation) {
+    //return compileInstanceGetterInvocation(context, node);
+  } else if (node is Instantiation) {
+    //return compileInstantiation(context, node);
+  } else if (node is Not) {
+    return compileNot(context, node);
+  } else if (node is LogicalExpression) {
+    return compileLogicalExpression(context, node);
+  } else if (node is ConditionalExpression) {
+    return compileConditionalExpression(context, node);
+  } else if (node is ListConcatenation) {
+    return compileListConcatenation(context, node);
+  } else if (node is SetConcatenation) {
+    return compileSetConcatenation(context, node);
+  } else if (node is MapConcatenation) {
+    return compileMapConcatenation(context, node);
+  } else if (node is InstanceCreation) {
+    //return compileInstanceCreation(context, node);
+  } else if (node is FileUriExpression) {
+    //return compileFileUriExpression(context, node);
+  } else if (node is NullCheck) {
+    return compileNullCheck(context, node);
+  } else if (node is SymbolLiteral) {
+    return compileSymbolLiteral(context, node);
+  } else if (node is TypeLiteral) {
+    //return compileTypeLiteral(context, node);
+  } else if (node is SetLiteral) {
+    return compileSetLiteral(context, node);
+  } else if (node is MapLiteral) {
+    return compileMapLiteral(context, node);
+  } else if (node is AwaitExpression) {
+    return compileAwaitExpression(context, node);
+  } else if (node is LoadLibrary) {
+    //return compileLoadLibrary(context, node);
+  } else if (node is CheckLibraryIsLoaded) {
+    //return compileCheckLibraryIsLoaded(context, node);
+  } else if (node is RedirectingFactoryTearOff) {
+    //return compileRedirectingFactoryTearOff(context, node);
+  } else if (node is TypedefTearOff) {
+    //return compileTypedefTearOff(context, node);
   }
-
-  // else if (node is FunctionTearOff) {
-  //   return compileFunctionTearOff(context, node);
-  // }
-
   // not support dynamic currently
-  //else if (node is DynamicInvocation) {
-  //   return compileDynamicInvocation(context, node);
-  // } else if (node is DynamicGet) {
-  //   return compileDynamicGet(context, node);
-  // } else if (node is DynamicSet) {
-  //   return compileDynamicSet(context, node);
-  // }
+  else if (node is DynamicInvocation) {
+    //return compileDynamicInvocation(context, node);
+  } else if (node is DynamicGet) {
+    //return compileDynamicGet(context, node);
+  } else if (node is DynamicSet) {
+    //return compileDynamicSet(context, node);
+  }
+  //this means has an error
+  else if (node is InvalidExpression) {
+    //return compileInvalidExpression(context, node);
+  }
+  //
 
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
+}
+
+int compileAwaitExpression(MicroCompilerContext context, AwaitExpression node) {
+  compileExpression(context, node.operand);
+  return context.pushOp(Await.make());
+}
+
+int compileMapLiteral(MicroCompilerContext context, MapLiteral node) {
+  node.entries.forEach((element) {
+    compileExpression(context, element.value);
+    compileExpression(context, element.key);
+  });
+  return context.pushOp(PushMap.make(node.entries.length));
+}
+
+int compileSetLiteral(MicroCompilerContext context, SetLiteral node) {
+  for (int i = 0; i < node.expressions.length; i++) {
+    compileExpression(context, node.expressions[i]);
+  }
+  return context.pushOp(PushSet.make(node.expressions.length));
+}
+
+int compileSymbolLiteral(MicroCompilerContext context, SymbolLiteral node) {
+  return context.pushOp(OpSymbol.make(node.value));
+}
+
+int compileNullCheck(MicroCompilerContext context, NullCheck node) {
+  compileExpression(context, node.operand);
+  return context.pushOp(OpNullCheck.make());
+}
+
+int compileMapConcatenation(
+    MicroCompilerContext context, MapConcatenation node) {
+  for (int i = 0; i < node.maps.length; i++) {
+    compileExpression(context, node.maps[i]);
+  }
+  return context.pushOp(SetConcat.make(node.maps.length));
+}
+
+int compileSetConcatenation(
+    MicroCompilerContext context, SetConcatenation node) {
+  for (int i = 0; i < node.sets.length; i++) {
+    compileExpression(context, node.sets[i]);
+  }
+  return context.pushOp(SetConcat.make(node.sets.length));
+}
+
+int compileListConcatenation(
+    MicroCompilerContext context, ListConcatenation node) {
+  for (int i = 0; i < node.lists.length; i++) {
+    compileExpression(context, node.lists[i]);
+  }
+  return context.pushOp(ListConcat.make(node.lists.length));
+}
+
+int compileConditionalExpression(
+    MicroCompilerContext context, ConditionalExpression node) {
+  compileExpression(context, node.otherwise);
+  compileExpression(context, node.then);
+  compileExpression(context, node.condition);
+
+  return context.pushOp(Conditional.make());
+}
+
+int compileLogicalExpression(
+    MicroCompilerContext context, LogicalExpression node) {
+  compileExpression(context, node.right);
+  compileExpression(context, node.left);
+
+  return context.pushOp(Logical.make(node.operatorEnum.index));
+}
+
+int compileNot(MicroCompilerContext context, Not node) {
+  compileExpression(context, node.operand);
+  return context.pushOp(OpNot.make());
 }
 
 int compileRethrow(MicroCompilerContext context, Rethrow node) {
@@ -164,8 +296,8 @@ int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
   compileExpression(context, node.receiver);
   compileExpression(context, node.value);
 
-  int pos =
-      context.pushOp(CallDynamic.make(node.name.text, false, true, 1, []));
+  int pos = context
+      .pushOp(CallDynamic.make(node.name.text, false, false, true, 1, []));
   context.removeScope();
   return pos;
 }
@@ -174,8 +306,8 @@ int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
   context.addScope("<DynamicGet>", node.fileOffset);
   compileExpression(context, node.receiver);
 
-  int pos =
-      context.pushOp(CallDynamic.make(node.name.text, true, false, 0, []));
+  int pos = context
+      .pushOp(CallDynamic.make(node.name.text, false, true, false, 0, []));
   context.removeScope();
   return pos;
 }
@@ -188,6 +320,7 @@ int compileDynamicInvocation(
 
   int pos = context.pushOp(CallDynamic.make(
       node.name.text,
+      false,
       false,
       false,
       node.arguments.positional.length,
@@ -236,14 +369,12 @@ int compileLocalFunctionInvocation(
     MicroCompilerContext context, LocalFunctionInvocation node) {
   var arguments = node.arguments;
   context.addScope("<LocalFunctionInvocation>", node.fileOffset);
-  int p = compileCall(
-    context,
-    arguments,
-    node.localFunction.getNamedName(),
-    className: node.localFunction.stringClassName ?? "",
-    libraryUri: node.localFunction.stringLibraryUri,
-    name: node.localFunction.stringName,
-  );
+  int p = compileCallLocalFunction(
+      context, arguments, node.localFunction.getNamedName(),
+      className: node.localFunction.stringClassName ?? "",
+      libraryUri: node.localFunction.stringLibraryUri,
+      name: node.localFunction.stringName,
+      isStatic: true);
   context.removeScope();
   return p;
 }
@@ -291,8 +422,12 @@ int compileSuperPropertyGet(
   var target = node.interfaceTarget;
   context.pushOp(GetParam.make("#this"));
   if (target is Procedure) {
-    int p = compileCallProcedure(context, Arguments([]), target);
-    return p;
+    return context.pushOp(CallSuper.make(
+        "${target.stringLibraryUri}@${target.stringClassName}",
+        target.name.text,
+        true,
+        false,
+        0, []));
   } else if (target is Field) {
     int opOffset =
         context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
@@ -392,7 +527,6 @@ int compileInstanceInvocation(
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
-  //return context.pushOp(PushBoxInt.make(node.value));
   return context.pushOp(PushConstantInt.make(node.value));
 }
 
@@ -400,7 +534,6 @@ int compileConstantExpression(
     MicroCompilerContext context, ConstantExpression node) {
   var constant = node.constant;
   if (constant is IntConstant) {
-    //return context.pushOp(PushBoxInt.make(constant.value));
     return context.pushOp(PushConstantInt.make(constant.value));
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {

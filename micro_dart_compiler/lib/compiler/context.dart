@@ -61,13 +61,18 @@ class MicroCompilerContext {
     if (superClazz != null) {
       superTypeKey = superClazz.getNamedName();
     }
+    bool isExternal = true;
     if (compileDeclarationIndexes.containsKey(key)) {
-      type = TypeRef(node.stringLibraryUri, node.name, false,
-          superTypeKey: superTypeKey);
-    } else {
-      type = TypeRef(node.stringLibraryUri, node.name, true,
-          superTypeKey: superTypeKey);
+      isExternal = false;
     }
+    type = TypeRef(node.stringLibraryUri, node.name, isExternal,
+        superTypeKey: superTypeKey,
+        isAnonymousMixin: node.isAnonymousMixin,
+        isMixinDeclaration: node.isMixinDeclaration,
+        implementTypes: node.implementedTypes
+            .map<String>((e) => e.classNode.getNamedName())
+            .toList(),
+        mixinTypeKey: node.mixedInClass?.getNamedName());
     visibleTypes[key] = type;
 
     print("lookupType:$type");

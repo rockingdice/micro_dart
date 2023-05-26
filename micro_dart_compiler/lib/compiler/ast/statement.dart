@@ -302,7 +302,7 @@ void compileFunctionDeclaration(
 }
 
 void compileBlock(MicroCompilerContext context, Block node,
-    {bool createScope = true}) {
+    {bool createScope = true, bool isAsync = false}) {
   if (node.statements.isNotEmpty) {
     if (createScope) {
       context.addScope("<block>", node.fileOffset);

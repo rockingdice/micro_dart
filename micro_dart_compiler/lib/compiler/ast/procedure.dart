@@ -74,10 +74,18 @@ int compileStaticProcedure(MicroCompilerContext context, Procedure node) {
     context.pushOp(SetNamedParam.make(element.name!));
   });
   var b = node.function.body;
+  bool isAsync = false;
+  if (node.function.asyncMarker == AsyncMarker.Async) {
+    isAsync = true;
+  }
+  if (isAsync) {
+    context.pushOp(AsyncBox.make());
+  }
+
   //编译body
   if (b != null) {
     if (b is Block) {
-      compileBlock(context, b, createScope: false);
+      compileBlock(context, b, createScope: false, isAsync: isAsync);
       if (b.statements.isNotEmpty && !(b.statements.last is ReturnStatement)) {
         context.pushOp(Return.make());
       }
@@ -100,24 +108,31 @@ int compileCallProcedure(
   //将参数压入当前作用域
   compileArguments(context, arguments);
 
-  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
-  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
-  //调用Call方法,并且返回位置
-  int location = context.pushOp(Call.make(opOffset));
-  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
-  if (opOffset == -1) {
-    context.offsetTracker.setOffset(
-        location,
-        DeferredOrOffset.fromMember(procedure,
-            kind: DeferredOrOffsetKind.Procedure,
-            namedList: arguments.named.map((e) => e.name).toList(),
-            posationalLengh: arguments.positional.length));
+  Op? op;
+
+  if (context.compileDeclarationIndexes.containsKey(name)) {
+    op = CallDynamic.make(name, true, false, false, arguments.positional.length,
+        arguments.named.map((e) => e.name).toList());
+  } else {
+    op = CallExternal.make(
+      className: procedure.stringClassName ?? "",
+      key: name,
+      isGetter: procedure.isGetter,
+      isSetter: procedure.isSetter,
+      isStatic: procedure.isStatic,
+      libraryUri: procedure.stringLibraryUri,
+      name: procedure.name.text,
+      kind: DeferredOrOffsetKind.Procedure.index,
+      posationalLength: arguments.positional.length,
+      namedList: arguments.named.map((e) => e.name).toList(),
+    );
   }
 
-  return location;
+  return context.pushOp(op);
 }
 
-int compileCall(MicroCompilerContext context, Arguments arguments, String key,
+int compileCallLocalFunction(
+    MicroCompilerContext context, Arguments arguments, String key,
     {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
     int posationalLengh = 0,
     List<String> namedList = const [],
@@ -130,25 +145,11 @@ int compileCall(MicroCompilerContext context, Arguments arguments, String key,
   //将参数压入当前作用域
   compileArguments(context, arguments);
 
-  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
-  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
-  //调用Call方法,并且返回位置
-  int location = context.pushOp(Call.make(opOffset));
-  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
-  if (opOffset == -1) {
-    context.offsetTracker.setOffset(
-        location,
-        DeferredOrOffset(key,
-            kind: kind,
-            posationalLengh: posationalLengh,
-            namedList: namedList,
-            className: className,
-            libraryUri: libraryUri,
-            name: name,
-            isGetter: isGetter,
-            isSetter: isSetter,
-            isStatic: isStatic));
-  }
-
-  return location;
+  return context.pushOp(CallDynamic.make(
+      key,
+      isStatic,
+      isGetter,
+      isSetter,
+      arguments.positional.length,
+      arguments.named.map((e) => e.name).toList()));
 }

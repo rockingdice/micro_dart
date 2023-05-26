@@ -32,16 +32,23 @@ class TypeRef {
   final String className;
 
   final bool isExternal;
+  final bool isAnonymousMixin;
+  final bool isMixinDeclaration;
   final String? superTypeKey;
 
   final List<String> implementTypes;
+  final String? mixinTypeKey;
 
   String get key {
     return "$libraryName@$className";
   }
 
   const TypeRef(this.libraryName, this.className, this.isExternal,
-      {this.superTypeKey, this.implementTypes = const []});
+      {this.isAnonymousMixin = false,
+      this.isMixinDeclaration = false,
+      this.superTypeKey,
+      this.implementTypes = const [],
+      this.mixinTypeKey});
 
   bool same(TypeRef typeRef) {
     return typeRef.key == key;
@@ -68,15 +75,30 @@ class TypeRef {
   }
 
   List toList() {
-    return [libraryName, className, isExternal, superTypeKey];
+    return [
+      libraryName,
+      className,
+      isExternal,
+      isAnonymousMixin,
+      isMixinDeclaration,
+      superTypeKey,
+      mixinTypeKey,
+      implementTypes
+    ];
   }
 
   factory TypeRef.fromList(List list) {
-    return TypeRef(list[0], list[1], list[2], superTypeKey: list[3]);
+    return TypeRef(list[0], list[1], list[2],
+        superTypeKey: list[5],
+        isAnonymousMixin: list[3],
+        isMixinDeclaration: list[4],
+        mixinTypeKey: list[6],
+        implementTypes:
+            (list[7] as List).map<String>((e) => e as String).toList());
   }
 
   @override
   String toString() {
-    return "TypeRef($libraryName,$className,$isExternal,$superTypeKey)";
+    return "TypeRef($libraryName,$className,$isExternal,$isAnonymousMixin,$isMixinDeclaration,$superTypeKey,$mixinTypeKey)";
   }
 }

@@ -12,6 +12,21 @@ micro_dart_runtime:Dart解释器
 3.通过解释器对字节码进行解释执行
 
 
+30 6 start:CallDynamic(getter,true,false,0,[]):(g:{},s:[Scope({},[]), Scope({},[]), 
+
+
+
+Scope({#this: 
+
+InstanceImpl(
+        TypeRef(test:///main.dart,Class,false,test:///main.dart@_Class&Super&Mixin),
+        InstanceImpl(
+            TypeRef(test:///main.dart,_Class&Super&Mixin,false,test:///main.dart@Super),
+            InstanceImpl(
+                TypeRef(test:///main.dart,Super,false,dart:core@Object),
+                InstanceBridge(Instance of 'Object'),{}),{}),{})},[]), Scope({},[]), Scope({},[]), Scope({},[InstanceImpl(TypeRef(test:///main.dart,Class,false,test:///main.dart@_Class&Super&Mixin),InstanceImpl(TypeRef(test:///main.dart,_Class&Super&Mixin,false,test:///main.dart@Super),InstanceImpl(TypeRef(test:///main.dart,Super,false,dart:core@Object),InstanceBridge(Instance of 'Object'),{}),{}),{})])]}
+
+
 
 
 

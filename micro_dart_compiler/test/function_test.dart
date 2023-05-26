@@ -242,5 +242,54 @@ void main() {
 
       expect(returnValue, -2);
     });
+
+    test(':test Abstract Super Property Get', () async {
+      String fileName = "super_property_get.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUri, options, sources);
+      if (true) {
+        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        writeComponentToText(program.component,
+            path: "$testCasePath$fileName.txt");
+      }
+      var interpreter =
+          initMicroDartRumtime(program.write().buffer.asByteData());
+
+      if (printOp) {
+        interpreter.printOpcodes();
+      }
+
+      var runtime = interpreter.createRuntime();
+
+      var returnValue =
+          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+
+      expect(returnValue, 42);
+    });
+  });
+
+  test(':test Abstract Super Property Get2', () async {
+    String fileName = "super_property_get2.dart";
+    var file = File("$testCasePath$fileName");
+    var sources = <String, String>{'main.dart': file.readAsStringSync()};
+    var program = await compileSource(pluginUri, options, sources);
+    if (true) {
+      astToJson("$testCasePath/$fileName", pluginUri, program.component);
+      writeComponentToText(program.component,
+          path: "$testCasePath$fileName.txt");
+    }
+    var interpreter = initMicroDartRumtime(program.write().buffer.asByteData());
+
+    if (printOp) {
+      interpreter.printOpcodes();
+    }
+
+    var runtime = interpreter.createRuntime();
+
+    var returnValue =
+        runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+
+    expect(returnValue, 41);
   });
 }

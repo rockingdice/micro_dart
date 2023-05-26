@@ -5,22 +5,17 @@ class MicroRuntime {
   //解释器
   final MicroDartEngine engine;
 
-  MicroRuntime(this.engine);
+  MicroRuntime(this.engine, this._scopes);
 
   /// 作用域集合
-  final _scopes = <Scope>[];
+  final List<Scope> _scopes;
 
   /// 操作数指针
-
   int opPointer = -1;
 
   final callStack = <int>[0];
 
   final catchStack = <List<int>>[];
-
-  int get scopeIndex {
-    return _scopes.length - 1;
-  }
 
   Scope get scope {
     return _scopes.last;
@@ -133,6 +128,45 @@ class MicroRuntime {
     return _scopes[location].hasParam(key);
   }
 
+  dynamic callFunction(int pointer, {bool debug = false}) {
+    try {
+      //获取当前操作数指针
+      opPointer = pointer;
+      addScope("<execute>");
+      callStack.add(-1);
+      catchStack.add([]);
+      //执行方法
+      while (true) {
+        int oldPointer = opPointer;
+        final op = engine.ops[opPointer++];
+        if (debug) {
+          print(
+              "$oldPointer ${_scopes.length} start:${op.toString()}:${toString()}");
+          print("----------------");
+        }
+        op.run(this);
+      }
+    } on ProgramExit catch (_) {
+      final s = removeScope();
+      if (s.frames.isEmpty) {
+        s.clean();
+        return null;
+      }
+      var result = s.frames.last;
+      s.clean();
+      if (result is InstanceBridge) {
+        return result.target;
+      }
+      return result;
+    } on RuntimeException catch (_) {
+      rethrow;
+    } on WrappedException catch (e) {
+      throw e.exception;
+    } catch (e, stk) {
+      throw RuntimeException(this, e, stk);
+    }
+  }
+
   dynamic callStaticFunction(String importUri, String functionName,
       List posational, Map<String, dynamic> named,
       {bool debug = false}) {
@@ -192,5 +226,9 @@ class MicroRuntime {
   @override
   String toString() {
     return "(g:${engine.globals},s:${_scopes.toString()}}";
+  }
+
+  MicroRuntime fockRuntime() {
+    return MicroRuntime(engine, List<Scope>.from(_scopes));
   }
 }

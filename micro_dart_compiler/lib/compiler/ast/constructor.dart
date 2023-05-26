@@ -94,27 +94,29 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   var name = constructor.getNamedName();
   //将参数压入当前作用域
   compileArguments(context, arguments);
-
-  if (!context.compileDeclarations.contains(name)) {
-    //表示这是外部的类,这个类可能是抽象类也可能是实体类
+  Op? op;
+  if (context.compileDeclarationIndexes.containsKey(name)) {
+    op = CallDynamic.make(name, true, false, false, arguments.positional.length,
+        arguments.named.map((e) => e.name).toList());
+  } else {
+    op = CallExternal.make(
+      className: constructor.stringClassName ?? "",
+      key: name,
+      isGetter: constructor.isGetter,
+      isSetter: constructor.isSetter,
+      isStatic: constructor.isStatic,
+      libraryUri: constructor.stringLibraryUri,
+      name: constructor.name.text,
+      kind: DeferredOrOffsetKind.Constructor.index,
+      posationalLength: arguments.positional.length,
+      namedList: arguments.named.map((e) => e.name).toList(),
+    );
   }
 
-  //获取调用方法的起始位置,如果没有则证明该方法还没有开始编译,那么就先创建一个虚拟节点,后续补全
-  int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
-  //调用Call方法,并且返回位置
-  int location = context.pushOp(Call.make(opOffset));
-  //如果为-1则表示该call的方法还没有被编译,先缓存,后续统一编译
-  if (opOffset == -1) {
-    context.offsetTracker.setOffset(
-        location,
-        DeferredOrOffset.fromMember(constructor,
-            kind: DeferredOrOffsetKind.Constructor,
-            namedList: arguments.named.map((e) => e.name).toList(),
-            posationalLengh: arguments.positional.length));
-  }
+  return context.pushOp(op);
 
   //调用方法结束之后
   //删除一个作用域
   //context.removeScope();
-  return location;
+  //return location;
 }

@@ -1,6 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
+@Deprecated("use Calldynamic instead")
 class Call implements Op {
   Call(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
 

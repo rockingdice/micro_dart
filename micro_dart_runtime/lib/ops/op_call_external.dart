@@ -102,9 +102,10 @@ class CallExternal implements Op {
         runtime.engine.externalFunctions[key]!(positionalArguments.first);
         return;
       }
-
-      Function.apply(
+      var result = Function.apply(
           runtime.engine.externalFunctions[key]!(), positionalArguments);
+      runtime.scope.pushFrame(result);
+      ;
     } else {
       dynamic target = runtime.scope.popFrame();
       if (target is InstanceBridge) {

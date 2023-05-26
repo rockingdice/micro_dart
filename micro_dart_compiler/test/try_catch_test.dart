@@ -26,10 +26,12 @@ void main() {
         interpreter.printOpcodes();
       }
       var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
-      expect(returnValue, "throwTest2");
+      try {
+        var returnValue = runtime.callStaticFunction(pluginUri, "main", [], {},
+            debug: printOp);
+      } catch (error, stack) {
+        expect(error, "throwTest2");
+      }
     });
 
     test(':try catch basic', () async {

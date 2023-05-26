@@ -39,6 +39,9 @@ Program compileComponent(String pluginUri, Component component, bool debug) {
   component.libraries.forEach((library) {
     //顶部方法索引
     library.procedures.forEach((node) {
+      if (node.isAbstract) {
+        return;
+      }
       String name = node.getNamedName();
       compilerContext.lookupDeclarationIndex(name, node);
     });
@@ -73,6 +76,9 @@ Program compileComponent(String pluginUri, Component component, bool debug) {
       });
       //对类中方法进行索引
       clazz.procedures.forEach((procedure) {
+        if (procedure.isAbstract) {
+          return;
+        }
         String name = procedure.getNamedName();
         compilerContext.lookupDeclarationIndex(name, procedure);
       });

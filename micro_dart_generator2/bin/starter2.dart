@@ -7,7 +7,7 @@ import 'visitor2.dart';
 
 void main(List<String> arguments) async {
   var entity = Directory(
-      "/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/cli_example/lib");
+      "/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/flutter_example/lib");
 
   final collection = AnalysisContextCollection(
       includedPaths: [entity.absolute.path],
@@ -17,8 +17,15 @@ void main(List<String> arguments) async {
     var result = (await context.currentSession.getLibraryByUri("dart:core"))
         as LibraryElementResult;
 
+    var result2 = (await context.currentSession.getLibraryByUri("dart:async"))
+        as LibraryElementResult;
+
     String s = BufferVisitor().generate("coreLibrary", result.element);
-    File("/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/cli_example/lib/core.g.dart")
+    String s2 = BufferVisitor().generate("asyncLibrary", result2.element);
+    File("/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/flutter_example/lib/core.g.dart")
         .writeAsStringSync(s);
+
+    File("/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/flutter_example/lib/async.g.dart")
+        .writeAsStringSync(s2);
   }
 }
