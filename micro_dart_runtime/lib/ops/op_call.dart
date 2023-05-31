@@ -1,29 +1,36 @@
+import 'dart:async';
+
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-@Deprecated("use Calldynamic instead")
-class Call implements Op {
-  Call(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
+class OpCall implements Op {
+  OpCall(MicroDartEngine engine)
+      : _location = engine.readInt32(),
+        _name = engine.readString(),
+        _isAsync = engine.readUint8() == 1 ? true : false;
 
-  Call.make(this._offset);
+  OpCall.make(this._location, this._name, this._isAsync);
 
-  final int _offset;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenI32;
-
-  @override
-  List<int> get bytes => [Ops.opCall, ...Ops.i32b(_offset)];
+  final int _location;
+  final String _name;
+  final bool _isAsync;
 
   @override
-  void run(MicroRuntime runtime) {
-    //缓存当前操作指向
-    runtime.callStack.add(runtime.opPointer);
-    //缓存抛出堆栈
-    runtime.catchStack.add([]);
-    runtime.opPointer = _offset;
+  int get opLen => Ops.lenBegin + Ops.lenI32 + Ops.lenStr(_name) + Ops.lenI8;
+
+  @override
+  List<int> get bytes => [
+        Ops.opCall,
+        ...Ops.i32b(_location),
+        ...Ops.str(_name),
+        ...Ops.i8b(_isAsync ? 1 : 0),
+      ];
+
+  @override
+  void run(Scope scope) {
+    scope.engine.callPointer(scope, _name, _isAsync, _location);
   }
 
   @override
-  String toString() => 'Call(@$_offset)';
+  String toString() => 'OpCall($_location, $_name, $_isAsync)';
 }

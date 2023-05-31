@@ -1,11 +1,11 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class GetGlobalParam implements Op {
-  GetGlobalParam(MicroDartEngine interpreter)
+class OpGetGlobalParam implements Op {
+  OpGetGlobalParam(MicroDartEngine interpreter)
       : _name = interpreter.readString(),
         _location = interpreter.readInt32();
 
-  GetGlobalParam.make(this._name, this._location);
+  OpGetGlobalParam.make(this._name, this._location);
 
   final String _name;
   final int _location;
@@ -18,14 +18,12 @@ class GetGlobalParam implements Op {
       [Ops.opGetGlobalParam, ...Ops.str(_name), ...Ops.i32b(_location)];
 
   @override
-  void run(MicroRuntime runtime) {
+  void run(Scope scope) {
     //有可能出现属性没有初始化的情况,这个时候先执行初始化
-    if (!runtime.hasGlobalParam(_name)) {
-      runtime.callStack.add(runtime.opPointer);
-      runtime.catchStack.add([]);
-      runtime.opPointer = _location;
+    if (!scope.engine.hasGlobalParam(_name)) {
+      scope.engine.callPointer(scope, _name, false, _location);
     } else {
-      runtime.scope.pushFrame(runtime.getGlobalParam(_name));
+      scope.pushFrame(scope.engine.getGlobalParam(_name));
     }
   }
 

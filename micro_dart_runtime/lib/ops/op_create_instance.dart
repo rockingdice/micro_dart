@@ -1,12 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///新建实例
-class CreateInstance implements Op {
-  CreateInstance(MicroDartEngine interpreter)
+class OpCreateInstance implements Op {
+  OpCreateInstance(MicroDartEngine interpreter)
       : _libraryName = interpreter.readString(),
         _className = interpreter.readString();
 
-  CreateInstance.make(this._libraryName, this._className);
+  OpCreateInstance.make(this._libraryName, this._className);
 
   final String _libraryName;
   final String _className;
@@ -20,9 +20,9 @@ class CreateInstance implements Op {
       [Ops.opCreateInstance, ...Ops.str(_libraryName), ...Ops.str(_className)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(
-        InstanceImpl(runtime.engine.getType("$_libraryName@$_className")));
+  void run(Scope scope) {
+    scope.pushFrame(
+        InstanceImpl(scope.engine.getType("$_libraryName@$_className")));
   }
 
   @override

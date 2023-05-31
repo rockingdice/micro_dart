@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class Jump implements Op {
-  Jump(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
+class OpJump implements Op {
+  OpJump(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
 
-  Jump.make(this._offset);
+  OpJump.make(this._offset);
 
   final int _offset;
 
@@ -15,8 +15,8 @@ class Jump implements Op {
   List<int> get bytes => [Ops.opJump, ...Ops.i32b(_offset)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.opPointer = _offset;
+  void run(Scope scope) {
+    scope.opPointer = _offset;
   }
 
   @override

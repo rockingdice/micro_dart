@@ -1,9 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PopScope implements Op {
-  PopScope(MicroDartEngine interpreter);
+@Deprecated("Deprecated")
+class OpPopScope implements Op {
+  OpPopScope(MicroDartEngine interpreter);
 
-  PopScope.make();
+  OpPopScope.make();
 
   @override
   int get opLen => Ops.lenBegin;
@@ -12,13 +13,11 @@ class PopScope implements Op {
   List<int> get bytes => [Ops.opPopScope];
 
   @override
-  void run(MicroRuntime runtime) {
-    var scope = runtime.removeScope();
-
+  void run(Scope scope) {
     if (scope.frames.isNotEmpty) {
-      runtime.scope.pushFrame(scope.frames.last);
+      scope.parent?.pushFrame(scope.frames.last);
     }
-    scope.clean();
+    scope.pop();
   }
 
   @override

@@ -44,7 +44,7 @@ class InstanceBridge extends Instance {
 
   @override
   String toString() {
-    return "InstanceBridge($target)";
+    return "InstanceBridge(${target.runtimeType.toString()})";
   }
 }
 
@@ -86,6 +86,6 @@ class InstanceImpl extends Instance {
 
   @override
   String toString() {
-    return "InstanceImpl($type,$_superInstance,$_params)";
+    return "InstanceImpl($type)";
   }
 }

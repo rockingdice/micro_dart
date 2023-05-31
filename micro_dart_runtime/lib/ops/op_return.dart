@@ -1,31 +1,25 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class Return implements Op {
-  Return(MicroDartEngine interpreter);
+class OpReturn implements Op {
+  OpReturn(MicroDartEngine interpreter);
 
-  Return.make();
+  OpReturn.make();
 
   @override
   int get opLen => Ops.lenBegin;
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.catchStack.removeLast();
-    final prOffset = runtime.callStack.removeLast();
-
-    var oldScope = runtime.removeScope();
-    if (oldScope.frames.isNotEmpty) {
-      runtime.scope.pushFrame(oldScope.frames.last);
+  void run(Scope scope) {
+    scope.hasReturn = true;
+    if (scope.frames.isNotEmpty) {
+      scope.returnValue = scope.popFrame();
+    } else {
+      scope.returnValue = null;
     }
-    oldScope.clean();
-    if (prOffset == -1) {
-      throw ProgramExit(0);
-    }
-    runtime.opPointer = prOffset;
   }
 
   @override
-  String toString() => 'Return()';
+  String toString() => 'OpReturn()';
 
   @override
   List<int> get bytes => [Ops.opReturn];

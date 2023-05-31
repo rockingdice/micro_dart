@@ -14,9 +14,9 @@ class SetParam implements Op {
   List<int> get bytes => [Ops.opSetParam, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var value = runtime.scope.popFrame();
-    runtime.setParam(name, value);
+  void run(Scope scope) {
+    var value = scope.popFrame();
+    scope.setExistParam(name, value);
   }
 
   @override

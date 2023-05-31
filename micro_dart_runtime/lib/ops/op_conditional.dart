@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class Conditional implements Op {
-  Conditional(MicroDartEngine interpreter);
+class OpConditional implements Op {
+  OpConditional(MicroDartEngine interpreter);
 
-  Conditional.make();
+  OpConditional.make();
 
   @override
   int get opLen => Ops.lenBegin + Ops.lenI8;
@@ -13,11 +13,11 @@ class Conditional implements Op {
   List<int> get bytes => [Ops.opLogical];
 
   @override
-  void run(MicroRuntime runtime) {
-    var condition = runtime.scope.popFrame() as bool;
-    var then = runtime.scope.popFrame();
-    var otherwise = runtime.scope.popFrame();
-    runtime.scope.pushFrame(condition ? then : otherwise);
+  void run(Scope scope) {
+    var condition = scope.popFrame() as bool;
+    var then = scope.popFrame();
+    var otherwise = scope.popFrame();
+    scope.pushFrame(condition ? then : otherwise);
   }
 
   @override

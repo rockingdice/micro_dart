@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -32,36 +33,47 @@ class MicroDartEngine {
 
   MicroDartEngine._(this._data);
 
+  bool debug = false;
+  int maxScopeDeep = -1;
+
   factory MicroDartEngine.fromData(ByteData data) {
     return MicroDartEngine._(data).._load();
+  }
+
+  Object? getGlobalParam(String key) {
+    return globals[key];
+  }
+
+  void setGlobalParam(String key, Object? value) {
+    globals[key] = value;
+  }
+
+  bool hasGlobalParam(String key) {
+    return globals.containsKey(key);
   }
 
   void addExternalFunctions(Map<String, Function> functions) {
     externalFunctions.addAll(functions);
   }
 
-  @pragma('vm:always-inline')
   int readUint8() {
     final i = _data.getUint8(_fileOffset);
     _fileOffset += 1;
     return i;
   }
 
-  @pragma('vm:always-inline')
   int readInt32() {
     final i = _data.getInt32(_fileOffset);
     _fileOffset += 4;
     return i;
   }
 
-  @pragma('vm:always-inline')
   double readFloat32() {
     final i = _data.getFloat32(_fileOffset);
     _fileOffset += 4;
     return i;
   }
 
-  @pragma('vm:always-inline')
   String readString() {
     final len = _data.getInt32(_fileOffset);
     _fileOffset += 4;
@@ -83,7 +95,6 @@ class MicroDartEngine {
     return result;
   }
 
-  @pragma('vm:always-inline')
   int readInt16() {
     final i = _data.getInt16(_fileOffset);
     _fileOffset += 2;
@@ -102,8 +113,12 @@ class MicroDartEngine {
     ///加载静态变量
     constants.addAll((json.decode(readString()) as List).cast());
     var maps = json.decode(readString()) as Map;
+
+    ///加载类型
     types.addAll(maps.map<String, TypeRef>((key, value) =>
         MapEntry<String, TypeRef>(key, TypeRef.fromList(value))));
+
+    ///加载内置类型
     types.addAll(Types.internalTypes);
 
     ///加载操作结合
@@ -126,10 +141,6 @@ class MicroDartEngine {
       i++;
     }
     print("------------end printOpcodes------------");
-  }
-
-  MicroRuntime createRuntime() {
-    return MicroRuntime(this, <Scope>[]);
   }
 
   TypeRef getType(String key) {
@@ -193,5 +204,52 @@ class MicroDartEngine {
       }
     }
     return null;
+  }
+
+  dynamic callStaticFunction(String importUri, String functionName,
+      List posational, Map<String, dynamic> named) {
+    //获取当前操作数指针
+    int pointer = declarations['$importUri@@$functionName:static']!;
+    var scope = Scope(this, "_root_");
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      scope.pushFrame(posational[i]);
+    }
+    scope.pushFrame(posational.length);
+    named.forEach((key, value) {
+      scope.pushFrame(value);
+      scope.pushFrame(key);
+    });
+    scope.pushFrame(named.length);
+
+    var newScope = scope.createFromParent("_CallStatic_", maxScopeDeep);
+    newScope.call(pointer);
+
+    return newScope.returnValue;
+  }
+
+  void callPointer(Scope scope, String name, bool isAsync, int poniter) {
+    var newScope = scope.createFromParent(name, maxScopeDeep);
+
+    if (isAsync) {
+      var future = _doAsync(newScope, poniter);
+      if (newScope.hasReturn) {
+        scope.pushFrame(future);
+      }
+    } else {
+      newScope.call(poniter);
+      if (newScope.hasReturn) {
+        scope.pushFrame(newScope.returnValue);
+      }
+    }
+  }
+
+  Future _doAsync(Scope scope, int poniter) {
+    Completer completer = Completer();
+    Future(() {
+      scope.call(poniter);
+      completer.complete(scope.returnValue);
+    });
+    return completer.future;
   }
 }

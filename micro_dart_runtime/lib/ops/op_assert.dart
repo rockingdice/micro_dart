@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class Assert implements Op {
-  Assert(MicroDartEngine interpreter);
+class OpAssert implements Op {
+  OpAssert(MicroDartEngine interpreter);
 
-  Assert.make();
+  OpAssert.make();
 
   @override
   int get opLen => Ops.lenBegin;
@@ -13,9 +13,9 @@ class Assert implements Op {
   List<int> get bytes => [Ops.opAssert];
 
   @override
-  void run(MicroRuntime runtime) {
-    final condition = runtime.scope.popFrame() as bool;
-    final message = runtime.scope.popFrame();
+  void run(Scope scope) {
+    final condition = scope.popFrame() as bool;
+    final message = scope.popFrame();
     assert(condition, message);
   }
 

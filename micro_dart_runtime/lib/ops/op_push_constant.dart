@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushConstant implements Op {
-  PushConstant(MicroDartEngine runtime) : _const = runtime.readInt32();
+class OpPushConstant implements Op {
+  OpPushConstant(MicroDartEngine runtime) : _const = runtime.readInt32();
 
-  PushConstant.make(this._const);
+  OpPushConstant.make(this._const);
 
   final int _const;
 
@@ -14,8 +14,8 @@ class PushConstant implements Op {
   List<int> get bytes => [Ops.opPushConstant, ...Ops.i32b(_const)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(runtime.engine.constants[_const]);
+  void run(Scope scope) {
+    scope.pushFrame(scope.engine.constants[_const]);
   }
 
   @override

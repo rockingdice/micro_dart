@@ -49,7 +49,7 @@ TypeRef? compileNullType(MicroCompilerContext context, NullType dartType) {
 
 TypeRef? compileInterfaceType(
     MicroCompilerContext context, InterfaceType dartType) {
-  return context.lookupType(dartType.classNode) ?? Types.dynamicType;
+  return context.lookupType(dartType.classNode);
 }
 
 TypeRef? compileFunctionType(

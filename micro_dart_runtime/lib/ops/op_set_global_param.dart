@@ -1,9 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class SetGlobalParam implements Op {
-  SetGlobalParam(MicroDartEngine interpreter) : name = interpreter.readString();
+class OpSetGlobalParam implements Op {
+  OpSetGlobalParam(MicroDartEngine interpreter)
+      : name = interpreter.readString();
 
-  SetGlobalParam.make(this.name);
+  OpSetGlobalParam.make(this.name);
 
   final String name;
 
@@ -14,10 +15,9 @@ class SetGlobalParam implements Op {
   List<int> get bytes => [Ops.opSetGlobalParam, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var value = runtime.scope.frames.removeLast();
-    runtime.scope.framePointer--;
-    runtime.setGlobalParam(name, value);
+  void run(Scope scope) {
+    var value = scope.frames.removeLast();
+    scope.engine.setGlobalParam(name, value);
   }
 
   @override

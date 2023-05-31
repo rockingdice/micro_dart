@@ -1,11 +1,11 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class GetObjectProperty implements Op {
-  GetObjectProperty(MicroDartEngine interpreter)
+class OpGetObjectProperty implements Op {
+  OpGetObjectProperty(MicroDartEngine interpreter)
       : _name = interpreter.readString(),
         _location = interpreter.readInt32();
 
-  GetObjectProperty.make(this._name, this._location);
+  OpGetObjectProperty.make(this._name, this._location);
 
   final String _name;
   final int _location;
@@ -18,16 +18,14 @@ class GetObjectProperty implements Op {
       [Ops.opGetObjectProperty, ...Ops.str(_name), ...Ops.i32b(_location)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var instance = runtime.scope.popFrame() as Instance;
+  void run(Scope scope) {
+    var instance = scope.popFrame() as Instance;
 
     if (!instance.hasParam(_name)) {
-      runtime.callStack.add(runtime.opPointer);
-      runtime.catchStack.add([]);
-      runtime.scope.setParam("#this", instance);
-      runtime.opPointer = _location;
+      scope.setScopeParam("#this", instance);
+      scope.engine.callPointer(scope, _name, false, _location);
     } else {
-      runtime.scope.pushFrame(instance.getParam(_name));
+      scope.pushFrame(instance.getParam(_name));
     }
   }
 

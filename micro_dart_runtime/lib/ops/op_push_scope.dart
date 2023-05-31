@@ -1,11 +1,11 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushScope implements Op {
-  PushScope(MicroDartEngine interpreter)
+class OpPushScope implements Op {
+  OpPushScope(MicroDartEngine interpreter)
       : sourceOffset = interpreter.readInt32(),
         frName = interpreter.readString();
 
-  PushScope.make(this.sourceOffset, this.frName);
+  OpPushScope.make(this.sourceOffset, this.frName);
 
   final int sourceOffset;
   final String frName;
@@ -18,9 +18,7 @@ class PushScope implements Op {
       [Ops.opPushScope, ...Ops.i32b(sourceOffset), ...Ops.str(frName)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.addScope(frName);
-  }
+  void run(Scope scope) {}
 
   @override
   String toString() => "PushScope($frName)";

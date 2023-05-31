@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class Logical implements Op {
-  Logical(MicroDartEngine interpreter) : type = interpreter.readUint8();
+class OpLogical implements Op {
+  OpLogical(MicroDartEngine interpreter) : type = interpreter.readUint8();
 
-  Logical.make(this.type);
+  OpLogical.make(this.type);
   int type;
 
   @override
@@ -14,14 +14,14 @@ class Logical implements Op {
   List<int> get bytes => [Ops.opLogical, ...Ops.i8b(type)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var left = runtime.scope.popFrame() as bool;
-    var right = runtime.scope.popFrame() as bool;
+  void run(Scope scope) {
+    var left = scope.popFrame() as bool;
+    var right = scope.popFrame() as bool;
 
     if (type == 0) {
-      runtime.scope.pushFrame(left && right);
+      scope.pushFrame(left && right);
     } else if (type == 1) {
-      runtime.scope.pushFrame(left || right);
+      scope.pushFrame(left || right);
     }
   }
 

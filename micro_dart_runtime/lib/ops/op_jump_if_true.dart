@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class JumpIfTrue implements Op {
-  JumpIfTrue(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
+class OpJumpIfTrue implements Op {
+  OpJumpIfTrue(MicroDartEngine interpreter) : _offset = interpreter.readInt32();
 
-  JumpIfTrue.make(this._offset);
+  OpJumpIfTrue.make(this._offset);
 
   final int _offset;
 
@@ -15,10 +15,10 @@ class JumpIfTrue implements Op {
   List<int> get bytes => [Ops.opJumpIfTrue, ...Ops.i32b(_offset)];
 
   @override
-  void run(MicroRuntime runtime) {
-    final condition = runtime.scope.popFrame() as bool;
+  void run(Scope scope) {
+    final condition = scope.popFrame() as bool;
     if (condition) {
-      runtime.opPointer = _offset;
+      scope.opPointer = _offset;
     }
   }
 

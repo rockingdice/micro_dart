@@ -1,12 +1,13 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法
-class CallSuper implements Op {
-  CallSuper(MicroDartEngine interpreter)
+class OpCallSuper implements Op {
+  OpCallSuper(MicroDartEngine interpreter)
       : _key = interpreter.readString(),
         _name = interpreter.readString(),
         _isGetter = interpreter.readUint8() == 1 ? true : false,
         _isSetter = interpreter.readUint8() == 1 ? true : false,
+        _isAsync = interpreter.readUint8() == 1 ? true : false,
         _posationalLength = interpreter.readInt32(),
         _namedList = interpreter.readStringList();
 
@@ -16,12 +17,14 @@ class CallSuper implements Op {
   final List<String> _namedList;
   final bool _isGetter;
   final bool _isSetter;
+  final bool _isAsync;
 
-  CallSuper.make(
+  OpCallSuper.make(
     this._key,
     this._name,
     this._isGetter,
     this._isSetter,
+    this._isAsync,
     this._posationalLength,
     this._namedList,
   );
@@ -31,7 +34,7 @@ class CallSuper implements Op {
       Ops.lenBegin +
       Ops.lenStr(_key) +
       Ops.lenStr(_name) +
-      Ops.lenI8 * 2 +
+      Ops.lenI8 * 3 +
       Ops.lenI32 +
       Ops.lenStrlist(_namedList);
 
@@ -42,61 +45,56 @@ class CallSuper implements Op {
         ...Ops.str(_name),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
+        ...Ops.i8b(_isAsync ? 1 : 0),
         ...Ops.i32b(_posationalLength),
         ...Ops.strlist(_namedList)
       ];
 
   @override
-  void run(MicroRuntime runtime) {
-    var instance = runtime.scope.getFrame(
-            posation: runtime.scope.frames.length - _posationalLength - 1)
-        as Instance;
-    var key = runtime.engine
+  void run(Scope scope) {
+    var instance = scope.getFrame(
+        posation: scope.frames.length - _posationalLength - 1) as Instance;
+    var key = scope.engine
         .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
-    print("callSuper key is: $key");
-    if (runtime.engine.declarations.containsKey(key)) {
-      //表示这是个内部方法
-      //缓存当前操作指向
-      runtime.callStack.add(runtime.opPointer);
-      //缓存抛出堆栈
-      runtime.catchStack.add([]);
-      runtime.opPointer = runtime.engine.declarations[key]!;
+
+    if (scope.engine.declarations.containsKey(key)) {
+      int pointer = scope.engine.declarations[key]!;
+      scope.engine.callPointer(scope, _name, _isAsync, pointer);
     } else {
       //表示这是一个外部调用
       final List<Object?> positionalArguments =
           List.filled(_posationalLength, null);
       for (int i = 0; i < _posationalLength; i++) {
-        positionalArguments[i] = runtime.scope.popFrame();
+        positionalArguments[i] = scope.popFrame();
       }
       final Map<Symbol, dynamic> namedArguments = {};
       for (var element in _namedList) {
-        namedArguments[Symbol(element)] = runtime.getParam(element);
+        namedArguments[Symbol(element)] = scope.getParam(element);
       }
 
-      dynamic target = runtime.scope.popFrame();
+      dynamic target = scope.popFrame();
       if (target is InstanceBridge) {
         target = target.target;
       }
 
       if (_isGetter) {
-        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
+        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
         return;
       } else if (_isSetter) {
-        runtime.engine.externalFunctions[key]!(
-            target, positionalArguments.first);
+        scope.engine.externalFunctions[key]!(target, positionalArguments.first);
         return;
       }
 
       if (operator1.contains(_name)) {
-        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
+        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
         return;
       } else if (operator2.contains(_name)) {
-        var function = runtime.engine.externalFunctions[key];
+        var function = scope.engine.externalFunctions[key];
         dynamic other = positionalArguments.first;
         if (other is InstanceBridge) {
           other = other.target;
         }
-        runtime.scope.pushFrame(function!(target, other));
+        scope.pushFrame(function!(target, other));
         return;
       } else if (operator3.contains(_name)) {
         dynamic first = positionalArguments.first;
@@ -107,13 +105,13 @@ class CallSuper implements Op {
         if (second is InstanceBridge) {
           second = first.target;
         }
-        runtime.scope.pushFrame(
-            runtime.engine.externalFunctions[key]!(target, first, second));
+        scope.pushFrame(
+            scope.engine.externalFunctions[key]!(target, first, second));
         return;
       }
 
-      runtime.scope.pushFrame(Function.apply(
-          runtime.engine.externalFunctions[key]!(target),
+      scope.pushFrame(Function.apply(
+          scope.engine.externalFunctions[key]!(target),
           positionalArguments,
           namedArguments));
     }

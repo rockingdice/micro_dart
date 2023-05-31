@@ -1,38 +1,38 @@
+import 'dart:async';
+
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class CallPointer implements Op {
-  CallPointer(MicroDartEngine interpreter)
-      : posationalLength = interpreter.readInt32();
+class OpCallPointer implements Op {
+  OpCallPointer(MicroDartEngine engine)
+      : _argmentLength = engine.readInt32(),
+        _name = engine.readString(),
+        _isAsync = engine.readUint8() == 1 ? true : false;
 
-  CallPointer.make(this.posationalLength);
+  OpCallPointer.make(this._argmentLength, this._name, this._isAsync);
 
-  final int posationalLength;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenI32;
-
-  @override
-  List<int> get bytes => [Ops.opCallPointer, ...Ops.i32b(posationalLength)];
+  final int _argmentLength;
+  final String _name;
+  final bool _isAsync;
 
   @override
-  void run(MicroRuntime runtime) {
-    final pointer = runtime.scope.popFrame() as FunctionPointer;
+  int get opLen => Ops.lenBegin + Ops.lenI32 + Ops.lenStr(_name) + Ops.lenI8;
+
+  @override
+  List<int> get bytes => [
+        Ops.opCallPointer,
+        ...Ops.i32b(_argmentLength),
+        ...Ops.str(_name),
+        ...Ops.i8b(_isAsync ? 1 : 0)
+      ];
+
+  @override
+  void run(Scope scope) {
+    final pointer = scope.popFrame() as FunctionPointer;
     if (!pointer.isStatic) {
-      final List<Object?> posationals = List.filled(posationalLength, null);
-      for (int i = posationalLength - 1; i >= 0; i--) {
-        posationals[i] = runtime.scope.popFrame();
-      }
-      runtime.scope.pushFrame(pointer.target);
-      for (int i = 0; i < posationalLength; i++) {
-        runtime.scope.pushFrame(posationals[i]);
-      }
+      scope.insertFrame(scope.frames.length - _argmentLength, pointer.target);
     }
-    //缓存当前操作指向
-    runtime.callStack.add(runtime.opPointer);
-    //缓存抛出堆栈
-    runtime.catchStack.add([]);
-    runtime.opPointer = pointer.offset;
+    scope.engine.callPointer(scope, _name, _isAsync, pointer.offset);
   }
 
   @override

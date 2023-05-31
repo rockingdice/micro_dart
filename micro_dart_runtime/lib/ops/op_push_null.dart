@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushNull implements Op {
-  PushNull(MicroDartEngine exec);
+class OpPushNull implements Op {
+  OpPushNull(MicroDartEngine exec);
 
-  PushNull.make();
+  OpPushNull.make();
 
   @override
   int get opLen => Ops.lenBegin;
@@ -13,8 +13,8 @@ class PushNull implements Op {
 
   // Set value at position to constant
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope[runtime.scope.framePointer++] = null;
+  void run(Scope scope) {
+    scope.pushFrame(null);
   }
 
   @override

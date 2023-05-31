@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushList implements Op {
-  PushList(MicroDartEngine runtime) : _length = runtime.readInt32();
+class OpPushList implements Op {
+  OpPushList(MicroDartEngine runtime) : _length = runtime.readInt32();
 
-  PushList.make(this._length);
+  OpPushList.make(this._length);
 
   final int _length;
 
@@ -15,12 +15,12 @@ class PushList implements Op {
 
   // Set value at position to constant
   @override
-  void run(MicroRuntime runtime) {
+  void run(Scope scope) {
     final List<Object?> list = List.filled(_length, null);
     for (int i = _length - 1; i >= 0; i--) {
-      list[i] = runtime.scope.popFrame();
+      list[i] = scope.popFrame();
     }
-    runtime.scope.pushFrame(list);
+    scope.pushFrame(list);
   }
 
   @override

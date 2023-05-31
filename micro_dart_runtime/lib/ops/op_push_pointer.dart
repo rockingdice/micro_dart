@@ -1,11 +1,11 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushPointer implements Op {
-  PushPointer(MicroDartEngine runtime)
+class OpPushPointer implements Op {
+  OpPushPointer(MicroDartEngine runtime)
       : _value = runtime.readInt32(),
         _isStatic = runtime.readUint8() == 1 ? true : false;
 
-  PushPointer.make(this._value, this._isStatic);
+  OpPushPointer.make(this._value, this._isStatic);
 
   final int _value;
   final bool _isStatic;
@@ -22,12 +22,12 @@ class PushPointer implements Op {
 
   // Set value at position to constant
   @override
-  void run(MicroRuntime runtime) {
+  void run(Scope scope) {
     if (_isStatic) {
-      runtime.scope.pushFrame(FunctionPointer(null, _isStatic, _value));
+      scope.pushFrame(FunctionPointer(null, _isStatic, _value));
     } else {
-      var target = runtime.scope.popFrame();
-      runtime.scope.pushFrame(FunctionPointer(target, _isStatic, _value));
+      var target = scope.popFrame();
+      scope.pushFrame(FunctionPointer(target, _isStatic, _value));
     }
   }
 

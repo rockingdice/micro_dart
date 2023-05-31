@@ -15,8 +15,8 @@ class SetScopeParamNull implements Op {
   List<int> get bytes => [Ops.opSetScopeParamNull, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.setScopeParam(name, null);
+  void run(Scope scope) {
+    scope.setScopeParam(name, null);
   }
 
   @override

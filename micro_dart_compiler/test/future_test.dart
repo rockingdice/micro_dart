@@ -17,17 +17,15 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue = await runtime
-          .callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 1);
     });
 
@@ -39,17 +37,15 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue = await runtime
-          .callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 1);
     });
   });

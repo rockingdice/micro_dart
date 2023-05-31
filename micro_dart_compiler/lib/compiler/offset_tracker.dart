@@ -54,14 +54,14 @@ class OffsetTracker {
 
     _callPointerOffsets.forEach((index, value) {
       final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
-      final newOp = PushPointer.make(offset, value.isStatic);
+      final newOp = OpPushPointer.make(offset, value.isStatic);
       source[index] = newOp;
     });
 
     _breakPointerOffsets.forEach((index, value) {
       int offset =
           context.labeledNamer.getParam(value.statement, "endOpOffset") as int;
-      final newOp = Jump.make(offset);
+      final newOp = OpJump.make(offset);
       source[index] = newOp;
     });
     return source;

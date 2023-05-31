@@ -75,7 +75,6 @@ class MicroCompilerContext {
         mixinTypeKey: node.mixedInClass?.getNamedName());
     visibleTypes[key] = type;
 
-    print("lookupType:$type");
     return type;
   }
 
@@ -101,16 +100,16 @@ class MicroCompilerContext {
     return index;
   }
 
-  int addScope(String name, int fileOffset) {
+  int callStart(String name) {
     final position = ops.length;
-    var op = PushScope.make(fileOffset, name);
+    var op = OpCallStart.make(name);
     pushOp(op);
     return position;
   }
 
-  int removeScope() {
+  int callEnd() {
     final position = ops.length;
-    var op = PopScope.make();
+    var op = OpCallEnd.make();
     pushOp(op);
     return position;
   }

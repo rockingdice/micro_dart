@@ -1,5 +1,6 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+@Deprecated("Deprecated use OpFillArguements")
 class SetNamedParam implements Op {
   SetNamedParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
@@ -13,9 +14,9 @@ class SetNamedParam implements Op {
   List<int> get bytes => [Ops.opSetNamedParam, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    if (runtime.parentScope.hasParam(name)) {
-      runtime.setParam(name, runtime.parentScope.getParam(name));
+  void run(Scope scope) {
+    if (scope.parent?.hasParam(name) ?? false) {
+      scope.setScopeParam(name, scope.parent?.getParam(name));
     }
   }
 

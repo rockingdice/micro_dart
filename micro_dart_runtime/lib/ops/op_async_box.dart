@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class AsyncBox implements Op {
-  AsyncBox(MicroDartEngine interpreter);
+class OpAsyncBox implements Op {
+  OpAsyncBox(MicroDartEngine interpreter);
 
-  AsyncBox.make();
+  OpAsyncBox.make();
 
   @override
   int get opLen => Ops.lenBegin;
@@ -15,9 +15,7 @@ class AsyncBox implements Op {
   List<int> get bytes => [Ops.opAsyncBox];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope.setParam("#completer", Completer());
-  }
+  void run(Scope scope) {}
 
   @override
   String toString() => 'AsyncBox()';

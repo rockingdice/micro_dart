@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class SetPosationalParam implements Op {
-  SetPosationalParam(MicroDartEngine interpreter)
+class OpSetPosationalParam implements Op {
+  OpSetPosationalParam(MicroDartEngine interpreter)
       : name = interpreter.readString();
 
-  SetPosationalParam.make(this.name);
+  OpSetPosationalParam.make(this.name);
 
   final String name;
 
@@ -15,10 +15,10 @@ class SetPosationalParam implements Op {
   List<int> get bytes => [Ops.opSetPosationalParam, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.setParam(name, runtime.parentScope.frames.removeLast());
+  void run(Scope scope) {
+    scope.setScopeParam(name, scope.parent?.popFrame());
   }
 
   @override
-  String toString() => "SetPosationalParam($name)";
+  String toString() => "OpSetPosationalParam($name)";
 }

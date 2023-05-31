@@ -7,24 +7,21 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
     return context.rumtimeDeclarationOpIndexes[name]!;
   }
   //开启一个作用域
-  int pos = context.addScope(name, node.fileOffset);
+  int pos = context.callStart(name);
   context.rumtimeDeclarationOpIndexes[name] = pos;
-
+  List<String> posationalNames = [];
   //参数初始化
   node.function.positionalParameters.forEach((element) {
     compileVariableDeclaration(context, element);
-    //将上个作用域中的参数copy到这个作用域
-    context.pushOp(SetPosationalParam.make(element.name!));
+    posationalNames.add(element.name!);
   });
   node.function.namedParameters.forEach((element) {
     compileVariableDeclaration(context, element);
-    context.pushOp(SetNamedParam.make(element.name!));
   });
-
-  //context.removeScope();
+  context.pushOp(OpFillArgments.make(posationalNames, false, true));
   context.pushOp(
-      CreateInstance.make(node.stringLibraryUri, node.stringClassName!));
-  context.pushOp(SetScopeParam.make("#this"));
+      OpCreateInstance.make(node.stringLibraryUri, node.stringClassName!));
+  context.pushOp(OpSetScopeParam.make("#this"));
 
   //filed初始化
   node.initializers.forEach((element) {
@@ -35,17 +32,14 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   var b = node.function.body;
   if (b != null) {
     if (b is Block && b.statements.isNotEmpty) {
-      context.addScope("<ConstructorBlock>", node.fileOffset);
-      compileBlock(context, b, createScope: false);
-      context.removeScope();
+      compileFunctionBlock(context, b);
     } else {
-      context.addScope("<ConstructorBlock>", node.fileOffset);
-      compileStatement(context, b);
-      context.removeScope();
+      compileStatement(context, b, newBlock: false);
     }
   }
-  context.pushOp(GetParam.make("#this"));
-  context.pushOp(Return.make());
+  context.pushOp(OpGetParam.make("#this"));
+  context.pushOp(OpReturn.make());
+  context.callEnd();
   return -1;
 }
 
@@ -73,11 +67,8 @@ void compileSuperInitializer(
     MicroCompilerContext context, SuperInitializer initializer) {
   var target = initializer.target;
   var arguments = initializer.arguments;
-  context.addScope("<SuperInitializer>", initializer.fileOffset);
   compileCallConstructor(context, arguments, target);
-
   context.pushOp(SetThisProperty.make("#super"));
-  context.removeScope();
 }
 
 void compileRedirectingInitializer(
@@ -96,10 +87,16 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   compileArguments(context, arguments);
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = CallDynamic.make(name, true, false, false, arguments.positional.length,
+    op = OpCallDynamic.make(
+        name,
+        true,
+        false,
+        false,
+        false,
+        arguments.positional.length,
         arguments.named.map((e) => e.name).toList());
   } else {
-    op = CallExternal.make(
+    op = OpCallExternal.make(
       className: constructor.stringClassName ?? "",
       key: name,
       isGetter: constructor.isGetter,

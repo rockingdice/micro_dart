@@ -1,4 +1,4 @@
-import 'package:micro_dart_runtime/runtime/runtime.dart';
+import 'package:micro_dart_runtime/runtime/engine.dart';
 
 class Types {
   static final TypeRef dynamicType = TypeRef("", "dynamic", false);
@@ -12,9 +12,9 @@ class Types {
   static final TypeRef listType = TypeRef("dart:core", "List", true);
 
   static final TypeRef numType =
-      TypeRef("dart:core", "num", true, superTypeKey: "dart:core@Object");
+      TypeRef("dart:core", "num", true, superTypeKey: objectType.key);
   static final TypeRef intType =
-      TypeRef("dart:core", "int", true, superTypeKey: "dart:core@num");
+      TypeRef("dart:core", "int", true, superTypeKey: numType.key);
 
   final Map<String, TypeRef> types;
 
@@ -54,14 +54,12 @@ class TypeRef {
     return typeRef.key == key;
   }
 
-  bool isType(TypeRef typeRef, MicroRuntime runtime) {
+  bool isType(TypeRef typeRef, MicroDartEngine engine) {
     if (same(typeRef)) {
       return true;
     }
-    if (superTypeKey != null &&
-        runtime.engine.types.containsKey(superTypeKey)) {
-      return runtime.engine.types[superTypeKey!]?.isType(typeRef, runtime) ??
-          false;
+    if (superTypeKey != null && engine.types.containsKey(superTypeKey)) {
+      return engine.types[superTypeKey!]?.isType(typeRef, engine) ?? false;
     }
     return false;
   }
@@ -99,6 +97,6 @@ class TypeRef {
 
   @override
   String toString() {
-    return "TypeRef($libraryName,$className,$isExternal,$isAnonymousMixin,$isMixinDeclaration,$superTypeKey,$mixinTypeKey)";
+    return "TypeRef($className)";
   }
 }

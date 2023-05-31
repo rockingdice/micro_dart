@@ -1,13 +1,13 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class ReturnField implements Op {
-  ReturnField(MicroDartEngine interpreter)
+class OpReturnField implements Op {
+  OpReturnField(MicroDartEngine interpreter)
       : _libraryName = interpreter.readString(),
         _className = interpreter.readString(),
         _isStatic = interpreter.readUint8() == 1 ? true : false,
         _name = interpreter.readString();
 
-  ReturnField.make(
+  OpReturnField.make(
       this._libraryName, this._className, this._isStatic, this._name);
 
   final bool _isStatic;
@@ -33,25 +33,17 @@ class ReturnField implements Op {
       ];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.catchStack.removeLast();
-    final prOffset = runtime.callStack.removeLast();
-
-    var oldScope = runtime.removeScope();
+  void run(Scope scope) {
+    scope.hasReturn = true;
+    var value = scope.popFrame();
     if (_isStatic) {
-      runtime.setGlobalParam(_name, oldScope.frames.last);
-      runtime.scope.pushFrame(oldScope.frames.last);
+      scope.engine.setGlobalParam(_name, value);
+      scope.returnValue = value;
     } else {
-      var instance = runtime.getParam("#this") as Instance;
-      instance.setParam(_name, oldScope.frames.last);
-      runtime.scope.pushFrame(oldScope.frames.last);
+      var instance = scope.getParam("#this") as Instance;
+      instance.setParam(_name, value);
+      scope.returnValue = value;
     }
-
-    oldScope.clean();
-    if (prOffset == -1) {
-      throw ProgramExit(0);
-    }
-    runtime.opPointer = prOffset;
   }
 
   @override

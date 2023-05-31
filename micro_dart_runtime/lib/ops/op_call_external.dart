@@ -1,8 +1,8 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法
-class CallExternal implements Op {
-  CallExternal(MicroDartEngine interpreter)
+class OpCallExternal implements Op {
+  OpCallExternal(MicroDartEngine interpreter)
       : kind = interpreter.readUint8(),
         isStatic = interpreter.readUint8() == 1 ? true : false,
         isGetter = interpreter.readUint8() == 1 ? true : false,
@@ -26,7 +26,7 @@ class CallExternal implements Op {
   final int posationalLength;
   final List<String> namedList;
 
-  CallExternal.make({
+  OpCallExternal.make({
     required this.libraryUri,
     required this.key,
     required this.kind,
@@ -66,71 +66,78 @@ class CallExternal implements Op {
       ];
 
   @override
-  void run(MicroRuntime runtime) {
-    List<Object?> positionalArguments = List.filled(posationalLength, null);
-    for (int i = 0; i < posationalLength; i++) {
-      positionalArguments[i] = runtime.scope.popFrame();
+  void run(Scope scope) {
+    final Map<Symbol, dynamic> namedArguments = {};
+    List<Object?> positionalArguments =
+        List.filled(posationalLength, null, growable: false);
+
+    if (!isGetter) {
+      final int namedLength = scope.popFrame() as int;
+      for (int i = 0; i < namedLength; i++) {
+        String key = scope.popFrame() as String;
+        var value = scope.popFrame();
+        namedArguments[Symbol(key)] = value;
+      }
+      int pLength = scope.popFrame() as int;
+      for (int i = 0; i < pLength; i++) {
+        var value = scope.popFrame();
+        positionalArguments[i] = value;
+      }
     }
 
     //表示这是构造函数初始化
     if (kind == 3) {
-      var function = runtime.engine.externalFunctions[key];
+      var function = scope.engine.externalFunctions[key];
       Map<String, dynamic> namedArguments = {};
       for (var element in namedList) {
-        namedArguments[element] = runtime.getParam(element);
+        namedArguments[element] = scope.getParam(element);
       }
       //这里需要修改
 
       var instance = InstanceBridge(
-          runtime.engine,
+          scope.engine,
           function!(positionalArguments, namedArguments),
-          runtime.engine.getType("$libraryUri@$className"));
-      runtime.scope.pushFrame(instance);
-      return;
-    }
+          scope.engine.getType("$libraryUri@$className"));
 
-    Map<Symbol, dynamic> namedArguments = {};
-    for (var element in namedList) {
-      namedArguments[Symbol(element)] = runtime.getParam(element);
+      scope.pushFrame(instance);
+      return;
     }
 
     if (isStatic) {
       if (isGetter) {
-        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!);
+        scope.pushFrame(scope.engine.externalFunctions[key]!);
         return;
       } else if (isSetter) {
-        runtime.engine.externalFunctions[key]!(positionalArguments.first);
+        scope.engine.externalFunctions[key]!(positionalArguments.first);
         return;
       }
       var result = Function.apply(
-          runtime.engine.externalFunctions[key]!(), positionalArguments);
-      runtime.scope.pushFrame(result);
-      ;
+          scope.engine.externalFunctions[key]!(), positionalArguments);
+      scope.pushFrame(result);
     } else {
-      dynamic target = runtime.scope.popFrame();
+      dynamic target = scope.popFrame();
       if (target is InstanceBridge) {
         target = target.target;
       }
 
       if (isGetter) {
-        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
+        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
         return;
       } else if (isSetter) {
-        runtime.engine.externalFunctions[key]!(
-            target, positionalArguments.first);
+        scope.engine.externalFunctions[key]!(target, positionalArguments.first);
         return;
       }
 
       if (operator1.contains(name)) {
-        runtime.scope.pushFrame(runtime.engine.externalFunctions[key]!(target));
+        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
         return;
       } else if (operator2.contains(name)) {
-        var function = runtime.engine.externalFunctions[key];
+        var function = scope.engine.externalFunctions[key];
         dynamic other = positionalArguments.first;
         if (other is InstanceBridge) {
           other = other.target;
         }
-        runtime.scope.pushFrame(function!(target, other));
+        scope.pushFrame(function!(target, other));
         return;
       } else if (operator3.contains(name)) {
         dynamic first = positionalArguments.first;
@@ -141,13 +148,13 @@ class CallExternal implements Op {
         if (second is InstanceBridge) {
           second = first.target;
         }
-        runtime.scope.pushFrame(
-            runtime.engine.externalFunctions[key]!(target, first, second));
+        scope.pushFrame(
+            scope.engine.externalFunctions[key]!(target, first, second));
         return;
       }
 
-      runtime.scope.pushFrame(Function.apply(
-          runtime.engine.externalFunctions[key]!(target),
+      scope.pushFrame(Function.apply(
+          scope.engine.externalFunctions[key]!(target),
           positionalArguments,
           namedArguments));
     }

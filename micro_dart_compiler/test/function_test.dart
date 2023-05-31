@@ -17,17 +17,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 2);
     });
 
@@ -39,16 +36,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 3);
     });
 
@@ -60,16 +55,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 100);
     });
@@ -82,16 +75,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 10);
     });
@@ -106,16 +97,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -130,16 +119,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 17);
     });
@@ -154,16 +141,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -178,17 +163,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 3);
     });
@@ -203,17 +185,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 1);
     });
@@ -228,17 +207,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, -2);
     });
@@ -253,17 +229,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 42);
     });
@@ -279,16 +252,14 @@ void main() {
       writeComponentToText(program.component,
           path: "$testCasePath$fileName.txt");
     }
-    var interpreter = initMicroDartRumtime(program.write().buffer.asByteData());
+    var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
     if (printOp) {
-      interpreter.printOpcodes();
+      engine.debug = true;
+      engine.printOpcodes();
     }
 
-    var runtime = interpreter.createRuntime();
-
-    var returnValue =
-        runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+    var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
 
     expect(returnValue, 41);
   });

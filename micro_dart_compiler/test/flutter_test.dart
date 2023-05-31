@@ -19,11 +19,11 @@ void main() {
         writeComponentToText(program.component,
             path: "${testCasePath}flutter_example.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
     });
   });

@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
-class Is implements Op {
-  Is(MicroDartEngine interpreter) : type = interpreter.readString();
+class OpIs implements Op {
+  OpIs(MicroDartEngine interpreter) : type = interpreter.readString();
 
-  Is.make(this.type);
+  OpIs.make(this.type);
 
   final String type;
 
@@ -15,16 +15,16 @@ class Is implements Op {
   List<int> get bytes => [Ops.opIs, ...Ops.str(type)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var instance = runtime.scope.popFrame();
+  void run(Scope scope) {
+    var instance = scope.popFrame();
     bool isType = false;
     if (instance is Instance) {
-      isType = instance.type.isType(runtime.engine.types[type]!, runtime);
+      isType = instance.type.isType(scope.engine.types[type]!, scope.engine);
     } else {
-      isType = runtime.engine.externalFunctions["$type@#is"]!(instance);
+      isType = scope.engine.externalFunctions["$type@#is"]!(instance);
     }
 
-    runtime.scope.pushFrame(isType);
+    scope.pushFrame(isType);
   }
 
   @override

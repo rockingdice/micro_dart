@@ -13,9 +13,9 @@ class OpNullCheck implements Op {
   List<int> get bytes => [Ops.opNullCheck];
 
   @override
-  void run(MicroRuntime runtime) {
-    var instance = runtime.scope.popFrame();
-    runtime.scope.pushFrame(instance!);
+  void run(Scope scope) {
+    var instance = scope.popFrame();
+    scope.pushFrame(instance!);
   }
 
   @override

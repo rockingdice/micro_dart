@@ -15,8 +15,8 @@ class OpSymbol implements Op {
   List<int> get bytes => [Ops.opNot, ...Ops.str(value)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(Symbol(value));
+  void run(Scope scope) {
+    scope.pushFrame(Symbol(value));
   }
 
   @override

@@ -15,9 +15,9 @@ class SetThisProperty implements Op {
   List<int> get bytes => [Ops.opSetThisProperty, ...Ops.str(_name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    var val = runtime.scope.popFrame();
-    var instance = runtime.getParam("#this") as Instance;
+  void run(Scope scope) {
+    var val = scope.popFrame();
+    var instance = scope.getParam("#this") as Instance;
     instance.setParam(_name, val);
   }
 

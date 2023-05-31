@@ -4,8 +4,8 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;
 
 void main() {
   group('While tests', () {
@@ -19,17 +19,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 10);
     });
 
@@ -43,17 +40,14 @@ void main() {
         writeComponentToText(program.component,
             path: "$testCasePath$fileName.txt");
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 6);
     });
 
@@ -65,17 +59,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 10);
     });
 
@@ -87,17 +78,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 9);
     });
 
@@ -109,17 +97,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 9);
     });
 
@@ -131,17 +116,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 6);
     });
 
@@ -153,17 +135,14 @@ void main() {
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
       }
-      var interpreter =
-          initMicroDartRumtime(program.write().buffer.asByteData());
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
       if (printOp) {
-        interpreter.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
-      var runtime = interpreter.createRuntime();
-
-      var returnValue =
-          runtime.callStaticFunction(pluginUri, "main", [], {}, debug: printOp);
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 7);
     });
   });

@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class GetParam implements Op {
-  GetParam(MicroDartEngine interpreter) : name = interpreter.readString();
+class OpGetParam implements Op {
+  OpGetParam(MicroDartEngine interpreter) : name = interpreter.readString();
 
-  GetParam.make(this.name);
+  OpGetParam.make(this.name);
 
   final String name;
 
@@ -14,8 +14,8 @@ class GetParam implements Op {
   List<int> get bytes => [Ops.opGetParam, ...Ops.str(name)];
 
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope.pushFrame(runtime.getParam(name));
+  void run(Scope scope) {
+    scope.pushFrame(scope.getParam(name));
   }
 
   @override

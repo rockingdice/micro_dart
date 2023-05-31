@@ -13,10 +13,10 @@ class OpNot implements Op {
   List<int> get bytes => [Ops.opNot];
 
   @override
-  void run(MicroRuntime runtime) {
-    var instance = runtime.scope.popFrame() as bool;
+  void run(Scope scope) {
+    var instance = scope.popFrame() as bool;
 
-    runtime.scope.pushFrame(!instance);
+    scope.pushFrame(!instance);
   }
 
   @override

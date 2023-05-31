@@ -2,54 +2,23 @@ part of 'ast.dart';
 
 int compileField(MicroCompilerContext context, Field node) {
   compileDartType(context, node.type);
-  if (node.isStatic) {
-    return compileStaticField(context, node);
-  } else {
-    return compileClassField(context, node);
-  }
-}
-
-int compileStaticField(MicroCompilerContext context, Field node) {
   var name = node.getNamedName();
-  //表示该方法已经编译过了,直接返回
+
   if (context.rumtimeDeclarationOpIndexes[name] != null) {
     return context.rumtimeDeclarationOpIndexes[name]!;
   }
 
-  //开启一个作用域
-  int pos = context.addScope(name, node.fileOffset);
+  int pos = context.callStart(name);
   context.rumtimeDeclarationOpIndexes[name] = pos;
 
   if (node.initializer != null) {
     compileExpression(context, node.initializer!);
   } else {
-    context.pushOp(PushNull.make());
+    context.pushOp(OpPushNull.make());
   }
-  context.pushOp(ReturnField.make(
+  context.pushOp(OpReturnField.make(
       node.stringLibraryUri, "", node.isStatic, node.name.text));
-
-  return pos;
-}
-
-int compileClassField(MicroCompilerContext context, Field node) {
-  var name = node.getNamedName();
-  //表示该方法已经编译过了,直接返回
-  if (context.rumtimeDeclarationOpIndexes[name] != null) {
-    return context.rumtimeDeclarationOpIndexes[name]!;
-  }
-
-  //开启一个作用域
-  int pos = context.addScope(name, node.fileOffset);
-  context.rumtimeDeclarationOpIndexes[name] = pos;
-
-  if (node.initializer != null) {
-    compileExpression(context, node.initializer!);
-  } else {
-    context.pushOp(PushNull.make());
-  }
-  context.pushOp(ReturnField.make(node.stringLibraryUri, node.stringClassName!,
-      node.isStatic, node.name.text));
-
+  context.callEnd();
   return pos;
 }
 
@@ -58,9 +27,9 @@ int compileCallField(MicroCompilerContext context, Field field) {
 
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = CallDynamic.make(name, true, false, false, 0, List.empty());
+    op = OpCallDynamic.make(name, true, false, false, false, 0, List.empty());
   } else {
-    op = CallExternal.make(
+    op = OpCallExternal.make(
       className: field.stringClassName ?? "",
       key: name,
       isGetter: field.isGetter,

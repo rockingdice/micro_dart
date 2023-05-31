@@ -1,9 +1,9 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class PushBoxInt implements Op {
-  PushBoxInt(MicroDartEngine runtime) : _value = runtime.readInt32();
+class OpPushBoxInt implements Op {
+  OpPushBoxInt(MicroDartEngine runtime) : _value = runtime.readInt32();
 
-  PushBoxInt.make(this._value);
+  OpPushBoxInt.make(this._value);
 
   final int _value;
 
@@ -15,9 +15,8 @@ class PushBoxInt implements Op {
 
   // Set value at position to constant
   @override
-  void run(MicroRuntime runtime) {
-    runtime.scope
-        .pushFrame(InstanceBridge(runtime.engine, _value, Types.intType));
+  void run(Scope scope) {
+    scope.pushFrame(InstanceBridge(scope.engine, _value, Types.intType));
   }
 
   @override
