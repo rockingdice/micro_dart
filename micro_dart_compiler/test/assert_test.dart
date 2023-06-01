@@ -24,7 +24,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
       expect(returnValue, 1);
     });
   });

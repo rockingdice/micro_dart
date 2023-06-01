@@ -66,7 +66,7 @@ class OpCallExternal implements Op {
       ];
 
   @override
-  Future run(Scope scope) async {
+  void run(Scope scope) {
     //表示这是构造函数初始化
     if (kind == 3) {
       final Map<String, dynamic> namedArguments = {};

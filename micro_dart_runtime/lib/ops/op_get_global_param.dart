@@ -1,5 +1,30 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+class OpGetGlobalParamAsync extends OpGetGlobalParam {
+  OpGetGlobalParamAsync(MicroDartEngine engine) : super(engine);
+
+  OpGetGlobalParamAsync.make(String name, int location)
+      : super.make(name, location);
+
+  @override
+  List<int> get bytes =>
+      [Ops.opGetGlobalParamAsync, ...Ops.str(_name), ...Ops.i32b(_location)];
+
+  @override
+  Future run(Scope scope) async {
+    //有可能出现属性没有初始化的情况,这个时候先执行初始化
+    if (!scope.engine.hasGlobalParam(_name)) {
+      return scope.engine
+          .callPointerAsync(scope, _name, false, false, _location);
+    } else {
+      scope.pushFrame(scope.engine.getGlobalParam(_name));
+    }
+  }
+
+  @override
+  String toString() => "OpGetGlobalParamAsync($_name,$_location)";
+}
+
 class OpGetGlobalParam implements Op {
   OpGetGlobalParam(MicroDartEngine interpreter)
       : _name = interpreter.readString(),
@@ -18,10 +43,10 @@ class OpGetGlobalParam implements Op {
       [Ops.opGetGlobalParam, ...Ops.str(_name), ...Ops.i32b(_location)];
 
   @override
-  Future run(Scope scope) async {
+  void run(Scope scope) {
     //有可能出现属性没有初始化的情况,这个时候先执行初始化
     if (!scope.engine.hasGlobalParam(_name)) {
-      return scope.engine.callPointer(scope, _name, false, false, _location);
+      scope.engine.callPointer(scope, _name, false, _location);
     } else {
       scope.pushFrame(scope.engine.getGlobalParam(_name));
     }

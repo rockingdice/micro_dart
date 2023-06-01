@@ -126,8 +126,7 @@ class MicroDartEngine {
       final opId = _data.getUint8(_fileOffset);
       _fileOffset++;
       if (opLoaders[opId] == null) {
-        print("not found opId $opId");
-        break;
+        throw Exception("not found opId $opId");
       }
       ops.add(opLoaders[opId]!(this));
     }
@@ -206,12 +205,11 @@ class MicroDartEngine {
     return null;
   }
 
-  Future callStaticFunction(String importUri, String functionName,
-      List posational, Map<String, dynamic> named,
-      {bool isAsync = false}) async {
+  T? callStaticFunction<T>(String importUri, String functionName,
+      List posational, Map<String, dynamic> named) {
     //获取当前操作数指针
     int pointer = declarations['$importUri@@$functionName:static']!;
-    var scope = Scope(this, "_root_", true);
+    var scope = Scope(this, "_root_", true, false);
     List<Object?> args = [];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
@@ -225,18 +223,63 @@ class MicroDartEngine {
     args.add(named.length);
     scope.setScopeParam("#args", args);
 
-    if (isAsync) {
-      var future = _doAsync(scope, pointer);
-      return future;
-    }
+    scope.call(pointer);
 
-    await scope.call(pointer);
     return scope.returnValue;
   }
 
-  Future callPointer(
+  Future callStaticFunctionWaitClean(String importUri, String functionName,
+      List posational, Map<String, dynamic> named) async {
+    //获取当前操作数指针
+    int pointer = declarations['$importUri@@$functionName:static']!;
+    var scope = Scope(this, "_root_", true, false);
+    List<Object?> args = [];
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      args.add(posational[i]);
+    }
+    args.add(posational.length);
+    named.forEach((key, value) {
+      args.add(value);
+      args.add(key);
+    });
+    args.add(named.length);
+    scope.setScopeParam("#args", args);
+
+    scope.call(pointer);
+
+    while (!scope.released) {
+      await Future.delayed(Duration(milliseconds: 100));
+    }
+
+    return scope.returnValue;
+  }
+
+  Future<T> callStaticFunctionAsync<T>(String importUri, String functionName,
+      List posational, Map<String, dynamic> named) async {
+    //获取当前操作数指针
+    int pointer = declarations['$importUri@@$functionName:static']!;
+    var scope = Scope(this, "_root_", true, true);
+    List<Object?> args = [];
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      args.add(posational[i]);
+    }
+    args.add(posational.length);
+    named.forEach((key, value) {
+      args.add(value);
+      args.add(key);
+    });
+    args.add(named.length);
+    scope.setScopeParam("#args", args);
+
+    await scope.callAsync(pointer);
+    return scope.returnValue;
+  }
+
+  Future callPointerAsync(
       Scope scope, String name, bool hasArgs, bool isAsync, int poniter) async {
-    var newScope = scope.createFromParent(name, hasArgs, maxScopeDeep);
+    var newScope = scope.createFromParent(name, hasArgs, isAsync, maxScopeDeep);
     if (hasArgs) {
       newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
     }
@@ -245,24 +288,32 @@ class MicroDartEngine {
       var future = _doAsync(newScope, poniter);
       scope.pushFrame(future);
     } else {
-      await newScope.call(poniter);
+      await newScope.callAsync(poniter);
       if (newScope.hasReturn) {
         scope.pushFrame(newScope.returnValue);
       }
     }
   }
 
-  Future callFunctionPointer(Scope scope, FunctionPointer functionPointer,
+  void callPointer(Scope scope, String name, bool hasArgs, int poniter) {
+    var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
+    if (hasArgs) {
+      newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
+    }
+    newScope.call(poniter);
+  }
+
+  Future callFunctionPointerAsync(Scope scope, FunctionPointer functionPointer,
       [List<Object?>? optionals]) async {
     scope.pushFrame([0, 0]);
-    return callPointer(scope, "_anonymous_", true, functionPointer.isAsync,
+    return callPointerAsync(scope, "_anonymous_", true, functionPointer.isAsync,
         functionPointer.offset);
   }
 
-  Future _doAsync(Scope scope, int pointer) {
-    Completer completer = Completer();
+  Future<T> _doAsync<T>(Scope scope, int pointer) {
+    var completer = Completer<T>();
     Future(() async {
-      await scope.call(pointer);
+      await scope.callAsync(pointer);
       if (scope.hasReturn) {
         completer.complete(scope.returnValue);
       } else {

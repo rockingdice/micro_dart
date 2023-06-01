@@ -370,8 +370,27 @@ int compileFunctionInvocation(
   int argumentLength =
       arguments.positional.length + arguments.named.length * 2 + 2;
 
-  int pos =
-      context.pushOp(OpCallPointer.make(argumentLength, node.name.text, false));
+  var receiver = node.receiver;
+  var isAsync = false;
+  if (receiver is InstanceTearOff) {
+    isAsync =
+        receiver.interfaceTarget.function.asyncMarker == AsyncMarker.Async;
+  } else if (receiver is FunctionExpression) {
+    isAsync = receiver.function.asyncMarker == AsyncMarker.Async;
+  } else if (receiver is ConstantExpression) {
+    var constant = receiver.constant;
+    if (constant is StaticTearOffConstant) {
+      isAsync = constant.function.asyncMarker == AsyncMarker.Async;
+    }
+  }
+
+  Op? op;
+  if (isAsync) {
+    op = OpCallPointerAsync.make(argumentLength, node.name.text, isAsync);
+  } else {
+    op = OpCallPointer.make(argumentLength, node.name.text, isAsync);
+  }
+  int pos = context.pushOp(op);
   return pos;
 }
 
@@ -408,13 +427,24 @@ int compileSuperPropertyGet(
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushArgments.make(3));
-    return context.pushOp(OpCallSuper.make(
-        "${target.stringLibraryUri}@${target.stringClassName}",
-        target.name.text,
-        true,
-        false,
-        target.function.asyncMarker == AsyncMarker.Async,
-        0, []));
+    bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
+    if (isAsync) {
+      return context.pushOp(OpCallSuperAsync.make(
+          "${target.stringLibraryUri}@${target.stringClassName}",
+          target.name.text,
+          true,
+          false,
+          isAsync,
+          0, []));
+    } else {
+      return context.pushOp(OpCallSuper.make(
+          "${target.stringLibraryUri}@${target.stringClassName}",
+          target.name.text,
+          true,
+          false,
+          isAsync,
+          0, []));
+    }
   } else if (target is Field) {
     int opOffset =
         context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;

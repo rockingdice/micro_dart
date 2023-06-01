@@ -1,6 +1,55 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法
+class OpCallSuperAsync extends OpCallSuper {
+  OpCallSuperAsync(MicroDartEngine engine) : super(engine);
+
+  OpCallSuperAsync.make(
+    String key,
+    String name,
+    bool isGetter,
+    bool isSetter,
+    bool isAsync,
+    int posationalLength,
+    List<String> namedList,
+  ) : super.make(key, name, isGetter, isSetter, isAsync, posationalLength,
+            namedList);
+
+  @override
+  List<int> get bytes => [
+        Ops.opCallSuperAsync,
+        ...Ops.str(_key),
+        ...Ops.str(_name),
+        ...Ops.i8b(_isGetter ? 1 : 0),
+        ...Ops.i8b(_isSetter ? 1 : 0),
+        ...Ops.i8b(_isAsync ? 1 : 0),
+        ...Ops.i32b(_posationalLength),
+        ...Ops.strlist(_namedList)
+      ];
+
+  @override
+  Future run(Scope scope) async {
+    var args = scope.getFrame() as List<Object?>;
+    var instance = args.first as Instance;
+    var key = scope.engine
+        .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
+
+    if (scope.engine.declarations.containsKey(key)) {
+      //表示这是一个内部引用
+      int pointer = scope.engine.declarations[key]!;
+      return scope.engine
+          .callPointerAsync(scope, _name, true, _isAsync, pointer);
+    } else {
+      _callExternal(scope, key);
+    }
+  }
+
+  @override
+  String toString() =>
+      'OpCallSuperAsync($_key,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+}
+
+///调用外部方法
 class OpCallSuper implements Op {
   OpCallSuper(MicroDartEngine interpreter)
       : _key = interpreter.readString(),
@@ -51,7 +100,7 @@ class OpCallSuper implements Op {
       ];
 
   @override
-  Future run(Scope scope) async {
+  void run(Scope scope) {
     var args = scope.getFrame() as List<Object?>;
     var instance = args.first as Instance;
     var key = scope.engine
@@ -60,62 +109,65 @@ class OpCallSuper implements Op {
     if (scope.engine.declarations.containsKey(key)) {
       //表示这是一个内部引用
       int pointer = scope.engine.declarations[key]!;
-      return scope.engine.callPointer(scope, _name, true, _isAsync, pointer);
+      scope.engine.callPointer(scope, _name, true, pointer);
     } else {
       //表示这是一个外部调用
-      final List<Object?> positionalArguments =
-          List.filled(_posationalLength, null);
-      for (int i = 0; i < _posationalLength; i++) {
-        positionalArguments[i] = scope.popFrame();
-      }
-      final Map<Symbol, dynamic> namedArguments = {};
-      for (var element in _namedList) {
-        namedArguments[Symbol(element)] = scope.getParam(element);
-      }
-
-      dynamic target = scope.popFrame();
-      if (target is InstanceBridge) {
-        target = target.target;
-      }
-
-      if (_isGetter) {
-        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
-        return;
-      } else if (_isSetter) {
-        scope.engine.externalFunctions[key]!(target, positionalArguments.first);
-        return;
-      }
-
-      if (operator1.contains(_name)) {
-        scope.pushFrame(scope.engine.externalFunctions[key]!(target));
-        return;
-      } else if (operator2.contains(_name)) {
-        var function = scope.engine.externalFunctions[key];
-        dynamic other = positionalArguments.first;
-        if (other is InstanceBridge) {
-          other = other.target;
-        }
-        scope.pushFrame(function!(target, other));
-        return;
-      } else if (operator3.contains(_name)) {
-        dynamic first = positionalArguments.first;
-        if (first is InstanceBridge) {
-          first = first.target;
-        }
-        dynamic second = positionalArguments[1];
-        if (second is InstanceBridge) {
-          second = first.target;
-        }
-        scope.pushFrame(
-            scope.engine.externalFunctions[key]!(target, first, second));
-        return;
-      }
-
-      scope.pushFrame(Function.apply(
-          scope.engine.externalFunctions[key]!(target),
-          positionalArguments,
-          namedArguments));
+      _callExternal(scope, key);
     }
+  }
+
+  void _callExternal(Scope scope, String? key) {
+    //表示这是一个外部调用
+    final List<Object?> positionalArguments =
+        List.filled(_posationalLength, null);
+    for (int i = 0; i < _posationalLength; i++) {
+      positionalArguments[i] = scope.popFrame();
+    }
+    final Map<Symbol, dynamic> namedArguments = {};
+    for (var element in _namedList) {
+      namedArguments[Symbol(element)] = scope.getParam(element);
+    }
+
+    dynamic target = scope.popFrame();
+    if (target is InstanceBridge) {
+      target = target.target;
+    }
+
+    if (_isGetter) {
+      scope.pushFrame(scope.engine.externalFunctions[key]!(target));
+      return;
+    } else if (_isSetter) {
+      scope.engine.externalFunctions[key]!(target, positionalArguments.first);
+      return;
+    }
+
+    if (operator1.contains(_name)) {
+      scope.pushFrame(scope.engine.externalFunctions[key]!(target));
+      return;
+    } else if (operator2.contains(_name)) {
+      var function = scope.engine.externalFunctions[key];
+      dynamic other = positionalArguments.first;
+      if (other is InstanceBridge) {
+        other = other.target;
+      }
+      scope.pushFrame(function!(target, other));
+      return;
+    } else if (operator3.contains(_name)) {
+      dynamic first = positionalArguments.first;
+      if (first is InstanceBridge) {
+        first = first.target;
+      }
+      dynamic second = positionalArguments[1];
+      if (second is InstanceBridge) {
+        second = first.target;
+      }
+      scope.pushFrame(
+          scope.engine.externalFunctions[key]!(target, first, second));
+      return;
+    }
+
+    scope.pushFrame(Function.apply(scope.engine.externalFunctions[key]!(target),
+        positionalArguments, namedArguments));
   }
 
   @override

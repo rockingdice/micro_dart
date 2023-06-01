@@ -10,7 +10,6 @@ export 'op_try_catch_finally.dart';
 export 'op_call_end.dart';
 export 'op_pop_argments.dart';
 export 'op_call_start.dart';
-export 'op_async_box.dart';
 export 'op_await.dart';
 export 'op_push_map.dart';
 export 'op_push_set.dart';
@@ -25,8 +24,7 @@ export 'op_not.dart';
 export 'op_call_super.dart';
 export 'op_is.dart';
 export 'op_throw.dart';
-export 'op_pop_catch.dart';
-export 'op_try.dart';
+//export 'op_try.dart';
 export 'op_jump_if_equal.dart';
 export 'op_jump_if_true.dart';
 export 'op_jump_if_false.dart';
@@ -49,9 +47,9 @@ export 'op_call.dart';
 export 'op_call_external.dart';
 export 'op_get_global_param.dart';
 export 'op_get_param.dart';
-export 'op_pop_scope.dart';
+//export 'op_pop_scope.dart';
 export 'op_push_null.dart';
-export 'op_push_scope.dart';
+//export 'op_push_scope.dart';
 export 'op_return.dart';
 export 'op_push_constant_int.dart';
 export 'op_set_global_param.dart';
@@ -146,6 +144,14 @@ class Ops {
   static const opTryCatchFinally = 56;
   static const opPushArgments = 57;
 
+  static const opGetGlobalParamAsync = 58;
+  static const opCallPointerAsync = 59;
+  static const opGetObjectPropertyAsync = 60;
+  static const opCallAsync = 61;
+  static const opCallSuperAsync = 62;
+  static const opCallEndAsync = 63;
+  static const opCallDynamicAsync = 64;
+
   static const lenBegin = 1;
   static const lenI8 = 1;
   static const lenI16 = 2;
@@ -222,8 +228,8 @@ abstract class Op {
 
 typedef OpLoader = Op Function(MicroDartEngine);
 final Map<int, OpLoader> opLoaders = {
-  Ops.opPushScope: (MicroDartEngine engine) => OpPushScope(engine),
-  Ops.opPopScope: (MicroDartEngine engine) => OpPopScope(engine),
+  //Ops.opPushScope: (MicroDartEngine engine) => OpPushScope(engine),
+  //Ops.opPopScope: (MicroDartEngine engine) => OpPopScope(engine),
   Ops.opReturn: (MicroDartEngine engine) => OpReturn(engine),
   Ops.opPushConstantInt: (MicroDartEngine engine) => OpPushConstantInt(engine),
   Ops.opCall: (MicroDartEngine engine) => OpCall(engine),
@@ -260,8 +266,8 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opJumpIfFalse: (MicroDartEngine engine) => OpJumpIfFalse(engine),
   Ops.opJumpIfTrue: (MicroDartEngine engine) => OpJumpIfTrue(engine),
   Ops.opJumpIfEqual: (MicroDartEngine engine) => OpJumpIfEqual(engine),
-  Ops.opTry: (MicroDartEngine engine) => OpTry(engine),
-  Ops.opPopCatch: (MicroDartEngine engine) => OpPopCatch(engine),
+  //Ops.opTry: (MicroDartEngine engine) => OpTry(engine),
+  //Ops.opPopCatch: (MicroDartEngine engine) => OpPopCatch(engine),
   Ops.opThrow: (MicroDartEngine engine) => OpThrow(engine),
   Ops.opIs: (MicroDartEngine engine) => OpIs(engine),
   Ops.opCallSuper: (MicroDartEngine engine) => OpCallSuper(engine),
@@ -276,7 +282,7 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opPushSet: (MicroDartEngine engine) => OpPushSet(engine),
   Ops.opPushMap: (MicroDartEngine engine) => OpPushMap(engine),
   Ops.opAwait: (MicroDartEngine engine) => OpAwait(engine),
-  Ops.opAsyncBox: (MicroDartEngine engine) => OpAsyncBox(engine),
+  //Ops.opAsyncBox: (MicroDartEngine engine) => OpAsyncBox(engine),
   Ops.opCallStart: (MicroDartEngine engine) => OpCallStart(engine),
   Ops.opPopArgments: (MicroDartEngine engine) => OpPopArgments(engine),
   Ops.opCallEnd: (MicroDartEngine engine) => OpCallEnd(engine),
@@ -284,4 +290,15 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opSetPosationalParam: (MicroDartEngine engine) =>
       OpSetPosationalParam(engine),
   Ops.opPushArgments: (MicroDartEngine engine) => OpPushArgments(engine),
+  Ops.opGetGlobalParamAsync: (MicroDartEngine engine) =>
+      OpGetGlobalParamAsync(engine),
+  Ops.opCallPointerAsync: (MicroDartEngine engine) =>
+      OpCallPointerAsync(engine),
+  Ops.opGetObjectPropertyAsync: (MicroDartEngine engine) =>
+      OpGetObjectPropertyAsync(engine),
+  Ops.opCallAsync: (MicroDartEngine engine) => OpCallAsync(engine),
+  Ops.opCallSuperAsync: (MicroDartEngine engine) => OpCallSuperAsync(engine),
+  Ops.opCallEndAsync: (MicroDartEngine engine) => OpCallEndAsync(engine),
+  Ops.opCallDynamicAsync: (MicroDartEngine engine) =>
+      OpCallDynamicAsync(engine),
 };

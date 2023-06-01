@@ -25,7 +25,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
       expect(returnValue, 2);
     });
 
@@ -45,7 +45,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
       expect(returnValue, 3);
     });
 
@@ -65,7 +65,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 100);
     });
@@ -86,7 +86,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 10);
     });
@@ -98,8 +98,8 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -109,7 +109,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -121,8 +121,8 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -132,7 +132,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 17);
     });
@@ -144,8 +144,8 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -155,7 +155,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -165,10 +165,10 @@ void main() {
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (true) {
+      if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -178,7 +178,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 3);
     });
@@ -188,10 +188,10 @@ void main() {
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (true) {
+      if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -201,7 +201,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 1);
     });
@@ -211,10 +211,10 @@ void main() {
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (true) {
+      if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -224,7 +224,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, -2);
     });
@@ -234,10 +234,10 @@ void main() {
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
       var program = await compileSource(pluginUri, options, sources);
-      if (true) {
+      if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
-            path: "$testCasePath$fileName.txt");
+        // writeComponentToText(program.component,
+        //     path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -247,7 +247,7 @@ void main() {
       }
 
       var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
       expect(returnValue, 42);
     });
@@ -258,10 +258,10 @@ void main() {
     var file = File("$testCasePath$fileName");
     var sources = <String, String>{'main.dart': file.readAsStringSync()};
     var program = await compileSource(pluginUri, options, sources);
-    if (true) {
+    if (astToJsonFlag) {
       astToJson("$testCasePath/$fileName", pluginUri, program.component);
-      writeComponentToText(program.component,
-          path: "$testCasePath$fileName.txt");
+      // writeComponentToText(program.component,
+      //     path: "$testCasePath$fileName.txt");
     }
     var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -270,8 +270,7 @@ void main() {
       engine.printOpcodes();
     }
 
-    var returnValue =
-        await engine.callStaticFunction(pluginUri, "main", [], {});
+    var returnValue = engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
     expect(returnValue, 41);
   });

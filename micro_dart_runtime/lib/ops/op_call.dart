@@ -1,5 +1,34 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
+class OpCallAsync extends OpCall {
+  OpCallAsync(MicroDartEngine engine) : super(engine);
+
+  OpCallAsync.make(int location, String name, bool hasArgs, bool isAsync)
+      : super.make(location, name, hasArgs, isAsync);
+
+  @override
+  int get opLen =>
+      Ops.lenBegin + Ops.lenI32 + Ops.lenStr(_name) + Ops.lenI8 * 2;
+
+  @override
+  List<int> get bytes => [
+        Ops.opCallAsync,
+        ...Ops.i32b(_location),
+        ...Ops.str(_name),
+        ...Ops.i8b(_hasArgs ? 1 : 0),
+        ...Ops.i8b(_isAsync ? 1 : 0),
+      ];
+
+  @override
+  Future run(Scope scope) {
+    return scope.engine
+        .callPointerAsync(scope, _name, _hasArgs, _isAsync, _location);
+  }
+
+  @override
+  String toString() => 'OpCall($_location, $_name,$_hasArgs, $_isAsync)';
+}
+
 ///调用方法
 class OpCall implements Op {
   OpCall(MicroDartEngine engine)
@@ -29,9 +58,8 @@ class OpCall implements Op {
       ];
 
   @override
-  Future run(Scope scope) {
-    return scope.engine
-        .callPointer(scope, _name, _hasArgs, _isAsync, _location);
+  void run(Scope scope) {
+    scope.engine.callPointer(scope, _name, _hasArgs, _location);
   }
 
   @override

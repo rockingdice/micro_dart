@@ -6,7 +6,7 @@ Future<int> main() async {
 }
 
 Future<int> func1() async {
-  return Future.value(1);
+  return 1;
 }
 
 void func2() {

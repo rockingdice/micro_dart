@@ -12,7 +12,16 @@ class OpReturn implements Op {
   void run(Scope scope) {
     scope.hasReturn = true;
     if (scope.frames.isNotEmpty) {
-      scope.returnValue = scope.popFrame();
+      var value = scope.popFrame();
+      if (scope.isAsync) {
+        if (value is Future) {
+          scope.returnValue = value;
+        } else {
+          scope.returnValue = Future.value(value);
+        }
+      } else {
+        scope.returnValue = value;
+      }
     } else {
       scope.returnValue = null;
     }

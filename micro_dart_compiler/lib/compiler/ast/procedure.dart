@@ -48,16 +48,30 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
   Op? op;
 
   if (context.compileDeclarationIndexes.containsKey(name)) {
+    bool isAsync = (procedure.function.asyncMarker == AsyncMarker.Async);
+
     //这是一个内部方法
-    op = OpCallDynamic.make(
-        name,
-        true,
-        false,
-        false,
-        (procedure.function.asyncMarker == AsyncMarker.Async),
-        true,
-        arguments.positional.length,
-        arguments.named.map((e) => e.name).toList());
+    if (isAsync) {
+      op = OpCallDynamicAsync.make(
+          name,
+          true,
+          false,
+          false,
+          isAsync,
+          true,
+          arguments.positional.length,
+          arguments.named.map((e) => e.name).toList());
+    } else {
+      op = OpCallDynamic.make(
+          name,
+          true,
+          false,
+          false,
+          isAsync,
+          true,
+          arguments.positional.length,
+          arguments.named.map((e) => e.name).toList());
+    }
   } else {
     op = OpCallExternal.make(
       className: procedure.stringClassName ?? "",
