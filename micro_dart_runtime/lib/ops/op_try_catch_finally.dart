@@ -17,16 +17,16 @@ class OpTryCatchFinally implements Op {
 
   @override
   List<int> get bytes => [
-        Ops.OpTryCatchFinally,
+        Ops.opTryCatchFinally,
         ...Ops.i32b(_tryOffset),
         ...Ops.i32b(_catchOffset),
         ...Ops.i32b(_finallyOffset)
       ];
 
   @override
-  void run(Scope scope) {
+  Future run(Scope scope) async {
     try {
-      scope.engine.callPointer(scope, "_try_", false, _tryOffset);
+      await scope.engine.callPointer(scope, "_try_", false, false, _tryOffset);
     } catch (exception, stackTrace) {
       if (_catchOffset == -1) {
         return;
@@ -34,10 +34,12 @@ class OpTryCatchFinally implements Op {
       scope.pushFrame(exception);
       //这里的stackTrace需要重新定义
       scope.pushFrame(stackTrace);
-      scope.engine.callPointer(scope, "_catch_", false, _catchOffset);
+      await scope.engine
+          .callPointer(scope, "_catch_", false, false, _catchOffset);
     } finally {
       if (_finallyOffset != -1) {
-        scope.engine.callPointer(scope, "_finally_", false, _finallyOffset);
+        await scope.engine
+            .callPointer(scope, "_finally_", false, false, _finallyOffset);
       }
     }
   }

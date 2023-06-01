@@ -27,12 +27,14 @@ class OpCallPointer implements Op {
       ];
 
   @override
-  void run(Scope scope) {
+  Future run(Scope scope) {
     final pointer = scope.popFrame() as FunctionPointer;
     if (!pointer.isStatic) {
-      scope.insertFrame(scope.frames.length - _argmentLength, pointer.target);
+      var args = scope.getFrame() as List<Object?>;
+      args.insert(0, pointer.target);
     }
-    scope.engine.callPointer(scope, _name, _isAsync, pointer.offset);
+    return scope.engine
+        .callPointer(scope, _name, true, _isAsync, pointer.offset);
   }
 
   @override

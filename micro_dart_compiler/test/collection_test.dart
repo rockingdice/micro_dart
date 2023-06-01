@@ -4,8 +4,8 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;
 
 void main() {
   group('Collection tests', () {
@@ -26,7 +26,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, "12345");
     });
   });

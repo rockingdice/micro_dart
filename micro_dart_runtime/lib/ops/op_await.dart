@@ -15,7 +15,7 @@ class OpAwait implements Op {
   List<int> get bytes => [Ops.opAwait];
 
   @override
-  void run(Scope scope) async {
+  Future run(Scope scope) async {
     final instance = scope.popFrame() as Future;
     scope.pushFrame(await instance);
   }

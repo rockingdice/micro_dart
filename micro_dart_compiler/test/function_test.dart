@@ -4,8 +4,8 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;
 
 void main() {
   group('Function tests', () {
@@ -24,7 +24,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 2);
     });
 
@@ -43,7 +44,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 3);
     });
 
@@ -62,7 +64,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 100);
     });
@@ -82,7 +85,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 10);
     });
@@ -104,7 +108,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -126,7 +131,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 17);
     });
@@ -148,7 +154,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 2);
     });
@@ -170,7 +177,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 3);
     });
@@ -192,7 +200,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 1);
     });
@@ -214,7 +223,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, -2);
     });
@@ -236,7 +246,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
 
       expect(returnValue, 42);
     });
@@ -259,7 +270,8 @@ void main() {
       engine.printOpcodes();
     }
 
-    var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+    var returnValue =
+        await engine.callStaticFunction(pluginUri, "main", [], {});
 
     expect(returnValue, 41);
   });

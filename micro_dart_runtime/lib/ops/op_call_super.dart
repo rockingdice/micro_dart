@@ -51,15 +51,16 @@ class OpCallSuper implements Op {
       ];
 
   @override
-  void run(Scope scope) {
-    var instance = scope.getFrame(
-        posation: scope.frames.length - _posationalLength - 1) as Instance;
+  Future run(Scope scope) async {
+    var args = scope.getFrame() as List<Object?>;
+    var instance = args.first as Instance;
     var key = scope.engine
         .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
 
     if (scope.engine.declarations.containsKey(key)) {
+      //表示这是一个内部引用
       int pointer = scope.engine.declarations[key]!;
-      scope.engine.callPointer(scope, _name, _isAsync, pointer);
+      return scope.engine.callPointer(scope, _name, true, _isAsync, pointer);
     } else {
       //表示这是一个外部调用
       final List<Object?> positionalArguments =

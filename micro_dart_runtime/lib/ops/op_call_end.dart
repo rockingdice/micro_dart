@@ -13,7 +13,7 @@ class OpCallEnd implements Op {
   List<int> get bytes => [Ops.opCallEnd];
 
   @override
-  void run(Scope scope) {
+  Future run(Scope scope) async {
     throw ProgramExit(0);
   }
 

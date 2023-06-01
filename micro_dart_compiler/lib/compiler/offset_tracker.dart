@@ -17,8 +17,9 @@ class OffsetTracker {
   //  _deferredOffsets[location] = offset;
   // }
 
-  void setCallPointerOffset(int location, String key, bool isStatic) {
-    _callPointerOffsets[location] = CallPointerOffset(key, isStatic);
+  void setCallPointerOffset(
+      int location, String key, bool isStatic, bool isAsync) {
+    _callPointerOffsets[location] = CallPointerOffset(key, isStatic, isAsync);
   }
 
   void setBreakOffset(int location, BreakOffset key) {
@@ -54,7 +55,7 @@ class OffsetTracker {
 
     _callPointerOffsets.forEach((index, value) {
       final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
-      final newOp = OpPushPointer.make(offset, value.isStatic);
+      final newOp = OpPushPointer.make(offset, value.isStatic, value.isAsync);
       source[index] = newOp;
     });
 
@@ -79,8 +80,9 @@ enum DeferredOrOffsetKind {
 class CallPointerOffset {
   final String key;
   final bool isStatic;
+  final bool isAsync;
 
-  const CallPointerOffset(this.key, this.isStatic);
+  const CallPointerOffset(this.key, this.isStatic, this.isAsync);
 }
 
 class BreakOffset {

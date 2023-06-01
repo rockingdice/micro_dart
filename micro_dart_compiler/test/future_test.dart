@@ -4,8 +4,8 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;
 
 void main() {
   group('Futures tests', () {

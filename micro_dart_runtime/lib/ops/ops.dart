@@ -1,12 +1,14 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
-export 'op_set_posational_param.dart';
 
+export 'op_push_argments.dart';
+export 'op_set_posational_param.dart';
 export 'op_try_catch_finally.dart';
 export 'op_call_end.dart';
-export 'op_fill_argments.dart';
+export 'op_pop_argments.dart';
 export 'op_call_start.dart';
 export 'op_async_box.dart';
 export 'op_await.dart';
@@ -139,9 +141,10 @@ class Ops {
 
   static const opCallStart = 52;
   static const opReturnNull = 53;
-  static const opFillArgments = 54;
+  static const opPopArgments = 54;
   static const opCallEnd = 55;
-  static const OpTryCatchFinally = 56;
+  static const opTryCatchFinally = 56;
+  static const opPushArgments = 57;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -210,7 +213,7 @@ class Ops {
 //操作
 abstract class Op {
   //运行操作
-  void run(Scope scope);
+  FutureOr run(Scope scope);
   //操作占用的字节长度
   int get opLen;
   //反序列化成字节
@@ -275,9 +278,10 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opAwait: (MicroDartEngine engine) => OpAwait(engine),
   Ops.opAsyncBox: (MicroDartEngine engine) => OpAsyncBox(engine),
   Ops.opCallStart: (MicroDartEngine engine) => OpCallStart(engine),
-  Ops.opFillArgments: (MicroDartEngine engine) => OpFillArgments(engine),
+  Ops.opPopArgments: (MicroDartEngine engine) => OpPopArgments(engine),
   Ops.opCallEnd: (MicroDartEngine engine) => OpCallEnd(engine),
-  Ops.OpTryCatchFinally: (MicroDartEngine engine) => OpTryCatchFinally(engine),
+  Ops.opTryCatchFinally: (MicroDartEngine engine) => OpTryCatchFinally(engine),
   Ops.opSetPosationalParam: (MicroDartEngine engine) =>
       OpSetPosationalParam(engine),
+  Ops.opPushArgments: (MicroDartEngine engine) => OpPushArgments(engine),
 };

@@ -18,12 +18,12 @@ class OpGetObjectProperty implements Op {
       [Ops.opGetObjectProperty, ...Ops.str(_name), ...Ops.i32b(_location)];
 
   @override
-  void run(Scope scope) {
+  Future run(Scope scope) async {
     var instance = scope.popFrame() as Instance;
 
     if (!instance.hasParam(_name)) {
       scope.setScopeParam("#this", instance);
-      scope.engine.callPointer(scope, _name, false, _location);
+      return scope.engine.callPointer(scope, _name, false, false, _location);
     } else {
       scope.pushFrame(instance.getParam(_name));
     }

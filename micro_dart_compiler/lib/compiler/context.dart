@@ -74,7 +74,7 @@ class MicroCompilerContext {
             .toList(),
         mixinTypeKey: node.mixedInClass?.getNamedName());
     visibleTypes[key] = type;
-
+    //print("type: $type");
     return type;
   }
 

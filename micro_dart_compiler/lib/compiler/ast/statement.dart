@@ -179,7 +179,9 @@ void compileSwitchStatement(
 void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   compileVariableDeclaration(context, node.variable);
   compileExpression(context, node.iterable);
-
+  context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushArgments.make(3));
   context.pushOp(OpCallExternal.make(
       className: "dart:core@Iterable",
       key: "dart:core@Iterable@iterator",
@@ -198,6 +200,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   //调用iterator 的moveNext方法
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushArgments.make(3));
   context.pushOp(OpCallExternal.make(
       className: "dart:core@Iterator",
       key: "dart:core@Iterator@moveNext",
@@ -211,6 +214,9 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
       posationalLength: 0));
   int rewritePos = context.pushOp(OpJumpIfFalse.make(-1));
   context.pushOp(OpGetParam.make("#iterator"));
+  context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushArgments.make(3));
   //调用iterator的current方法
   context.pushOp(OpCallExternal.make(
       className: "dart:core@Iterator",
@@ -317,7 +323,7 @@ void compileBlock(MicroCompilerContext context, Block node) {
   });
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  context.pushOp(OpCall.make(pos, "_block_", false));
+  context.pushOp(OpCall.make(pos, "_block_", false, false));
 }
 
 void compileVariableDeclaration(

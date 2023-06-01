@@ -26,7 +26,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 10);
     });
 
@@ -47,7 +48,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 6);
     });
 
@@ -66,7 +68,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 10);
     });
 
@@ -85,7 +88,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 9);
     });
 
@@ -104,7 +108,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 9);
     });
 
@@ -123,7 +128,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 6);
     });
 
@@ -142,7 +148,8 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 7);
     });
   });

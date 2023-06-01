@@ -66,34 +66,36 @@ class OpCallExternal implements Op {
       ];
 
   @override
-  void run(Scope scope) {
-    final Map<Symbol, dynamic> namedArguments = {};
-    List<Object?> positionalArguments =
-        List.filled(posationalLength, null, growable: false);
-
-    if (!isGetter) {
-      final int namedLength = scope.popFrame() as int;
-      for (int i = 0; i < namedLength; i++) {
-        String key = scope.popFrame() as String;
-        var value = scope.popFrame();
-        namedArguments[Symbol(key)] = value;
-      }
-      int pLength = scope.popFrame() as int;
-      for (int i = 0; i < pLength; i++) {
-        var value = scope.popFrame();
-        positionalArguments[i] = value;
-      }
-    }
-
+  Future run(Scope scope) async {
     //表示这是构造函数初始化
     if (kind == 3) {
-      var function = scope.engine.externalFunctions[key];
-      Map<String, dynamic> namedArguments = {};
-      for (var element in namedList) {
-        namedArguments[element] = scope.getParam(element);
+      final Map<String, dynamic> namedArguments = {};
+      List<Object?> positionalArguments =
+          List.filled(posationalLength, null, growable: false);
+      var args = scope.popFrame() as List<Object?>;
+      final int namedLength = args.removeLast() as int;
+      for (int i = 0; i < namedLength; i++) {
+        String key = args.removeLast() as String;
+        var value = args.removeLast();
+        if (value is InstanceBridge) {
+          namedArguments[key] = value.target;
+        } else {
+          namedArguments[key] = value;
+        }
       }
-      //这里需要修改
+      int pLength = args.removeLast() as int;
+      for (int i = 0; i < pLength; i++) {
+        var value = args.removeLast();
+        if (value is InstanceBridge) {
+          positionalArguments[i] = value.target;
+        } else {
+          positionalArguments[i] = value;
+        }
+      }
 
+      var function = scope.engine.externalFunctions[key];
+
+      //这里需要修改
       var instance = InstanceBridge(
           scope.engine,
           function!(positionalArguments, namedArguments),
@@ -101,6 +103,30 @@ class OpCallExternal implements Op {
 
       scope.pushFrame(instance);
       return;
+    }
+
+    final Map<Symbol, dynamic> namedArguments = {};
+    List<Object?> positionalArguments =
+        List.filled(posationalLength, null, growable: false);
+    var args = scope.popFrame() as List<Object?>;
+    final int namedLength = args.removeLast() as int;
+    for (int i = 0; i < namedLength; i++) {
+      String key = args.removeLast() as String;
+      var value = args.removeLast();
+      if (value is InstanceBridge) {
+        namedArguments[Symbol(key)] = value.target;
+      } else {
+        namedArguments[Symbol(key)] = value;
+      }
+    }
+    int pLength = args.removeLast() as int;
+    for (int i = 0; i < pLength; i++) {
+      var value = args.removeLast();
+      if (value is InstanceBridge) {
+        positionalArguments[i] = value.target;
+      } else {
+        positionalArguments[i] = value;
+      }
     }
 
     if (isStatic) {
@@ -111,11 +137,20 @@ class OpCallExternal implements Op {
         scope.engine.externalFunctions[key]!(positionalArguments.first);
         return;
       }
+
+      if (key == "dart:async@Future@delayed:static" ||
+          key == "dart:async@Future@:static") {
+        // print("key: $key $positionalArguments");
+        var result = scope.engine.externalFunctions[key]!(
+            positionalArguments, <String, dynamic>{}, scope);
+        scope.pushFrame(result);
+        return;
+      }
       var result = Function.apply(
           scope.engine.externalFunctions[key]!(), positionalArguments);
       scope.pushFrame(result);
     } else {
-      dynamic target = scope.popFrame();
+      dynamic target = args.removeLast();
       if (target is InstanceBridge) {
         target = target.target;
       }

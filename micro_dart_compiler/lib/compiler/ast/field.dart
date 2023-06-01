@@ -27,7 +27,8 @@ int compileCallField(MicroCompilerContext context, Field field) {
 
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = OpCallDynamic.make(name, true, false, false, false, 0, List.empty());
+    op = OpCallDynamic.make(
+        name, true, true, false, false, false, 0, List.empty());
   } else {
     op = OpCallExternal.make(
       className: field.stringClassName ?? "",

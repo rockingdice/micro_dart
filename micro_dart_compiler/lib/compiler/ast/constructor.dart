@@ -18,7 +18,7 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   node.function.namedParameters.forEach((element) {
     compileVariableDeclaration(context, element);
   });
-  context.pushOp(OpFillArgments.make(posationalNames, false, true));
+  context.pushOp(OpPopArgments.make(posationalNames, false, true));
   context.pushOp(
       OpCreateInstance.make(node.stringLibraryUri, node.stringClassName!));
   context.pushOp(OpSetScopeParam.make("#this"));
@@ -82,9 +82,10 @@ void compileAssertInitializer(
 
 int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
     Constructor constructor) {
+  context.lookupType(constructor.enclosingClass);
   var name = constructor.getNamedName();
   //将参数压入当前作用域
-  compileArguments(context, arguments);
+  compileArguments(context, arguments, true);
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
     op = OpCallDynamic.make(
@@ -93,6 +94,7 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
         false,
         false,
         false,
+        true,
         arguments.positional.length,
         arguments.named.map((e) => e.name).toList());
   } else {

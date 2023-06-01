@@ -13,12 +13,7 @@ class OpPopScope implements Op {
   List<int> get bytes => [Ops.opPopScope];
 
   @override
-  void run(Scope scope) {
-    if (scope.frames.isNotEmpty) {
-      scope.parent?.pushFrame(scope.frames.last);
-    }
-    scope.pop();
-  }
+  void run(Scope scope) {}
 
   @override
   String toString() => 'PopScope()';

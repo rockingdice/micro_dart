@@ -18,10 +18,10 @@ class OpGetGlobalParam implements Op {
       [Ops.opGetGlobalParam, ...Ops.str(_name), ...Ops.i32b(_location)];
 
   @override
-  void run(Scope scope) {
+  Future run(Scope scope) async {
     //有可能出现属性没有初始化的情况,这个时候先执行初始化
     if (!scope.engine.hasGlobalParam(_name)) {
-      scope.engine.callPointer(scope, _name, false, _location);
+      return scope.engine.callPointer(scope, _name, false, false, _location);
     } else {
       scope.pushFrame(scope.engine.getGlobalParam(_name));
     }

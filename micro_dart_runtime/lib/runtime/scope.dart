@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'engine.dart';
 import 'exception.dart';
 
@@ -9,6 +11,8 @@ class Scope {
   final MicroDartEngine engine;
   //scope栈的深度
   final int deep;
+  //是否有参数
+  final bool hasArgs;
   //父节点
   Scope? parent;
   //是否有返回
@@ -17,20 +21,21 @@ class Scope {
   /// 帧集合
   final List<Object?> frames = [];
 
-  final List<int> catchStack = [];
+  //final List<Scope> childs = [];
 
   dynamic returnValue;
 
-  Scope(this.engine, this.name,
+  Scope(this.engine, this.name, this.hasArgs,
       {this.deep = 0, this.parent, int maxScopeDeep = -1}) {
     //这里设置栈的深度最深为20
     if (maxScopeDeep > 0 && deep > maxScopeDeep) {
       throw Exception("scope too deep > $maxScopeDeep");
     }
+    //parent?.childs.add(this);
   }
 
-  Scope createFromParent(String name, int maxScopeDeep) {
-    return Scope(engine, name,
+  Scope createFromParent(String name, bool hasArgs, int maxScopeDeep) {
+    return Scope(engine, name, hasArgs,
         parent: this, deep: (deep + 1), maxScopeDeep: maxScopeDeep);
   }
 
@@ -87,10 +92,12 @@ class Scope {
   }
 
   List<Object?> popFrameList(int length) {
-    int start = frames.length - length - 1;
-    int end = frames.length - 1;
+    int start = frames.length - length;
+    int end = frames.length;
+
     var list = frames.sublist(start, end);
     frames.removeRange(start, end);
+
     return list;
   }
 
@@ -109,28 +116,20 @@ class Scope {
     return frames.take(count);
   }
 
-  Scope? pop() {
-    //parent?.removeChild(this);
-    frames.clear();
-    params.clear();
-    var parentNode = parent;
-    parent = null;
-    return parentNode;
+  void tryRelease() {
+    _clean();
   }
 
-  void popAll() {
+  void _clean() {
     frames.clear();
     params.clear();
-    //childs.clear();
-    parent?.popAll();
     parent = null;
-    opPointer = -1;
   }
 
   int opPointer = -1;
   int oldPointer = -1;
 
-  void call(int pointer) {
+  Future call(int pointer) async {
     opPointer = pointer;
     try {
       while (true) {
@@ -141,10 +140,13 @@ class Scope {
               "$deep:$oldPointer <$name> start:${op.toString()}:${toString()}");
           print("----------------");
         }
-        op.run(this);
+        var r = op.run(this);
+        if (r is Future) {
+          await r;
+        }
       }
     } on ProgramExit catch (_) {
-      pop();
+      tryRelease();
     } catch (exception, _) {
       rethrow;
     }

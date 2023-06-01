@@ -28,6 +28,17 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'dart:async@Future@any:static': () => l0.Future.any,
     'dart:async@Future@forEach:static': () => l0.Future.forEach,
     'dart:async@Future@doWhile:static': () => l0.Future.doWhile,
+    'dart:async@Future@:static':
+        (List p, Map<String, dynamic> n, m.Scope scope) => l0.Future(() {
+              engine.callFunctionPointer(scope, p[0]);
+            }),
+    'dart:async@Future@delayed:static':
+        (List p, Map<String, dynamic> n, m.Scope scope) =>
+            l0.Future.delayed(p[0], () {
+              if (p.length > 1) {
+                engine.callFunctionPointer(scope, p[1]);
+              }
+            }),
     'dart:async@Future@then': (Future target) => target.then,
     'dart:async@Future@catchError': (Future target) => target.catchError,
     'dart:async@Future@whenComplete': (Future target) => target.whenComplete,

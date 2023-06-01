@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法

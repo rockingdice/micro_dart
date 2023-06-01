@@ -40,7 +40,7 @@ class OpReturnField implements Op {
       scope.engine.setGlobalParam(_name, value);
       scope.returnValue = value;
     } else {
-      var instance = scope.getParam("#this") as Instance;
+      Instance instance = scope.getParam("#this") as Instance;
       instance.setParam(_name, value);
       scope.returnValue = value;
     }

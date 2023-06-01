@@ -220,8 +220,12 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
   int pos = compileExpression(context, node.operand);
   final type = node.type;
   if (type is InterfaceType) {
+    context.lookupType(type.classNode);
     //这里表示它是一个外部类
-    if (!context.compileDeclarations.contains(type.classNode)) {
+    if (context.compileDeclarations.contains(type.classNode)) {
+      throw Exception(
+          "Currently IsExpression not support internal type  : ${type.runtimeType.toString()}");
+    } else {
       return context.pushOp(OpCallExternal.make(
           className: type.classNode.stringClassName!,
           key: "${type.classNode.getNamedName()}@#is",
@@ -272,9 +276,11 @@ int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
     compileExpression(context, node.receiver);
     String key = node.interfaceTarget.getNamedName();
     int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
-    int pos = context.pushOp(OpPushPointer.make(opOffset, false));
+    bool isAsync =
+        (node.interfaceTarget.function.asyncMarker == AsyncMarker.Async);
+    int pos = context.pushOp(OpPushPointer.make(opOffset, false, isAsync));
     if (opOffset == -1) {
-      context.offsetTracker.setCallPointerOffset(pos, key, false);
+      context.offsetTracker.setCallPointerOffset(pos, key, false, isAsync);
     }
     return pos;
   } else {
@@ -294,8 +300,8 @@ int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
   compileExpression(context, node.receiver);
   compileExpression(context, node.value);
 
-  int pos = context.pushOp(
-      OpCallDynamic.make(node.name.text, false, false, true, false, 1, []));
+  int pos = context.pushOp(OpCallDynamic.make(
+      node.name.text, false, false, true, false, true, 1, []));
 
   return pos;
 }
@@ -303,8 +309,8 @@ int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
 int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
   compileExpression(context, node.receiver);
 
-  int pos = context.pushOp(
-      OpCallDynamic.make(node.name.text, false, true, false, false, 0, []));
+  int pos = context.pushOp(OpCallDynamic.make(
+      node.name.text, false, true, false, false, true, 0, []));
 
   return pos;
 }
@@ -312,7 +318,7 @@ int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
 int compileDynamicInvocation(
     MicroCompilerContext context, DynamicInvocation node) {
   compileExpression(context, node.receiver);
-  compileArguments(context, node.arguments);
+  compileArguments(context, node.arguments, false);
 
   int pos = context.pushOp(OpCallDynamic.make(
       node.name.text,
@@ -320,6 +326,7 @@ int compileDynamicInvocation(
       false,
       false,
       false, //is async
+      true,
       node.arguments.positional.length,
       node.arguments.named.map((e) => e.name).toList()));
 
@@ -335,6 +342,7 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
       //填充posationalLength和namedLength
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushConstantInt.make(0));
+      context.pushOp(OpPushArgments.make(3));
       return context.pushOp(OpCallExternal.make(
           className: type.classNode.stringClassName!,
           key: "${type.classNode.getNamedName()}@#as",
@@ -357,7 +365,7 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
 int compileFunctionInvocation(
     MicroCompilerContext context, FunctionInvocation node) {
   var arguments = node.arguments;
-  compileArguments(context, arguments);
+  compileArguments(context, arguments, true);
   compileExpression(context, node.receiver);
   int argumentLength =
       arguments.positional.length + arguments.named.length * 2 + 2;
@@ -370,7 +378,7 @@ int compileFunctionInvocation(
 int compileLocalFunctionInvocation(
     MicroCompilerContext context, LocalFunctionInvocation node) {
   var arguments = node.arguments;
-  compileArguments(context, arguments);
+  compileArguments(context, arguments, true);
   int p = compileCallLocalFunction(
       context, arguments, node.localFunction.getNamedName(),
       className: node.localFunction.stringClassName ?? "",
@@ -387,14 +395,19 @@ int compileFunctionExpression(
   int pos = compileFunction(
       context, node.function, "_FunctionExpression_", false, true);
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpPushPointer.make(pos, true));
+  return context.pushOp(OpPushPointer.make(
+      pos, true, node.function.asyncMarker == AsyncMarker.Async));
 }
 
 int compileSuperPropertyGet(
     MicroCompilerContext context, SuperPropertyGet node) {
   var target = node.interfaceTarget;
   context.pushOp(OpGetParam.make("#this"));
+
   if (target is Procedure) {
+    context.pushOp(OpPushConstantInt.make(0));
+    context.pushOp(OpPushConstantInt.make(0));
+    context.pushOp(OpPushArgments.make(3));
     return context.pushOp(OpCallSuper.make(
         "${target.stringLibraryUri}@${target.stringClassName}",
         target.name.text,
@@ -421,7 +434,7 @@ int compileSuperMethodInvocation(
   var arguments = node.arguments;
 
   context.pushOp(OpGetParam.make("#this"));
-  int p = compileCallProcedure(context, arguments, procedure);
+  int p = compileCallProcedure(context, arguments, procedure, false);
 
   return p;
 }
@@ -448,7 +461,7 @@ int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
 
   if (target is Procedure) {
     compileExpression(context, node.receiver);
-    int p = compileCallProcedure(context, Arguments([]), target);
+    int p = compileCallProcedure(context, Arguments([]), target, false);
     return p;
   } else if (target is Field) {
     compileExpression(context, node.receiver);
@@ -471,7 +484,9 @@ int compileInstanceSet(MicroCompilerContext context, InstanceSet node) {
     compileExpression(context, node.receiver);
     return context.pushOp(SetObjectProperty.make(node.name.text));
   } else if (target is Procedure) {
-    int p = compileCallProcedure(context, Arguments([node.value]), target);
+    compileExpression(context, node.receiver);
+    int p =
+        compileCallProcedure(context, Arguments([node.value]), target, false);
     return p;
   }
 
@@ -494,7 +509,7 @@ int compileInstanceInvocation(
   var arguments = node.arguments;
 
   compileExpression(context, node.receiver);
-  int p = compileCallProcedure(context, arguments, procedure);
+  int p = compileCallProcedure(context, arguments, procedure, false);
 
   return p;
 }
@@ -512,9 +527,11 @@ int compileConstantExpression(
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
       int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
-      int pos = context.pushOp(OpPushPointer.make(opOffset, true));
+      bool isAsync =
+          (constant.target.function.asyncMarker == AsyncMarker.Async);
+      int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
       if (opOffset == -1) {
-        context.offsetTracker.setCallPointerOffset(pos, key, true);
+        context.offsetTracker.setCallPointerOffset(pos, key, true, isAsync);
       }
       return pos;
     } else {
@@ -527,7 +544,7 @@ int compileConstantExpression(
     if (target is Constructor) {
       return compileCallConstructor(context, Arguments.empty(), target);
     } else if (target is Procedure) {
-      return compileCallProcedure(context, Arguments.empty(), target);
+      return compileCallProcedure(context, Arguments.empty(), target, true);
     }
   } else if (constant is InstanceConstant) {
     print("not support InstanceConstant currently");
@@ -545,7 +562,7 @@ int compileStaticGet(MicroCompilerContext context, StaticGet node) {
   } else if (target is Procedure && target.isGetter) {
     var procedure = target;
     var arguments = Arguments.empty();
-    int p = compileCallProcedure(context, arguments, procedure);
+    int p = compileCallProcedure(context, arguments, procedure, true);
     return p;
   }
   return -1;
@@ -558,7 +575,8 @@ int compileStaticSet(MicroCompilerContext context, StaticSet node) {
     if (target is Field) {
       return context.pushOp(OpSetGlobalParam.make(node.target.name.text));
     } else if (target is Procedure) {
-      int p = compileCallProcedure(context, Arguments([node.value]), target);
+      int p =
+          compileCallProcedure(context, Arguments([node.value]), target, true);
       return p;
     }
   }
@@ -588,7 +606,7 @@ int compileStaticInvocation(
   var procedure = node.target;
   var arguments = node.arguments;
 
-  int p = compileCallProcedure(context, arguments, procedure);
+  int p = compileCallProcedure(context, arguments, procedure, true);
 
   return p;
 }

@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
-void compileArguments(MicroCompilerContext context, Arguments arguments) {
+void compileArguments(
+    MicroCompilerContext context, Arguments arguments, bool isStatic) {
   context.printCompileNode(arguments);
 
   int pLength = arguments.positional.length;
@@ -16,4 +17,10 @@ void compileArguments(MicroCompilerContext context, Arguments arguments) {
         OpPushConstant.make(context.constantPool.addOrGet(element.name)));
   });
   context.pushOp(OpPushConstantInt.make(pLength));
+  int argmentLength =
+      arguments.positional.length + arguments.named.length * 2 + 2;
+  if (!isStatic) {
+    argmentLength++;
+  }
+  context.pushOp(OpPushArgments.make(argmentLength));
 }

@@ -28,7 +28,7 @@ int compileFunction(MicroCompilerContext context, FunctionNode function,
     compileVariableDeclaration(context, element);
   });
 
-  context.pushOp(OpFillArgments.make(posationalNames, isGetter, isStatic));
+  context.pushOp(OpPopArgments.make(posationalNames, isGetter, isStatic));
   var b = function.body;
 
   //编译body
@@ -39,14 +39,11 @@ int compileFunction(MicroCompilerContext context, FunctionNode function,
   return pos;
 }
 
-int compileCallProcedure(
-    MicroCompilerContext context, Arguments arguments, Procedure procedure) {
+int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
+    Procedure procedure, bool isStatic) {
   var name = procedure.getNamedName();
 
-  if (!procedure.isGetter) {
-    //将参数压入当前作用域
-    compileArguments(context, arguments);
-  }
+  compileArguments(context, arguments, isStatic);
 
   Op? op;
 
@@ -58,6 +55,7 @@ int compileCallProcedure(
         false,
         false,
         (procedure.function.asyncMarker == AsyncMarker.Async),
+        true,
         arguments.positional.length,
         arguments.named.map((e) => e.name).toList());
   } else {
@@ -91,7 +89,7 @@ int compileCallLocalFunction(
     bool isStatic = false,
     bool isAsync = false}) {
   //将参数压入当前作用域
-  compileArguments(context, arguments);
+  compileArguments(context, arguments, isStatic);
 
   return context.pushOp(OpCallDynamic.make(
       key,
@@ -99,6 +97,7 @@ int compileCallLocalFunction(
       isGetter,
       isSetter,
       isAsync,
+      true,
       arguments.positional.length,
       arguments.named.map((e) => e.name).toList()));
 }

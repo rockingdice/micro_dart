@@ -9,7 +9,7 @@ Future<int> main() async {
 
   Future.delayed(Duration(seconds: 2), () {
     a = 2;
-    print("delayed1 $a");
+    print("delayed2 $a");
   });
 
   Future(() {
@@ -17,7 +17,7 @@ Future<int> main() async {
     print("delayed3 $a");
   });
 
-  await Future.delayed(Duration(seconds: 4));
+  await Future.delayed(Duration(seconds: 10));
   print(a);
   return a;
 }
