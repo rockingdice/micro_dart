@@ -1,7 +1,10 @@
-// @dart = 2.9
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'env.dart';
 import 'package:test/test.dart';
+
+import 'generate/micro_dart.g.dart';
 
 const bool astToJsonFlag = true;
 const bool printOp = true;
@@ -16,10 +19,15 @@ void main() {
       if (astToJsonFlag) {
         astToJson("${testCasePath}flutter_example",
             "package:flutter_example/widget.dart", program.component);
-        writeComponentToText(program.component,
+        writeComponentToText(program.component!,
             path: "${testCasePath}flutter_example.txt");
       }
-      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+      var bytes = program.write().buffer.asByteData();
+      File("$flutterExamplePath/micro_dart.data")
+          .writeAsBytesSync(bytes.buffer.asUint8List());
+
+      var engine = createMicroDartEngine(ByteData.sublistView(
+          await File("$flutterExamplePath/micro_dart.data").readAsBytes()));
 
       if (printOp) {
         engine.debug = true;

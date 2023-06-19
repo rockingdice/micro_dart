@@ -66,9 +66,6 @@ class TypeRef {
 
   String getNameKey(String name, {bool isSetter = false}) {
     var key = "$libraryName@$className@$name";
-    if (isSetter) {
-      key = "$key:set";
-    }
     return key;
   }
 

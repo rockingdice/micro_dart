@@ -198,10 +198,6 @@ extension ExtensionNamedNode on NamedNode {
       libraryUri = (this.parent as Library).importUri.toString();
     }
 
-    if (thiz.isStatic) {
-      fieldName = "$fieldName:static";
-    }
-
     return "$libraryUri@$className@$fieldName";
   }
 
@@ -224,10 +220,6 @@ extension ExtensionNamedNode on NamedNode {
       libraryUri = (this.parent!.parent as Library).importUri.toString();
     } else if (this.parent is Library) {
       libraryUri = (this.parent as Library).importUri.toString();
-    }
-
-    if (thiz.isStatic) {
-      procedureName = "$procedureName:static";
     }
 
     if (thiz.isSetter) {

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+MyApp createMyApp() {
+  return const MyApp();
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,13 +24,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect

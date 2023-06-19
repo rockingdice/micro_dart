@@ -208,7 +208,7 @@ class MicroDartEngine {
   T? callStaticFunction<T>(String importUri, String functionName,
       List posational, Map<String, dynamic> named) {
     //获取当前操作数指针
-    int pointer = declarations['$importUri@@$functionName:static']!;
+    int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, false);
     List<Object?> args = [];
     //设置初始参数
@@ -231,7 +231,7 @@ class MicroDartEngine {
   Future callStaticFunctionWaitClean(String importUri, String functionName,
       List posational, Map<String, dynamic> named) async {
     //获取当前操作数指针
-    int pointer = declarations['$importUri@@$functionName:static']!;
+    int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, false);
     List<Object?> args = [];
     //设置初始参数
@@ -258,7 +258,7 @@ class MicroDartEngine {
   Future<T> callStaticFunctionAsync<T>(String importUri, String functionName,
       List posational, Map<String, dynamic> named) async {
     //获取当前操作数指针
-    int pointer = declarations['$importUri@@$functionName:static']!;
+    int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, true);
     List<Object?> args = [];
     //设置初始参数
@@ -303,11 +303,54 @@ class MicroDartEngine {
     newScope.call(poniter);
   }
 
-  Future callFunctionPointerAsync(Scope scope, FunctionPointer functionPointer,
-      [List<Object?>? optionals]) async {
-    scope.pushFrame([0, 0]);
-    return callPointerAsync(scope, "_anonymous_", true, functionPointer.isAsync,
-        functionPointer.offset);
+  Future<dynamic> callFunctionPointerAsync(
+      Scope scope,
+      FunctionPointer functionPointer,
+      List<Object?> posational,
+      Map<String, dynamic> named) async {
+    var newScope =
+        scope.createFromParent("_anonymous_", true, true, maxScopeDeep);
+    List<Object?> args = [];
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      args.add(posational[i]);
+    }
+    args.add(posational.length);
+    named.forEach((key, value) {
+      args.add(value);
+      args.add(key);
+    });
+    args.add(named.length);
+    newScope.setScopeParam("#args", args);
+    await newScope.callAsync(functionPointer.offset);
+    if (newScope.hasReturn) {
+      return scope.returnValue;
+    }
+    return null;
+  }
+
+  dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
+      List<Object?> posational, Map<String, dynamic> named) {
+    var newScope =
+        scope.createFromParent("_anonymous_", true, true, maxScopeDeep);
+    List<Object?> args = [];
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      args.add(posational[i]);
+    }
+    args.add(posational.length);
+    named.forEach((key, value) {
+      args.add(value);
+      args.add(key);
+    });
+    args.add(named.length);
+    newScope.setScopeParam("#args", args);
+
+    newScope.call(functionPointer.offset);
+    if (newScope.hasReturn) {
+      return scope.returnValue;
+    }
+    return null;
   }
 
   Future<T> _doAsync<T>(Scope scope, int pointer) {

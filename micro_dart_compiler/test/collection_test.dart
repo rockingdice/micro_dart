@@ -1,11 +1,11 @@
-// @dart = 2.9
-
 import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-const bool astToJsonFlag = false;
-const bool printOp = false;
+import 'generate/micro_dart.g.dart';
+
+const bool astToJsonFlag = true;
+const bool printOp = true;
 
 void main() {
   group('Collection tests', () {
@@ -16,7 +16,7 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath$fileName", pluginUri, program.component);
-        writeComponentToText(program.component,
+        writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
@@ -26,8 +26,7 @@ void main() {
         engine.printOpcodes();
       }
 
-      var returnValue =
-          await engine.callStaticFunction(pluginUri, "main", [], {});
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, "12345");
     });
   });

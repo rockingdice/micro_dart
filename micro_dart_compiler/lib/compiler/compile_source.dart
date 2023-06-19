@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// Common compiler options and helper functions used for testing.
+library front_end.testing.compiler_options_common;
 
 import 'package:kernel/ast.dart' show Library, Component;
 
@@ -31,11 +32,11 @@ import 'package:front_end/src/fasta/hybrid_file_system.dart'
 ///
 /// Wraps [kernelForProgram] with some default testing options (see [setup]).
 Future<CompilerResult?> compileScript(dynamic scriptOrSources,
-    {String fileName: 'main.dart',
-    List<String> additionalDills: const [],
+    {String fileName = 'main.dart',
+    List<String> additionalDills = const [],
     CompilerOptions? options,
-    bool retainDataForTesting: false,
-    bool requireMain: true}) async {
+    bool retainDataForTesting = false,
+    bool requireMain = true}) async {
   options ??= new CompilerOptions();
   Map<String, dynamic> sources;
   if (scriptOrSources is String) {
@@ -54,7 +55,7 @@ Future<CompilerResult?> compileScript(dynamic scriptOrSources,
 /// Wraps [kernelForModule] with some default testing options (see [setup]).
 Future<Component?> compileUnit(
     List<String> inputs, Map<String, dynamic> sources,
-    {List<String> additionalDills: const [], CompilerOptions? options}) async {
+    {List<String> additionalDills = const [], CompilerOptions? options}) async {
   options ??= new CompilerOptions();
   await setup(options, sources, additionalDills: additionalDills);
   return (await kernelForModule(inputs.map(toTestUri).toList(), options))
@@ -65,9 +66,9 @@ Future<Component?> compileUnit(
 ///
 /// Wraps [summaryFor] with some default testing options (see [setup]).
 Future<List<int>?> summarize(List<String> inputs, Map<String, dynamic> sources,
-    {List<String> additionalDills: const [],
+    {List<String> additionalDills = const [],
     CompilerOptions? options,
-    bool truncate: false}) async {
+    bool truncate = false}) async {
   options ??= new CompilerOptions();
   await setup(options, sources, additionalDills: additionalDills);
   return await summaryFor(inputs.map(toTestUri).toList(), options,
@@ -86,7 +87,7 @@ Future<List<int>?> summarize(List<String> inputs, Map<String, dynamic> sources,
 ///
 ///   * specify the location of the sdk summaries.
 Future<Null> setup(CompilerOptions options, Map<String, dynamic> sources,
-    {List<String> additionalDills: const []}) async {
+    {List<String> additionalDills = const []}) async {
   MemoryFileSystem fs = createMemoryFileSystem();
   sources.forEach((name, data) {
     MemoryFileSystemEntity entity = fs.entityForUri(toTestUri(name));
@@ -105,7 +106,7 @@ Future<Null> setup(CompilerOptions options, Map<String, dynamic> sources,
       .entityForUri(invalidCoreLibsSpecUri)
       .writeAsStringSync(_invalidLibrariesSpec);
   options
-    ..verify = true
+    ..verify = false
     ..fileSystem = new HybridFileSystem(fs)
     ..additionalDills = additionalDills.map(toTestUri).toList();
   if (options.packagesFileUri == null) {
@@ -117,7 +118,7 @@ Future<Null> setup(CompilerOptions options, Map<String, dynamic> sources,
   }
 }
 
-MemoryFileSystem createMemoryFileSystem() => new MemoryFileSystem(defaultDir);
+MemoryFileSystem createMemoryFileSystem() => new MemoryFileSystem(_defaultDir);
 
 const String _testUriScheme = 'test';
 
@@ -125,11 +126,11 @@ bool isTestUri(Uri uri) => uri.isScheme(_testUriScheme);
 
 /// A fake absolute directory used as the root of a memory-file system in the
 /// helpers above.
-Uri defaultDir = Uri.parse('${_testUriScheme}:///');
+Uri _defaultDir = Uri.parse('${_testUriScheme}:///');
 
 /// Convert relative file paths into an absolute Uri as expected by the test
 /// helpers above.
-Uri toTestUri(String relativePath) => defaultDir.resolve(relativePath);
+Uri toTestUri(String relativePath) => _defaultDir.resolve(relativePath);
 
 /// Uri to a libraries specification file that purposely provides
 /// invalid Uris to dart:core and dart:async. Used by tests that want to ensure

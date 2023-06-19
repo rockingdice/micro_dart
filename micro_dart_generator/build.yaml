@@ -1,0 +1,12 @@
+builders:
+  micro_dart_generator:
+    target: ":micro_dart_generator"
+    import: "package:micro_dart_generator/generator_builder.dart"
+    builder_factories: ["generatorBuilder"]
+    build_extensions: {".dart": ["lib/generated/*.dart"]}
+    auto_apply: root_package
+    build_to: source
+    defaults:
+      generate_for:
+        include:
+        - lib/main.dart

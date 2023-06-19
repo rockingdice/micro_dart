@@ -113,9 +113,4 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   }
 
   return context.pushOp(op);
-
-  //调用方法结束之后
-  //删除一个作用域
-  //context.removeScope();
-  //return location;
 }

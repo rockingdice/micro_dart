@@ -1,509 +1,1368 @@
-import 'dart:io';
+import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/type.dart';
 
-import 'package:front_end/src/api_unstable/vm.dart';
+import 'package:micro_dart_generator/extenation.dart';
 
-import 'package:front_end/src/api_prototype/kernel_generator.dart'
-    show kernelForProgramInternal;
-import 'package:kernel/kernel.dart';
-import 'package:micro_dart_compiler/util.dart';
-import 'package:micro_dart_compiler/compiler/ast/ast.dart';
-import 'package:micro_dart_generator/utils.dart';
+const Map<String, String> unaryOperatorList = {
+  "unary-": "-",
+  "unary+": "++",
+  "~": "~",
+};
+const Map<String, String> binaryOperatorList = {
+  "#as": "as",
+  "#is": "is",
+  "&": "&",
+  "|": "|",
+  "^": "^",
+  "==": "==",
+  "+": "+",
+  "-": "-",
+  "*": "*",
+  "~/": "~/",
+  "<": "<",
+  ">": ">",
+  "<=": "<=",
+  ">=": ">=",
+  "/": "/",
+  "%": "%",
+  "<<": "<<",
+  ">>": ">>",
+  ">>>": ">>>"
+};
 
-class LibraryPrefix {
-  final Map<String, String> _libraryPrefixList = {};
+const List<String> specialOperatorList = ["[]", "[]="];
 
+abstract class Namer<T> {
   int index = 0;
-  String lookupPrefix(String libraryUri) {
-    if (libraryUri == "dart:core") {
-      return "";
-    }
-    if (_libraryPrefixList.containsKey(libraryUri)) {
-      return _libraryPrefixList[libraryUri]!;
-    }
-    _libraryPrefixList[libraryUri] = "p${index++}";
-    return _libraryPrefixList[libraryUri]!;
-  }
+  final Map<T, String> map = <T, String>{};
+
+  String getName(T key) => map.putIfAbsent(key, () => '$prefix${++index}');
+
+  String get prefix;
+}
+
+class NormalNamer<T> extends Namer<T> {
+  @override
+  final String prefix;
+
+  NormalNamer(this.prefix);
+}
+
+const List<String> ingoreKeys = [
+  "dart:core@Record",
+  "package:flutter/src/widgets/routes.dart@FocusTrap",
+  "dart:html",
+  "dart:html_common",
+  "dart:indexed_db",
+  "dart:mirrors",
+  "dart:cli",
+  "dart:svg",
+  "dart:web_audio",
+  "dart:web_gl",
+  "dart:nativewrappers"
+];
+
+const Map<String, List<String>> libraryIngoreImports = {
+  "dart:ui": ["dart:ffi", "dart:convert"],
+  "package:flutter/src/foundation/bitfield.dart": [
+    "package:flutter/src/foundation/_bitfield_io.dart"
+  ],
+  "package:flutter/src/foundation/isolates.dart": [
+    "package:flutter/src/foundation/_isolates_io.dart"
+  ],
+  "package:flutter/src/foundation/_isolates_io.dart": [
+    "package:flutter/src/foundation/isolates.dart"
+  ],
+  "package:flutter/src/painting/image_provider.dart": [
+    "package:flutter/src/painting/_network_image_io.dart"
+  ],
+  "package:flutter/src/painting/_network_image_io.dart": [
+    "package:flutter/src/painting/image_provider.dart"
+  ],
+  "package:flutter/src/foundation/_bitfield_io.dart": [
+    "package:flutter/src/foundation/bitfield.dart"
+  ],
+  "package:flutter/src/foundation/capabilities.dart": [
+    "package:flutter/src/foundation/_capabilities_io.dart"
+  ]
+};
+
+const Map<String, List<String>> libraryAddImports = {
+  "package:flutter/src/widgets/shared_app_data.dart": [
+    "package:flutter/widgets.dart"
+  ],
+  "package:flutter/src/widgets/spell_check.dart": [
+    "package:flutter/widgets.dart"
+  ],
+  "package:flutter/src/widgets/scroll_aware_image_provider.dart": ["dart:ui"],
+  "package:flutter/src/material/autocomplete.dart": ["dart:async"]
+};
+
+class NamedSystem {
+  final Namer<String> _libraries = NormalNamer<String>('l');
+
+  String coreLibraryName = "";
 
   String generate() {
     StringBuffer buffer = StringBuffer();
-    buffer.write("import 'dart:core';\n");
-    _libraryPrefixList.forEach((key, value) {
-      buffer.write("import '$key' as $value;\n");
+    _libraries.map.forEach((key, value) {
+      buffer.write("import '$value.g.dart' as $value;\n");
     });
+
+    buffer.write(
+        "import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;\n");
+    buffer.write("import 'dart:typed_data';\n");
+    buffer.write('''m.MicroDartEngine createMicroDartEngine(ByteData data) {
+var engine = m.MicroDartEngine.fromData(data);
+${_libraries.map.values.map((e) => "engine.addExternalFunctions($e.getLibrary(engine));\n").toList().join()}
+return engine;
+}
+
+''');
     return buffer.toString();
   }
 
-  void init() {
-    _libraryPrefixList.clear();
-  }
-}
-
-class MicroExtension {
-  final String key;
-  final String libraryUri;
-  final String className;
-  final String procedureName;
-  final bool isGetter;
-  final bool isSetter;
-  final bool isStatic;
-
-  const MicroExtension(
-    this.key,
-    this.libraryUri,
-    this.className,
-    this.procedureName,
-    this.isGetter,
-    this.isSetter,
-    this.isStatic,
-  );
-}
-
-class ExtensionHelper {
-  final Map<String, MicroExtension> extensionLibraryList = {};
-
-  final Set<String> _generated = Set();
-
-  bool isExtension(String name) {
-    return extensionLibraryList.containsKey(name);
-  }
-
-  bool isGenerated(String key) {
-    return _generated.contains(key);
-  }
-
-  void generated(String key) {
-    _generated.add(key);
-  }
-
-  void add(Extension extension) {
-    var libraryUri = "";
-    var className = "";
-    var classNamedName = "";
-    final dartType = extension.onType;
-
-    if (dartType is InterfaceType) {
-      classNamedName = dartType.className.asClass.getNamedName();
-      className = dartType.className.asClass.name;
-      libraryUri = dartType.className.asClass.stringLibraryUri;
+  String getLibraryName(String identifier) {
+    var name = _libraries.getName(identifier);
+    if (isCoreLibrary(identifier)) {
+      coreLibraryName = name;
     }
+    return name;
+  }
 
-    extension.members.forEach((element) {
-      var key = "$classNamedName:procedure@${element.name}";
-      var procedureName = element.name.text;
-      bool isGetter = element.kind == ExtensionMemberKind.Getter;
-      bool isSetter = element.kind == ExtensionMemberKind.Setter;
-      bool isStatic = element.isStatic;
-      if (isStatic) {
-        className = extension.name;
-        libraryUri = element.member.asProcedure.stringLibraryUri;
-        classNamedName =
-            key = "$libraryUri@$className:procedure@${element.name}";
-      }
-      extensionLibraryList[element.member.asProcedure.getNamedName()] =
-          MicroExtension(key, libraryUri, className, procedureName, isGetter,
-              isSetter, isStatic);
+  bool isCoreLibrary(String identifier) {
+    return identifier == "dart:core";
+  }
+
+  bool isCoreLibraryName(String name) {
+    return name == coreLibraryName;
+  }
+}
+
+class AbsVisitor extends ElementVisitor<void> {
+  @override
+  void visitAugmentationImportElement(AugmentationImportElement element) {}
+
+  @override
+  void visitClassElement(ClassElement element) {}
+
+  @override
+  void visitCompilationUnitElement(CompilationUnitElement element) {
+    element.visitChildren(this);
+  }
+
+  @override
+  void visitConstructorElement(ConstructorElement element) {}
+
+  @override
+  void visitEnumElement(EnumElement element) {}
+
+  @override
+  void visitExtensionElement(ExtensionElement element) {}
+
+  @override
+  void visitFieldElement(FieldElement element) {}
+
+  @override
+  void visitFieldFormalParameterElement(FieldFormalParameterElement element) {}
+
+  @override
+  void visitFunctionElement(FunctionElement element) {}
+
+  @override
+  void visitGenericFunctionTypeElement(GenericFunctionTypeElement element) {}
+
+  @override
+  void visitLabelElement(LabelElement element) {}
+
+  @override
+  void visitLibraryAugmentationElement(LibraryAugmentationElement element) {}
+
+  @override
+  void visitLibraryElement(LibraryElement element) {}
+
+  @override
+  void visitLibraryExportElement(LibraryExportElement element) {}
+
+  @override
+  void visitLibraryImportElement(LibraryImportElement element) {}
+
+  @override
+  void visitLocalVariableElement(LocalVariableElement element) {}
+
+  @override
+  void visitMethodElement(MethodElement element) {}
+
+  @override
+  void visitMixinElement(MixinElement element) {}
+
+  @override
+  void visitMultiplyDefinedElement(MultiplyDefinedElement element) {}
+
+  @override
+  void visitParameterElement(ParameterElement element) {}
+
+  @override
+  void visitPartElement(PartElement element) {}
+
+  @override
+  void visitPrefixElement(PrefixElement element) {}
+
+  @override
+  void visitPropertyAccessorElement(PropertyAccessorElement element) {}
+
+  @override
+  void visitSuperFormalParameterElement(SuperFormalParameterElement element) {}
+
+  @override
+  void visitTopLevelVariableElement(TopLevelVariableElement element) {}
+
+  @override
+  void visitTypeAliasElement(TypeAliasElement element) {}
+
+  @override
+  void visitTypeParameterElement(TypeParameterElement element) {}
+}
+
+class Generator extends AbsVisitor {
+  final StringBuffer sink = StringBuffer();
+
+  final NamedSystem namedSystem;
+
+  final Set<String> importList = {};
+
+  Generator(this.namedSystem);
+
+  StringBuffer generate() {
+    StringBuffer buffer = StringBuffer();
+    //buffer.write(namedSystem.generateLibraryImport());
+    for (var import in importList) {
+      buffer.write(import);
+    }
+    buffer.write(
+        "import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;\n");
+    buffer.write('''Map<String,Function> getLibrary(m.MicroDartEngine engine) {
+return {
+${sink.toString()}
+};
+}''');
+    return buffer;
+  }
+
+  @override
+  void visitLibraryElement(LibraryElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (ingoreKeys.contains(element.identifier)) {
+      return;
+    }
+    if (!namedSystem.isCoreLibrary(element.identifier)) {
+      importList.add("import '${element.identifier}';\n");
+    }
+    libraryAddImports[element.identifier]?.forEach((element) {
+      importList.add("import '$element';\n");
     });
+    element.visitChildren(this);
   }
-}
 
-final List<String> _ingoreLibraries = [
-  "dart:async",
-  "dart:collection",
-  "dart:convert",
-  "dart:developer",
-  "dart:ffi",
-  "dart:isolate",
-  "dart:math",
-  "dart:mirrors",
-  "dart:typed_data",
-  "dart:nativewrappers",
-  "dart:io",
-  "dart:ui",
-  "dart:vmservice_io",
-  "dart:_internal",
-  //"dart:core",
-];
-
-final List<String> _operatorFunctions = [
-  "&",
-  "|",
-  "^",
-  "==",
-  "+",
-  "-",
-  "*",
-  "~/",
-  "<",
-  ">",
-  "<=",
-  ">=",
-];
-
-void scanDartFile(Directory root, List<Uri> fileList) {
-  final files = root.listSync();
-
-  files.forEach((element) {
-    if (element is File && element.path.endsWith('.dart')) {
-      fileList.add(Uri.parse("file://${element.path}"));
-    } else if (element is Directory) {
-      scanDartFile(element, fileList);
+  @override
+  void visitLibraryImportElement(LibraryImportElement element) {
+    if (element.importedLibrary == null) {
+      return;
     }
-  });
-}
+    if (element.importedLibrary!.identifier.startsWith("dart:_") ||
+        element.importedLibrary!.identifier.startsWith("package:_")) {
+      return;
+    }
 
-class MicroDartGenerator {
-  final libraryPrefix = LibraryPrefix();
-  final extensionHelper = ExtensionHelper();
+    if (libraryIngoreImports[element.library.identifier]
+            ?.contains(element.importedLibrary!.identifier) ??
+        false) {
+      return;
+    }
 
-  Future generate(String projectPath, String mainFilePath,
-      String flatterPatchedSdk, String output) async {
-    final Uri projectUri = resolveInputUri(projectPath);
-
-    final Uri mainFileUri = projectUri.resolve(mainFilePath);
-    final Uri packagesFileUri =
-        projectUri.resolve(".dart_tool/package_config.json");
-
-    final Uri sdkRoot = ensureFolderPath(flatterPatchedSdk);
-    final Uri sdkSummary = sdkRoot.resolve('platform_strong.dill');
-    final CompilerOptions options = CompilerOptions()
-      ..sdkRoot = sdkRoot
-      ..sdkSummary = sdkSummary
-      ..verbose = false
-      ..fileSystem = StandardFileSystem.instance
-      ..packagesFileUri = packagesFileUri
-      ..nnbdMode = NnbdMode.Strong;
-    var result = await kernelForProgramInternal(mainFileUri, options,
-        additionalSources: [], requireMain: false);
-
-    generateCompoment(result!.component!, output);
+    if (!namedSystem.isCoreLibrary(element.importedLibrary!.identifier)) {
+      StringBuffer buffer = StringBuffer();
+      buffer.write("import '${element.importedLibrary!.identifier}'");
+      //if (element.prefix != null) {
+      //  buffer.write(" as ${element.prefix!.element.name}");
+      //}
+      List<ShowElementCombinator> showlist = [];
+      List<HideElementCombinator> hidelist = [];
+      for (var element in element.combinators) {
+        if (element is ShowElementCombinator) {
+          showlist.add(element);
+        } else if (element is HideElementCombinator) {
+          hidelist.add(element);
+        }
+      }
+      if (showlist.isNotEmpty) {
+        buffer.write(" show ");
+        for (int i = 0; i < showlist.length; i++) {
+          buffer.write(showlist[i].shownNames.join(","));
+          if (i < showlist.length - 1) {
+            buffer.write(",");
+          }
+        }
+      }
+      if (hidelist.isNotEmpty) {
+        buffer.write(" hide ");
+        for (int i = 0; i < hidelist.length; i++) {
+          buffer.write(hidelist[i].hiddenNames.join(","));
+          if (i < hidelist.length - 1) {
+            buffer.write(",");
+          }
+        }
+      }
+      buffer.write(";\n");
+      importList.add(buffer.toString());
+    }
   }
 
-  Future generateModule(String modulePath, String flatterPatchedSdk,
-      String packageFilePath, String output) async {
-    final Uri sdkRoot = ensureFolderPath(flatterPatchedSdk);
-    final Uri sdkSummary = sdkRoot.resolve('platform_strong.dill');
-    final Uri packagesFileUri = resolveInputUri(packageFilePath);
-    final CompilerOptions options = CompilerOptions()
-      ..sdkRoot = sdkRoot
-      ..sdkSummary = sdkSummary
-      ..verbose = false
-      ..packagesFileUri = packagesFileUri
-      ..fileSystem = StandardFileSystem.instance
-      ..nnbdMode = NnbdMode.Strong;
+  @override
+  void visitClassElement(ClassElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.isPrivate) {
+      return;
+    }
 
-    final List<Uri> sources = [];
-    var root = Directory("$modulePath/lib");
-    scanDartFile(root, sources);
-    var result = await kernelForModule(sources, options);
+    if (ingoreKeys.contains(element.key)) {
+      return;
+    }
 
-    generateCompoment(result!.component!, output);
+    writeClassAs(element);
+    writeClassIs(element);
+
+    element.visitChildren(this);
   }
 
-  void generateCompoment(Component component, String output) {
-    component.libraries.removeWhere((element) {
-      if (_ingoreLibraries.contains(element.importUri.toString()) ||
-          element.importUri.path.startsWith("_")) {
+  @override
+  void visitFunctionElement(FunctionElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.hasDeprecated) {
+      return;
+    }
+    if (ingoreKeys.contains(element.key)) {
+      return;
+    }
+    writeKey(element.key!);
+    writeScopeArgemnts();
+    write("=>");
+    if (!hasFunctionTypeParams(element.type)) {
+      write(element.displayName);
+    } else {
+      writeFunctionTypeType(element.type);
+      endLine("{");
+      writeFunctionBody("", element.name, element.type, null,
+          element.typeParameters, false, true, false);
+      write("}");
+    }
+
+    endLine(",");
+  }
+
+  @override
+  void visitMethodElement(MethodElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.hasDeprecated) {
+      return;
+    }
+    if (ingoreKeys.contains(element.key)) {
+      return;
+    }
+    var clazz = (element.enclosingElement as ClassElement);
+    var name = element.name;
+    writeKey(element.key!);
+    writeScopeArgemnts(hasTarget: !element.isStatic, targetName: clazz.name);
+    write("=>");
+
+    if (binaryOperatorList.containsKey(name)) {
+      writeWord("(other)=>");
+      writeWord("target");
+      writeWord(binaryOperatorList[name]!);
+      write("other");
+    } else if (unaryOperatorList.containsKey(name)) {
+      writeWord("()=>");
+      writeWord(unaryOperatorList[name]!);
+      writeWord("target");
+    } else if (specialOperatorList.contains(name)) {
+      if (name == "[]") {
+        writeWord("(index)=>");
+        write("target[index]");
+      } else if (name == "[]=") {
+        writeWord("(index,other)=>");
+        write("target[index] = other");
+      }
+    } else if (!hasFunctionTypeParams(element.type)) {
+      if (element.isStatic && clazz.name.isNotEmpty) {
+        write(clazz.name);
+        write(".");
+      } else {
+        write("target");
+        write(".");
+      }
+      write(element.displayName);
+    } else {
+      writeFunctionTypeType(element.type);
+      endLine("{");
+
+      writeFunctionBody(clazz.name, element.name, element.type, null,
+          element.typeParameters, false, element.isStatic, true);
+      write("}");
+    }
+
+    endLine(",");
+  }
+
+  bool hasFunctionTypeParams(FunctionType functionType) {
+    for (int i = 0; i < functionType.parameters.length; i++) {
+      var parameter = functionType.parameters[i];
+
+      if (parameter.type is FunctionType) {
         return true;
       }
-
-      print(element.importUri.toString());
-      return false;
-    });
-
-    libraryPrefix.init();
-
-    final List<NamedNode> _topLecelDeclarations = [];
-
-    component.libraries.forEach((library) {
-      if (library.importUri.path.toString().startsWith("_") ||
-          library.importUri.toString().startsWith("file")) {
-        return;
-      }
-
-      library.extensions.forEach((node) {
-        if (node.name.startsWith("_") || isDeprecated(node)) {
-          return;
-        }
-
-        extensionHelper.add(node);
-      });
-
-      library.procedures.forEach((node) {
-        if (node.name.text.startsWith("_") || isDeprecated(node)) {
-          return;
-        }
-        if (node.isAbstract) {
-          return;
-        }
-        _topLecelDeclarations.add(node);
-      });
-
-      library.fields.forEach((node) {
-        if (node.name.text.startsWith("_") || isDeprecated(node)) {
-          return;
-        }
-        _topLecelDeclarations.add(node);
-      });
-
-      library.classes.forEach((clazz) {
-        if (clazz.name.startsWith("_") || isDeprecated(clazz)) {
-          return;
-        }
-        if (clazz.isAnonymousMixin) {
-          return;
-        }
-
-        clazz.procedures.forEach((procedure) {
-          if (procedure.name.text.startsWith("_") || isDeprecated(clazz)) {
-            return;
-          }
-          procedure.annotations.forEach((element) {});
-          if (procedure.isAbstract) {
-            return;
-          }
-          _topLecelDeclarations.add(procedure);
-        });
-
-        clazz.fields.forEach((field) {
-          if (field.name.text.startsWith("_") || isDeprecated(clazz)) {
-            return;
-          }
-          if (field.isAbstract) {
-            return;
-          }
-          _topLecelDeclarations.add(field);
-        });
-        //对类的构造函数进行索引
-
-        if (!clazz.isAbstract) {
-          clazz.constructors.forEach((constructor) {
-            if (constructor.name.text.startsWith("_") || isDeprecated(clazz)) {
-              return;
-            }
-
-            _topLecelDeclarations.add(constructor);
-          });
-          //对类的构造工厂进行索引
-          clazz.redirectingFactories.forEach((redirectingFactory) {
-            if (redirectingFactory.name.text.startsWith("_") ||
-                isDeprecated(clazz)) {
-              return;
-            }
-            _topLecelDeclarations.add(redirectingFactory);
-          });
-        }
-      });
-    });
-    StringBuffer buffer = StringBuffer();
-
-    buffer.write("var data = { \n");
-    _topLecelDeclarations.forEach((element) {
-      buffer.write(generateNamedNode(element));
-    });
-
-    buffer.write("};");
-
-    File(output).writeAsStringSync("${libraryPrefix.generate()}$buffer");
+    }
+    return false;
   }
 
-  String generateNamedNode(NamedNode node) {
-    if (node is Procedure) {
-      return generateProcedure(node);
-    } else if (node is Constructor) {
-      return generateConstructor(node);
-    } else if (node is RedirectingFactory) {
-      return generateRedirectingFactory(node);
-    } else if (node is Extension) {
-      return generateExtension(node);
+  void writeFunctionBodyWithFunctionPointer(
+      String? className,
+      String name,
+      FunctionType functionType,
+      DartType? thisType,
+      List<TypeParameterElement> typeParameters,
+      bool isConst,
+      bool isStatic,
+      bool isMethod,
+      List<ParameterElement> posational,
+      List<ParameterElement> named) {
+    if (functionType.returnType is! VoidType) {
+      writeWord("return");
     }
-    return "";
-  }
 
-  void generateFunction(String name, FunctionNode function, StringBuffer buffer,
-      {required bool isStatic,
-      required bool isGetter,
-      required bool isSetter,
-      bool isExtension = false}) {
-    if (isExtension && !isStatic) {
-      function.positionalParameters.removeLast();
-    }
-    int totalParamCount =
-        function.positionalParameters.length + function.namedParameters.length;
-
-    if (!isStatic) {
-      buffer.write("instance");
-      if (_operatorFunctions.contains(name)) {
-        buffer.write(name);
-        buffer.write("p[0],\n");
-        return;
-      } else if (name == "[]") {
-        buffer.write("[p[0]],\n");
-        return;
-      } else if (name == "[]=") {
-        buffer.write("[p[0]]=p[1],\n");
-        return;
-      } else if (name == "unary-") {
-        buffer.write("-instance,\n");
-        return;
-      } else if (name == "unary+") {
-        buffer.write("+instance,\n");
-        return;
+    if (isMethod) {
+      if (isStatic && className != null) {
+        write(className);
+        write(".");
       } else {
-        buffer.write(".");
+        write("target");
+        write(".");
       }
-    }
-
-    buffer.write("$name");
-    if (isGetter) {
-      buffer.write(",\n");
-      return;
-    } else if (isSetter) {
-      buffer.write("=p[0],\n");
-      return;
-    }
-    buffer.write("(");
-    int index = 0;
-    function.positionalParameters.forEach((element) {
-      buffer.write("p[$index]");
-      index++;
-      if (index < totalParamCount) {
-        buffer.write(",");
-      }
-    });
-
-    if (function.namedParameters.isNotEmpty) {
-      function.namedParameters.forEach((element) {
-        buffer.write("${element.name}:n['${element.name}']");
-        index++;
-        if (index < totalParamCount) {
-          buffer.write(",");
-        }
-      });
-    }
-
-    buffer.write("),\n");
-  }
-
-  String generateExtensionProcedure(Procedure node) {
-    var ext = extensionHelper.extensionLibraryList[node.getNamedName()];
-    if (ext == null) {
-      return "";
-    }
-    if (extensionHelper.isGenerated(ext.key)) {
-      return "";
-    }
-    var libraryName = libraryPrefix.lookupPrefix(ext.libraryUri);
-    if (libraryName.isNotEmpty) {
-      libraryName = "$libraryName.";
-    }
-    var className = ext.className;
-    var procedureName = ext.procedureName;
-    var name = "$procedureName";
-    StringBuffer buffer = StringBuffer();
-    if (ext.isStatic) {
-      if (className.isNotEmpty && procedureName.isNotEmpty) {
-        className = "$className.";
-      }
-      name = "$libraryName$className$procedureName";
-      buffer.write("(p,n)=>");
+      write(name);
+      writeTypeParameters(typeParameters);
     } else {
-      name = "$procedureName";
-      buffer.write("($libraryName$className instance,p,n)=>");
+      if (className != null && className.isNotEmpty) {
+        write(className);
+        if (name.isNotEmpty) {
+          write(".");
+        }
+      }
+
+      write(name);
     }
 
-    generateFunction(name, node.function, buffer,
-        isGetter: ext.isGetter,
-        isSetter: ext.isSetter,
-        isStatic: ext.isStatic,
-        isExtension: true);
-    extensionHelper.generated(ext.key);
-    return "'${ext.key}':${buffer.toString()}";
+    write("(");
+
+    for (int i = 0; i < posational.length; i++) {
+      writeParameterElementDetail(posational[i].name, posational[i]);
+      if (i < posational.length - 1) {
+        writeComma();
+      }
+    }
+    if (named.isNotEmpty) {
+      if (posational.isNotEmpty) {
+        writeComma();
+      }
+      for (int i = 0; i < named.length; i++) {
+        write(named[i].name);
+        write(":");
+        writeParameterElementDetail(named[i].name, named[i]);
+        if (i < named.length - 1) {
+          writeComma();
+        }
+      }
+    }
+
+    write(");\n");
   }
 
-  String generateProcedure(Procedure node) {
-    if (extensionHelper.isExtension(node.getNamedName())) {
-      return generateExtensionProcedure(node);
+  void writeFunctionBody(
+      String? className,
+      String name,
+      FunctionType functionType,
+      DartType? thisType,
+      List<TypeParameterElement> typeParameters,
+      bool isConst,
+      bool isStatic,
+      bool isMethod) {
+    List<ParameterElement> posational = [];
+    List<ParameterElement> optionalPosational = [];
+    List<ParameterElement> named = [];
+    List<ParameterElement> globalFunctionParamers = [];
+    // List<ParameterElement> optionalFunctionParamers = [];
+    for (int i = 0; i < functionType.parameters.length; i++) {
+      var parameter = functionType.parameters[i];
+      if (parameter.isPositional) {
+        if (parameter.isOptionalPositional) {
+          optionalPosational.add(parameter);
+        } else {
+          posational.add(parameter);
+        }
+      } else if (parameter.isNamed) {
+        named.add(parameter);
+      }
+      if (parameter.type is FunctionType) {
+        if (parameter.isOptionalPositional) {
+          // optionalFunctionParamers.add(parameter);
+        } else {
+          globalFunctionParamers.add(parameter);
+        }
+      }
     }
-    StringBuffer buffer = StringBuffer();
-    var libraryName = libraryPrefix.lookupPrefix(node.stringLibraryUri);
 
-    if (libraryName.isNotEmpty) {
-      libraryName = "$libraryName.";
+    for (var parameter in globalFunctionParamers) {
+      writeFunctionParameter(parameter, parameter.name);
     }
+    ParameterElement? functionParamer;
+
+    if (optionalPosational.isNotEmpty) {
+      List<ParameterElement> optionalPosational2 =
+          List.from(optionalPosational);
+      writeOptionalIfNull(optionalPosational);
+      endLine("{");
+      writeFunctionBodyWithFunctionPointer(
+          className,
+          name,
+          functionType,
+          thisType,
+          typeParameters,
+          isConst,
+          isStatic,
+          isMethod,
+          posational,
+          named);
+      if (functionType.returnType is VoidType) {
+        endLine("return;");
+      }
+      endLine("}");
+
+      var ite = optionalPosational.iterator;
+      while (ite.moveNext()) {
+        var parameter = ite.current;
+        posational.add(parameter);
+        optionalPosational2.remove(parameter);
+        if (parameter.type is FunctionType) {
+          functionParamer = parameter;
+        } else {
+          functionParamer = null;
+        }
+        if (functionParamer != null) {
+          writeFunctionParameter(functionParamer, functionParamer.name);
+        }
+        if (optionalPosational2.isNotEmpty) {
+          writeOptionalIfNull(optionalPosational2);
+          endLine("{");
+        }
+
+        writeFunctionBodyWithFunctionPointer(
+            className,
+            name,
+            functionType,
+            thisType,
+            typeParameters,
+            isConst,
+            isStatic,
+            isMethod,
+            posational,
+            named);
+        if (functionType.returnType is VoidType) {
+          endLine("return;");
+        }
+        if (optionalPosational2.isNotEmpty) {
+          endLine("}");
+        }
+      }
+      return;
+    }
+
+    writeFunctionBodyWithFunctionPointer(
+        className,
+        name,
+        functionType,
+        thisType,
+        typeParameters,
+        isConst,
+        isStatic,
+        isMethod,
+        posational,
+        named);
+  }
+
+  void writeOptionalIfNull(List<ParameterElement> optionalPosational) {
+    if (optionalPosational.isEmpty) {
+      return;
+    }
+    write("if(");
+    for (int i = 0; i < optionalPosational.length; i++) {
+      write("${optionalPosational[i].name} == null");
+      if (i < optionalPosational.length - 1) {
+        write(" && ");
+      }
+    }
+    write(")");
+  }
+
+  void writeTypeParameters(List<TypeParameterElement> typeParameters,
+      {bool withExtends = false}) {
+    bool needType = false;
+    for (int i = 0; i < typeParameters.length; i++) {
+      if (typeParameters[i].bound != null) {
+        needType = true;
+      }
+    }
+
+    if (!needType) {
+      return;
+    }
+
+    write("<");
+    for (int i = 0; i < typeParameters.length; i++) {
+      writeTypeParameter(typeParameters[i]);
+      if (i < typeParameters.length - 1) {
+        writeComma();
+      }
+    }
+    write(">");
+  }
+
+  void writeTypeParameter(TypeParameterElement element) {
+    if (element.bound != null) {
+      writeDartTypeToClassName2(element.bound!, false);
+    } else {
+      write("dynamic");
+    }
+  }
+
+  void writeParameterElementDetail(String paramName, ParameterElement element) {
+    var type = element.type;
+    if (type is InterfaceType || type is TypeParameterType) {
+      write(paramName);
+      if (element.isOptionalPositional) {
+        write("!");
+      } else if (element.hasDefaultValue) {
+        writeSpace();
+        writeWord("??");
+        write(element.defaultValueCode!);
+      }
+    } else if (type is FunctionType) {
+      var paramName2 = paramName;
+      paramName = "${paramName}Proxy";
+
+      if (element.isOptional && !element.isOptionalPositional) {
+        write("$paramName2 == null ? ${element.defaultValueCode ?? "null"} :");
+      }
+      write(paramName);
+    } else if (type is VoidType) {
+      write(paramName);
+    } else if (type is DynamicType) {
+      write(paramName);
+    } else {
+      print("write dart type not support ${type.runtimeType.toString()}");
+    }
+  }
+
+  void writeFunctionParameter(ParameterElement parameter, String name) {
+    var type = parameter.type as FunctionType;
+    bool isAsync = (type.returnType.isDartAsyncFuture ||
+        type.returnType.isDartAsyncFutureOr);
+
+    writeDartTypeToClassName(type.returnType);
+    writeSpace();
+    write("${parameter.name}Proxy");
+    writeDartTypeTypeArguments(type);
+    writeFunctionTypeType(type);
+    writeSpace();
+    if (isAsync) {
+      endLine("async{");
+    } else {
+      endLine("{");
+    }
+    bool returnFunctionType = type.returnType is FunctionType;
+    bool returnVoidType = type.returnType is VoidType;
+
+    if (!(returnVoidType || returnFunctionType)) {
+      writeWord("return");
+    }
+    if (returnFunctionType) {
+      writeWord("var \$fp = ");
+    }
+    List<ParameterElement> positional = [];
+    List<ParameterElement> optionalPosational = [];
+    List<ParameterElement> named = [];
+
+    for (var e in type.parameters) {
+      if (e.isPositional) {
+        if (e.isOptionalPositional) {
+          optionalPosational.add(e);
+        } else {
+          positional.add(e);
+        }
+      } else if (e.isNamed) {
+        named.add(e);
+      }
+    }
+    if (optionalPosational.isNotEmpty) {
+    } else {
+      writeCallPointer(name, type, positional, named, isAsync: isAsync);
+      if (returnFunctionType) {
+        writeFunctionTypeParameter(type.returnType as FunctionType);
+        endLine("return \$f;");
+      }
+    }
+
+    endLine("}");
+    endLine();
+  }
+
+  void writeFunctionTypeParameter(FunctionType functionType) {
+    bool isAsync = (functionType.returnType.isDartAsyncFuture ||
+        functionType.returnType.isDartAsyncFutureOr);
+
+    writeDartTypeToClassName(functionType.returnType);
+    writeSpace();
+    write("\$f");
+    writeDartTypeTypeArguments(functionType);
+    writeFunctionTypeType(functionType);
+    writeSpace();
+    if (isAsync) {
+      endLine("async{");
+    } else {
+      endLine("{");
+    }
+
+    List<ParameterElement> positional = [];
+    List<ParameterElement> optionalPosational = [];
+    List<ParameterElement> named = [];
+
+    for (var e in functionType.parameters) {
+      if (e.isPositional) {
+        if (e.isOptionalPositional) {
+          optionalPosational.add(e);
+        } else {
+          positional.add(e);
+        }
+      } else if (e.isNamed) {
+        named.add(e);
+      }
+    }
+
+    if (optionalPosational.isNotEmpty) {
+    } else {
+      bool returnFunctionType = functionType.returnType is FunctionType;
+      bool returnVoidType = functionType.returnType is VoidType;
+
+      if (!(returnVoidType || returnFunctionType)) {
+        writeWord("return");
+      }
+      if (returnFunctionType) {
+        writeWord("var p = ");
+      }
+
+      writeCallPointer("\$fp", functionType, positional, named,
+          isAsync: isAsync);
+      if (returnFunctionType) {
+        writeFunctionTypeParameter(functionType.runtimeType as FunctionType);
+        write("return \$f");
+      }
+    }
+
+    endLine("}");
+    endLine();
+  }
+
+  void writeDartTypeTypeArguments(FunctionType type) {
+    Set<String> gs = {};
+    collectType(gs, type);
+    if (gs.isNotEmpty) {
+      write("<");
+      var list = gs.toList();
+      for (int i = 0; i < list.length; i++) {
+        write(list[i]);
+        if (i < list.length - 1) {
+          writeComma();
+        }
+      }
+      write(">");
+    }
+  }
+
+  void collectType(Set<String> gs, FunctionType type) {
+    var returnType = type.returnType;
+    if (returnType is TypeParameterType) {
+      var n = returnType.element.name;
+
+      gs.add(n);
+    } else if (returnType is InterfaceType) {
+      if (returnType.typeArguments.isNotEmpty) {
+        for (var element in returnType.typeArguments) {
+          if (element is TypeParameterType) {
+            var n = element.element.name;
+
+            gs.add(n);
+          }
+        }
+      }
+    } else if (returnType is FunctionType) {
+      collectType(gs, returnType);
+    }
+    for (var element in type.parameters) {
+      var t = element.type;
+      if (t is TypeParameterType) {
+        var n = t.element.name;
+
+        gs.add(n);
+      } else if (t is FunctionType) {
+        collectType(gs, t);
+      }
+    }
+  }
+
+  void writeDartTypeToClassName2(DartType type, bool isOptional) {
+    if (type is InterfaceType) {
+      write(type.element.name);
+
+      if (type.typeArguments.isNotEmpty) {
+        bool writeTypeArguments = true;
+        for (var element in type.typeArguments) {
+          if (element is VoidType ||
+              element is DynamicType ||
+              element is FunctionType) {
+            writeTypeArguments = false;
+          }
+        }
+        if (writeTypeArguments) {
+          write("<");
+          for (int i = 0; i < type.typeArguments.length; i++) {
+            writeDartTypeToClassName2(type.typeArguments[i], false);
+            if (i < type.typeArguments.length - 1) {
+              writeComma();
+            }
+          }
+          write(">");
+        }
+      }
+      if (isOptional) {
+        write("?");
+      }
+    } else if (type is VoidType) {
+      write("void");
+    } else if (type is DynamicType) {
+      write("dynamic");
+    } else if (type is FunctionType) {
+      write("m.FunctionPointer");
+      if (isOptional) {
+        write("?");
+      }
+    } else if (type is TypeParameterType) {
+      var b = type.bound;
+      if (b is InterfaceType) {
+        write(b.element.name);
+
+        if (isOptional) {
+          write("?");
+        }
+      } else {
+        write("dynamic");
+      }
+    } else {
+      print("write dart type not support ${type.runtimeType.toString()}");
+    }
+  }
+
+  void writeDartTypeToClassName(DartType type) {
+    if (type is InterfaceType) {
+      write(type.element.name);
+
+      if (type.typeArguments.isNotEmpty) {
+        bool writeTypeArguments = true;
+        for (var element in type.typeArguments) {
+          if (element is VoidType || element is FunctionType) {
+            writeTypeArguments = false;
+          }
+        }
+        if (writeTypeArguments) {
+          write("<");
+          for (int i = 0; i < type.typeArguments.length; i++) {
+            writeDartTypeToClassName(type.typeArguments[i]);
+            if (i < type.typeArguments.length - 1) {
+              writeComma();
+            }
+          }
+          write(">");
+        }
+      }
+    } else if (type is VoidType) {
+      write("void");
+    } else if (type is DynamicType) {
+      write("dynamic");
+    } else if (type is FunctionType) {
+      write(type.toString());
+    } else if (type is TypeParameterType) {
+      write(type.element.name);
+    } else {
+      print("write dart type not support ${type.runtimeType.toString()}");
+    }
+  }
+
+  void writeCallPointer(String pointerName, FunctionType functionType,
+      List<ParameterElement> positional, List<ParameterElement> named,
+      {bool isAsync = false}) {
+    if (isAsync) {
+      write("await engine.callFunctionPointerAsync(scope, $pointerName!,");
+    } else {
+      write(" engine.callFunctionPointer(scope, $pointerName!,");
+    }
+
+    write("[");
+    for (int i = 0; i < positional.length; i++) {
+      String name = positional[i].name;
+      if (name.isEmpty) {
+        name = "\$p$i";
+      }
+      write(name);
+      if (i < positional.length - 1) {
+        writeComma();
+      }
+    }
+
+    write("]");
+    writeComma();
+    write("{");
+    for (int i = 0; i < named.length; i++) {
+      write("'${named[i].name}'");
+      write(":");
+      write(named[i].name);
+      if (i < named.length - 1) {
+        writeComma();
+      }
+    }
+    write("}");
+    endLine(");");
+  }
+
+  void writeFunctionTypeType3(FunctionType functionType) {
+    Set<String> gs = {};
+    collectType(gs, functionType);
+
+    if (gs.isNotEmpty) {
+      write("<");
+      var list = gs.toList();
+      for (int i = 0; i < list.length; i++) {
+        write(list[i]);
+        if (i < list.length - 1) {
+          writeComma();
+        }
+      }
+      write(">");
+    }
+    List<ParameterElement> positional = [];
+    List<ParameterElement> named = [];
+    List<ParameterElement> optionalPosational = [];
+
+    for (var e in functionType.parameters) {
+      if (e.isPositional) {
+        if (e.isOptionalPositional) {
+          optionalPosational.add(e);
+        } else {
+          positional.add(e);
+        }
+      } else if (e.isNamed) {
+        named.add(e);
+      }
+    }
+
+    write("(");
+
+    for (int i = 0; i < positional.length; i++) {
+      writeParameterElement(positional[i], i);
+      if (i < positional.length - 1) {
+        writeComma();
+      }
+    }
+    if (optionalPosational.isNotEmpty) {
+      if (positional.isNotEmpty) {
+        writeComma();
+      }
+
+      write("[");
+      for (int i = 0; i < optionalPosational.length; i++) {
+        writeParameterElement2(
+            optionalPosational[i], positional.length + i, true);
+        if (i < optionalPosational.length - 1) {
+          writeComma();
+        }
+      }
+      write("]");
+    }
+
+    if (named.isNotEmpty) {
+      if (positional.isNotEmpty || optionalPosational.isNotEmpty) {
+        writeComma();
+      }
+
+      write("{");
+      for (int i = 0; i < named.length; i++) {
+        writeParameterElement(named[i], i);
+        if (i < named.length - 1) {
+          writeComma();
+        }
+      }
+      write("}");
+    }
+
+    write(")");
+  }
+
+  void writeFunctionTypeType(FunctionType functionType) {
+    write("(");
+
+    List<ParameterElement> positional = [];
+    List<ParameterElement> named = [];
+    List<ParameterElement> optionalPosational = [];
+
+    for (var e in functionType.parameters) {
+      if (e.isPositional) {
+        if (e.isOptionalPositional) {
+          optionalPosational.add(e);
+        } else {
+          positional.add(e);
+        }
+      } else if (e.isNamed) {
+        named.add(e);
+      }
+    }
+
+    for (int i = 0; i < positional.length; i++) {
+      writeParameterElement(positional[i], i);
+      if (i < positional.length - 1) {
+        writeComma();
+      }
+    }
+    if (optionalPosational.isNotEmpty) {
+      if (positional.isNotEmpty) {
+        writeComma();
+      }
+
+      write("[");
+      for (int i = 0; i < optionalPosational.length; i++) {
+        writeParameterElement2(
+            optionalPosational[i], positional.length + i, true);
+        if (i < optionalPosational.length - 1) {
+          writeComma();
+        }
+      }
+      write("]");
+    }
+
+    if (named.isNotEmpty) {
+      if (positional.isNotEmpty || optionalPosational.isNotEmpty) {
+        writeComma();
+      }
+
+      write("{");
+      for (int i = 0; i < named.length; i++) {
+        writeParameterElement(named[i], i);
+        if (i < named.length - 1) {
+          writeComma();
+        }
+      }
+      write("}");
+    }
+
+    write(")");
+  }
+
+  void writeFunctionTypeType2(FunctionType functionType, bool writeType) {
+    write("(");
+
+    List<ParameterElement> positional = [];
+    List<ParameterElement> named = [];
+
+    for (var e in functionType.parameters) {
+      if (e.isPositional) {
+        positional.add(e);
+      } else if (e.isNamed) {
+        named.add(e);
+      }
+    }
+
+    for (int i = 0; i < positional.length; i++) {
+      writeParameterElement2(positional[i], i, writeType);
+      if (i < positional.length - 1) {
+        writeComma();
+      }
+    }
+    if (named.isNotEmpty) {
+      if (positional.isNotEmpty) {
+        writeComma();
+      }
+
+      write("{");
+      for (int i = 0; i < named.length; i++) {
+        writeParameterElement2(named[i], i, writeType);
+        if (i < named.length - 1) {
+          writeComma();
+        }
+      }
+      write("}");
+    }
+
+    write(")");
+  }
+
+  void writeParameterElement(ParameterElement element, int index) {
+    String name = element.name;
+    if (name.isEmpty) {
+      name = "\$p$index";
+    }
+    // if (element.isRequiredNamed) {
+    //   writeWord("required");
+    // }
+    // writeDartTypeToClassName2(element.type, element.isOptional);
+    writeSpace();
+    write(name);
+  }
+
+  void writeParameterElement2(
+      ParameterElement element, int index, bool writeType) {
+    String name = element.name;
+    if (name.isEmpty) {
+      name = "\$p$index";
+    }
+
+    if (writeType) {
+      if (element.isRequiredNamed) {
+        writeWord("required");
+      }
+      writeDartTypeToClassName2(element.type, element.isOptional);
+    }
+
+    writeSpace();
+    write(name);
+  }
+
+  @override
+  void visitPropertyAccessorElement(PropertyAccessorElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.hasDeprecated) {
+      return;
+    }
+    if (ingoreKeys.contains(element.key)) {
+      return;
+    }
+    if (element.isStatic) {
+      writeStaticProperty(element);
+    } else {
+      writeClassProperty(element);
+    }
+  }
+
+  @override
+  void visitConstructorElement(ConstructorElement element) {
+    if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.hasDeprecated) {
+      return;
+    }
+    if (ingoreKeys.contains(element.key)) {
+      return;
+    }
+    var clazz = (element.enclosingElement as ClassElement);
+    if (clazz.isAbstract && !element.isFactory) {
+      return;
+    }
+    writeKey(element.key!);
+    writeScopeArgemnts();
+    write("=>");
+    if (!hasFunctionTypeParams(element.type)) {
+      if (element.isDefaultConstructor) {
+        writeFunctionTypeType3(element.type);
+        endLine("{");
+        writeFunctionBody(clazz.name, element.name, element.type, null,
+            element.typeParameters, false, true, false);
+        write("}");
+      } else {
+        write(element.displayName);
+      }
+    } else {
+      writeFunctionTypeType(element.type);
+      endLine("{");
+      writeFunctionBody(clazz.name, element.name, element.type, null,
+          element.typeParameters, false, true, false);
+      write("}");
+    }
+
+    endLine(",");
+  }
+
+  void writeStaticProperty(PropertyAccessorElement element) {
+    if (element.isGetter) {
+      writeStaticPropertyGetter(element);
+    } else if (element.isSetter) {
+      writeStaticPropertySetter(element);
+    }
+  }
+
+  void writeClassProperty(PropertyAccessorElement element) {
+    if (element.isGetter) {
+      writeClassPropertyGetter(element);
+    } else if (element.isSetter) {
+      writeClassPropertySetter(element);
+    }
+  }
+
+  void writeStaticPropertyGetter(PropertyAccessorElement element) {
+    writeKey(element.key!);
+    writeScopeArgemnts();
+    write("=>");
     var className = "";
-    var procedureName = node.name.text;
-    var name = "";
-
-    if (node.isStatic) {
-      className = node.stringClassName ?? "";
-      if (className.isNotEmpty && procedureName.isNotEmpty) {
-        className = "$className.";
-      }
-
-      name = "$libraryName$className$procedureName";
-      buffer.write("(p,n)=>");
-    } else {
-      className = (node.parent as Class).name;
-      name = "$procedureName";
-      buffer.write("($libraryName$className instance,p,n)=>");
+    if (element.enclosingElement is ClassElement) {
+      className = (element.enclosingElement as ClassElement).displayName;
+    }
+    if (className.isNotEmpty) {
+      write(className);
+      write(".");
     }
 
-    generateFunction(name, node.function, buffer,
-        isGetter: node.isGetter,
-        isSetter: node.isSetter,
-        isStatic: node.isStatic);
-    return "'${node.getNamedName()}':${buffer.toString()}";
+    write(element.displayName);
+    endLine(",");
   }
 
-  String generateConstructor(Constructor node) {
-    StringBuffer buffer = StringBuffer();
-
-    var name = "";
-    var libraryName = libraryPrefix.lookupPrefix(node.stringLibraryUri);
-    if (libraryName.isNotEmpty) {
-      libraryName = "$libraryName.";
+  void writeStaticPropertySetter(PropertyAccessorElement element) {
+    var name = element.displayName;
+    writeKey(element.key!);
+    writeScopeArgemnts();
+    write("=>");
+    writeOtherArgemnts();
+    write("=>");
+    var className = "";
+    if (element.enclosingElement is ClassElement) {
+      className = (element.enclosingElement as ClassElement).displayName;
+      name = "$className.$name";
     }
-    buffer.write("(p,n)=>");
-    if (node.name.text.isEmpty) {
-      name = "$libraryName${node.stringClassName}";
-    } else {
-      if (node.stringClassName == null) {
-        name = "$libraryName${node.name.text}";
-      } else {
-        name = "$libraryName${node.stringClassName}.${node.name.text}";
-      }
-    }
-
-    generateFunction(name, node.function, buffer,
-        isGetter: false, isSetter: false, isStatic: true);
-    return "'${node.getNamedName()}':${buffer.toString()}";
+    write(name);
+    write("=other");
+    endLine(",");
   }
 
-  String generateRedirectingFactory(RedirectingFactory node) {
-    StringBuffer buffer = StringBuffer();
-
-    var name = "";
-    var libraryName = libraryPrefix.lookupPrefix(node.stringLibraryUri);
-    if (libraryName.isNotEmpty) {
-      libraryName = "$libraryName.";
+  void writeClassPropertyGetter(PropertyAccessorElement element) {
+    writeKey(element.key!);
+    var className = "";
+    if (element.enclosingElement is ClassElement) {
+      className = (element.enclosingElement as ClassElement).displayName;
     }
-    buffer.write("(p,n)=>");
-    if (node.name.text.isEmpty) {
-      name = "$libraryName${node.stringClassName}";
-    } else {
-      if (node.stringClassName == null) {
-        name = "$libraryName${node.name.text}";
-      } else {
-        name = "$libraryName${node.stringClassName}.${node.name.text}";
-      }
-    }
-
-    generateFunction(name, node.function, buffer,
-        isGetter: false, isSetter: false, isStatic: true);
-    return "'${node.getNamedName()}':${buffer.toString()}";
+    writeScopeArgemnts(hasTarget: true, targetName: className);
+    write("=>target");
+    write(".");
+    write(element.displayName);
+    endLine(",");
   }
 
-  String generateExtension(Extension node) {
-    return "";
+  void writeClassPropertySetter(PropertyAccessorElement element) {
+    writeKey(element.key!);
+    var className = "";
+    if (element.enclosingElement is ClassElement) {
+      className = (element.enclosingElement as ClassElement).displayName;
+    }
+    writeScopeArgemnts(hasTarget: true, targetName: className);
+    write("=>");
+    writeOtherArgemnts();
+    write("=>");
+    write("target");
+    write(".");
+    write(element.displayName);
+    write("=other");
+    endLine(",");
+  }
+
+  void writeClassAs(ClassElement element) {
+    var className = element.name;
+    writeTargetKeywordClassName(element.key!, className, "as");
+  }
+
+  void writeClassIs(ClassElement element) {
+    var className = element.name;
+    writeTargetKeywordClassName(element.key!, className, "is");
+  }
+
+  void writeTargetKeywordClassName(
+      String parentKey, String className, String keyeword) {
+    String key = "$parentKey@#$keyeword";
+    writeKey(key);
+    writeScopeArgemnts(hasTarget: true);
+    write("=>()=>");
+    writeWord("target");
+    writeWord(keyeword);
+    write(className);
+    endLine(",");
+  }
+
+  void writeScopeArgemnts({bool hasTarget = false, String? targetName}) {
+    write("(");
+    write("m.Scope scope");
+    if (hasTarget) {
+      writeComma();
+      if (targetName != null) {
+        writeWord(targetName);
+      }
+      write("target");
+    }
+    write(")");
+  }
+
+  void writeOtherArgemnts() {
+    write("(");
+    write("other");
+    write(")");
+  }
+
+  void write(String string) {
+    sink.write(string);
+  }
+
+  void endLine([String? string]) {
+    if (string != null) {
+      write(string);
+    }
+    write('\n');
+  }
+
+  void writeSpace([String string = ' ']) {
+    write(string);
+  }
+
+  void writeWord(String string) {
+    if (string.isEmpty) return;
+    write(string);
+    writeSpace();
+  }
+
+  void writeComma([String string = ',']) {
+    write(string);
+    writeSpace();
+  }
+
+  void writeKey(String key) {
+    writeWord("'$key':");
   }
 }

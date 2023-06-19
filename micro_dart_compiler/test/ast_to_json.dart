@@ -1222,7 +1222,6 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     return {
       "xtype": "YieldStatement",
       "isYieldStar": node.isYieldStar,
-      "isNative": node.isNative,
       "expression": node.expression.accept(this)
     };
   }
@@ -1593,7 +1592,6 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
       "xtype": "TypeParameterType",
       "declaredNullability": node.declaredNullability.name,
       "parameter": node.parameter.accept(this),
-      "promotedBound": node.promotedBound?.accept(this),
     };
   }
 

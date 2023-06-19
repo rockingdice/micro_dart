@@ -1,8 +1,8 @@
-// @dart = 2.9
-
 import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
+
+import 'generate/micro_dart.g.dart';
 
 const bool astToJsonFlag = false;
 const bool printOp = false;

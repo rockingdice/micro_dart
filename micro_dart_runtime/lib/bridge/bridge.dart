@@ -1,70 +1,26 @@
-abstract class Mirror {}
+typedef BridgeSetter = void Function(Object target, Object? value);
+typedef BridgeGetter = Object? Function<T>(T object);
+typedef BridgeStaticGetter = void Function();
+typedef BridgeStaticMethod = void Function(Object target, Object? value);
+typedef BridgeClassMethod = void Function(Object target, Object? value);
+typedef BridgeConstructorMethod = Object Function(
+    List p, Map<String, dynamic> n);
 
-class DeclarationMirror {
-  final String name;
-  final Object target;
-  const DeclarationMirror(this.name, this.target);
+class LibraryBridge {
+  final Map<String, Function> getters;
+  final Map<String, Function> setters;
+  final Map<String, ClassBridge> classes;
+
+  LibraryBridge(
+      {required this.getters, required this.setters, required this.classes});
 }
 
-class LibraryMirror {
-  final Map<String, Function> functions;
-
-  final Map<String, DeclarationMirror> declarations;
-
-  final Map<String, ClassMirror> classes;
-
-  final String libraryName;
-
-  const LibraryMirror(
-      this.libraryName, this.declarations, this.functions, this.classes);
-
-  Object? invoke(String memberName, List positionalArguments,
-      [Map<Symbol, dynamic>? namedArguments]) {
-    return Function.apply(
-        functions[memberName]!, positionalArguments, namedArguments);
-  }
-}
-
-class ClassMirror {
-  final Map<String, Function> functions;
-
-  final Map<String, DeclarationMirror> declarations;
-
+class ClassBridge {
   final Map<String, Function> constructors;
-
-  final ClassMirror? superClass;
-  final List<ClassMirror> mixins;
-
-  const ClassMirror(
+  final Map<String, Function> getters;
+  final Map<String, Function> setters;
+  ClassBridge(
       {required this.constructors,
-      required this.declarations,
-      required this.functions,
-      this.superClass,
-      required this.mixins});
-
-  Object? invoke(Object? target, String memberName, List positionalArguments,
-      [Map<Symbol, dynamic>? namedArguments]) {
-    if (functions.containsKey(memberName)) {
-      return Function.apply(
-          functions[memberName]!(target), positionalArguments, namedArguments);
-    }
-    if (superClass?.functions.containsKey(memberName) ?? false) {
-      return Function.apply(superClass!.functions[memberName]!(target),
-          positionalArguments, namedArguments);
-    }
-
-    for (var element in mixins) {
-      if (element.functions.containsKey(memberName)) {
-        return Function.apply(functions[memberName]!(target),
-            positionalArguments, namedArguments);
-      }
-    }
-    throw Exception("not found $memberName");
-  }
-
-  Object? invokeGetter(String memberName, List positionalArguments,
-      [Map<Symbol, dynamic>? namedArguments]) {
-    return Function.apply(
-        functions[memberName]!, positionalArguments, namedArguments);
-  }
+      required this.getters,
+      required this.setters});
 }

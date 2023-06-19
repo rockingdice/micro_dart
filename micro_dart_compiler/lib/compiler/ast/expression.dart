@@ -577,10 +577,21 @@ int compileConstantExpression(
       return compileCallProcedure(context, Arguments.empty(), target, true);
     }
   } else if (constant is InstanceConstant) {
-    print("not support InstanceConstant currently");
-    return -1;
+    //return compileInstanceConstant(context, constant);
+    //reutrn - 1;
+    throw Exception("not support: ${constant.runtimeType.toString()} ");
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
+}
+
+int compileInstanceConstant(
+    MicroCompilerContext context, InstanceConstant constant) {
+  var node = constant.classNode;
+  context.pushOp(
+      OpCreateInstance.make(node.stringLibraryUri, node.stringClassName!));
+  context.pushOp(OpSetScopeParam.make("#this"));
+
+  return -1;
 }
 
 int compileStaticGet(MicroCompilerContext context, StaticGet node) {

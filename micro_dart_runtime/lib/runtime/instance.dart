@@ -18,28 +18,26 @@ abstract class Instance {
 
 class InstanceBridge extends Instance {
   final Object target;
-  final MicroDartEngine _interpreter;
+  final MicroDartEngine _engine;
 
-  const InstanceBridge(this._interpreter, this.target, TypeRef type)
-      : super(type);
+  const InstanceBridge(this._engine, this.target, TypeRef type) : super(type);
   @override
   Object? getParam(String name) {
-    var key = _interpreter.getKeyByType(type, name);
+    var key = _engine.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
-    return _interpreter.externalFunctions[key]!(target);
+    return _engine.externalFunctions[key]!(target);
   }
 
   @override
   bool hasParam(String name) {
-    return _interpreter.externalFunctions.containsKey(name);
+    return _engine.externalFunctions.containsKey(name);
   }
 
   @override
   void setParam(String name, Object? value) {
-    final key = _interpreter.getKeyByType(type, name);
+    final key = _engine.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
-    print("key:$key");
-    _interpreter.externalFunctions[key]!(target, value);
+    _engine.externalFunctions[key]!(target, value);
   }
 
   @override

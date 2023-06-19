@@ -76,8 +76,8 @@ void compileTryCatch(MicroCompilerContext context, TryCatch node,
   context.callEnd();
 
   int catchPos = context.callStart("_catch_");
-  context.pushOp(OpSetPosationalParam.make("#stackTrace"));
-  context.pushOp(OpSetPosationalParam.make("#exception"));
+  context.pushOp(OpSetParamFromParent.make("#stackTrace"));
+  context.pushOp(OpSetParamFromParent.make("#exception"));
   node.catches.forEach((catchh) {
     context.pushOp(OpGetParam.make("#exception"));
     context.pushOp(OpIs.make(
