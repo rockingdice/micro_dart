@@ -238,7 +238,7 @@ final Map<int, OpLoader> opLoaders = {
       SetObjectProperty(engine),
   Ops.opGetObjectProperty: (MicroDartEngine engine) =>
       OpGetObjectProperty(engine),
-  Ops.opSetThisProperty: (MicroDartEngine engine) => SetThisProperty(engine),
+  Ops.opSetThisProperty: (MicroDartEngine engine) => OpSetThisProperty(engine),
   Ops.opReturnField: (MicroDartEngine engine) => OpReturnField(engine),
   Ops.opPushList: (MicroDartEngine engine) => OpPushList(engine),
   Ops.opJump: (MicroDartEngine engine) => OpJump(engine),

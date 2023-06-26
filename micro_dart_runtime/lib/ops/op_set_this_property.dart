@@ -1,10 +1,10 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class SetThisProperty implements Op {
-  SetThisProperty(MicroDartEngine interpreter)
+class OpSetThisProperty implements Op {
+  OpSetThisProperty(MicroDartEngine interpreter)
       : _name = interpreter.readString();
 
-  SetThisProperty.make(this._name);
+  OpSetThisProperty.make(this._name);
 
   final String _name;
 

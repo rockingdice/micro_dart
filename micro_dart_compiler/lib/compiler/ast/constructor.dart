@@ -60,7 +60,7 @@ void compileInitializer(MicroCompilerContext context, Initializer initializer) {
 void compileFieldInitializer(
     MicroCompilerContext context, FieldInitializer initializer) {
   compileExpression(context, initializer.value);
-  context.pushOp(SetThisProperty.make(initializer.field.name.text));
+  context.pushOp(OpSetThisProperty.make(initializer.field.name.text));
 }
 
 void compileSuperInitializer(
@@ -68,7 +68,7 @@ void compileSuperInitializer(
   var target = initializer.target;
   var arguments = initializer.arguments;
   compileCallConstructor(context, arguments, target);
-  context.pushOp(SetThisProperty.make("#super"));
+  context.pushOp(OpSetThisProperty.make("#super"));
 }
 
 void compileRedirectingInitializer(

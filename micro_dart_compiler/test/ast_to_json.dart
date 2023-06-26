@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:frontend_server/frontend_server.dart' as frontend;
+import 'package:micro_dart_compiler/compiler/ast/ast.dart';
 
 import 'package:vm/target/flutter.dart';
 import 'ast_to_text.dart';
@@ -683,7 +684,16 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitInstanceConstantReference: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {"xtype": "InstanceConstantReference"};
+    return {
+      "xtype": "InstanceConstantReference",
+      "classKey": node.classNode.getNamedName(),
+      "fields": node.fieldValues.keys
+          .map((key) => key.asField.acceptReference(this))
+          .toList(),
+      "values": node.fieldValues.values
+          .map((key) => key.acceptReference(this))
+          .toList()
+    };
   }
 
   @override

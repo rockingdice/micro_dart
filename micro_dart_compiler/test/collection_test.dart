@@ -2,7 +2,7 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-import 'generate/micro_dart.g.dart';
+import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const bool astToJsonFlag = true;
 const bool printOp = true;

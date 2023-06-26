@@ -550,9 +550,17 @@ int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
 
 int compileConstantExpression(
     MicroCompilerContext context, ConstantExpression node) {
-  var constant = node.constant;
+  return compileConstant(context, node.constant);
+}
+
+int compileConstant(MicroCompilerContext context, Constant constant) {
   if (constant is IntConstant) {
     return context.pushOp(OpPushConstantInt.make(constant.value));
+  } else if (constant is SymbolConstant) {
+  } else if (constant is MapConstant) {
+  } else if (constant is SetConstant) {
+  } else if (constant is ListConstant) {
+  } else if (constant is ListConstant) {
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
@@ -569,6 +577,9 @@ int compileConstantExpression(
     }
   } else if (constant is NullConstant) {
     return context.pushOp(OpPushNull.make());
+  } else if (constant is StringConstant) {
+    return context.pushOp(
+        OpPushConstant.make(context.constantPool.addOrGet(constant.value)));
   } else if (constant is ConstructorTearOffConstant) {
     var target = constant.target;
     if (target is Constructor) {
@@ -577,21 +588,81 @@ int compileConstantExpression(
       return compileCallProcedure(context, Arguments.empty(), target, true);
     }
   } else if (constant is InstanceConstant) {
-    //return compileInstanceConstant(context, constant);
+    return compileInstanceConstant(context, constant);
     //reutrn - 1;
-    throw Exception("not support: ${constant.runtimeType.toString()} ");
+    // throw Exception("not support: ${constant.classReference.asClass.name} ");
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
 
 int compileInstanceConstant(
     MicroCompilerContext context, InstanceConstant constant) {
-  var node = constant.classNode;
-  context.pushOp(
-      OpCreateInstance.make(node.stringLibraryUri, node.stringClassName!));
-  context.pushOp(OpSetScopeParam.make("#this"));
+  var classNode = constant.classNode;
+  print("start compile instanceConstant ${classNode.getNamedName()}");
+  constant.fieldValues.forEach((key, value) {
+    print("fieldName:${key.asField.name}");
+    print("fieldValue:${value}");
+  });
 
-  return -1;
+  //这是一个外部类
+
+  if (!context.compileDeclarationIndexes
+      .containsKey(classNode.getNamedName())) {
+    return compileExternalInstanceConstant(context, constant);
+  }
+
+  var name = context.constantNamer.getName(constant);
+
+  if (name.params.containsKey("#location")) {
+    int location = name.params["#location"] as int;
+    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  }
+  int jumpOver = context.pushOp(OpJump.make(-1));
+  int location = context.callStart(name.text);
+  name.params["#location"] = location;
+  context.pushOp(OpCreateInstance.make(
+      classNode.stringLibraryUri, classNode.stringClassName!));
+  context.pushOp(OpSetScopeParam.make("#this"));
+  constant.fieldValues.forEach((reference, constant) {
+    var filed = reference.asField;
+    var filedName = filed.name.text;
+    compileConstant(context, constant);
+    context.pushOp(OpSetThisProperty.make(filedName));
+  });
+  context.pushOp(OpGetParam.make("#this"));
+  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.callEnd();
+  context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+}
+
+int compileExternalInstanceConstant(
+    MicroCompilerContext context, InstanceConstant constant) {
+  throw Exception(
+      "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
+}
+
+void getConstantConstructor(InstanceConstant constant) {
+  var classNode = constant.classNode;
+
+  List<Field> fileds = [];
+
+  for (var constructor in constant.classNode.constructors) {
+    if (!constructor.isConst) {
+      continue;
+    }
+    List<Field> initlized = [];
+    for (var initializer in constructor.initializers) {
+      if (initializer is FieldInitializer) {
+        if (constant.fieldValues.containsKey(initializer.field)) {
+          // initializer.value
+        }
+      } else if (initializer is SuperInitializer) {
+      } else if (initializer is RedirectingInitializer) {
+      } else if (initializer is LocalInitializer) {
+      } else if (initializer is AssertInitializer) {}
+    }
+  }
 }
 
 int compileStaticGet(MicroCompilerContext context, StaticGet node) {

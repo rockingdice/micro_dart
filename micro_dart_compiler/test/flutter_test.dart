@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'env.dart';
 import 'package:test/test.dart';
 
-import 'generate/micro_dart.g.dart';
+import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const bool astToJsonFlag = true;
 const bool printOp = true;
@@ -13,7 +13,7 @@ void main() {
   group('Flutter tests', () {
     test(':generate', () async {
       Uri mainSource =
-          ensureFolderPath(flutterExamplePath).resolve('lib/main.dart');
+          ensureFolderPath(flutterExamplePath).resolve('lib/widget.dart');
       var program = await compilePlugin(
           mainSource, [], "package:flutter_example/widget.dart", options);
       if (astToJsonFlag) {
@@ -23,11 +23,12 @@ void main() {
             path: "${testCasePath}flutter_example.txt");
       }
       var bytes = program.write().buffer.asByteData();
-      File("$flutterExamplePath/micro_dart.data")
+      File("${flutterExamplePath}assets//micro_dart.data")
           .writeAsBytesSync(bytes.buffer.asUint8List());
 
       var engine = createMicroDartEngine(ByteData.sublistView(
-          await File("$flutterExamplePath/micro_dart.data").readAsBytes()));
+          await File("${flutterExamplePath}assets/micro_dart.data")
+              .readAsBytes()));
 
       if (printOp) {
         engine.debug = true;

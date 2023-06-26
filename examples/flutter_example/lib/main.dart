@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'generated/micro_dart/micro_dart.dart';
 
-void main() {
-  //var engine = createMicroDartEngine(program.write().buffer.asByteData());
-  //runApp(engine.callStaticFunction(
-  //    "pacakge://flutter_example/widget.dart", "createMyApp", [], {}));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var data = await rootBundle.load('assets/micro_dart.data');
+  var engine = createMicroDartEngine(data);
+  engine.debug = true;
+  runApp(engine.callStaticFunction(
+      "package:flutter_example/widget.dart", "createMyApp", [], {}));
 }

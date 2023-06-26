@@ -37,6 +37,9 @@ class MicroCompilerContext {
   final Namer<LabeledStatement> labeledNamer =
       NormalNamer<LabeledStatement>('#l');
 
+  final Namer<InstanceConstant> constantNamer =
+      NormalNamer<InstanceConstant>('#c');
+
   MicroCompilerContext(this.component, this.debug);
 
   int lookupDeclarationIndex(String key, NamedNode node) {

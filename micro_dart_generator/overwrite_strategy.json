@@ -1,0 +1,69 @@
+{
+    "ingoreKeys":[
+        "dart:core@Record",
+        "package:flutter/src/widgets/routes.dart@FocusTrap",
+        "dart:html",
+        "dart:html_common",
+        "dart:indexed_db",
+        "dart:mirrors",
+        "dart:cli",
+        "dart:svg",
+        "dart:web_audio",
+        "dart:web_gl",
+        "dart:nativewrappers",
+        "dart:js"
+    ],
+    "libraryIngoreImports":{
+        "dart:ui": [
+            "dart:ffi", 
+            "dart:convert"
+        ],
+        "package:flutter/src/foundation/bitfield.dart": [
+            "package:flutter/src/foundation/_bitfield_io.dart"
+        ],
+        "package:flutter/src/foundation/isolates.dart": [
+            "package:flutter/src/foundation/_isolates_io.dart"
+        ],
+        "package:flutter/src/foundation/_isolates_io.dart": [
+            "package:flutter/src/foundation/isolates.dart"
+        ],
+        "package:flutter/src/painting/image_provider.dart": [
+            "package:flutter/src/painting/_network_image_io.dart"
+        ],
+        "package:flutter/src/painting/_network_image_io.dart": [
+            "package:flutter/src/painting/image_provider.dart"
+        ],
+        "package:flutter/src/foundation/_bitfield_io.dart": [
+            "package:flutter/src/foundation/bitfield.dart"
+        ],
+        "package:flutter/src/foundation/capabilities.dart": [
+            "package:flutter/src/foundation/_capabilities_io.dart"
+        ],
+        "package:flutter/src/foundation/platform.dart": [
+            "package:flutter/src/foundation/_platform_io.dart"
+        ],
+        "package:flutter/src/foundation/_platform_io.dart": [
+            "package:flutter/src/foundation/platform.dart"
+        ]
+    },
+    "libraryAddImports":{
+        "package:flutter/src/widgets/shared_app_data.dart": [
+            "package:flutter/widgets.dart"
+        ],
+        "package:flutter/src/widgets/spell_check.dart": [
+            "package:flutter/widgets.dart"
+        ],
+        "package:flutter/src/widgets/scroll_aware_image_provider.dart": [
+            "dart:ui"
+        ],
+        "package:flutter/src/material/autocomplete.dart": [
+            "dart:async"
+        ]
+    },
+    "defaultValueCodeOverwrites":{
+        "":""
+    },
+    "keyOverwrites":{
+        "dart:collection@LinkedList@":"(m.Scope scope)=><E extends LinkedListEntry<E>>(){\nreturn LinkedList<E>();\n}"
+    }
+}

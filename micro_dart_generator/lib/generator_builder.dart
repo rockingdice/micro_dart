@@ -9,8 +9,10 @@ import 'dart:io';
 import 'package:build/build.dart';
 import 'package:build_config/build_config.dart';
 import 'package:build_runner_core/build_runner_core.dart';
+import 'package:path/path.dart';
 
 import 'generator.dart';
+import 'overwrite_strategy.dart';
 
 class GeneratorBuilder implements Builder {
   BuilderOptions builderOptions;
@@ -19,17 +21,25 @@ class GeneratorBuilder implements Builder {
 
   GeneratorBuilder(this.builderOptions);
 
-  static const String generatePath = "lib/generated/micro_dart";
+  static const String generatePath = "lib/generated";
+
+  static const String overwriteStrategyPath = "overwrite_strategy.json";
 
   @override
   Future<void> build(BuildStep buildStep) async {
     var generateDirectory = Directory(generatePath);
+
+    var gFile = Directory(overwriteStrategyPath);
+    print(absolute(gFile.absolute.path));
     if (!generateDirectory.existsSync()) {
       generateDirectory.createSync(recursive: true);
     }
     generateDirectory.listSync().forEach((element) {
       element.deleteSync(recursive: true);
     });
+
+    var overwriteStrategy =
+        OverwriteStrategy.fromFile(File(gFile.absolute.path));
 
     var resolver = buildStep.resolver;
     var inputId = buildStep.inputId;
@@ -41,9 +51,10 @@ class GeneratorBuilder implements Builder {
           element.identifier.startsWith("package:_")) {
         continue;
       }
-      var generator = Generator(namedSystem);
+
+      var generator = Generator(namedSystem, overwriteStrategy);
       generator.visitLibraryElement(element);
-      File("$generatePath/${namedSystem.getLibraryName(element.identifier)}.g.dart")
+      File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}.g.dart")
           .writeAsStringSync(generator.generate().toString());
     }
     await buildStep.writeAsString(
@@ -53,7 +64,7 @@ class GeneratorBuilder implements Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => const {
-        'lib/main.dart': ['$generatePath/micro_dart.dart'],
+        'lib/micro_dart_flutter.dart': ['$generatePath/micro_dart.dart'],
       };
 }
 

@@ -3,6 +3,8 @@ import 'package:analyzer/dart/element/type.dart';
 
 import 'package:micro_dart_generator/extenation.dart';
 
+import 'overwrite_strategy.dart';
+
 const Map<String, String> unaryOperatorList = {
   "unary-": "-",
   "unary+": "++",
@@ -48,56 +50,6 @@ class NormalNamer<T> extends Namer<T> {
   NormalNamer(this.prefix);
 }
 
-const List<String> ingoreKeys = [
-  "dart:core@Record",
-  "package:flutter/src/widgets/routes.dart@FocusTrap",
-  "dart:html",
-  "dart:html_common",
-  "dart:indexed_db",
-  "dart:mirrors",
-  "dart:cli",
-  "dart:svg",
-  "dart:web_audio",
-  "dart:web_gl",
-  "dart:nativewrappers"
-];
-
-const Map<String, List<String>> libraryIngoreImports = {
-  "dart:ui": ["dart:ffi", "dart:convert"],
-  "package:flutter/src/foundation/bitfield.dart": [
-    "package:flutter/src/foundation/_bitfield_io.dart"
-  ],
-  "package:flutter/src/foundation/isolates.dart": [
-    "package:flutter/src/foundation/_isolates_io.dart"
-  ],
-  "package:flutter/src/foundation/_isolates_io.dart": [
-    "package:flutter/src/foundation/isolates.dart"
-  ],
-  "package:flutter/src/painting/image_provider.dart": [
-    "package:flutter/src/painting/_network_image_io.dart"
-  ],
-  "package:flutter/src/painting/_network_image_io.dart": [
-    "package:flutter/src/painting/image_provider.dart"
-  ],
-  "package:flutter/src/foundation/_bitfield_io.dart": [
-    "package:flutter/src/foundation/bitfield.dart"
-  ],
-  "package:flutter/src/foundation/capabilities.dart": [
-    "package:flutter/src/foundation/_capabilities_io.dart"
-  ]
-};
-
-const Map<String, List<String>> libraryAddImports = {
-  "package:flutter/src/widgets/shared_app_data.dart": [
-    "package:flutter/widgets.dart"
-  ],
-  "package:flutter/src/widgets/spell_check.dart": [
-    "package:flutter/widgets.dart"
-  ],
-  "package:flutter/src/widgets/scroll_aware_image_provider.dart": ["dart:ui"],
-  "package:flutter/src/material/autocomplete.dart": ["dart:async"]
-};
-
 class NamedSystem {
   final Namer<String> _libraries = NormalNamer<String>('l');
 
@@ -106,7 +58,8 @@ class NamedSystem {
   String generate() {
     StringBuffer buffer = StringBuffer();
     _libraries.map.forEach((key, value) {
-      buffer.write("import '$value.g.dart' as $value;\n");
+      buffer
+          .write("import '${getLibraryNameFileName(key)}.g.dart' as $value;\n");
     });
 
     buffer.write(
@@ -130,6 +83,21 @@ return engine;
     return name;
   }
 
+  String getLibraryNameFileName(String identifier) {
+    var s = identifier.split(":");
+    var s2 = s[1].split("/");
+    List<String> s3 = ["_"];
+
+    s3.add(s[0]);
+    s3.addAll(s2);
+
+    var r = s3.join("_");
+    if (!r.endsWith(".dart")) {
+      r = "$r.dart";
+    }
+    return r;
+  }
+
   bool isCoreLibrary(String identifier) {
     return identifier == "dart:core";
   }
@@ -140,98 +108,13 @@ return engine;
 }
 
 class AbsVisitor extends ElementVisitor<void> {
-  @override
-  void visitAugmentationImportElement(AugmentationImportElement element) {}
-
-  @override
-  void visitClassElement(ClassElement element) {}
-
-  @override
-  void visitCompilationUnitElement(CompilationUnitElement element) {
-    element.visitChildren(this);
-  }
-
-  @override
-  void visitConstructorElement(ConstructorElement element) {}
-
-  @override
-  void visitEnumElement(EnumElement element) {}
-
-  @override
-  void visitExtensionElement(ExtensionElement element) {}
-
-  @override
-  void visitFieldElement(FieldElement element) {}
-
-  @override
-  void visitFieldFormalParameterElement(FieldFormalParameterElement element) {}
-
-  @override
-  void visitFunctionElement(FunctionElement element) {}
-
-  @override
-  void visitGenericFunctionTypeElement(GenericFunctionTypeElement element) {}
-
-  @override
-  void visitLabelElement(LabelElement element) {}
-
-  @override
-  void visitLibraryAugmentationElement(LibraryAugmentationElement element) {}
-
-  @override
-  void visitLibraryElement(LibraryElement element) {}
-
-  @override
-  void visitLibraryExportElement(LibraryExportElement element) {}
-
-  @override
-  void visitLibraryImportElement(LibraryImportElement element) {}
-
-  @override
-  void visitLocalVariableElement(LocalVariableElement element) {}
-
-  @override
-  void visitMethodElement(MethodElement element) {}
-
-  @override
-  void visitMixinElement(MixinElement element) {}
-
-  @override
-  void visitMultiplyDefinedElement(MultiplyDefinedElement element) {}
-
-  @override
-  void visitParameterElement(ParameterElement element) {}
-
-  @override
-  void visitPartElement(PartElement element) {}
-
-  @override
-  void visitPrefixElement(PrefixElement element) {}
-
-  @override
-  void visitPropertyAccessorElement(PropertyAccessorElement element) {}
-
-  @override
-  void visitSuperFormalParameterElement(SuperFormalParameterElement element) {}
-
-  @override
-  void visitTopLevelVariableElement(TopLevelVariableElement element) {}
-
-  @override
-  void visitTypeAliasElement(TypeAliasElement element) {}
-
-  @override
-  void visitTypeParameterElement(TypeParameterElement element) {}
-}
-
-class Generator extends AbsVisitor {
   final StringBuffer sink = StringBuffer();
-
+  final OverwriteStrategy overwriteStrategy;
   final NamedSystem namedSystem;
 
   final Set<String> importList = {};
 
-  Generator(this.namedSystem);
+  AbsVisitor(this.namedSystem, this.overwriteStrategy);
 
   StringBuffer generate() {
     StringBuffer buffer = StringBuffer();
@@ -249,18 +132,49 @@ ${sink.toString()}
     return buffer;
   }
 
+  void write(String string) {
+    sink.write(string);
+  }
+
+  void endLine([String? string]) {
+    if (string != null) {
+      write(string);
+    }
+    write('\n');
+  }
+
+  void writeSpace([String string = ' ']) {
+    write(string);
+  }
+
+  void writeWord(String string) {
+    if (string.isEmpty) return;
+    write(string);
+    writeSpace();
+  }
+
+  void writeComma([String string = ',']) {
+    write(string);
+    writeSpace();
+  }
+
+  void writeKey(String key) {
+    writeWord("'$key':");
+  }
+
   @override
   void visitLibraryElement(LibraryElement element) {
     if (element.name.startsWith("_")) {
       return;
     }
-    if (ingoreKeys.contains(element.identifier)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.identifier)) {
       return;
     }
+    namedSystem.getLibraryName(element.identifier);
     if (!namedSystem.isCoreLibrary(element.identifier)) {
       importList.add("import '${element.identifier}';\n");
     }
-    libraryAddImports[element.identifier]?.forEach((element) {
+    overwriteStrategy.libraryAddImports[element.identifier]?.forEach((element) {
       importList.add("import '$element';\n");
     });
     element.visitChildren(this);
@@ -276,7 +190,7 @@ ${sink.toString()}
       return;
     }
 
-    if (libraryIngoreImports[element.library.identifier]
+    if (overwriteStrategy.libraryIngoreImports[element.library.identifier]
             ?.contains(element.importedLibrary!.identifier) ??
         false) {
       return;
@@ -321,6 +235,87 @@ ${sink.toString()}
   }
 
   @override
+  void visitAugmentationImportElement(AugmentationImportElement element) {}
+
+  @override
+  void visitClassElement(ClassElement element) {}
+
+  @override
+  void visitCompilationUnitElement(CompilationUnitElement element) {
+    element.visitChildren(this);
+  }
+
+  @override
+  void visitConstructorElement(ConstructorElement element) {}
+
+  @override
+  void visitEnumElement(EnumElement element) {}
+
+  @override
+  void visitExtensionElement(ExtensionElement element) {}
+
+  @override
+  void visitFieldElement(FieldElement element) {}
+
+  @override
+  void visitFieldFormalParameterElement(FieldFormalParameterElement element) {}
+
+  @override
+  void visitFunctionElement(FunctionElement element) {}
+
+  @override
+  void visitGenericFunctionTypeElement(GenericFunctionTypeElement element) {}
+
+  @override
+  void visitLabelElement(LabelElement element) {}
+
+  @override
+  void visitLibraryAugmentationElement(LibraryAugmentationElement element) {}
+
+  @override
+  void visitLibraryExportElement(LibraryExportElement element) {}
+
+  @override
+  void visitLocalVariableElement(LocalVariableElement element) {}
+
+  @override
+  void visitMethodElement(MethodElement element) {}
+
+  @override
+  void visitMixinElement(MixinElement element) {}
+
+  @override
+  void visitMultiplyDefinedElement(MultiplyDefinedElement element) {}
+
+  @override
+  void visitParameterElement(ParameterElement element) {}
+
+  @override
+  void visitPartElement(PartElement element) {}
+
+  @override
+  void visitPrefixElement(PrefixElement element) {}
+
+  @override
+  void visitPropertyAccessorElement(PropertyAccessorElement element) {}
+
+  @override
+  void visitSuperFormalParameterElement(SuperFormalParameterElement element) {}
+
+  @override
+  void visitTopLevelVariableElement(TopLevelVariableElement element) {}
+
+  @override
+  void visitTypeAliasElement(TypeAliasElement element) {}
+
+  @override
+  void visitTypeParameterElement(TypeParameterElement element) {}
+}
+
+class Generator extends AbsVisitor {
+  Generator(super.namedSystem, super.overwriteStrategy);
+
+  @override
   void visitClassElement(ClassElement element) {
     if (element.name.startsWith("_")) {
       return;
@@ -329,7 +324,7 @@ ${sink.toString()}
       return;
     }
 
-    if (ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
 
@@ -347,10 +342,15 @@ ${sink.toString()}
     if (element.hasDeprecated) {
       return;
     }
-    if (ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts();
     write("=>");
     if (!hasFunctionTypeParams(element.type)) {
@@ -374,12 +374,17 @@ ${sink.toString()}
     if (element.hasDeprecated) {
       return;
     }
-    if (ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
     var clazz = (element.enclosingElement as ClassElement);
     var name = element.name;
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts(hasTarget: !element.isStatic, targetName: clazz.name);
     write("=>");
 
@@ -650,6 +655,28 @@ ${sink.toString()}
     }
   }
 
+  String? getDefaultValueCode(ParameterElement element) {
+    var parentElement = element.enclosingElement;
+    String? key;
+    if (parentElement is ConstructorElement ||
+        parentElement is MethodElement ||
+        parentElement is FunctionElement) {
+      key = parentElement?.key;
+    }
+
+    if (key != null && element.defaultValueCode != null) {
+      Map? map = overwriteStrategy.defaultValueCodeOverwrites[key];
+      if (map != null && map.containsKey(element.defaultValueCode)) {
+        return map[element.defaultValueCode];
+      } else if (element.defaultValueCode?.startsWith("const Border(") ??
+          false) {
+        print(element.defaultValueCode);
+      }
+    }
+
+    return element.defaultValueCode;
+  }
+
   void writeParameterElementDetail(String paramName, ParameterElement element) {
     var type = element.type;
     if (type is InterfaceType || type is TypeParameterType) {
@@ -659,14 +686,15 @@ ${sink.toString()}
       } else if (element.hasDefaultValue) {
         writeSpace();
         writeWord("??");
-        write(element.defaultValueCode!);
+        write(getDefaultValueCode(element)!);
       }
     } else if (type is FunctionType) {
       var paramName2 = paramName;
       paramName = "${paramName}Proxy";
 
       if (element.isOptional && !element.isOptionalPositional) {
-        write("$paramName2 == null ? ${element.defaultValueCode ?? "null"} :");
+        write(
+            "$paramName2 == null ? ${getDefaultValueCode(element) ?? "null"} :");
       }
       write(paramName);
     } else if (type is VoidType) {
@@ -1166,7 +1194,7 @@ ${sink.toString()}
     if (element.hasDeprecated) {
       return;
     }
-    if (ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
     if (element.isStatic) {
@@ -1184,7 +1212,7 @@ ${sink.toString()}
     if (element.hasDeprecated) {
       return;
     }
-    if (ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
     var clazz = (element.enclosingElement as ClassElement);
@@ -1192,6 +1220,11 @@ ${sink.toString()}
       return;
     }
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts();
     write("=>");
     if (!hasFunctionTypeParams(element.type)) {
@@ -1233,6 +1266,11 @@ ${sink.toString()}
 
   void writeStaticPropertyGetter(PropertyAccessorElement element) {
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts();
     write("=>");
     var className = "";
@@ -1251,6 +1289,11 @@ ${sink.toString()}
   void writeStaticPropertySetter(PropertyAccessorElement element) {
     var name = element.displayName;
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts();
     write("=>");
     writeOtherArgemnts();
@@ -1267,6 +1310,11 @@ ${sink.toString()}
 
   void writeClassPropertyGetter(PropertyAccessorElement element) {
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     var className = "";
     if (element.enclosingElement is ClassElement) {
       className = (element.enclosingElement as ClassElement).displayName;
@@ -1280,6 +1328,11 @@ ${sink.toString()}
 
   void writeClassPropertySetter(PropertyAccessorElement element) {
     writeKey(element.key!);
+    if (overwriteStrategy.keyOverwrites.containsKey(element.key)) {
+      write(overwriteStrategy.keyOverwrites[element.key]!);
+      endLine(",");
+      return;
+    }
     var className = "";
     if (element.enclosingElement is ClassElement) {
       className = (element.enclosingElement as ClassElement).displayName;
@@ -1309,6 +1362,11 @@ ${sink.toString()}
       String parentKey, String className, String keyeword) {
     String key = "$parentKey@#$keyeword";
     writeKey(key);
+    if (overwriteStrategy.keyOverwrites.containsKey(key)) {
+      write(overwriteStrategy.keyOverwrites[key]!);
+      endLine(",");
+      return;
+    }
     writeScopeArgemnts(hasTarget: true);
     write("=>()=>");
     writeWord("target");
