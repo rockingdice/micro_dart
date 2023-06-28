@@ -6,7 +6,9 @@ return {
 'dart:collection@UnmodifiableListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableListView,
 'dart:collection@UnmodifiableListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableListView,
 'dart:collection@UnmodifiableListView@length': (m.Scope scope, UnmodifiableListView target)=>target.length,
-'dart:collection@UnmodifiableListView@': (m.Scope scope)=>UnmodifiableListView,
+'dart:collection@UnmodifiableListView@': (m.Scope scope)=><E>( source){
+return UnmodifiableListView(source);
+},
 'dart:collection@UnmodifiableListView@cast': (m.Scope scope, UnmodifiableListView target)=>target.cast,
 'dart:collection@UnmodifiableListView@[]': (m.Scope scope, UnmodifiableListView target)=>(index)=> target[index],
 'dart:collection@HashMap@#as': (m.Scope scope, target)=>()=>target as HashMap,
@@ -66,7 +68,9 @@ return HashSet(equals:equals == null ? null :equalsProxy, hashCode:hashCode == n
 'dart:collection@HasNextIterator@#as': (m.Scope scope, target)=>()=>target as HasNextIterator,
 'dart:collection@HasNextIterator@#is': (m.Scope scope, target)=>()=>target is HasNextIterator,
 'dart:collection@HasNextIterator@hasNext': (m.Scope scope, HasNextIterator target)=>target.hasNext,
-'dart:collection@HasNextIterator@': (m.Scope scope)=>HasNextIterator,
+'dart:collection@HasNextIterator@': (m.Scope scope)=><E>( iterator){
+return HasNextIterator(iterator);
+},
 'dart:collection@HasNextIterator@next': (m.Scope scope, HasNextIterator target)=>target.next,
 'dart:collection@LinkedHashMap@#as': (m.Scope scope, target)=>()=>target as LinkedHashMap,
 'dart:collection@LinkedHashMap@#is': (m.Scope scope, target)=>()=>target is LinkedHashMap,
@@ -137,9 +141,7 @@ target.forEach(actionProxy);
 'dart:collection@LinkedList@last': (m.Scope scope, LinkedList target)=>target.last,
 'dart:collection@LinkedList@single': (m.Scope scope, LinkedList target)=>target.single,
 'dart:collection@LinkedList@isEmpty': (m.Scope scope, LinkedList target)=>target.isEmpty,
-'dart:collection@LinkedList@': (m.Scope scope)=><E extends LinkedListEntry<E>>(){
-return LinkedList<E>();
-},
+'dart:collection@LinkedList@': (m.Scope scope)=><E extends LinkedListEntry<E>>(){return LinkedList<E>();},
 'dart:collection@LinkedList@addFirst': (m.Scope scope, LinkedList target)=>target.addFirst,
 'dart:collection@LinkedList@add': (m.Scope scope, LinkedList target)=>target.add,
 'dart:collection@LinkedList@addAll': (m.Scope scope, LinkedList target)=>target.addAll,
@@ -428,7 +430,9 @@ target.removeWhere(testProxy);
 'dart:collection@MapView@keys': (m.Scope scope, MapView target)=>target.keys,
 'dart:collection@MapView@values': (m.Scope scope, MapView target)=>target.values,
 'dart:collection@MapView@entries': (m.Scope scope, MapView target)=>target.entries,
-'dart:collection@MapView@': (m.Scope scope)=>MapView,
+'dart:collection@MapView@': (m.Scope scope)=><K, V>( map){
+return MapView(map);
+},
 'dart:collection@MapView@cast': (m.Scope scope, MapView target)=>target.cast,
 'dart:collection@MapView@[]': (m.Scope scope, MapView target)=>(index)=> target[index],
 'dart:collection@MapView@[]=': (m.Scope scope, MapView target)=>(index,other)=> target[index] = other,
@@ -487,7 +491,9 @@ target.removeWhere(testProxy);
 },
 'dart:collection@UnmodifiableMapView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableMapView,
 'dart:collection@UnmodifiableMapView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableMapView,
-'dart:collection@UnmodifiableMapView@': (m.Scope scope)=>UnmodifiableMapView,
+'dart:collection@UnmodifiableMapView@': (m.Scope scope)=><K, V>( map){
+return UnmodifiableMapView(map);
+},
 'dart:collection@UnmodifiableMapView@cast': (m.Scope scope, UnmodifiableMapView target)=>target.cast,
 'dart:collection@Queue@#as': (m.Scope scope, target)=>()=>target as Queue,
 'dart:collection@Queue@#is': (m.Scope scope, target)=>()=>target is Queue,
@@ -768,7 +774,9 @@ return target.singleWhere(testProxy, orElse:orElse == null ? null :orElseProxy);
 'dart:collection@UnmodifiableSetView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableSetView,
 'dart:collection@UnmodifiableSetView@length': (m.Scope scope, UnmodifiableSetView target)=>target.length,
 'dart:collection@UnmodifiableSetView@iterator': (m.Scope scope, UnmodifiableSetView target)=>target.iterator,
-'dart:collection@UnmodifiableSetView@': (m.Scope scope)=>UnmodifiableSetView,
+'dart:collection@UnmodifiableSetView@': (m.Scope scope)=><E>( source){
+return UnmodifiableSetView(source);
+},
 'dart:collection@UnmodifiableSetView@contains': (m.Scope scope, UnmodifiableSetView target)=>target.contains,
 'dart:collection@UnmodifiableSetView@lookup': (m.Scope scope, UnmodifiableSetView target)=>target.lookup,
 'dart:collection@UnmodifiableSetView@toSet': (m.Scope scope, UnmodifiableSetView target)=>target.toSet,

@@ -19,7 +19,7 @@ class OpGetObjectPropertyAsync extends OpGetObjectProperty {
       return scope.engine
           .callPointerAsync(scope, _name, false, false, _location);
     } else {
-      scope.pushFrame(instance.getParam(_name));
+      scope.pushFrame(instance.getParam(scope, _name));
     }
   }
 
@@ -52,7 +52,7 @@ class OpGetObjectProperty implements Op {
       scope.setScopeParam("#this", instance);
       scope.engine.callPointer(scope, _name, false, _location);
     } else {
-      scope.pushFrame(instance.getParam(_name));
+      scope.pushFrame(instance.getParam(scope, _name));
     }
   }
 

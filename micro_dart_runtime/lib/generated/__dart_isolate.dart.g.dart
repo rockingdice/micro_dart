@@ -7,7 +7,9 @@ return {
 'dart:isolate@IsolateSpawnException@#as': (m.Scope scope, target)=>()=>target as IsolateSpawnException,
 'dart:isolate@IsolateSpawnException@#is': (m.Scope scope, target)=>()=>target is IsolateSpawnException,
 'dart:isolate@IsolateSpawnException@message': (m.Scope scope, IsolateSpawnException target)=>target.message,
-'dart:isolate@IsolateSpawnException@': (m.Scope scope)=>IsolateSpawnException,
+'dart:isolate@IsolateSpawnException@': (m.Scope scope)=>( message){
+return IsolateSpawnException(message);
+},
 'dart:isolate@IsolateSpawnException@toString': (m.Scope scope, IsolateSpawnException target)=>target.toString,
 'dart:isolate@Isolate@#as': (m.Scope scope, target)=>()=>target as Isolate,
 'dart:isolate@Isolate@#is': (m.Scope scope, target)=>()=>target is Isolate,
@@ -20,7 +22,9 @@ return {
 'dart:isolate@Isolate@current': (m.Scope scope)=>Isolate.current,
 'dart:isolate@Isolate@packageConfig': (m.Scope scope)=>Isolate.packageConfig,
 'dart:isolate@Isolate@errors': (m.Scope scope, Isolate target)=>target.errors,
-'dart:isolate@Isolate@': (m.Scope scope)=>Isolate,
+'dart:isolate@Isolate@': (m.Scope scope)=>( controlPort, { pauseCapability,  terminateCapability}){
+return Isolate(controlPort, pauseCapability:pauseCapability, terminateCapability:terminateCapability);
+},
 'dart:isolate@Isolate@run': (m.Scope scope)=>( computation, { debugName}){
 FutureOr<R> computationProxy<R>() async{
 return await engine.callFunctionPointerAsync(scope, computation!,[], {});
@@ -91,7 +95,9 @@ return RawReceivePort(handler!, debugName!);
 'dart:isolate@RemoteError@#as': (m.Scope scope, target)=>()=>target as RemoteError,
 'dart:isolate@RemoteError@#is': (m.Scope scope, target)=>()=>target is RemoteError,
 'dart:isolate@RemoteError@stackTrace': (m.Scope scope, RemoteError target)=>target.stackTrace,
-'dart:isolate@RemoteError@': (m.Scope scope)=>RemoteError,
+'dart:isolate@RemoteError@': (m.Scope scope)=>( description,  stackDescription){
+return RemoteError(description, stackDescription);
+},
 'dart:isolate@RemoteError@toString': (m.Scope scope, RemoteError target)=>target.toString,
 'dart:isolate@TransferableTypedData@#as': (m.Scope scope, target)=>()=>target as TransferableTypedData,
 'dart:isolate@TransferableTypedData@#is': (m.Scope scope, target)=>()=>target is TransferableTypedData,

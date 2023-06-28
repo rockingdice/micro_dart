@@ -111,7 +111,9 @@ return ZLibDecoder(dictionary:dictionary, raw:raw ?? false, windowBits:windowBit
 'dart:io@Directory@current:set': (m.Scope scope)=>(other)=>Directory.current=other,
 'dart:io@Directory@systemTemp': (m.Scope scope)=>Directory.systemTemp,
 'dart:io@Directory@absolute': (m.Scope scope, Directory target)=>target.absolute,
-'dart:io@Directory@': (m.Scope scope)=>Directory,
+'dart:io@Directory@': (m.Scope scope)=>( path){
+return Directory(path);
+},
 'dart:io@Directory@fromRawPath': (m.Scope scope)=>Directory.fromRawPath,
 'dart:io@Directory@fromUri': (m.Scope scope)=>Directory.fromUri,
 'dart:io@Directory@create': (m.Scope scope, Directory target)=>target.create,
@@ -142,7 +144,9 @@ return ZLibDecoder(dictionary:dictionary, raw:raw ?? false, windowBits:windowBit
 'dart:io@File@#is': (m.Scope scope, target)=>()=>target is File,
 'dart:io@File@absolute': (m.Scope scope, File target)=>target.absolute,
 'dart:io@File@path': (m.Scope scope, File target)=>target.path,
-'dart:io@File@': (m.Scope scope)=>File,
+'dart:io@File@': (m.Scope scope)=>( path){
+return File(path);
+},
 'dart:io@File@fromUri': (m.Scope scope)=>File.fromUri,
 'dart:io@File@fromRawPath': (m.Scope scope)=>File.fromRawPath,
 'dart:io@File@create': (m.Scope scope, File target)=>target.create,
@@ -227,15 +231,30 @@ return FileSystemException(message!, path!, osError!);
 'dart:io@FileSystemException@toString': (m.Scope scope, FileSystemException target)=>target.toString,
 'dart:io@PathAccessException@#as': (m.Scope scope, target)=>()=>target as PathAccessException,
 'dart:io@PathAccessException@#is': (m.Scope scope, target)=>()=>target is PathAccessException,
-'dart:io@PathAccessException@': (m.Scope scope)=>PathAccessException,
+'dart:io@PathAccessException@': (m.Scope scope)=>( path,  osError, [String? message]){
+if(message == null){
+return PathAccessException(path, osError);
+}
+return PathAccessException(path, osError, message!);
+},
 'dart:io@PathAccessException@toString': (m.Scope scope, PathAccessException target)=>target.toString,
 'dart:io@PathExistsException@#as': (m.Scope scope, target)=>()=>target as PathExistsException,
 'dart:io@PathExistsException@#is': (m.Scope scope, target)=>()=>target is PathExistsException,
-'dart:io@PathExistsException@': (m.Scope scope)=>PathExistsException,
+'dart:io@PathExistsException@': (m.Scope scope)=>( path,  osError, [String? message]){
+if(message == null){
+return PathExistsException(path, osError);
+}
+return PathExistsException(path, osError, message!);
+},
 'dart:io@PathExistsException@toString': (m.Scope scope, PathExistsException target)=>target.toString,
 'dart:io@PathNotFoundException@#as': (m.Scope scope, target)=>()=>target as PathNotFoundException,
 'dart:io@PathNotFoundException@#is': (m.Scope scope, target)=>()=>target is PathNotFoundException,
-'dart:io@PathNotFoundException@': (m.Scope scope)=>PathNotFoundException,
+'dart:io@PathNotFoundException@': (m.Scope scope)=>( path,  osError, [String? message]){
+if(message == null){
+return PathNotFoundException(path, osError);
+}
+return PathNotFoundException(path, osError, message!);
+},
 'dart:io@PathNotFoundException@toString': (m.Scope scope, PathNotFoundException target)=>target.toString,
 'dart:io@ReadPipe@#as': (m.Scope scope, target)=>()=>target as ReadPipe,
 'dart:io@ReadPipe@#is': (m.Scope scope, target)=>()=>target is ReadPipe,
@@ -311,28 +330,38 @@ return FileSystemException(message!, path!, osError!);
 'dart:io@FileSystemEvent@isDirectory': (m.Scope scope, FileSystemEvent target)=>target.isDirectory,
 'dart:io@FileSystemCreateEvent@#as': (m.Scope scope, target)=>()=>target as FileSystemCreateEvent,
 'dart:io@FileSystemCreateEvent@#is': (m.Scope scope, target)=>()=>target is FileSystemCreateEvent,
-'dart:io@FileSystemCreateEvent@': (m.Scope scope)=>FileSystemCreateEvent,
+'dart:io@FileSystemCreateEvent@': (m.Scope scope)=>( path,  isDirectory){
+return FileSystemCreateEvent(path, isDirectory);
+},
 'dart:io@FileSystemCreateEvent@toString': (m.Scope scope, FileSystemCreateEvent target)=>target.toString,
 'dart:io@FileSystemModifyEvent@#as': (m.Scope scope, target)=>()=>target as FileSystemModifyEvent,
 'dart:io@FileSystemModifyEvent@#is': (m.Scope scope, target)=>()=>target is FileSystemModifyEvent,
 'dart:io@FileSystemModifyEvent@contentChanged': (m.Scope scope, FileSystemModifyEvent target)=>target.contentChanged,
-'dart:io@FileSystemModifyEvent@': (m.Scope scope)=>FileSystemModifyEvent,
+'dart:io@FileSystemModifyEvent@': (m.Scope scope)=>( path,  isDirectory,  contentChanged){
+return FileSystemModifyEvent(path, isDirectory, contentChanged);
+},
 'dart:io@FileSystemModifyEvent@toString': (m.Scope scope, FileSystemModifyEvent target)=>target.toString,
 'dart:io@FileSystemDeleteEvent@#as': (m.Scope scope, target)=>()=>target as FileSystemDeleteEvent,
 'dart:io@FileSystemDeleteEvent@#is': (m.Scope scope, target)=>()=>target is FileSystemDeleteEvent,
-'dart:io@FileSystemDeleteEvent@': (m.Scope scope)=>FileSystemDeleteEvent,
+'dart:io@FileSystemDeleteEvent@': (m.Scope scope)=>( path,  isDirectory){
+return FileSystemDeleteEvent(path, isDirectory);
+},
 'dart:io@FileSystemDeleteEvent@toString': (m.Scope scope, FileSystemDeleteEvent target)=>target.toString,
 'dart:io@FileSystemMoveEvent@#as': (m.Scope scope, target)=>()=>target as FileSystemMoveEvent,
 'dart:io@FileSystemMoveEvent@#is': (m.Scope scope, target)=>()=>target is FileSystemMoveEvent,
 'dart:io@FileSystemMoveEvent@destination': (m.Scope scope, FileSystemMoveEvent target)=>target.destination,
-'dart:io@FileSystemMoveEvent@': (m.Scope scope)=>FileSystemMoveEvent,
+'dart:io@FileSystemMoveEvent@': (m.Scope scope)=>( path,  isDirectory,  destination){
+return FileSystemMoveEvent(path, isDirectory, destination);
+},
 'dart:io@FileSystemMoveEvent@toString': (m.Scope scope, FileSystemMoveEvent target)=>target.toString,
 'dart:io@IOSink@#as': (m.Scope scope, target)=>()=>target as IOSink,
 'dart:io@IOSink@#is': (m.Scope scope, target)=>()=>target is IOSink,
 'dart:io@IOSink@encoding': (m.Scope scope, IOSink target)=>target.encoding,
 'dart:io@IOSink@encoding:set': (m.Scope scope, IOSink target)=>(other)=>target.encoding=other,
 'dart:io@IOSink@done': (m.Scope scope, IOSink target)=>target.done,
-'dart:io@IOSink@': (m.Scope scope)=>IOSink,
+'dart:io@IOSink@': (m.Scope scope)=>( target, { encoding}){
+return IOSink(target, encoding:encoding ?? utf8);
+},
 'dart:io@IOSink@add': (m.Scope scope, IOSink target)=>target.add,
 'dart:io@IOSink@write': (m.Scope scope, IOSink target)=>target.write,
 'dart:io@IOSink@writeAll': (m.Scope scope, IOSink target)=>target.writeAll,
@@ -345,7 +374,9 @@ return FileSystemException(message!, path!, osError!);
 'dart:io@Link@#as': (m.Scope scope, target)=>()=>target as Link,
 'dart:io@Link@#is': (m.Scope scope, target)=>()=>target is Link,
 'dart:io@Link@absolute': (m.Scope scope, Link target)=>target.absolute,
-'dart:io@Link@': (m.Scope scope)=>Link,
+'dart:io@Link@': (m.Scope scope)=>( path){
+return Link(path);
+},
 'dart:io@Link@fromRawPath': (m.Scope scope)=>Link.fromRawPath,
 'dart:io@Link@fromUri': (m.Scope scope)=>Link.fromUri,
 'dart:io@Link@create': (m.Scope scope, Link target)=>target.create,
@@ -533,7 +564,9 @@ return Platform();
 'dart:io@ProcessResult@stdout': (m.Scope scope, ProcessResult target)=>target.stdout,
 'dart:io@ProcessResult@stderr': (m.Scope scope, ProcessResult target)=>target.stderr,
 'dart:io@ProcessResult@pid': (m.Scope scope, ProcessResult target)=>target.pid,
-'dart:io@ProcessResult@': (m.Scope scope)=>ProcessResult,
+'dart:io@ProcessResult@': (m.Scope scope)=>( pid,  exitCode,  stdout,  stderr){
+return ProcessResult(pid, exitCode, stdout, stderr);
+},
 'dart:io@ProcessSignal@#as': (m.Scope scope, target)=>()=>target as ProcessSignal,
 'dart:io@ProcessSignal@#is': (m.Scope scope, target)=>()=>target is ProcessSignal,
 'dart:io@ProcessSignal@sighup': (m.Scope scope)=>ProcessSignal.sighup,
@@ -573,7 +606,12 @@ return Platform();
 'dart:io@SignalException@#is': (m.Scope scope, target)=>()=>target is SignalException,
 'dart:io@SignalException@message': (m.Scope scope, SignalException target)=>target.message,
 'dart:io@SignalException@osError': (m.Scope scope, SignalException target)=>target.osError,
-'dart:io@SignalException@': (m.Scope scope)=>SignalException,
+'dart:io@SignalException@': (m.Scope scope)=>( message, [dynamic osError]){
+if(osError == null){
+return SignalException(message);
+}
+return SignalException(message, osError);
+},
 'dart:io@SignalException@toString': (m.Scope scope, SignalException target)=>target.toString,
 'dart:io@ProcessException@#as': (m.Scope scope, target)=>()=>target as ProcessException,
 'dart:io@ProcessException@#is': (m.Scope scope, target)=>()=>target is ProcessException,
@@ -581,7 +619,15 @@ return Platform();
 'dart:io@ProcessException@arguments': (m.Scope scope, ProcessException target)=>target.arguments,
 'dart:io@ProcessException@message': (m.Scope scope, ProcessException target)=>target.message,
 'dart:io@ProcessException@errorCode': (m.Scope scope, ProcessException target)=>target.errorCode,
-'dart:io@ProcessException@': (m.Scope scope)=>ProcessException,
+'dart:io@ProcessException@': (m.Scope scope)=>( executable,  arguments, [String? message, int? errorCode]){
+if(message == null && errorCode == null){
+return ProcessException(executable, arguments);
+}
+if(errorCode == null){
+return ProcessException(executable, arguments, message!);
+}
+return ProcessException(executable, arguments, message!, errorCode!);
+},
 'dart:io@ProcessException@toString': (m.Scope scope, ProcessException target)=>target.toString,
 'dart:io@@exit': (m.Scope scope)=>exit,
 'dart:io@@sleep': (m.Scope scope)=>sleep,
@@ -782,7 +828,9 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@InternetAddress@isLoopback': (m.Scope scope, InternetAddress target)=>target.isLoopback,
 'dart:io@InternetAddress@isLinkLocal': (m.Scope scope, InternetAddress target)=>target.isLinkLocal,
 'dart:io@InternetAddress@isMulticast': (m.Scope scope, InternetAddress target)=>target.isMulticast,
-'dart:io@InternetAddress@': (m.Scope scope)=>InternetAddress,
+'dart:io@InternetAddress@': (m.Scope scope)=>( address, { type}){
+return InternetAddress(address, type:type);
+},
 'dart:io@InternetAddress@fromRawAddress': (m.Scope scope)=>InternetAddress.fromRawAddress,
 'dart:io@InternetAddress@reverse': (m.Scope scope, InternetAddress target)=>target.reverse,
 'dart:io@InternetAddress@lookup': (m.Scope scope)=>InternetAddress.lookup,
@@ -825,7 +873,9 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@RawSocketOption@IPv6MulticastInterface': (m.Scope scope)=>RawSocketOption.IPv6MulticastInterface,
 'dart:io@RawSocketOption@levelTcp': (m.Scope scope)=>RawSocketOption.levelTcp,
 'dart:io@RawSocketOption@levelUdp': (m.Scope scope)=>RawSocketOption.levelUdp,
-'dart:io@RawSocketOption@': (m.Scope scope)=>RawSocketOption,
+'dart:io@RawSocketOption@': (m.Scope scope)=>( level,  option,  value){
+return RawSocketOption(level, option, value);
+},
 'dart:io@RawSocketOption@fromInt': (m.Scope scope)=>RawSocketOption.fromInt,
 'dart:io@RawSocketOption@fromBool': (m.Scope scope)=>RawSocketOption.fromBool,
 'dart:io@RawSocketEvent@#as': (m.Scope scope, target)=>()=>target as RawSocketEvent,
@@ -883,7 +933,9 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@Datagram@address:set': (m.Scope scope, Datagram target)=>(other)=>target.address=other,
 'dart:io@Datagram@port': (m.Scope scope, Datagram target)=>target.port,
 'dart:io@Datagram@port:set': (m.Scope scope, Datagram target)=>(other)=>target.port=other,
-'dart:io@Datagram@': (m.Scope scope)=>Datagram,
+'dart:io@Datagram@': (m.Scope scope)=>( data,  address,  port){
+return Datagram(data, address, port);
+},
 'dart:io@ResourceHandle@#as': (m.Scope scope, target)=>()=>target as ResourceHandle,
 'dart:io@ResourceHandle@#is': (m.Scope scope, target)=>()=>target is ResourceHandle,
 'dart:io@ResourceHandle@fromFile': (m.Scope scope)=>ResourceHandle.fromFile,
@@ -911,7 +963,9 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@SocketMessage@#is': (m.Scope scope, target)=>()=>target is SocketMessage,
 'dart:io@SocketMessage@data': (m.Scope scope, SocketMessage target)=>target.data,
 'dart:io@SocketMessage@controlMessages': (m.Scope scope, SocketMessage target)=>target.controlMessages,
-'dart:io@SocketMessage@': (m.Scope scope)=>SocketMessage,
+'dart:io@SocketMessage@': (m.Scope scope)=>( data,  controlMessages){
+return SocketMessage(data, controlMessages);
+},
 'dart:io@RawDatagramSocket@#as': (m.Scope scope, target)=>()=>target as RawDatagramSocket,
 'dart:io@RawDatagramSocket@#is': (m.Scope scope, target)=>()=>target is RawDatagramSocket,
 'dart:io@RawDatagramSocket@readEventsEnabled': (m.Scope scope, RawDatagramSocket target)=>target.readEventsEnabled,
@@ -942,7 +996,9 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@SocketException@osError': (m.Scope scope, SocketException target)=>target.osError,
 'dart:io@SocketException@address': (m.Scope scope, SocketException target)=>target.address,
 'dart:io@SocketException@port': (m.Scope scope, SocketException target)=>target.port,
-'dart:io@SocketException@': (m.Scope scope)=>SocketException,
+'dart:io@SocketException@': (m.Scope scope)=>( message, { address,  osError,  port}){
+return SocketException(message, address:address, osError:osError, port:port);
+},
 'dart:io@SocketException@closed': (m.Scope scope)=>SocketException.closed,
 'dart:io@SocketException@toString': (m.Scope scope, SocketException target)=>target.toString,
 'dart:io@@stdin': (m.Scope scope)=>stdin,
@@ -971,13 +1027,23 @@ return SecurityContext(withTrustedRoots:withTrustedRoots ?? false);
 'dart:io@StdoutException@#is': (m.Scope scope, target)=>()=>target is StdoutException,
 'dart:io@StdoutException@message': (m.Scope scope, StdoutException target)=>target.message,
 'dart:io@StdoutException@osError': (m.Scope scope, StdoutException target)=>target.osError,
-'dart:io@StdoutException@': (m.Scope scope)=>StdoutException,
+'dart:io@StdoutException@': (m.Scope scope)=>( message, [OSError? osError]){
+if(osError == null){
+return StdoutException(message);
+}
+return StdoutException(message, osError!);
+},
 'dart:io@StdoutException@toString': (m.Scope scope, StdoutException target)=>target.toString,
 'dart:io@StdinException@#as': (m.Scope scope, target)=>()=>target as StdinException,
 'dart:io@StdinException@#is': (m.Scope scope, target)=>()=>target is StdinException,
 'dart:io@StdinException@message': (m.Scope scope, StdinException target)=>target.message,
 'dart:io@StdinException@osError': (m.Scope scope, StdinException target)=>target.osError,
-'dart:io@StdinException@': (m.Scope scope)=>StdinException,
+'dart:io@StdinException@': (m.Scope scope)=>( message, [OSError? osError]){
+if(osError == null){
+return StdinException(message);
+}
+return StdinException(message, osError!);
+},
 'dart:io@StdinException@toString': (m.Scope scope, StdinException target)=>target.toString,
 'dart:io@StdioType@#as': (m.Scope scope, target)=>()=>target as StdioType,
 'dart:io@StdioType@#is': (m.Scope scope, target)=>()=>target is StdioType,

@@ -7,12 +7,16 @@ return {
 'dart:async@AsyncError@#is': (m.Scope scope, target)=>()=>target is AsyncError,
 'dart:async@AsyncError@error': (m.Scope scope, AsyncError target)=>target.error,
 'dart:async@AsyncError@stackTrace': (m.Scope scope, AsyncError target)=>target.stackTrace,
-'dart:async@AsyncError@': (m.Scope scope)=>AsyncError,
+'dart:async@AsyncError@': (m.Scope scope)=>( error,  stackTrace){
+return AsyncError(error, stackTrace);
+},
 'dart:async@AsyncError@defaultStackTrace': (m.Scope scope)=>AsyncError.defaultStackTrace,
 'dart:async@AsyncError@toString': (m.Scope scope, AsyncError target)=>target.toString,
 'dart:async@DeferredLoadException@#as': (m.Scope scope, target)=>()=>target as DeferredLoadException,
 'dart:async@DeferredLoadException@#is': (m.Scope scope, target)=>()=>target is DeferredLoadException,
-'dart:async@DeferredLoadException@': (m.Scope scope)=>DeferredLoadException,
+'dart:async@DeferredLoadException@': (m.Scope scope)=>( message){
+return DeferredLoadException(message);
+},
 'dart:async@DeferredLoadException@toString': (m.Scope scope, DeferredLoadException target)=>target.toString,
 'dart:async@FutureOr@#as': (m.Scope scope, target)=>()=>target as FutureOr,
 'dart:async@FutureOr@#is': (m.Scope scope, target)=>()=>target is FutureOr,
@@ -106,7 +110,12 @@ return target.timeout(timeLimit, onTimeout:onTimeout == null ? null :onTimeoutPr
 'dart:async@TimeoutException@#is': (m.Scope scope, target)=>()=>target is TimeoutException,
 'dart:async@TimeoutException@message': (m.Scope scope, TimeoutException target)=>target.message,
 'dart:async@TimeoutException@duration': (m.Scope scope, TimeoutException target)=>target.duration,
-'dart:async@TimeoutException@': (m.Scope scope)=>TimeoutException,
+'dart:async@TimeoutException@': (m.Scope scope)=>( message, [Duration? duration]){
+if(duration == null){
+return TimeoutException(message);
+}
+return TimeoutException(message, duration!);
+},
 'dart:async@TimeoutException@toString': (m.Scope scope, TimeoutException target)=>target.toString,
 'dart:async@Completer@#as': (m.Scope scope, target)=>()=>target as Completer,
 'dart:async@Completer@#is': (m.Scope scope, target)=>()=>target is Completer,
@@ -123,7 +132,9 @@ return Completer();
 'dart:async@ParallelWaitError@#is': (m.Scope scope, target)=>()=>target is ParallelWaitError,
 'dart:async@ParallelWaitError@values': (m.Scope scope, ParallelWaitError target)=>target.values,
 'dart:async@ParallelWaitError@errors': (m.Scope scope, ParallelWaitError target)=>target.errors,
-'dart:async@ParallelWaitError@': (m.Scope scope)=>ParallelWaitError,
+'dart:async@ParallelWaitError@': (m.Scope scope)=><V, E>( values,  errors){
+return ParallelWaitError(values, errors);
+},
 'dart:async@ParallelWaitError@toString': (m.Scope scope, ParallelWaitError target)=>target.toString,
 'dart:async@@scheduleMicrotask': (m.Scope scope)=>( callback){
 void callbackProxy() {
@@ -375,7 +386,9 @@ target.onDone(handleDoneProxy);
 'dart:async@StreamView@#as': (m.Scope scope, target)=>()=>target as StreamView,
 'dart:async@StreamView@#is': (m.Scope scope, target)=>()=>target is StreamView,
 'dart:async@StreamView@isBroadcast': (m.Scope scope, StreamView target)=>target.isBroadcast,
-'dart:async@StreamView@': (m.Scope scope)=>StreamView,
+'dart:async@StreamView@': (m.Scope scope)=><T>( stream){
+return StreamView(stream);
+},
 'dart:async@StreamView@asBroadcastStream': (m.Scope scope, StreamView target)=>({ onCancel,  onListen}){
 void onCancelProxy( subscription) {
  engine.callFunctionPointer(scope, onCancel!,[subscription], {});
@@ -446,7 +459,9 @@ return StreamTransformer.fromBind(bindProxy);
 'dart:async@StreamIterator@#as': (m.Scope scope, target)=>()=>target as StreamIterator,
 'dart:async@StreamIterator@#is': (m.Scope scope, target)=>()=>target is StreamIterator,
 'dart:async@StreamIterator@current': (m.Scope scope, StreamIterator target)=>target.current,
-'dart:async@StreamIterator@': (m.Scope scope)=>StreamIterator,
+'dart:async@StreamIterator@': (m.Scope scope)=><T>( stream){
+return StreamIterator(stream);
+},
 'dart:async@StreamIterator@moveNext': (m.Scope scope, StreamIterator target)=>target.moveNext,
 'dart:async@StreamIterator@cancel': (m.Scope scope, StreamIterator target)=>target.cancel,
 'dart:async@MultiStreamController@#as': (m.Scope scope, target)=>()=>target as MultiStreamController,

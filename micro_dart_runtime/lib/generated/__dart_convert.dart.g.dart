@@ -133,11 +133,15 @@ return HtmlEscape(mode!);
 'dart:convert@JsonUnsupportedObjectError@unsupportedObject': (m.Scope scope, JsonUnsupportedObjectError target)=>target.unsupportedObject,
 'dart:convert@JsonUnsupportedObjectError@cause': (m.Scope scope, JsonUnsupportedObjectError target)=>target.cause,
 'dart:convert@JsonUnsupportedObjectError@partialResult': (m.Scope scope, JsonUnsupportedObjectError target)=>target.partialResult,
-'dart:convert@JsonUnsupportedObjectError@': (m.Scope scope)=>JsonUnsupportedObjectError,
+'dart:convert@JsonUnsupportedObjectError@': (m.Scope scope)=>( unsupportedObject, { cause,  partialResult}){
+return JsonUnsupportedObjectError(unsupportedObject, cause:cause, partialResult:partialResult);
+},
 'dart:convert@JsonUnsupportedObjectError@toString': (m.Scope scope, JsonUnsupportedObjectError target)=>target.toString,
 'dart:convert@JsonCyclicError@#as': (m.Scope scope, target)=>()=>target as JsonCyclicError,
 'dart:convert@JsonCyclicError@#is': (m.Scope scope, target)=>()=>target is JsonCyclicError,
-'dart:convert@JsonCyclicError@': (m.Scope scope)=>JsonCyclicError,
+'dart:convert@JsonCyclicError@': (m.Scope scope)=>( object){
+return JsonCyclicError(object);
+},
 'dart:convert@JsonCyclicError@toString': (m.Scope scope, JsonCyclicError target)=>target.toString,
 'dart:convert@JsonCodec@#as': (m.Scope scope, target)=>()=>target as JsonCodec,
 'dart:convert@JsonCodec@#is': (m.Scope scope, target)=>()=>target is JsonCodec,

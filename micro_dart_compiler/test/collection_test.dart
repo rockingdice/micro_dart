@@ -29,5 +29,26 @@ void main() {
       var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, "12345");
     });
+
+    test(':Iterable.generate()', () async {
+      String fileName = "test_collection_iterable_generate.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUri, options, sources);
+      if (astToJsonFlag) {
+        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
+      }
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
+      if (printOp) {
+        engine.debug = true;
+        engine.printOpcodes();
+      }
+
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+      expect(returnValue, "01234");
+    });
   });
 }

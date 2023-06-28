@@ -448,10 +448,9 @@ int compileSuperPropertyGet(
   } else if (target is Field) {
     int opOffset =
         context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
-    if (opOffset == -1) {
-      print("object ${target.getNamedName()} not found ");
-      return -1;
-    }
+    // if (opOffset == -1) {
+    //   throw Exception("object ${target.getNamedName()} not found ");
+    // }
     return context.pushOp(OpGetObjectProperty.make(node.name.text, opOffset));
   }
 
@@ -497,10 +496,9 @@ int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
     compileExpression(context, node.receiver);
     int opOffset =
         context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
-    if (opOffset == -1) {
-      print("object ${target.getNamedName()} not found ");
-      return -1;
-    }
+    // if (opOffset == -1) {
+    //   throw Exception("object ${target.getNamedName()} not found ");
+    // }
     return context.pushOp(OpGetObjectProperty.make(node.name.text, opOffset));
   }
 

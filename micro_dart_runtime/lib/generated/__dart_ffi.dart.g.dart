@@ -15,7 +15,21 @@ return {
 'dart:ffi@Pointer@==': (m.Scope scope, Pointer target)=>(other)=> target == other,
 'dart:ffi@Array@#as': (m.Scope scope, target)=>()=>target as Array,
 'dart:ffi@Array@#is': (m.Scope scope, target)=>()=>target is Array,
-'dart:ffi@Array@': (m.Scope scope)=>Array,
+'dart:ffi@Array@': (m.Scope scope)=><T>( dimension1, [int? dimension2, int? dimension3, int? dimension4, int? dimension5]){
+if(dimension2 == null && dimension3 == null && dimension4 == null && dimension5 == null){
+return Array(dimension1);
+}
+if(dimension3 == null && dimension4 == null && dimension5 == null){
+return Array(dimension1, dimension2!);
+}
+if(dimension4 == null && dimension5 == null){
+return Array(dimension1, dimension2!, dimension3!);
+}
+if(dimension5 == null){
+return Array(dimension1, dimension2!, dimension3!, dimension4!);
+}
+return Array(dimension1, dimension2!, dimension3!, dimension4!, dimension5!);
+},
 'dart:ffi@Array@multi': (m.Scope scope)=>Array.multi,
 'dart:ffi@Dart_CObject@#as': (m.Scope scope, target)=>()=>target as Dart_CObject,
 'dart:ffi@Dart_CObject@#is': (m.Scope scope, target)=>()=>target is Dart_CObject,
@@ -34,7 +48,9 @@ return Dart_CObject();
 'dart:ffi@FfiNative@#is': (m.Scope scope, target)=>()=>target is FfiNative,
 'dart:ffi@FfiNative@nativeName': (m.Scope scope, FfiNative target)=>target.nativeName,
 'dart:ffi@FfiNative@isLeaf': (m.Scope scope, FfiNative target)=>target.isLeaf,
-'dart:ffi@FfiNative@': (m.Scope scope)=>FfiNative,
+'dart:ffi@FfiNative@': (m.Scope scope)=><T>( nativeName, { isLeaf}){
+return FfiNative(nativeName, isLeaf:isLeaf ?? false);
+},
 'dart:ffi@Native@#as': (m.Scope scope, target)=>()=>target as Native,
 'dart:ffi@Native@#is': (m.Scope scope, target)=>()=>target is Native,
 'dart:ffi@Native@symbol': (m.Scope scope, Native target)=>target.symbol,
@@ -46,7 +62,9 @@ return Native(assetId:assetId, isLeaf:isLeaf ?? false, symbol:symbol);
 'dart:ffi@DefaultAsset@#as': (m.Scope scope, target)=>()=>target as DefaultAsset,
 'dart:ffi@DefaultAsset@#is': (m.Scope scope, target)=>()=>target is DefaultAsset,
 'dart:ffi@DefaultAsset@id': (m.Scope scope, DefaultAsset target)=>target.id,
-'dart:ffi@DefaultAsset@': (m.Scope scope)=>DefaultAsset,
+'dart:ffi@DefaultAsset@': (m.Scope scope)=>( id){
+return DefaultAsset(id);
+},
 'dart:ffi@@sizeOf': (m.Scope scope)=>sizeOf,
 'dart:ffi@Abi@#as': (m.Scope scope, target)=>()=>target as Abi,
 'dart:ffi@Abi@#is': (m.Scope scope, target)=>()=>target is Abi,
@@ -82,7 +100,9 @@ return AbiSpecificInteger();
 'dart:ffi@AbiSpecificIntegerMapping@#as': (m.Scope scope, target)=>()=>target as AbiSpecificIntegerMapping,
 'dart:ffi@AbiSpecificIntegerMapping@#is': (m.Scope scope, target)=>()=>target is AbiSpecificIntegerMapping,
 'dart:ffi@AbiSpecificIntegerMapping@mapping': (m.Scope scope, AbiSpecificIntegerMapping target)=>target.mapping,
-'dart:ffi@AbiSpecificIntegerMapping@': (m.Scope scope)=>AbiSpecificIntegerMapping,
+'dart:ffi@AbiSpecificIntegerMapping@': (m.Scope scope)=>( mapping){
+return AbiSpecificIntegerMapping(mapping);
+},
 'dart:ffi@NativeType@#as': (m.Scope scope, target)=>()=>target as NativeType,
 'dart:ffi@NativeType@#is': (m.Scope scope, target)=>()=>target is NativeType,
 'dart:ffi@Opaque@#as': (m.Scope scope, target)=>()=>target as Opaque,
@@ -154,7 +174,9 @@ return Bool();
 'dart:ffi@Finalizable@#is': (m.Scope scope, target)=>()=>target is Finalizable,
 'dart:ffi@NativeFinalizer@#as': (m.Scope scope, target)=>()=>target as NativeFinalizer,
 'dart:ffi@NativeFinalizer@#is': (m.Scope scope, target)=>()=>target is NativeFinalizer,
-'dart:ffi@NativeFinalizer@': (m.Scope scope)=>NativeFinalizer,
+'dart:ffi@NativeFinalizer@': (m.Scope scope)=>( callback){
+return NativeFinalizer(callback);
+},
 'dart:ffi@NativeFinalizer@attach': (m.Scope scope, NativeFinalizer target)=>target.attach,
 'dart:ffi@NativeFinalizer@detach': (m.Scope scope, NativeFinalizer target)=>target.detach,
 'dart:ffi@Allocator@#as': (m.Scope scope, target)=>()=>target as Allocator,
@@ -164,7 +186,9 @@ return Bool();
 'dart:ffi@@unsized': (m.Scope scope)=>unsized,
 'dart:ffi@DartRepresentationOf@#as': (m.Scope scope, target)=>()=>target as DartRepresentationOf,
 'dart:ffi@DartRepresentationOf@#is': (m.Scope scope, target)=>()=>target is DartRepresentationOf,
-'dart:ffi@DartRepresentationOf@': (m.Scope scope)=>DartRepresentationOf,
+'dart:ffi@DartRepresentationOf@': (m.Scope scope)=>( nativeType){
+return DartRepresentationOf(nativeType);
+},
 'dart:ffi@Unsized@#as': (m.Scope scope, target)=>()=>target as Unsized,
 'dart:ffi@Unsized@#is': (m.Scope scope, target)=>()=>target is Unsized,
 'dart:ffi@Unsized@': (m.Scope scope)=>(){
@@ -260,7 +284,9 @@ return WChar();
 'dart:ffi@Packed@#as': (m.Scope scope, target)=>()=>target as Packed,
 'dart:ffi@Packed@#is': (m.Scope scope, target)=>()=>target is Packed,
 'dart:ffi@Packed@memberAlignment': (m.Scope scope, Packed target)=>target.memberAlignment,
-'dart:ffi@Packed@': (m.Scope scope)=>Packed,
+'dart:ffi@Packed@': (m.Scope scope)=>( memberAlignment){
+return Packed(memberAlignment);
+},
 'dart:ffi@Union@#as': (m.Scope scope, target)=>()=>target as Union,
 'dart:ffi@Union@#is': (m.Scope scope, target)=>()=>target is Union,
 

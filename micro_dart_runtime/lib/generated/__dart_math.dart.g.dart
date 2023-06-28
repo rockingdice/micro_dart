@@ -29,7 +29,7 @@ return {
 'dart:math@Point@y': (m.Scope scope, Point target)=>target.y,
 'dart:math@Point@hashCode': (m.Scope scope, Point target)=>target.hashCode,
 'dart:math@Point@magnitude': (m.Scope scope, Point target)=>target.magnitude,
-'dart:math@Point@': (m.Scope scope)=>Point,
+'dart:math@Point@': (m.Scope scope) => <T extends num>(x, y) {return Point<T>(x, y);},
 'dart:math@Point@toString': (m.Scope scope, Point target)=>target.toString,
 'dart:math@Point@==': (m.Scope scope, Point target)=>(other)=> target == other,
 'dart:math@Point@+': (m.Scope scope, Point target)=>(other)=> target + other,
@@ -55,7 +55,7 @@ return Random(seed!);
 'dart:math@Rectangle@top': (m.Scope scope, Rectangle target)=>target.top,
 'dart:math@Rectangle@width': (m.Scope scope, Rectangle target)=>target.width,
 'dart:math@Rectangle@height': (m.Scope scope, Rectangle target)=>target.height,
-'dart:math@Rectangle@': (m.Scope scope)=>Rectangle,
+'dart:math@Rectangle@': (m.Scope scope) =><T extends num>(left, top, width, height) {return Rectangle<T>(left, top, width, height);},
 'dart:math@Rectangle@fromPoints': (m.Scope scope)=>Rectangle.fromPoints,
 'dart:math@MutableRectangle@#as': (m.Scope scope, target)=>()=>target as MutableRectangle,
 'dart:math@MutableRectangle@#is': (m.Scope scope, target)=>()=>target is MutableRectangle,
@@ -67,7 +67,7 @@ return Random(seed!);
 'dart:math@MutableRectangle@width:set': (m.Scope scope, MutableRectangle target)=>(other)=>target.width=other,
 'dart:math@MutableRectangle@height': (m.Scope scope, MutableRectangle target)=>target.height,
 'dart:math@MutableRectangle@height:set': (m.Scope scope, MutableRectangle target)=>(other)=>target.height=other,
-'dart:math@MutableRectangle@': (m.Scope scope)=>MutableRectangle,
+'dart:math@MutableRectangle@': (m.Scope scope) =><T extends num>(left, top, width, height) {return MutableRectangle<T>(left, top, width, height);},
 'dart:math@MutableRectangle@fromPoints': (m.Scope scope)=>MutableRectangle.fromPoints,
 
 };

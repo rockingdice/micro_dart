@@ -1,4 +1,5 @@
 import 'engine.dart';
+import 'scope.dart';
 import 'type.dart';
 
 abstract class Instance {
@@ -6,8 +7,8 @@ abstract class Instance {
 
   const Instance(this.type);
 
-  Object? getParam(String name);
-  void setParam(String name, Object? value);
+  Object? getParam(Scope scope, String name);
+  void setParam(Scope scope, String name, Object? value);
   bool hasParam(String name);
 
   bool same(TypeRef? stype) {
@@ -22,19 +23,20 @@ class InstanceBridge extends Instance {
 
   const InstanceBridge(this._engine, this.target, TypeRef type) : super(type);
   @override
-  Object? getParam(String name) {
+  Object? getParam(Scope scope, String name) {
     var key = _engine.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
-    return _engine.externalFunctions[key]!(target);
+    return _engine.externalFunctions[key]!(scope, target);
   }
 
   @override
   bool hasParam(String name) {
-    return _engine.externalFunctions.containsKey(name);
+    var key = _engine.getKeyByType(type, name);
+    return _engine.externalFunctions.containsKey(key);
   }
 
   @override
-  void setParam(String name, Object? value) {
+  void setParam(Scope scope, String name, Object? value) {
     final key = _engine.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
     _engine.externalFunctions[key]!(target, value);
@@ -54,7 +56,7 @@ class InstanceImpl extends Instance {
   InstanceImpl(super.type);
 
   @override
-  Object? getParam(String name) {
+  Object? getParam(Scope scope, String name) {
     if (name == "#super") {
       return _superInstance;
     }
@@ -62,11 +64,11 @@ class InstanceImpl extends Instance {
     if (_params.containsKey(name)) {
       return _params[name];
     }
-    return _superInstance?.getParam(name);
+    return _superInstance?.getParam(scope, name);
   }
 
   @override
-  void setParam(String name, Object? value) {
+  void setParam(Scope scope, String name, Object? value) {
     if (name == "#super") {
       _superInstance = value as Instance;
       return;
@@ -84,6 +86,6 @@ class InstanceImpl extends Instance {
 
   @override
   String toString() {
-    return "InstanceImpl($type)";
+    return "InstanceImpl($type,$_superInstance)";
   }
 }

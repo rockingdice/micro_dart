@@ -1228,7 +1228,7 @@ class Generator extends AbsVisitor {
     writeScopeArgemnts();
     write("=>");
     if (!hasFunctionTypeParams(element.type)) {
-      if (element.isDefaultConstructor) {
+      if (element.name == "") {
         writeFunctionTypeType3(element.type);
         endLine("{");
         writeFunctionBody(clazz.name, element.name, element.type, null,

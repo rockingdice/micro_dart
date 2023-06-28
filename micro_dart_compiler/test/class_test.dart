@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const bool astToJsonFlag = false;
-const bool printOp = false;
+const bool printOp = true;
 
 void main() {
   group('Class tests', () {
@@ -96,5 +96,27 @@ void main() {
           await engine.callStaticFunction(pluginUri, "main", [], {});
       expect(returnValue, 10);
     });
+  });
+
+  test(':test class external extends', () async {
+    String fileName = "test_class_external_extends.dart";
+    var file = File("$testCasePath$fileName");
+    var sources = <String, String>{'main.dart': file.readAsStringSync()};
+    var program = await compileSource(pluginUri, options, sources);
+    if (astToJsonFlag) {
+      astToJson("$testCasePath$fileName", pluginUri, program.component);
+      writeComponentToText(program.component!,
+          path: "$testCasePath$fileName.txt");
+    }
+    var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
+    if (printOp) {
+      engine.debug = true;
+      engine.printOpcodes();
+    }
+
+    var returnValue =
+        await engine.callStaticFunction(pluginUri, "main", [], {});
+    expect(returnValue, "this is a message 6");
   });
 }

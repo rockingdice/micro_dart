@@ -39,7 +39,9 @@ registerExtension(method, handlerProxy);
 'dart:developer@UserTag@maxUserTags': (m.Scope scope)=>UserTag.maxUserTags,
 'dart:developer@UserTag@label': (m.Scope scope, UserTag target)=>target.label,
 'dart:developer@UserTag@defaultTag': (m.Scope scope)=>UserTag.defaultTag,
-'dart:developer@UserTag@': (m.Scope scope)=>UserTag,
+'dart:developer@UserTag@': (m.Scope scope)=>( label){
+return UserTag(label);
+},
 'dart:developer@UserTag@makeCurrent': (m.Scope scope, UserTag target)=>target.makeCurrent,
 'dart:developer@@getCurrentTag': (m.Scope scope)=>getCurrentTag,
 'dart:developer@ServiceProtocolInfo@#as': (m.Scope scope, target)=>()=>target as ServiceProtocolInfo,
@@ -48,7 +50,9 @@ registerExtension(method, handlerProxy);
 'dart:developer@ServiceProtocolInfo@minorVersion': (m.Scope scope, ServiceProtocolInfo target)=>target.minorVersion,
 'dart:developer@ServiceProtocolInfo@serverUri': (m.Scope scope, ServiceProtocolInfo target)=>target.serverUri,
 'dart:developer@ServiceProtocolInfo@serverWebSocketUri': (m.Scope scope, ServiceProtocolInfo target)=>target.serverWebSocketUri,
-'dart:developer@ServiceProtocolInfo@': (m.Scope scope)=>ServiceProtocolInfo,
+'dart:developer@ServiceProtocolInfo@': (m.Scope scope)=>( serverUri){
+return ServiceProtocolInfo(serverUri);
+},
 'dart:developer@ServiceProtocolInfo@toString': (m.Scope scope, ServiceProtocolInfo target)=>target.toString,
 'dart:developer@Service@#as': (m.Scope scope, target)=>()=>target as Service,
 'dart:developer@Service@#is': (m.Scope scope, target)=>()=>target is Service,

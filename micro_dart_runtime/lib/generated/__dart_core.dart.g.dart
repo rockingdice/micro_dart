@@ -10,13 +10,20 @@ return {
 'dart:core@Deprecated@#as': (m.Scope scope, target)=>()=>target as Deprecated,
 'dart:core@Deprecated@#is': (m.Scope scope, target)=>()=>target is Deprecated,
 'dart:core@Deprecated@message': (m.Scope scope, Deprecated target)=>target.message,
-'dart:core@Deprecated@': (m.Scope scope)=>Deprecated,
+'dart:core@Deprecated@': (m.Scope scope)=>( message){
+return Deprecated(message);
+},
 'dart:core@Deprecated@toString': (m.Scope scope, Deprecated target)=>target.toString,
 'dart:core@pragma@#as': (m.Scope scope, target)=>()=>target as pragma,
 'dart:core@pragma@#is': (m.Scope scope, target)=>()=>target is pragma,
 'dart:core@pragma@name': (m.Scope scope, pragma target)=>target.name,
 'dart:core@pragma@options': (m.Scope scope, pragma target)=>target.options,
-'dart:core@pragma@': (m.Scope scope)=>pragma,
+'dart:core@pragma@': (m.Scope scope)=>( name, [Object? options]){
+if(options == null){
+return pragma(name);
+}
+return pragma(name, options!);
+},
 'dart:core@BigInt@#as': (m.Scope scope, target)=>()=>target as BigInt,
 'dart:core@BigInt@#is': (m.Scope scope, target)=>()=>target is BigInt,
 'dart:core@BigInt@zero': (m.Scope scope)=>BigInt.zero,
@@ -114,7 +121,30 @@ return {
 'dart:core@DateTime@millisecond': (m.Scope scope, DateTime target)=>target.millisecond,
 'dart:core@DateTime@microsecond': (m.Scope scope, DateTime target)=>target.microsecond,
 'dart:core@DateTime@weekday': (m.Scope scope, DateTime target)=>target.weekday,
-'dart:core@DateTime@': (m.Scope scope)=>DateTime,
+'dart:core@DateTime@': (m.Scope scope)=>( year, [int? month, int? day, int? hour, int? minute, int? second, int? millisecond, int? microsecond]){
+if(month == null && day == null && hour == null && minute == null && second == null && millisecond == null && microsecond == null){
+return DateTime(year);
+}
+if(day == null && hour == null && minute == null && second == null && millisecond == null && microsecond == null){
+return DateTime(year, month!);
+}
+if(hour == null && minute == null && second == null && millisecond == null && microsecond == null){
+return DateTime(year, month!, day!);
+}
+if(minute == null && second == null && millisecond == null && microsecond == null){
+return DateTime(year, month!, day!, hour!);
+}
+if(second == null && millisecond == null && microsecond == null){
+return DateTime(year, month!, day!, hour!, minute!);
+}
+if(millisecond == null && microsecond == null){
+return DateTime(year, month!, day!, hour!, minute!, second!);
+}
+if(microsecond == null){
+return DateTime(year, month!, day!, hour!, minute!, second!, millisecond!);
+}
+return DateTime(year, month!, day!, hour!, minute!, second!, millisecond!, microsecond!);
+},
 'dart:core@DateTime@utc': (m.Scope scope)=>DateTime.utc,
 'dart:core@DateTime@now': (m.Scope scope)=>DateTime.now,
 'dart:core@DateTime@timestamp': (m.Scope scope)=>DateTime.timestamp,
@@ -255,7 +285,9 @@ return ArgumentError(message, name!);
 'dart:core@RangeError@start': (m.Scope scope, RangeError target)=>target.start,
 'dart:core@RangeError@end': (m.Scope scope, RangeError target)=>target.end,
 'dart:core@RangeError@invalidValue': (m.Scope scope, RangeError target)=>target.invalidValue,
-'dart:core@RangeError@': (m.Scope scope)=>RangeError,
+'dart:core@RangeError@': (m.Scope scope)=>( message){
+return RangeError(message);
+},
 'dart:core@RangeError@value': (m.Scope scope)=>RangeError.value,
 'dart:core@RangeError@range': (m.Scope scope)=>RangeError.range,
 'dart:core@RangeError@index': (m.Scope scope)=>RangeError.index,
@@ -279,7 +311,9 @@ return ArgumentError(message, name!);
 'dart:core@UnsupportedError@#as': (m.Scope scope, target)=>()=>target as UnsupportedError,
 'dart:core@UnsupportedError@#is': (m.Scope scope, target)=>()=>target is UnsupportedError,
 'dart:core@UnsupportedError@message': (m.Scope scope, UnsupportedError target)=>target.message,
-'dart:core@UnsupportedError@': (m.Scope scope)=>UnsupportedError,
+'dart:core@UnsupportedError@': (m.Scope scope)=>( message){
+return UnsupportedError(message);
+},
 'dart:core@UnsupportedError@toString': (m.Scope scope, UnsupportedError target)=>target.toString,
 'dart:core@UnimplementedError@#as': (m.Scope scope, target)=>()=>target as UnimplementedError,
 'dart:core@UnimplementedError@#is': (m.Scope scope, target)=>()=>target is UnimplementedError,
@@ -294,7 +328,9 @@ return UnimplementedError(message!);
 'dart:core@StateError@#as': (m.Scope scope, target)=>()=>target as StateError,
 'dart:core@StateError@#is': (m.Scope scope, target)=>()=>target is StateError,
 'dart:core@StateError@message': (m.Scope scope, StateError target)=>target.message,
-'dart:core@StateError@': (m.Scope scope)=>StateError,
+'dart:core@StateError@': (m.Scope scope)=>( message){
+return StateError(message);
+},
 'dart:core@StateError@toString': (m.Scope scope, StateError target)=>target.toString,
 'dart:core@ConcurrentModificationError@#as': (m.Scope scope, target)=>()=>target as ConcurrentModificationError,
 'dart:core@ConcurrentModificationError@#is': (m.Scope scope, target)=>()=>target is ConcurrentModificationError,
@@ -729,7 +765,9 @@ target.forEach(actionProxy);
 'dart:core@MapEntry@#is': (m.Scope scope, target)=>()=>target is MapEntry,
 'dart:core@MapEntry@key': (m.Scope scope, MapEntry target)=>target.key,
 'dart:core@MapEntry@value': (m.Scope scope, MapEntry target)=>target.value,
-'dart:core@MapEntry@': (m.Scope scope)=>MapEntry,
+'dart:core@MapEntry@': (m.Scope scope)=><K, V>( key,  value){
+return MapEntry(key, value);
+},
 'dart:core@MapEntry@toString': (m.Scope scope, MapEntry target)=>target.toString,
 'dart:core@Null@#as': (m.Scope scope, target)=>()=>target as Null,
 'dart:core@Null@#is': (m.Scope scope, target)=>()=>target is Null,
@@ -819,7 +857,9 @@ return Object();
 'dart:core@RegExp@isCaseSensitive': (m.Scope scope, RegExp target)=>target.isCaseSensitive,
 'dart:core@RegExp@isUnicode': (m.Scope scope, RegExp target)=>target.isUnicode,
 'dart:core@RegExp@isDotAll': (m.Scope scope, RegExp target)=>target.isDotAll,
-'dart:core@RegExp@': (m.Scope scope)=>RegExp,
+'dart:core@RegExp@': (m.Scope scope)=>( source, { caseSensitive,  dotAll,  multiLine,  unicode}){
+return RegExp(source, caseSensitive:caseSensitive ?? true, dotAll:dotAll ?? false, multiLine:multiLine ?? false, unicode:unicode ?? false);
+},
 'dart:core@RegExp@escape': (m.Scope scope)=>RegExp.escape,
 'dart:core@RegExp@firstMatch': (m.Scope scope, RegExp target)=>target.firstMatch,
 'dart:core@RegExp@allMatches': (m.Scope scope, RegExp target)=>target.allMatches,
@@ -966,7 +1006,9 @@ return target.splitMapJoin(pattern, onMatch:onMatch == null ? null :onMatchProxy
 'dart:core@Runes@string': (m.Scope scope, Runes target)=>target.string,
 'dart:core@Runes@iterator': (m.Scope scope, Runes target)=>target.iterator,
 'dart:core@Runes@last': (m.Scope scope, Runes target)=>target.last,
-'dart:core@Runes@': (m.Scope scope)=>Runes,
+'dart:core@Runes@': (m.Scope scope)=>( string){
+return Runes(string);
+},
 'dart:core@RuneIterator@#as': (m.Scope scope, target)=>()=>target as RuneIterator,
 'dart:core@RuneIterator@#is': (m.Scope scope, target)=>()=>target is RuneIterator,
 'dart:core@RuneIterator@string': (m.Scope scope, RuneIterator target)=>target.string,
@@ -975,7 +1017,9 @@ return target.splitMapJoin(pattern, onMatch:onMatch == null ? null :onMatchProxy
 'dart:core@RuneIterator@current': (m.Scope scope, RuneIterator target)=>target.current,
 'dart:core@RuneIterator@currentSize': (m.Scope scope, RuneIterator target)=>target.currentSize,
 'dart:core@RuneIterator@currentAsString': (m.Scope scope, RuneIterator target)=>target.currentAsString,
-'dart:core@RuneIterator@': (m.Scope scope)=>RuneIterator,
+'dart:core@RuneIterator@': (m.Scope scope)=>( string){
+return RuneIterator(string);
+},
 'dart:core@RuneIterator@at': (m.Scope scope)=>RuneIterator.at,
 'dart:core@RuneIterator@reset': (m.Scope scope, RuneIterator target)=>target.reset,
 'dart:core@RuneIterator@moveNext': (m.Scope scope, RuneIterator target)=>target.moveNext,
@@ -1008,7 +1052,9 @@ return StringBuffer(content!);
 'dart:core@Symbol@unaryMinus': (m.Scope scope)=>Symbol.unaryMinus,
 'dart:core@Symbol@empty': (m.Scope scope)=>Symbol.empty,
 'dart:core@Symbol@hashCode': (m.Scope scope, Symbol target)=>target.hashCode,
-'dart:core@Symbol@': (m.Scope scope)=>Symbol,
+'dart:core@Symbol@': (m.Scope scope)=>( name){
+return Symbol(name);
+},
 'dart:core@Symbol@==': (m.Scope scope, Symbol target)=>(other)=> target == other,
 'dart:core@Type@#as': (m.Scope scope, target)=>()=>target as Type,
 'dart:core@Type@#is': (m.Scope scope, target)=>()=>target is Type,
@@ -1102,7 +1148,7 @@ return Expando(name!);
 'dart:core@WeakReference@#as': (m.Scope scope, target)=>()=>target as WeakReference,
 'dart:core@WeakReference@#is': (m.Scope scope, target)=>()=>target is WeakReference,
 'dart:core@WeakReference@target': (m.Scope scope, WeakReference target)=>target.target,
-'dart:core@WeakReference@': (m.Scope scope)=>WeakReference,
+'dart:core@WeakReference@': (m.Scope scope) => <T extends Object>(target) {return WeakReference<T>(target);},
 'dart:core@Finalizer@#as': (m.Scope scope, target)=>()=>target as Finalizer,
 'dart:core@Finalizer@#is': (m.Scope scope, target)=>()=>target is Finalizer,
 'dart:core@Finalizer@': (m.Scope scope)=>( callback){

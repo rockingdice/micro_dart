@@ -54,4 +54,47 @@ InstanceImpl(
 
 
 
-(m.Scope scope) => ({alwaysShowMiddle,automaticallyImplyLeading,automaticallyImplyTitle,backgroundColor,border,brightness,heroTag,key,largeTitle,leading,middle,padding,previousPageTitle,stretch,trailing,transitionBetweenRoutes}) {if (heroTag == null) {return CupertinoSliverNavigationBar(alwaysShowMiddle: alwaysShowMiddle ?? true,automaticallyImplyLeading:automaticallyImplyLeading ?? true,automaticallyImplyTitle: automaticallyImplyTitle ?? true,backgroundColor: backgroundColor,border: border ??const Border(bottom: BorderSide(color: Color(0x4D000000),width: 0.0,),),brightness: brightness,key: key,largeTitle: largeTitle,leading: leading,middle: middle,padding: padding,previousPageTitle: previousPageTitle,stretch: stretch ?? false,trailing: trailing,transitionBetweenRoutes: transitionBetweenRoutes ?? true);}return CupertinoSliverNavigationBar(alwaysShowMiddle: alwaysShowMiddle ?? true,automaticallyImplyLeading: automaticallyImplyLeading ?? true,automaticallyImplyTitle: automaticallyImplyTitle ?? true,backgroundColor: backgroundColor,border: border ??const Border(bottom: BorderSide(color: Color(0x4D000000),width: 0.0,),),brightness: brightness,heroTag: heroTag,key: key,largeTitle: largeTitle,leading: leading,middle: middle,padding: padding,previousPageTitle: previousPageTitle,stretch: stretch ?? false,trailing: trailing,transitionBetweenRoutes: transitionBetweenRoutes ?? true);}
+(m.Scope scope) => ({autofocus,backgroundColor,child,clipBehavior,disabledElevation,elevation,enableFeedback,focusColor,focusElevation，focusNode,foregroundColor,heroTag,highlightElevation,hoverColor,hoverElevation,key,materialTapTargetSize,mouseCursor,onPressed,shape,splashColor,tooltip}) {void onPressedProxy() {engine.callFunctionPointer(scope, onPressed!, [], {});}if (heroTag == null) {return FloatingActionButton.small(autofocus: autofocus ?? false,backgroundColor: backgroundColor,child: child,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,key: key,materialTapTargetSize: materialTapTargetSize,mouseCursor: mouseCursor,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}return FloatingActionButton.small(autofocus: autofocus ?? false,backgroundColor: backgroundColor,child: child,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,heroTag: heroTag,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,key: key,materialTapTargetSize: materialTapTargetSize,mouseCursor: mouseCursor,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}
+
+
+
+
+(m.Scope scope) => ({autofocus,backgroundColor,child,clipBehavior,disabledElevation,elevation,enableFeedback,focusColor,focusElevation,focusNode,foregroundColor,heroTag,highlightElevation,hoverColor,hoverElevation,key,materialTapTargetSize,mouseCursor,onPressed,shape,splashColor,tooltip}) {void onPressedProxy() {engine.callFunctionPointer(scope, onPressed!, [], {});}if(heroTag == null){return FloatingActionButton.large(autofocus: autofocus ?? false,backgroundColor: backgroundColor,child: child,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,key: key,materialTapTargetSize: materialTapTargetSize,mouseCursor: mouseCursor,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}return FloatingActionButton.large(autofocus: autofocus ?? false,backgroundColor: backgroundColor,child: child,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,heroTag: heroTag,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,key: key,materialTapTargetSize: materialTapTargetSize,mouseCursor: mouseCursor,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}
+
+
+
+
+
+(m.Scope scope) => (
+                {autofocus,
+                backgroundColor,
+                clipBehavior,
+                disabledElevation,
+                elevation,
+                enableFeedback,
+                extendedIconLabelSpacing,
+                extendedPadding,
+                extendedTextStyle,
+                focusColor,
+                focusElevation,
+                focusNode,
+                foregroundColor,
+                heroTag,
+                highlightElevation,
+                hoverColor,
+                hoverElevation,
+                icon,
+                isExtended,
+                key,
+                label,
+                materialTapTargetSize,
+                mouseCursor,
+                onPressed,
+                shape,
+                splashColor,tooltip}) {void onPressedProxy() {engine.callFunctionPointer(scope, onPressed!, [], {});}if (heroTag == null) {return FloatingActionButton.extended(autofocus: autofocus ?? false,backgroundColor: backgroundColor,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,extendedIconLabelSpacing: extendedIconLabelSpacing,extendedPadding: extendedPadding,extendedTextStyle: extendedTextStyle,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,icon: icon,isExtended: isExtended ?? true,key: key,label: label,materialTapTargetSize: materialTapTargetSize,mouseCursor: mouseCursor ?? SystemMouseCursors.click,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}return FloatingActionButton.extended(autofocus: autofocus ?? false,backgroundColor: backgroundColor,clipBehavior: clipBehavior ?? Clip.none,disabledElevation: disabledElevation,elevation: elevation,enableFeedback: enableFeedback,extendedIconLabelSpacing: extendedIconLabelSpacing,extendedPadding: extendedPadding,extendedTextStyle: extendedTextStyle,focusColor: focusColor,focusElevation: focusElevation,focusNode: focusNode,foregroundColor: foregroundColor,heroTag: heroTag,highlightElevation: highlightElevation,hoverColor: hoverColor,hoverElevation: hoverElevation,icon: icon,isExtended: isExtended ?? true,key: key,label: label,materialTapTargetSize: materialTapTargetSize, mouseCursor: mouseCursor ?? SystemMouseCursors.click,onPressed: onPressedProxy,shape: shape,splashColor: splashColor,tooltip: tooltip);}
+
+
+
+
+
+(m.Scope scope) =><T extends Object>({displayStringForOption,fieldViewBuilder,initialValue,key,onSelected,optionsBuilder,optionsMaxHeight,optionsViewBuilder}) {String displayStringForOptionProxy<T>(option) {return engine.callFunctionPointer(scope, displayStringForOption!, [option], {});}Widget fieldViewBuilderProxy(context, textEditingController, focusNode, onFieldSubmitted) {return engine.callFunctionPointer(scope,fieldViewBuilder!,[context, textEditingController, focusNode, onFieldSubmitted],{});}void onSelectedProxy<T>(option) {engine.callFunctionPointer(scope, onSelected!, [option], {});}FutureOr<Iterable<T>> optionsBuilderProxy(textEditingValue) async {return await engine.callFunctionPointerAsync(scope, optionsBuilder!, [textEditingValue], {});}Widget optionsViewBuilderProxy<T>(context, onSelected, options) {return engine.callFunctionPointer(scope, optionsViewBuilder!, [context, onSelected, options], {});}return Autocomplete<T>(displayStringForOption: displayStringForOption == null? RawAutocomplete.defaultStringForOption: displayStringForOptionProxy,fieldViewBuilder: fieldViewBuilder == null? (BuildContext context,TextEditingController textEditingController,FocusNode focusNode,VoidCallback onFieldSubmitted) {return TextFormField(controller: textEditingController,focusNode: focusNode,onFieldSubmitted: (String value) {onFieldSubmitted();},);}: fieldViewBuilderProxy,initialValue: initialValue,key: key,onSelected: onSelected == null ? null : onSelectedProxy,optionsBuilder: optionsBuilderProxy,optionsMaxHeight: optionsMaxHeight ?? 200.0,optionsViewBuilder: optionsViewBuilder == null ? null : optionsViewBuilderProxy);}

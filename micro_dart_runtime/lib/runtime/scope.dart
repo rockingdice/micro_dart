@@ -186,9 +186,6 @@ class Scope {
         op.run(this);
       }
     } on ProgramExit catch (_) {
-      if (hasReturn) {
-        parent?.pushFrame(returnValue);
-      }
       tryRelease();
     } catch (exception, _) {
       rethrow;

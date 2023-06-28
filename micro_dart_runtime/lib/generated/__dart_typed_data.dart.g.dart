@@ -33,7 +33,9 @@ return {
 'dart:typed_data@Endian@host': (m.Scope scope)=>Endian.host,
 'dart:typed_data@ByteData@#as': (m.Scope scope, target)=>()=>target as ByteData,
 'dart:typed_data@ByteData@#is': (m.Scope scope, target)=>()=>target is ByteData,
-'dart:typed_data@ByteData@': (m.Scope scope)=>ByteData,
+'dart:typed_data@ByteData@': (m.Scope scope)=>( length){
+return ByteData(length);
+},
 'dart:typed_data@ByteData@view': (m.Scope scope)=>ByteData.view,
 'dart:typed_data@ByteData@sublistView': (m.Scope scope)=>ByteData.sublistView,
 'dart:typed_data@ByteData@getInt8': (m.Scope scope, ByteData target)=>target.getInt8,
@@ -59,7 +61,9 @@ return {
 'dart:typed_data@Int8List@#as': (m.Scope scope, target)=>()=>target as Int8List,
 'dart:typed_data@Int8List@#is': (m.Scope scope, target)=>()=>target is Int8List,
 'dart:typed_data@Int8List@bytesPerElement': (m.Scope scope)=>Int8List.bytesPerElement,
-'dart:typed_data@Int8List@': (m.Scope scope)=>Int8List,
+'dart:typed_data@Int8List@': (m.Scope scope)=>( length){
+return Int8List(length);
+},
 'dart:typed_data@Int8List@fromList': (m.Scope scope)=>Int8List.fromList,
 'dart:typed_data@Int8List@view': (m.Scope scope)=>Int8List.view,
 'dart:typed_data@Int8List@sublistView': (m.Scope scope)=>Int8List.sublistView,
@@ -67,7 +71,9 @@ return {
 'dart:typed_data@Uint8List@#as': (m.Scope scope, target)=>()=>target as Uint8List,
 'dart:typed_data@Uint8List@#is': (m.Scope scope, target)=>()=>target is Uint8List,
 'dart:typed_data@Uint8List@bytesPerElement': (m.Scope scope)=>Uint8List.bytesPerElement,
-'dart:typed_data@Uint8List@': (m.Scope scope)=>Uint8List,
+'dart:typed_data@Uint8List@': (m.Scope scope)=>( length){
+return Uint8List(length);
+},
 'dart:typed_data@Uint8List@fromList': (m.Scope scope)=>Uint8List.fromList,
 'dart:typed_data@Uint8List@view': (m.Scope scope)=>Uint8List.view,
 'dart:typed_data@Uint8List@sublistView': (m.Scope scope)=>Uint8List.sublistView,
@@ -76,7 +82,9 @@ return {
 'dart:typed_data@Uint8ClampedList@#as': (m.Scope scope, target)=>()=>target as Uint8ClampedList,
 'dart:typed_data@Uint8ClampedList@#is': (m.Scope scope, target)=>()=>target is Uint8ClampedList,
 'dart:typed_data@Uint8ClampedList@bytesPerElement': (m.Scope scope)=>Uint8ClampedList.bytesPerElement,
-'dart:typed_data@Uint8ClampedList@': (m.Scope scope)=>Uint8ClampedList,
+'dart:typed_data@Uint8ClampedList@': (m.Scope scope)=>( length){
+return Uint8ClampedList(length);
+},
 'dart:typed_data@Uint8ClampedList@fromList': (m.Scope scope)=>Uint8ClampedList.fromList,
 'dart:typed_data@Uint8ClampedList@view': (m.Scope scope)=>Uint8ClampedList.view,
 'dart:typed_data@Uint8ClampedList@sublistView': (m.Scope scope)=>Uint8ClampedList.sublistView,
@@ -84,7 +92,9 @@ return {
 'dart:typed_data@Int16List@#as': (m.Scope scope, target)=>()=>target as Int16List,
 'dart:typed_data@Int16List@#is': (m.Scope scope, target)=>()=>target is Int16List,
 'dart:typed_data@Int16List@bytesPerElement': (m.Scope scope)=>Int16List.bytesPerElement,
-'dart:typed_data@Int16List@': (m.Scope scope)=>Int16List,
+'dart:typed_data@Int16List@': (m.Scope scope)=>( length){
+return Int16List(length);
+},
 'dart:typed_data@Int16List@fromList': (m.Scope scope)=>Int16List.fromList,
 'dart:typed_data@Int16List@view': (m.Scope scope)=>Int16List.view,
 'dart:typed_data@Int16List@sublistView': (m.Scope scope)=>Int16List.sublistView,
@@ -92,7 +102,9 @@ return {
 'dart:typed_data@Uint16List@#as': (m.Scope scope, target)=>()=>target as Uint16List,
 'dart:typed_data@Uint16List@#is': (m.Scope scope, target)=>()=>target is Uint16List,
 'dart:typed_data@Uint16List@bytesPerElement': (m.Scope scope)=>Uint16List.bytesPerElement,
-'dart:typed_data@Uint16List@': (m.Scope scope)=>Uint16List,
+'dart:typed_data@Uint16List@': (m.Scope scope)=>( length){
+return Uint16List(length);
+},
 'dart:typed_data@Uint16List@fromList': (m.Scope scope)=>Uint16List.fromList,
 'dart:typed_data@Uint16List@view': (m.Scope scope)=>Uint16List.view,
 'dart:typed_data@Uint16List@sublistView': (m.Scope scope)=>Uint16List.sublistView,
@@ -100,7 +112,9 @@ return {
 'dart:typed_data@Int32List@#as': (m.Scope scope, target)=>()=>target as Int32List,
 'dart:typed_data@Int32List@#is': (m.Scope scope, target)=>()=>target is Int32List,
 'dart:typed_data@Int32List@bytesPerElement': (m.Scope scope)=>Int32List.bytesPerElement,
-'dart:typed_data@Int32List@': (m.Scope scope)=>Int32List,
+'dart:typed_data@Int32List@': (m.Scope scope)=>( length){
+return Int32List(length);
+},
 'dart:typed_data@Int32List@fromList': (m.Scope scope)=>Int32List.fromList,
 'dart:typed_data@Int32List@view': (m.Scope scope)=>Int32List.view,
 'dart:typed_data@Int32List@sublistView': (m.Scope scope)=>Int32List.sublistView,
@@ -108,7 +122,9 @@ return {
 'dart:typed_data@Uint32List@#as': (m.Scope scope, target)=>()=>target as Uint32List,
 'dart:typed_data@Uint32List@#is': (m.Scope scope, target)=>()=>target is Uint32List,
 'dart:typed_data@Uint32List@bytesPerElement': (m.Scope scope)=>Uint32List.bytesPerElement,
-'dart:typed_data@Uint32List@': (m.Scope scope)=>Uint32List,
+'dart:typed_data@Uint32List@': (m.Scope scope)=>( length){
+return Uint32List(length);
+},
 'dart:typed_data@Uint32List@fromList': (m.Scope scope)=>Uint32List.fromList,
 'dart:typed_data@Uint32List@view': (m.Scope scope)=>Uint32List.view,
 'dart:typed_data@Uint32List@sublistView': (m.Scope scope)=>Uint32List.sublistView,
@@ -116,7 +132,9 @@ return {
 'dart:typed_data@Int64List@#as': (m.Scope scope, target)=>()=>target as Int64List,
 'dart:typed_data@Int64List@#is': (m.Scope scope, target)=>()=>target is Int64List,
 'dart:typed_data@Int64List@bytesPerElement': (m.Scope scope)=>Int64List.bytesPerElement,
-'dart:typed_data@Int64List@': (m.Scope scope)=>Int64List,
+'dart:typed_data@Int64List@': (m.Scope scope)=>( length){
+return Int64List(length);
+},
 'dart:typed_data@Int64List@fromList': (m.Scope scope)=>Int64List.fromList,
 'dart:typed_data@Int64List@view': (m.Scope scope)=>Int64List.view,
 'dart:typed_data@Int64List@sublistView': (m.Scope scope)=>Int64List.sublistView,
@@ -124,7 +142,9 @@ return {
 'dart:typed_data@Uint64List@#as': (m.Scope scope, target)=>()=>target as Uint64List,
 'dart:typed_data@Uint64List@#is': (m.Scope scope, target)=>()=>target is Uint64List,
 'dart:typed_data@Uint64List@bytesPerElement': (m.Scope scope)=>Uint64List.bytesPerElement,
-'dart:typed_data@Uint64List@': (m.Scope scope)=>Uint64List,
+'dart:typed_data@Uint64List@': (m.Scope scope)=>( length){
+return Uint64List(length);
+},
 'dart:typed_data@Uint64List@fromList': (m.Scope scope)=>Uint64List.fromList,
 'dart:typed_data@Uint64List@view': (m.Scope scope)=>Uint64List.view,
 'dart:typed_data@Uint64List@sublistView': (m.Scope scope)=>Uint64List.sublistView,
@@ -132,7 +152,9 @@ return {
 'dart:typed_data@Float32List@#as': (m.Scope scope, target)=>()=>target as Float32List,
 'dart:typed_data@Float32List@#is': (m.Scope scope, target)=>()=>target is Float32List,
 'dart:typed_data@Float32List@bytesPerElement': (m.Scope scope)=>Float32List.bytesPerElement,
-'dart:typed_data@Float32List@': (m.Scope scope)=>Float32List,
+'dart:typed_data@Float32List@': (m.Scope scope)=>( length){
+return Float32List(length);
+},
 'dart:typed_data@Float32List@fromList': (m.Scope scope)=>Float32List.fromList,
 'dart:typed_data@Float32List@view': (m.Scope scope)=>Float32List.view,
 'dart:typed_data@Float32List@sublistView': (m.Scope scope)=>Float32List.sublistView,
@@ -140,7 +162,9 @@ return {
 'dart:typed_data@Float64List@#as': (m.Scope scope, target)=>()=>target as Float64List,
 'dart:typed_data@Float64List@#is': (m.Scope scope, target)=>()=>target is Float64List,
 'dart:typed_data@Float64List@bytesPerElement': (m.Scope scope)=>Float64List.bytesPerElement,
-'dart:typed_data@Float64List@': (m.Scope scope)=>Float64List,
+'dart:typed_data@Float64List@': (m.Scope scope)=>( length){
+return Float64List(length);
+},
 'dart:typed_data@Float64List@fromList': (m.Scope scope)=>Float64List.fromList,
 'dart:typed_data@Float64List@view': (m.Scope scope)=>Float64List.view,
 'dart:typed_data@Float64List@sublistView': (m.Scope scope)=>Float64List.sublistView,
@@ -148,7 +172,9 @@ return {
 'dart:typed_data@Float32x4List@#as': (m.Scope scope, target)=>()=>target as Float32x4List,
 'dart:typed_data@Float32x4List@#is': (m.Scope scope, target)=>()=>target is Float32x4List,
 'dart:typed_data@Float32x4List@bytesPerElement': (m.Scope scope)=>Float32x4List.bytesPerElement,
-'dart:typed_data@Float32x4List@': (m.Scope scope)=>Float32x4List,
+'dart:typed_data@Float32x4List@': (m.Scope scope)=>( length){
+return Float32x4List(length);
+},
 'dart:typed_data@Float32x4List@fromList': (m.Scope scope)=>Float32x4List.fromList,
 'dart:typed_data@Float32x4List@view': (m.Scope scope)=>Float32x4List.view,
 'dart:typed_data@Float32x4List@sublistView': (m.Scope scope)=>Float32x4List.sublistView,
@@ -157,7 +183,9 @@ return {
 'dart:typed_data@Int32x4List@#as': (m.Scope scope, target)=>()=>target as Int32x4List,
 'dart:typed_data@Int32x4List@#is': (m.Scope scope, target)=>()=>target is Int32x4List,
 'dart:typed_data@Int32x4List@bytesPerElement': (m.Scope scope)=>Int32x4List.bytesPerElement,
-'dart:typed_data@Int32x4List@': (m.Scope scope)=>Int32x4List,
+'dart:typed_data@Int32x4List@': (m.Scope scope)=>( length){
+return Int32x4List(length);
+},
 'dart:typed_data@Int32x4List@fromList': (m.Scope scope)=>Int32x4List.fromList,
 'dart:typed_data@Int32x4List@view': (m.Scope scope)=>Int32x4List.view,
 'dart:typed_data@Int32x4List@sublistView': (m.Scope scope)=>Int32x4List.sublistView,
@@ -166,7 +194,9 @@ return {
 'dart:typed_data@Float64x2List@#as': (m.Scope scope, target)=>()=>target as Float64x2List,
 'dart:typed_data@Float64x2List@#is': (m.Scope scope, target)=>()=>target is Float64x2List,
 'dart:typed_data@Float64x2List@bytesPerElement': (m.Scope scope)=>Float64x2List.bytesPerElement,
-'dart:typed_data@Float64x2List@': (m.Scope scope)=>Float64x2List,
+'dart:typed_data@Float64x2List@': (m.Scope scope)=>( length){
+return Float64x2List(length);
+},
 'dart:typed_data@Float64x2List@fromList': (m.Scope scope)=>Float64x2List.fromList,
 'dart:typed_data@Float64x2List@view': (m.Scope scope)=>Float64x2List.view,
 'dart:typed_data@Float64x2List@sublistView': (m.Scope scope)=>Float64x2List.sublistView,
@@ -435,7 +465,9 @@ return {
 'dart:typed_data@Float32x4@z': (m.Scope scope, Float32x4 target)=>target.z,
 'dart:typed_data@Float32x4@w': (m.Scope scope, Float32x4 target)=>target.w,
 'dart:typed_data@Float32x4@signMask': (m.Scope scope, Float32x4 target)=>target.signMask,
-'dart:typed_data@Float32x4@': (m.Scope scope)=>Float32x4,
+'dart:typed_data@Float32x4@': (m.Scope scope)=>( x,  y,  z,  w){
+return Float32x4(x, y, z, w);
+},
 'dart:typed_data@Float32x4@splat': (m.Scope scope)=>Float32x4.splat,
 'dart:typed_data@Float32x4@zero': (m.Scope scope)=>Float32x4.zero,
 'dart:typed_data@Float32x4@fromInt32x4Bits': (m.Scope scope)=>Float32x4.fromInt32x4Bits,
@@ -732,7 +764,9 @@ return {
 'dart:typed_data@Int32x4@flagY': (m.Scope scope, Int32x4 target)=>target.flagY,
 'dart:typed_data@Int32x4@flagZ': (m.Scope scope, Int32x4 target)=>target.flagZ,
 'dart:typed_data@Int32x4@flagW': (m.Scope scope, Int32x4 target)=>target.flagW,
-'dart:typed_data@Int32x4@': (m.Scope scope)=>Int32x4,
+'dart:typed_data@Int32x4@': (m.Scope scope)=>( x,  y,  z,  w){
+return Int32x4(x, y, z, w);
+},
 'dart:typed_data@Int32x4@bool': (m.Scope scope)=>Int32x4.bool,
 'dart:typed_data@Int32x4@fromFloat32x4Bits': (m.Scope scope)=>Int32x4.fromFloat32x4Bits,
 'dart:typed_data@Int32x4@|': (m.Scope scope, Int32x4 target)=>(other)=> target | other,
@@ -756,7 +790,9 @@ return {
 'dart:typed_data@Float64x2@x': (m.Scope scope, Float64x2 target)=>target.x,
 'dart:typed_data@Float64x2@y': (m.Scope scope, Float64x2 target)=>target.y,
 'dart:typed_data@Float64x2@signMask': (m.Scope scope, Float64x2 target)=>target.signMask,
-'dart:typed_data@Float64x2@': (m.Scope scope)=>Float64x2,
+'dart:typed_data@Float64x2@': (m.Scope scope)=>( x,  y){
+return Float64x2(x, y);
+},
 'dart:typed_data@Float64x2@splat': (m.Scope scope)=>Float64x2.splat,
 'dart:typed_data@Float64x2@zero': (m.Scope scope)=>Float64x2.zero,
 'dart:typed_data@Float64x2@fromFloat32x4': (m.Scope scope)=>Float64x2.fromFloat32x4,
@@ -775,52 +811,84 @@ return {
 'dart:typed_data@Float64x2@sqrt': (m.Scope scope, Float64x2 target)=>target.sqrt,
 'dart:typed_data@UnmodifiableByteBufferView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableByteBufferView,
 'dart:typed_data@UnmodifiableByteBufferView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableByteBufferView,
-'dart:typed_data@UnmodifiableByteBufferView@': (m.Scope scope)=>UnmodifiableByteBufferView,
+'dart:typed_data@UnmodifiableByteBufferView@': (m.Scope scope)=>( data){
+return UnmodifiableByteBufferView(data);
+},
 'dart:typed_data@UnmodifiableByteDataView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableByteDataView,
 'dart:typed_data@UnmodifiableByteDataView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableByteDataView,
-'dart:typed_data@UnmodifiableByteDataView@': (m.Scope scope)=>UnmodifiableByteDataView,
+'dart:typed_data@UnmodifiableByteDataView@': (m.Scope scope)=>( data){
+return UnmodifiableByteDataView(data);
+},
 'dart:typed_data@UnmodifiableUint8ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableUint8ListView,
 'dart:typed_data@UnmodifiableUint8ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableUint8ListView,
-'dart:typed_data@UnmodifiableUint8ListView@': (m.Scope scope)=>UnmodifiableUint8ListView,
+'dart:typed_data@UnmodifiableUint8ListView@': (m.Scope scope)=>( list){
+return UnmodifiableUint8ListView(list);
+},
 'dart:typed_data@UnmodifiableInt8ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableInt8ListView,
 'dart:typed_data@UnmodifiableInt8ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableInt8ListView,
-'dart:typed_data@UnmodifiableInt8ListView@': (m.Scope scope)=>UnmodifiableInt8ListView,
+'dart:typed_data@UnmodifiableInt8ListView@': (m.Scope scope)=>( list){
+return UnmodifiableInt8ListView(list);
+},
 'dart:typed_data@UnmodifiableUint8ClampedListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableUint8ClampedListView,
 'dart:typed_data@UnmodifiableUint8ClampedListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableUint8ClampedListView,
-'dart:typed_data@UnmodifiableUint8ClampedListView@': (m.Scope scope)=>UnmodifiableUint8ClampedListView,
+'dart:typed_data@UnmodifiableUint8ClampedListView@': (m.Scope scope)=>( list){
+return UnmodifiableUint8ClampedListView(list);
+},
 'dart:typed_data@UnmodifiableUint16ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableUint16ListView,
 'dart:typed_data@UnmodifiableUint16ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableUint16ListView,
-'dart:typed_data@UnmodifiableUint16ListView@': (m.Scope scope)=>UnmodifiableUint16ListView,
+'dart:typed_data@UnmodifiableUint16ListView@': (m.Scope scope)=>( list){
+return UnmodifiableUint16ListView(list);
+},
 'dart:typed_data@UnmodifiableInt16ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableInt16ListView,
 'dart:typed_data@UnmodifiableInt16ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableInt16ListView,
-'dart:typed_data@UnmodifiableInt16ListView@': (m.Scope scope)=>UnmodifiableInt16ListView,
+'dart:typed_data@UnmodifiableInt16ListView@': (m.Scope scope)=>( list){
+return UnmodifiableInt16ListView(list);
+},
 'dart:typed_data@UnmodifiableUint32ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableUint32ListView,
 'dart:typed_data@UnmodifiableUint32ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableUint32ListView,
-'dart:typed_data@UnmodifiableUint32ListView@': (m.Scope scope)=>UnmodifiableUint32ListView,
+'dart:typed_data@UnmodifiableUint32ListView@': (m.Scope scope)=>( list){
+return UnmodifiableUint32ListView(list);
+},
 'dart:typed_data@UnmodifiableInt32ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableInt32ListView,
 'dart:typed_data@UnmodifiableInt32ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableInt32ListView,
-'dart:typed_data@UnmodifiableInt32ListView@': (m.Scope scope)=>UnmodifiableInt32ListView,
+'dart:typed_data@UnmodifiableInt32ListView@': (m.Scope scope)=>( list){
+return UnmodifiableInt32ListView(list);
+},
 'dart:typed_data@UnmodifiableUint64ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableUint64ListView,
 'dart:typed_data@UnmodifiableUint64ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableUint64ListView,
-'dart:typed_data@UnmodifiableUint64ListView@': (m.Scope scope)=>UnmodifiableUint64ListView,
+'dart:typed_data@UnmodifiableUint64ListView@': (m.Scope scope)=>( list){
+return UnmodifiableUint64ListView(list);
+},
 'dart:typed_data@UnmodifiableInt64ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableInt64ListView,
 'dart:typed_data@UnmodifiableInt64ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableInt64ListView,
-'dart:typed_data@UnmodifiableInt64ListView@': (m.Scope scope)=>UnmodifiableInt64ListView,
+'dart:typed_data@UnmodifiableInt64ListView@': (m.Scope scope)=>( list){
+return UnmodifiableInt64ListView(list);
+},
 'dart:typed_data@UnmodifiableInt32x4ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableInt32x4ListView,
 'dart:typed_data@UnmodifiableInt32x4ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableInt32x4ListView,
-'dart:typed_data@UnmodifiableInt32x4ListView@': (m.Scope scope)=>UnmodifiableInt32x4ListView,
+'dart:typed_data@UnmodifiableInt32x4ListView@': (m.Scope scope)=>( list){
+return UnmodifiableInt32x4ListView(list);
+},
 'dart:typed_data@UnmodifiableFloat32x4ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableFloat32x4ListView,
 'dart:typed_data@UnmodifiableFloat32x4ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableFloat32x4ListView,
-'dart:typed_data@UnmodifiableFloat32x4ListView@': (m.Scope scope)=>UnmodifiableFloat32x4ListView,
+'dart:typed_data@UnmodifiableFloat32x4ListView@': (m.Scope scope)=>( list){
+return UnmodifiableFloat32x4ListView(list);
+},
 'dart:typed_data@UnmodifiableFloat64x2ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableFloat64x2ListView,
 'dart:typed_data@UnmodifiableFloat64x2ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableFloat64x2ListView,
-'dart:typed_data@UnmodifiableFloat64x2ListView@': (m.Scope scope)=>UnmodifiableFloat64x2ListView,
+'dart:typed_data@UnmodifiableFloat64x2ListView@': (m.Scope scope)=>( list){
+return UnmodifiableFloat64x2ListView(list);
+},
 'dart:typed_data@UnmodifiableFloat32ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableFloat32ListView,
 'dart:typed_data@UnmodifiableFloat32ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableFloat32ListView,
-'dart:typed_data@UnmodifiableFloat32ListView@': (m.Scope scope)=>UnmodifiableFloat32ListView,
+'dart:typed_data@UnmodifiableFloat32ListView@': (m.Scope scope)=>( list){
+return UnmodifiableFloat32ListView(list);
+},
 'dart:typed_data@UnmodifiableFloat64ListView@#as': (m.Scope scope, target)=>()=>target as UnmodifiableFloat64ListView,
 'dart:typed_data@UnmodifiableFloat64ListView@#is': (m.Scope scope, target)=>()=>target is UnmodifiableFloat64ListView,
-'dart:typed_data@UnmodifiableFloat64ListView@': (m.Scope scope)=>UnmodifiableFloat64ListView,
+'dart:typed_data@UnmodifiableFloat64ListView@': (m.Scope scope)=>( list){
+return UnmodifiableFloat64ListView(list);
+},
 
 };
 }

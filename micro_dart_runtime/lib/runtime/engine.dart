@@ -301,6 +301,9 @@ class MicroDartEngine {
       newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
     }
     newScope.call(poniter);
+    if (newScope.hasReturn) {
+      scope.pushFrame(newScope.returnValue);
+    }
   }
 
   Future<dynamic> callFunctionPointerAsync(
@@ -332,7 +335,7 @@ class MicroDartEngine {
   dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
       List<Object?> posational, Map<String, dynamic> named) {
     var newScope =
-        scope.createFromParent("_anonymous_", true, true, maxScopeDeep);
+        scope.createFromParent("_anonymous_", true, false, maxScopeDeep);
     List<Object?> args = [];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
@@ -348,7 +351,7 @@ class MicroDartEngine {
 
     newScope.call(functionPointer.offset);
     if (newScope.hasReturn) {
-      return scope.returnValue;
+      return newScope.returnValue;
     }
     return null;
   }
