@@ -72,13 +72,38 @@ class MicroCompilerContext {
         superTypeKey: superTypeKey,
         isAnonymousMixin: node.isAnonymousMixin,
         isMixinDeclaration: node.isMixinDeclaration,
+        methods: getClassMethods(node),
         implementTypes: node.implementedTypes
             .map<String>((e) => e.classNode.getNamedName())
             .toList(),
         mixinTypeKey: node.mixedInClass?.getNamedName());
     visibleTypes[key] = type;
-    //print("type: $type");
     return type;
+  }
+
+  List<String> getClassMethods(Class clazz) {
+    List<String> methods = [];
+    clazz.fields.forEach((field) {
+      String name = field.getNamedName();
+      methods.add(name);
+    });
+    clazz.constructors.forEach((constructor) {
+      String name = constructor.getNamedName();
+      methods.add(name);
+    });
+    clazz.redirectingFactories.forEach((redirectingFactory) {
+      String name = redirectingFactory.getNamedName();
+      methods.add(name);
+    });
+    clazz.procedures.forEach((procedure) {
+      if (procedure.isAbstract) {
+        return;
+      }
+      String name = procedure.getNamedName();
+      methods.add(name);
+    });
+
+    return methods;
   }
 
   void setupTypes() {

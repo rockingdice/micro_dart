@@ -68,7 +68,7 @@ void compileSuperInitializer(
   var target = initializer.target;
   var arguments = initializer.arguments;
   compileCallConstructor(context, arguments, target);
-  context.pushOp(OpSetThisProperty.make("#super"));
+  context.pushOp(OpSetThisSuper.make());
 }
 
 void compileRedirectingInitializer(

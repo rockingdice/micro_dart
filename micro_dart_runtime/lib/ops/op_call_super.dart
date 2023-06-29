@@ -129,9 +129,6 @@ class OpCallSuper implements Op {
     }
 
     dynamic target = scope.popFrame();
-    if (target is InstanceBridge) {
-      target = target.target;
-    }
 
     if (_isGetter) {
       scope.pushFrame(scope.engine.externalFunctions[key]!(target));
@@ -146,21 +143,13 @@ class OpCallSuper implements Op {
       return;
     } else if (operator2.contains(_name)) {
       var function = scope.engine.externalFunctions[key];
-      dynamic other = positionalArguments.first;
-      if (other is InstanceBridge) {
-        other = other.target;
-      }
+      var other = positionalArguments.first;
+
       scope.pushFrame(function!(target, other));
       return;
     } else if (operator3.contains(_name)) {
-      dynamic first = positionalArguments.first;
-      if (first is InstanceBridge) {
-        first = first.target;
-      }
-      dynamic second = positionalArguments[1];
-      if (second is InstanceBridge) {
-        second = first.target;
-      }
+      var first = positionalArguments.first;
+      var second = positionalArguments[1];
       scope.pushFrame(
           scope.engine.externalFunctions[key]!(target, first, second));
       return;

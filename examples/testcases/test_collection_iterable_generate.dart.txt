@@ -2,7 +2,7 @@ main = main::main;
 library from "test:///main.dart" as main {
 
   static method main() → dart.core::String {
-    dart.core::Iterable<dynamic> ite = dart.core::Iterable::generate<dynamic>(5);
+    dart.core::Iterable<dart.core::int> ite = dart.core::Iterable::generate<dart.core::int>(5, (dart.core::int i) → dart.core::int => i);
     dart.core::String s = ite.{dart.core::Iterable::join}(){([dart.core::String]) → dart.core::String};
     dart.core::print(s);
     return s;

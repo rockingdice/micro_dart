@@ -6,9 +6,6 @@ import 'package:test/test.dart';
 
 import 'package:micro_dart_runtime/generated/core.g.dart';
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
-
 void main() {
   group('Flutter tests', () {
     test(':generate', () async {

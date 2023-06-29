@@ -603,7 +603,6 @@ int compileInstanceConstant(
   });
 
   //这是一个外部类
-
   if (!context.compileDeclarationIndexes
       .containsKey(classNode.getNamedName())) {
     return compileExternalInstanceConstant(context, constant);

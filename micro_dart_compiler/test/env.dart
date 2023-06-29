@@ -23,3 +23,6 @@ final CompilerOptions options = CompilerOptions()
   ..sdkSummary = sdkSummary
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
+
+const bool astToJsonFlag = false;
+const bool printOp = false;

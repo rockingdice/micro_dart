@@ -4,9 +4,6 @@ import 'package:test/test.dart';
 
 import 'package:micro_dart_runtime/generated/core.g.dart';
 
-const bool astToJsonFlag = false;
-const bool printOp = false;
-
 void main() {
   group('While tests', () {
     test(':test while', () async {

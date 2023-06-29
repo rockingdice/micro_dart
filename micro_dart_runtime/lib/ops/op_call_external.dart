@@ -75,22 +75,14 @@ class OpCallExternal implements Op {
     for (int i = 0; i < namedLength; i++) {
       String key = args.removeLast() as String;
       var value = args.removeLast();
-      if (value is InstanceBridge) {
-        namedArguments[key] = value.target;
-      } else {
-        namedArguments[key] = value;
-      }
+      namedArguments[key] = value;
     }
     int pLength = args.removeLast() as int;
     for (int i = 0; i < pLength; i++) {
       var value = args.removeLast();
-      if (value is InstanceBridge) {
-        positionalArguments[i] = value.target;
-      } else {
-        positionalArguments[i] = value;
-      }
+      positionalArguments[i] = value;
     }
-    print("call external: $key");
+    //print("call external: $key");
     var function = scope.engine.externalFunctions[key];
     if (function == null) {
       throw Exception("not found external function: $key");
@@ -98,14 +90,11 @@ class OpCallExternal implements Op {
     //表示这是构造函数初始化
     if (kind == 3) {
       //这里需要修改
-      var instance = InstanceBridge(
-          scope.engine,
-          Function.apply(
-              function(scope),
-              positionalArguments,
-              namedArguments.map<Symbol, dynamic>(
-                  (key, value) => MapEntry(Symbol(key), value))),
-          scope.engine.getType("$libraryUri@$className"));
+      var instance = Function.apply(
+          function(scope),
+          positionalArguments,
+          namedArguments.map<Symbol, dynamic>(
+              (key, value) => MapEntry(Symbol(key), value)));
 
       scope.pushFrame(instance);
       return;
@@ -127,9 +116,7 @@ class OpCallExternal implements Op {
               (key, value) => MapEntry(Symbol(key), value))));
     } else {
       dynamic target = args.removeLast();
-      if (target is InstanceBridge) {
-        target = target.target;
-      }
+
       if (isGetter) {
         scope.pushFrame(function(scope, target));
         return;

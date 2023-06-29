@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
+export 'op_set_this_super.dart';
 
 export 'op_push_argments.dart';
 export 'op_set_param_from_parent.dart';
@@ -31,7 +32,6 @@ export 'op_assert.dart';
 export 'op_equals.dart';
 export 'op_string_concat.dart';
 export 'op_call_dynamic.dart';
-export 'op_push_box_int.dart';
 export 'op_push_pointer.dart';
 export 'op_call_pointer.dart';
 export 'op_jump.dart';
@@ -142,6 +142,7 @@ class Ops {
   static const opCallSuperAsync = 59;
   static const opCallEndAsync = 60;
   static const opCallDynamicAsync = 61;
+  static const opSetThisSuper = 62;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -244,7 +245,6 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opJump: (MicroDartEngine engine) => OpJump(engine),
   Ops.opCallPointer: (MicroDartEngine engine) => OpCallPointer(engine),
   Ops.opPushPointer: (MicroDartEngine engine) => OpPushPointer(engine),
-  Ops.opPushBoxInt: (MicroDartEngine engine) => OpPushBoxInt(engine),
   Ops.opCallDynamic: (MicroDartEngine engine) => OpCallDynamic(engine),
   Ops.opStringConcat: (MicroDartEngine engine) => OpStringConcat(engine),
   Ops.opEquals: (MicroDartEngine engine) => OpEquals(engine),
@@ -284,4 +284,5 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opCallEndAsync: (MicroDartEngine engine) => OpCallEndAsync(engine),
   Ops.opCallDynamicAsync: (MicroDartEngine engine) =>
       OpCallDynamicAsync(engine),
+  Ops.opSetThisSuper: (MicroDartEngine engine) => OpSetThisSuper(engine),
 };

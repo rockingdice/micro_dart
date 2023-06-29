@@ -4,6 +4,7 @@ export 'runtime/type.dart';
 export 'runtime/engine.dart';
 export 'runtime/exception.dart';
 export 'runtime/instance.dart';
+export 'runtime/bridge.dart';
 export 'ops/ops.dart';
-//export 'bridge/bridge.dart';
+
 //export 'corelib/corelib.dart';
