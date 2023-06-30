@@ -13,6 +13,8 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 

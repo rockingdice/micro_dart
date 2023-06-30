@@ -7,12 +7,12 @@ import 'package:micro_dart_compiler/micro_dart_compiler.dart';
 export 'package:micro_dart_compiler/micro_dart_compiler.dart';
 export 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-export 'ast_to_json.dart';
-export 'ast_to_text.dart';
+export 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
+export 'package:micro_dart_compiler/compiler/ast/ast_to_text.dart';
 
 const String pluginUri = "test:///main.dart";
 const String flutterExampleUri = "pacakge://flutter_example/main.dart";
-const String testCasePath = "../examples/testcases/";
+const String testCasePath = "test/testcases/";
 const String flutterExamplePath = "../examples/flutter_example/";
 final String flutterPatchedSdk =
     "${path.dirname(path.dirname(path.dirname(Platform.resolvedExecutable)))}/artifacts/engine/common/flutter_patched_sdk/";
@@ -24,5 +24,5 @@ final CompilerOptions options = CompilerOptions()
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
 
-const bool astToJsonFlag = false;
-const bool printOp = false;
+const bool astToJsonFlag = true;
+const bool printOp = true;

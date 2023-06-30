@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
+export 'op_push_constant_bool.dart';
 export 'op_push_symbol.dart';
 export 'op_set_this_super.dart';
 
@@ -15,7 +16,6 @@ export 'op_call_start.dart';
 export 'op_await.dart';
 export 'op_push_map.dart';
 export 'op_push_set.dart';
-export 'op_symbol.dart';
 export 'op_null_check.dart';
 export 'op_map_concat.dart';
 export 'op_set_concat.dart';
@@ -124,7 +124,7 @@ class Ops {
   static const opSetConcat = 42;
   static const opMapConcat = 43;
   static const opNullCheck = 44;
-  static const opSymbol = 45;
+  static const opPushSymbol = 45;
   static const opPushSet = 46;
   static const opPushMap = 47;
   static const opAwait = 48;
@@ -144,7 +144,8 @@ class Ops {
   static const opCallEndAsync = 60;
   static const opCallDynamicAsync = 61;
   static const opSetThisSuper = 62;
-  static const opPushSymbol = 63;
+
+  static const opPushConstantBool = 64;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -264,7 +265,6 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opSetConcat: (MicroDartEngine engine) => OpSetConcat(engine),
   Ops.opMapConcat: (MicroDartEngine engine) => OpMapConcat(engine),
   Ops.opNullCheck: (MicroDartEngine engine) => OpNullCheck(engine),
-  Ops.opSymbol: (MicroDartEngine engine) => OpSymbol(engine),
   Ops.opPushSet: (MicroDartEngine engine) => OpPushSet(engine),
   Ops.opPushMap: (MicroDartEngine engine) => OpPushMap(engine),
   Ops.opAwait: (MicroDartEngine engine) => OpAwait(engine),
@@ -288,4 +288,6 @@ final Map<int, OpLoader> opLoaders = {
       OpCallDynamicAsync(engine),
   Ops.opSetThisSuper: (MicroDartEngine engine) => OpSetThisSuper(engine),
   Ops.opPushSymbol: (MicroDartEngine engine) => OpPushSymbol(engine),
+  Ops.opPushConstantBool: (MicroDartEngine engine) =>
+      OpPushConstantBool(engine),
 };

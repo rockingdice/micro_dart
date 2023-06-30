@@ -17,7 +17,7 @@ class OpPushList implements Op {
   @override
   void run(Scope scope) {
     final List<Object?> list = List.filled(_length, null);
-    for (int i = _length - 1; i >= 0; i--) {
+    for (int i = 0; i < _length; i++) {
       list[i] = scope.popFrame();
     }
     scope.pushFrame(list);

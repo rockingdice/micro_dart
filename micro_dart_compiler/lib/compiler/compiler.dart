@@ -1,7 +1,6 @@
 import 'package:front_end/src/api_unstable/vm.dart';
 
-import 'package:front_end/src/api_prototype/kernel_generator.dart'
-    show kernelForProgramInternal;
+import '../proxy/kernel_generator.dart' show kernelForProgramInternal;
 import 'package:kernel/ast.dart';
 import 'package:micro_dart_compiler/compiler/program.dart';
 

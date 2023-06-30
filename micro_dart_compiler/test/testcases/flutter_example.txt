@@ -1,0 +1,42 @@
+main = <No Member>;
+library from "package:flutter_example/widget.dart" as wid {
+
+  import "package:flutter/material.dart";
+
+  class MyApp extends #lib1::StatelessWidget /*hasConstConstructor*/  {
+    const constructor •({#lib2::Key? key = null}) → wid::MyApp
+      : super #lib1::StatelessWidget::•(key: key)
+      ;
+    @dart.core::override
+    method build(#lib1::BuildContext context) → #lib1::Widget {
+      return new #lib3::MaterialApp::•(title: "Flutter Demo", theme: #lib4::ThemeData::•(colorScheme: #lib5::ColorScheme::fromSeed(seedColor: #lib6::Colors::deepPurple), useMaterial3: true), home: const wid::MyHomePage::•(title: "Flutter Demo Home Page"));
+    }
+  }
+  class MyHomePage extends #lib1::StatefulWidget /*hasConstConstructor*/  {
+    final field dart.core::String title;
+    const constructor •({#lib2::Key? key = null, required dart.core::String title = null}) → wid::MyHomePage
+      : wid::MyHomePage::title = title, super #lib1::StatefulWidget::•(key: key)
+      ;
+    @dart.core::override
+    method createState() → #lib1::State<wid::MyHomePage>
+      return new wid::_MyHomePageState::•();
+  }
+  class _MyHomePageState extends #lib1::State<wid::MyHomePage> {
+    field dart.core::int _counter = 0;
+    synthetic constructor •() → wid::_MyHomePageState
+      : super #lib1::State::•()
+      ;
+    method _incrementCounter() → void {
+      this.{#lib1::State::setState}(() → void {
+        this.{wid::_MyHomePageState::_counter} = this.{wid::_MyHomePageState::_counter}{dart.core::int}.{dart.core::num::+}(1){(dart.core::num) → dart.core::int};
+      }){(() → void) → void};
+    }
+    @dart.core::override
+    method build(#lib1::BuildContext context) → #lib1::Widget {
+      return new #lib7::Scaffold::•(appBar: new #lib8::AppBar::•(backgroundColor: #lib9::Theme::of(context).{#lib4::ThemeData::colorScheme}{#lib5::ColorScheme}.{#lib5::ColorScheme::inversePrimary}{dart.ui::Color}, title: new #lib10::Text::•(this.{#lib1::State::widget}{wid::MyHomePage}.{wid::MyHomePage::title}{dart.core::String})), body: new #lib11::Center::•(child: new #lib11::Column::•(mainAxisAlignment: #lib12::MainAxisAlignment::center, children: <#lib1::Widget>[const #lib10::Text::•("You have pushed the button this many times:"), new #lib10::Text::•("${this.{wid::_MyHomePageState::_counter}{dart.core::int}}", style: #lib9::Theme::of(context).{#lib4::ThemeData::textTheme}{#lib13::TextTheme}.{#lib13::TextTheme::headlineMedium}{#lib14::TextStyle?})])), floatingActionButton: new #lib15::FloatingActionButton::•(onPressed: this.{wid::_MyHomePageState::_incrementCounter}{() → void}, tooltip: "Increment", child: const #lib16::Icon::•(#lib17::Icons::add)));
+    }
+  }
+  static method createMyApp() → wid::MyApp {
+    return const wid::MyApp::•();
+  }
+}

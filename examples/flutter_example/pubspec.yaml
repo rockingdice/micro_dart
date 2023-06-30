@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   micro_dart_runtime: 
     path: ../../micro_dart_runtime
+  micro_dart_flutter: 
+    path: ../../micro_dart_flutter
 
 dev_dependencies:
   micro_dart_generator: 

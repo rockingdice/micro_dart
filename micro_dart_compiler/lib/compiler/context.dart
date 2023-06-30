@@ -1,5 +1,4 @@
 import 'package:kernel/ast.dart';
-import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
@@ -29,15 +28,13 @@ class MicroCompilerContext {
 
   late OffsetTracker offsetTracker = OffsetTracker(this);
 
-  late CoreTypes coreTypes = CoreTypes(component);
-
   final Namer<VariableDeclaration> variableNamer =
       NormalNamer<VariableDeclaration>('#v');
 
   final Namer<LabeledStatement> labeledNamer =
       NormalNamer<LabeledStatement>('#l');
 
-  final Namer<Constant> constantNamer = NormalNamer<Constant>('#c');
+  final Namer<Node> constantNamer = NormalNamer<Node>('#c');
 
   MicroCompilerContext(this.component, this.debug);
 

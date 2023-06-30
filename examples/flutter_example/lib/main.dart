@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'generated/micro_dart/micro_dart.dart';
+import 'package:micro_dart_runtime/generated/core.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
