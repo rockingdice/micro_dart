@@ -558,7 +558,6 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
   } else if (constant is MapConstant) {
   } else if (constant is SetConstant) {
   } else if (constant is ListConstant) {
-  } else if (constant is ListConstant) {
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
@@ -603,6 +602,7 @@ int compileInstanceConstant(
   });
 
   //这是一个外部类
+
   if (!context.compileDeclarationIndexes
       .containsKey(classNode.getNamedName())) {
     return compileExternalInstanceConstant(context, constant);

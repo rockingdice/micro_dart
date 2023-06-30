@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 
-class AbsVisitor extends ElementVisitor<void> {
+class AbsVisitor implements ElementVisitor<void> {
   @override
   void visitAugmentationImportElement(AugmentationImportElement element) {
     // TODO: implement visitAugmentationImportElement
@@ -13,7 +13,7 @@ class AbsVisitor extends ElementVisitor<void> {
 
   @override
   void visitCompilationUnitElement(CompilationUnitElement element) {
-    // TODO: implement visitCompilationUnitElement
+    element.visitChildren(this);
   }
 
   @override

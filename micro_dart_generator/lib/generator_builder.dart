@@ -12,6 +12,7 @@ import 'package:build_runner_core/build_runner_core.dart';
 import 'package:path/path.dart';
 
 import 'generator.dart';
+import 'namedsystem.dart';
 import 'overwrite_strategy.dart';
 
 class GeneratorBuilder implements Builder {

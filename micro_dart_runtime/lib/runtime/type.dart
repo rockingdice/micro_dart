@@ -6,25 +6,6 @@ class Types {
   static const TypeRef voidType = TypeRef("", "void", false);
   static const TypeRef neverType = TypeRef("", "never", false);
   static const TypeRef nullType = TypeRef("", "null", false);
-
-  static const TypeRef objectType = TypeRef("dart:core", "Object", true);
-
-  static const TypeRef listType = TypeRef("dart:core", "List", true);
-
-  static final TypeRef numType =
-      TypeRef("dart:core", "num", true, superTypeKey: objectType.key);
-  static final TypeRef intType =
-      TypeRef("dart:core", "int", true, superTypeKey: numType.key);
-
-  final Map<String, TypeRef> types;
-
-  const Types(this.types);
-
-  static final Map<String, TypeRef> internalTypes = {
-    objectType.key: objectType,
-    numType.key: numType,
-    intType.key: intType,
-  };
 }
 
 class TypeRef {

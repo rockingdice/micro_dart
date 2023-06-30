@@ -119,7 +119,7 @@ class MicroDartEngine {
         MapEntry<String, TypeRef>(key, TypeRef.fromList(value))));
 
     ///加载内置类型
-    types.addAll(Types.internalTypes);
+    //types.addAll(Types.internalTypes);
 
     ///加载操作结合
     while (_fileOffset < _data.lengthInBytes) {

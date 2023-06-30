@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:analyzer/dart/analysis/analysis_context_collection.dart';
 import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/file_system/physical_file_system.dart';
-import 'package:micro_dart_generator/generator.dart';
+import 'package:micro_dart_generator/code_gen.dart';
 import 'package:micro_dart_generator/namedsystem.dart';
 import 'package:micro_dart_generator/overwrite_strategy.dart';
 import 'package:path/path.dart';
@@ -13,7 +13,7 @@ void main(List<String> arguments) async {
   var overwriteStrategyPath =
       absolute(Directory(".").absolute.parent.path, "overwrite_strategy.json");
   var runtimeDir = absolute(rootPath, "micro_dart_runtime");
-  final generateDir = Directory(join(runtimeDir, "lib/generated"));
+  final generateDir = Directory(join(runtimeDir, "lib/generated2"));
   final libDir = Directory(join(runtimeDir, 'lib'));
 
   print(libDir.path);
@@ -54,11 +54,11 @@ void main(List<String> arguments) async {
           await collection.contexts[i].currentSession.getLibraryByUri(l);
 
       if (library is LibraryElementResult) {
-        var generator = Generator(namedSystem, overwriteStrategy);
+        var generator = CodeGen(namedSystem, overwriteStrategy);
 
         generator.visitLibraryElement(library.element);
         File("${generateDir.path}/${namedSystem.getLibraryNameFileName(library.element.identifier)}.g.dart")
-            .writeAsStringSync(generator.generate().toString());
+            .writeAsStringSync(generator.generate());
       } else {
         throw Exception("generate $l error : $library");
       }

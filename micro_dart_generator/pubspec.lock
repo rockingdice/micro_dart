@@ -122,7 +122,7 @@ packages:
     source: hosted
     version: "2.0.3"
   code_builder:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: code_builder
       sha256: "4ad01d6e56db961d29661561effde45e519939fdaeb46c351275b182eac70189"
