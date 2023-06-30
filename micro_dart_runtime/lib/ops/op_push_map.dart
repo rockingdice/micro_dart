@@ -12,7 +12,7 @@ class OpPushMap implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opMapConcat, ...Ops.i32b(_length)];
+  List<int> get bytes => [Ops.opPushMap, ...Ops.i32b(_length)];
 
   @override
   void run(Scope scope) {

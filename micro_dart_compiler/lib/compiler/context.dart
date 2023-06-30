@@ -37,8 +37,7 @@ class MicroCompilerContext {
   final Namer<LabeledStatement> labeledNamer =
       NormalNamer<LabeledStatement>('#l');
 
-  final Namer<InstanceConstant> constantNamer =
-      NormalNamer<InstanceConstant>('#c');
+  final Namer<Constant> constantNamer = NormalNamer<Constant>('#c');
 
   MicroCompilerContext(this.component, this.debug);
 

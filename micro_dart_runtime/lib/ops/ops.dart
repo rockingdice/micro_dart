@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
+export 'op_push_symbol.dart';
 export 'op_set_this_super.dart';
 
 export 'op_push_argments.dart';
@@ -143,6 +144,7 @@ class Ops {
   static const opCallEndAsync = 60;
   static const opCallDynamicAsync = 61;
   static const opSetThisSuper = 62;
+  static const opPushSymbol = 63;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -285,4 +287,5 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opCallDynamicAsync: (MicroDartEngine engine) =>
       OpCallDynamicAsync(engine),
   Ops.opSetThisSuper: (MicroDartEngine engine) => OpSetThisSuper(engine),
+  Ops.opPushSymbol: (MicroDartEngine engine) => OpPushSymbol(engine),
 };

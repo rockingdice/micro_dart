@@ -12,7 +12,7 @@ class OpPushSet implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opListConcat, ...Ops.i32b(_length)];
+  List<int> get bytes => [Ops.opPushSet, ...Ops.i32b(_length)];
 
   @override
   void run(Scope scope) {

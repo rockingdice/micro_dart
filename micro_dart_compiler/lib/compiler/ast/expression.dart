@@ -555,9 +555,13 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
   if (constant is IntConstant) {
     return context.pushOp(OpPushConstantInt.make(constant.value));
   } else if (constant is SymbolConstant) {
+    return compileSymbolConstant(context, constant);
   } else if (constant is MapConstant) {
+    return compileMapConstant(context, constant);
   } else if (constant is SetConstant) {
+    return compileSetConstant(context, constant);
   } else if (constant is ListConstant) {
+    return compileListConstant(context, constant);
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
@@ -590,6 +594,87 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
     // throw Exception("not support: ${constant.classReference.asClass.name} ");
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
+}
+
+int compileSymbolConstant(
+    MicroCompilerContext context, SymbolConstant constant) {
+  var name = context.constantNamer.getName(constant);
+  if (name.params.containsKey("#location")) {
+    int location = name.params["#location"] as int;
+    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  }
+  int jumpOver = context.pushOp(OpJump.make(-1));
+  int location = context.callStart(name.text);
+  name.params["#location"] = location;
+
+  context.pushOp(OpPushSymbol.make(constant.name));
+  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.callEnd();
+  context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+}
+
+int compileSetConstant(MicroCompilerContext context, SetConstant constant) {
+  var name = context.constantNamer.getName(constant);
+  if (name.params.containsKey("#location")) {
+    int location = name.params["#location"] as int;
+    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  }
+  int jumpOver = context.pushOp(OpJump.make(-1));
+  int location = context.callStart(name.text);
+  name.params["#location"] = location;
+
+  int length = constant.entries.length;
+  for (int i = length - 1; i >= 0; i--) {
+    compileConstant(context, constant.entries[i]);
+  }
+  context.pushOp(OpPushSet.make(constant.entries.length));
+  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.callEnd();
+  context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+}
+
+int compileListConstant(MicroCompilerContext context, ListConstant constant) {
+  var name = context.constantNamer.getName(constant);
+  if (name.params.containsKey("#location")) {
+    int location = name.params["#location"] as int;
+    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  }
+  int jumpOver = context.pushOp(OpJump.make(-1));
+  int location = context.callStart(name.text);
+  name.params["#location"] = location;
+
+  constant.entries.forEach((element) {
+    compileConstant(context, element);
+  });
+  context.pushOp(OpPushList.make(constant.entries.length));
+  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.callEnd();
+  context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+}
+
+int compileMapConstant(MicroCompilerContext context, MapConstant constant) {
+  var name = context.constantNamer.getName(constant);
+  if (name.params.containsKey("#location")) {
+    int location = name.params["#location"] as int;
+    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  }
+  int jumpOver = context.pushOp(OpJump.make(-1));
+  int location = context.callStart(name.text);
+  name.params["#location"] = location;
+
+  int length = constant.entries.length;
+  for (int i = length - 1; i >= 0; i--) {
+    compileConstant(context, constant.entries[i].value);
+    compileConstant(context, constant.entries[i].key);
+  }
+  context.pushOp(OpPushMap.make(constant.entries.length));
+  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.callEnd();
+  context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+  return context.pushOp(OpGetGlobalParam.make(name.text, location));
 }
 
 int compileInstanceConstant(
