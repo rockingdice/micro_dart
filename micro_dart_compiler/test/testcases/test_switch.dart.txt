@@ -1,0 +1,30 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  class T extends dart.core::_Enum /*isEnum*/  {
+    static const field dart.core::List<main::T> values = const <main::T>[main::T::a, main::T::b, main::T::c, main::T::d];
+    enum-element static const field main::T a = const main::T::•(0, "a");
+    enum-element static const field main::T b = const main::T::•(1, "b");
+    enum-element static const field main::T c = const main::T::•(2, "c");
+    enum-element static const field main::T d = const main::T::•(3, "d");
+    const constructor •(dart.core::int #index, dart.core::String #name) → main::T
+      : super dart.core::_Enum::•(#index, #name)
+      ;
+    method _enumToString() → dart.core::String
+      return "T.${this.{dart.core::_Enum::_name}{dart.core::String}}";
+  }
+  static method main() → dart.core::int {
+    main::T t = main::T::a;
+    dart.core::int j = 0;
+    #L1:
+    PatternSwitchStatement
+    for (dart.core::int i = 0; i.{dart.core::num::<}(5){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int})
+      #L2:
+      {
+        #L3:
+        PatternSwitchStatement
+      }
+    dart.core::print(j);
+    return j;
+  }
+}

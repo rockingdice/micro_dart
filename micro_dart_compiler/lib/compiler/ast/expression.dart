@@ -49,6 +49,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     //return compileAbstractSuperPropertyGet(context, node);
   } else if (node is AbstractSuperPropertySet) {
     //return compileAbstractSuperPropertySet(context, node);
+  } else if (node is ConstructorTearOff) {
+    return compileConstructorTearOff(context, node);
   } else if (node is FunctionExpression) {
     return compileFunctionExpression(context, node);
   } else if (node is LocalFunctionInvocation) {
@@ -78,7 +80,7 @@ int compileExpression(MicroCompilerContext context, Expression node) {
   } else if (node is AbstractSuperPropertySet) {
     //return compileAbstractSuperPropertySet(context, node);
   } else if (node is StaticTearOff) {
-    // return compileStaticTearOff(context, node);
+    return compileStaticTearOff(context, node);
   } else if (node is InstanceInvocationExpression) {
     //return compileInstanceInvocationExpression(context, node);
   } else if (node is InstanceGetterInvocation) {
@@ -138,6 +140,29 @@ int compileExpression(MicroCompilerContext context, Expression node) {
 
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
+}
+
+int compileConstructorTearOff(
+    MicroCompilerContext context, ConstructorTearOff node) {
+  var target = node.target;
+  if (target is Constructor) {
+    return compileCallConstructor(context, Arguments.empty(), target);
+  } else if (target is Procedure) {
+    return compileCallProcedure(context, Arguments.empty(), target, true);
+  }
+  throw Exception(
+      "ConstructorTearOff not support ${target.runtimeType.toString()}");
+}
+
+int compileStaticTearOff(MicroCompilerContext context, StaticTearOff node) {
+  String key = node.target.getNamedName();
+  int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
+  bool isAsync = (node.target.function.asyncMarker == AsyncMarker.Async);
+  int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
+  if (opOffset == -1) {
+    context.offsetTracker.setCallPointerOffset(pos, key, true, isAsync);
+  }
+  return pos;
 }
 
 int compileAwaitExpression(MicroCompilerContext context, AwaitExpression node) {
@@ -286,7 +311,6 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
     throw Exception(
         "IsExpression type not support : ${type.runtimeType.toString()}");
   }
-  return pos;
 }
 
 int compileThrow(MicroCompilerContext context, Throw node) {
@@ -319,7 +343,7 @@ int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
   if (context.compileDeclarations.contains(node.interfaceTarget)) {
     compileExpression(context, node.receiver);
     String key = node.interfaceTarget.getNamedName();
-    int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+    int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
     bool isAsync =
         (node.interfaceTarget.function.asyncMarker == AsyncMarker.Async);
     int pos = context.pushOp(OpPushPointer.make(opOffset, false, isAsync));
@@ -490,12 +514,7 @@ int compileSuperPropertyGet(
           0, []));
     }
   } else if (target is Field) {
-    int opOffset =
-        context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
-    // if (opOffset == -1) {
-    //   throw Exception("object ${target.getNamedName()} not found ");
-    // }
-    return context.pushOp(OpGetObjectProperty.make(node.name.text, opOffset));
+    return compileCallFieldGet(context, target);
   }
 
   return -1;
@@ -555,16 +574,15 @@ int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
 
   if (target is Procedure) {
     compileExpression(context, node.receiver);
-    int p = compileCallProcedure(context, Arguments([]), target, false);
-    return p;
+    return compileCallProcedure(context, Arguments([]), target, false);
   } else if (target is Field) {
     compileExpression(context, node.receiver);
-    int opOffset =
-        context.rumtimeDeclarationOpIndexes[target.getNamedName()] ?? -1;
+    return compileCallFieldGet(context, target);
+    //int opOffset = context.rumtimeDeclarationOpIndexes[target.getNamedName()]!;
     // if (opOffset == -1) {
     //   throw Exception("object ${target.getNamedName()} not found ");
     // }
-    return context.pushOp(OpGetObjectProperty.make(node.name.text, opOffset));
+    //return context.pushOp(OpGetObjectProperty.make(node.name.text, opOffset));
   }
 
   return -1;
@@ -575,7 +593,7 @@ int compileInstanceSet(MicroCompilerContext context, InstanceSet node) {
   if (target is Field) {
     compileExpression(context, node.value);
     compileExpression(context, node.receiver);
-    return context.pushOp(SetObjectProperty.make(node.name.text));
+    return compileCallFieldSet(context, target);
   } else if (target is Procedure) {
     compileExpression(context, node.receiver);
     int p =
@@ -643,7 +661,7 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       String key = constant.target.getNamedName();
-      int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+      int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
       bool isAsync =
           (constant.target.function.asyncMarker == AsyncMarker.Async);
       int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
@@ -667,9 +685,10 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
       return compileCallProcedure(context, Arguments.empty(), target, true);
     }
   } else if (constant is InstanceConstant) {
-    return compileInstanceConstant(context, constant);
-    //reutrn - 1;
-    // throw Exception("not support: ${constant.classReference.asClass.name} ");
+    print("not support InstanceConstant: ${constant.classNode.name} ");
+    return -1;
+    //throw Exception(
+    //    "not support InstanceConstant: ${constant.classNode.name} ");
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
@@ -722,10 +741,10 @@ int compileListConstant(MicroCompilerContext context, ListConstant constant) {
   int jumpOver = context.pushOp(OpJump.make(-1));
   int location = context.callStart(name.text);
   name.params["#location"] = location;
-
-  constant.entries.forEach((element) {
-    compileConstant(context, element);
-  });
+  int length = constant.entries.length;
+  for (int i = length - 1; i >= 0; i--) {
+    compileConstant(context, constant.entries[i]);
+  }
   context.pushOp(OpPushList.make(constant.entries.length));
   context.pushOp(OpReturnField.make("", "", true, name.text));
   context.callEnd();
@@ -793,11 +812,11 @@ int compileInstanceConstant(
 
 int compileExternalInstanceConstant(
     MicroCompilerContext context, InstanceConstant constant) {
-  print(
-      "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
-  return -1;
-  // throw Exception(
+  // print(
   //     "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
+  // return -1;
+  throw Exception(
+      "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
 }
 
 void getConstantConstructor(InstanceConstant constant) {
@@ -827,36 +846,27 @@ void getConstantConstructor(InstanceConstant constant) {
 int compileStaticGet(MicroCompilerContext context, StaticGet node) {
   var target = node.target;
   if (target is Field) {
-    //有可能还没有初始化
-    if (context.rumtimeDeclarationOpIndexes[target.getNamedName()] == null) {
-      print("compileStaticGet field not found:${target.getNamedName()}");
-
-      return -1;
-    }
-    return context.pushOp(OpGetGlobalParam.make(target.name.text,
-        context.rumtimeDeclarationOpIndexes[target.getNamedName()]!));
+    return compileCallFieldGet(context, target);
   } else if (target is Procedure && target.isGetter) {
     var procedure = target;
     var arguments = Arguments.empty();
     int p = compileCallProcedure(context, arguments, procedure, true);
     return p;
   }
-  return -1;
+  throw Exception("StaticGet not support ${target.runtimeType.toString()}");
 }
 
 int compileStaticSet(MicroCompilerContext context, StaticSet node) {
-  int res = compileExpression(context, node.value);
+  compileExpression(context, node.value);
   var target = node.target;
-  if (res != -1) {
-    if (target is Field) {
-      return context.pushOp(OpSetGlobalParam.make(node.target.name.text));
-    } else if (target is Procedure) {
-      int p =
-          compileCallProcedure(context, Arguments([node.value]), target, true);
-      return p;
-    }
+  if (target is Field) {
+    return compileCallFieldSet(context, target);
+  } else if (target is Procedure) {
+    int p =
+        compileCallProcedure(context, Arguments([node.value]), target, true);
+    return p;
   }
-  return -1;
+  throw Exception("StaticSet not support ${target.runtimeType.toString()}");
 }
 
 int compileVariableSet(MicroCompilerContext context, VariableSet node) {

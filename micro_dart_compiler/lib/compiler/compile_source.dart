@@ -8,12 +8,10 @@ library front_end.testing.compiler_options_common;
 import 'package:kernel/ast.dart' show Library, Component;
 
 import 'package:front_end/src/api_prototype/front_end.dart'
-    show
-        CompilerOptions,
-        CompilerResult,
-        kernelForModule,
-        kernelForProgramInternal,
-        summaryFor;
+    show CompilerOptions, CompilerResult, summaryFor;
+
+import 'package:front_end/src/base/processed_options.dart'
+    show ProcessedOptions;
 
 import 'package:front_end/src/api_prototype/memory_file_system.dart'
     show MemoryFileSystem, MemoryFileSystemEntity;
@@ -23,6 +21,9 @@ import 'package:front_end/src/compute_platform_binaries_location.dart'
 
 import 'package:front_end/src/fasta/hybrid_file_system.dart'
     show HybridFileSystem;
+
+import '../proxy/kernel_generator.dart';
+import '../proxy/kernel_generator_impl.dart';
 
 /// Generate kernel for a script.
 ///

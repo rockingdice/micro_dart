@@ -239,7 +239,7 @@ final Map<int, OpLoader> opLoaders = {
       SetScopeParamNull(engine),
   Ops.opCreateInstance: (MicroDartEngine engine) => OpCreateInstance(engine),
   Ops.opSetObjectProperty: (MicroDartEngine engine) =>
-      SetObjectProperty(engine),
+      OpSetObjectProperty(engine),
   Ops.opGetObjectProperty: (MicroDartEngine engine) =>
       OpGetObjectProperty(engine),
   Ops.opSetThisProperty: (MicroDartEngine engine) => OpSetThisProperty(engine),

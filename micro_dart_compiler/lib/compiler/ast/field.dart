@@ -22,19 +22,60 @@ int compileField(MicroCompilerContext context, Field node) {
   return pos;
 }
 
-int compileCallField(MicroCompilerContext context, Field field) {
+int compileCallFieldGet(MicroCompilerContext context, Field field) {
   var name = field.getNamedName();
 
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = OpCallDynamic.make(
-        name, true, true, false, false, false, 0, List.empty());
+    int opOffset = context.rumtimeDeclarationOpIndexes[name] ?? -1;
+    if (field.isStatic) {
+      int pos = context.pushOp(OpGetGlobalParam.make(name, opOffset));
+      if (opOffset == -1) {
+        context.offsetTracker.setGlobalParamOffset(pos, name, name);
+      }
+      return pos;
+    } else {
+      int pos =
+          context.pushOp(OpGetObjectProperty.make(field.name.text, opOffset));
+      if (opOffset == -1) {
+        context.offsetTracker.setObjectParamOffset(pos, field.name.text, name);
+      }
+      return pos;
+    }
   } else {
     op = OpCallExternal.make(
       className: field.stringClassName ?? "",
       key: name,
-      isGetter: field.isGetter,
-      isSetter: field.isSetter,
+      isGetter: true,
+      isSetter: false,
+      isStatic: field.isStatic,
+      libraryUri: field.stringLibraryUri,
+      name: field.name.text,
+      kind: DeferredOrOffsetKind.Field.index,
+      posationalLength: 0,
+      namedList: List.empty(),
+    );
+  }
+
+  return context.pushOp(op);
+}
+
+int compileCallFieldSet(MicroCompilerContext context, Field field) {
+  var name = field.getNamedName();
+
+  Op? op;
+  if (context.compileDeclarationIndexes.containsKey(name)) {
+    if (field.isStatic) {
+      return context.pushOp(OpSetGlobalParam.make(name));
+    } else {
+      return context.pushOp(OpSetObjectProperty.make(field.name.text));
+    }
+  } else {
+    op = OpCallExternal.make(
+      className: field.stringClassName ?? "",
+      key: name,
+      isGetter: false,
+      isSetter: true,
       isStatic: field.isStatic,
       libraryUri: field.stringLibraryUri,
       name: field.name.text,

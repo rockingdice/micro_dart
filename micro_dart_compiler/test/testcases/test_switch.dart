@@ -1,5 +1,19 @@
 int main() {
+  var t = T.a;
   int j = 0;
+  switch (t) {
+    case T.a:
+    case T.b:
+      print("continue");
+      break;
+    case T.c:
+      // TODO: Handle this case.
+      break;
+    case T.d:
+      // TODO: Handle this case.
+      break;
+  }
+
   for (int i = 0; i < 5; i++) {
     switch (i) {
       case 0:
@@ -21,3 +35,5 @@ int main() {
   print(j);
   return j;
 }
+
+enum T { a, b, c, d }

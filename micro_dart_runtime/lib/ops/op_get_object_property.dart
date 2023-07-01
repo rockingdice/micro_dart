@@ -51,8 +51,8 @@ class OpGetObjectProperty implements Op {
     if (instance.hasParam(scope, _name)) {
       scope.pushFrame(instance.getParam(scope, _name));
     } else {
-      scope.setScopeParam("#this", instance);
-      scope.engine.callPointer(scope, _name, false, _location);
+      //scope.setScopeParam("#this", instance);
+      scope.engine.callPointer(scope, _name, false, _location, thiz: instance);
     }
   }
 

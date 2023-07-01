@@ -1472,6 +1472,42 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
+  Map<String, dynamic>? visitPatternSwitchStatement(
+      PatternSwitchStatement node) {
+    return {
+      "xtype": "PatternSwitchStatement",
+      "expression": node.expression.accept(this),
+      "cases": visitList(node.cases, this)
+    };
+  }
+
+  @override
+  Map<String, dynamic>? visitPatternSwitchCase(PatternSwitchCase node) {
+    return {
+      "xtype": "PatternSwitchCase",
+      "body": node.body.accept(this),
+      "patternGuards": visitList(node.patternGuards, this)
+    };
+  }
+
+  @override
+  Map<String, dynamic>? visitPatternGuard(PatternGuard node) {
+    return {
+      "xtype": "PatternGuard",
+      "pattern": node.pattern.accept(this),
+      "guard": node.guard?.accept(this),
+    };
+  }
+
+  @override
+  Map<String, dynamic>? visitConstantPattern(ConstantPattern node) {
+    return {
+      "xtype": "ConstantPattern",
+      "expression": node.expression.accept(this),
+    };
+  }
+
+  @override
   Map<String, dynamic>? visitSwitchStatement(SwitchStatement node) {
     //print("visitSwitchStatement: ${node.toString()}");
     //node.visitChildren(this);

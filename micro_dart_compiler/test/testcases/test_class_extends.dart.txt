@@ -1,0 +1,44 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  class A extends dart.core::Object {
+    field dart.core::int a;
+    field dart.core::int b = 1;
+    constructor •(dart.core::int a) → main::A
+      : main::A::a = a, super dart.core::Object::•()
+      ;
+    constructor c1(dart.core::int a) → main::A
+      : main::A::a = a, super dart.core::Object::•()
+      ;
+  }
+  class B extends main::A {
+    field dart.core::int c;
+    field dart.core::int d = 2;
+    constructor c1(dart.core::int a, dart.core::int c) → main::B
+      : main::B::c = c, super main::A::c1(a)
+      ;
+    method fn1(dart.core::int n) → dart.core::int {
+      return this.{main::A::a}{dart.core::int}.{dart.core::num::+}(this.{main::A::b}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::B::c}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(n){(dart.core::num) → dart.core::int};
+    }
+  }
+  class C extends main::B {
+    field dart.core::int e;
+    field dart.core::int f = 3;
+    constructor •(dart.core::int a, dart.core::int c, dart.core::int e) → main::C
+      : main::C::e = e, super main::B::c1(a, c)
+      ;
+    @#C1
+    method fn1(dart.core::int n) → dart.core::int {
+      return super.{main::A::a}.{dart.core::num::+}(this.{main::A::b}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::B::c}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::B::d}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::C::e}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::C::f}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(super.{main::B::fn1}(n)){(dart.core::num) → dart.core::int};
+    }
+  }
+  static method main() → dart.core::int {
+    main::C v1 = new main::C::•(3, 2, 1);
+    dart.core::int r = v1.{main::C::fn1}(4){(dart.core::int) → dart.core::int};
+    dart.core::print(r);
+    return r;
+  }
+}
+constants  {
+  #C1 = dart.core::_Override {}
+}

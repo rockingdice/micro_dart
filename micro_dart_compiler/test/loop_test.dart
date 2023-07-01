@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import 'package:micro_dart_runtime/generated/core.g.dart';
 
 void main() {
-  group('While tests', () {
+  group('Loop tests', () {
     test(':test while', () async {
       String fileName = "test_while.dart";
       var file = File("$testCasePath$fileName");
@@ -137,6 +137,8 @@ void main() {
       var program = await compileSource(pluginUri, options, sources);
       if (astToJsonFlag) {
         astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 

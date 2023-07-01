@@ -1,5 +1,4 @@
 import 'package:kernel/ast.dart';
-import 'package:micro_dart_compiler/compiler/ast/ast.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 import 'context.dart';
@@ -11,6 +10,8 @@ class OffsetTracker {
   //final Map<int, DeferredOrOffset> _deferredOffsets = {};
   final Map<int, CallPointerOffset> _callPointerOffsets = {};
   final Map<int, BreakOffset> _breakPointerOffsets = {};
+  final Map<int, ParamOffset> _globalParamOffsets = {};
+  final Map<int, ParamOffset> _objectParamOffsets = {};
   final MicroCompilerContext context;
 
   //void setOffset(int location, DeferredOrOffset offset) {
@@ -26,32 +27,28 @@ class OffsetTracker {
     _breakPointerOffsets[location] = key;
   }
 
+  void setGlobalParamOffset(int location, String name, String key) {
+    _globalParamOffsets[location] = ParamOffset(key, name);
+  }
+
+  void setObjectParamOffset(int location, String name, String key) {
+    _objectParamOffsets[location] = ParamOffset(key, name);
+  }
+
   List<Op> apply() {
     var source = this.context.ops;
-    // _deferredOffsets.forEach((pos, offset) {
-    //   final op = source[pos];
-    //   if (op is Call) {
-    //     final resolvedOffset = context.rumtimeDeclarationOpIndexes[offset.key];
-    //     if (resolvedOffset == null) {
-    //       //表示这是个外部的调用
-    //       final newOp = CallExternal.make(
-    //           className: offset.className,
-    //           key: offset.key,
-    //           isGetter: offset.isGetter,
-    //           isSetter: offset.isSetter,
-    //           isStatic: offset.isStatic,
-    //           libraryUri: offset.libraryUri,
-    //           name: offset.name,
-    //           kind: offset.kind.index,
-    //           namedList: offset.namedList,
-    //           posationalLength: offset.posationalLengh);
-    //       source[pos] = newOp;
-    //       return;
-    //     }
-    //     final newOp = Call.make(resolvedOffset);
-    //     source[pos] = newOp;
-    //   }
-    // });
+
+    _globalParamOffsets.forEach((index, value) {
+      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
+      final newOp = OpGetGlobalParam.make(value.name, offset);
+      source[index] = newOp;
+    });
+
+    _objectParamOffsets.forEach((index, value) {
+      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
+      final newOp = OpGetObjectProperty.make(value.name, offset);
+      source[index] = newOp;
+    });
 
     _callPointerOffsets.forEach((index, value) {
       final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
@@ -87,82 +84,12 @@ class CallPointerOffset {
 
 class BreakOffset {
   final LabeledStatement statement;
-
   const BreakOffset(this.statement);
 }
 
-abstract class DeferredOrOffset {
-  DeferredOrOffsetKind get kind;
-  bool get isGetter;
-  bool get isSetter;
-  bool get isStatic;
-  String get libraryUri;
-  String get className;
-  String get name;
-  String get key;
-
-  int get posationalLengh;
-  List<String> get namedList;
-
-  factory DeferredOrOffset.fromMember(Member node,
-      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
-      int posationalLengh = 0,
-      List<String> namedList = const []}) {
-    return _DeferredOrOffsetImpl(
-        kind,
-        node.getNamedName(),
-        posationalLengh,
-        namedList,
-        node.stringClassName ?? "",
-        node.stringLibraryUri,
-        node.name.text,
-        node.isGetter,
-        node.isSetter,
-        node.isStatic);
-  }
-
-  factory DeferredOrOffset(String key,
-      {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
-      int posationalLengh = 0,
-      List<String> namedList = const [],
-      required String className,
-      required String libraryUri,
-      required String name,
-      bool isGetter = false,
-      bool isSetter = false,
-      bool isStatic = false}) {
-    return _DeferredOrOffsetImpl(kind, key, posationalLengh, namedList,
-        className, libraryUri, name, isGetter, isSetter, isStatic);
-  }
-
-  @override
-  String toString() {
-    return 'DeferredOrOffset{kind: $kind, key:$key}';
-  }
-}
-
-class _DeferredOrOffsetImpl implements DeferredOrOffset {
-  final DeferredOrOffsetKind kind;
-  final String className;
-  final String key;
-  final String libraryUri;
+class ParamOffset {
   final String name;
-  final int posationalLengh;
-  final List<String> namedList;
+  final String key;
 
-  final bool isGetter;
-  final bool isSetter;
-  final bool isStatic;
-
-  _DeferredOrOffsetImpl(
-      this.kind,
-      this.key,
-      this.posationalLengh,
-      this.namedList,
-      this.className,
-      this.libraryUri,
-      this.name,
-      this.isGetter,
-      this.isSetter,
-      this.isStatic);
+  const ParamOffset(this.name, this.key);
 }

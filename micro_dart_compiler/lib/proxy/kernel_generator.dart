@@ -96,6 +96,6 @@ Future<CompilerResult?> kernelForProgramInternal(
 Future<CompilerResult> kernelForModule(
     List<Uri> sources, CompilerOptions options) async {
   return (await generateKernel(
-      new ProcessedOptions(options: options, inputs: sources),
+      ProcessedOptions(options: options, inputs: sources),
       includeHierarchyAndCoreTypes: true));
 }

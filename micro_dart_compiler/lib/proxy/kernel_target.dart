@@ -85,7 +85,6 @@ import 'package:front_end/src/fasta/kernel/benchmarker.dart'
 import 'package:front_end/src/fasta/kernel/constant_evaluator.dart' as constants
     show
         EvaluationMode,
-        transformLibraries,
         transformProcedure,
         ConstantCoverage,
         ConstantEvaluationData;
@@ -97,6 +96,8 @@ import 'package:front_end/src/fasta/kernel/verifier.dart'
     show verifyComponent, verifyGetStaticType;
 
 import 'package:front_end/src/fasta/kernel/kernel_target.dart' as kt;
+
+import 'constant_evaluator.dart';
 
 class KernelTargetProxy extends kt.KernelTarget {
   KernelTargetProxy(super.fileSystem, super.includeComments, super.dillTarget,
@@ -186,6 +187,82 @@ class KernelTargetProxy extends kt.KernelTarget {
       return kt.BuildResult(
           component: component, macroApplications: macroApplications);
     }, () => loader.currentUriForCrashReporting);
+  }
+
+  /// Run all transformations that are needed when building a bundle of
+  /// libraries for the first time.
+
+  @override
+  void runBuildTransformations() {
+    backendTarget.performPreConstantEvaluationTransformations(component!,
+        loader.coreTypes, loader.libraries, kt.KernelDiagnosticReporter(loader),
+        logger: (String msg) => ticker.logMs(msg),
+        changedStructureNotifier: changedStructureNotifier);
+
+    TypeEnvironment environment =
+        new TypeEnvironment(loader.coreTypes, loader.hierarchy);
+    constants.EvaluationMode evaluationMode = _getConstantEvaluationMode();
+
+    constants.ConstantEvaluationData constantEvaluationData =
+        transformLibraries(
+            component!,
+            loader.libraries,
+            backendTarget,
+            environmentDefines,
+            environment,
+            new KernelConstantErrorReporter(loader),
+            evaluationMode,
+            evaluateAnnotations: true,
+            enableTripleShift: globalFeatures.tripleShift.isEnabled,
+            enableConstFunctions: globalFeatures.constFunctions.isEnabled,
+            enableConstructorTearOff:
+                globalFeatures.constructorTearoffs.isEnabled,
+            errorOnUnevaluatedConstant: errorOnUnevaluatedConstant,
+            exhaustivenessDataForTesting:
+                loader.dataForTesting?.exhaustivenessData);
+    ticker.logMs("Evaluated constants");
+
+    markLibrariesUsed(constantEvaluationData.visitedLibraries);
+
+    constants.ConstantCoverage coverage = constantEvaluationData.coverage;
+    coverage.constructorCoverage.forEach((Uri fileUri, Set<Reference> value) {
+      Source? source = uriToSource[fileUri];
+      // ignore: unnecessary_null_comparison
+      if (source != null && fileUri != null) {
+        source.constantCoverageConstructors ??= new Set<Reference>();
+        source.constantCoverageConstructors!.addAll(value);
+      }
+    });
+    ticker.logMs("Added constant coverage");
+
+    if (loader.target.context.options.globalFeatures.valueClass.isEnabled) {
+      valueClass.transformComponent(component!, loader.coreTypes,
+          loader.hierarchy, loader.referenceFromIndex, environment);
+      ticker.logMs("Lowered value classes");
+    }
+
+    backendTarget.performModularTransformationsOnLibraries(
+        component!,
+        loader.coreTypes,
+        loader.hierarchy,
+        loader.libraries,
+        environmentDefines,
+        kt.KernelDiagnosticReporter(loader),
+        loader.referenceFromIndex,
+        logger: (String msg) => ticker.logMs(msg),
+        changedStructureNotifier: changedStructureNotifier);
+  }
+
+  constants.EvaluationMode _getConstantEvaluationMode() {
+    // If nnbd is not enabled we will use weak evaluation mode. This is needed
+    // because the SDK might be agnostic and therefore needs to be weakened
+    // for legacy mode.
+    assert(
+        globalFeatures.nonNullable.isEnabled ||
+            loader.nnbdMode == NnbdMode.Weak,
+        "Non-weak nnbd mode found without experiment enabled: "
+        "${loader.nnbdMode}.");
+    return constants.EvaluationMode.fromNnbdMode(loader.nnbdMode);
   }
 
   /// Builds [augmentationLibraries] to the state expected after applying phase

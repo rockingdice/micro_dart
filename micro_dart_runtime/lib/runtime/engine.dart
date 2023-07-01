@@ -295,10 +295,14 @@ class MicroDartEngine {
     }
   }
 
-  void callPointer(Scope scope, String name, bool hasArgs, int poniter) {
+  void callPointer(Scope scope, String name, bool hasArgs, int poniter,
+      {Instance? thiz}) {
     var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
     if (hasArgs) {
       newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
+    }
+    if (thiz != null) {
+      newScope.setScopeParam("#this", thiz);
     }
     newScope.call(poniter);
     if (newScope.hasReturn) {

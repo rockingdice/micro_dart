@@ -73,24 +73,6 @@ extension ExtensionNamedNode on NamedNode {
     return false;
   }
 
-  bool get isGetter {
-    if (isField) {
-      return asField.isGetter;
-    } else if (isProcedure) {
-      return asProcedure.isGetter;
-    }
-    return false;
-  }
-
-  bool get isSetter {
-    if (isField) {
-      return asField.isSetter;
-    } else if (isProcedure) {
-      return asProcedure.isSetter;
-    }
-    return false;
-  }
-
   String getNamedName() {
     if (isClass) {
       return getClassName();

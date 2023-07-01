@@ -1,5 +1,6 @@
 const int a = 1;
 const String b = "constb";
+const d = const B.b(2);
 
 class A {
   final int p1;
@@ -35,6 +36,7 @@ class B extends A {
 String main() {
   var b = const B.b(1);
   var s = b.fun1();
-  print(s);
+  var s2 = d.fun1();
+  print("$s$s2");
   return s;
 }

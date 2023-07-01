@@ -5,7 +5,6 @@ int main() {
     switch (i) {
       case 0:
       case 1:
-
       case 2:
         j += i;
         break;

@@ -124,8 +124,74 @@ void compileLabeledStatement(
   context.labeledNamer.setParam(node, "endOpOffset", context.ops.length);
 }
 
+void compilePatternGuard(MicroCompilerContext context, PatternGuard node) {
+  var pattern = node.pattern;
+  if (pattern is ConstantPattern) {
+    compileExpression(context, pattern.expression);
+    return;
+  }
+  throw Exception(
+      "currently not support pattern ${node.pattern.runtimeType.toString()}}");
+}
+
+void compilePatternSwitchStatement(
+    MicroCompilerContext context, PatternSwitchStatement node) {
+  compileExpression(context, node.expression);
+  context.pushOp(OpSetScopeParam.make("#switch_value"));
+  final Map<SwitchCase, int> jumpStart = {};
+  final Map<SwitchCase, int> jumpEnd = {};
+  final Map<SwitchCase, List<int>> rewriteJumpIndex = {};
+  node.cases.forEach((element) {
+    if (element.isDefault) {
+      return;
+    }
+    int patternGuardLength = element.patternGuards.length;
+    element.patternGuards.forEach((element) {
+      compilePatternGuard(context, element);
+    });
+    List<int> rewritePos = [];
+    for (int i = 0; i < patternGuardLength; i++) {
+      context.pushOp(OpGetParam.make("#switch_value"));
+      int pos = context.pushOp(OpJumpIfEqual.make(-1));
+      rewritePos.add(pos);
+    }
+
+    rewriteJumpIndex[element] = rewritePos;
+  });
+
+  node.cases.forEach((element) {
+    if (!element.isDefault) {
+      return;
+    }
+
+    List<int> rewritePos = [];
+    int pos = context.pushOp(OpJump.make(-1));
+    rewritePos.add(pos);
+    rewriteJumpIndex[element] = rewritePos;
+  });
+
+  node.cases.forEach((casee) {
+    jumpStart[casee] = context.ops.length;
+    compileStatement(context, casee.body, newBlock: false);
+    jumpEnd[casee] = context.ops.length;
+    if (casee.isDefault) {
+      rewriteJumpIndex[casee]?.forEach((index) {
+        context.rewriteOp(OpJump.make(jumpStart[casee]!), index);
+      });
+    } else {
+      rewriteJumpIndex[casee]?.forEach((index) {
+        context.rewriteOp(OpJumpIfEqual.make(jumpStart[casee]!), index);
+      });
+    }
+  });
+}
+
 void compileSwitchStatement(
     MicroCompilerContext context, SwitchStatement node) {
+  if (node is PatternSwitchStatement) {
+    compilePatternSwitchStatement(context, node);
+    return;
+  }
   compileExpression(context, node.expression);
   context.pushOp(OpSetScopeParam.make("#switch_value"));
   final Map<SwitchCase, int> jumpStart = {};
