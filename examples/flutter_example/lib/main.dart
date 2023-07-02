@@ -6,7 +6,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var data = await rootBundle.load('assets/micro_dart.data');
   var engine = createMicroDartEngine(data);
-  engine.debug = true;
+  //engine.debug = true;
   runApp(engine.callStaticFunction(
-      "package:flutter_example/widget.dart", "createMyApp", [], {}));
+      "package:flutter_plugin_1/plugin_1.dart", "createMyApp", [], {}));
 }

@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "e9f1b2ad1f8f9ecc20ce13502f161b9b6d889973ed83685e24dcb440346358e1"
+build_start_time: [1688295423, 473704000]
+build_end_time: [1688295423, 524875000]
+inputs:
+  ? "/Users/lixin/Documents/dev_cache/pub-cache/hosted/pub.flutter-io.cn/url_launcher_macos-3.0.5/macos/Classes/UrlLauncherPlugin.swift"
+  : !private [1686831401, 857143351]
+  "/Users/lixin/Documents/dev_cache/pub-cache/hosted/pub.flutter-io.cn/url_launcher_macos-3.0.5/macos/Classes/messages.g.swift": !private [1686831401, 866022905]
