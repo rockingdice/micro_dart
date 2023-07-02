@@ -1,9 +1,0 @@
-version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
-options: "d8cc03ca1dc5d6e68cc33af21b84ad14e3108e1bc77bacbafedb2577b31359e7"
-build_start_time: [1688295423, 487818000]
-build_end_time: [1688295428, 129135000]
-inputs:
-  ? "/Users/lixin/Documents/dev_cache/pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.2.3/darwin/Classes/PathProviderPlugin.swift"
-  : [1686831349, 987927408]
-  ? "/Users/lixin/Documents/dev_cache/pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.2.3/darwin/Classes/messages.g.swift"
-  : [1686831349, 985909240]

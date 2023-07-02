@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
-options: "8c462432700f3ee0833f62aa5507cfa0e4ceec5ff1407d47163a88f5870a0a8f"
-build_start_time: [1688311303, 343781000]
-build_end_time: [1688311306, 404659000]
-inputs:
-  "/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/gallery/macos/Flutter/GeneratedPluginRegistrant.swift": [1688311293, 962251498]
-  "/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/gallery/macos/Runner/AppDelegate.swift": [1688294905, 531489502]
-  "/Users/lixin/Documents/FlutterWorkspace/micro_dart/examples/gallery/macos/Runner/MainFlutterWindow.swift": [1688294905, 529404414]
