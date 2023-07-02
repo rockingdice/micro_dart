@@ -138,9 +138,15 @@ class MicroCompilerContext {
     return position;
   }
 
-  void printCompileNode(Node node) {
+  void startCompileNode(Node node) {
     if (debug) {
       print("start compile: ${node.runtimeType.toString()}");
+    }
+  }
+
+  void endCompileNode(Node node) {
+    if (debug) {
+      print("end compile: ${node.runtimeType.toString()}");
     }
   }
 }

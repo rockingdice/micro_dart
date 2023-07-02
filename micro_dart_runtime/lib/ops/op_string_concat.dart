@@ -17,7 +17,7 @@ class OpStringConcat implements Op {
 
   @override
   void run(Scope scope) {
-    final List<Object?> list = List.filled(_length, null);
+    final List<dynamic> list = List.filled(_length, null);
     for (int i = _length - 1; i >= 0; i--) {
       list[i] = scope.popFrame();
     }

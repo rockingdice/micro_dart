@@ -2,7 +2,7 @@ part of 'ast.dart';
 
 void compileStatement(MicroCompilerContext context, Statement node,
     {bool newBlock = true}) {
-  context.printCompileNode(node);
+  context.startCompileNode(node);
   if (node is Block) {
     if (newBlock) {
       compileBlock(context, node);

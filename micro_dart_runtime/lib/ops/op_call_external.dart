@@ -68,9 +68,9 @@ class OpCallExternal implements Op {
   @override
   void run(Scope scope) {
     final Map<String, dynamic> namedArguments = {};
-    List<Object?> positionalArguments =
+    List<dynamic> positionalArguments =
         List.filled(posationalLength, null, growable: false);
-    var args = scope.popFrame() as List<Object?>;
+    var args = scope.popFrame() as List<dynamic>;
     final int namedLength = args.removeLast() as int;
     for (int i = 0; i < namedLength; i++) {
       String key = args.removeLast() as String;

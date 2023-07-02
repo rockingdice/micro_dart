@@ -1698,6 +1698,5 @@ class $_Enum with InstanceBridge {
   @override
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "_Enum", true,
       superTypeKey: "dart:core@Object");
-
   $_Enum(this.index, this.name);
 }

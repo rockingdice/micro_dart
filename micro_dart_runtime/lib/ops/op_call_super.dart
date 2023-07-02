@@ -29,7 +29,7 @@ class OpCallSuperAsync extends OpCallSuper {
 
   @override
   Future run(Scope scope) async {
-    var args = scope.getFrame() as List<Object?>;
+    var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
     var key = scope.engine
         .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
@@ -101,7 +101,7 @@ class OpCallSuper implements Op {
 
   @override
   void run(Scope scope) {
-    var args = scope.getFrame() as List<Object?>;
+    var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
     var key = scope.engine
         .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
@@ -118,7 +118,7 @@ class OpCallSuper implements Op {
 
   void _callExternal(Scope scope, String? key) {
     //表示这是一个外部调用
-    final List<Object?> positionalArguments =
+    final List<dynamic> positionalArguments =
         List.filled(_posationalLength, null);
     for (int i = 0; i < _posationalLength; i++) {
       positionalArguments[i] = scope.popFrame();

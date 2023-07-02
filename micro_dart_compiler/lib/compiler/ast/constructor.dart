@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileConstructor(MicroCompilerContext context, Constructor node) {
+  context.startCompileNode(node);
   var name = node.getNamedName();
 
   if (context.rumtimeDeclarationOpIndexes[name] != null) {
@@ -40,10 +41,12 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   context.pushOp(OpGetParam.make("#this"));
   context.pushOp(OpReturn.make());
   context.callEnd();
+  context.endCompileNode(node);
   return -1;
 }
 
 void compileInitializer(MicroCompilerContext context, Initializer initializer) {
+  context.startCompileNode(initializer);
   if (initializer is FieldInitializer) {
     compileFieldInitializer(context, initializer);
   } else if (initializer is SuperInitializer) {
@@ -55,6 +58,7 @@ void compileInitializer(MicroCompilerContext context, Initializer initializer) {
   } else if (initializer is AssertInitializer) {
     compileAssertInitializer(context, initializer);
   }
+  context.endCompileNode(initializer);
 }
 
 void compileFieldInitializer(

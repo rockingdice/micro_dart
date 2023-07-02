@@ -21,8 +21,8 @@ class OpCreateInstance implements Op {
 
   @override
   void run(Scope scope) {
-    scope.pushFrame(
-        InstanceImpl(scope.engine.getType("$_libraryName@$_className")));
+    scope.pushFrame(InstanceImpl(
+        scope.engine, scope.engine.getType("$_libraryName@$_className")));
   }
 
   @override

@@ -114,7 +114,7 @@ class OpCallDynamic implements Op {
   String? _getKey(Scope scope) {
     //我们不能确定调用的方法一定就是内部的，因为有时候可能是super的方法,调用的是父类的方法，而父类可能是外部的类
     if (!_isStatic) {
-      var args = scope.getFrame() as List<Object?>;
+      var args = scope.getFrame() as List<dynamic>;
       var instance = args.first as Instance;
       return scope.engine
           .getKeyByType(instance.type, _name, isSetter: _isSetter);

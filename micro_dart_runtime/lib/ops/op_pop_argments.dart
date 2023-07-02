@@ -29,7 +29,7 @@ class OpPopArgments implements Op {
     if (!scope.hasArgs) {
       return;
     }
-    var args = scope.popScopeParam("#args") as List<Object?>;
+    var args = scope.popScopeParam("#args") as List<dynamic>;
     int namedLength = args.removeLast() as int;
     for (int i = 0; i < namedLength; i++) {
       String key = args.removeLast() as String;

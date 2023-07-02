@@ -213,7 +213,7 @@ extension ExtensionNamedNode on NamedNode {
 }
 
 void compileNamedNode(MicroCompilerContext context, NamedNode node) {
-  context.printCompileNode(node);
+  context.startCompileNode(node);
   if (node is Procedure) {
     compileProcedure(context, node);
   } else if (node is Field) {
@@ -244,4 +244,20 @@ void compileContext(MicroCompilerContext context) {
   compileFields(context);
   //对所有声明进行编译
   compileDeclarations(context);
+}
+
+void compileNode(MicroCompilerContext context, Node node) {
+  context.startCompileNode(node);
+  if (node is NamedNode) {
+    compileNamedNode(context, node);
+  } else if (node is Expression) {
+    compileExpression(context, node);
+  } else if (node is Statement) {
+    compileStatement(context, node);
+  } else if (node is Initializer) {
+    compileInitializer(context, node);
+  } else if (node is Constant) {
+    compileConstant(context, node);
+  }
+  context.endCompileNode(node);
 }

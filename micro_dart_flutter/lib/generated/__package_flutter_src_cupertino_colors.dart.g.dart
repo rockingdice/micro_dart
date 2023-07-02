@@ -1,0 +1,86 @@
+import 'package:flutter/src/cupertino/colors.dart';
+import 'dart:ui' show Brightness,Color;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/media_query.dart';
+import 'package:flutter/src/cupertino/interface_level.dart';
+import 'package:flutter/src/cupertino/theme.dart';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
+Map<String,Function> getLibrary(m.MicroDartEngine engine) {
+return {
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@#as': (m.Scope scope, target)=>()=>target as CupertinoColors,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@#is': (m.Scope scope, target)=>()=>target is CupertinoColors,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@activeBlue': (m.Scope scope)=>CupertinoColors.activeBlue,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@activeGreen': (m.Scope scope)=>CupertinoColors.activeGreen,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@activeOrange': (m.Scope scope)=>CupertinoColors.activeOrange,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@white': (m.Scope scope)=>CupertinoColors.white,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@black': (m.Scope scope)=>CupertinoColors.black,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@lightBackgroundGray': (m.Scope scope)=>CupertinoColors.lightBackgroundGray,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@extraLightBackgroundGray': (m.Scope scope)=>CupertinoColors.extraLightBackgroundGray,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@darkBackgroundGray': (m.Scope scope)=>CupertinoColors.darkBackgroundGray,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@inactiveGray': (m.Scope scope)=>CupertinoColors.inactiveGray,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@destructiveRed': (m.Scope scope)=>CupertinoColors.destructiveRed,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemBlue': (m.Scope scope)=>CupertinoColors.systemBlue,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGreen': (m.Scope scope)=>CupertinoColors.systemGreen,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemMint': (m.Scope scope)=>CupertinoColors.systemMint,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemIndigo': (m.Scope scope)=>CupertinoColors.systemIndigo,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemOrange': (m.Scope scope)=>CupertinoColors.systemOrange,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemPink': (m.Scope scope)=>CupertinoColors.systemPink,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemBrown': (m.Scope scope)=>CupertinoColors.systemBrown,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemPurple': (m.Scope scope)=>CupertinoColors.systemPurple,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemRed': (m.Scope scope)=>CupertinoColors.systemRed,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemTeal': (m.Scope scope)=>CupertinoColors.systemTeal,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemCyan': (m.Scope scope)=>CupertinoColors.systemCyan,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemYellow': (m.Scope scope)=>CupertinoColors.systemYellow,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey': (m.Scope scope)=>CupertinoColors.systemGrey,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey2': (m.Scope scope)=>CupertinoColors.systemGrey2,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey3': (m.Scope scope)=>CupertinoColors.systemGrey3,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey4': (m.Scope scope)=>CupertinoColors.systemGrey4,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey5': (m.Scope scope)=>CupertinoColors.systemGrey5,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGrey6': (m.Scope scope)=>CupertinoColors.systemGrey6,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@label': (m.Scope scope)=>CupertinoColors.label,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@secondaryLabel': (m.Scope scope)=>CupertinoColors.secondaryLabel,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@tertiaryLabel': (m.Scope scope)=>CupertinoColors.tertiaryLabel,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@quaternaryLabel': (m.Scope scope)=>CupertinoColors.quaternaryLabel,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemFill': (m.Scope scope)=>CupertinoColors.systemFill,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@secondarySystemFill': (m.Scope scope)=>CupertinoColors.secondarySystemFill,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@tertiarySystemFill': (m.Scope scope)=>CupertinoColors.tertiarySystemFill,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@quaternarySystemFill': (m.Scope scope)=>CupertinoColors.quaternarySystemFill,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@placeholderText': (m.Scope scope)=>CupertinoColors.placeholderText,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemBackground': (m.Scope scope)=>CupertinoColors.systemBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@secondarySystemBackground': (m.Scope scope)=>CupertinoColors.secondarySystemBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@tertiarySystemBackground': (m.Scope scope)=>CupertinoColors.tertiarySystemBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@systemGroupedBackground': (m.Scope scope)=>CupertinoColors.systemGroupedBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@secondarySystemGroupedBackground': (m.Scope scope)=>CupertinoColors.secondarySystemGroupedBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@tertiarySystemGroupedBackground': (m.Scope scope)=>CupertinoColors.tertiarySystemGroupedBackground,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@separator': (m.Scope scope)=>CupertinoColors.separator,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@opaqueSeparator': (m.Scope scope)=>CupertinoColors.opaqueSeparator,
+'package:flutter/src/cupertino/colors.dart@CupertinoColors@link': (m.Scope scope)=>CupertinoColors.link,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@#as': (m.Scope scope, target)=>()=>target as CupertinoDynamicColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@#is': (m.Scope scope, target)=>()=>target is CupertinoDynamicColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@color': (m.Scope scope, CupertinoDynamicColor target)=>target.color,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@darkColor': (m.Scope scope, CupertinoDynamicColor target)=>target.darkColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@highContrastColor': (m.Scope scope, CupertinoDynamicColor target)=>target.highContrastColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@darkHighContrastColor': (m.Scope scope, CupertinoDynamicColor target)=>target.darkHighContrastColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@elevatedColor': (m.Scope scope, CupertinoDynamicColor target)=>target.elevatedColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@darkElevatedColor': (m.Scope scope, CupertinoDynamicColor target)=>target.darkElevatedColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@highContrastElevatedColor': (m.Scope scope, CupertinoDynamicColor target)=>target.highContrastElevatedColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@darkHighContrastElevatedColor': (m.Scope scope, CupertinoDynamicColor target)=>target.darkHighContrastElevatedColor,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@value': (m.Scope scope, CupertinoDynamicColor target)=>target.value,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@hashCode': (m.Scope scope, CupertinoDynamicColor target)=>target.hashCode,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@': (m.Scope scope)=>({ color,  darkColor,  darkElevatedColor,  darkHighContrastColor,  darkHighContrastElevatedColor,  debugLabel,  elevatedColor,  highContrastColor,  highContrastElevatedColor}){
+return CupertinoDynamicColor(color:color, darkColor:darkColor, darkElevatedColor:darkElevatedColor, darkHighContrastColor:darkHighContrastColor, darkHighContrastElevatedColor:darkHighContrastElevatedColor, debugLabel:debugLabel, elevatedColor:elevatedColor, highContrastColor:highContrastColor, highContrastElevatedColor:highContrastElevatedColor);
+},
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@withBrightnessAndContrast': (m.Scope scope)=>CupertinoDynamicColor.withBrightnessAndContrast,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@withBrightness': (m.Scope scope)=>CupertinoDynamicColor.withBrightness,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@resolve': (m.Scope scope)=>CupertinoDynamicColor.resolve,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@maybeResolve': (m.Scope scope)=>CupertinoDynamicColor.maybeResolve,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@resolveFrom': (m.Scope scope, CupertinoDynamicColor target)=>target.resolveFrom,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@==': (m.Scope scope, CupertinoDynamicColor target)=>(other)=> target == other,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@toString': (m.Scope scope, CupertinoDynamicColor target)=>target.toString,
+'package:flutter/src/cupertino/colors.dart@CupertinoDynamicColor@debugFillProperties': (m.Scope scope, CupertinoDynamicColor target)=>target.debugFillProperties,
+'package:flutter/src/cupertino/colors.dart@@createCupertinoColorProperty': (m.Scope scope)=>createCupertinoColorProperty,
+
+};
+}

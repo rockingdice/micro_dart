@@ -1,5 +1,5 @@
 class FunctionPointer {
-  final Object? target;
+  final dynamic target;
   final bool isStatic;
   final bool isAsync;
   final int offset;

@@ -12,7 +12,8 @@ void main() {
       Uri mainSource =
           ensureFolderPath(flutterExamplePath).resolve('lib/widget.dart');
       var program = await compilePlugin(
-          mainSource, [], "package:flutter_example/widget.dart", options);
+          mainSource, [], "package:flutter_example/widget.dart", options,
+          debug: true);
       if (astToJsonFlag) {
         astToJson("${testCasePath}flutter_example",
             "package:flutter_example/widget.dart", program.component);

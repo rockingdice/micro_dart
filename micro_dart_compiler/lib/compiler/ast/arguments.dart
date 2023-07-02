@@ -2,7 +2,7 @@ part of 'ast.dart';
 
 void compileArguments(
     MicroCompilerContext context, Arguments arguments, bool isStatic) {
-  context.printCompileNode(arguments);
+  context.startCompileNode(arguments);
 
   int pLength = arguments.positional.length;
   for (int i = pLength - 1; i >= 0; i--) {
@@ -23,4 +23,6 @@ void compileArguments(
     argmentLength++;
   }
   context.pushOp(OpPushArgments.make(argmentLength));
+
+  context.endCompileNode(arguments);
 }

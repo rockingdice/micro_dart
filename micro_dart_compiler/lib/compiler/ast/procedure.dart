@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileProcedure(MicroCompilerContext context, Procedure node) {
+  context.startCompileNode(node);
   compileDartType(context, node.function.returnType);
   var name = node.getNamedName();
   //表示该方法已经编译过了,直接返回
@@ -21,11 +22,11 @@ int compileFunction(MicroCompilerContext context, FunctionNode function,
 
   //参数初始化
   function.positionalParameters.forEach((element) {
-    compileVariableDeclaration(context, element);
+    compileStatement(context, element);
     posationalNames.add(element.name!);
   });
   function.namedParameters.forEach((element) {
-    compileVariableDeclaration(context, element);
+    compileStatement(context, element);
   });
 
   context.pushOp(OpPopArgments.make(posationalNames, isGetter, isStatic));

@@ -1,7 +1,7 @@
 part of 'ast.dart';
 
 int compileExpression(MicroCompilerContext context, Expression node) {
-  context.printCompileNode(node);
+  context.startCompileNode(node);
 
   if (node is IntLiteral) {
     return compileIntLiteral(context, node);
@@ -41,14 +41,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileSuperMethodInvocation(context, node);
   } else if (node is SuperPropertyGet) {
     return compileSuperPropertyGet(context, node);
-  } else if (node is SuperPropertySet) {
-    //return compileSuperPropertySet(context, node);
   } else if (node is SuperPropertyGet) {
     return compileSuperPropertyGet(context, node);
-  } else if (node is AbstractSuperPropertyGet) {
-    //return compileAbstractSuperPropertyGet(context, node);
-  } else if (node is AbstractSuperPropertySet) {
-    //return compileAbstractSuperPropertySet(context, node);
   } else if (node is ConstructorTearOff) {
     return compileConstructorTearOff(context, node);
   } else if (node is FunctionExpression) {
@@ -75,18 +69,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileRethrow(context, node);
   } else if (node is IsExpression) {
     return compileIsExpression(context, node);
-  } else if (node is FunctionTearOff) {
-    //return compileFunctionTearOff(context, node);
-  } else if (node is AbstractSuperPropertySet) {
-    //return compileAbstractSuperPropertySet(context, node);
   } else if (node is StaticTearOff) {
     return compileStaticTearOff(context, node);
-  } else if (node is InstanceInvocationExpression) {
-    //return compileInstanceInvocationExpression(context, node);
-  } else if (node is InstanceGetterInvocation) {
-    //return compileInstanceGetterInvocation(context, node);
-  } else if (node is Instantiation) {
-    //return compileInstantiation(context, node);
   } else if (node is Not) {
     return compileNot(context, node);
   } else if (node is LogicalExpression) {
@@ -99,16 +83,10 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileSetConcatenation(context, node);
   } else if (node is MapConcatenation) {
     return compileMapConcatenation(context, node);
-  } else if (node is InstanceCreation) {
-    //return compileInstanceCreation(context, node);
-  } else if (node is FileUriExpression) {
-    //return compileFileUriExpression(context, node);
   } else if (node is NullCheck) {
     return compileNullCheck(context, node);
   } else if (node is SymbolLiteral) {
     return compileSymbolLiteral(context, node);
-  } else if (node is TypeLiteral) {
-    //return compileTypeLiteral(context, node);
   } else if (node is SetLiteral) {
     return compileSetLiteral(context, node);
   } else if (node is MapLiteral) {
@@ -135,11 +113,34 @@ int compileExpression(MicroCompilerContext context, Expression node) {
   //this means has an error
   else if (node is InvalidExpression) {
     //return compileInvalidExpression(context, node);
+  } else if (node is InstanceCreation) {
+    //return compileInstanceCreation(context, node);
+  } else if (node is FileUriExpression) {
+    //return compileFileUriExpression(context, node);
+  } else if (node is SuperPropertySet) {
+    //return compileSuperPropertySet(context, node);
+  } else if (node is AbstractSuperPropertyGet) {
+    //return compileAbstractSuperPropertyGet(context, node);
+  } else if (node is AbstractSuperPropertySet) {
+    //return compileAbstractSuperPropertySet(context, node);
+  } else if (node is FunctionTearOff) {
+    //return compileFunctionTearOff(context, node);
+  } else if (node is AbstractSuperPropertySet) {
+    //return compileAbstractSuperPropertySet(context, node);
+  } else if (node is InstanceInvocationExpression) {
+    //return compileInstanceInvocationExpression(context, node);
+  } else if (node is InstanceGetterInvocation) {
+    //return compileInstanceGetterInvocation(context, node);
+  } else if (node is Instantiation) {
+    //return compileInstantiation(context, node);
+  } else if (node is TypeLiteral) {
+    //return compileTypeLiteral(context, node);
   }
-  //
-
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
+
+  //context.endCompileNode(node);
+  //
 }
 
 int compileConstructorTearOff(

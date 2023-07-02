@@ -1,6 +1,7 @@
 part of 'ast.dart';
 
 int compileField(MicroCompilerContext context, Field node) {
+  context.startCompileNode(node);
   compileDartType(context, node.type);
   var name = node.getNamedName();
 
@@ -43,6 +44,14 @@ int compileCallFieldGet(MicroCompilerContext context, Field field) {
       return pos;
     }
   } else {
+    context.pushOp(OpPushConstantInt.make(0));
+    context.pushOp(OpPushConstantInt.make(0));
+    if (field.isStatic) {
+      context.pushOp(OpPushArgments.make(2));
+    } else {
+      context.pushOp(OpPushArgments.make(3));
+    }
+
     op = OpCallExternal.make(
       className: field.stringClassName ?? "",
       key: name,

@@ -17,7 +17,7 @@ class MicroDartEngine {
   final declarations = <String, int>{};
 
   /// 静态变量
-  final constants = <Object>[];
+  final constants = <dynamic>[];
 
   /// 类型
   final Map<String, TypeRef> types = <String, TypeRef>{};
@@ -26,7 +26,7 @@ class MicroDartEngine {
   int _fileOffset = 0;
 
   /// 全局作用域
-  final Map<String, Object?> globals = {};
+  final Map<String, dynamic> globals = {};
 
   //外部全局方法调用
   final Map<String, Function> externalFunctions = {};
@@ -40,11 +40,11 @@ class MicroDartEngine {
     return MicroDartEngine._(data).._load();
   }
 
-  Object? getGlobalParam(String key) {
+  dynamic getGlobalParam(String key) {
     return globals[key];
   }
 
-  void setGlobalParam(String key, Object? value) {
+  void setGlobalParam(String key, dynamic value) {
     globals[key] = value;
   }
 
@@ -210,7 +210,30 @@ class MicroDartEngine {
     //获取当前操作数指针
     int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, false);
-    List<Object?> args = [];
+    List<dynamic> args = [];
+    //设置初始参数
+    for (int i = posational.length - 1; i >= 0; i--) {
+      args.add(posational[i]);
+    }
+    args.add(posational.length);
+    named.forEach((key, value) {
+      args.add(value);
+      args.add(key);
+    });
+    args.add(named.length);
+    scope.setScopeParam("#args", args);
+
+    scope.call(pointer);
+
+    return scope.returnValue;
+  }
+
+  dynamic callFunction(Instance instance, String key, List posational,
+      Map<String, dynamic> named) {
+    //获取当前操作数指针
+    int pointer = declarations[key]!;
+    var scope = Scope(this, "_external_call_", true, false);
+    List<dynamic> args = [instance];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
       args.add(posational[i]);
@@ -233,7 +256,7 @@ class MicroDartEngine {
     //获取当前操作数指针
     int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, false);
-    List<Object?> args = [];
+    List<dynamic> args = [];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
       args.add(posational[i]);
@@ -260,7 +283,7 @@ class MicroDartEngine {
     //获取当前操作数指针
     int pointer = declarations['$importUri@@$functionName']!;
     var scope = Scope(this, "_root_", true, true);
-    List<Object?> args = [];
+    List<dynamic> args = [];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
       args.add(posational[i]);
@@ -281,7 +304,7 @@ class MicroDartEngine {
       Scope scope, String name, bool hasArgs, bool isAsync, int poniter) async {
     var newScope = scope.createFromParent(name, hasArgs, isAsync, maxScopeDeep);
     if (hasArgs) {
-      newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
+      newScope.setScopeParam("#args", (scope.popFrame() as List<dynamic>));
     }
 
     if (isAsync) {
@@ -299,7 +322,7 @@ class MicroDartEngine {
       {Instance? thiz}) {
     var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
     if (hasArgs) {
-      newScope.setScopeParam("#args", (scope.popFrame() as List<Object?>));
+      newScope.setScopeParam("#args", (scope.popFrame() as List<dynamic>));
     }
     if (thiz != null) {
       newScope.setScopeParam("#this", thiz);
@@ -313,11 +336,14 @@ class MicroDartEngine {
   Future<dynamic> callFunctionPointerAsync(
       Scope scope,
       FunctionPointer functionPointer,
-      List<Object?> posational,
+      List<dynamic> posational,
       Map<String, dynamic> named) async {
     var newScope =
         scope.createFromParent("_anonymous_", true, true, maxScopeDeep);
-    List<Object?> args = [];
+    List<dynamic> args = [];
+    if (!functionPointer.isStatic) {
+      args.add(functionPointer.target);
+    }
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
       args.add(posational[i]);
@@ -337,10 +363,14 @@ class MicroDartEngine {
   }
 
   dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
-      List<Object?> posational, Map<String, dynamic> named) {
+      List<dynamic> posational, Map<String, dynamic> named) {
     var newScope =
         scope.createFromParent("_anonymous_", true, false, maxScopeDeep);
-    List<Object?> args = [];
+
+    List<dynamic> args = [];
+    if (!functionPointer.isStatic) {
+      args.add(functionPointer.target);
+    }
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
       args.add(posational[i]);

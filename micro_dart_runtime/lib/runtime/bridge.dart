@@ -11,7 +11,7 @@ mixin InstanceBridge implements Instance {
   late TypeRef type = bridgeType;
 
   @override
-  Object? getParam(Scope scope, String name) {
+  dynamic getParam(Scope scope, String name) {
     if (child != null && type.hasParam(name, scope.engine)) {
       return child?.getParam(scope, name);
     }
@@ -26,12 +26,11 @@ mixin InstanceBridge implements Instance {
       return child!.hasParam(scope, name);
     }
     var key = scope.engine.getKeyByType(type, name);
-    print("hasParam $name");
     return scope.engine.externalFunctions.containsKey(key);
   }
 
   @override
-  void setParam(Scope scope, String name, Object? value) {
+  void setParam(Scope scope, String name, dynamic value) {
     if (child != null && type.hasParam(name, scope.engine)) {
       child?.setParam(scope, name, value);
       return;
@@ -40,10 +39,5 @@ mixin InstanceBridge implements Instance {
     //这里需要考虑是父类属性的问题
 
     scope.engine.externalFunctions[key]!(this, value);
-  }
-
-  @override
-  String toString() {
-    return "InstanceBridge($type,$child)";
   }
 }

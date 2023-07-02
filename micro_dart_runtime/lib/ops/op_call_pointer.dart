@@ -20,7 +20,7 @@ class OpCallPointerAsync extends OpCallPointer {
   Future run(Scope scope) {
     final pointer = scope.popFrame() as FunctionPointer;
     if (!pointer.isStatic) {
-      var args = scope.getFrame() as List<Object?>;
+      var args = scope.getFrame() as List<dynamic>;
       args.insert(0, pointer.target);
     }
     return scope.engine
@@ -59,7 +59,7 @@ class OpCallPointer implements Op {
   void run(Scope scope) {
     final pointer = scope.popFrame() as FunctionPointer;
     if (!pointer.isStatic) {
-      var args = scope.getFrame() as List<Object?>;
+      var args = scope.getFrame() as List<dynamic>;
       args.insert(0, pointer.target);
     }
     scope.engine.callPointer(scope, _name, true, pointer.offset);

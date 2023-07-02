@@ -20,9 +20,12 @@ class Scope {
   bool hasReturn = false;
 
   /// 帧集合
-  final List<Object?> frames = [];
+  final List<dynamic> frames = [];
 
   final List<Scope> childs = [];
+
+  /// 参数集合
+  final Map<String, dynamic> params = <String, dynamic>{};
 
   dynamic returnValue;
 
@@ -41,11 +44,8 @@ class Scope {
         parent: this, deep: (deep + 1), maxScopeDeep: maxScopeDeep);
   }
 
-  /// 参数集合
-  final Map<String, Object?> params = <String, Object?>{};
-
   /// 获取参数
-  Object? getParam(String key) {
+  dynamic getParam(String key) {
     if (params.containsKey(key)) {
       return params[key];
     }
@@ -53,19 +53,19 @@ class Scope {
   }
 
   /// 设置参数
-  void setScopeParam(String key, Object? value) {
+  void setScopeParam(String key, dynamic value) {
     params[key] = value;
   }
 
-  Object? getScopeParam(String key) {
+  dynamic getScopeParam(String key) {
     return params[key];
   }
 
-  Object? popScopeParam(String key) {
+  dynamic popScopeParam(String key) {
     return params.remove(key);
   }
 
-  void setExistParam(String key, Object? value) {
+  void setExistParam(String key, dynamic value) {
     if (params.containsKey(key)) {
       params[key] = value;
     }
@@ -78,22 +78,22 @@ class Scope {
   }
 
   //插入帧
-  void pushFrame(Object? object) {
+  void pushFrame(dynamic object) {
     frames.add(object);
   }
 
-  Object? popFrame({int posation = -1}) {
+  dynamic popFrame({int posation = -1}) {
     if (posation == -1) {
       return frames.removeLast();
     }
     return frames.removeAt(posation);
   }
 
-  void insertFrame(int index, Object? element) {
+  void insertFrame(int index, dynamic element) {
     frames.insert(index, element);
   }
 
-  List<Object?> popFrameList(int length) {
+  List<dynamic> popFrameList(int length) {
     int start = frames.length - length;
     int end = frames.length;
 
@@ -103,18 +103,18 @@ class Scope {
     return list;
   }
 
-  void pushFrameList(List<Object> list) {
+  void pushFrameList(List<dynamic> list) {
     frames.addAll(list);
   }
 
-  Object? getFrame({int posation = -1}) {
+  dynamic getFrame({int posation = -1}) {
     if (posation == -1) {
       return frames.last;
     }
     return frames[posation];
   }
 
-  Iterable<Object?> take(int count) {
+  Iterable<dynamic> take(int count) {
     return frames.take(count);
   }
 

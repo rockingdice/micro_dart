@@ -1,3 +1,5 @@
+import 'package:micro_dart_runtime/runtime/engine.dart';
+
 import 'scope.dart';
 import 'type.dart';
 
@@ -5,21 +7,23 @@ abstract class Instance {
   TypeRef get type;
   set type(TypeRef type);
 
-  Object? getParam(Scope scope, String name);
-  void setParam(Scope scope, String name, Object? value);
+  dynamic getParam(Scope scope, String name);
+  void setParam(Scope scope, String name, dynamic value);
   bool hasParam(Scope scope, String name);
 }
 
 class InstanceImpl extends Instance {
-  final Map<String, Object?> params = {};
+  final Map<String, dynamic> params = {};
 
   @override
   TypeRef type;
 
-  InstanceImpl(this.type);
+  MicroDartEngine engine;
+
+  InstanceImpl(this.engine, this.type);
 
   @override
-  Object? getParam(Scope scope, String name) {
+  dynamic getParam(Scope scope, String name) {
     if (params.containsKey(name)) {
       return params[name];
     }
@@ -27,7 +31,7 @@ class InstanceImpl extends Instance {
   }
 
   @override
-  void setParam(Scope scope, String name, Object? value) {
+  void setParam(Scope scope, String name, dynamic value) {
     params[name] = value;
   }
 
