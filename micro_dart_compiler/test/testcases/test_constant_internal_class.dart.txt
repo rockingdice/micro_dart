@@ -10,7 +10,7 @@ library from "test:///main.dart" as main {
     const constructor a(dart.core::int a, dart.core::int b) → main::A
       : main::A::p1 = a, main::A::p2 = b, super dart.core::Object::•()
       ;
-    const constructor b({dart.core::int c = #C1, dart.core::int d = #C1}) → main::A
+    const constructor b({dart.core::int c = 0, dart.core::int d = 0}) → main::A
       : main::A::p1 = c, main::A::p2 = d, super dart.core::Object::•()
       ;
     method fun1() → dart.core::String {
@@ -39,7 +39,4 @@ library from "test:///main.dart" as main {
     dart.core::print("${s}${s2}");
     return s;
   }
-}
-constants  {
-  #C1 = 0
 }

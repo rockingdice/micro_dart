@@ -1,7 +1,6 @@
 part of 'ast.dart';
 
 int compileProcedure(MicroCompilerContext context, Procedure node) {
-  context.startCompileNode(node);
   compileDartType(context, node.function.returnType);
   var name = node.getNamedName();
   //表示该方法已经编译过了,直接返回

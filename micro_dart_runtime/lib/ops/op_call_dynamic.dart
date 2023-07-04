@@ -82,7 +82,7 @@ class OpCallDynamic implements Op {
   int get opLen =>
       Ops.lenBegin +
       Ops.lenStr(_name) +
-      Ops.lenI8 * 4 +
+      Ops.lenI8 * 5 +
       Ops.lenI32 +
       Ops.lenStrlist(_namedList);
 

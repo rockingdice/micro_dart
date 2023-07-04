@@ -2,7 +2,7 @@ part of 'ast.dart';
 
 void compileStatement(MicroCompilerContext context, Statement node,
     {bool newBlock = true}) {
-  context.startCompileNode(node);
+  //context.startCompileNode(node);
   if (node is Block) {
     if (newBlock) {
       compileBlock(context, node);
@@ -42,7 +42,11 @@ void compileStatement(MicroCompilerContext context, Statement node,
   } else if (node is TryFinally) {
     compileTryFinally(context, node);
   } else if (node is EmptyStatement) {
-  } else {
+  }
+  // else if (node is YieldStatement) {
+  // }
+
+  else {
     throw Exception(
         "currently Statement type  ${node.runtimeType.toString()} not support ");
   }

@@ -19,20 +19,20 @@ class OpSetThisSuper implements Op {
       if (instance is InstanceImpl) {
         instance.params.addAll(superInstance.params);
       } else if (instance is InstanceBridge) {
-        instance.child?.params.addAll(superInstance.params);
+        instance.$child?.params.addAll(superInstance.params);
       }
     } else if (superInstance is InstanceBridge) {
       if (instance is InstanceImpl) {
-        if (superInstance.child != null) {
-          instance.params.addAll(superInstance.child!.params);
+        if (superInstance.$child != null) {
+          instance.params.addAll(superInstance.$child!.params);
         }
 
-        superInstance.child = instance;
+        superInstance.$child = instance;
         superInstance.type = instance.type;
         scope.setScopeParam("#this", superInstance);
       } else if (instance is InstanceBridge) {
-        superInstance.child = instance.child;
-        superInstance.type = instance.child!.type;
+        superInstance.$child = instance.$child;
+        superInstance.type = instance.$child!.type;
         scope.setScopeParam("#this", superInstance);
       }
     }

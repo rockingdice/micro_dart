@@ -19,5 +19,5 @@ class OpNullCheck implements Op {
   }
 
   @override
-  String toString() => 'NullCheck()';
+  String toString() => 'OpNullCheck()';
 }

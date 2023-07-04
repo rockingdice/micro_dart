@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
+export 'op_as.dart';
+export 'op_push_constant_double.dart';
 export 'op_push_constant_bool.dart';
 export 'op_push_symbol.dart';
 export 'op_set_this_super.dart';
@@ -146,6 +148,8 @@ class Ops {
   static const opSetThisSuper = 62;
 
   static const opPushConstantBool = 64;
+  static const opPushConstantDouble = 65;
+  static const opAs = 66;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -153,6 +157,7 @@ class Ops {
   static const lenI32 = 4;
   static const lenF32 = 4;
   static const lenI64 = 8;
+  static const lenF64 = 8;
 
   static int lenStr(String str) {
     return lenI32 + utf8.encode(str).length;
@@ -161,6 +166,12 @@ class Ops {
   static List<int> i8b(int i8) {
     final x = ByteData(1);
     x.setInt8(0, i8);
+    return [x.getUint8(0)];
+  }
+
+  static List<int> u8b(int i8) {
+    final x = ByteData(1);
+    x.setUint8(0, i8);
     return [x.getUint8(0)];
   }
 
@@ -180,6 +191,21 @@ class Ops {
     final x = ByteData(4);
     x.setFloat32(0, f32);
     return [x.getUint8(0), x.getUint8(1), x.getUint8(2), x.getUint8(3)];
+  }
+
+  static List<int> f64b(double f64) {
+    final x = ByteData(8);
+    x.setFloat64(0, f64);
+    return [
+      x.getUint8(0),
+      x.getUint8(1),
+      x.getUint8(2),
+      x.getUint8(3),
+      x.getUint8(4),
+      x.getUint8(5),
+      x.getUint8(6),
+      x.getUint8(7)
+    ];
   }
 
   static List<int> str(String str) {
@@ -290,4 +316,7 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opPushSymbol: (MicroDartEngine engine) => OpPushSymbol(engine),
   Ops.opPushConstantBool: (MicroDartEngine engine) =>
       OpPushConstantBool(engine),
+  Ops.opPushConstantDouble: (MicroDartEngine engine) =>
+      OpPushConstantDouble(engine),
+  Ops.opAs: (MicroDartEngine engine) => OpAs(engine),
 };

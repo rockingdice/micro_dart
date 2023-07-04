@@ -18,5 +18,5 @@ class OpPushNull implements Op {
   }
 
   @override
-  String toString() => 'PushNull()';
+  String toString() => 'OpPushNull()';
 }

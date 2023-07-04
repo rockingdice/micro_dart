@@ -4,83 +4,83 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'gallery_localizations_af.dart' deferred as gallery_localizations_af;
-import 'gallery_localizations_am.dart' deferred as gallery_localizations_am;
-import 'gallery_localizations_ar.dart' deferred as gallery_localizations_ar;
-import 'gallery_localizations_as.dart' deferred as gallery_localizations_as;
-import 'gallery_localizations_az.dart' deferred as gallery_localizations_az;
-import 'gallery_localizations_be.dart' deferred as gallery_localizations_be;
-import 'gallery_localizations_bg.dart' deferred as gallery_localizations_bg;
-import 'gallery_localizations_bn.dart' deferred as gallery_localizations_bn;
-import 'gallery_localizations_bs.dart' deferred as gallery_localizations_bs;
-import 'gallery_localizations_ca.dart' deferred as gallery_localizations_ca;
-import 'gallery_localizations_cs.dart' deferred as gallery_localizations_cs;
-import 'gallery_localizations_cy.dart' deferred as gallery_localizations_cy;
-import 'gallery_localizations_da.dart' deferred as gallery_localizations_da;
-import 'gallery_localizations_de.dart' deferred as gallery_localizations_de;
-import 'gallery_localizations_el.dart' deferred as gallery_localizations_el;
-import 'gallery_localizations_en.dart' deferred as gallery_localizations_en;
-import 'gallery_localizations_es.dart' deferred as gallery_localizations_es;
-import 'gallery_localizations_et.dart' deferred as gallery_localizations_et;
-import 'gallery_localizations_eu.dart' deferred as gallery_localizations_eu;
-import 'gallery_localizations_fa.dart' deferred as gallery_localizations_fa;
-import 'gallery_localizations_fi.dart' deferred as gallery_localizations_fi;
-import 'gallery_localizations_fil.dart' deferred as gallery_localizations_fil;
-import 'gallery_localizations_fr.dart' deferred as gallery_localizations_fr;
-import 'gallery_localizations_gl.dart' deferred as gallery_localizations_gl;
-import 'gallery_localizations_gsw.dart' deferred as gallery_localizations_gsw;
-import 'gallery_localizations_gu.dart' deferred as gallery_localizations_gu;
-import 'gallery_localizations_he.dart' deferred as gallery_localizations_he;
-import 'gallery_localizations_hi.dart' deferred as gallery_localizations_hi;
-import 'gallery_localizations_hr.dart' deferred as gallery_localizations_hr;
-import 'gallery_localizations_hu.dart' deferred as gallery_localizations_hu;
-import 'gallery_localizations_hy.dart' deferred as gallery_localizations_hy;
-import 'gallery_localizations_id.dart' deferred as gallery_localizations_id;
-import 'gallery_localizations_is.dart' deferred as gallery_localizations_is;
-import 'gallery_localizations_it.dart' deferred as gallery_localizations_it;
-import 'gallery_localizations_ja.dart' deferred as gallery_localizations_ja;
-import 'gallery_localizations_ka.dart' deferred as gallery_localizations_ka;
-import 'gallery_localizations_kk.dart' deferred as gallery_localizations_kk;
-import 'gallery_localizations_km.dart' deferred as gallery_localizations_km;
-import 'gallery_localizations_kn.dart' deferred as gallery_localizations_kn;
-import 'gallery_localizations_ko.dart' deferred as gallery_localizations_ko;
-import 'gallery_localizations_ky.dart' deferred as gallery_localizations_ky;
-import 'gallery_localizations_lo.dart' deferred as gallery_localizations_lo;
-import 'gallery_localizations_lt.dart' deferred as gallery_localizations_lt;
-import 'gallery_localizations_lv.dart' deferred as gallery_localizations_lv;
-import 'gallery_localizations_mk.dart' deferred as gallery_localizations_mk;
-import 'gallery_localizations_ml.dart' deferred as gallery_localizations_ml;
-import 'gallery_localizations_mn.dart' deferred as gallery_localizations_mn;
-import 'gallery_localizations_mr.dart' deferred as gallery_localizations_mr;
-import 'gallery_localizations_ms.dart' deferred as gallery_localizations_ms;
-import 'gallery_localizations_my.dart' deferred as gallery_localizations_my;
-import 'gallery_localizations_nb.dart' deferred as gallery_localizations_nb;
-import 'gallery_localizations_ne.dart' deferred as gallery_localizations_ne;
-import 'gallery_localizations_nl.dart' deferred as gallery_localizations_nl;
-import 'gallery_localizations_or.dart' deferred as gallery_localizations_or;
-import 'gallery_localizations_pa.dart' deferred as gallery_localizations_pa;
-import 'gallery_localizations_pl.dart' deferred as gallery_localizations_pl;
-import 'gallery_localizations_pt.dart' deferred as gallery_localizations_pt;
-import 'gallery_localizations_ro.dart' deferred as gallery_localizations_ro;
-import 'gallery_localizations_ru.dart' deferred as gallery_localizations_ru;
-import 'gallery_localizations_si.dart' deferred as gallery_localizations_si;
-import 'gallery_localizations_sk.dart' deferred as gallery_localizations_sk;
-import 'gallery_localizations_sl.dart' deferred as gallery_localizations_sl;
-import 'gallery_localizations_sq.dart' deferred as gallery_localizations_sq;
-import 'gallery_localizations_sr.dart' deferred as gallery_localizations_sr;
-import 'gallery_localizations_sv.dart' deferred as gallery_localizations_sv;
-import 'gallery_localizations_sw.dart' deferred as gallery_localizations_sw;
-import 'gallery_localizations_ta.dart' deferred as gallery_localizations_ta;
-import 'gallery_localizations_te.dart' deferred as gallery_localizations_te;
-import 'gallery_localizations_th.dart' deferred as gallery_localizations_th;
-import 'gallery_localizations_tl.dart' deferred as gallery_localizations_tl;
-import 'gallery_localizations_tr.dart' deferred as gallery_localizations_tr;
-import 'gallery_localizations_uk.dart' deferred as gallery_localizations_uk;
-import 'gallery_localizations_ur.dart' deferred as gallery_localizations_ur;
-import 'gallery_localizations_uz.dart' deferred as gallery_localizations_uz;
-import 'gallery_localizations_vi.dart' deferred as gallery_localizations_vi;
-import 'gallery_localizations_zh.dart' deferred as gallery_localizations_zh;
-import 'gallery_localizations_zu.dart' deferred as gallery_localizations_zu;
+import 'gallery_localizations_af.dart' as gallery_localizations_af;
+import 'gallery_localizations_am.dart' as gallery_localizations_am;
+import 'gallery_localizations_ar.dart' as gallery_localizations_ar;
+import 'gallery_localizations_as.dart' as gallery_localizations_as;
+import 'gallery_localizations_az.dart' as gallery_localizations_az;
+import 'gallery_localizations_be.dart' as gallery_localizations_be;
+import 'gallery_localizations_bg.dart' as gallery_localizations_bg;
+import 'gallery_localizations_bn.dart' as gallery_localizations_bn;
+import 'gallery_localizations_bs.dart' as gallery_localizations_bs;
+import 'gallery_localizations_ca.dart' as gallery_localizations_ca;
+import 'gallery_localizations_cs.dart' as gallery_localizations_cs;
+import 'gallery_localizations_cy.dart' as gallery_localizations_cy;
+import 'gallery_localizations_da.dart' as gallery_localizations_da;
+import 'gallery_localizations_de.dart' as gallery_localizations_de;
+import 'gallery_localizations_el.dart' as gallery_localizations_el;
+import 'gallery_localizations_en.dart' as gallery_localizations_en;
+import 'gallery_localizations_es.dart' as gallery_localizations_es;
+import 'gallery_localizations_et.dart' as gallery_localizations_et;
+import 'gallery_localizations_eu.dart' as gallery_localizations_eu;
+import 'gallery_localizations_fa.dart' as gallery_localizations_fa;
+import 'gallery_localizations_fi.dart' as gallery_localizations_fi;
+import 'gallery_localizations_fil.dart' as gallery_localizations_fil;
+import 'gallery_localizations_fr.dart' as gallery_localizations_fr;
+import 'gallery_localizations_gl.dart' as gallery_localizations_gl;
+import 'gallery_localizations_gsw.dart' as gallery_localizations_gsw;
+import 'gallery_localizations_gu.dart' as gallery_localizations_gu;
+import 'gallery_localizations_he.dart' as gallery_localizations_he;
+import 'gallery_localizations_hi.dart' as gallery_localizations_hi;
+import 'gallery_localizations_hr.dart' as gallery_localizations_hr;
+import 'gallery_localizations_hu.dart' as gallery_localizations_hu;
+import 'gallery_localizations_hy.dart' as gallery_localizations_hy;
+import 'gallery_localizations_id.dart' as gallery_localizations_id;
+import 'gallery_localizations_is.dart' as gallery_localizations_is;
+import 'gallery_localizations_it.dart' as gallery_localizations_it;
+import 'gallery_localizations_ja.dart' as gallery_localizations_ja;
+import 'gallery_localizations_ka.dart' as gallery_localizations_ka;
+import 'gallery_localizations_kk.dart' as gallery_localizations_kk;
+import 'gallery_localizations_km.dart' as gallery_localizations_km;
+import 'gallery_localizations_kn.dart' as gallery_localizations_kn;
+import 'gallery_localizations_ko.dart' as gallery_localizations_ko;
+import 'gallery_localizations_ky.dart' as gallery_localizations_ky;
+import 'gallery_localizations_lo.dart' as gallery_localizations_lo;
+import 'gallery_localizations_lt.dart' as gallery_localizations_lt;
+import 'gallery_localizations_lv.dart' as gallery_localizations_lv;
+import 'gallery_localizations_mk.dart' as gallery_localizations_mk;
+import 'gallery_localizations_ml.dart' as gallery_localizations_ml;
+import 'gallery_localizations_mn.dart' as gallery_localizations_mn;
+import 'gallery_localizations_mr.dart' as gallery_localizations_mr;
+import 'gallery_localizations_ms.dart' as gallery_localizations_ms;
+import 'gallery_localizations_my.dart' as gallery_localizations_my;
+import 'gallery_localizations_nb.dart' as gallery_localizations_nb;
+import 'gallery_localizations_ne.dart' as gallery_localizations_ne;
+import 'gallery_localizations_nl.dart' as gallery_localizations_nl;
+import 'gallery_localizations_or.dart' as gallery_localizations_or;
+import 'gallery_localizations_pa.dart' as gallery_localizations_pa;
+import 'gallery_localizations_pl.dart' as gallery_localizations_pl;
+import 'gallery_localizations_pt.dart' as gallery_localizations_pt;
+import 'gallery_localizations_ro.dart' as gallery_localizations_ro;
+import 'gallery_localizations_ru.dart' as gallery_localizations_ru;
+import 'gallery_localizations_si.dart' as gallery_localizations_si;
+import 'gallery_localizations_sk.dart' as gallery_localizations_sk;
+import 'gallery_localizations_sl.dart' as gallery_localizations_sl;
+import 'gallery_localizations_sq.dart' as gallery_localizations_sq;
+import 'gallery_localizations_sr.dart' as gallery_localizations_sr;
+import 'gallery_localizations_sv.dart' as gallery_localizations_sv;
+import 'gallery_localizations_sw.dart' as gallery_localizations_sw;
+import 'gallery_localizations_ta.dart' as gallery_localizations_ta;
+import 'gallery_localizations_te.dart' as gallery_localizations_te;
+import 'gallery_localizations_th.dart' as gallery_localizations_th;
+import 'gallery_localizations_tl.dart' as gallery_localizations_tl;
+import 'gallery_localizations_tr.dart' as gallery_localizations_tr;
+import 'gallery_localizations_uk.dart' as gallery_localizations_uk;
+import 'gallery_localizations_ur.dart' as gallery_localizations_ur;
+import 'gallery_localizations_uz.dart' as gallery_localizations_uz;
+import 'gallery_localizations_vi.dart' as gallery_localizations_vi;
+import 'gallery_localizations_zh.dart' as gallery_localizations_zh;
+import 'gallery_localizations_zu.dart' as gallery_localizations_zu;
 
 /// Callers can lookup localized strings with an instance of GalleryLocalizations
 /// returned by `GalleryLocalizations.of(context)`.
@@ -134,15 +134,18 @@ import 'gallery_localizations_zu.dart' deferred as gallery_localizations_zu;
 /// be consistent with the languages listed in the GalleryLocalizations.supportedLocales
 /// property.
 abstract class GalleryLocalizations {
-  GalleryLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  GalleryLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static GalleryLocalizations? of(BuildContext context) {
-    return Localizations.of<GalleryLocalizations>(context, GalleryLocalizations);
+    return Localizations.of<GalleryLocalizations>(
+        context, GalleryLocalizations);
   }
 
-  static const LocalizationsDelegate<GalleryLocalizations> delegate = _GalleryLocalizationsDelegate();
+  static const LocalizationsDelegate<GalleryLocalizations> delegate =
+      _GalleryLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -154,7 +157,8 @@ abstract class GalleryLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -846,7 +850,8 @@ abstract class GalleryLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{accountName} account {accountNumber} with {amount}.'**
-  String rallyAccountAmount(Object accountName, Object accountNumber, Object amount);
+  String rallyAccountAmount(
+      Object accountName, Object accountNumber, Object amount);
 
   /// Semantics label for row with a bill (example name is rent), when the bill is due (1/12/2019 for example) and for how much money ($12).
   ///
@@ -858,7 +863,8 @@ abstract class GalleryLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{budgetName} budget with {amountUsed} used of {amountTotal}, {amountLeft} left'**
-  String rallyBudgetAmount(Object budgetName, Object amountUsed, Object amountTotal, Object amountLeft);
+  String rallyBudgetAmount(Object budgetName, Object amountUsed,
+      Object amountTotal, Object amountLeft);
 
   /// Study description for Crane.
   ///
@@ -5097,198 +5103,402 @@ abstract class GalleryLocalizations {
   String demoTwoPaneItemDetails(Object value);
 }
 
-class _GalleryLocalizationsDelegate extends LocalizationsDelegate<GalleryLocalizations> {
+class _GalleryLocalizationsDelegate
+    extends LocalizationsDelegate<GalleryLocalizations> {
   const _GalleryLocalizationsDelegate();
 
   @override
-  Future<GalleryLocalizations> load(Locale locale) {
+  Future<GalleryLocalizations> load(Locale locale) async {
     return lookupGalleryLocalizations(locale);
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['af', 'am', 'ar', 'as', 'az', 'be', 'bg', 'bn', 'bs', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'es', 'et', 'eu', 'fa', 'fi', 'fil', 'fr', 'gl', 'gsw', 'gu', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is', 'it', 'ja', 'ka', 'kk', 'km', 'kn', 'ko', 'ky', 'lo', 'lt', 'lv', 'mk', 'ml', 'mn', 'mr', 'ms', 'my', 'nb', 'ne', 'nl', 'or', 'pa', 'pl', 'pt', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'sw', 'ta', 'te', 'th', 'tl', 'tr', 'uk', 'ur', 'uz', 'vi', 'zh', 'zu'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'af',
+        'am',
+        'ar',
+        'as',
+        'az',
+        'be',
+        'bg',
+        'bn',
+        'bs',
+        'ca',
+        'cs',
+        'cy',
+        'da',
+        'de',
+        'el',
+        'en',
+        'es',
+        'et',
+        'eu',
+        'fa',
+        'fi',
+        'fil',
+        'fr',
+        'gl',
+        'gsw',
+        'gu',
+        'he',
+        'hi',
+        'hr',
+        'hu',
+        'hy',
+        'id',
+        'is',
+        'it',
+        'ja',
+        'ka',
+        'kk',
+        'km',
+        'kn',
+        'ko',
+        'ky',
+        'lo',
+        'lt',
+        'lv',
+        'mk',
+        'ml',
+        'mn',
+        'mr',
+        'ms',
+        'my',
+        'nb',
+        'ne',
+        'nl',
+        'or',
+        'pa',
+        'pl',
+        'pt',
+        'ro',
+        'ru',
+        'si',
+        'sk',
+        'sl',
+        'sq',
+        'sr',
+        'sv',
+        'sw',
+        'ta',
+        'te',
+        'th',
+        'tl',
+        'tr',
+        'uk',
+        'ur',
+        'uz',
+        'vi',
+        'zh',
+        'zu'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_GalleryLocalizationsDelegate old) => false;
 }
 
-Future<GalleryLocalizations> lookupGalleryLocalizations(Locale locale) {
-
+GalleryLocalizations lookupGalleryLocalizations(Locale locale) {
   // Lookup logic when language+script codes are specified.
   switch (locale.languageCode) {
-    case 'sr': {
-  switch (locale.scriptCode) {
-    case 'Latn': return gallery_localizations_sr.loadLibrary().then((dynamic _) => gallery_localizations_sr.GalleryLocalizationsSrLatn());
-   }
-  break;
-   }
+    case 'sr':
+      {
+        switch (locale.scriptCode) {
+          case 'Latn':
+            return gallery_localizations_sr.GalleryLocalizationsSrLatn();
+        }
+        break;
+      }
   }
 
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
-    case 'ar': {
-  switch (locale.countryCode) {
-    case 'EG': return gallery_localizations_ar.loadLibrary().then((dynamic _) => gallery_localizations_ar.GalleryLocalizationsArEg());
-case 'JO': return gallery_localizations_ar.loadLibrary().then((dynamic _) => gallery_localizations_ar.GalleryLocalizationsArJo());
-case 'MA': return gallery_localizations_ar.loadLibrary().then((dynamic _) => gallery_localizations_ar.GalleryLocalizationsArMa());
-case 'SA': return gallery_localizations_ar.loadLibrary().then((dynamic _) => gallery_localizations_ar.GalleryLocalizationsArSa());
-   }
-  break;
-   }
-    case 'de': {
-  switch (locale.countryCode) {
-    case 'AT': return gallery_localizations_de.loadLibrary().then((dynamic _) => gallery_localizations_de.GalleryLocalizationsDeAt());
-case 'CH': return gallery_localizations_de.loadLibrary().then((dynamic _) => gallery_localizations_de.GalleryLocalizationsDeCh());
-   }
-  break;
-   }
-    case 'en': {
-  switch (locale.countryCode) {
-    case 'AU': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnAu());
-case 'CA': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnCa());
-case 'GB': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnGb());
-case 'IE': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnIe());
-case 'IN': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnIn());
-case 'NZ': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnNz());
-case 'SG': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnSg());
-case 'ZA': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEnZa());
-   }
-  break;
-   }
-    case 'es': {
-  switch (locale.countryCode) {
-    case '419': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEs419());
-case 'AR': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsAr());
-case 'BO': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsBo());
-case 'CL': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsCl());
-case 'CO': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsCo());
-case 'CR': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsCr());
-case 'DO': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsDo());
-case 'EC': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsEc());
-case 'GT': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsGt());
-case 'HN': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsHn());
-case 'MX': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsMx());
-case 'NI': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsNi());
-case 'PA': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsPa());
-case 'PE': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsPe());
-case 'PR': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsPr());
-case 'PY': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsPy());
-case 'SV': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsSv());
-case 'US': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsUs());
-case 'UY': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsUy());
-case 'VE': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEsVe());
-   }
-  break;
-   }
-    case 'fr': {
-  switch (locale.countryCode) {
-    case 'CA': return gallery_localizations_fr.loadLibrary().then((dynamic _) => gallery_localizations_fr.GalleryLocalizationsFrCa());
-case 'CH': return gallery_localizations_fr.loadLibrary().then((dynamic _) => gallery_localizations_fr.GalleryLocalizationsFrCh());
-   }
-  break;
-   }
-    case 'pt': {
-  switch (locale.countryCode) {
-    case 'BR': return gallery_localizations_pt.loadLibrary().then((dynamic _) => gallery_localizations_pt.GalleryLocalizationsPtBr());
-case 'PT': return gallery_localizations_pt.loadLibrary().then((dynamic _) => gallery_localizations_pt.GalleryLocalizationsPtPt());
-   }
-  break;
-   }
-    case 'zh': {
-  switch (locale.countryCode) {
-    case 'CN': return gallery_localizations_zh.loadLibrary().then((dynamic _) => gallery_localizations_zh.GalleryLocalizationsZhCn());
-case 'HK': return gallery_localizations_zh.loadLibrary().then((dynamic _) => gallery_localizations_zh.GalleryLocalizationsZhHk());
-case 'TW': return gallery_localizations_zh.loadLibrary().then((dynamic _) => gallery_localizations_zh.GalleryLocalizationsZhTw());
-   }
-  break;
-   }
+    case 'ar':
+      {
+        switch (locale.countryCode) {
+          case 'EG':
+            return gallery_localizations_ar.GalleryLocalizationsArEg();
+          case 'JO':
+            return gallery_localizations_ar.GalleryLocalizationsArJo();
+          case 'MA':
+            return gallery_localizations_ar.GalleryLocalizationsArMa();
+          case 'SA':
+            return gallery_localizations_ar.GalleryLocalizationsArSa();
+        }
+        break;
+      }
+    case 'de':
+      {
+        switch (locale.countryCode) {
+          case 'AT':
+            return gallery_localizations_de.GalleryLocalizationsDeAt();
+          case 'CH':
+            return gallery_localizations_de.GalleryLocalizationsDeCh();
+        }
+        break;
+      }
+    case 'en':
+      {
+        switch (locale.countryCode) {
+          case 'AU':
+            return gallery_localizations_en.GalleryLocalizationsEnAu();
+          case 'CA':
+            return gallery_localizations_en.GalleryLocalizationsEnCa();
+          case 'GB':
+            return gallery_localizations_en.GalleryLocalizationsEnGb();
+          case 'IE':
+            return gallery_localizations_en.GalleryLocalizationsEnIe();
+          case 'IN':
+            return gallery_localizations_en.GalleryLocalizationsEnIn();
+          case 'NZ':
+            return gallery_localizations_en.GalleryLocalizationsEnNz();
+          case 'SG':
+            return gallery_localizations_en.GalleryLocalizationsEnSg();
+          case 'ZA':
+            return gallery_localizations_en.GalleryLocalizationsEnZa();
+        }
+        break;
+      }
+    case 'es':
+      {
+        switch (locale.countryCode) {
+          case '419':
+            return gallery_localizations_es.GalleryLocalizationsEs419();
+          case 'AR':
+            return gallery_localizations_es.GalleryLocalizationsEsAr();
+          case 'BO':
+            return gallery_localizations_es.GalleryLocalizationsEsBo();
+          case 'CL':
+            return gallery_localizations_es.GalleryLocalizationsEsCl();
+          case 'CO':
+            return gallery_localizations_es.GalleryLocalizationsEsCo();
+          case 'CR':
+            return gallery_localizations_es.GalleryLocalizationsEsCr();
+          case 'DO':
+            return gallery_localizations_es.GalleryLocalizationsEsDo();
+          case 'EC':
+            return gallery_localizations_es.GalleryLocalizationsEsEc();
+          case 'GT':
+            return gallery_localizations_es.GalleryLocalizationsEsGt();
+          case 'HN':
+            return gallery_localizations_es.GalleryLocalizationsEsHn();
+          case 'MX':
+            return gallery_localizations_es.GalleryLocalizationsEsMx();
+          case 'NI':
+            return gallery_localizations_es.GalleryLocalizationsEsNi();
+          case 'PA':
+            return gallery_localizations_es.GalleryLocalizationsEsPa();
+          case 'PE':
+            return gallery_localizations_es.GalleryLocalizationsEsPe();
+          case 'PR':
+            return gallery_localizations_es.GalleryLocalizationsEsPr();
+          case 'PY':
+            return gallery_localizations_es.GalleryLocalizationsEsPy();
+          case 'SV':
+            return gallery_localizations_es.GalleryLocalizationsEsSv();
+          case 'US':
+            return gallery_localizations_es.GalleryLocalizationsEsUs();
+          case 'UY':
+            return gallery_localizations_es.GalleryLocalizationsEsUy();
+          case 'VE':
+            return gallery_localizations_es.GalleryLocalizationsEsVe();
+        }
+        break;
+      }
+    case 'fr':
+      {
+        switch (locale.countryCode) {
+          case 'CA':
+            return gallery_localizations_fr.GalleryLocalizationsFrCa();
+          case 'CH':
+            return gallery_localizations_fr.GalleryLocalizationsFrCh();
+        }
+        break;
+      }
+    case 'pt':
+      {
+        switch (locale.countryCode) {
+          case 'BR':
+            return gallery_localizations_pt.GalleryLocalizationsPtBr();
+          case 'PT':
+            return gallery_localizations_pt.GalleryLocalizationsPtPt();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return gallery_localizations_zh.GalleryLocalizationsZhCn();
+          case 'HK':
+            return gallery_localizations_zh.GalleryLocalizationsZhHk();
+          case 'TW':
+            return gallery_localizations_zh.GalleryLocalizationsZhTw();
+        }
+        break;
+      }
   }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'af': return gallery_localizations_af.loadLibrary().then((dynamic _) => gallery_localizations_af.GalleryLocalizationsAf());
-    case 'am': return gallery_localizations_am.loadLibrary().then((dynamic _) => gallery_localizations_am.GalleryLocalizationsAm());
-    case 'ar': return gallery_localizations_ar.loadLibrary().then((dynamic _) => gallery_localizations_ar.GalleryLocalizationsAr());
-    case 'as': return gallery_localizations_as.loadLibrary().then((dynamic _) => gallery_localizations_as.GalleryLocalizationsAs());
-    case 'az': return gallery_localizations_az.loadLibrary().then((dynamic _) => gallery_localizations_az.GalleryLocalizationsAz());
-    case 'be': return gallery_localizations_be.loadLibrary().then((dynamic _) => gallery_localizations_be.GalleryLocalizationsBe());
-    case 'bg': return gallery_localizations_bg.loadLibrary().then((dynamic _) => gallery_localizations_bg.GalleryLocalizationsBg());
-    case 'bn': return gallery_localizations_bn.loadLibrary().then((dynamic _) => gallery_localizations_bn.GalleryLocalizationsBn());
-    case 'bs': return gallery_localizations_bs.loadLibrary().then((dynamic _) => gallery_localizations_bs.GalleryLocalizationsBs());
-    case 'ca': return gallery_localizations_ca.loadLibrary().then((dynamic _) => gallery_localizations_ca.GalleryLocalizationsCa());
-    case 'cs': return gallery_localizations_cs.loadLibrary().then((dynamic _) => gallery_localizations_cs.GalleryLocalizationsCs());
-    case 'cy': return gallery_localizations_cy.loadLibrary().then((dynamic _) => gallery_localizations_cy.GalleryLocalizationsCy());
-    case 'da': return gallery_localizations_da.loadLibrary().then((dynamic _) => gallery_localizations_da.GalleryLocalizationsDa());
-    case 'de': return gallery_localizations_de.loadLibrary().then((dynamic _) => gallery_localizations_de.GalleryLocalizationsDe());
-    case 'el': return gallery_localizations_el.loadLibrary().then((dynamic _) => gallery_localizations_el.GalleryLocalizationsEl());
-    case 'en': return gallery_localizations_en.loadLibrary().then((dynamic _) => gallery_localizations_en.GalleryLocalizationsEn());
-    case 'es': return gallery_localizations_es.loadLibrary().then((dynamic _) => gallery_localizations_es.GalleryLocalizationsEs());
-    case 'et': return gallery_localizations_et.loadLibrary().then((dynamic _) => gallery_localizations_et.GalleryLocalizationsEt());
-    case 'eu': return gallery_localizations_eu.loadLibrary().then((dynamic _) => gallery_localizations_eu.GalleryLocalizationsEu());
-    case 'fa': return gallery_localizations_fa.loadLibrary().then((dynamic _) => gallery_localizations_fa.GalleryLocalizationsFa());
-    case 'fi': return gallery_localizations_fi.loadLibrary().then((dynamic _) => gallery_localizations_fi.GalleryLocalizationsFi());
-    case 'fil': return gallery_localizations_fil.loadLibrary().then((dynamic _) => gallery_localizations_fil.GalleryLocalizationsFil());
-    case 'fr': return gallery_localizations_fr.loadLibrary().then((dynamic _) => gallery_localizations_fr.GalleryLocalizationsFr());
-    case 'gl': return gallery_localizations_gl.loadLibrary().then((dynamic _) => gallery_localizations_gl.GalleryLocalizationsGl());
-    case 'gsw': return gallery_localizations_gsw.loadLibrary().then((dynamic _) => gallery_localizations_gsw.GalleryLocalizationsGsw());
-    case 'gu': return gallery_localizations_gu.loadLibrary().then((dynamic _) => gallery_localizations_gu.GalleryLocalizationsGu());
-    case 'he': return gallery_localizations_he.loadLibrary().then((dynamic _) => gallery_localizations_he.GalleryLocalizationsHe());
-    case 'hi': return gallery_localizations_hi.loadLibrary().then((dynamic _) => gallery_localizations_hi.GalleryLocalizationsHi());
-    case 'hr': return gallery_localizations_hr.loadLibrary().then((dynamic _) => gallery_localizations_hr.GalleryLocalizationsHr());
-    case 'hu': return gallery_localizations_hu.loadLibrary().then((dynamic _) => gallery_localizations_hu.GalleryLocalizationsHu());
-    case 'hy': return gallery_localizations_hy.loadLibrary().then((dynamic _) => gallery_localizations_hy.GalleryLocalizationsHy());
-    case 'id': return gallery_localizations_id.loadLibrary().then((dynamic _) => gallery_localizations_id.GalleryLocalizationsId());
-    case 'is': return gallery_localizations_is.loadLibrary().then((dynamic _) => gallery_localizations_is.GalleryLocalizationsIs());
-    case 'it': return gallery_localizations_it.loadLibrary().then((dynamic _) => gallery_localizations_it.GalleryLocalizationsIt());
-    case 'ja': return gallery_localizations_ja.loadLibrary().then((dynamic _) => gallery_localizations_ja.GalleryLocalizationsJa());
-    case 'ka': return gallery_localizations_ka.loadLibrary().then((dynamic _) => gallery_localizations_ka.GalleryLocalizationsKa());
-    case 'kk': return gallery_localizations_kk.loadLibrary().then((dynamic _) => gallery_localizations_kk.GalleryLocalizationsKk());
-    case 'km': return gallery_localizations_km.loadLibrary().then((dynamic _) => gallery_localizations_km.GalleryLocalizationsKm());
-    case 'kn': return gallery_localizations_kn.loadLibrary().then((dynamic _) => gallery_localizations_kn.GalleryLocalizationsKn());
-    case 'ko': return gallery_localizations_ko.loadLibrary().then((dynamic _) => gallery_localizations_ko.GalleryLocalizationsKo());
-    case 'ky': return gallery_localizations_ky.loadLibrary().then((dynamic _) => gallery_localizations_ky.GalleryLocalizationsKy());
-    case 'lo': return gallery_localizations_lo.loadLibrary().then((dynamic _) => gallery_localizations_lo.GalleryLocalizationsLo());
-    case 'lt': return gallery_localizations_lt.loadLibrary().then((dynamic _) => gallery_localizations_lt.GalleryLocalizationsLt());
-    case 'lv': return gallery_localizations_lv.loadLibrary().then((dynamic _) => gallery_localizations_lv.GalleryLocalizationsLv());
-    case 'mk': return gallery_localizations_mk.loadLibrary().then((dynamic _) => gallery_localizations_mk.GalleryLocalizationsMk());
-    case 'ml': return gallery_localizations_ml.loadLibrary().then((dynamic _) => gallery_localizations_ml.GalleryLocalizationsMl());
-    case 'mn': return gallery_localizations_mn.loadLibrary().then((dynamic _) => gallery_localizations_mn.GalleryLocalizationsMn());
-    case 'mr': return gallery_localizations_mr.loadLibrary().then((dynamic _) => gallery_localizations_mr.GalleryLocalizationsMr());
-    case 'ms': return gallery_localizations_ms.loadLibrary().then((dynamic _) => gallery_localizations_ms.GalleryLocalizationsMs());
-    case 'my': return gallery_localizations_my.loadLibrary().then((dynamic _) => gallery_localizations_my.GalleryLocalizationsMy());
-    case 'nb': return gallery_localizations_nb.loadLibrary().then((dynamic _) => gallery_localizations_nb.GalleryLocalizationsNb());
-    case 'ne': return gallery_localizations_ne.loadLibrary().then((dynamic _) => gallery_localizations_ne.GalleryLocalizationsNe());
-    case 'nl': return gallery_localizations_nl.loadLibrary().then((dynamic _) => gallery_localizations_nl.GalleryLocalizationsNl());
-    case 'or': return gallery_localizations_or.loadLibrary().then((dynamic _) => gallery_localizations_or.GalleryLocalizationsOr());
-    case 'pa': return gallery_localizations_pa.loadLibrary().then((dynamic _) => gallery_localizations_pa.GalleryLocalizationsPa());
-    case 'pl': return gallery_localizations_pl.loadLibrary().then((dynamic _) => gallery_localizations_pl.GalleryLocalizationsPl());
-    case 'pt': return gallery_localizations_pt.loadLibrary().then((dynamic _) => gallery_localizations_pt.GalleryLocalizationsPt());
-    case 'ro': return gallery_localizations_ro.loadLibrary().then((dynamic _) => gallery_localizations_ro.GalleryLocalizationsRo());
-    case 'ru': return gallery_localizations_ru.loadLibrary().then((dynamic _) => gallery_localizations_ru.GalleryLocalizationsRu());
-    case 'si': return gallery_localizations_si.loadLibrary().then((dynamic _) => gallery_localizations_si.GalleryLocalizationsSi());
-    case 'sk': return gallery_localizations_sk.loadLibrary().then((dynamic _) => gallery_localizations_sk.GalleryLocalizationsSk());
-    case 'sl': return gallery_localizations_sl.loadLibrary().then((dynamic _) => gallery_localizations_sl.GalleryLocalizationsSl());
-    case 'sq': return gallery_localizations_sq.loadLibrary().then((dynamic _) => gallery_localizations_sq.GalleryLocalizationsSq());
-    case 'sr': return gallery_localizations_sr.loadLibrary().then((dynamic _) => gallery_localizations_sr.GalleryLocalizationsSr());
-    case 'sv': return gallery_localizations_sv.loadLibrary().then((dynamic _) => gallery_localizations_sv.GalleryLocalizationsSv());
-    case 'sw': return gallery_localizations_sw.loadLibrary().then((dynamic _) => gallery_localizations_sw.GalleryLocalizationsSw());
-    case 'ta': return gallery_localizations_ta.loadLibrary().then((dynamic _) => gallery_localizations_ta.GalleryLocalizationsTa());
-    case 'te': return gallery_localizations_te.loadLibrary().then((dynamic _) => gallery_localizations_te.GalleryLocalizationsTe());
-    case 'th': return gallery_localizations_th.loadLibrary().then((dynamic _) => gallery_localizations_th.GalleryLocalizationsTh());
-    case 'tl': return gallery_localizations_tl.loadLibrary().then((dynamic _) => gallery_localizations_tl.GalleryLocalizationsTl());
-    case 'tr': return gallery_localizations_tr.loadLibrary().then((dynamic _) => gallery_localizations_tr.GalleryLocalizationsTr());
-    case 'uk': return gallery_localizations_uk.loadLibrary().then((dynamic _) => gallery_localizations_uk.GalleryLocalizationsUk());
-    case 'ur': return gallery_localizations_ur.loadLibrary().then((dynamic _) => gallery_localizations_ur.GalleryLocalizationsUr());
-    case 'uz': return gallery_localizations_uz.loadLibrary().then((dynamic _) => gallery_localizations_uz.GalleryLocalizationsUz());
-    case 'vi': return gallery_localizations_vi.loadLibrary().then((dynamic _) => gallery_localizations_vi.GalleryLocalizationsVi());
-    case 'zh': return gallery_localizations_zh.loadLibrary().then((dynamic _) => gallery_localizations_zh.GalleryLocalizationsZh());
-    case 'zu': return gallery_localizations_zu.loadLibrary().then((dynamic _) => gallery_localizations_zu.GalleryLocalizationsZu());
+    case 'af':
+      return gallery_localizations_af.GalleryLocalizationsAf();
+    case 'am':
+      return gallery_localizations_am.GalleryLocalizationsAm();
+    case 'ar':
+      return gallery_localizations_ar.GalleryLocalizationsAr();
+    case 'as':
+      return gallery_localizations_as.GalleryLocalizationsAs();
+    case 'az':
+      return gallery_localizations_az.GalleryLocalizationsAz();
+    case 'be':
+      return gallery_localizations_be.GalleryLocalizationsBe();
+    case 'bg':
+      return gallery_localizations_bg.GalleryLocalizationsBg();
+    case 'bn':
+      return gallery_localizations_bn.GalleryLocalizationsBn();
+    case 'bs':
+      return gallery_localizations_bs.GalleryLocalizationsBs();
+    case 'ca':
+      return gallery_localizations_ca.GalleryLocalizationsCa();
+    case 'cs':
+      return gallery_localizations_cs.GalleryLocalizationsCs();
+    case 'cy':
+      return gallery_localizations_cy.GalleryLocalizationsCy();
+    case 'da':
+      return gallery_localizations_da.GalleryLocalizationsDa();
+    case 'de':
+      return gallery_localizations_de.GalleryLocalizationsDe();
+    case 'el':
+      return gallery_localizations_el.GalleryLocalizationsEl();
+    case 'en':
+      return gallery_localizations_en.GalleryLocalizationsEn();
+    case 'es':
+      return gallery_localizations_es.GalleryLocalizationsEs();
+    case 'et':
+      return gallery_localizations_et.GalleryLocalizationsEt();
+    case 'eu':
+      return gallery_localizations_eu.GalleryLocalizationsEu();
+    case 'fa':
+      return gallery_localizations_fa.GalleryLocalizationsFa();
+    case 'fi':
+      return gallery_localizations_fi.GalleryLocalizationsFi();
+    case 'fil':
+      return gallery_localizations_fil.GalleryLocalizationsFil();
+    case 'fr':
+      return gallery_localizations_fr.GalleryLocalizationsFr();
+    case 'gl':
+      return gallery_localizations_gl.GalleryLocalizationsGl();
+    case 'gsw':
+      return gallery_localizations_gsw.GalleryLocalizationsGsw();
+    case 'gu':
+      return gallery_localizations_gu.GalleryLocalizationsGu();
+    case 'he':
+      return gallery_localizations_he.GalleryLocalizationsHe();
+    case 'hi':
+      return gallery_localizations_hi.GalleryLocalizationsHi();
+    case 'hr':
+      return gallery_localizations_hr.GalleryLocalizationsHr();
+    case 'hu':
+      return gallery_localizations_hu.GalleryLocalizationsHu();
+    case 'hy':
+      return gallery_localizations_hy.GalleryLocalizationsHy();
+    case 'id':
+      return gallery_localizations_id.GalleryLocalizationsId();
+    case 'is':
+      return gallery_localizations_is.GalleryLocalizationsIs();
+    case 'it':
+      return gallery_localizations_it.GalleryLocalizationsIt();
+    case 'ja':
+      return gallery_localizations_ja.GalleryLocalizationsJa();
+    case 'ka':
+      return gallery_localizations_ka.GalleryLocalizationsKa();
+    case 'kk':
+      return gallery_localizations_kk.GalleryLocalizationsKk();
+    case 'km':
+      return gallery_localizations_km.GalleryLocalizationsKm();
+    case 'kn':
+      return gallery_localizations_kn.GalleryLocalizationsKn();
+    case 'ko':
+      return gallery_localizations_ko.GalleryLocalizationsKo();
+    case 'ky':
+      return gallery_localizations_ky.GalleryLocalizationsKy();
+    case 'lo':
+      return gallery_localizations_lo.GalleryLocalizationsLo();
+    case 'lt':
+      return gallery_localizations_lt.GalleryLocalizationsLt();
+    case 'lv':
+      return gallery_localizations_lv.GalleryLocalizationsLv();
+    case 'mk':
+      return gallery_localizations_mk.GalleryLocalizationsMk();
+    case 'ml':
+      return gallery_localizations_ml.GalleryLocalizationsMl();
+    case 'mn':
+      return gallery_localizations_mn.GalleryLocalizationsMn();
+    case 'mr':
+      return gallery_localizations_mr.GalleryLocalizationsMr();
+    case 'ms':
+      return gallery_localizations_ms.GalleryLocalizationsMs();
+    case 'my':
+      return gallery_localizations_my.GalleryLocalizationsMy();
+    case 'nb':
+      return gallery_localizations_nb.GalleryLocalizationsNb();
+    case 'ne':
+      return gallery_localizations_ne.GalleryLocalizationsNe();
+    case 'nl':
+      return gallery_localizations_nl.GalleryLocalizationsNl();
+    case 'or':
+      return gallery_localizations_or.GalleryLocalizationsOr();
+    case 'pa':
+      return gallery_localizations_pa.GalleryLocalizationsPa();
+    case 'pl':
+      return gallery_localizations_pl.GalleryLocalizationsPl();
+    case 'pt':
+      return gallery_localizations_pt.GalleryLocalizationsPt();
+    case 'ro':
+      return gallery_localizations_ro.GalleryLocalizationsRo();
+    case 'ru':
+      return gallery_localizations_ru.GalleryLocalizationsRu();
+    case 'si':
+      return gallery_localizations_si.GalleryLocalizationsSi();
+    case 'sk':
+      return gallery_localizations_sk.GalleryLocalizationsSk();
+    case 'sl':
+      return gallery_localizations_sl.GalleryLocalizationsSl();
+    case 'sq':
+      return gallery_localizations_sq.GalleryLocalizationsSq();
+    case 'sr':
+      return gallery_localizations_sr.GalleryLocalizationsSr();
+    case 'sv':
+      return gallery_localizations_sv.GalleryLocalizationsSv();
+    case 'sw':
+      return gallery_localizations_sw.GalleryLocalizationsSw();
+    case 'ta':
+      return gallery_localizations_ta.GalleryLocalizationsTa();
+    case 'te':
+      return gallery_localizations_te.GalleryLocalizationsTe();
+    case 'th':
+      return gallery_localizations_th.GalleryLocalizationsTh();
+    case 'tl':
+      return gallery_localizations_tl.GalleryLocalizationsTl();
+    case 'tr':
+      return gallery_localizations_tr.GalleryLocalizationsTr();
+    case 'uk':
+      return gallery_localizations_uk.GalleryLocalizationsUk();
+    case 'ur':
+      return gallery_localizations_ur.GalleryLocalizationsUr();
+    case 'uz':
+      return gallery_localizations_uz.GalleryLocalizationsUz();
+    case 'vi':
+      return gallery_localizations_vi.GalleryLocalizationsVi();
+    case 'zh':
+      return gallery_localizations_zh.GalleryLocalizationsZh();
+    case 'zu':
+      return gallery_localizations_zu.GalleryLocalizationsZu();
   }
 
   throw FlutterError(
-    'GalleryLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'GalleryLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

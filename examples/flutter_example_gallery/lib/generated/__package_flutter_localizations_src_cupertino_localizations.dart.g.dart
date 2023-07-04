@@ -1,0 +1,70 @@
+import 'package:flutter_localizations/src/cupertino_localizations.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_localizations/src/l10n/generated_cupertino_localizations.dart';
+import 'package:flutter_localizations/src/utils/date_localizations.dart';
+import 'package:flutter_localizations/src/widgets_localizations.dart';
+import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
+Map<String,Function> getLibrary(m.MicroDartEngine engine) {
+return {
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@#as': (m.Scope scope, target)=>()=>target as GlobalCupertinoLocalizations,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@#is': (m.Scope scope, target)=>()=>target is GlobalCupertinoLocalizations,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@delegate': (m.Scope scope)=>GlobalCupertinoLocalizations.delegate,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@delegates': (m.Scope scope)=>GlobalCupertinoLocalizations.delegates,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelZero': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelZero,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelOne': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelOne,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelTwo': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelTwo,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelFew': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelFew,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelMany': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelMany,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabelOther': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabelOther,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelZero': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelZero,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelOne': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelOne,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelTwo': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelTwo,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelFew': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelFew,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelMany': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelMany,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabelOther': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabelOther,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerDateOrderString': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerDateOrderString,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerDateOrder': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerDateOrder,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerDateTimeOrderString': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerDateTimeOrderString,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerDateTimeOrder': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerDateTimeOrder,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@tabSemanticsLabelRaw': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.tabSemanticsLabelRaw,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelZero': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelZero,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelOne': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelOne,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelTwo': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelTwo,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelFew': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelFew,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelMany': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelMany,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabelOther': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabelOther,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabels': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabels,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelZero': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelZero,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelOne': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelOne,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelTwo': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelTwo,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelFew': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelFew,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelMany': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelMany,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabelOther': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabelOther,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabels': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabels,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelZero': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelZero,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelOne': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelOne,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelTwo': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelTwo,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelFew': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelFew,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelMany': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelMany,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabelOther': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabelOther,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabels': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabels,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerYear': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerYear,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMonth': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMonth,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerDayOfMonth': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerDayOfMonth,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMediumDate': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMediumDate,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHour': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHour,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinute': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinute,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerHourSemanticsLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerHourSemanticsLabel,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@datePickerMinuteSemanticsLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.datePickerMinuteSemanticsLabel,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@tabSemanticsLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.tabSemanticsLabel,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHour': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHour,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinute': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinute,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecond': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecond,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerHourLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerHourLabel,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerMinuteLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerMinuteLabel,
+'package:flutter_localizations/src/cupertino_localizations.dart@GlobalCupertinoLocalizations@timerPickerSecondLabel': (m.Scope scope, GlobalCupertinoLocalizations target)=>target.timerPickerSecondLabel,
+
+};
+}

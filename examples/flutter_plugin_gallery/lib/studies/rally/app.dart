@@ -12,7 +12,6 @@ import 'package:flutter_plugin_gallery/studies/rally/colors.dart';
 import 'package:flutter_plugin_gallery/studies/rally/home.dart';
 import 'package:flutter_plugin_gallery/studies/rally/login.dart';
 import 'package:flutter_plugin_gallery/studies/rally/routes.dart' as routes;
-import 'package:google_fonts/google_fonts.dart';
 
 /// The RallyApp is a MaterialApp with a theme and 2 routes.
 ///
@@ -85,21 +84,21 @@ class RallyApp extends StatelessWidget {
   TextTheme _buildRallyTextTheme(TextTheme base) {
     return base
         .copyWith(
-          bodyMedium: GoogleFonts.robotoCondensed(
+          bodyMedium: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             letterSpacing: letterSpacingOrNone(0.5),
           ),
-          bodyLarge: GoogleFonts.eczar(
+          bodyLarge: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w400,
             letterSpacing: letterSpacingOrNone(1.4),
           ),
-          labelLarge: GoogleFonts.robotoCondensed(
+          labelLarge: TextStyle(
             fontWeight: FontWeight.w700,
             letterSpacing: letterSpacingOrNone(2.8),
           ),
-          headlineSmall: GoogleFonts.eczar(
+          headlineSmall: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w600,
             letterSpacing: letterSpacingOrNone(1.4),

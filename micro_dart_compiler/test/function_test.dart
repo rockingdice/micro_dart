@@ -10,9 +10,10 @@ void main() {
       String fileName = "test_scope.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -30,9 +31,10 @@ void main() {
       String fileName = "test_function_call_basic.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -50,9 +52,10 @@ void main() {
       String fileName = "test_function_global_field.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -71,9 +74,10 @@ void main() {
       String fileName = "test_function_call_external.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -92,11 +96,12 @@ void main() {
       String fileName = "test_function_anonymous.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -115,11 +120,12 @@ void main() {
       String fileName = "test_function_anonymous2.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -138,11 +144,12 @@ void main() {
       String fileName = "test_function_anonymous_inline.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -161,11 +168,12 @@ void main() {
       String fileName = "test_function_tear_off.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -184,11 +192,12 @@ void main() {
       String fileName = "test_function_tear_off2.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -207,11 +216,12 @@ void main() {
       String fileName = "test_function_tear_off3.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -230,11 +240,12 @@ void main() {
       String fileName = "super_property_get.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
-        // writeComponentToText(program.component,
-        //     path: "$testCasePath$fileName.txt");
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -254,11 +265,11 @@ void main() {
     String fileName = "super_property_get2.dart";
     var file = File("$testCasePath$fileName");
     var sources = <String, String>{'main.dart': file.readAsStringSync()};
-    var program = await compileSource(pluginUri, options, sources);
+    var program = await compileSource(pluginUriRegExp, options, sources);
     if (astToJsonFlag) {
-      astToJson("$testCasePath/$fileName", pluginUri, program.component);
-      // writeComponentToText(program.component,
-      //     path: "$testCasePath$fileName.txt");
+      astToJson("$testCasePath/$fileName", pluginUriRegExp, program.component);
+      writeComponentToText(program.component!,
+          path: "$testCasePath$fileName.txt");
     }
     var engine = createMicroDartEngine(program.write().buffer.asByteData());
 

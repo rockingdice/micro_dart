@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_plugin_gallery/constants.dart';
 import 'package:flutter_plugin_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/pages/backdrop.dart';
@@ -15,6 +14,10 @@ import 'layout/adaptive.dart';
 
 export 'package:flutter_plugin_gallery/data/demos.dart'
     show pumpDeferredLibraries;
+
+Widget createApp() {
+  return const GalleryApp();
+}
 
 class GalleryApp extends StatelessWidget {
   const GalleryApp({
@@ -55,7 +58,6 @@ class GalleryApp extends StatelessWidget {
             ),
             localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
-              LocaleNamesLocalizationsDelegate()
             ],
             initialRoute: initialRoute,
             supportedLocales: GalleryLocalizations.supportedLocales,

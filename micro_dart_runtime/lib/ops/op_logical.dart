@@ -26,5 +26,5 @@ class OpLogical implements Op {
   }
 
   @override
-  String toString() => 'Logical()';
+  String toString() => 'OpLogical($type)';
 }

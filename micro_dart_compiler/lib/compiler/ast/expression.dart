@@ -1,10 +1,12 @@
 part of 'ast.dart';
 
 int compileExpression(MicroCompilerContext context, Expression node) {
-  context.startCompileNode(node);
+  //context.startCompileNode(node);
 
   if (node is IntLiteral) {
     return compileIntLiteral(context, node);
+  } else if (node is DoubleLiteral) {
+    return compileDoubleLiteral(context, node);
   } else if (node is BoolLiteral) {
     return context.pushOp(OpPushConstantBool.make(node.value));
   } else if (node is NullLiteral) {
@@ -39,8 +41,6 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileListLiteral(context, node);
   } else if (node is SuperMethodInvocation) {
     return compileSuperMethodInvocation(context, node);
-  } else if (node is SuperPropertyGet) {
-    return compileSuperPropertyGet(context, node);
   } else if (node is SuperPropertyGet) {
     return compileSuperPropertyGet(context, node);
   } else if (node is ConstructorTearOff) {
@@ -93,9 +93,13 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     return compileMapLiteral(context, node);
   } else if (node is AwaitExpression) {
     return compileAwaitExpression(context, node);
+  } else if (node is BlockExpression) {
+    return compileBlockExpression(context, node);
   } else if (node is LoadLibrary) {
     //return compileLoadLibrary(context, node);
   } else if (node is CheckLibraryIsLoaded) {
+    print("currently CheckLibraryIsLoaded   ${node.import.name} not support ");
+    // context.pushOp(OpPushConstantBool.make(true));
     //return compileCheckLibraryIsLoaded(context, node);
   } else if (node is RedirectingFactoryTearOff) {
     //return compileRedirectingFactoryTearOff(context, node);
@@ -118,7 +122,7 @@ int compileExpression(MicroCompilerContext context, Expression node) {
   } else if (node is FileUriExpression) {
     //return compileFileUriExpression(context, node);
   } else if (node is SuperPropertySet) {
-    //return compileSuperPropertySet(context, node);
+    return compileSuperPropertySet(context, node);
   } else if (node is AbstractSuperPropertyGet) {
     //return compileAbstractSuperPropertyGet(context, node);
   } else if (node is AbstractSuperPropertySet) {
@@ -135,12 +139,61 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     //return compileInstantiation(context, node);
   } else if (node is TypeLiteral) {
     //return compileTypeLiteral(context, node);
+    var type = node.type;
+    //not common;need update
+    if (type is InterfaceType) {
+      return context.pushOp(OpPushConstant.make(
+          context.constantPool.addOrGet(type.classNode.getNamedName())));
+    }
   }
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
 
   //context.endCompileNode(node);
   //
+}
+
+int compileSuperPropertySet(
+    MicroCompilerContext context, SuperPropertySet node) {
+  var target = node.interfaceTarget;
+  context.pushOp(OpGetParam.make("#this"));
+  compileExpression(context, node.value);
+  context.pushOp(OpPushConstantInt.make(1));
+  context.pushOp(OpPushConstantInt.make(0));
+  context.pushOp(OpPushArgments.make(4));
+  if (target is Procedure) {
+    bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
+    if (isAsync) {
+      return context.pushOp(OpCallSuperAsync.make(
+          "${target.stringLibraryUri}@${target.stringClassName}",
+          target.name.text,
+          false,
+          true,
+          isAsync,
+          1, []));
+    } else {
+      return context.pushOp(OpCallSuper.make(
+          "${target.stringLibraryUri}@${target.stringClassName}",
+          target.name.text,
+          false,
+          true,
+          isAsync,
+          1, []));
+    }
+  } else if (target is Field) {
+    return compileCallFieldGet(context, target);
+  }
+
+  return -1;
+}
+
+int compileBlockExpression(MicroCompilerContext context, BlockExpression node) {
+  compileBlock(context, node.body);
+  return compileExpression(context, node.value);
+}
+
+int compileDoubleLiteral(MicroCompilerContext context, DoubleLiteral node) {
+  return context.pushOp(OpPushConstantDouble.make(node.value));
 }
 
 int compileConstructorTearOff(
@@ -157,7 +210,7 @@ int compileConstructorTearOff(
 
 int compileStaticTearOff(MicroCompilerContext context, StaticTearOff node) {
   String key = node.target.getNamedName();
-  int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
+  int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
   bool isAsync = (node.target.function.asyncMarker == AsyncMarker.Async);
   int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
   if (opOffset == -1) {
@@ -287,14 +340,15 @@ int compileRethrow(MicroCompilerContext context, Rethrow node) {
 }
 
 int compileIsExpression(MicroCompilerContext context, IsExpression node) {
-  int pos = compileExpression(context, node.operand);
+  compileExpression(context, node.operand);
   final type = node.type;
   if (type is InterfaceType) {
     context.lookupType(type.classNode);
     //这里表示它是一个外部类
     if (context.compileDeclarations.contains(type.classNode)) {
-      throw Exception(
-          "Currently IsExpression not support internal type  : ${type.runtimeType.toString()}");
+      // throw Exception(
+      //     "Currently IsExpression not support internal type  : ${type.runtimeType.toString()}");
+      return context.pushOp(OpIs.make(type.classNode.getNamedName()));
     } else {
       return context.pushOp(OpCallExternal.make(
           className: type.classNode.stringClassName!,
@@ -320,11 +374,13 @@ int compileThrow(MicroCompilerContext context, Throw node) {
 }
 
 int compileEqualsNull(MicroCompilerContext context, EqualsNull node) {
-  throw Exception("currently expression type  EqualsNull not support ");
+  compileExpression(context, node.expression);
+  context.pushOp(OpPushNull.make());
+  return context.pushOp(OpEquals.make());
 }
 
 int compileFunctionTearOff(MicroCompilerContext context, FunctionTearOff node) {
-  return -1;
+  throw Exception("currently expression type  FunctionTearOff not support ");
 }
 
 int compileEqualsCall(MicroCompilerContext context, EqualsCall node) {
@@ -344,7 +400,7 @@ int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
   if (context.compileDeclarations.contains(node.interfaceTarget)) {
     compileExpression(context, node.receiver);
     String key = node.interfaceTarget.getNamedName();
-    int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
+    int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
     bool isAsync =
         (node.interfaceTarget.function.asyncMarker == AsyncMarker.Async);
     int pos = context.pushOp(OpPushPointer.make(opOffset, false, isAsync));
@@ -406,9 +462,10 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
   int pos = compileExpression(context, node.operand);
   final type = node.type;
   if (type is InterfaceType) {
-    //这里表示它是一个外部类
     if (!context.compileDeclarations.contains(type.classNode)) {
-      //填充posationalLength和namedLength
+      context.pushOp(OpAs.make(type.classNode.getNamedName()));
+    } else {
+      //这里表示它是一个外部类
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushArgments.make(3));
@@ -424,6 +481,8 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
           namedList: [],
           posationalLength: 0));
     }
+  } else if (type is FunctionType) {
+    print("AsExpression  not support : ${type.runtimeType.toString()}");
   } else {
     throw Exception(
         "AsExpression  not support : ${type.runtimeType.toString()}");
@@ -653,6 +712,8 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
     return context.pushOp(OpPushConstantInt.make(constant.value));
   } else if (constant is SymbolConstant) {
     return compileSymbolConstant(context, constant);
+  } else if (constant is BoolConstant) {
+    return context.pushOp(OpPushConstantBool.make(constant.value));
   } else if (constant is MapConstant) {
     return compileMapConstant(context, constant);
   } else if (constant is SetConstant) {

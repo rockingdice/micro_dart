@@ -10,9 +10,10 @@ void main() {
       String fileName = "test_while.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -32,9 +33,10 @@ void main() {
       String fileName = "test_while2.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -54,9 +56,10 @@ void main() {
       String fileName = "test_do_while.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -74,9 +77,10 @@ void main() {
       String fileName = "test_for.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -94,9 +98,10 @@ void main() {
       String fileName = "test_for_in.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -114,9 +119,10 @@ void main() {
       String fileName = "test_if_else.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
       var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
@@ -134,9 +140,10 @@ void main() {
       String fileName = "test_switch.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath/$fileName", pluginUri, program.component);
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }

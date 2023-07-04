@@ -17,7 +17,6 @@ import 'package:flutter_plugin_gallery/layout/adaptive.dart';
 import 'package:flutter_plugin_gallery/pages/splash.dart';
 import 'package:flutter_plugin_gallery/themes/gallery_theme_data.dart';
 import 'package:flutter_plugin_gallery/themes/material_demo_theme_data.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 enum _DemoState {
@@ -325,7 +324,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         );
         break;
       case _DemoState.code:
-        final codeTheme = GoogleFonts.robotoMono(
+        final codeTheme = TextStyle(
           fontSize: 12 * options.textScaleFactor(context),
         );
         section = CodeStyle(

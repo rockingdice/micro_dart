@@ -37,7 +37,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (options == null) {
             return pragma(name);
           }
-          return pragma(name, options!);
+          return pragma(name, options);
         },
     'dart:core@BigInt@#as': (m.Scope scope, target) => () => target as BigInt,
     'dart:core@BigInt@#is': (m.Scope scope, target) => () => target is BigInt,
@@ -232,7 +232,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
                 year, month!, day!, hour!, minute!, second!, millisecond!);
           }
           return DateTime(year, month!, day!, hour!, minute!, second!,
-              millisecond!, microsecond!);
+              millisecond!, microsecond);
         },
     'dart:core@DateTime@utc': (m.Scope scope) => DateTime.utc,
     'dart:core@DateTime@now': (m.Scope scope) => DateTime.now,
@@ -418,7 +418,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (message == null) {
             return AssertionError();
           }
-          return AssertionError(message!);
+          return AssertionError(message);
         },
     'dart:core@AssertionError@toString':
         (m.Scope scope, AssertionError target) => target.toString,
@@ -447,7 +447,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (name == null) {
             return ArgumentError(message);
           }
-          return ArgumentError(message, name!);
+          return ArgumentError(message, name);
         },
     'dart:core@ArgumentError@value': (m.Scope scope) => ArgumentError.value,
     'dart:core@ArgumentError@notNull': (m.Scope scope) => ArgumentError.notNull,
@@ -524,7 +524,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (message == null) {
             return UnimplementedError();
           }
-          return UnimplementedError(message!);
+          return UnimplementedError(message);
         },
     'dart:core@UnimplementedError@toString':
         (m.Scope scope, UnimplementedError target) => target.toString,
@@ -551,7 +551,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (modifiedObject == null) {
             return ConcurrentModificationError();
           }
-          return ConcurrentModificationError(modifiedObject!);
+          return ConcurrentModificationError(modifiedObject);
         },
     'dart:core@ConcurrentModificationError@toString':
         (m.Scope scope, ConcurrentModificationError target) => target.toString,
@@ -608,7 +608,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
           if (offset == null) {
             return FormatException(message!, source);
           }
-          return FormatException(message!, source, offset!);
+          return FormatException(message!, source, offset);
         },
     'dart:core@FormatException@toString':
         (m.Scope scope, FormatException target) => target.toString,

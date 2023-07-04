@@ -791,8 +791,27 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/framework.dart@State@': (m.Scope scope) =>
         ({Key? key}) {
           return $State();
-        }
+        },
+    'package:flutter/src/widgets/framework.dart@InheritedWidget@':
+        (m.Scope scope) => ({Key? key, required Widget child}) {
+              return $InheritedWidget(key: key, child: child);
+            },
   };
+}
+
+class $InheritedWidget extends InheritedWidget with InstanceBridge {
+  $InheritedWidget({Key? key, required Widget child})
+      : super(key: key, child: child);
+
+  @override
+  m.TypeRef bridgeType = const m.TypeRef(
+      "package:flutter/src/widgets/framework.dart", "InheritedWidget", true);
+
+  @override
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    return $child!.engine.callFunction(
+        this, type.getNameKey("updateShouldNotify"), [oldWidget], {});
+  }
 }
 
 class $StatelessWidget extends StatelessWidget with InstanceBridge {
@@ -803,7 +822,7 @@ class $StatelessWidget extends StatelessWidget with InstanceBridge {
 
   @override
   Widget build(BuildContext context) {
-    return child!.engine
+    return $child!.engine
         .callFunction(this, type.getNameKey("build"), [context], {});
   }
 }
@@ -816,7 +835,7 @@ class $StatefulWidget extends StatefulWidget with InstanceBridge {
 
   @override
   State<StatefulWidget> createState() {
-    return child!.engine
+    return $child!.engine
         .callFunction(this, type.getNameKey("createState"), [], {});
   }
 }
@@ -828,7 +847,7 @@ class $State extends State with InstanceBridge {
 
   @override
   Widget build(BuildContext context) {
-    return child!.engine
+    return $child!.engine
         .callFunction(this, type.getNameKey("build"), [context], {});
   }
 }

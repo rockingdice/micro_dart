@@ -9,7 +9,6 @@ import 'package:flutter_plugin_gallery/studies/reply/compose_page.dart';
 import 'package:flutter_plugin_gallery/studies/reply/model/email_model.dart';
 import 'package:flutter_plugin_gallery/studies/reply/model/email_store.dart';
 import 'package:flutter_plugin_gallery/studies/reply/routes.dart' as routes;
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 final rootNavKey = GlobalKey<NavigatorState>();
@@ -153,15 +152,13 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.blue700,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange500),
-      selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
-                color: ReplyColors.orange500,
-              ),
+      selectedLabelTextStyle: TextStyle(
+        color: ReplyColors.orange500,
+      ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.blue200),
-      unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
-                color: ReplyColors.blue200,
-              ),
+      unselectedLabelTextStyle: TextStyle(
+        color: ReplyColors.blue200,
+      ),
     ),
     canvasColor: ReplyColors.white50,
     cardColor: ReplyColors.white50,
@@ -202,15 +199,13 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.darkBottomAppBarBackground,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange300),
-      selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
-                color: ReplyColors.orange300,
-              ),
+      selectedLabelTextStyle: TextStyle(
+        color: ReplyColors.orange300,
+      ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.greyLabel),
-      unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
-                color: ReplyColors.greyLabel,
-              ),
+      unselectedLabelTextStyle: TextStyle(
+        color: ReplyColors.greyLabel,
+      ),
     ),
     canvasColor: ReplyColors.black900,
     cardColor: ReplyColors.darkCardBackground,
@@ -250,56 +245,60 @@ ChipThemeData _buildChipTheme(
     secondarySelectedColor: chipBackground,
     padding: const EdgeInsets.all(4),
     shape: const StadiumBorder(),
-    labelStyle: GoogleFonts.workSansTextTheme().bodyMedium!.copyWith(
-          color: brightness == Brightness.dark
-              ? ReplyColors.white50
-              : ReplyColors.black900,
-        ),
-    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyMedium,
+    labelStyle: TextStyle(
+      color: brightness == Brightness.dark
+          ? ReplyColors.white50
+          : ReplyColors.black900,
+    ),
+    secondaryLabelStyle: TextStyle(
+      color: brightness == Brightness.dark
+          ? ReplyColors.white50
+          : ReplyColors.black900,
+    ),
     brightness: brightness,
   );
 }
 
 TextTheme _buildReplyLightTextTheme(TextTheme base) {
   return base.copyWith(
-    headlineMedium: GoogleFonts.workSans(
+    headlineMedium: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 34,
       letterSpacing: letterSpacingOrNone(0.4),
       height: 0.9,
       color: ReplyColors.black900,
     ),
-    headlineSmall: GoogleFonts.workSans(
+    headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 24,
       letterSpacing: letterSpacingOrNone(0.27),
       color: ReplyColors.black900,
     ),
-    titleLarge: GoogleFonts.workSans(
+    titleLarge: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 20,
       letterSpacing: letterSpacingOrNone(0.18),
       color: ReplyColors.black900,
     ),
-    titleSmall: GoogleFonts.workSans(
+    titleSmall: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.04),
       color: ReplyColors.black900,
     ),
-    bodyLarge: GoogleFonts.workSans(
+    bodyLarge: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 18,
       letterSpacing: letterSpacingOrNone(0.2),
       color: ReplyColors.black900,
     ),
-    bodyMedium: GoogleFonts.workSans(
+    bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.05),
       color: ReplyColors.black900,
     ),
-    bodySmall: GoogleFonts.workSans(
+    bodySmall: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       letterSpacing: letterSpacingOrNone(0.2),
@@ -310,44 +309,44 @@ TextTheme _buildReplyLightTextTheme(TextTheme base) {
 
 TextTheme _buildReplyDarkTextTheme(TextTheme base) {
   return base.copyWith(
-    headlineMedium: GoogleFonts.workSans(
+    headlineMedium: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 34,
       letterSpacing: letterSpacingOrNone(0.4),
       height: 0.9,
       color: ReplyColors.white50,
     ),
-    headlineSmall: GoogleFonts.workSans(
+    headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 24,
       letterSpacing: letterSpacingOrNone(0.27),
       color: ReplyColors.white50,
     ),
-    titleLarge: GoogleFonts.workSans(
+    titleLarge: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 20,
       letterSpacing: letterSpacingOrNone(0.18),
       color: ReplyColors.white50,
     ),
-    titleSmall: GoogleFonts.workSans(
+    titleSmall: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.04),
       color: ReplyColors.white50,
     ),
-    bodyLarge: GoogleFonts.workSans(
+    bodyLarge: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 18,
       letterSpacing: letterSpacingOrNone(0.2),
       color: ReplyColors.white50,
     ),
-    bodyMedium: GoogleFonts.workSans(
+    bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.05),
       color: ReplyColors.white50,
     ),
-    bodySmall: GoogleFonts.workSans(
+    bodySmall: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       letterSpacing: letterSpacingOrNone(0.2),

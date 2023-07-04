@@ -7,7 +7,6 @@ import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_plugin_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/layout/image_placeholder.dart';
 import 'package:flutter_plugin_gallery/layout/text_scale.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class ArticleData {
@@ -580,40 +579,35 @@ ThemeData buildTheme(BuildContext context) {
     highlightColor: Colors.transparent,
     textTheme: TextTheme(
       // preview snippet
-      bodyMedium: GoogleFonts.merriweather(
+      bodyMedium: TextStyle(
         fontWeight: FontWeight.w300,
         fontSize: 16,
-        textStyle: lightTextTheme.bodyMedium,
       ),
       // time in latest updates
-      bodyLarge: GoogleFonts.libreFranklin(
+      bodyLarge: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
-        textStyle: lightTextTheme.bodyLarge,
       ),
       // preview headlines
-      headlineSmall: GoogleFonts.libreFranklin(
+      headlineSmall: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        textStyle: lightTextTheme.headlineSmall,
       ),
       // (caption 2), preview category, stock ticker
-      titleMedium: GoogleFonts.robotoCondensed(
+      titleMedium: TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),
-      titleSmall: GoogleFonts.libreFranklin(
+      titleSmall: TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: lightTextTheme.titleSmall,
       ),
       // section titles: Top Highlights, Last Updated...
-      titleLarge: GoogleFonts.merriweather(
+      titleLarge: TextStyle(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
-        textStyle: lightTextTheme.titleLarge,
       ),
     ),
   );

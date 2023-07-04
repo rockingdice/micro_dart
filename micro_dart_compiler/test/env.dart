@@ -10,6 +10,7 @@ export 'package:micro_dart_runtime/micro_dart_runtime.dart';
 export 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
 export 'package:micro_dart_compiler/compiler/ast/ast_to_text.dart';
 
+final RegExp pluginUriRegExp = RegExp(r"test:///main.dart");
 const String pluginUri = "test:///main.dart";
 const String flutterExampleUri = "pacakge://flutter_example/main.dart";
 const String testCasePath = "test/testcases/";
@@ -24,5 +25,5 @@ final CompilerOptions options = CompilerOptions()
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
 
-const bool astToJsonFlag = true;
+const bool astToJsonFlag = false;
 const bool printOp = true;

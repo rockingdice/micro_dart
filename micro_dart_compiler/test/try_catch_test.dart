@@ -13,9 +13,9 @@ void main() {
       String fileName = "test_throw.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -39,9 +39,9 @@ void main() {
       String fileName = "test_try_catch.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -60,9 +60,9 @@ void main() {
       String fileName = "test_try_catch_rethrow.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -81,9 +81,9 @@ void main() {
       String fileName = "test_try_catch_finally.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }

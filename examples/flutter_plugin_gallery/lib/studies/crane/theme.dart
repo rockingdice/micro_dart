@@ -5,7 +5,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_plugin_gallery/layout/letter_spacing.dart';
 import 'package:flutter_plugin_gallery/studies/crane/colors.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData craneTheme = _buildCraneTheme();
 
@@ -38,64 +37,62 @@ ThemeData _buildCraneTheme() {
 }
 
 TextTheme _buildCraneTextTheme(TextTheme base) {
-  return GoogleFonts.ralewayTextTheme(
-    base.copyWith(
-      displayLarge: base.displayLarge!.copyWith(
-        fontWeight: FontWeight.w300,
-        fontSize: 96,
-      ),
-      displayMedium: base.displayMedium!.copyWith(
-        fontWeight: FontWeight.w400,
-        fontSize: 60,
-      ),
-      displaySmall: base.displaySmall!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 48,
-      ),
-      headlineMedium: base.headlineMedium!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 34,
-      ),
-      headlineSmall: base.headlineSmall!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 24,
-      ),
-      titleLarge: base.titleLarge!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-      ),
-      titleMedium: base.titleMedium!.copyWith(
-        fontWeight: FontWeight.w500,
-        fontSize: 16,
-        letterSpacing: letterSpacingOrNone(0.5),
-      ),
-      titleSmall: base.titleSmall!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 12,
-        color: craneGrey,
-      ),
-      bodyLarge: base.bodyLarge!.copyWith(
-        fontWeight: FontWeight.w500,
-        fontSize: 16,
-      ),
-      bodyMedium: base.bodyMedium!.copyWith(
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-      ),
-      labelLarge: base.labelLarge!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 13,
-        letterSpacing: letterSpacingOrNone(0.8),
-      ),
-      bodySmall: base.bodySmall!.copyWith(
-        fontWeight: FontWeight.w500,
-        fontSize: 12,
-        color: craneGrey,
-      ),
-      labelSmall: base.labelSmall!.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 12,
-      ),
+  return TextTheme(
+    displayLarge: base.displayLarge!.copyWith(
+      fontWeight: FontWeight.w300,
+      fontSize: 96,
+    ),
+    displayMedium: base.displayMedium!.copyWith(
+      fontWeight: FontWeight.w400,
+      fontSize: 60,
+    ),
+    displaySmall: base.displaySmall!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 48,
+    ),
+    headlineMedium: base.headlineMedium!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 34,
+    ),
+    headlineSmall: base.headlineSmall!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 24,
+    ),
+    titleLarge: base.titleLarge!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 20,
+    ),
+    titleMedium: base.titleMedium!.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+      letterSpacing: letterSpacingOrNone(0.5),
+    ),
+    titleSmall: base.titleSmall!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 12,
+      color: craneGrey,
+    ),
+    bodyLarge: base.bodyLarge!.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+    ),
+    bodyMedium: base.bodyMedium!.copyWith(
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
+    labelLarge: base.labelLarge!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 13,
+      letterSpacing: letterSpacingOrNone(0.8),
+    ),
+    bodySmall: base.bodySmall!.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: 12,
+      color: craneGrey,
+    ),
+    labelSmall: base.labelSmall!.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 12,
     ),
   );
 }

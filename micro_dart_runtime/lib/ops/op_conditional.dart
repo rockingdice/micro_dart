@@ -7,10 +7,10 @@ class OpConditional implements Op {
   OpConditional.make();
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenI8;
+  int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opLogical];
+  List<int> get bytes => [Ops.opConditional];
 
   @override
   void run(Scope scope) {

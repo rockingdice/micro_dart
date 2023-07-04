@@ -5,7 +5,7 @@ import 'package:micro_dart_compiler/compiler/ast/ast.dart';
 
 import 'package:kernel/ast.dart';
 
-void astToJson(String fileName, String pluginUri, Component? component) {
+void astToJson(String fileName, RegExp pluginUri, Component? component) {
   if (component == null) {
     return;
   }
@@ -29,7 +29,7 @@ List<R>? visitList<R>(List<Node>? nodes, Visitor<R> visitor) {
 }
 
 class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
-  final String pluginUri;
+  final RegExp pluginUri;
 
   _Visitor(this.pluginUri);
 
@@ -38,7 +38,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
     var acceptLibraties = <Library>[];
 
     for (var element in node.libraries) {
-      if (element.importUri.toString() == pluginUri) {
+      if (pluginUri.hasMatch(element.importUri.toString())) {
         acceptLibraties.add(element);
       }
     }

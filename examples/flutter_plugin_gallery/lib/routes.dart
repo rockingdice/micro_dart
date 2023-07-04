@@ -9,23 +9,20 @@ import 'package:flutter_plugin_gallery/deferred_widget.dart';
 import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
 import 'package:flutter_plugin_gallery/pages/demo.dart';
 import 'package:flutter_plugin_gallery/pages/home.dart';
-import 'package:flutter_plugin_gallery/studies/crane/app.dart'
-    deferred as crane;
+import 'package:flutter_plugin_gallery/studies/crane/app.dart' as crane;
 import 'package:flutter_plugin_gallery/studies/crane/routes.dart'
     as crane_routes;
 import 'package:flutter_plugin_gallery/studies/fortnightly/app.dart'
-    deferred as fortnightly;
+    as fortnightly;
 import 'package:flutter_plugin_gallery/studies/fortnightly/routes.dart'
     as fortnightly_routes;
-import 'package:flutter_plugin_gallery/studies/rally/app.dart'
-    deferred as rally;
+import 'package:flutter_plugin_gallery/studies/rally/app.dart' as rally;
 import 'package:flutter_plugin_gallery/studies/rally/routes.dart'
     as rally_routes;
 import 'package:flutter_plugin_gallery/studies/reply/app.dart' as reply;
 import 'package:flutter_plugin_gallery/studies/reply/routes.dart'
     as reply_routes;
-import 'package:flutter_plugin_gallery/studies/shrine/app.dart'
-    deferred as shrine;
+import 'package:flutter_plugin_gallery/studies/shrine/app.dart' as shrine;
 import 'package:flutter_plugin_gallery/studies/shrine/routes.dart'
     as shrine_routes;
 import 'package:flutter_plugin_gallery/studies/starter/app.dart' as starter_app;
@@ -71,35 +68,28 @@ class RouteConfiguration {
     Path(
       r'^' + rally_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary,
-            () => rally.RallyApp()), // ignore: prefer_const_constructors
+        study: rally.RallyApp(), // ignore: prefer_const_constructors
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + shrine_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(shrine.loadLibrary,
-            () => shrine.ShrineApp()), // ignore: prefer_const_constructors
+        study: shrine.ShrineApp(), // ignore: prefer_const_constructors
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(crane.loadLibrary,
-            () => crane.CraneApp(), // ignore: prefer_const_constructors
-            placeholder: const DeferredLoadingPlaceholder(name: 'Crane')),
+        study: crane.CraneApp(),
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + fortnightly_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(
-            fortnightly.loadLibrary,
-            // ignore: prefer_const_constructors
-            () => fortnightly.FortnightlyApp()),
+        study: fortnightly.FortnightlyApp(),
       ),
       openInSecondScreen: true,
     ),
@@ -137,12 +127,12 @@ class RouteConfiguration {
       if (regExpPattern.hasMatch(settings.name!)) {
         final firstMatch = regExpPattern.firstMatch(settings.name!)!;
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
-        if (kIsWeb) {
-          return NoAnimationMaterialPageRoute<void>(
-            builder: (context) => path.builder(context, match),
-            settings: settings,
-          );
-        }
+        // if (kIsWeb) {
+        //   return NoAnimationMaterialPageRoute<void>(
+        //     builder: (context) => path.builder(context, match),
+        //     settings: settings,
+        //   );
+        // }
         if (path.openInSecondScreen && hasHinge) {
           return TwoPanePageRoute<void>(
             builder: (context) => path.builder(context, match),
@@ -188,8 +178,9 @@ class TwoPanePageRoute<T> extends OverlayRoute<T> {
   final WidgetBuilder builder;
 
   @override
-  Iterable<OverlayEntry> createOverlayEntries() sync* {
-    yield OverlayEntry(builder: (context) {
+  List<OverlayEntry> createOverlayEntries() {
+    var list = <OverlayEntry>[];
+    list.add(OverlayEntry(builder: (context) {
       final hinge = MediaQuery.of(context).hinge?.bounds;
       if (hinge == null) {
         return builder.call(context);
@@ -201,6 +192,7 @@ class TwoPanePageRoute<T> extends OverlayRoute<T> {
             bottom: 0,
             child: builder.call(context));
       }
-    });
+    }));
+    return list;
   }
 }

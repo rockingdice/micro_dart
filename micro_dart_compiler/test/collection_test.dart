@@ -10,9 +10,9 @@ void main() {
       String fileName = "test_collection_iterable_join.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
@@ -31,9 +31,9 @@ void main() {
       String fileName = "test_collection_iterable_generate.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUri, options, sources);
+      var program = await compileSource(pluginUriRegExp, options, sources);
       if (astToJsonFlag) {
-        astToJson("$testCasePath$fileName", pluginUri, program.component);
+        astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }

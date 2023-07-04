@@ -26,6 +26,8 @@ class GeneratorBuilder implements Builder {
 
   static const String overwriteStrategyPath = "overwrite_strategy.json";
 
+  final flutterRegExp = RegExp(r'dart:+|package:flutter/+');
+
   @override
   Future<void> build(BuildStep buildStep) async {
     var generateDirectory = Directory(generatePath);
@@ -46,17 +48,28 @@ class GeneratorBuilder implements Builder {
     var inputId = buildStep.inputId;
 
     var visibleLibraries = await resolver.libraries.toList();
+    bool isMicroDartFlutter = false;
+    print(inputId.path);
+    if (inputId.path == "lib/micro_dart_flutter.dart") {
+      isMicroDartFlutter = true;
+    }
 
     for (var element in visibleLibraries) {
       if (element.identifier.startsWith("dart:_") ||
           element.identifier.startsWith("package:_")) {
         continue;
       }
+      print(
+          "${element.identifier} $isMicroDartFlutter  ${flutterRegExp.hasMatch(element.identifier)}");
 
-      var generator = Generator(namedSystem, overwriteStrategy);
-      generator.visitLibraryElement(element);
-      File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}.g.dart")
-          .writeAsStringSync(generator.generate().toString());
+      if ((isMicroDartFlutter && flutterRegExp.hasMatch(element.identifier)) ||
+          (!isMicroDartFlutter &&
+              !flutterRegExp.hasMatch(element.identifier))) {
+        var generator = Generator(namedSystem, overwriteStrategy);
+        generator.visitLibraryElement(element);
+        File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}.g.dart")
+            .writeAsStringSync(generator.generate().toString());
+      }
     }
     await buildStep.writeAsString(
         AssetId(inputId.package, '$generatePath/micro_dart.dart'),
@@ -65,6 +78,7 @@ class GeneratorBuilder implements Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => const {
+        'lib/main.dart': ['$generatePath/micro_dart.dart'],
         'lib/micro_dart_flutter.dart': ['$generatePath/micro_dart.dart'],
       };
 }

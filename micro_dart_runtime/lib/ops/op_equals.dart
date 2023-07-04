@@ -20,5 +20,5 @@ class OpEquals implements Op {
   }
 
   @override
-  String toString() => 'Equals()';
+  String toString() => 'OpEquals()';
 }

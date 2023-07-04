@@ -7,7 +7,6 @@ import 'dart:collection';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_plugin_gallery/constants.dart';
 import 'package:flutter_plugin_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/layout/adaptive.dart';
@@ -87,28 +86,6 @@ class _SettingsPageState extends State<SettingsPage> {
   /// determined, the locale code is used.
   DisplayOption _getLocaleDisplayOption(BuildContext context, Locale? locale) {
     final localeCode = locale.toString();
-    final localeName = LocaleNames.of(context)!.nameOf(localeCode);
-    if (localeName != null) {
-      final localeNativeName =
-          LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode];
-      return localeNativeName != null
-          ? DisplayOption(localeNativeName, subtitle: localeName)
-          : DisplayOption(localeName);
-    } else {
-      // gsw, fil, and es_419 aren't in flutter_localized_countries' dataset
-      // so we handle them separately
-      switch (localeCode) {
-        case 'gsw':
-          return DisplayOption('Schwiizertüütsch', subtitle: 'Swiss German');
-        case 'fil':
-          return DisplayOption('Filipino', subtitle: 'Filipino');
-        case 'es_419':
-          return DisplayOption(
-            'español (Latinoamérica)',
-            subtitle: 'Spanish (Latin America)',
-          );
-      }
-    }
 
     return DisplayOption(localeCode);
   }

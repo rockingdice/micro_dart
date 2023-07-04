@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -74,6 +75,12 @@ class MicroDartEngine {
     return i;
   }
 
+  double readFloat64() {
+    final i = _data.getFloat64(_fileOffset);
+    _fileOffset += 8;
+    return i;
+  }
+
   String readString() {
     final len = _data.getInt32(_fileOffset);
     _fileOffset += 4;
@@ -126,9 +133,12 @@ class MicroDartEngine {
       final opId = _data.getUint8(_fileOffset);
       _fileOffset++;
       if (opLoaders[opId] == null) {
-        throw Exception("not found opId $opId");
+        throw Exception(
+            "not found ${ops.length} opId:$opId queue:${ops.sublist(ops.length - 10, ops.length)}");
       }
-      ops.add(opLoaders[opId]!(this));
+      var op = opLoaders[opId]!(this);
+
+      ops.add(op);
     }
   }
 

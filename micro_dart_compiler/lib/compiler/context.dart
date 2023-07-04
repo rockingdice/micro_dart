@@ -113,9 +113,7 @@ class MicroCompilerContext {
   int pushOp(Op op) {
     ops.add(op);
     int p = ops.length - 1;
-    if (debug) {
-      print('$p: $op');
-    }
+
     return p;
   }
 
@@ -138,15 +136,15 @@ class MicroCompilerContext {
     return position;
   }
 
-  void startCompileNode(Node node) {
+  void startCompileNode(NamedNode node) {
     if (debug) {
-      print("start compile: ${node.runtimeType.toString()}");
+      print("start compile: ${node.getNamedName()}");
     }
   }
 
-  void endCompileNode(Node node) {
+  void endCompileNode(NamedNode node) {
     if (debug) {
-      print("end compile: ${node.runtimeType.toString()}");
+      print("end compile: ${node.getNamedName()}");
     }
   }
 }

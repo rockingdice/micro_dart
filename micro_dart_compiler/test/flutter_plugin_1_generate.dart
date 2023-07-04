@@ -9,11 +9,10 @@ void main() async {
   Uri mainSource =
       ensureFolderPath(flutterPlugin1Path).resolve('lib/plugin_1.dart');
   var program = await compilePlugin(
-      mainSource, [], "package:flutter_plugin_1/plugin_1.dart", options,
-      debug: true);
+      mainSource, [], RegExp(r"package:flutter_plugin_1/+"), options);
   if (astToJsonFlag) {
     astToJson("${testCasePath}flutter_example",
-        "package:flutter_plugin_1/plugin_1.dart", program.component);
+        RegExp(r"package:flutter_plugin_1/+"), program.component);
     writeComponentToText(program.component!,
         path: "${testCasePath}plugin_1.txt");
   }
