@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 import 'package:intl/intl.dart';
 
 /// Get the locale string for the context.

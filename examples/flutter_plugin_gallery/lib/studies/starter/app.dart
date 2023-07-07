@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/studies/starter/home.dart';
 import 'package:flutter_plugin_gallery/studies/starter/routes.dart' as routes;
 

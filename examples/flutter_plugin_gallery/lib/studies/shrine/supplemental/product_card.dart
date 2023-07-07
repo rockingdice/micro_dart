@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_plugin_gallery/layout/adaptive.dart';
 import 'package:flutter_plugin_gallery/layout/image_placeholder.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/model/app_state_model.dart';

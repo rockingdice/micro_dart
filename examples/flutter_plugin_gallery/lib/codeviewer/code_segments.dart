@@ -6,7 +6,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_plugin_gallery/codeviewer/code_style.dart';
+import 'package:flutter_example_gallery/codeviewer/code_style.dart';
 
 class CodeSegments {
   static TextSpan appbarDemo(BuildContext context) {

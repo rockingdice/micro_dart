@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_plugin_gallery/studies/shrine/model/product.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/supplemental/desktop_product_columns.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/supplemental/layout_cache.dart';
+import 'package:flutter_example_gallery/sdudies/shirine/supplemental/layout_cache.dart';
 
 /// A placeholder id for an empty element. See [_iterateUntilBalanced]
 /// for more information.

@@ -5,8 +5,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/layout/letter_spacing.dart';
 import 'package:flutter_plugin_gallery/studies/rally/colors.dart';
 import 'package:flutter_plugin_gallery/studies/rally/home.dart';

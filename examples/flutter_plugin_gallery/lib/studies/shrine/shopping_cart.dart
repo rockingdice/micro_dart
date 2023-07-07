@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_plugin_gallery/layout/letter_spacing.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/colors.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/expanding_bottom_sheet.dart';

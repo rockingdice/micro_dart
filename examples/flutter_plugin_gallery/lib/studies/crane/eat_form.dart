@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_plugin_gallery/studies/crane/backlayer.dart';
 import 'package:flutter_plugin_gallery/studies/crane/header_form.dart';
 

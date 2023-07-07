@@ -2,7 +2,7 @@ import '__package_dual_screen_dual_screen.dart.g.dart' as l3;
 import '__package_vector_math_vector_math_64.dart.g.dart' as l13;
 import '__package_material_color_utilities_material_color_utilities.dart.g.dart'
     as l14;
-import '__package_characters_characters.dart.g.dart' as l15;
+
 import '__package_dual_screen_src_dual_screen_info.dart.g.dart' as l16;
 import '__package_dual_screen_src_two_pane.dart.g.dart' as l17;
 import '__package_dual_screen_src_media_query_extension.dart.g.dart' as l18;
@@ -31,10 +31,8 @@ import '__package_material_color_utilities_quantize_quantizer_wu.dart.g.dart'
     as l143;
 import '__package_material_color_utilities_scheme_scheme.dart.g.dart' as l144;
 import '__package_material_color_utilities_score_score.dart.g.dart' as l145;
-import '__package_characters_src_characters.dart.g.dart' as l146;
-import '__package_characters_src_extensions.dart.g.dart' as l147;
+
 import '__package_meta_meta_meta.dart.g.dart' as l148;
-import '__package_collection_collection.dart.g.dart' as l149;
 import '__package_flutter_localizations_src_cupertino_localizations.dart.g.dart'
     as l150;
 import '__package_flutter_localizations_src_l10n_generated_cupertino_localizations.dart.g.dart'
@@ -70,30 +68,6 @@ import '__package_material_color_utilities_quantize_point_provider_lab.dart.g.da
     as l250;
 import '__package_material_color_utilities_quantize_point_provider.dart.g.dart'
     as l251;
-import '__package_characters_src_characters_impl.dart.g.dart' as l252;
-import '__package_collection_src_algorithms.dart.g.dart' as l253;
-import '__package_collection_src_boollist.dart.g.dart' as l254;
-import '__package_collection_src_canonicalized_map.dart.g.dart' as l255;
-import '__package_collection_src_combined_wrappers_combined_iterable.dart.g.dart'
-    as l256;
-import '__package_collection_src_combined_wrappers_combined_list.dart.g.dart'
-    as l257;
-import '__package_collection_src_combined_wrappers_combined_map.dart.g.dart'
-    as l258;
-import '__package_collection_src_comparators.dart.g.dart' as l259;
-import '__package_collection_src_equality.dart.g.dart' as l260;
-import '__package_collection_src_equality_map.dart.g.dart' as l261;
-import '__package_collection_src_equality_set.dart.g.dart' as l262;
-import '__package_collection_src_functions.dart.g.dart' as l263;
-import '__package_collection_src_iterable_extensions.dart.g.dart' as l264;
-import '__package_collection_src_iterable_zip.dart.g.dart' as l265;
-import '__package_collection_src_list_extensions.dart.g.dart' as l266;
-import '__package_collection_src_priority_queue.dart.g.dart' as l267;
-import '__package_collection_src_queue_list.dart.g.dart' as l268;
-import '__package_collection_src_union_set.dart.g.dart' as l269;
-import '__package_collection_src_union_set_controller.dart.g.dart' as l270;
-import '__package_collection_src_unmodifiable_wrappers.dart.g.dart' as l271;
-import '__package_collection_src_wrappers.dart.g.dart' as l272;
 import '__package_flutter_localizations_src_utils_date_localizations.dart.g.dart'
     as l273;
 import '__package_intl_date_symbols.dart.g.dart' as l274;
@@ -128,14 +102,6 @@ import '__package_provider_src_proxy_provider.dart.g.dart' as l319;
 import '__package_provider_src_reassemble_handler.dart.g.dart' as l320;
 import '__package_provider_src_selector.dart.g.dart' as l321;
 import '__package_provider_src_value_listenable_provider.dart.g.dart' as l322;
-import '__package_characters_src_grapheme_clusters_table.dart.g.dart' as l329;
-import '__package_characters_src_grapheme_clusters_constants.dart.g.dart'
-    as l330;
-import '__package_characters_src_grapheme_clusters_breaks.dart.g.dart' as l331;
-import '__package_collection_src_utils.dart.g.dart' as l332;
-import '__package_collection_src_combined_wrappers_combined_iterator.dart.g.dart'
-    as l333;
-import '__package_collection_src_empty_unmodifiable_set.dart.g.dart' as l334;
 import '__package_intl_date_symbol_data_custom.dart.g.dart' as l335;
 import '__package_flutter_localizations_src_l10n_generated_date_localizations.dart.g.dart'
     as l336;
@@ -191,6 +157,170 @@ import '__package_url_launcher_platform_interface_method_channel_url_launcher.da
     as l380;
 import '__package_flutter_staggered_grid_view_src_rendering_uniform_track.dart.g.dart'
     as l381;
+
+import '__package_flutter_example_gallery_generated_micro_dart.dart.g.dart'
+    as l1680;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations.dart.g.dart'
+    as l1681;
+import '__package_flutter_example_gallery_pages_splash.dart.g.dart' as l1682;
+import '__package_flutter_example_gallery_data_gallery_options.dart.g.dart'
+    as l1683;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_af.dart.g.dart'
+    as l1684;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_am.dart.g.dart'
+    as l1685;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ar.dart.g.dart'
+    as l1686;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_as.dart.g.dart'
+    as l1687;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_az.dart.g.dart'
+    as l1688;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_be.dart.g.dart'
+    as l1689;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_bg.dart.g.dart'
+    as l1690;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_bn.dart.g.dart'
+    as l1691;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_bs.dart.g.dart'
+    as l1692;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ca.dart.g.dart'
+    as l1693;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_cs.dart.g.dart'
+    as l1694;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_cy.dart.g.dart'
+    as l1695;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_da.dart.g.dart'
+    as l1696;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_de.dart.g.dart'
+    as l1697;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_el.dart.g.dart'
+    as l1698;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_en.dart.g.dart'
+    as l1699;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_es.dart.g.dart'
+    as l1700;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_et.dart.g.dart'
+    as l1701;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_eu.dart.g.dart'
+    as l1702;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_fa.dart.g.dart'
+    as l1703;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_fi.dart.g.dart'
+    as l1704;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_fil.dart.g.dart'
+    as l1705;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_fr.dart.g.dart'
+    as l1706;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_gl.dart.g.dart'
+    as l1707;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_gsw.dart.g.dart'
+    as l1708;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_gu.dart.g.dart'
+    as l1709;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_he.dart.g.dart'
+    as l1710;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_hi.dart.g.dart'
+    as l1711;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_hr.dart.g.dart'
+    as l1712;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_hu.dart.g.dart'
+    as l1713;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_hy.dart.g.dart'
+    as l1714;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_id.dart.g.dart'
+    as l1715;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_is.dart.g.dart'
+    as l1716;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_it.dart.g.dart'
+    as l1717;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ja.dart.g.dart'
+    as l1718;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ka.dart.g.dart'
+    as l1719;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_kk.dart.g.dart'
+    as l1720;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_km.dart.g.dart'
+    as l1721;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_kn.dart.g.dart'
+    as l1722;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ko.dart.g.dart'
+    as l1723;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ky.dart.g.dart'
+    as l1724;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_lo.dart.g.dart'
+    as l1725;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_lt.dart.g.dart'
+    as l1726;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_lv.dart.g.dart'
+    as l1727;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_mk.dart.g.dart'
+    as l1728;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ml.dart.g.dart'
+    as l1729;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_mn.dart.g.dart'
+    as l1730;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_mr.dart.g.dart'
+    as l1731;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ms.dart.g.dart'
+    as l1732;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_my.dart.g.dart'
+    as l1733;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_nb.dart.g.dart'
+    as l1734;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ne.dart.g.dart'
+    as l1735;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_nl.dart.g.dart'
+    as l1736;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_or.dart.g.dart'
+    as l1737;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_pa.dart.g.dart'
+    as l1738;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_pl.dart.g.dart'
+    as l1739;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_pt.dart.g.dart'
+    as l1740;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ro.dart.g.dart'
+    as l1741;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ru.dart.g.dart'
+    as l1742;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_si.dart.g.dart'
+    as l1743;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sk.dart.g.dart'
+    as l1744;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sl.dart.g.dart'
+    as l1745;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sq.dart.g.dart'
+    as l1746;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sr.dart.g.dart'
+    as l1747;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sv.dart.g.dart'
+    as l1748;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_sw.dart.g.dart'
+    as l1749;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ta.dart.g.dart'
+    as l1750;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_te.dart.g.dart'
+    as l1751;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_th.dart.g.dart'
+    as l1752;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_tl.dart.g.dart'
+    as l1753;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_tr.dart.g.dart'
+    as l1754;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_uk.dart.g.dart'
+    as l1755;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_ur.dart.g.dart'
+    as l1756;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_uz.dart.g.dart'
+    as l1757;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_vi.dart.g.dart'
+    as l1758;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_zh.dart.g.dart'
+    as l1759;
+import '__package_flutter_example_gallery_gen_l10n_gallery_localizations_zu.dart.g.dart'
+    as l1760;
+import '__package_flutter_example_gallery_constants.dart.g.dart' as l1761;
+
 import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
 import 'dart:typed_data';
 
@@ -198,7 +328,6 @@ void addMicroDartLibrary(m.MicroDartEngine engine) {
   engine.addExternalFunctions(l3.getLibrary(engine));
   engine.addExternalFunctions(l13.getLibrary(engine));
   engine.addExternalFunctions(l14.getLibrary(engine));
-  engine.addExternalFunctions(l15.getLibrary(engine));
   engine.addExternalFunctions(l16.getLibrary(engine));
   engine.addExternalFunctions(l17.getLibrary(engine));
   engine.addExternalFunctions(l18.getLibrary(engine));
@@ -218,10 +347,7 @@ void addMicroDartLibrary(m.MicroDartEngine engine) {
   engine.addExternalFunctions(l143.getLibrary(engine));
   engine.addExternalFunctions(l144.getLibrary(engine));
   engine.addExternalFunctions(l145.getLibrary(engine));
-  engine.addExternalFunctions(l146.getLibrary(engine));
-  engine.addExternalFunctions(l147.getLibrary(engine));
   engine.addExternalFunctions(l148.getLibrary(engine));
-  engine.addExternalFunctions(l149.getLibrary(engine));
   engine.addExternalFunctions(l150.getLibrary(engine));
   engine.addExternalFunctions(l151.getLibrary(engine));
   engine.addExternalFunctions(l152.getLibrary(engine));
@@ -247,27 +373,6 @@ void addMicroDartLibrary(m.MicroDartEngine engine) {
   engine.addExternalFunctions(l249.getLibrary(engine));
   engine.addExternalFunctions(l250.getLibrary(engine));
   engine.addExternalFunctions(l251.getLibrary(engine));
-  engine.addExternalFunctions(l252.getLibrary(engine));
-  engine.addExternalFunctions(l253.getLibrary(engine));
-  engine.addExternalFunctions(l254.getLibrary(engine));
-  engine.addExternalFunctions(l255.getLibrary(engine));
-  engine.addExternalFunctions(l256.getLibrary(engine));
-  engine.addExternalFunctions(l257.getLibrary(engine));
-  engine.addExternalFunctions(l258.getLibrary(engine));
-  engine.addExternalFunctions(l259.getLibrary(engine));
-  engine.addExternalFunctions(l260.getLibrary(engine));
-  engine.addExternalFunctions(l261.getLibrary(engine));
-  engine.addExternalFunctions(l262.getLibrary(engine));
-  engine.addExternalFunctions(l263.getLibrary(engine));
-  engine.addExternalFunctions(l264.getLibrary(engine));
-  engine.addExternalFunctions(l265.getLibrary(engine));
-  engine.addExternalFunctions(l266.getLibrary(engine));
-  engine.addExternalFunctions(l267.getLibrary(engine));
-  engine.addExternalFunctions(l268.getLibrary(engine));
-  engine.addExternalFunctions(l269.getLibrary(engine));
-  engine.addExternalFunctions(l270.getLibrary(engine));
-  engine.addExternalFunctions(l271.getLibrary(engine));
-  engine.addExternalFunctions(l272.getLibrary(engine));
   engine.addExternalFunctions(l273.getLibrary(engine));
   engine.addExternalFunctions(l274.getLibrary(engine));
   engine.addExternalFunctions(l275.getLibrary(engine));
@@ -300,12 +405,6 @@ void addMicroDartLibrary(m.MicroDartEngine engine) {
   engine.addExternalFunctions(l320.getLibrary(engine));
   engine.addExternalFunctions(l321.getLibrary(engine));
   engine.addExternalFunctions(l322.getLibrary(engine));
-  engine.addExternalFunctions(l329.getLibrary(engine));
-  engine.addExternalFunctions(l330.getLibrary(engine));
-  engine.addExternalFunctions(l331.getLibrary(engine));
-  engine.addExternalFunctions(l332.getLibrary(engine));
-  engine.addExternalFunctions(l333.getLibrary(engine));
-  engine.addExternalFunctions(l334.getLibrary(engine));
   engine.addExternalFunctions(l335.getLibrary(engine));
   engine.addExternalFunctions(l336.getLibrary(engine));
   engine.addExternalFunctions(l337.getLibrary(engine));
@@ -338,4 +437,87 @@ void addMicroDartLibrary(m.MicroDartEngine engine) {
   engine.addExternalFunctions(l379.getLibrary(engine));
   engine.addExternalFunctions(l380.getLibrary(engine));
   engine.addExternalFunctions(l381.getLibrary(engine));
+
+  engine.addExternalFunctions(l1680.getLibrary(engine));
+  engine.addExternalFunctions(l1681.getLibrary(engine));
+  engine.addExternalFunctions(l1682.getLibrary(engine));
+  engine.addExternalFunctions(l1683.getLibrary(engine));
+  engine.addExternalFunctions(l1684.getLibrary(engine));
+  engine.addExternalFunctions(l1685.getLibrary(engine));
+  engine.addExternalFunctions(l1686.getLibrary(engine));
+  engine.addExternalFunctions(l1687.getLibrary(engine));
+  engine.addExternalFunctions(l1688.getLibrary(engine));
+  engine.addExternalFunctions(l1689.getLibrary(engine));
+  engine.addExternalFunctions(l1690.getLibrary(engine));
+  engine.addExternalFunctions(l1691.getLibrary(engine));
+  engine.addExternalFunctions(l1692.getLibrary(engine));
+  engine.addExternalFunctions(l1693.getLibrary(engine));
+  engine.addExternalFunctions(l1694.getLibrary(engine));
+  engine.addExternalFunctions(l1695.getLibrary(engine));
+  engine.addExternalFunctions(l1696.getLibrary(engine));
+  engine.addExternalFunctions(l1697.getLibrary(engine));
+  engine.addExternalFunctions(l1698.getLibrary(engine));
+  engine.addExternalFunctions(l1699.getLibrary(engine));
+  engine.addExternalFunctions(l1700.getLibrary(engine));
+  engine.addExternalFunctions(l1701.getLibrary(engine));
+  engine.addExternalFunctions(l1702.getLibrary(engine));
+  engine.addExternalFunctions(l1703.getLibrary(engine));
+  engine.addExternalFunctions(l1704.getLibrary(engine));
+  engine.addExternalFunctions(l1705.getLibrary(engine));
+  engine.addExternalFunctions(l1706.getLibrary(engine));
+  engine.addExternalFunctions(l1707.getLibrary(engine));
+  engine.addExternalFunctions(l1708.getLibrary(engine));
+  engine.addExternalFunctions(l1709.getLibrary(engine));
+  engine.addExternalFunctions(l1710.getLibrary(engine));
+  engine.addExternalFunctions(l1711.getLibrary(engine));
+  engine.addExternalFunctions(l1712.getLibrary(engine));
+  engine.addExternalFunctions(l1713.getLibrary(engine));
+  engine.addExternalFunctions(l1714.getLibrary(engine));
+  engine.addExternalFunctions(l1715.getLibrary(engine));
+  engine.addExternalFunctions(l1716.getLibrary(engine));
+  engine.addExternalFunctions(l1717.getLibrary(engine));
+  engine.addExternalFunctions(l1718.getLibrary(engine));
+  engine.addExternalFunctions(l1719.getLibrary(engine));
+  engine.addExternalFunctions(l1720.getLibrary(engine));
+  engine.addExternalFunctions(l1721.getLibrary(engine));
+  engine.addExternalFunctions(l1722.getLibrary(engine));
+  engine.addExternalFunctions(l1723.getLibrary(engine));
+  engine.addExternalFunctions(l1724.getLibrary(engine));
+  engine.addExternalFunctions(l1725.getLibrary(engine));
+  engine.addExternalFunctions(l1726.getLibrary(engine));
+  engine.addExternalFunctions(l1727.getLibrary(engine));
+  engine.addExternalFunctions(l1728.getLibrary(engine));
+  engine.addExternalFunctions(l1729.getLibrary(engine));
+  engine.addExternalFunctions(l1730.getLibrary(engine));
+  engine.addExternalFunctions(l1731.getLibrary(engine));
+  engine.addExternalFunctions(l1732.getLibrary(engine));
+  engine.addExternalFunctions(l1733.getLibrary(engine));
+  engine.addExternalFunctions(l1734.getLibrary(engine));
+  engine.addExternalFunctions(l1735.getLibrary(engine));
+  engine.addExternalFunctions(l1736.getLibrary(engine));
+  engine.addExternalFunctions(l1737.getLibrary(engine));
+  engine.addExternalFunctions(l1738.getLibrary(engine));
+  engine.addExternalFunctions(l1739.getLibrary(engine));
+  engine.addExternalFunctions(l1740.getLibrary(engine));
+  engine.addExternalFunctions(l1741.getLibrary(engine));
+  engine.addExternalFunctions(l1742.getLibrary(engine));
+  engine.addExternalFunctions(l1743.getLibrary(engine));
+  engine.addExternalFunctions(l1744.getLibrary(engine));
+  engine.addExternalFunctions(l1745.getLibrary(engine));
+  engine.addExternalFunctions(l1746.getLibrary(engine));
+  engine.addExternalFunctions(l1747.getLibrary(engine));
+  engine.addExternalFunctions(l1748.getLibrary(engine));
+  engine.addExternalFunctions(l1749.getLibrary(engine));
+  engine.addExternalFunctions(l1750.getLibrary(engine));
+  engine.addExternalFunctions(l1751.getLibrary(engine));
+  engine.addExternalFunctions(l1752.getLibrary(engine));
+  engine.addExternalFunctions(l1753.getLibrary(engine));
+  engine.addExternalFunctions(l1754.getLibrary(engine));
+  engine.addExternalFunctions(l1755.getLibrary(engine));
+  engine.addExternalFunctions(l1756.getLibrary(engine));
+  engine.addExternalFunctions(l1757.getLibrary(engine));
+  engine.addExternalFunctions(l1758.getLibrary(engine));
+  engine.addExternalFunctions(l1759.getLibrary(engine));
+  engine.addExternalFunctions(l1760.getLibrary(engine));
+  engine.addExternalFunctions(l1761.getLibrary(engine));
 }

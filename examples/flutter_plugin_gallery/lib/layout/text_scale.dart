@@ -6,7 +6,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 
 double _textScaleFactor(BuildContext context) {
   return GalleryOptions.of(context).textScaleFactor(context);

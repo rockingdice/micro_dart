@@ -7,14 +7,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/pages/splash.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_plugin_gallery/constants.dart';
 import 'package:flutter_plugin_gallery/data/demos.dart';
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/layout/adaptive.dart';
 import 'package:flutter_plugin_gallery/pages/category_list_item.dart';
 import 'package:flutter_plugin_gallery/pages/settings.dart';
-import 'package:flutter_plugin_gallery/pages/splash.dart';
 import 'package:flutter_plugin_gallery/studies/crane/colors.dart';
 import 'package:flutter_plugin_gallery/studies/crane/routes.dart'
     as crane_routes;
@@ -38,8 +38,6 @@ const _carouselHeightMin = 240.0;
 const _carouselItemDesktopMargin = 8.0;
 const _carouselItemMobileMargin = 4.0;
 const _carouselItemWidth = 296.0;
-
-class ToggleSplashNotification extends Notification {}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

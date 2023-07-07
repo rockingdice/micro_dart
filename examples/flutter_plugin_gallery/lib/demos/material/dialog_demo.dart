@@ -4,8 +4,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_plugin_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_plugin_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_example_gallery/data/gallery_options.dart';
 import 'package:flutter_plugin_gallery/demos/material/material_demo_types.dart';
 
 // BEGIN dialogDemo
