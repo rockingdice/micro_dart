@@ -19,7 +19,11 @@ class OpIs implements Op {
     var instance = scope.popFrame();
     bool isType = false;
     if (instance is InstanceImpl) {
-      isType = instance.type.isType(scope.engine.types[type]!, scope.engine);
+      var superType = scope.engine.types[type];
+      if (superType == null) {
+        throw Exception("$type is null");
+      }
+      isType = instance.type.isType(superType, scope.engine);
     } else {
       isType = scope.engine.externalFunctions["$type@#is"]!(instance);
     }

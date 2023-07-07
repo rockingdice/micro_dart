@@ -1,0 +1,35 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  typedef Callback = (dart.core::int) → dart.core::int;
+  class A extends dart.core::Object {
+    field dart.core::int k = 1;
+    constructor •() → main::A
+      : super dart.core::Object::•()
+      ;
+    method build() → main::B {
+      return new main::B::•(callback: (dart.core::int a) → dart.core::int {
+        return a.{dart.core::num::+}(this.{main::A::k}{dart.core::int}){(dart.core::num) → dart.core::int};
+      });
+    }
+    method test(dart.core::int a) → dart.core::int {
+      main::B b = this.{main::A::build}(){() → main::B};
+      if(b.{main::B::callback}{(dart.core::int) →? dart.core::int} == null) {
+        return 0;
+      }
+      return b.{main::B::callback}{(dart.core::int) →? dart.core::int}!(a){(dart.core::int) → dart.core::int};
+    }
+  }
+  class B extends dart.core::Object {
+    field (dart.core::int) →? dart.core::int callback;
+    constructor •({(dart.core::int) →? dart.core::int callback = null}) → main::B
+      : main::B::callback = callback, super dart.core::Object::•()
+      ;
+  }
+  static method main() → dart.core::int {
+    main::A a = new main::A::•();
+    dart.core::int r = a.{main::A::test}(1){(dart.core::int) → dart.core::int};
+    dart.core::print(r);
+    return r;
+  }
+}

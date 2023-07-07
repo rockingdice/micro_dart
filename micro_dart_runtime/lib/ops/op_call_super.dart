@@ -40,7 +40,7 @@ class OpCallSuperAsync extends OpCallSuper {
       return scope.engine
           .callPointerAsync(scope, _name, true, _isAsync, pointer);
     } else {
-      _callExternal(scope, key);
+      _callExternal(scope, key, _name);
     }
   }
 
@@ -112,11 +112,11 @@ class OpCallSuper implements Op {
       scope.engine.callPointer(scope, _name, true, pointer);
     } else {
       //表示这是一个外部调用
-      _callExternal(scope, key);
+      _callExternal(scope, key, _name);
     }
   }
 
-  void _callExternal(Scope scope, String? key) {
+  void _callExternal(Scope scope, String? key, String name) {
     //表示这是一个外部调用
     final List<dynamic> positionalArguments =
         List.filled(_posationalLength, null);
@@ -130,33 +130,37 @@ class OpCallSuper implements Op {
 
     dynamic target = scope.popFrame();
 
+    late Function function;
+    if (target is InstanceBridge) {
+      function = target.superGetters[name]!;
+    } else {
+      function = scope.engine.externalFunctions[key]!;
+    }
+
     if (_isGetter) {
-      scope.pushFrame(scope.engine.externalFunctions[key]!(target));
+      scope.pushFrame(function(target));
       return;
     } else if (_isSetter) {
-      scope.engine.externalFunctions[key]!(target, positionalArguments.first);
+      function(target, positionalArguments.first);
       return;
     }
 
     if (operator1.contains(_name)) {
-      scope.pushFrame(scope.engine.externalFunctions[key]!(target));
+      scope.pushFrame(function(target));
       return;
     } else if (operator2.contains(_name)) {
-      var function = scope.engine.externalFunctions[key];
       var other = positionalArguments.first;
-
-      scope.pushFrame(function!(target, other));
+      scope.pushFrame(function(target, other));
       return;
     } else if (operator3.contains(_name)) {
       var first = positionalArguments.first;
       var second = positionalArguments[1];
-      scope.pushFrame(
-          scope.engine.externalFunctions[key]!(target, first, second));
+      scope.pushFrame(function(target, first, second));
       return;
     }
 
-    scope.pushFrame(Function.apply(scope.engine.externalFunctions[key]!(target),
-        positionalArguments, namedArguments));
+    scope.pushFrame(
+        Function.apply(function(target), positionalArguments, namedArguments));
   }
 
   @override

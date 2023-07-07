@@ -67,10 +67,11 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/painting/gradient.dart@LinearGradient@hashCode':
         (m.Scope scope, LinearGradient target) => target.hashCode,
     'package:flutter/src/painting/gradient.dart@LinearGradient@':
-        (m.Scope scope) => ({begin, colors, end, stops, tileMode, transform}) {
+        (m.Scope scope) =>
+            ({begin, required List colors, end, stops, tileMode, transform}) {
               return LinearGradient(
                   begin: begin ?? Alignment.centerLeft,
-                  colors: colors,
+                  colors: List<Color>.from(colors),
                   end: end ?? Alignment.centerRight,
                   stops: stops,
                   tileMode: tileMode ?? TileMode.clamp,

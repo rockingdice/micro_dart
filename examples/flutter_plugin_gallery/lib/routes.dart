@@ -127,12 +127,7 @@ class RouteConfiguration {
       if (regExpPattern.hasMatch(settings.name!)) {
         final firstMatch = regExpPattern.firstMatch(settings.name!)!;
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
-        // if (kIsWeb) {
-        //   return NoAnimationMaterialPageRoute<void>(
-        //     builder: (context) => path.builder(context, match),
-        //     settings: settings,
-        //   );
-        // }
+
         if (path.openInSecondScreen && hasHinge) {
           return TwoPanePageRoute<void>(
             builder: (context) => path.builder(context, match),
@@ -181,13 +176,13 @@ class TwoPanePageRoute<T> extends OverlayRoute<T> {
   List<OverlayEntry> createOverlayEntries() {
     var list = <OverlayEntry>[];
     list.add(OverlayEntry(builder: (context) {
-      final hinge = MediaQuery.of(context).hinge?.bounds;
+      final hinge = MediaQuery.of(context).hinge;
       if (hinge == null) {
         return builder.call(context);
       } else {
         return Positioned(
             top: 0,
-            left: hinge.right,
+            left: hinge.bounds.right,
             right: 0,
             bottom: 0,
             child: builder.call(context));

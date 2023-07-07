@@ -10,6 +10,7 @@ import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/inherited_model.dart';
 import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/src/widgets/widget_inspector.dart';
+import 'package:flutter/widgets.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
 import 'package:micro_dart_runtime/runtime/bridge.dart';
 
@@ -810,8 +811,13 @@ class $InheritedWidget extends InheritedWidget with InstanceBridge {
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return $child!.engine.callFunction(
-        this, type.getNameKey("updateShouldNotify"), [oldWidget], {});
+        this, type.getNameKey("updateShouldNotify"), [oldWidget], {}, () {
+      return updateShouldNotify(oldWidget);
+    });
   }
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $StatelessWidget extends StatelessWidget with InstanceBridge {
@@ -823,8 +829,11 @@ class $StatelessWidget extends StatelessWidget with InstanceBridge {
   @override
   Widget build(BuildContext context) {
     return $child!.engine
-        .callFunction(this, type.getNameKey("build"), [context], {});
+        .callFunction(this, type.getNameKey("build"), [context], {}, null);
   }
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $StatefulWidget extends StatefulWidget with InstanceBridge {
@@ -836,11 +845,14 @@ class $StatefulWidget extends StatefulWidget with InstanceBridge {
   @override
   State<StatefulWidget> createState() {
     return $child!.engine
-        .callFunction(this, type.getNameKey("createState"), [], {});
+        .callFunction(this, type.getNameKey("createState"), [], {}, null);
   }
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
-class $State extends State with InstanceBridge {
+class $State extends State with InstanceBridge, TickerProviderStateMixin {
   @override
   final m.TypeRef bridgeType = const m.TypeRef(
       "package:flutter/src/widgets/framework.dart", "State", true);
@@ -848,6 +860,35 @@ class $State extends State with InstanceBridge {
   @override
   Widget build(BuildContext context) {
     return $child!.engine
-        .callFunction(this, type.getNameKey("build"), [context], {});
+        .callFunction(this, type.getNameKey("build"), [context], {}, null);
   }
+
+  @override
+  void initState() {
+    $child!.engine.callFunction(this, type.getNameKey("initState"), [], {}, () {
+      return super.initState();
+    });
+  }
+
+  @override
+  void dispose() {
+    $child!.engine.callFunction(this, type.getNameKey("dispose"), [], {}, () {
+      return super.dispose();
+    });
+  }
+
+  @override
+  void didUpdateWidget(covariant StatefulWidget oldWidget) {
+    return $child!.engine.callFunction(
+        this, type.getNameKey("didUpdateWidget"), [oldWidget], {}, () {
+      super.didUpdateWidget(oldWidget);
+    });
+  }
+
+  @override
+  late Map<String, Function> superGetters = {
+    "initState": (m.Scope scope, target) => super.initState,
+    "dispose": (m.Scope scope, target) => super.dispose,
+    "didUpdateWidget": (m.Scope scope, target) => super.didUpdateWidget,
+  };
 }

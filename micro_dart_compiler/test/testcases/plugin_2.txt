@@ -1,0 +1,79 @@
+main = <No Member>;
+library from "package:flutter_plugin_2/plugin_2.dart" as plu {
+
+  import "package:flutter/material.dart";
+
+  class MyApp extends #lib1::StatelessWidget /*hasConstConstructor*/  {
+    const constructor •({#lib2::Key? key = null}) → plu::MyApp
+      : super #lib1::StatelessWidget::•(key: key)
+      ;
+    @dart.core::override
+    method build(#lib1::BuildContext context) → #lib1::Widget {
+      return new #lib3::MaterialApp::•(title: "Flutter Demo", theme: #lib4::ThemeData::•(colorScheme: #lib5::ColorScheme::fromSeed(seedColor: #lib6::Colors::deepPurple), useMaterial3: true), home: const plu::MyHomePage::•(title: "Flutter Demo Home Page"));
+    }
+  }
+  class MyHomePage extends #lib1::StatefulWidget /*hasConstConstructor*/  {
+    final field dart.core::String title;
+    const constructor •({#lib2::Key? key = null, required dart.core::String title = null}) → plu::MyHomePage
+      : plu::MyHomePage::title = title, super #lib1::StatefulWidget::•(key: key)
+      ;
+    @dart.core::override
+    method createState() → #lib1::State<plu::MyHomePage>
+      return new plu::_MyHomePageState::•();
+  }
+  class _MyHomePageState extends #lib1::State<plu::MyHomePage> {
+    final field #lib7::PageController pageController = new #lib7::PageController::•(initialPage: 0);
+    final field #lib8::ScrollController scrollController = new #lib8::ScrollController::•();
+    field dart.core::int pageIndex = 0;
+    static const field dart.core::List<dart.core::String> headItemAssets = const <dart.core::String>["assets/0-0.jpg", "assets/1-0.jpg", "assets/2-0.jpg", "assets/3-0.jpg"];
+    static const field dart.core::List<plu::Item> items = const <plu::Item>[const plu::Item::•("title1", "summary1", "assets/0-0.jpg"), const plu::Item::•("title2", "summary2", "assets/1-0.jpg"), const plu::Item::•("title3", "summary3", "assets/2-0.jpg"), const plu::Item::•("title4", "summary4", "assets/3-0.jpg"), const plu::Item::•("title5", "summary5", "assets/0-0.jpg"), const plu::Item::•("title6", "summary6", "assets/1-0.jpg"), const plu::Item::•("title7", "summary7", "assets/2-0.jpg"), const plu::Item::•("title8", "summary8", "assets/3-0.jpg"), const plu::Item::•("title9", "summary9", "assets/0-0.jpg"), const plu::Item::•("title10", "summary10", "assets/1-0.jpg"), const plu::Item::•("title11", "summary11", "assets/2-0.jpg"), const plu::Item::•("title12", "summary12", "assets/3-0.jpg"), const plu::Item::•("title13", "summary12", "assets/0-0.jpg")];
+    synthetic constructor •() → plu::_MyHomePageState
+      : super #lib1::State::•()
+      ;
+    @dart.core::override
+    method build(#lib1::BuildContext context) → #lib1::Widget {
+      return new #lib9::Scaffold::•(appBar: new #lib10::AppBar::•(backgroundColor: #lib11::Theme::of(context).{#lib4::ThemeData::colorScheme}{#lib5::ColorScheme}.{#lib5::ColorScheme::inversePrimary}{dart.ui::Color}, title: new #lib12::Text::•(this.{#lib1::State::widget}{plu::MyHomePage}.{plu::MyHomePage::title}{dart.core::String})), body: new #lib13::RefreshIndicator::•(onRefresh: () → dart.async::Future<void> async /* futureValueType= void */ {
+        await dart.async::Future::delayed<dynamic>(const dart.core::Duration::•(seconds: 1));
+      }, child: new #lib14::Scrollbar::•(controller: this.{plu::_MyHomePageState::scrollController}{#lib8::ScrollController}, child: new #lib15::CustomScrollView::•(controller: this.{plu::_MyHomePageState::scrollController}{#lib8::ScrollController}, physics: const #lib16::BouncingScrollPhysics::•(parent: const #lib16::AlwaysScrollableScrollPhysics::•()), slivers: <#lib1::Widget>[const #lib17::SliverPadding::•(padding: const #lib18::EdgeInsets::only(top: 5.0)), new #lib17::SliverToBoxAdapter::•(child: this.{plu::_MyHomePageState::_getHeadWidget}(){() → #lib1::Widget}), new #lib17::SliverPadding::•(padding: new #lib18::EdgeInsets::only(bottom: #lib19::MediaQuery::of(context).{#lib19::MediaQueryData::padding}{#lib18::EdgeInsets}.{#lib18::EdgeInsets::bottom}{dart.core::double}), sliver: new #lib20::SliverList::•(delegate: new #lib21::SliverChildBuilderDelegate::•((#lib1::BuildContext context, dart.core::int index) → #lib1::Widget {
+        return this.{plu::_MyHomePageState::_getSubjectItem}(context, index){(dynamic, dynamic) → #lib1::Widget};
+      }, childCount: plu::_MyHomePageState::items.{dart.core::List::length}{dart.core::int})))]))));
+    }
+    method _getSubjectItem(dynamic context, dynamic index) → #lib1::Widget {
+      plu::Item item = plu::_MyHomePageState::items.{dart.core::List::[]}(index as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int){(dart.core::int) → plu::Item};
+      return new #lib22::Card::•(elevation: 0.0, margin: const #lib18::EdgeInsets::only(left: 10.0, right: 10.0, bottom: 10.0), color: #lib6::Colors::white, shape: const #lib23::RoundedRectangleBorder::•(borderRadius: const #lib24::BorderRadius::all(const dart.ui::Radius::circular(5.0))), child: new #lib17::Padding::•(padding: const #lib18::EdgeInsets::only(top: 10.0, bottom: 15.0), child: new #lib17::Row::•(crossAxisAlignment: #lib25::CrossAxisAlignment::start, children: <#lib1::Widget>[new #lib17::Expanded::•(child: new #lib17::Column::•(crossAxisAlignment: #lib25::CrossAxisAlignment::start, children: <#lib1::Widget>[new #lib12::Text::•(item.{plu::Item::title}{dart.core::String}, style: const #lib26::TextStyle::•(fontSize: 20.0)), new #lib12::Text::•(item.{plu::Item::summary}{dart.core::String}, style: const #lib26::TextStyle::•(fontSize: 16.0))])), new #lib27::Image::asset(item.{plu::Item::imageUrl}{dart.core::String}, width: 150.0, height: 150.0)])));
+    }
+    method _getHeadWidget() → #lib1::Widget {
+      return new #lib28::Container::•(color: const dart.ui::Color::•(4294112762), padding: const #lib18::EdgeInsets::all(10.0), height: 150.0, child: new #lib17::Row::•(children: <#lib1::Widget>[new #lib29::IconButton::•(onPressed: () → void {
+        if(this.{plu::_MyHomePageState::pageIndex}{dart.core::int} =={dart.core::num::==}{(dart.core::Object) → dart.core::bool} 0) {
+          return;
+        }
+        this.{plu::_MyHomePageState::pageController}{#lib7::PageController}.{#lib7::PageController::previousPage}(duration: const dart.core::Duration::•(milliseconds: 300), curve: #lib30::Curves::linear){({required curve: #lib30::Curve, required duration: dart.core::Duration}) → dart.async::Future<void>};
+      }, icon: const #lib31::Icon::•(#lib32::Icons::arrow_left)), new #lib17::Expanded::•(child: new #lib7::PageView::builder(itemCount: plu::_MyHomePageState::headItemAssets.{dart.core::List::length}{dart.core::int}, controller: this.{plu::_MyHomePageState::pageController}{#lib7::PageController}, onPageChanged: (dart.core::int index) → void {
+        this.{plu::_MyHomePageState::pageIndex} = index;
+      }, itemBuilder: (#lib1::BuildContext context, dart.core::int index) → #lib1::Widget {
+        return this.{plu::_MyHomePageState::_getHeadItemWidget}(index){(dart.core::int) → #lib1::Widget};
+      })), new #lib29::IconButton::•(onPressed: () → void {
+        if(this.{plu::_MyHomePageState::pageIndex}{dart.core::int} =={dart.core::num::==}{(dart.core::Object) → dart.core::bool} 3) {
+          return;
+        }
+        this.{plu::_MyHomePageState::pageController}{#lib7::PageController}.{#lib7::PageController::nextPage}(duration: const dart.core::Duration::•(milliseconds: 300), curve: #lib30::Curves::linear){({required curve: #lib30::Curve, required duration: dart.core::Duration}) → dart.async::Future<void>};
+      }, icon: const #lib31::Icon::•(#lib32::Icons::arrow_right))]));
+    }
+    method _getHeadItemWidget(dart.core::int index) → #lib1::Widget {
+      return new #lib17::Padding::•(padding: const #lib18::EdgeInsets::only(left: 2.0, right: 2.0), child: new #lib33::InkWell::•(onTap: () → void {}, child: new #lib17::AspectRatio::•(aspectRatio: 3.0, child: new #lib34::LayoutBuilder::•(builder: (#lib1::BuildContext context, #lib35::BoxConstraints constraints) → #lib17::SizedBox {
+        return new #lib17::SizedBox::•(height: constraints.{#lib35::BoxConstraints::biggest}{dart.ui::Size}.{dart.ui::Size::height}{dart.core::double}, width: constraints.{#lib35::BoxConstraints::biggest}{dart.ui::Size}.{dart.ui::Size::width}{dart.core::double}, child: new #lib17::ClipRRect::•(borderRadius: const #lib24::BorderRadius::all(const dart.ui::Radius::circular(5.0)), child: new #lib27::Image::asset(plu::_MyHomePageState::headItemAssets.{dart.core::List::[]}(index){(dart.core::int) → dart.core::String})));
+      }))));
+    }
+  }
+  class Item extends dart.core::Object /*hasConstConstructor*/  {
+    final field dart.core::String title;
+    final field dart.core::String summary;
+    final field dart.core::String imageUrl;
+    const constructor •(dart.core::String title, dart.core::String summary, dart.core::String imageUrl) → plu::Item
+      : plu::Item::title = title, plu::Item::summary = summary, plu::Item::imageUrl = imageUrl, super dart.core::Object::•()
+      ;
+  }
+  static method createMyApp() → plu::MyApp {
+    return const plu::MyApp::•();
+  }
+}

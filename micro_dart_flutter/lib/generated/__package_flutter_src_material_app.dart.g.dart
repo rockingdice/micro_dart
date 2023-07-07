@@ -125,7 +125,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             locale,
             localeListResolutionCallback,
             localeResolutionCallback,
-            localizationsDelegates,
+            List<dynamic>? localizationsDelegates,
             navigatorKey,
             navigatorObservers,
             onGenerateInitialRoutes,
@@ -203,7 +203,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
               localeResolutionCallback: localeResolutionCallback == null
                   ? null
                   : localeResolutionCallbackProxy,
-              localizationsDelegates: localizationsDelegates,
+              localizationsDelegates:
+                  localizationsDelegates?.map<LocalizationsDelegate>((e) => e),
               navigatorKey: navigatorKey,
               navigatorObservers:
                   navigatorObservers ?? const <NavigatorObserver>[],
@@ -355,6 +356,10 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
         (m.Scope scope, MaterialScrollBehavior target) =>
             target.buildOverscrollIndicator,
     'package:flutter/src/material/app.dart@ThemeMode@system': (m.Scope scope) =>
-        ThemeMode.system
+        ThemeMode.system,
+    'package:flutter/src/material/app.dart@ThemeMode@light': (m.Scope scope) =>
+        ThemeMode.light,
+    'package:flutter/src/material/app.dart@ThemeMode@dark': (m.Scope scope) =>
+        ThemeMode.dark
   };
 }

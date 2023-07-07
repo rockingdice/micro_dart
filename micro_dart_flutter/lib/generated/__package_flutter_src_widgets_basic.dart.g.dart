@@ -570,7 +570,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/basic.dart@CustomMultiChildLayout@':
         (m.Scope scope) => ({children, delegate, key}) {
               return CustomMultiChildLayout(
-                  children: children ?? const <Widget>[],
+                  children: children?.map<Widget>((e) => e).toList() ??
+                      const <Widget>[],
                   delegate: delegate,
                   key: key);
             },
@@ -943,7 +944,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/basic.dart@ListBody@': (m.Scope scope) =>
         ({children, key, mainAxis, reverse}) {
           return ListBody(
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               key: key,
               mainAxis: mainAxis ?? Axis.vertical,
               reverse: reverse ?? false);
@@ -965,10 +967,11 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/basic.dart@Stack@clipBehavior':
         (m.Scope scope, Stack target) => target.clipBehavior,
     'package:flutter/src/widgets/basic.dart@Stack@': (m.Scope scope) =>
-        ({alignment, children, clipBehavior, fit, key, textDirection}) {
+        ({alignment, List? children, clipBehavior, fit, key, textDirection}) {
           return Stack(
               alignment: alignment ?? AlignmentDirectional.topStart,
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               clipBehavior: clipBehavior ?? Clip.hardEdge,
               fit: fit ?? StackFit.loose,
               key: key,
@@ -1006,7 +1009,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             textDirection}) {
           return IndexedStack(
               alignment: alignment ?? AlignmentDirectional.topStart,
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               clipBehavior: clipBehavior ?? Clip.hardEdge,
               index: index ?? 0,
               key: key,
@@ -1123,7 +1127,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             textDirection,
             verticalDirection}) {
           return Flex(
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               clipBehavior: clipBehavior ?? Clip.none,
               crossAxisAlignment:
                   crossAxisAlignment ?? CrossAxisAlignment.center,
@@ -1148,7 +1153,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/basic.dart@Row@#is': (m.Scope scope, target) =>
         () => target is Row,
     'package:flutter/src/widgets/basic.dart@Row@': (m.Scope scope) => (
-            {children,
+            {List? children,
             crossAxisAlignment,
             key,
             mainAxisAlignment,
@@ -1157,7 +1162,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             textDirection,
             verticalDirection}) {
           return Row(
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               crossAxisAlignment:
                   crossAxisAlignment ?? CrossAxisAlignment.center,
               key: key,
@@ -1247,7 +1253,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
         (m.Scope scope, Wrap target) => target.clipBehavior,
     'package:flutter/src/widgets/basic.dart@Wrap@': (m.Scope scope) => (
             {alignment,
-            children,
+            List? children,
             clipBehavior,
             crossAxisAlignment,
             direction,
@@ -1259,7 +1265,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             verticalDirection}) {
           return Wrap(
               alignment: alignment ?? WrapAlignment.start,
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               clipBehavior: clipBehavior ?? Clip.none,
               crossAxisAlignment:
                   crossAxisAlignment ?? WrapCrossAlignment.start,
@@ -1288,7 +1295,8 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/widgets/basic.dart@Flow@': (m.Scope scope) =>
         ({children, clipBehavior, delegate, key}) {
           return Flow(
-              children: children ?? const <Widget>[],
+              children:
+                  children?.map<Widget>((e) => e).toList() ?? const <Widget>[],
               clipBehavior: clipBehavior ?? Clip.hardEdge,
               delegate: delegate,
               key: key);

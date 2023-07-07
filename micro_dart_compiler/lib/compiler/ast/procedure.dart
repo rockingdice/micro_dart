@@ -52,37 +52,29 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
 
     //这是一个内部方法
     if (isAsync) {
-      op = OpCallDynamicAsync.make(
-          name,
-          true,
-          false,
-          false,
-          isAsync,
-          true,
-          arguments.positional.length,
-          arguments.named.map((e) => e.name).toList());
+      op = OpCallDynamicAsync.make(name, true, false, false, isAsync, true);
     } else {
-      op = OpCallDynamic.make(
-          name,
-          true,
-          false,
-          false,
-          isAsync,
-          true,
-          arguments.positional.length,
-          arguments.named.map((e) => e.name).toList());
+      op = OpCallDynamic.make(name, true, false, false, isAsync, true);
     }
   } else {
+    bool isStatic = procedure.isStatic;
+    int posationalLength = arguments.positional.length;
+    bool hasReturn = true;
+    if (procedure.function.returnType is VoidType) {
+      hasReturn = false;
+    }
+
     op = OpCallExternal.make(
       className: procedure.stringClassName ?? "",
       key: name,
       isGetter: procedure.isGetter,
       isSetter: procedure.isSetter,
-      isStatic: procedure.isStatic,
+      isStatic: isStatic,
+      hasReturn: hasReturn,
       libraryUri: procedure.stringLibraryUri,
       name: procedure.name.text,
       kind: DeferredOrOffsetKind.Procedure.index,
-      posationalLength: arguments.positional.length,
+      posationalLength: posationalLength,
       namedList: arguments.named.map((e) => e.name).toList(),
     );
   }
@@ -105,13 +97,6 @@ int compileCallLocalFunction(
   //将参数压入当前作用域
   compileArguments(context, arguments, isStatic);
 
-  return context.pushOp(OpCallDynamic.make(
-      key,
-      isStatic,
-      isGetter,
-      isSetter,
-      isAsync,
-      true,
-      arguments.positional.length,
-      arguments.named.map((e) => e.name).toList()));
+  return context.pushOp(
+      OpCallDynamic.make(key, isStatic, isGetter, isSetter, isAsync, true));
 }

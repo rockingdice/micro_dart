@@ -140,6 +140,30 @@ void main() {
       expect(returnValue, 17);
     });
 
+    test(':test function anonymous3', () async {
+      String fileName = "test_function_anonymous3.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUriRegExp, options, sources);
+      if (astToJsonFlag) {
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
+      }
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
+      if (printOp) {
+        engine.debug = true;
+        engine.printOpcodes();
+      }
+
+      var returnValue =
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
+
+      expect(returnValue, 2);
+    });
+
     test(':test function anonymous inline', () async {
       String fileName = "test_function_anonymous_inline.dart";
       var file = File("$testCasePath$fileName");
@@ -259,27 +283,29 @@ void main() {
 
       expect(returnValue, 42);
     });
-  });
 
-  test(':test Abstract Super Property Get2', () async {
-    String fileName = "super_property_get2.dart";
-    var file = File("$testCasePath$fileName");
-    var sources = <String, String>{'main.dart': file.readAsStringSync()};
-    var program = await compileSource(pluginUriRegExp, options, sources);
-    if (astToJsonFlag) {
-      astToJson("$testCasePath/$fileName", pluginUriRegExp, program.component);
-      writeComponentToText(program.component!,
-          path: "$testCasePath$fileName.txt");
-    }
-    var engine = createMicroDartEngine(program.write().buffer.asByteData());
+    test(':test Abstract Super Property Get2', () async {
+      String fileName = "super_property_get2.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUriRegExp, options, sources);
+      if (astToJsonFlag) {
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
+      }
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
 
-    if (printOp) {
-      engine.debug = true;
-      engine.printOpcodes();
-    }
+      if (printOp) {
+        engine.debug = true;
+        engine.printOpcodes();
+      }
 
-    var returnValue = engine.callStaticFunction<int>(pluginUri, "main", [], {});
+      var returnValue =
+          engine.callStaticFunction<int>(pluginUri, "main", [], {});
 
-    expect(returnValue, 41);
+      expect(returnValue, 41);
+    });
   });
 }

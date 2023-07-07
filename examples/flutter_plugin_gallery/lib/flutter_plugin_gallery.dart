@@ -44,7 +44,7 @@ class GalleryApp extends StatelessWidget {
       child: Builder(
         builder: (context) {
           final options = GalleryOptions.of(context);
-          final hasHinge = MediaQuery.of(context).hinge?.bounds != null;
+          final hasHinge = MediaQuery.of(context).hinge != null;
           return MaterialApp(
             restorationScopeId: 'rootGallery',
             title: 'Flutter Gallery',

@@ -27,7 +27,8 @@ class OpPushPointer implements Op {
   @override
   void run(Scope scope) {
     if (_isStatic) {
-      scope.pushFrame(FunctionPointer(null, _isStatic, _isAsync, _value));
+      var target = scope.getParam("#this");
+      scope.pushFrame(FunctionPointer(target, _isStatic, _isAsync, _value));
     } else {
       var target = scope.popFrame();
       scope.pushFrame(FunctionPointer(target, _isStatic, _isAsync, _value));
@@ -35,5 +36,5 @@ class OpPushPointer implements Op {
   }
 
   @override
-  String toString() => 'PushPointer($_value,$_isStatic)';
+  String toString() => 'OpPushPointer($_value,$_isStatic)';
 }

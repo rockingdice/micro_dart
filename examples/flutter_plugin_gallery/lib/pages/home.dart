@@ -901,7 +901,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
               ),
               scrollDirection: Axis.horizontal,
               primary: false,
-              physics: const _SnappingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               controller: _controller,
               itemExtent: _carouselItemWidth,
               itemCount: widget.children.length,
@@ -936,60 +936,6 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
       ),
     );
   }
-}
-
-/// Scrolling physics that snaps to the new item in the [_DesktopCarousel].
-class _SnappingScrollPhysics extends ScrollPhysics {
-  const _SnappingScrollPhysics({super.parent});
-
-  @override
-  _SnappingScrollPhysics applyTo(ScrollPhysics? ancestor) {
-    return _SnappingScrollPhysics(parent: buildParent(ancestor));
-  }
-
-  double _getTargetPixels(
-    ScrollMetrics position,
-    Tolerance tolerance,
-    double velocity,
-  ) {
-    final itemWidth = position.viewportDimension / 4;
-    var item = position.pixels / itemWidth;
-    if (velocity < -tolerance.velocity) {
-      item -= 0.5;
-    } else if (velocity > tolerance.velocity) {
-      item += 0.5;
-    }
-    return math.min(
-      item.roundToDouble() * itemWidth,
-      position.maxScrollExtent,
-    );
-  }
-
-  @override
-  Simulation? createBallisticSimulation(
-    ScrollMetrics position,
-    double velocity,
-  ) {
-    if ((velocity <= 0.0 && position.pixels <= position.minScrollExtent) ||
-        (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
-      return super.createBallisticSimulation(position, velocity);
-    }
-    final tolerance = toleranceFor(position);
-    final target = _getTargetPixels(position, tolerance, velocity);
-    if (target != position.pixels) {
-      return ScrollSpringSimulation(
-        spring,
-        position.pixels,
-        target,
-        velocity,
-        tolerance: tolerance,
-      );
-    }
-    return null;
-  }
-
-  @override
-  bool get allowImplicitScrolling => true;
 }
 
 class _DesktopPageButton extends StatelessWidget {

@@ -17,7 +17,7 @@ void main() async {
       path: "${testCasePath}flutter_plugin_gallery.txt");
   var program = await compilePlugin(
       mainSource, [], RegExp(r"package:flutter_plugin_gallery/+"), options,
-      debug: true);
+      debug: false);
   if (astToJsonFlag) {
     astToJson("${testCasePath}flutter_example",
         RegExp(r"package:flutter_plugin_gallery/+"), program.component);
@@ -27,21 +27,8 @@ void main() async {
   var bytes = program.write().buffer.asByteData();
   File("${flutterExampleGalleryPath}assets/micro_dart.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
-  print("11690: ${program.ops[11690]}");
-  print("11691: ${program.ops[11691]}");
-  print("11692: ${program.ops[11692]}");
-  print("11693: ${program.ops[11693]}");
-  print("11694: ${program.ops[11694]}");
-  print("11695: ${program.ops[11695]}");
-  print("11696: ${program.ops[11696]}");
-  print("11697: ${program.ops[11697]}");
 
   var engine = createMicroDartEngine(ByteData.sublistView(
       await File("${flutterExampleGalleryPath}assets/micro_dart.data")
           .readAsBytes()));
-
-  if (printOp) {
-    engine.debug = true;
-    engine.printOpcodes();
-  }
 }

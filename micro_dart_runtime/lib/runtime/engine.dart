@@ -239,9 +239,15 @@ class MicroDartEngine {
   }
 
   dynamic callFunction(Instance instance, String key, List posational,
-      Map<String, dynamic> named) {
+      Map<String, dynamic> named, dynamic Function()? alse) {
     //获取当前操作数指针
-    int pointer = declarations[key]!;
+    var pointer = declarations[key];
+    if (pointer == null) {
+      if (alse != null) {
+        return alse();
+      }
+      return null;
+    }
     var scope = Scope(this, "_external_call_", true, false);
     List<dynamic> args = [instance];
     //设置初始参数
@@ -365,6 +371,9 @@ class MicroDartEngine {
     });
     args.add(named.length);
     newScope.setScopeParam("#args", args);
+    if (!functionPointer.isStatic) {
+      newScope.setScopeParam("#this", functionPointer.target);
+    }
     await newScope.callAsync(functionPointer.offset);
     if (newScope.hasReturn) {
       return scope.returnValue;
@@ -374,8 +383,12 @@ class MicroDartEngine {
 
   dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
       List<dynamic> posational, Map<String, dynamic> named) {
-    var newScope =
-        scope.createFromParent("_anonymous_", true, false, maxScopeDeep);
+    if (scope.released) {
+      print(scope.dump());
+    }
+
+    var newScope = scope.createFromParent(
+        "_callFunctionPointer_", true, false, maxScopeDeep);
 
     List<dynamic> args = [];
     if (!functionPointer.isStatic) {
@@ -392,6 +405,9 @@ class MicroDartEngine {
     });
     args.add(named.length);
     newScope.setScopeParam("#args", args);
+    if (functionPointer.target != null) {
+      newScope.setScopeParam("#this", functionPointer.target);
+    }
 
     newScope.call(functionPointer.offset);
     if (newScope.hasReturn) {

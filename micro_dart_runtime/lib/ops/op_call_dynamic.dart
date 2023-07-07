@@ -3,17 +3,9 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 class OpCallDynamicAsync extends OpCallDynamic {
   OpCallDynamicAsync(MicroDartEngine engine) : super(engine);
 
-  OpCallDynamicAsync.make(
-    String name,
-    bool isStatic,
-    bool isGetter,
-    bool isSetter,
-    bool isAsync,
-    bool hasArgs,
-    int posationalLength,
-    List<String> namedList,
-  ) : super.make(name, isStatic, isGetter, isSetter, isAsync, hasArgs,
-            posationalLength, namedList);
+  OpCallDynamicAsync.make(String name, bool isStatic, bool isGetter,
+      bool isSetter, bool isAsync, bool hasArgs)
+      : super.make(name, isStatic, isGetter, isSetter, isAsync, hasArgs);
 
   @override
   List<int> get bytes => [
@@ -23,9 +15,7 @@ class OpCallDynamicAsync extends OpCallDynamic {
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
-        ...Ops.i8b(_hasArgs ? 1 : 0),
-        ...Ops.i32b(_posationalLength),
-        ...Ops.strlist(_namedList)
+        ...Ops.i8b(_hasArgs ? 1 : 0)
       ];
 
   @override
@@ -43,7 +33,7 @@ class OpCallDynamicAsync extends OpCallDynamic {
 
   @override
   String toString() =>
-      'OpCallDynamicAsync($_name,$_isStatic,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'OpCallDynamicAsync($_name,$_isStatic,$_isGetter,$_isSetter)';
 }
 
 ///调用外部方法
@@ -54,13 +44,9 @@ class OpCallDynamic implements Op {
         _isGetter = interpreter.readUint8() == 1 ? true : false,
         _isSetter = interpreter.readUint8() == 1 ? true : false,
         _isAsync = interpreter.readUint8() == 1 ? true : false,
-        _hasArgs = interpreter.readUint8() == 1 ? true : false,
-        _posationalLength = interpreter.readInt32(),
-        _namedList = interpreter.readStringList();
+        _hasArgs = interpreter.readUint8() == 1 ? true : false;
 
   final String _name;
-  final int _posationalLength;
-  final List<String> _namedList;
   final bool _isGetter;
   final bool _isSetter;
   final bool _isStatic;
@@ -74,17 +60,10 @@ class OpCallDynamic implements Op {
     this._isSetter,
     this._isAsync,
     this._hasArgs,
-    this._posationalLength,
-    this._namedList,
   );
 
   @override
-  int get opLen =>
-      Ops.lenBegin +
-      Ops.lenStr(_name) +
-      Ops.lenI8 * 5 +
-      Ops.lenI32 +
-      Ops.lenStrlist(_namedList);
+  int get opLen => Ops.lenBegin + Ops.lenStr(_name) + Ops.lenI8 * 5;
 
   @override
   List<int> get bytes => [
@@ -94,9 +73,7 @@ class OpCallDynamic implements Op {
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
-        ...Ops.i8b(_hasArgs ? 1 : 0),
-        ...Ops.i32b(_posationalLength),
-        ...Ops.strlist(_namedList)
+        ...Ops.i8b(_hasArgs ? 1 : 0)
       ];
 
   @override
@@ -123,6 +100,5 @@ class OpCallDynamic implements Op {
   }
 
   @override
-  String toString() =>
-      'CallDynamic($_name,$_isStatic,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+  String toString() => 'CallDynamic($_name,$_isStatic,$_isGetter,$_isSetter)';
 }

@@ -126,6 +126,26 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'package:flutter/src/rendering/flex.dart@RenderFlex@debugFillProperties':
         (m.Scope scope, RenderFlex target) => target.debugFillProperties,
     'package:flutter/src/rendering/flex.dart@MainAxisAlignment@center':
-        (m.Scope scope) => MainAxisAlignment.center
+        (m.Scope scope) => MainAxisAlignment.center,
+    'package:flutter/src/rendering/flex.dart@MainAxisAlignment@start':
+        (m.Scope scope) => MainAxisAlignment.start,
+    'package:flutter/src/rendering/flex.dart@MainAxisAlignment@end':
+        (m.Scope scope) => MainAxisAlignment.end,
+    'package:flutter/src/rendering/flex.dart@MainAxisAlignment@spaceAround':
+        (m.Scope scope) => MainAxisAlignment.spaceAround,
+    'package:flutter/src/rendering/flex.dart@MainAxisAlignment@spaceBetween':
+        (m.Scope scope) => MainAxisAlignment.spaceBetween,
+    'package:flutter/src/rendering/flex.dart@MainAxisAlignment@spaceEvenly':
+        (m.Scope scope) => MainAxisAlignment.spaceEvenly,
+    'package:flutter/src/rendering/flex.dart@CrossAxisAlignment@start':
+        (m.Scope scope) => CrossAxisAlignment.start,
+    'package:flutter/src/rendering/flex.dart@CrossAxisAlignment@stretch':
+        (m.Scope scope) => CrossAxisAlignment.stretch,
+    'package:flutter/src/rendering/flex.dart@MainAxisSize@min':
+        (m.Scope scope) => MainAxisSize.min,
+    'package:flutter/src/rendering/flex.dart@MainAxisSize@max':
+        (m.Scope scope) => MainAxisSize.max,
+    'package:flutter/src/rendering/flex.dart@MainAxisSize@values':
+        (m.Scope scope) => MainAxisSize.values,
   };
 }

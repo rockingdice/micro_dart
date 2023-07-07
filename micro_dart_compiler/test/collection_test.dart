@@ -48,4 +48,25 @@ void main() {
       expect(returnValue, "01234");
     });
   });
+
+  test(':list concat test', () async {
+    String fileName = "test_list_concat.dart";
+    var file = File("$testCasePath$fileName");
+    var sources = <String, String>{'main.dart': file.readAsStringSync()};
+    var program = await compileSource(pluginUriRegExp, options, sources);
+    if (astToJsonFlag) {
+      astToJson("$testCasePath$fileName", pluginUriRegExp, program.component);
+      writeComponentToText(program.component!,
+          path: "$testCasePath$fileName.txt");
+    }
+    var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
+    if (printOp) {
+      engine.debug = true;
+      engine.printOpcodes();
+    }
+
+    var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+    expect(returnValue, "0123");
+  });
 }

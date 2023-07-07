@@ -15,7 +15,9 @@ class OpGetParam implements Op {
 
   @override
   void run(Scope scope) {
-    scope.pushFrame(scope.getParam(name));
+    var o = scope.getParam(name);
+
+    scope.pushFrame(o);
   }
 
   @override

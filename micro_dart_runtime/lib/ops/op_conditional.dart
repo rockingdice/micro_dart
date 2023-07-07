@@ -21,5 +21,5 @@ class OpConditional implements Op {
   }
 
   @override
-  String toString() => 'Conditional()';
+  String toString() => 'OpConditional()';
 }

@@ -1673,6 +1673,9 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
     'dart:core@_Enum@': (m.Scope scope) => (index, name) {
           return $_Enum(index, name);
         },
+    'dart:core@@EnumName|get#name': (m.Scope scope) => ($_Enum target) {
+          return target.name;
+        },
   };
 }
 
@@ -1681,6 +1684,9 @@ class $Object extends Object with InstanceBridge {
 
   @override
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "Object", true);
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $Deprecated extends Deprecated with InstanceBridge {
@@ -1689,6 +1695,9 @@ class $Deprecated extends Deprecated with InstanceBridge {
   @override
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "Deprecated", true,
       superTypeKey: "dart:core@Object");
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $_Enum with InstanceBridge {
@@ -1700,4 +1709,7 @@ class $_Enum with InstanceBridge {
       superTypeKey: "dart:core@Object");
 
   $_Enum(this.index, this.name);
+
+  @override
+  late Map<String, Function> superGetters = {};
 }

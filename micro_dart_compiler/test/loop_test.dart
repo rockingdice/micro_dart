@@ -115,6 +115,27 @@ void main() {
       expect(returnValue, 9);
     });
 
+    test(':test for if', () async {
+      String fileName = "test_for_if.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUriRegExp, options, sources);
+      if (astToJsonFlag) {
+        astToJson(
+            "$testCasePath/$fileName", pluginUriRegExp, program.component);
+      }
+      var engine = createMicroDartEngine(program.write().buffer.asByteData());
+
+      if (printOp) {
+        engine.debug = true;
+        engine.printOpcodes();
+      }
+
+      var returnValue =
+          await engine.callStaticFunction(pluginUri, "main", [], {});
+      expect(returnValue, 5);
+    });
+
     test(':test if else', () async {
       String fileName = "test_if_else.dart";
       var file = File("$testCasePath$fileName");

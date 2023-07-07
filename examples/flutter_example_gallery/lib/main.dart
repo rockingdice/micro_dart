@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+//import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
 import 'package:micro_dart_flutter/generated/micro_dart.dart' as mdf;
 import 'generated/micro_dart.dart' as g;
 
@@ -14,7 +15,7 @@ void main() async {
   var d3 = DateTime.now();
   debugPrint("start addMicroDartLibrary... ${d3.difference(d2).inSeconds}");
   g.addMicroDartLibrary(engine);
-  engine.debug = true;
+  engine.debug = false;
   var d4 = DateTime.now();
   debugPrint("start callStaticFunction... ${d4.difference(d3).inSeconds}");
   runApp(engine.callStaticFunction(

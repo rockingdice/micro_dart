@@ -90,22 +90,15 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   compileArguments(context, arguments, true);
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = OpCallDynamic.make(
-        name,
-        true,
-        false,
-        false,
-        false,
-        true,
-        arguments.positional.length,
-        arguments.named.map((e) => e.name).toList());
+    op = OpCallDynamic.make(name, true, false, false, false, true);
   } else {
     op = OpCallExternal.make(
       className: constructor.stringClassName ?? "",
       key: name,
       isGetter: false,
       isSetter: false,
-      isStatic: constructor.isStatic,
+      isStatic: true,
+      hasReturn: true,
       libraryUri: constructor.stringLibraryUri,
       name: constructor.name.text,
       kind: DeferredOrOffsetKind.Constructor.index,

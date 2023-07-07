@@ -7,6 +7,7 @@ class OpCallExternal implements Op {
         isStatic = interpreter.readUint8() == 1 ? true : false,
         isGetter = interpreter.readUint8() == 1 ? true : false,
         isSetter = interpreter.readUint8() == 1 ? true : false,
+        hasReturn = interpreter.readUint8() == 1 ? true : false,
         key = interpreter.readString(),
         libraryUri = interpreter.readString(),
         className = interpreter.readString(),
@@ -17,6 +18,7 @@ class OpCallExternal implements Op {
   final bool isStatic;
   final bool isGetter;
   final bool isSetter;
+  final bool hasReturn;
 
   final String key;
   final String libraryUri;
@@ -33,6 +35,7 @@ class OpCallExternal implements Op {
     required this.isStatic,
     required this.isGetter,
     required this.isSetter,
+    required this.hasReturn,
     required this.className,
     required this.name,
     required this.posationalLength,
@@ -42,7 +45,7 @@ class OpCallExternal implements Op {
   @override
   int get opLen =>
       Ops.lenBegin +
-      Ops.lenI8 * 4 +
+      Ops.lenI8 * 5 +
       Ops.lenStr(key) +
       Ops.lenStr(libraryUri) +
       Ops.lenStr(className) +
@@ -57,6 +60,7 @@ class OpCallExternal implements Op {
         ...Ops.i8b(isStatic ? 1 : 0),
         ...Ops.i8b(isGetter ? 1 : 0),
         ...Ops.i8b(isSetter ? 1 : 0),
+        ...Ops.i8b(hasReturn ? 1 : 0),
         ...Ops.str(key),
         ...Ops.str(libraryUri),
         ...Ops.str(className),
@@ -109,13 +113,22 @@ class OpCallExternal implements Op {
         Function.apply(function(scope), positionalArguments);
         return;
       }
-      scope.pushFrame(Function.apply(
+      final instance = Function.apply(
           function(scope),
           positionalArguments,
           namedArguments.map<Symbol, dynamic>(
-              (key, value) => MapEntry(Symbol(key), value))));
+              (key, value) => MapEntry(Symbol(key), value)));
+      if (hasReturn) {
+        scope.pushFrame(instance);
+      }
     } else {
       dynamic target = args.removeLast();
+
+      if (target is InstanceBridge) {
+        if (target.superGetters[name] != null) {
+          function = target.superGetters[name]!;
+        }
+      }
 
       if (isGetter) {
         scope.pushFrame(function(scope, target));
@@ -129,11 +142,14 @@ class OpCallExternal implements Op {
                 (key, value) => MapEntry(Symbol(key), value)));
         return;
       }
-      scope.pushFrame(Function.apply(
+      final instance = Function.apply(
           function(scope, target),
           positionalArguments,
           namedArguments.map<Symbol, dynamic>(
-              (key, value) => MapEntry(Symbol(key), value))));
+              (key, value) => MapEntry(Symbol(key), value)));
+      if (hasReturn) {
+        scope.pushFrame(instance);
+      }
     }
   }
 

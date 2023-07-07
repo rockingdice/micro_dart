@@ -258,6 +258,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
       isGetter: true,
       isSetter: false,
       isStatic: false,
+      hasReturn: true,
       libraryUri: "dart:core",
       name: "iterator",
       kind: DeferredOrOffsetKind.Procedure.index,
@@ -277,6 +278,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
       isGetter: false,
       isSetter: false,
       isStatic: false,
+      hasReturn: true,
       libraryUri: "dart:core",
       name: "moveNext",
       kind: DeferredOrOffsetKind.Procedure.index,
@@ -294,6 +296,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
       isGetter: true,
       isSetter: false,
       isStatic: false,
+      hasReturn: true,
       libraryUri: "dart:core",
       name: "current",
       kind: DeferredOrOffsetKind.Procedure.index,
@@ -426,5 +429,8 @@ void compileReturnStatement(
   if (node.expression != null) {
     compileExpression(context, node.expression!);
     context.pushOp(OpReturn.make());
+    context.callEnd();
+  } else {
+    context.callEnd();
   }
 }

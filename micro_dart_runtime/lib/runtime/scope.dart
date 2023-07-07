@@ -141,7 +141,7 @@ class Scope {
 
   void _clean() {
     frames.clear();
-    params.clear();
+    //params.clear();
     parent = null;
     released = true;
   }
@@ -168,6 +168,9 @@ class Scope {
     } on ProgramExit catch (_) {
       tryRelease();
     } catch (exception, _) {
+      print(
+          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${toString()}");
+      print("----------------");
       rethrow;
     }
   }
@@ -188,6 +191,9 @@ class Scope {
     } on ProgramExit catch (_) {
       tryRelease();
     } catch (exception, _) {
+      print(
+          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${toString()}");
+      print("----------------");
       rethrow;
     }
   }
@@ -195,5 +201,9 @@ class Scope {
   @override
   String toString() {
     return "Scope($name,$params,$frames)";
+  }
+
+  String dump() {
+    return "Scope(released:$released,name:$name,params:$params,frames:$frames,parent:${parent?.dump()})";
   }
 }

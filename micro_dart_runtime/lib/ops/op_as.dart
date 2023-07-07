@@ -25,5 +25,5 @@ class OpAs implements Op {
   }
 
   @override
-  String toString() => 'Is($type)';
+  String toString() => 'OpAs($type)';
 }

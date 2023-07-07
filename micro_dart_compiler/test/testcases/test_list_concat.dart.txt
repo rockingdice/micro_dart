@@ -1,0 +1,21 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  static method main() → dart.core::String {
+    dart.core::bool isOk1 = main::isOk();
+    dart.core::bool isOK2 = isOk1 ?{dart.core::bool} false : true;
+    final dart.core::List<dart.core::int> a = block {
+      final dart.core::List<dart.core::int> #t1 = <dart.core::int>[];
+      if(isOk1)
+        #t1.{dart.core::List::addAll}{Invariant}(<dart.core::int>[0, 1, 2, 3]){(dart.core::Iterable<dart.core::int>) → void};
+      if(isOK2)
+        #t1.{dart.core::List::addAll}{Invariant}(<dart.core::int>[3, 2, 1, 0]){(dart.core::Iterable<dart.core::int>) → void};
+    } =>#t1;
+    dart.core::String b = a.{dart.core::Iterable::join}(){([dart.core::String]) → dart.core::String};
+    dart.core::print(b);
+    return b;
+  }
+  static method isOk() → dart.core::bool {
+    return true;
+  }
+}

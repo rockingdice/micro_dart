@@ -1176,6 +1176,10 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
       "libraryName": library?.name,
       "className": clazz?.name,
       "name": node.name.accept(this),
+      "isExtensionMember": node.isExtensionMember,
+      "isStatic": node.isStatic,
+      "isGetter": node.isGetter,
+      "isSetter": node.isSetter,
       "positionalParameters": node.function.positionalParameters
           .map((e) => e.accept(this))
           .toList(),

@@ -188,7 +188,9 @@ int compileSuperPropertySet(
 }
 
 int compileBlockExpression(MicroCompilerContext context, BlockExpression node) {
-  compileBlock(context, node.body);
+  node.body.statements.forEach((element) {
+    compileStatement(context, element);
+  });
   return compileExpression(context, node.value);
 }
 
@@ -212,9 +214,11 @@ int compileStaticTearOff(MicroCompilerContext context, StaticTearOff node) {
   String key = node.target.getNamedName();
   int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
   bool isAsync = (node.target.function.asyncMarker == AsyncMarker.Async);
-  int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
+  int pos = context
+      .pushOp(OpPushPointer.make(opOffset, node.target.isStatic, isAsync));
   if (opOffset == -1) {
-    context.offsetTracker.setCallPointerOffset(pos, key, true, isAsync);
+    context.offsetTracker
+        .setCallPointerOffset(pos, key, node.target.isStatic, isAsync);
   }
   return pos;
 }
@@ -314,11 +318,18 @@ int compileListConcatenation(
 
 int compileConditionalExpression(
     MicroCompilerContext context, ConditionalExpression node) {
-  compileExpression(context, node.otherwise);
-  compileExpression(context, node.then);
-  compileExpression(context, node.condition);
+  //compileExpression(context, node.otherwise);
+  //compileExpression(context, node.then);
+  //compileExpression(context, node.condition);
+  //return context.pushOp(OpConditional.make());
 
-  return context.pushOp(OpConditional.make());
+  compileExpression(context, node.condition);
+  int rewritePos = context.pushOp(OpJumpIfFalse.make(context.ops.length));
+  compileExpression(context, node.then);
+  int rewritePos2 = context.pushOp(OpJump.make(context.ops.length));
+  context.rewriteOp(OpJumpIfFalse.make(context.ops.length), rewritePos);
+  compileExpression(context, node.otherwise);
+  return context.rewriteOp(OpJump.make(context.ops.length), rewritePos2);
 }
 
 int compileLogicalExpression(
@@ -356,6 +367,7 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
           isGetter: false,
           isSetter: false,
           isStatic: false,
+          hasReturn: true,
           libraryUri: type.classNode.stringLibraryUri,
           name: "#is",
           kind: DeferredOrOffsetKind.Procedure.index,
@@ -425,8 +437,8 @@ int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
   compileExpression(context, node.receiver);
   compileExpression(context, node.value);
 
-  int pos = context.pushOp(OpCallDynamic.make(
-      node.name.text, false, false, true, false, true, 1, []));
+  int pos = context.pushOp(
+      OpCallDynamic.make(node.name.text, false, false, true, false, true));
 
   return pos;
 }
@@ -434,8 +446,8 @@ int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
 int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
   compileExpression(context, node.receiver);
 
-  int pos = context.pushOp(OpCallDynamic.make(
-      node.name.text, false, true, false, false, true, 0, []));
+  int pos = context.pushOp(
+      OpCallDynamic.make(node.name.text, false, true, false, false, true));
 
   return pos;
 }
@@ -451,9 +463,7 @@ int compileDynamicInvocation(
       false,
       false,
       false, //is async
-      true,
-      node.arguments.positional.length,
-      node.arguments.named.map((e) => e.name).toList()));
+      true));
 
   return pos;
 }
@@ -462,7 +472,7 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
   int pos = compileExpression(context, node.operand);
   final type = node.type;
   if (type is InterfaceType) {
-    if (!context.compileDeclarations.contains(type.classNode)) {
+    if (context.compileDeclarations.contains(type.classNode)) {
       context.pushOp(OpAs.make(type.classNode.getNamedName()));
     } else {
       //这里表示它是一个外部类
@@ -475,6 +485,7 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
           isGetter: false,
           isSetter: false,
           isStatic: false,
+          hasReturn: true,
           libraryUri: type.classNode.stringLibraryUri,
           name: "#as",
           kind: DeferredOrOffsetKind.Procedure.index,
@@ -539,9 +550,11 @@ int compileLocalFunctionInvocation(
 int compileFunctionExpression(
     MicroCompilerContext context, FunctionExpression node) {
   int jumpOver = context.pushOp(OpJump.make(-1));
+
   int pos = compileFunction(
       context, node.function, "_FunctionExpression_", false, true);
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
+
   return context.pushOp(OpPushPointer.make(
       pos, true, node.function.asyncMarker == AsyncMarker.Async));
 }

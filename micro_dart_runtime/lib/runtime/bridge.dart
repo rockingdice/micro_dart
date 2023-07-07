@@ -10,6 +10,8 @@ mixin InstanceBridge implements Instance {
   @override
   late TypeRef type = bridgeType;
 
+  Map<String, Function> get superGetters;
+
   @override
   dynamic getParam(Scope scope, String name) {
     if ($child != null && type.hasParam(name, scope.engine)) {

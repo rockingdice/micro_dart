@@ -1681,6 +1681,9 @@ class $Object extends Object with InstanceBridge {
 
   @override
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "Object", true);
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $Deprecated extends Deprecated with InstanceBridge {
@@ -1689,6 +1692,9 @@ class $Deprecated extends Deprecated with InstanceBridge {
   @override
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "Deprecated", true,
       superTypeKey: "dart:core@Object");
+
+  @override
+  late Map<String, Function> superGetters = {};
 }
 
 class $_Enum with InstanceBridge {
@@ -1699,4 +1705,7 @@ class $_Enum with InstanceBridge {
   final m.TypeRef bridgeType = const m.TypeRef("dart:core", "_Enum", true,
       superTypeKey: "dart:core@Object");
   $_Enum(this.index, this.name);
+
+  @override
+  late Map<String, Function> superGetters = {};
 }

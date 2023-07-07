@@ -16,7 +16,7 @@ class OpPushList implements Op {
   // Set value at position to constant
   @override
   void run(Scope scope) {
-    final List<dynamic> list = List.filled(_length, null);
+    final List<dynamic> list = List.filled(_length, null, growable: true);
     for (int i = 0; i < _length; i++) {
       list[i] = scope.popFrame();
     }
