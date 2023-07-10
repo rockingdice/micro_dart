@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'AutofillGroup': m.ClassMirror(
       'AutofillGroup',
       {
+        '#as': AutofillGroup_as$,
+        '#is': AutofillGroup_is$,
         'child': _AutofillGroup_child$,
         'onDisposeAction': _AutofillGroup_onDisposeAction$,
         'createState': _AutofillGroup_createState$,
@@ -29,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'AutofillGroupState': m.ClassMirror(
       'AutofillGroupState',
       {
+        '#as': AutofillGroupState_as$,
+        '#is': AutofillGroupState_is$,
         'autofillClients': _AutofillGroupState_autofillClients$,
         'getAutofillClient': _AutofillGroupState_getAutofillClient$,
         'register': _AutofillGroupState_register$,
@@ -46,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AutofillGroup_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillGroup;
+Function AutofillGroup_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillGroup;
 Widget _AutofillGroup_child$(AutofillGroup target) {
   return target.child;
 }
@@ -61,6 +75,16 @@ Function _AutofillGroup_createState$(
   AutofillGroup target,
 ) =>
     target.createState;
+Function AutofillGroupState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillGroupState;
+Function AutofillGroupState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillGroupState;
 Iterable<AutofillClient> _AutofillGroupState_autofillClients$(
     AutofillGroupState target) {
   return target.autofillClients;

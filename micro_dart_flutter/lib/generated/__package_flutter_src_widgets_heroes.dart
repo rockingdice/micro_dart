@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'Hero': m.ClassMirror(
       'Hero',
       {
+        '#as': Hero_as$,
+        '#is': Hero_is$,
         'tag': _Hero_tag$,
         'createRectTween': _Hero_createRectTween$,
         'child': _Hero_child$,
@@ -42,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'HeroController': m.ClassMirror(
       'HeroController',
       {
+        '#as': HeroController_as$,
+        '#is': HeroController_is$,
         'createRectTween': _HeroController_createRectTween$,
         'didPush': _HeroController_didPush$,
         'didPop': _HeroController_didPop$,
@@ -54,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'HeroMode': m.ClassMirror(
       'HeroMode',
       {
+        '#as': HeroMode_as$,
+        '#is': HeroMode_is$,
         'child': _HeroMode_child$,
         'enabled': _HeroMode_enabled$,
         'build': _HeroMode_build$,
@@ -68,6 +74,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Hero_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Hero;
+Function Hero_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Hero;
 Object _Hero_tag$(Hero target) {
   return target.tag;
 }
@@ -104,6 +120,16 @@ Function _Hero_debugFillProperties$(
   Hero target,
 ) =>
     target.debugFillProperties;
+Function HeroController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HeroController;
+Function HeroController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HeroController;
 Tween<Rect?> Function(Rect?, Rect?)? _HeroController_createRectTween$(
     HeroController target) {
   return target.createRectTween;
@@ -134,6 +160,16 @@ Function _HeroController_didStopUserGesture$(
   HeroController target,
 ) =>
     target.didStopUserGesture;
+Function HeroMode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HeroMode;
+Function HeroMode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HeroMode;
 Widget _HeroMode_child$(HeroMode target) {
   return target.child;
 }

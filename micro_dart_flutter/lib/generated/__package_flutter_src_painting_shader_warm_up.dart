@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'ShaderWarmUp': m.ClassMirror(
       'ShaderWarmUp',
       {
+        '#as': ShaderWarmUp_as$,
+        '#is': ShaderWarmUp_is$,
         'size': _ShaderWarmUp_size$,
         'warmUpOnCanvas': _ShaderWarmUp_warmUpOnCanvas$,
         'execute': _ShaderWarmUp_execute$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ShaderWarmUp_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShaderWarmUp;
+Function ShaderWarmUp_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShaderWarmUp;
 Size _ShaderWarmUp_size$(ShaderWarmUp target) {
   return target.size;
 }

@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSpellCheckSuggestionsToolbar': m.ClassMirror(
       'CupertinoSpellCheckSuggestionsToolbar',
       {
+        '#as': CupertinoSpellCheckSuggestionsToolbar_as$,
+        '#is': CupertinoSpellCheckSuggestionsToolbar_is$,
         'anchors': _CupertinoSpellCheckSuggestionsToolbar_anchors$,
         'buttonItems': _CupertinoSpellCheckSuggestionsToolbar_buttonItems$,
         'build': _CupertinoSpellCheckSuggestionsToolbar_build$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoSpellCheckSuggestionsToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSpellCheckSuggestionsToolbar;
+Function CupertinoSpellCheckSuggestionsToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSpellCheckSuggestionsToolbar;
 TextSelectionToolbarAnchors _CupertinoSpellCheckSuggestionsToolbar_anchors$(
     CupertinoSpellCheckSuggestionsToolbar target) {
   return target.anchors;

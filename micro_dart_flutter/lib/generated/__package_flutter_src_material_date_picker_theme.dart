@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'DatePickerThemeData': m.ClassMirror(
       'DatePickerThemeData',
       {
+        '#as': DatePickerThemeData_as$,
+        '#is': DatePickerThemeData_is$,
         'backgroundColor': _DatePickerThemeData_backgroundColor$,
         'elevation': _DatePickerThemeData_elevation$,
         'shadowColor': _DatePickerThemeData_shadowColor$,
@@ -67,6 +69,7 @@ const libraryMirror = m.LibraryMirror(
             _DatePickerThemeData_rangeSelectionOverlayColor$,
         'hashCode': _DatePickerThemeData_hashCode$,
         'copyWith': _DatePickerThemeData_copyWith$,
+        '==': _DatePickerThemeData_eq$$,
         'debugFillProperties': _DatePickerThemeData_debugFillProperties$,
       },
       {},
@@ -74,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
     'DatePickerTheme': m.ClassMirror(
       'DatePickerTheme',
       {
+        '#as': DatePickerTheme_as$,
+        '#is': DatePickerTheme_is$,
         'data': _DatePickerTheme_data$,
         'wrap': _DatePickerTheme_wrap$,
         'updateShouldNotify': _DatePickerTheme_updateShouldNotify$,
@@ -82,6 +87,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DatePickerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DatePickerThemeData;
+Function DatePickerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DatePickerThemeData;
 Color? _DatePickerThemeData_backgroundColor$(DatePickerThemeData target) {
   return target.backgroundColor;
 }
@@ -239,11 +254,26 @@ Function _DatePickerThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _DatePickerThemeData_lerp$(m.Scope scope) => DatePickerThemeData.lerp;
+Function _DatePickerThemeData_eq$$(
+  m.Scope scope,
+  DatePickerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _DatePickerThemeData_debugFillProperties$(
   m.Scope scope,
   DatePickerThemeData target,
 ) =>
     target.debugFillProperties;
+Function DatePickerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DatePickerTheme;
+Function DatePickerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DatePickerTheme;
 DatePickerThemeData _DatePickerTheme_data$(DatePickerTheme target) {
   return target.data;
 }

@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpansionTileController': m.ClassMirror(
       'ExpansionTileController',
       {
+        '#as': ExpansionTileController_as$,
+        '#is': ExpansionTileController_is$,
         'isExpanded': _ExpansionTileController_isExpanded$,
         'expand': _ExpansionTileController_expand$,
         'collapse': _ExpansionTileController_collapse$,
@@ -33,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpansionTile': m.ClassMirror(
       'ExpansionTile',
       {
+        '#as': ExpansionTile_as$,
+        '#is': ExpansionTile_is$,
         'leading': _ExpansionTile_leading$,
         'title': _ExpansionTile_title$,
         'subtitle': _ExpansionTile_subtitle$,
@@ -63,6 +67,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ExpansionTileController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionTileController;
+Function ExpansionTileController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionTileController;
 bool _ExpansionTileController_isExpanded$(ExpansionTileController target) {
   return target.isExpanded;
 }
@@ -81,6 +95,16 @@ Function _ExpansionTileController_of$(m.Scope scope) =>
     ExpansionTileController.of;
 Function _ExpansionTileController_maybeOf$(m.Scope scope) =>
     ExpansionTileController.maybeOf;
+Function ExpansionTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionTile;
+Function ExpansionTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionTile;
 Widget? _ExpansionTile_leading$(ExpansionTile target) {
   return target.leading;
 }

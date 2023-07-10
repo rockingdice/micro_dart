@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureRecognizerFactory': m.ClassMirror(
       'GestureRecognizerFactory',
       {
+        '#as': GestureRecognizerFactory_as$,
+        '#is': GestureRecognizerFactory_is$,
         'constructor': _GestureRecognizerFactory_constructor$,
         'initializer': _GestureRecognizerFactory_initializer$,
       },
@@ -26,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureRecognizerFactoryWithHandlers': m.ClassMirror(
       'GestureRecognizerFactoryWithHandlers',
       {
+        '#as': GestureRecognizerFactoryWithHandlers_as$,
+        '#is': GestureRecognizerFactoryWithHandlers_is$,
         'constructor': _GestureRecognizerFactoryWithHandlers_constructor$,
         'initializer': _GestureRecognizerFactoryWithHandlers_initializer$,
       },
@@ -34,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureDetector': m.ClassMirror(
       'GestureDetector',
       {
+        '#as': GestureDetector_as$,
+        '#is': GestureDetector_is$,
         'child': _GestureDetector_child$,
         'onTapDown': _GestureDetector_onTapDown$,
         'onTapUp': _GestureDetector_onTapUp$,
@@ -113,6 +119,8 @@ const libraryMirror = m.LibraryMirror(
     'RawGestureDetector': m.ClassMirror(
       'RawGestureDetector',
       {
+        '#as': RawGestureDetector_as$,
+        '#is': RawGestureDetector_is$,
         'child': _RawGestureDetector_child$,
         'gestures': _RawGestureDetector_gestures$,
         'behavior': _RawGestureDetector_behavior$,
@@ -125,6 +133,8 @@ const libraryMirror = m.LibraryMirror(
     'RawGestureDetectorState': m.ClassMirror(
       'RawGestureDetectorState',
       {
+        '#as': RawGestureDetectorState_as$,
+        '#is': RawGestureDetectorState_is$,
         'initState': _RawGestureDetectorState_initState$,
         'didUpdateWidget': _RawGestureDetectorState_didUpdateWidget$,
         'replaceGestureRecognizers':
@@ -140,6 +150,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsGestureDelegate': m.ClassMirror(
       'SemanticsGestureDelegate',
       {
+        '#as': SemanticsGestureDelegate_as$,
+        '#is': SemanticsGestureDelegate_is$,
         'assignSemantics': _SemanticsGestureDelegate_assignSemantics$,
         'toString': _SemanticsGestureDelegate_toString$,
       },
@@ -147,6 +159,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function GestureRecognizerFactory_as$<T extends GestureRecognizer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureRecognizerFactory<T>;
+Function GestureRecognizerFactory_is$<T extends GestureRecognizer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureRecognizerFactory<T>;
 Function _GestureRecognizerFactory_constructor$<T extends GestureRecognizer>(
   m.Scope scope,
   GestureRecognizerFactory<T> target,
@@ -157,6 +179,16 @@ Function _GestureRecognizerFactory_initializer$<T extends GestureRecognizer>(
   GestureRecognizerFactory<T> target,
 ) =>
     target.initializer;
+Function GestureRecognizerFactoryWithHandlers_as$<T extends GestureRecognizer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureRecognizerFactoryWithHandlers<T>;
+Function GestureRecognizerFactoryWithHandlers_is$<T extends GestureRecognizer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureRecognizerFactoryWithHandlers<T>;
 Function _GestureRecognizerFactoryWithHandlers_constructor$<
         T extends GestureRecognizer>(
   m.Scope scope,
@@ -169,6 +201,16 @@ Function _GestureRecognizerFactoryWithHandlers_initializer$<
   GestureRecognizerFactoryWithHandlers<T> target,
 ) =>
     target.initializer;
+Function GestureDetector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureDetector;
+Function GestureDetector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureDetector;
 Widget? _GestureDetector_child$(GestureDetector target) {
   return target.child;
 }
@@ -481,6 +523,16 @@ Function _GestureDetector_debugFillProperties$(
   GestureDetector target,
 ) =>
     target.debugFillProperties;
+Function RawGestureDetector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawGestureDetector;
+Function RawGestureDetector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawGestureDetector;
 Widget? _RawGestureDetector_child$(RawGestureDetector target) {
   return target.child;
 }
@@ -508,6 +560,16 @@ Function _RawGestureDetector_createState$(
   RawGestureDetector target,
 ) =>
     target.createState;
+Function RawGestureDetectorState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawGestureDetectorState;
+Function RawGestureDetectorState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawGestureDetectorState;
 Function _RawGestureDetectorState_initState$(
   m.Scope scope,
   RawGestureDetectorState target,
@@ -543,6 +605,16 @@ Function _RawGestureDetectorState_debugFillProperties$(
   RawGestureDetectorState target,
 ) =>
     target.debugFillProperties;
+Function SemanticsGestureDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsGestureDelegate;
+Function SemanticsGestureDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsGestureDelegate;
 Function _SemanticsGestureDelegate_assignSemantics$(
   m.Scope scope,
   SemanticsGestureDelegate target,

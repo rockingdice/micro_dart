@@ -21,6 +21,10 @@ const libraryMirror = m.LibraryMirror(
         _RenderAbstractViewport_defaultCacheExtent$,
     'RenderAbstractViewport.maybeOf': _RenderAbstractViewport_maybeOf$,
     'RenderAbstractViewport.of': _RenderAbstractViewport_of$,
+    'RenderViewportBase.visitChildrenForSemantics':
+        _RenderViewportBase_visitChildrenForSemantics$,
+    'RenderViewportBase.layoutChildSequence':
+        _RenderViewportBase_layoutChildSequence$,
     'RenderViewportBase.showInViewport': _RenderViewportBase_showInViewport$,
     'RenderViewport.useTwoPaneSemantics': _RenderViewport_useTwoPaneSemantics$,
     'RenderViewport.excludeFromScrolling':
@@ -33,12 +37,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'RenderAbstractViewport': m.ClassMirror(
       'RenderAbstractViewport',
-      {'getOffsetToReveal': _RenderAbstractViewport_getOffsetToReveal$},
+      {
+        '#as': RenderAbstractViewport_as$,
+        '#is': RenderAbstractViewport_is$,
+        'getOffsetToReveal': _RenderAbstractViewport_getOffsetToReveal$,
+      },
       {},
     ),
     'RevealedOffset': m.ClassMirror(
       'RevealedOffset',
       {
+        '#as': RevealedOffset_as$,
+        '#is': RevealedOffset_is$,
         'offset': _RevealedOffset_offset$,
         'rect': _RevealedOffset_rect$,
         'toString': _RevealedOffset_toString$,
@@ -48,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderViewportBase': m.ClassMirror(
       'RenderViewportBase',
       {
+        '#as': RenderViewportBase_as$,
+        '#is': RenderViewportBase_is$,
         'axisDirection': _RenderViewportBase_axisDirection$,
         'crossAxisDirection': _RenderViewportBase_crossAxisDirection$,
         'axis': _RenderViewportBase_axis$,
@@ -109,6 +121,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderViewport': m.ClassMirror(
       'RenderViewport',
       {
+        '#as': RenderViewport_as$,
+        '#is': RenderViewport_is$,
         'anchor': _RenderViewport_anchor$,
         'center': _RenderViewport_center$,
         'sizedByParent': _RenderViewport_sizedByParent$,
@@ -139,6 +153,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderShrinkWrappingViewport': m.ClassMirror(
       'RenderShrinkWrappingViewport',
       {
+        '#as': RenderShrinkWrappingViewport_as$,
+        '#is': RenderShrinkWrappingViewport_is$,
         'hasVisualOverflow': _RenderShrinkWrappingViewport_hasVisualOverflow$,
         'indexOfFirstChild': _RenderShrinkWrappingViewport_indexOfFirstChild$,
         'childrenInPaintOrder':
@@ -172,6 +188,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderAbstractViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAbstractViewport;
+Function RenderAbstractViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAbstractViewport;
 double _RenderAbstractViewport_defaultCacheExtent$() {
   return RenderAbstractViewport.defaultCacheExtent;
 }
@@ -185,6 +211,16 @@ Function _RenderAbstractViewport_getOffsetToReveal$(
   RenderAbstractViewport target,
 ) =>
     target.getOffsetToReveal;
+Function RevealedOffset_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RevealedOffset;
+Function RevealedOffset_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RevealedOffset;
 double _RevealedOffset_offset$(RevealedOffset target) {
   return target.offset;
 }
@@ -198,6 +234,18 @@ Function _RevealedOffset_toString$(
   RevealedOffset target,
 ) =>
     target.toString;
+Function RenderViewportBase_as$<
+        ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderViewportBase<ParentDataClass>;
+Function RenderViewportBase_is$<
+        ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderViewportBase<ParentDataClass>;
 AxisDirection _RenderViewportBase_axisDirection$<
         ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
     RenderViewportBase<ParentDataClass> target) {
@@ -324,6 +372,21 @@ Function _RenderViewportBase_describeSemanticsConfiguration$<
   RenderViewportBase<ParentDataClass> target,
 ) =>
     target.describeSemanticsConfiguration;
+Function _RenderViewportBase_visitChildrenForSemantics$<
+        ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
+  m.Scope scope,
+  RenderViewportBase<ParentDataClass> target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderViewportBase_attach$<
         ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
   m.Scope scope,
@@ -366,6 +429,45 @@ Function _RenderViewportBase_computeMaxIntrinsicHeight$<
   RenderViewportBase<ParentDataClass> target,
 ) =>
     target.computeMaxIntrinsicHeight;
+Function _RenderViewportBase_layoutChildSequence$<
+        ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
+  m.Scope scope,
+  RenderViewportBase<ParentDataClass> target,
+) =>
+    ({
+      required m.FunctionPointer advance,
+      required double cacheOrigin,
+      required RenderSliver? child,
+      required double crossAxisExtent,
+      required GrowthDirection growthDirection,
+      required double layoutOffset,
+      required double mainAxisExtent,
+      required double overlap,
+      required double remainingCacheExtent,
+      required double remainingPaintExtent,
+      required double scrollOffset,
+    }) {
+      RenderSliver? advanceProxy(RenderSliver advance_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            advance,
+            [advance_child],
+            {},
+          );
+      return target.layoutChildSequence(
+        advance: advanceProxy,
+        cacheOrigin: cacheOrigin,
+        child: child,
+        crossAxisExtent: crossAxisExtent,
+        growthDirection: growthDirection,
+        layoutOffset: layoutOffset,
+        mainAxisExtent: mainAxisExtent,
+        overlap: overlap,
+        remainingCacheExtent: remainingCacheExtent,
+        remainingPaintExtent: remainingPaintExtent,
+        scrollOffset: scrollOffset,
+      );
+    };
 Function _RenderViewportBase_describeApproximatePaintClip$<
         ParentDataClass extends ContainerParentDataMixin<RenderSliver>>(
   m.Scope scope,
@@ -476,6 +578,16 @@ Function _RenderViewportBase_showOnScreen$<
     target.showOnScreen;
 Function _RenderViewportBase_showInViewport$(m.Scope scope) =>
     RenderViewportBase.showInViewport;
+Function RenderViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderViewport;
+Function RenderViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderViewport;
 SemanticsTag _RenderViewport_useTwoPaneSemantics$() {
   return RenderViewport.useTwoPaneSemantics;
 }
@@ -588,6 +700,16 @@ Function _RenderViewport_debugFillProperties$(
   RenderViewport target,
 ) =>
     target.debugFillProperties;
+Function RenderShrinkWrappingViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderShrinkWrappingViewport;
+Function RenderShrinkWrappingViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderShrinkWrappingViewport;
 bool _RenderShrinkWrappingViewport_hasVisualOverflow$(
     RenderShrinkWrappingViewport target) {
   return target.hasVisualOverflow;

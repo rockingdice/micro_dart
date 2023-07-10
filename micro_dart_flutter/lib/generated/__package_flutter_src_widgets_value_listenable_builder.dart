@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'ValueListenableBuilder': m.ClassMirror(
       'ValueListenableBuilder',
       {
+        '#as': ValueListenableBuilder_as$,
+        '#is': ValueListenableBuilder_is$,
         'valueListenable': _ValueListenableBuilder_valueListenable$,
         'builder': _ValueListenableBuilder_builder$,
         'child': _ValueListenableBuilder_child$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ValueListenableBuilder_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ValueListenableBuilder<T>;
+Function ValueListenableBuilder_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ValueListenableBuilder<T>;
 ValueListenable<T> _ValueListenableBuilder_valueListenable$<T>(
     ValueListenableBuilder<T> target) {
   return target.valueListenable;

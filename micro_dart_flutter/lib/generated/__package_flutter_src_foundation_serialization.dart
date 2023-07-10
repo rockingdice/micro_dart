@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'WriteBuffer': m.ClassMirror(
       'WriteBuffer',
       {
+        '#as': WriteBuffer_as$,
+        '#is': WriteBuffer_is$,
         'putUint8': _WriteBuffer_putUint8$,
         'putUint16': _WriteBuffer_putUint16$,
         'putUint32': _WriteBuffer_putUint32$,
@@ -32,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'ReadBuffer': m.ClassMirror(
       'ReadBuffer',
       {
+        '#as': ReadBuffer_as$,
+        '#is': ReadBuffer_is$,
         'data': _ReadBuffer_data$,
         'hasRemaining': _ReadBuffer_hasRemaining$,
         'getUint8': _ReadBuffer_getUint8$,
@@ -50,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function WriteBuffer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WriteBuffer;
+Function WriteBuffer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WriteBuffer;
 Function _WriteBuffer_putUint8$(
   m.Scope scope,
   WriteBuffer target,
@@ -110,6 +124,16 @@ Function _WriteBuffer_done$(
   WriteBuffer target,
 ) =>
     target.done;
+Function ReadBuffer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReadBuffer;
+Function ReadBuffer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReadBuffer;
 ByteData _ReadBuffer_data$(ReadBuffer target) {
   return target.data;
 }

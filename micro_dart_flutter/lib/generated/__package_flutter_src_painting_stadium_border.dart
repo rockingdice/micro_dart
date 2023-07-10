@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'StadiumBorder': m.ClassMirror(
       'StadiumBorder',
       {
+        '#as': StadiumBorder_as$,
+        '#is': StadiumBorder_is$,
         'preferPaintInterior': _StadiumBorder_preferPaintInterior$,
         'hashCode': _StadiumBorder_hashCode$,
         'scale': _StadiumBorder_scale$,
@@ -29,12 +31,23 @@ const libraryMirror = m.LibraryMirror(
         'getOuterPath': _StadiumBorder_getOuterPath$,
         'paintInterior': _StadiumBorder_paintInterior$,
         'paint': _StadiumBorder_paint$,
+        '==': _StadiumBorder_eq$$,
         'toString': _StadiumBorder_toString$,
       },
       {},
     )
   },
 );
+Function StadiumBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StadiumBorder;
+Function StadiumBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StadiumBorder;
 bool _StadiumBorder_preferPaintInterior$(StadiumBorder target) {
   return target.preferPaintInterior;
 }
@@ -83,6 +96,11 @@ Function _StadiumBorder_paint$(
   StadiumBorder target,
 ) =>
     target.paint;
+Function _StadiumBorder_eq$$(
+  m.Scope scope,
+  StadiumBorder target,
+) =>
+    (Object other) => target == other;
 Function _StadiumBorder_toString$(
   m.Scope scope,
   StadiumBorder target,

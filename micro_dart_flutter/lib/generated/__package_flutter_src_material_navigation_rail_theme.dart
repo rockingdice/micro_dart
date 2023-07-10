@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationRailThemeData': m.ClassMirror(
       'NavigationRailThemeData',
       {
+        '#as': NavigationRailThemeData_as$,
+        '#is': NavigationRailThemeData_is$,
         'backgroundColor': _NavigationRailThemeData_backgroundColor$,
         'elevation': _NavigationRailThemeData_elevation$,
         'unselectedLabelTextStyle':
@@ -38,6 +40,7 @@ const libraryMirror = m.LibraryMirror(
         'minExtendedWidth': _NavigationRailThemeData_minExtendedWidth$,
         'hashCode': _NavigationRailThemeData_hashCode$,
         'copyWith': _NavigationRailThemeData_copyWith$,
+        '==': _NavigationRailThemeData_eq$$,
         'debugFillProperties': _NavigationRailThemeData_debugFillProperties$,
       },
       {},
@@ -45,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationRailTheme': m.ClassMirror(
       'NavigationRailTheme',
       {
+        '#as': NavigationRailTheme_as$,
+        '#is': NavigationRailTheme_is$,
         'data': _NavigationRailTheme_data$,
         'wrap': _NavigationRailTheme_wrap$,
         'updateShouldNotify': _NavigationRailTheme_updateShouldNotify$,
@@ -53,6 +58,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationRailThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationRailThemeData;
+Function NavigationRailThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationRailThemeData;
 Color? _NavigationRailThemeData_backgroundColor$(
     NavigationRailThemeData target) {
   return target.backgroundColor;
@@ -126,11 +141,26 @@ Function _NavigationRailThemeData_copyWith$(
     target.copyWith;
 Function _NavigationRailThemeData_lerp$(m.Scope scope) =>
     NavigationRailThemeData.lerp;
+Function _NavigationRailThemeData_eq$$(
+  m.Scope scope,
+  NavigationRailThemeData target,
+) =>
+    (Object other) => target == other;
 Function _NavigationRailThemeData_debugFillProperties$(
   m.Scope scope,
   NavigationRailThemeData target,
 ) =>
     target.debugFillProperties;
+Function NavigationRailTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationRailTheme;
+Function NavigationRailTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationRailTheme;
 NavigationRailThemeData _NavigationRailTheme_data$(NavigationRailTheme target) {
   return target.data;
 }

@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomNavigationBarThemeData': m.ClassMirror(
       'BottomNavigationBarThemeData',
       {
+        '#as': BottomNavigationBarThemeData_as$,
+        '#is': BottomNavigationBarThemeData_is$,
         'backgroundColor': _BottomNavigationBarThemeData_backgroundColor$,
         'elevation': _BottomNavigationBarThemeData_elevation$,
         'selectedIconTheme': _BottomNavigationBarThemeData_selectedIconTheme$,
@@ -41,6 +43,7 @@ const libraryMirror = m.LibraryMirror(
         'mouseCursor': _BottomNavigationBarThemeData_mouseCursor$,
         'hashCode': _BottomNavigationBarThemeData_hashCode$,
         'copyWith': _BottomNavigationBarThemeData_copyWith$,
+        '==': _BottomNavigationBarThemeData_eq$$,
         'debugFillProperties':
             _BottomNavigationBarThemeData_debugFillProperties$,
       },
@@ -49,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomNavigationBarTheme': m.ClassMirror(
       'BottomNavigationBarTheme',
       {
+        '#as': BottomNavigationBarTheme_as$,
+        '#is': BottomNavigationBarTheme_is$,
         'data': _BottomNavigationBarTheme_data$,
         'updateShouldNotify': _BottomNavigationBarTheme_updateShouldNotify$,
       },
@@ -56,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BottomNavigationBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomNavigationBarThemeData;
+Function BottomNavigationBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomNavigationBarThemeData;
 Color? _BottomNavigationBarThemeData_backgroundColor$(
     BottomNavigationBarThemeData target) {
   return target.backgroundColor;
@@ -139,11 +154,26 @@ Function _BottomNavigationBarThemeData_copyWith$(
     target.copyWith;
 Function _BottomNavigationBarThemeData_lerp$(m.Scope scope) =>
     BottomNavigationBarThemeData.lerp;
+Function _BottomNavigationBarThemeData_eq$$(
+  m.Scope scope,
+  BottomNavigationBarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _BottomNavigationBarThemeData_debugFillProperties$(
   m.Scope scope,
   BottomNavigationBarThemeData target,
 ) =>
     target.debugFillProperties;
+Function BottomNavigationBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomNavigationBarTheme;
+Function BottomNavigationBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomNavigationBarTheme;
 BottomNavigationBarThemeData _BottomNavigationBarTheme_data$(
     BottomNavigationBarTheme target) {
   return target.data;

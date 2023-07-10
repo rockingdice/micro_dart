@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'GridTile': m.ClassMirror(
       'GridTile',
       {
+        '#as': GridTile_as$,
+        '#is': GridTile_is$,
         'header': _GridTile_header$,
         'footer': _GridTile_footer$,
         'child': _GridTile_child$,
@@ -22,6 +24,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function GridTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GridTile;
+Function GridTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GridTile;
 Widget? _GridTile_header$(GridTile target) {
   return target.header;
 }

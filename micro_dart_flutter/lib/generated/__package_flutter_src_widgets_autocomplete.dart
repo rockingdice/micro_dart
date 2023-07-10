@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'RawAutocomplete': m.ClassMirror(
       'RawAutocomplete',
       {
+        '#as': RawAutocomplete_as$,
+        '#is': RawAutocomplete_is$,
         'fieldViewBuilder': _RawAutocomplete_fieldViewBuilder$,
         'focusNode': _RawAutocomplete_focusNode$,
         'optionsViewBuilder': _RawAutocomplete_optionsViewBuilder$,
@@ -44,21 +46,40 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AutocompletePreviousOptionIntent': m.ClassMirror(
       'AutocompletePreviousOptionIntent',
-      {},
+      {
+        '#as': AutocompletePreviousOptionIntent_as$,
+        '#is': AutocompletePreviousOptionIntent_is$,
+      },
       {},
     ),
     'AutocompleteNextOptionIntent': m.ClassMirror(
       'AutocompleteNextOptionIntent',
-      {},
+      {
+        '#as': AutocompleteNextOptionIntent_as$,
+        '#is': AutocompleteNextOptionIntent_is$,
+      },
       {},
     ),
     'AutocompleteHighlightedOption': m.ClassMirror(
       'AutocompleteHighlightedOption',
-      {},
+      {
+        '#as': AutocompleteHighlightedOption_as$,
+        '#is': AutocompleteHighlightedOption_is$,
+      },
       {},
     ),
   },
 );
+Function RawAutocomplete_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawAutocomplete<T>;
+Function RawAutocomplete_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawAutocomplete<T>;
 Widget Function(
         BuildContext, TextEditingController, FocusNode, void Function())?
     _RawAutocomplete_fieldViewBuilder$<T extends Object>(
@@ -113,5 +134,35 @@ Function _RawAutocomplete_createState$<T extends Object>(
   RawAutocomplete<T> target,
 ) =>
     target.createState;
+Function AutocompletePreviousOptionIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutocompletePreviousOptionIntent;
+Function AutocompletePreviousOptionIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutocompletePreviousOptionIntent;
+Function AutocompleteNextOptionIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutocompleteNextOptionIntent;
+Function AutocompleteNextOptionIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutocompleteNextOptionIntent;
+Function AutocompleteHighlightedOption_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutocompleteHighlightedOption;
+Function AutocompleteHighlightedOption_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutocompleteHighlightedOption;
 Function _AutocompleteHighlightedOption_of$(m.Scope scope) =>
     AutocompleteHighlightedOption.of;

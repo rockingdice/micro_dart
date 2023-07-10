@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoScrollbar': m.ClassMirror(
       'CupertinoScrollbar',
       {
+        '#as': CupertinoScrollbar_as$,
+        '#is': CupertinoScrollbar_is$,
         'thicknessWhileDragging': _CupertinoScrollbar_thicknessWhileDragging$,
         'radiusWhileDragging': _CupertinoScrollbar_radiusWhileDragging$,
         'createState': _CupertinoScrollbar_createState$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoScrollbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoScrollbar;
+Function CupertinoScrollbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoScrollbar;
 double _CupertinoScrollbar_defaultThickness$() {
   return CupertinoScrollbar.defaultThickness;
 }

@@ -7,16 +7,104 @@ import 'dart:ui' show Canvas, Clip, Paint, Path, RRect, Rect, VoidCallback;
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/clip.dart',
-  {},
+  {
+    'ClipContext.clipPathAndPaint': _ClipContext_clipPathAndPaint$,
+    'ClipContext.clipRRectAndPaint': _ClipContext_clipRRectAndPaint$,
+    'ClipContext.clipRectAndPaint': _ClipContext_clipRectAndPaint$,
+  },
   {},
   {
     'ClipContext': m.ClassMirror(
       'ClipContext',
-      {'canvas': _ClipContext_canvas$},
+      {
+        '#as': ClipContext_as$,
+        '#is': ClipContext_is$,
+        'canvas': _ClipContext_canvas$,
+      },
       {},
     )
   },
 );
+Function ClipContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipContext;
+Function ClipContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipContext;
 Canvas _ClipContext_canvas$(ClipContext target) {
   return target.canvas;
 }
+
+Function _ClipContext_clipPathAndPaint$(
+  m.Scope scope,
+  ClipContext target,
+) =>
+    (
+      Path path,
+      Clip clipBehavior,
+      Rect bounds,
+      m.FunctionPointer painter,
+    ) {
+      void painterProxy() => scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [],
+            {},
+          );
+      target.clipPathAndPaint(
+        path,
+        clipBehavior,
+        bounds,
+        painterProxy,
+      );
+    };
+Function _ClipContext_clipRRectAndPaint$(
+  m.Scope scope,
+  ClipContext target,
+) =>
+    (
+      RRect rrect,
+      Clip clipBehavior,
+      Rect bounds,
+      m.FunctionPointer painter,
+    ) {
+      void painterProxy() => scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [],
+            {},
+          );
+      target.clipRRectAndPaint(
+        rrect,
+        clipBehavior,
+        bounds,
+        painterProxy,
+      );
+    };
+Function _ClipContext_clipRectAndPaint$(
+  m.Scope scope,
+  ClipContext target,
+) =>
+    (
+      Rect rect,
+      Clip clipBehavior,
+      Rect bounds,
+      m.FunctionPointer painter,
+    ) {
+      void painterProxy() => scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [],
+            {},
+          );
+      target.clipRectAndPaint(
+        rect,
+        clipBehavior,
+        bounds,
+        painterProxy,
+      );
+    };

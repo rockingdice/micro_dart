@@ -16,12 +16,16 @@ const libraryMirror = m.LibraryMirror(
         _cupertinoDesktopTextSelectionHandleControls$,
     'cupertinoDesktopTextSelectionControls':
         _cupertinoDesktopTextSelectionControls$,
+    'CupertinoDesktopTextSelectionControls.buildHandle':
+        _CupertinoDesktopTextSelectionControls_buildHandle$,
   },
   {},
   {
     'CupertinoDesktopTextSelectionControls': m.ClassMirror(
       'CupertinoDesktopTextSelectionControls',
       {
+        '#as': CupertinoDesktopTextSelectionControls_as$,
+        '#is': CupertinoDesktopTextSelectionControls_is$,
         'getHandleSize': _CupertinoDesktopTextSelectionControls_getHandleSize$,
         'getHandleAnchor':
             _CupertinoDesktopTextSelectionControls_getHandleAnchor$,
@@ -38,11 +42,50 @@ TextSelectionControls _cupertinoDesktopTextSelectionControls$() {
   return cupertinoDesktopTextSelectionControls;
 }
 
+Function CupertinoDesktopTextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDesktopTextSelectionControls;
+Function CupertinoDesktopTextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDesktopTextSelectionControls;
 Function _CupertinoDesktopTextSelectionControls_getHandleSize$(
   m.Scope scope,
   CupertinoDesktopTextSelectionControls target,
 ) =>
     target.getHandleSize;
+Function _CupertinoDesktopTextSelectionControls_buildHandle$(
+  m.Scope scope,
+  CupertinoDesktopTextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textLineHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _CupertinoDesktopTextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   CupertinoDesktopTextSelectionControls target,

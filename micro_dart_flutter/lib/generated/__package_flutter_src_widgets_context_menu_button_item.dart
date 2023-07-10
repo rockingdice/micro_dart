@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/context_menu_button_item.dart',
   {
+    'ContextMenuButtonItem.copyWith': _ContextMenuButtonItem_copyWith$,
     'ContextMenuButtonType.cut': _ContextMenuButtonType_cut$,
     'ContextMenuButtonType.copy': _ContextMenuButtonType_copy$,
     'ContextMenuButtonType.paste': _ContextMenuButtonType_paste$,
@@ -21,10 +22,13 @@ const libraryMirror = m.LibraryMirror(
     'ContextMenuButtonItem': m.ClassMirror(
       'ContextMenuButtonItem',
       {
+        '#as': ContextMenuButtonItem_as$,
+        '#is': ContextMenuButtonItem_is$,
         'onPressed': _ContextMenuButtonItem_onPressed$,
         'type': _ContextMenuButtonItem_type$,
         'label': _ContextMenuButtonItem_label$,
         'hashCode': _ContextMenuButtonItem_hashCode$,
+        '==': _ContextMenuButtonItem_eq$$,
         'toString': _ContextMenuButtonItem_toString$,
       },
       {},
@@ -36,6 +40,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ContextMenuButtonItem_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContextMenuButtonItem;
+Function ContextMenuButtonItem_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContextMenuButtonItem;
 void Function() _ContextMenuButtonItem_onPressed$(
     ContextMenuButtonItem target) {
   return target.onPressed;
@@ -54,6 +68,32 @@ int _ContextMenuButtonItem_hashCode$(ContextMenuButtonItem target) {
   return target.hashCode;
 }
 
+Function _ContextMenuButtonItem_copyWith$(
+  m.Scope scope,
+  ContextMenuButtonItem target,
+) =>
+    ({
+      String? label,
+      m.FunctionPointer? onPressed,
+      ContextMenuButtonType? type,
+    }) {
+      void onPressedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onPressed!,
+            [],
+            {},
+          );
+      return target.copyWith(
+        label: label,
+        onPressed: onPressed == null ? null : onPressedProxy,
+        type: type,
+      );
+    };
+Function _ContextMenuButtonItem_eq$$(
+  m.Scope scope,
+  ContextMenuButtonItem target,
+) =>
+    (Object other) => target == other;
 Function _ContextMenuButtonItem_toString$(
   m.Scope scope,
   ContextMenuButtonItem target,

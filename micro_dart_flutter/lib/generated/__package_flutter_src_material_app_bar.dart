@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'AppBar': m.ClassMirror(
       'AppBar',
       {
+        '#as': AppBar_as$,
+        '#is': AppBar_is$,
         'leading': _AppBar_leading$,
         'automaticallyImplyLeading': _AppBar_automaticallyImplyLeading$,
         'title': _AppBar_title$,
@@ -71,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverAppBar': m.ClassMirror(
       'SliverAppBar',
       {
+        '#as': SliverAppBar_as$,
+        '#is': SliverAppBar_is$,
         'leading': _SliverAppBar_leading$,
         'automaticallyImplyLeading': _SliverAppBar_automaticallyImplyLeading$,
         'title': _SliverAppBar_title$,
@@ -112,6 +116,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AppBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AppBar;
+Function AppBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AppBar;
 Widget? _AppBar_leading$(AppBar target) {
   return target.leading;
 }
@@ -240,6 +254,16 @@ Function _AppBar_createState$(
   AppBar target,
 ) =>
     target.createState;
+Function SliverAppBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAppBar;
+Function SliverAppBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAppBar;
 Widget? _SliverAppBar_leading$(SliverAppBar target) {
   return target.leading;
 }

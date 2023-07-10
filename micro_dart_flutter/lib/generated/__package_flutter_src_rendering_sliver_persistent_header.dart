@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'OverScrollHeaderStretchConfiguration': m.ClassMirror(
       'OverScrollHeaderStretchConfiguration',
       {
+        '#as': OverScrollHeaderStretchConfiguration_as$,
+        '#is': OverScrollHeaderStretchConfiguration_is$,
         'stretchTriggerOffset':
             _OverScrollHeaderStretchConfiguration_stretchTriggerOffset$,
         'onStretchTrigger':
@@ -32,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'PersistentHeaderShowOnScreenConfiguration': m.ClassMirror(
       'PersistentHeaderShowOnScreenConfiguration',
       {
+        '#as': PersistentHeaderShowOnScreenConfiguration_as$,
+        '#is': PersistentHeaderShowOnScreenConfiguration_is$,
         'minShowOnScreenExtent':
             _PersistentHeaderShowOnScreenConfiguration_minShowOnScreenExtent$,
         'maxShowOnScreenExtent':
@@ -42,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverPersistentHeader': m.ClassMirror(
       'RenderSliverPersistentHeader',
       {
+        '#as': RenderSliverPersistentHeader_as$,
+        '#is': RenderSliverPersistentHeader_is$,
         'stretchConfiguration':
             _RenderSliverPersistentHeader_stretchConfiguration$,
         'maxExtent': _RenderSliverPersistentHeader_maxExtent$,
@@ -69,6 +75,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverScrollingPersistentHeader': m.ClassMirror(
       'RenderSliverScrollingPersistentHeader',
       {
+        '#as': RenderSliverScrollingPersistentHeader_as$,
+        '#is': RenderSliverScrollingPersistentHeader_is$,
         'updateGeometry':
             _RenderSliverScrollingPersistentHeader_updateGeometry$,
         'performLayout': _RenderSliverScrollingPersistentHeader_performLayout$,
@@ -80,6 +88,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverPinnedPersistentHeader': m.ClassMirror(
       'RenderSliverPinnedPersistentHeader',
       {
+        '#as': RenderSliverPinnedPersistentHeader_as$,
+        '#is': RenderSliverPinnedPersistentHeader_is$,
         'showOnScreenConfiguration':
             _RenderSliverPinnedPersistentHeader_showOnScreenConfiguration$,
         'performLayout': _RenderSliverPinnedPersistentHeader_performLayout$,
@@ -95,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'FloatingHeaderSnapConfiguration': m.ClassMirror(
       'FloatingHeaderSnapConfiguration',
       {
+        '#as': FloatingHeaderSnapConfiguration_as$,
+        '#is': FloatingHeaderSnapConfiguration_is$,
         'curve': _FloatingHeaderSnapConfiguration_curve$,
         'duration': _FloatingHeaderSnapConfiguration_duration$,
       },
@@ -103,6 +115,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverFloatingPersistentHeader': m.ClassMirror(
       'RenderSliverFloatingPersistentHeader',
       {
+        '#as': RenderSliverFloatingPersistentHeader_as$,
+        '#is': RenderSliverFloatingPersistentHeader_is$,
         'snapConfiguration':
             _RenderSliverFloatingPersistentHeader_snapConfiguration$,
         'showOnScreenConfiguration':
@@ -134,13 +148,25 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverFloatingPinnedPersistentHeader': m.ClassMirror(
       'RenderSliverFloatingPinnedPersistentHeader',
       {
+        '#as': RenderSliverFloatingPinnedPersistentHeader_as$,
+        '#is': RenderSliverFloatingPinnedPersistentHeader_is$,
         'updateGeometry':
-            _RenderSliverFloatingPinnedPersistentHeader_updateGeometry$
+            _RenderSliverFloatingPinnedPersistentHeader_updateGeometry$,
       },
       {},
     ),
   },
 );
+Function OverScrollHeaderStretchConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverScrollHeaderStretchConfiguration;
+Function OverScrollHeaderStretchConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverScrollHeaderStretchConfiguration;
 double _OverScrollHeaderStretchConfiguration_stretchTriggerOffset$(
     OverScrollHeaderStretchConfiguration target) {
   return target.stretchTriggerOffset;
@@ -152,6 +178,16 @@ Future<void> Function()?
   return target.onStretchTrigger;
 }
 
+Function PersistentHeaderShowOnScreenConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PersistentHeaderShowOnScreenConfiguration;
+Function PersistentHeaderShowOnScreenConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PersistentHeaderShowOnScreenConfiguration;
 double _PersistentHeaderShowOnScreenConfiguration_minShowOnScreenExtent$(
     PersistentHeaderShowOnScreenConfiguration target) {
   return target.minShowOnScreenExtent;
@@ -162,6 +198,16 @@ double _PersistentHeaderShowOnScreenConfiguration_maxShowOnScreenExtent$(
   return target.maxShowOnScreenExtent;
 }
 
+Function RenderSliverPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverPersistentHeader;
+Function RenderSliverPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverPersistentHeader;
 OverScrollHeaderStretchConfiguration?
     _RenderSliverPersistentHeader_stretchConfiguration$(
         RenderSliverPersistentHeader target) {
@@ -235,6 +281,16 @@ Function _RenderSliverPersistentHeader_debugFillProperties$(
   RenderSliverPersistentHeader target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverScrollingPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverScrollingPersistentHeader;
+Function RenderSliverScrollingPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverScrollingPersistentHeader;
 Function _RenderSliverScrollingPersistentHeader_updateGeometry$(
   m.Scope scope,
   RenderSliverScrollingPersistentHeader target,
@@ -250,6 +306,16 @@ Function _RenderSliverScrollingPersistentHeader_childMainAxisPosition$(
   RenderSliverScrollingPersistentHeader target,
 ) =>
     target.childMainAxisPosition;
+Function RenderSliverPinnedPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverPinnedPersistentHeader;
+Function RenderSliverPinnedPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverPinnedPersistentHeader;
 PersistentHeaderShowOnScreenConfiguration?
     _RenderSliverPinnedPersistentHeader_showOnScreenConfiguration$(
         RenderSliverPinnedPersistentHeader target) {
@@ -278,6 +344,16 @@ Function _RenderSliverPinnedPersistentHeader_showOnScreen$(
   RenderSliverPinnedPersistentHeader target,
 ) =>
     target.showOnScreen;
+Function FloatingHeaderSnapConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingHeaderSnapConfiguration;
+Function FloatingHeaderSnapConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingHeaderSnapConfiguration;
 Curve _FloatingHeaderSnapConfiguration_curve$(
     FloatingHeaderSnapConfiguration target) {
   return target.curve;
@@ -288,6 +364,16 @@ Duration _FloatingHeaderSnapConfiguration_duration$(
   return target.duration;
 }
 
+Function RenderSliverFloatingPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFloatingPersistentHeader;
+Function RenderSliverFloatingPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFloatingPersistentHeader;
 FloatingHeaderSnapConfiguration?
     _RenderSliverFloatingPersistentHeader_snapConfiguration$(
         RenderSliverFloatingPersistentHeader target) {
@@ -371,6 +457,16 @@ Function _RenderSliverFloatingPersistentHeader_debugFillProperties$(
   RenderSliverFloatingPersistentHeader target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverFloatingPinnedPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFloatingPinnedPersistentHeader;
+Function RenderSliverFloatingPinnedPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFloatingPinnedPersistentHeader;
 Function _RenderSliverFloatingPinnedPersistentHeader_updateGeometry$(
   m.Scope scope,
   RenderSliverFloatingPinnedPersistentHeader target,

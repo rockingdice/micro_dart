@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'TooltipVisibility': m.ClassMirror(
       'TooltipVisibility',
       {
+        '#as': TooltipVisibility_as$,
+        '#is': TooltipVisibility_is$,
         'child': _TooltipVisibility_child$,
         'visible': _TooltipVisibility_visible$,
         'build': _TooltipVisibility_build$,
@@ -21,6 +23,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TooltipVisibility_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TooltipVisibility;
+Function TooltipVisibility_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TooltipVisibility;
 Widget _TooltipVisibility_child$(TooltipVisibility target) {
   return target.child;
 }

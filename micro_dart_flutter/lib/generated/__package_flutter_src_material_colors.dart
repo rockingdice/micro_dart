@@ -68,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialColor': m.ClassMirror(
       'MaterialColor',
       {
+        '#as': MaterialColor_as$,
+        '#is': MaterialColor_is$,
         'shade50': _MaterialColor_shade50$,
         'shade100': _MaterialColor_shade100$,
         'shade200': _MaterialColor_shade200$,
@@ -84,6 +86,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialAccentColor': m.ClassMirror(
       'MaterialAccentColor',
       {
+        '#as': MaterialAccentColor_as$,
+        '#is': MaterialAccentColor_is$,
         'shade100': _MaterialAccentColor_shade100$,
         'shade200': _MaterialAccentColor_shade200$,
         'shade400': _MaterialAccentColor_shade400$,
@@ -93,11 +97,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Colors': m.ClassMirror(
       'Colors',
-      {},
+      {
+        '#as': Colors_as$,
+        '#is': Colors_is$,
+      },
       {},
     ),
   },
 );
+Function MaterialColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialColor;
+Function MaterialColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialColor;
 Color _MaterialColor_shade50$(MaterialColor target) {
   return target.shade50;
 }
@@ -138,6 +155,16 @@ Color _MaterialColor_shade900$(MaterialColor target) {
   return target.shade900;
 }
 
+Function MaterialAccentColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialAccentColor;
+Function MaterialAccentColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialAccentColor;
 Color _MaterialAccentColor_shade100$(MaterialAccentColor target) {
   return target.shade100;
 }
@@ -154,6 +181,16 @@ Color _MaterialAccentColor_shade700$(MaterialAccentColor target) {
   return target.shade700;
 }
 
+Function Colors_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Colors;
+Function Colors_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Colors;
 Color _Colors_transparent$() {
   return Colors.transparent;
 }

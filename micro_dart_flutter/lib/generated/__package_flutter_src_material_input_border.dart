@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'InputBorder': m.ClassMirror(
       'InputBorder',
       {
+        '#as': InputBorder_as$,
+        '#is': InputBorder_is$,
         'borderSide': _InputBorder_borderSide$,
         'isOutline': _InputBorder_isOutline$,
         'copyWith': _InputBorder_copyWith$,
@@ -26,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'UnderlineInputBorder': m.ClassMirror(
       'UnderlineInputBorder',
       {
+        '#as': UnderlineInputBorder_as$,
+        '#is': UnderlineInputBorder_is$,
         'borderRadius': _UnderlineInputBorder_borderRadius$,
         'isOutline': _UnderlineInputBorder_isOutline$,
         'dimensions': _UnderlineInputBorder_dimensions$,
@@ -39,12 +43,15 @@ const libraryMirror = m.LibraryMirror(
         'lerpFrom': _UnderlineInputBorder_lerpFrom$,
         'lerpTo': _UnderlineInputBorder_lerpTo$,
         'paint': _UnderlineInputBorder_paint$,
+        '==': _UnderlineInputBorder_eq$$,
       },
       {},
     ),
     'OutlineInputBorder': m.ClassMirror(
       'OutlineInputBorder',
       {
+        '#as': OutlineInputBorder_as$,
+        '#is': OutlineInputBorder_is$,
         'gapPadding': _OutlineInputBorder_gapPadding$,
         'borderRadius': _OutlineInputBorder_borderRadius$,
         'isOutline': _OutlineInputBorder_isOutline$,
@@ -59,11 +66,22 @@ const libraryMirror = m.LibraryMirror(
         'getOuterPath': _OutlineInputBorder_getOuterPath$,
         'paintInterior': _OutlineInputBorder_paintInterior$,
         'paint': _OutlineInputBorder_paint$,
+        '==': _OutlineInputBorder_eq$$,
       },
       {},
     ),
   },
 );
+Function InputBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputBorder;
+Function InputBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputBorder;
 InputBorder _InputBorder_none$() {
   return InputBorder.none;
 }
@@ -86,6 +104,16 @@ Function _InputBorder_paint$(
   InputBorder target,
 ) =>
     target.paint;
+Function UnderlineInputBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnderlineInputBorder;
+Function UnderlineInputBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnderlineInputBorder;
 BorderRadius _UnderlineInputBorder_borderRadius$(UnderlineInputBorder target) {
   return target.borderRadius;
 }
@@ -147,6 +175,21 @@ Function _UnderlineInputBorder_paint$(
   UnderlineInputBorder target,
 ) =>
     target.paint;
+Function _UnderlineInputBorder_eq$$(
+  m.Scope scope,
+  UnderlineInputBorder target,
+) =>
+    (Object other) => target == other;
+Function OutlineInputBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutlineInputBorder;
+Function OutlineInputBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutlineInputBorder;
 double _OutlineInputBorder_gapPadding$(OutlineInputBorder target) {
   return target.gapPadding;
 }
@@ -211,3 +254,8 @@ Function _OutlineInputBorder_paint$(
   OutlineInputBorder target,
 ) =>
     target.paint;
+Function _OutlineInputBorder_eq$$(
+  m.Scope scope,
+  OutlineInputBorder target,
+) =>
+    (Object other) => target == other;

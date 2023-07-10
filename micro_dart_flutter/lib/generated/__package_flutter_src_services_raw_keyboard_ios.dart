@@ -45,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataIos': m.ClassMirror(
       'RawKeyEventDataIos',
       {
+        '#as': RawKeyEventDataIos_as$,
+        '#is': RawKeyEventDataIos_is$,
         'characters': _RawKeyEventDataIos_characters$,
         'charactersIgnoringModifiers':
             _RawKeyEventDataIos_charactersIgnoringModifiers$,
@@ -57,11 +59,22 @@ const libraryMirror = m.LibraryMirror(
         'isModifierPressed': _RawKeyEventDataIos_isModifierPressed$,
         'getModifierSide': _RawKeyEventDataIos_getModifierSide$,
         'debugFillProperties': _RawKeyEventDataIos_debugFillProperties$,
+        '==': _RawKeyEventDataIos_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataIos_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataIos;
+Function RawKeyEventDataIos_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataIos;
 String _RawKeyEventDataIos_characters$(RawKeyEventDataIos target) {
   return target.characters;
 }
@@ -179,3 +192,8 @@ Function _RawKeyEventDataIos_debugFillProperties$(
   RawKeyEventDataIos target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataIos_eq$$(
+  m.Scope scope,
+  RawKeyEventDataIos target,
+) =>
+    (Object other) => target == other;

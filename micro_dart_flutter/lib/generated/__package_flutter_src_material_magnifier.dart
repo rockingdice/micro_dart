@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'TextMagnifier': m.ClassMirror(
       'TextMagnifier',
       {
+        '#as': TextMagnifier_as$,
+        '#is': TextMagnifier_is$,
         'magnifierInfo': _TextMagnifier_magnifierInfo$,
         'createState': _TextMagnifier_createState$,
       },
@@ -34,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'Magnifier': m.ClassMirror(
       'Magnifier',
       {
+        '#as': Magnifier_as$,
+        '#is': Magnifier_is$,
         'additionalFocalPointOffset': _Magnifier_additionalFocalPointOffset$,
         'borderRadius': _Magnifier_borderRadius$,
         'filmColor': _Magnifier_filmColor$,
@@ -45,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextMagnifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextMagnifier;
+Function TextMagnifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextMagnifier;
 TextMagnifierConfiguration _TextMagnifier_adaptiveMagnifierConfiguration$() {
   return TextMagnifier.adaptiveMagnifierConfiguration;
 }
@@ -68,6 +82,16 @@ Function _TextMagnifier_createState$(
   TextMagnifier target,
 ) =>
     target.createState;
+Function Magnifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Magnifier;
+Function Magnifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Magnifier;
 Size _Magnifier_kDefaultMagnifierSize$() {
   return Magnifier.kDefaultMagnifierSize;
 }

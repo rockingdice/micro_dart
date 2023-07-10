@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'OvalBorder': m.ClassMirror(
       'OvalBorder',
       {
+        '#as': OvalBorder_as$,
+        '#is': OvalBorder_is$,
         'scale': _OvalBorder_scale$,
         'copyWith': _OvalBorder_copyWith$,
         'lerpFrom': _OvalBorder_lerpFrom$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function OvalBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OvalBorder;
+Function OvalBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OvalBorder;
 Function _OvalBorder_scale$(
   m.Scope scope,
   OvalBorder target,

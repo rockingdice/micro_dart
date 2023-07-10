@@ -14,11 +14,25 @@ const libraryMirror = m.LibraryMirror(
   {
     'SliverLayoutBuilder': m.ClassMirror(
       'SliverLayoutBuilder',
-      {'createRenderObject': _SliverLayoutBuilder_createRenderObject$},
+      {
+        '#as': SliverLayoutBuilder_as$,
+        '#is': SliverLayoutBuilder_is$,
+        'createRenderObject': _SliverLayoutBuilder_createRenderObject$,
+      },
       {},
     )
   },
 );
+Function SliverLayoutBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverLayoutBuilder;
+Function SliverLayoutBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverLayoutBuilder;
 Function _SliverLayoutBuilder_createRenderObject$(
   m.Scope scope,
   SliverLayoutBuilder target,

@@ -20,10 +20,13 @@ const libraryMirror = m.LibraryMirror(
     'SegmentedButtonThemeData': m.ClassMirror(
       'SegmentedButtonThemeData',
       {
+        '#as': SegmentedButtonThemeData_as$,
+        '#is': SegmentedButtonThemeData_is$,
         'style': _SegmentedButtonThemeData_style$,
         'selectedIcon': _SegmentedButtonThemeData_selectedIcon$,
         'hashCode': _SegmentedButtonThemeData_hashCode$,
         'copyWith': _SegmentedButtonThemeData_copyWith$,
+        '==': _SegmentedButtonThemeData_eq$$,
         'debugFillProperties': _SegmentedButtonThemeData_debugFillProperties$,
       },
       {},
@@ -31,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'SegmentedButtonTheme': m.ClassMirror(
       'SegmentedButtonTheme',
       {
+        '#as': SegmentedButtonTheme_as$,
+        '#is': SegmentedButtonTheme_is$,
         'data': _SegmentedButtonTheme_data$,
         'wrap': _SegmentedButtonTheme_wrap$,
         'updateShouldNotify': _SegmentedButtonTheme_updateShouldNotify$,
@@ -39,6 +44,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SegmentedButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SegmentedButtonThemeData;
+Function SegmentedButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SegmentedButtonThemeData;
 ButtonStyle? _SegmentedButtonThemeData_style$(SegmentedButtonThemeData target) {
   return target.style;
 }
@@ -59,11 +74,26 @@ Function _SegmentedButtonThemeData_copyWith$(
     target.copyWith;
 Function _SegmentedButtonThemeData_lerp$(m.Scope scope) =>
     SegmentedButtonThemeData.lerp;
+Function _SegmentedButtonThemeData_eq$$(
+  m.Scope scope,
+  SegmentedButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SegmentedButtonThemeData_debugFillProperties$(
   m.Scope scope,
   SegmentedButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function SegmentedButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SegmentedButtonTheme;
+Function SegmentedButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SegmentedButtonTheme;
 SegmentedButtonThemeData _SegmentedButtonTheme_data$(
     SegmentedButtonTheme target) {
   return target.data;

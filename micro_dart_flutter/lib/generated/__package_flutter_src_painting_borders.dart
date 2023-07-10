@@ -31,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'BorderSide': m.ClassMirror(
       'BorderSide',
       {
+        '#as': BorderSide_as$,
+        '#is': BorderSide_is$,
         'color': _BorderSide_color$,
         'width': _BorderSide_width$,
         'style': _BorderSide_style$,
@@ -42,6 +44,7 @@ const libraryMirror = m.LibraryMirror(
         'copyWith': _BorderSide_copyWith$,
         'scale': _BorderSide_scale$,
         'toPaint': _BorderSide_toPaint$,
+        '==': _BorderSide_eq$$,
         'toStringShort': _BorderSide_toStringShort$,
         'debugFillProperties': _BorderSide_debugFillProperties$,
       },
@@ -50,9 +53,12 @@ const libraryMirror = m.LibraryMirror(
     'ShapeBorder': m.ClassMirror(
       'ShapeBorder',
       {
+        '#as': ShapeBorder_as$,
+        '#is': ShapeBorder_is$,
         'dimensions': _ShapeBorder_dimensions$,
         'preferPaintInterior': _ShapeBorder_preferPaintInterior$,
         'add': _ShapeBorder_add$,
+        '+': _ShapeBorder_plus$$,
         'scale': _ShapeBorder_scale$,
         'lerpFrom': _ShapeBorder_lerpFrom$,
         'lerpTo': _ShapeBorder_lerpTo$,
@@ -67,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'OutlinedBorder': m.ClassMirror(
       'OutlinedBorder',
       {
+        '#as': OutlinedBorder_as$,
+        '#is': OutlinedBorder_is$,
         'side': _OutlinedBorder_side$,
         'dimensions': _OutlinedBorder_dimensions$,
         'copyWith': _OutlinedBorder_copyWith$,
@@ -83,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BorderSide_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BorderSide;
+Function BorderSide_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BorderSide;
 Color _BorderSide_color$(BorderSide target) {
   return target.color;
 }
@@ -149,6 +167,11 @@ Function _BorderSide_toPaint$(
     target.toPaint;
 Function _BorderSide_canMerge$(m.Scope scope) => BorderSide.canMerge;
 Function _BorderSide_lerp$(m.Scope scope) => BorderSide.lerp;
+Function _BorderSide_eq$$(
+  m.Scope scope,
+  BorderSide target,
+) =>
+    (Object other) => target == other;
 Function _BorderSide_toStringShort$(
   m.Scope scope,
   BorderSide target,
@@ -159,6 +182,16 @@ Function _BorderSide_debugFillProperties$(
   BorderSide target,
 ) =>
     target.debugFillProperties;
+Function ShapeBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShapeBorder;
+Function ShapeBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShapeBorder;
 EdgeInsetsGeometry _ShapeBorder_dimensions$(ShapeBorder target) {
   return target.dimensions;
 }
@@ -172,6 +205,11 @@ Function _ShapeBorder_add$(
   ShapeBorder target,
 ) =>
     target.add;
+Function _ShapeBorder_plus$$(
+  m.Scope scope,
+  ShapeBorder target,
+) =>
+    (ShapeBorder other) => target + other;
 Function _ShapeBorder_scale$(
   m.Scope scope,
   ShapeBorder target,
@@ -213,6 +251,16 @@ Function _ShapeBorder_toString$(
   ShapeBorder target,
 ) =>
     target.toString;
+Function OutlinedBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutlinedBorder;
+Function OutlinedBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutlinedBorder;
 BorderSide _OutlinedBorder_side$(OutlinedBorder target) {
   return target.side;
 }

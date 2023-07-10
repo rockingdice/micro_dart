@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'ProgressIndicator': m.ClassMirror(
       'ProgressIndicator',
       {
+        '#as': ProgressIndicator_as$,
+        '#is': ProgressIndicator_is$,
         'value': _ProgressIndicator_value$,
         'backgroundColor': _ProgressIndicator_backgroundColor$,
         'color': _ProgressIndicator_color$,
@@ -35,6 +37,8 @@ const libraryMirror = m.LibraryMirror(
     'LinearProgressIndicator': m.ClassMirror(
       'LinearProgressIndicator',
       {
+        '#as': LinearProgressIndicator_as$,
+        '#is': LinearProgressIndicator_is$,
         'minHeight': _LinearProgressIndicator_minHeight$,
         'backgroundColor': _LinearProgressIndicator_backgroundColor$,
         'createState': _LinearProgressIndicator_createState$,
@@ -44,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'CircularProgressIndicator': m.ClassMirror(
       'CircularProgressIndicator',
       {
+        '#as': CircularProgressIndicator_as$,
+        '#is': CircularProgressIndicator_is$,
         'strokeWidth': _CircularProgressIndicator_strokeWidth$,
         'backgroundColor': _CircularProgressIndicator_backgroundColor$,
         'createState': _CircularProgressIndicator_createState$,
@@ -53,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'RefreshProgressIndicator': m.ClassMirror(
       'RefreshProgressIndicator',
       {
+        '#as': RefreshProgressIndicator_as$,
+        '#is': RefreshProgressIndicator_is$,
         'backgroundColor': _RefreshProgressIndicator_backgroundColor$,
         'createState': _RefreshProgressIndicator_createState$,
       },
@@ -60,6 +68,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ProgressIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProgressIndicator;
+Function ProgressIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProgressIndicator;
 double? _ProgressIndicator_value$(ProgressIndicator target) {
   return target.value;
 }
@@ -89,6 +107,16 @@ Function _ProgressIndicator_debugFillProperties$(
   ProgressIndicator target,
 ) =>
     target.debugFillProperties;
+Function LinearProgressIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinearProgressIndicator;
+Function LinearProgressIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinearProgressIndicator;
 double? _LinearProgressIndicator_minHeight$(LinearProgressIndicator target) {
   return target.minHeight;
 }
@@ -103,6 +131,16 @@ Function _LinearProgressIndicator_createState$(
   LinearProgressIndicator target,
 ) =>
     target.createState;
+Function CircularProgressIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CircularProgressIndicator;
+Function CircularProgressIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CircularProgressIndicator;
 double _CircularProgressIndicator_strokeWidth$(
     CircularProgressIndicator target) {
   return target.strokeWidth;
@@ -118,6 +156,16 @@ Function _CircularProgressIndicator_createState$(
   CircularProgressIndicator target,
 ) =>
     target.createState;
+Function RefreshProgressIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RefreshProgressIndicator;
+Function RefreshProgressIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RefreshProgressIndicator;
 double _RefreshProgressIndicator_defaultStrokeWidth$() {
   return RefreshProgressIndicator.defaultStrokeWidth;
 }

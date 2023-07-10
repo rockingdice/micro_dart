@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'DataTableSource': m.ClassMirror(
       'DataTableSource',
       {
+        '#as': DataTableSource_as$,
+        '#is': DataTableSource_is$,
         'rowCount': _DataTableSource_rowCount$,
         'isRowCountApproximate': _DataTableSource_isRowCountApproximate$,
         'selectedRowCount': _DataTableSource_selectedRowCount$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DataTableSource_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataTableSource;
+Function DataTableSource_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataTableSource;
 int _DataTableSource_rowCount$(DataTableSource target) {
   return target.rowCount;
 }

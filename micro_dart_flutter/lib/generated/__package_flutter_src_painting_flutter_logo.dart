@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/flutter_logo.dart',
   {
     'FlutterLogoDecoration.lerp': _FlutterLogoDecoration_lerp$,
+    'FlutterLogoDecoration.createBoxPainter':
+        _FlutterLogoDecoration_createBoxPainter$,
     'FlutterLogoStyle.markOnly': _FlutterLogoStyle_markOnly$,
     'FlutterLogoStyle.horizontal': _FlutterLogoStyle_horizontal$,
     'FlutterLogoStyle.stacked': _FlutterLogoStyle_stacked$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'FlutterLogoDecoration': m.ClassMirror(
       'FlutterLogoDecoration',
       {
+        '#as': FlutterLogoDecoration_as$,
+        '#is': FlutterLogoDecoration_is$,
         'textColor': _FlutterLogoDecoration_textColor$,
         'style': _FlutterLogoDecoration_style$,
         'margin': _FlutterLogoDecoration_margin$,
@@ -41,6 +45,7 @@ const libraryMirror = m.LibraryMirror(
         'lerpTo': _FlutterLogoDecoration_lerpTo$,
         'hitTest': _FlutterLogoDecoration_hitTest$,
         'getClipPath': _FlutterLogoDecoration_getClipPath$,
+        '==': _FlutterLogoDecoration_eq$$,
         'debugFillProperties': _FlutterLogoDecoration_debugFillProperties$,
       },
       {},
@@ -52,6 +57,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FlutterLogoDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterLogoDecoration;
+Function FlutterLogoDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterLogoDecoration;
 Color _FlutterLogoDecoration_textColor$(FlutterLogoDecoration target) {
   return target.textColor;
 }
@@ -94,11 +109,31 @@ Function _FlutterLogoDecoration_hitTest$(
   FlutterLogoDecoration target,
 ) =>
     target.hitTest;
+Function _FlutterLogoDecoration_createBoxPainter$(
+  m.Scope scope,
+  FlutterLogoDecoration target,
+) =>
+    (m.FunctionPointer? onChanged) {
+      if (onChanged == null) {}
+      return target.createBoxPainter();
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged!,
+            [],
+            {},
+          );
+      return target.createBoxPainter(onChanged == null ? null : onChangedProxy);
+    };
 Function _FlutterLogoDecoration_getClipPath$(
   m.Scope scope,
   FlutterLogoDecoration target,
 ) =>
     target.getClipPath;
+Function _FlutterLogoDecoration_eq$$(
+  m.Scope scope,
+  FlutterLogoDecoration target,
+) =>
+    (Object other) => target == other;
 Function _FlutterLogoDecoration_debugFillProperties$(
   m.Scope scope,
   FlutterLogoDecoration target,

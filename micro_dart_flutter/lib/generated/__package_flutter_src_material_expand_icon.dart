@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpandIcon': m.ClassMirror(
       'ExpandIcon',
       {
+        '#as': ExpandIcon_as$,
+        '#is': ExpandIcon_is$,
         'isExpanded': _ExpandIcon_isExpanded$,
         'size': _ExpandIcon_size$,
         'onPressed': _ExpandIcon_onPressed$,
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ExpandIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpandIcon;
+Function ExpandIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpandIcon;
 bool _ExpandIcon_isExpanded$(ExpandIcon target) {
   return target.isExpanded;
 }

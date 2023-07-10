@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'TextLayoutMetrics': m.ClassMirror(
       'TextLayoutMetrics',
       {
+        '#as': TextLayoutMetrics_as$,
+        '#is': TextLayoutMetrics_is$,
         'getLineAtOffset': _TextLayoutMetrics_getLineAtOffset$,
         'getWordBoundary': _TextLayoutMetrics_getWordBoundary$,
         'getTextPositionAbove': _TextLayoutMetrics_getTextPositionAbove$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextLayoutMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextLayoutMetrics;
+Function TextLayoutMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextLayoutMetrics;
 Function _TextLayoutMetrics_isWhitespace$(m.Scope scope) =>
     TextLayoutMetrics.isWhitespace;
 Function _TextLayoutMetrics_isLineTerminator$(m.Scope scope) =>

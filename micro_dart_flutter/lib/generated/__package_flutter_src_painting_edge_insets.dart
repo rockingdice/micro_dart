@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'EdgeInsetsGeometry': m.ClassMirror(
       'EdgeInsetsGeometry',
       {
+        '#as': EdgeInsetsGeometry_as$,
+        '#is': EdgeInsetsGeometry_is$,
         'isNonNegative': _EdgeInsetsGeometry_isNonNegative$,
         'horizontal': _EdgeInsetsGeometry_horizontal$,
         'vertical': _EdgeInsetsGeometry_vertical$,
@@ -34,14 +36,22 @@ const libraryMirror = m.LibraryMirror(
         'subtract': _EdgeInsetsGeometry_subtract$,
         'add': _EdgeInsetsGeometry_add$,
         'clamp': _EdgeInsetsGeometry_clamp$,
+        'unary-': _EdgeInsetsGeometry_unary_minus$$,
+        '*': _EdgeInsetsGeometry_times$$,
+        '/': _EdgeInsetsGeometry_over$$,
+        '~/': _EdgeInsetsGeometry_division$$,
+        '%': _EdgeInsetsGeometry_surplus$$,
         'resolve': _EdgeInsetsGeometry_resolve$,
         'toString': _EdgeInsetsGeometry_toString$,
+        '==': _EdgeInsetsGeometry_eq$$,
       },
       {},
     ),
     'EdgeInsets': m.ClassMirror(
       'EdgeInsets',
       {
+        '#as': EdgeInsets_as$,
+        '#is': EdgeInsets_is$,
         'left': _EdgeInsets_left$,
         'top': _EdgeInsets_top$,
         'right': _EdgeInsets_right$,
@@ -56,6 +66,13 @@ const libraryMirror = m.LibraryMirror(
         'subtract': _EdgeInsets_subtract$,
         'add': _EdgeInsets_add$,
         'clamp': _EdgeInsets_clamp$,
+        '-': _EdgeInsets_minus$$,
+        '+': _EdgeInsets_plus$$,
+        'unary-': _EdgeInsets_unary_minus$$,
+        '*': _EdgeInsets_times$$,
+        '/': _EdgeInsets_over$$,
+        '~/': _EdgeInsets_division$$,
+        '%': _EdgeInsets_surplus$$,
         'resolve': _EdgeInsets_resolve$,
         'copyWith': _EdgeInsets_copyWith$,
       },
@@ -64,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'EdgeInsetsDirectional': m.ClassMirror(
       'EdgeInsetsDirectional',
       {
+        '#as': EdgeInsetsDirectional_as$,
+        '#is': EdgeInsetsDirectional_is$,
         'start': _EdgeInsetsDirectional_start$,
         'top': _EdgeInsetsDirectional_top$,
         'end': _EdgeInsetsDirectional_end$,
@@ -72,12 +91,29 @@ const libraryMirror = m.LibraryMirror(
         'flipped': _EdgeInsetsDirectional_flipped$,
         'subtract': _EdgeInsetsDirectional_subtract$,
         'add': _EdgeInsetsDirectional_add$,
+        '-': _EdgeInsetsDirectional_minus$$,
+        '+': _EdgeInsetsDirectional_plus$$,
+        'unary-': _EdgeInsetsDirectional_unary_minus$$,
+        '*': _EdgeInsetsDirectional_times$$,
+        '/': _EdgeInsetsDirectional_over$$,
+        '~/': _EdgeInsetsDirectional_division$$,
+        '%': _EdgeInsetsDirectional_surplus$$,
         'resolve': _EdgeInsetsDirectional_resolve$,
       },
       {},
     ),
   },
 );
+Function EdgeInsetsGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeInsetsGeometry;
+Function EdgeInsetsGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeInsetsGeometry;
 EdgeInsetsGeometry _EdgeInsetsGeometry_infinity$() {
   return EdgeInsetsGeometry.infinity;
 }
@@ -136,6 +172,31 @@ Function _EdgeInsetsGeometry_clamp$(
   EdgeInsetsGeometry target,
 ) =>
     target.clamp;
+Function _EdgeInsetsGeometry_unary_minus$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    () => -target;
+Function _EdgeInsetsGeometry_times$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    (double other) => target * other;
+Function _EdgeInsetsGeometry_over$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    (double other) => target / other;
+Function _EdgeInsetsGeometry_division$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    (double other) => target ~/ other;
+Function _EdgeInsetsGeometry_surplus$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    (double other) => target % other;
 Function _EdgeInsetsGeometry_lerp$(m.Scope scope) => EdgeInsetsGeometry.lerp;
 Function _EdgeInsetsGeometry_resolve$(
   m.Scope scope,
@@ -147,6 +208,21 @@ Function _EdgeInsetsGeometry_toString$(
   EdgeInsetsGeometry target,
 ) =>
     target.toString;
+Function _EdgeInsetsGeometry_eq$$(
+  m.Scope scope,
+  EdgeInsetsGeometry target,
+) =>
+    (Object other) => target == other;
+Function EdgeInsets_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeInsets;
+Function EdgeInsets_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeInsets;
 EdgeInsets _EdgeInsets_zero$() {
   return EdgeInsets.zero;
 }
@@ -212,6 +288,41 @@ Function _EdgeInsets_clamp$(
   EdgeInsets target,
 ) =>
     target.clamp;
+Function _EdgeInsets_minus$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (EdgeInsets other) => target - other;
+Function _EdgeInsets_plus$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (EdgeInsets other) => target + other;
+Function _EdgeInsets_unary_minus$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    () => -target;
+Function _EdgeInsets_times$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (double other) => target * other;
+Function _EdgeInsets_over$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (double other) => target / other;
+Function _EdgeInsets_division$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (double other) => target ~/ other;
+Function _EdgeInsets_surplus$$(
+  m.Scope scope,
+  EdgeInsets target,
+) =>
+    (double other) => target % other;
 Function _EdgeInsets_lerp$(m.Scope scope) => EdgeInsets.lerp;
 Function _EdgeInsets_resolve$(
   m.Scope scope,
@@ -223,6 +334,16 @@ Function _EdgeInsets_copyWith$(
   EdgeInsets target,
 ) =>
     target.copyWith;
+Function EdgeInsetsDirectional_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeInsetsDirectional;
+Function EdgeInsetsDirectional_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeInsetsDirectional;
 EdgeInsetsDirectional _EdgeInsetsDirectional_zero$() {
   return EdgeInsetsDirectional.zero;
 }
@@ -262,6 +383,41 @@ Function _EdgeInsetsDirectional_add$(
   EdgeInsetsDirectional target,
 ) =>
     target.add;
+Function _EdgeInsetsDirectional_minus$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (EdgeInsetsDirectional other) => target - other;
+Function _EdgeInsetsDirectional_plus$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (EdgeInsetsDirectional other) => target + other;
+Function _EdgeInsetsDirectional_unary_minus$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    () => -target;
+Function _EdgeInsetsDirectional_times$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (double other) => target * other;
+Function _EdgeInsetsDirectional_over$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (double other) => target / other;
+Function _EdgeInsetsDirectional_division$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (double other) => target ~/ other;
+Function _EdgeInsetsDirectional_surplus$$(
+  m.Scope scope,
+  EdgeInsetsDirectional target,
+) =>
+    (double other) => target % other;
 Function _EdgeInsetsDirectional_lerp$(m.Scope scope) =>
     EdgeInsetsDirectional.lerp;
 Function _EdgeInsetsDirectional_resolve$(

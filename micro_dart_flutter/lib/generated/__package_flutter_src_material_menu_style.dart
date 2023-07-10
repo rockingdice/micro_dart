@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuStyle': m.ClassMirror(
       'MenuStyle',
       {
+        '#as': MenuStyle_as$,
+        '#is': MenuStyle_is$,
         'backgroundColor': _MenuStyle_backgroundColor$,
         'shadowColor': _MenuStyle_shadowColor$,
         'surfaceTintColor': _MenuStyle_surfaceTintColor$,
@@ -34,6 +36,7 @@ const libraryMirror = m.LibraryMirror(
         'visualDensity': _MenuStyle_visualDensity$,
         'alignment': _MenuStyle_alignment$,
         'hashCode': _MenuStyle_hashCode$,
+        '==': _MenuStyle_eq$$,
         'copyWith': _MenuStyle_copyWith$,
         'merge': _MenuStyle_merge$,
         'debugFillProperties': _MenuStyle_debugFillProperties$,
@@ -42,6 +45,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function MenuStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuStyle;
+Function MenuStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuStyle;
 MaterialStateProperty<Color?>? _MenuStyle_backgroundColor$(MenuStyle target) {
   return target.backgroundColor;
 }
@@ -99,6 +112,11 @@ int _MenuStyle_hashCode$(MenuStyle target) {
   return target.hashCode;
 }
 
+Function _MenuStyle_eq$$(
+  m.Scope scope,
+  MenuStyle target,
+) =>
+    (Object other) => target == other;
 Function _MenuStyle_copyWith$(
   m.Scope scope,
   MenuStyle target,

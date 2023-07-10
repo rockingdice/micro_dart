@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoDesktopTextSelectionToolbarButton': m.ClassMirror(
       'CupertinoDesktopTextSelectionToolbarButton',
       {
+        '#as': CupertinoDesktopTextSelectionToolbarButton_as$,
+        '#is': CupertinoDesktopTextSelectionToolbarButton_is$,
         'onPressed': _CupertinoDesktopTextSelectionToolbarButton_onPressed$,
         'child': _CupertinoDesktopTextSelectionToolbarButton_child$,
         'buttonItem': _CupertinoDesktopTextSelectionToolbarButton_buttonItem$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoDesktopTextSelectionToolbarButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDesktopTextSelectionToolbarButton;
+Function CupertinoDesktopTextSelectionToolbarButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDesktopTextSelectionToolbarButton;
 void Function() _CupertinoDesktopTextSelectionToolbarButton_onPressed$(
     CupertinoDesktopTextSelectionToolbarButton target) {
   return target.onPressed;

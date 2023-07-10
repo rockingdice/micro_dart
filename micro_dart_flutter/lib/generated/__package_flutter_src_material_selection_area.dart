@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionArea': m.ClassMirror(
       'SelectionArea',
       {
+        '#as': SelectionArea_as$,
+        '#is': SelectionArea_is$,
         'magnifierConfiguration': _SelectionArea_magnifierConfiguration$,
         'focusNode': _SelectionArea_focusNode$,
         'selectionControls': _SelectionArea_selectionControls$,
@@ -32,6 +34,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SelectionArea_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionArea;
+Function SelectionArea_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionArea;
 TextMagnifierConfiguration? _SelectionArea_magnifierConfiguration$(
     SelectionArea target) {
   return target.magnifierConfiguration;

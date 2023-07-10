@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomAppBar': m.ClassMirror(
       'BottomAppBar',
       {
+        '#as': BottomAppBar_as$,
+        '#is': BottomAppBar_is$,
         'child': _BottomAppBar_child$,
         'padding': _BottomAppBar_padding$,
         'color': _BottomAppBar_color$,
@@ -37,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function BottomAppBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomAppBar;
+Function BottomAppBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomAppBar;
 Widget? _BottomAppBar_child$(BottomAppBar target) {
   return target.child;
 }

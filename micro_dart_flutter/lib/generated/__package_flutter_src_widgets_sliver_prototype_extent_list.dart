@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverPrototypeExtentList': m.ClassMirror(
       'SliverPrototypeExtentList',
       {
+        '#as': SliverPrototypeExtentList_as$,
+        '#is': SliverPrototypeExtentList_is$,
         'prototypeItem': _SliverPrototypeExtentList_prototypeItem$,
         'createRenderObject': _SliverPrototypeExtentList_createRenderObject$,
         'createElement': _SliverPrototypeExtentList_createElement$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SliverPrototypeExtentList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPrototypeExtentList;
+Function SliverPrototypeExtentList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPrototypeExtentList;
 Widget _SliverPrototypeExtentList_prototypeItem$(
     SliverPrototypeExtentList target) {
   return target.prototypeItem;

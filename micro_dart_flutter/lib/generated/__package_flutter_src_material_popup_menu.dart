@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuEntry': m.ClassMirror(
       'PopupMenuEntry',
       {
+        '#as': PopupMenuEntry_as$,
+        '#is': PopupMenuEntry_is$,
         'height': _PopupMenuEntry_height$,
         'represents': _PopupMenuEntry_represents$,
       },
@@ -38,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuDivider': m.ClassMirror(
       'PopupMenuDivider',
       {
+        '#as': PopupMenuDivider_as$,
+        '#is': PopupMenuDivider_is$,
         'height': _PopupMenuDivider_height$,
         'represents': _PopupMenuDivider_represents$,
         'createState': _PopupMenuDivider_createState$,
@@ -47,6 +51,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuItem': m.ClassMirror(
       'PopupMenuItem',
       {
+        '#as': PopupMenuItem_as$,
+        '#is': PopupMenuItem_is$,
         'value': _PopupMenuItem_value$,
         'onTap': _PopupMenuItem_onTap$,
         'enabled': _PopupMenuItem_enabled$,
@@ -64,6 +70,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuItemState': m.ClassMirror(
       'PopupMenuItemState',
       {
+        '#as': PopupMenuItemState_as$,
+        '#is': PopupMenuItemState_is$,
         'buildChild': _PopupMenuItemState_buildChild$,
         'handleTap': _PopupMenuItemState_handleTap$,
         'build': _PopupMenuItemState_build$,
@@ -73,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckedPopupMenuItem': m.ClassMirror(
       'CheckedPopupMenuItem',
       {
+        '#as': CheckedPopupMenuItem_as$,
+        '#is': CheckedPopupMenuItem_is$,
         'checked': _CheckedPopupMenuItem_checked$,
         'child': _CheckedPopupMenuItem_child$,
         'createState': _CheckedPopupMenuItem_createState$,
@@ -82,6 +92,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuButton': m.ClassMirror(
       'PopupMenuButton',
       {
+        '#as': PopupMenuButton_as$,
+        '#is': PopupMenuButton_is$,
         'itemBuilder': _PopupMenuButton_itemBuilder$,
         'initialValue': _PopupMenuButton_initialValue$,
         'onOpened': _PopupMenuButton_onOpened$,
@@ -111,6 +123,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuButtonState': m.ClassMirror(
       'PopupMenuButtonState',
       {
+        '#as': PopupMenuButtonState_as$,
+        '#is': PopupMenuButtonState_is$,
         'showButtonMenu': _PopupMenuButtonState_showButtonMenu$,
         'build': _PopupMenuButtonState_build$,
       },
@@ -118,6 +132,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PopupMenuEntry_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuEntry<T>;
+Function PopupMenuEntry_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuEntry<T>;
 double _PopupMenuEntry_height$<T>(PopupMenuEntry<T> target) {
   return target.height;
 }
@@ -127,6 +151,16 @@ Function _PopupMenuEntry_represents$<T>(
   PopupMenuEntry<T> target,
 ) =>
     target.represents;
+Function PopupMenuDivider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuDivider;
+Function PopupMenuDivider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuDivider;
 double _PopupMenuDivider_height$(PopupMenuDivider target) {
   return target.height;
 }
@@ -141,6 +175,16 @@ Function _PopupMenuDivider_createState$(
   PopupMenuDivider target,
 ) =>
     target.createState;
+Function PopupMenuItem_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuItem<T>;
+Function PopupMenuItem_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuItem<T>;
 T? _PopupMenuItem_value$<T>(PopupMenuItem<T> target) {
   return target.value;
 }
@@ -188,6 +232,16 @@ Function _PopupMenuItem_createState$<T>(
   PopupMenuItem<T> target,
 ) =>
     target.createState;
+Function PopupMenuItemState_as$<T, W extends PopupMenuItem<T>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuItemState<T, W>;
+Function PopupMenuItemState_is$<T, W extends PopupMenuItem<T>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuItemState<T, W>;
 Function _PopupMenuItemState_buildChild$<T, W extends PopupMenuItem<T>>(
   m.Scope scope,
   PopupMenuItemState<T, W> target,
@@ -203,6 +257,16 @@ Function _PopupMenuItemState_build$<T, W extends PopupMenuItem<T>>(
   PopupMenuItemState<T, W> target,
 ) =>
     target.build;
+Function CheckedPopupMenuItem_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckedPopupMenuItem<T>;
+Function CheckedPopupMenuItem_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckedPopupMenuItem<T>;
 bool _CheckedPopupMenuItem_checked$<T>(CheckedPopupMenuItem<T> target) {
   return target.checked;
 }
@@ -216,6 +280,16 @@ Function _CheckedPopupMenuItem_createState$<T>(
   CheckedPopupMenuItem<T> target,
 ) =>
     target.createState;
+Function PopupMenuButton_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuButton<T>;
+Function PopupMenuButton_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuButton<T>;
 List<PopupMenuEntry<T>> Function(BuildContext) _PopupMenuButton_itemBuilder$<T>(
     PopupMenuButton<T> target) {
   return target.itemBuilder;
@@ -310,6 +384,16 @@ Function _PopupMenuButton_createState$<T>(
   PopupMenuButton<T> target,
 ) =>
     target.createState;
+Function PopupMenuButtonState_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuButtonState<T>;
+Function PopupMenuButtonState_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuButtonState<T>;
 Function _PopupMenuButtonState_showButtonMenu$<T>(
   m.Scope scope,
   PopupMenuButtonState<T> target,

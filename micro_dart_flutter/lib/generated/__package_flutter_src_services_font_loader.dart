@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'FontLoader': m.ClassMirror(
       'FontLoader',
       {
+        '#as': FontLoader_as$,
+        '#is': FontLoader_is$,
         'family': _FontLoader_family$,
         'addFont': _FontLoader_addFont$,
         'load': _FontLoader_load$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FontLoader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FontLoader;
+Function FontLoader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FontLoader;
 String _FontLoader_family$(FontLoader target) {
   return target.family;
 }

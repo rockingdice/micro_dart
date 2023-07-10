@@ -18,11 +18,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'DeferredComponent': m.ClassMirror(
       'DeferredComponent',
-      {},
+      {
+        '#as': DeferredComponent_as$,
+        '#is': DeferredComponent_is$,
+      },
       {},
     )
   },
 );
+Function DeferredComponent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DeferredComponent;
+Function DeferredComponent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DeferredComponent;
 Function _DeferredComponent_installDeferredComponent$(m.Scope scope) =>
     DeferredComponent.installDeferredComponent;
 Function _DeferredComponent_uninstallDeferredComponent$(m.Scope scope) =>

@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'DrawerHeader': m.ClassMirror(
       'DrawerHeader',
       {
+        '#as': DrawerHeader_as$,
+        '#is': DrawerHeader_is$,
         'decoration': _DrawerHeader_decoration$,
         'padding': _DrawerHeader_padding$,
         'margin': _DrawerHeader_margin$,
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DrawerHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerHeader;
+Function DrawerHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerHeader;
 Decoration? _DrawerHeader_decoration$(DrawerHeader target) {
   return target.decoration;
 }

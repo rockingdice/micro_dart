@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'AutomaticKeepAlive': m.ClassMirror(
       'AutomaticKeepAlive',
       {
+        '#as': AutomaticKeepAlive_as$,
+        '#is': AutomaticKeepAlive_is$,
         'child': _AutomaticKeepAlive_child$,
         'createState': _AutomaticKeepAlive_createState$,
       },
@@ -26,16 +28,34 @@ const libraryMirror = m.LibraryMirror(
     ),
     'KeepAliveNotification': m.ClassMirror(
       'KeepAliveNotification',
-      {'handle': _KeepAliveNotification_handle$},
+      {
+        '#as': KeepAliveNotification_as$,
+        '#is': KeepAliveNotification_is$,
+        'handle': _KeepAliveNotification_handle$,
+      },
       {},
     ),
     'KeepAliveHandle': m.ClassMirror(
       'KeepAliveHandle',
-      {'dispose': _KeepAliveHandle_dispose$},
+      {
+        '#as': KeepAliveHandle_as$,
+        '#is': KeepAliveHandle_is$,
+        'dispose': _KeepAliveHandle_dispose$,
+      },
       {},
     ),
   },
 );
+Function AutomaticKeepAlive_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutomaticKeepAlive;
+Function AutomaticKeepAlive_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutomaticKeepAlive;
 Widget _AutomaticKeepAlive_child$(AutomaticKeepAlive target) {
   return target.child;
 }
@@ -45,10 +65,30 @@ Function _AutomaticKeepAlive_createState$(
   AutomaticKeepAlive target,
 ) =>
     target.createState;
+Function KeepAliveNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeepAliveNotification;
+Function KeepAliveNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeepAliveNotification;
 Listenable _KeepAliveNotification_handle$(KeepAliveNotification target) {
   return target.handle;
 }
 
+Function KeepAliveHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeepAliveHandle;
+Function KeepAliveHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeepAliveHandle;
 Function _KeepAliveHandle_dispose$(
   m.Scope scope,
   KeepAliveHandle target,

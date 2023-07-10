@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'DragDownDetails': m.ClassMirror(
       'DragDownDetails',
       {
+        '#as': DragDownDetails_as$,
+        '#is': DragDownDetails_is$,
         'globalPosition': _DragDownDetails_globalPosition$,
         'localPosition': _DragDownDetails_localPosition$,
         'toString': _DragDownDetails_toString$,
@@ -23,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'DragStartDetails': m.ClassMirror(
       'DragStartDetails',
       {
+        '#as': DragStartDetails_as$,
+        '#is': DragStartDetails_is$,
         'sourceTimeStamp': _DragStartDetails_sourceTimeStamp$,
         'globalPosition': _DragStartDetails_globalPosition$,
         'localPosition': _DragStartDetails_localPosition$,
@@ -34,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'DragUpdateDetails': m.ClassMirror(
       'DragUpdateDetails',
       {
+        '#as': DragUpdateDetails_as$,
+        '#is': DragUpdateDetails_is$,
         'sourceTimeStamp': _DragUpdateDetails_sourceTimeStamp$,
         'delta': _DragUpdateDetails_delta$,
         'primaryDelta': _DragUpdateDetails_primaryDelta$,
@@ -46,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'DragEndDetails': m.ClassMirror(
       'DragEndDetails',
       {
+        '#as': DragEndDetails_as$,
+        '#is': DragEndDetails_is$,
         'velocity': _DragEndDetails_velocity$,
         'primaryVelocity': _DragEndDetails_primaryVelocity$,
         'toString': _DragEndDetails_toString$,
@@ -54,6 +62,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DragDownDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragDownDetails;
+Function DragDownDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragDownDetails;
 Offset _DragDownDetails_globalPosition$(DragDownDetails target) {
   return target.globalPosition;
 }
@@ -67,6 +85,16 @@ Function _DragDownDetails_toString$(
   DragDownDetails target,
 ) =>
     target.toString;
+Function DragStartDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragStartDetails;
+Function DragStartDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragStartDetails;
 Duration? _DragStartDetails_sourceTimeStamp$(DragStartDetails target) {
   return target.sourceTimeStamp;
 }
@@ -88,6 +116,16 @@ Function _DragStartDetails_toString$(
   DragStartDetails target,
 ) =>
     target.toString;
+Function DragUpdateDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragUpdateDetails;
+Function DragUpdateDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragUpdateDetails;
 Duration? _DragUpdateDetails_sourceTimeStamp$(DragUpdateDetails target) {
   return target.sourceTimeStamp;
 }
@@ -113,6 +151,16 @@ Function _DragUpdateDetails_toString$(
   DragUpdateDetails target,
 ) =>
     target.toString;
+Function DragEndDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragEndDetails;
+Function DragEndDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragEndDetails;
 Velocity _DragEndDetails_velocity$(DragEndDetails target) {
   return target.velocity;
 }

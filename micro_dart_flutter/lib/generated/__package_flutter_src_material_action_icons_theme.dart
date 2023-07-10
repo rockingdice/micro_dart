@@ -11,6 +11,7 @@ import 'package:flutter/src/material/theme.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/action_icons_theme.dart',
   {
+    'ActionIconThemeData.copyWith': _ActionIconThemeData_copyWith$,
     'ActionIconThemeData.lerp': _ActionIconThemeData_lerp$,
     'ActionIconTheme.of': _ActionIconTheme_of$,
   },
@@ -19,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ActionIconThemeData': m.ClassMirror(
       'ActionIconThemeData',
       {
+        '#as': ActionIconThemeData_as$,
+        '#is': ActionIconThemeData_is$,
         'backButtonIconBuilder': _ActionIconThemeData_backButtonIconBuilder$,
         'closeButtonIconBuilder': _ActionIconThemeData_closeButtonIconBuilder$,
         'drawerButtonIconBuilder':
@@ -26,6 +29,7 @@ const libraryMirror = m.LibraryMirror(
         'endDrawerButtonIconBuilder':
             _ActionIconThemeData_endDrawerButtonIconBuilder$,
         'hashCode': _ActionIconThemeData_hashCode$,
+        '==': _ActionIconThemeData_eq$$,
         'debugFillProperties': _ActionIconThemeData_debugFillProperties$,
       },
       {},
@@ -33,6 +37,8 @@ const libraryMirror = m.LibraryMirror(
     'ActionIconTheme': m.ClassMirror(
       'ActionIconTheme',
       {
+        '#as': ActionIconTheme_as$,
+        '#is': ActionIconTheme_is$,
         'data': _ActionIconTheme_data$,
         'wrap': _ActionIconTheme_wrap$,
         'updateShouldNotify': _ActionIconTheme_updateShouldNotify$,
@@ -41,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ActionIconThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActionIconThemeData;
+Function ActionIconThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActionIconThemeData;
 Widget Function(BuildContext)? _ActionIconThemeData_backButtonIconBuilder$(
     ActionIconThemeData target) {
   return target.backButtonIconBuilder;
@@ -65,12 +81,82 @@ int _ActionIconThemeData_hashCode$(ActionIconThemeData target) {
   return target.hashCode;
 }
 
+Function _ActionIconThemeData_copyWith$(
+  m.Scope scope,
+  ActionIconThemeData target,
+) =>
+    ({
+      m.FunctionPointer? backButtonIconBuilder,
+      m.FunctionPointer? closeButtonIconBuilder,
+      m.FunctionPointer? drawerButtonIconBuilder,
+      m.FunctionPointer? endDrawerButtonIconBuilder,
+    }) {
+      Widget backButtonIconBuilderProxy(
+              BuildContext backButtonIconBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            backButtonIconBuilder!,
+            [backButtonIconBuilder_context],
+            {},
+          );
+      Widget closeButtonIconBuilderProxy(
+              BuildContext closeButtonIconBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            closeButtonIconBuilder!,
+            [closeButtonIconBuilder_context],
+            {},
+          );
+      Widget drawerButtonIconBuilderProxy(
+              BuildContext drawerButtonIconBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            drawerButtonIconBuilder!,
+            [drawerButtonIconBuilder_context],
+            {},
+          );
+      Widget endDrawerButtonIconBuilderProxy(
+              BuildContext endDrawerButtonIconBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            endDrawerButtonIconBuilder!,
+            [endDrawerButtonIconBuilder_context],
+            {},
+          );
+      return target.copyWith(
+        backButtonIconBuilder:
+            backButtonIconBuilder == null ? null : backButtonIconBuilderProxy,
+        closeButtonIconBuilder:
+            closeButtonIconBuilder == null ? null : closeButtonIconBuilderProxy,
+        drawerButtonIconBuilder: drawerButtonIconBuilder == null
+            ? null
+            : drawerButtonIconBuilderProxy,
+        endDrawerButtonIconBuilder: endDrawerButtonIconBuilder == null
+            ? null
+            : endDrawerButtonIconBuilderProxy,
+      );
+    };
 Function _ActionIconThemeData_lerp$(m.Scope scope) => ActionIconThemeData.lerp;
+Function _ActionIconThemeData_eq$$(
+  m.Scope scope,
+  ActionIconThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ActionIconThemeData_debugFillProperties$(
   m.Scope scope,
   ActionIconThemeData target,
 ) =>
     target.debugFillProperties;
+Function ActionIconTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActionIconTheme;
+Function ActionIconTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActionIconTheme;
 ActionIconThemeData _ActionIconTheme_data$(ActionIconTheme target) {
   return target.data;
 }

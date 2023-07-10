@@ -20,6 +20,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'Router.of': _Router_of$,
     'Router.maybeOf': _Router_maybeOf$,
+    'Router.navigate': _Router_navigate$,
+    'Router.neglect': _Router_neglect$,
+    'RootBackButtonDispatcher.addCallback':
+        _RootBackButtonDispatcher_addCallback$,
+    'RootBackButtonDispatcher.removeCallback':
+        _RootBackButtonDispatcher_removeCallback$,
+    'ChildBackButtonDispatcher.removeCallback':
+        _ChildBackButtonDispatcher_removeCallback$,
+    'PlatformRouteInformationProvider.addListener':
+        _PlatformRouteInformationProvider_addListener$,
+    'PlatformRouteInformationProvider.removeListener':
+        _PlatformRouteInformationProvider_removeListener$,
     'RouteInformationReportingType.none': _RouteInformationReportingType_none$,
     'RouteInformationReportingType.neglect':
         _RouteInformationReportingType_neglect$,
@@ -33,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteInformation': m.ClassMirror(
       'RouteInformation',
       {
+        '#as': RouteInformation_as$,
+        '#is': RouteInformation_is$,
         'location': _RouteInformation_location$,
         'state': _RouteInformation_state$,
       },
@@ -41,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'RouterConfig': m.ClassMirror(
       'RouterConfig',
       {
+        '#as': RouterConfig_as$,
+        '#is': RouterConfig_is$,
         'routeInformationProvider': _RouterConfig_routeInformationProvider$,
         'routeInformationParser': _RouterConfig_routeInformationParser$,
         'routerDelegate': _RouterConfig_routerDelegate$,
@@ -51,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'Router': m.ClassMirror(
       'Router',
       {
+        '#as': Router_as$,
+        '#is': Router_is$,
         'routeInformationProvider': _Router_routeInformationProvider$,
         'routeInformationParser': _Router_routeInformationParser$,
         'routerDelegate': _Router_routerDelegate$,
@@ -63,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'BackButtonDispatcher': m.ClassMirror(
       'BackButtonDispatcher',
       {
+        '#as': BackButtonDispatcher_as$,
+        '#is': BackButtonDispatcher_is$,
         'hasCallbacks': _BackButtonDispatcher_hasCallbacks$,
         'invokeCallback': _BackButtonDispatcher_invokeCallback$,
         'createChildBackButtonDispatcher':
@@ -75,12 +95,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RootBackButtonDispatcher': m.ClassMirror(
       'RootBackButtonDispatcher',
-      {'didPopRoute': _RootBackButtonDispatcher_didPopRoute$},
+      {
+        '#as': RootBackButtonDispatcher_as$,
+        '#is': RootBackButtonDispatcher_is$,
+        'didPopRoute': _RootBackButtonDispatcher_didPopRoute$,
+      },
       {},
     ),
     'ChildBackButtonDispatcher': m.ClassMirror(
       'ChildBackButtonDispatcher',
       {
+        '#as': ChildBackButtonDispatcher_as$,
+        '#is': ChildBackButtonDispatcher_is$,
         'parent': _ChildBackButtonDispatcher_parent$,
         'notifiedByParent': _ChildBackButtonDispatcher_notifiedByParent$,
         'takePriority': _ChildBackButtonDispatcher_takePriority$,
@@ -91,6 +117,8 @@ const libraryMirror = m.LibraryMirror(
     'BackButtonListener': m.ClassMirror(
       'BackButtonListener',
       {
+        '#as': BackButtonListener_as$,
+        '#is': BackButtonListener_is$,
         'child': _BackButtonListener_child$,
         'onBackButtonPressed': _BackButtonListener_onBackButtonPressed$,
         'createState': _BackButtonListener_createState$,
@@ -100,6 +128,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteInformationParser': m.ClassMirror(
       'RouteInformationParser',
       {
+        '#as': RouteInformationParser_as$,
+        '#is': RouteInformationParser_is$,
         'parseRouteInformation': _RouteInformationParser_parseRouteInformation$,
         'parseRouteInformationWithDependencies':
             _RouteInformationParser_parseRouteInformationWithDependencies$,
@@ -111,6 +141,8 @@ const libraryMirror = m.LibraryMirror(
     'RouterDelegate': m.ClassMirror(
       'RouterDelegate',
       {
+        '#as': RouterDelegate_as$,
+        '#is': RouterDelegate_is$,
         'currentConfiguration': _RouterDelegate_currentConfiguration$,
         'setInitialRoutePath': _RouterDelegate_setInitialRoutePath$,
         'setRestoredRoutePath': _RouterDelegate_setRestoredRoutePath$,
@@ -123,14 +155,18 @@ const libraryMirror = m.LibraryMirror(
     'RouteInformationProvider': m.ClassMirror(
       'RouteInformationProvider',
       {
+        '#as': RouteInformationProvider_as$,
+        '#is': RouteInformationProvider_is$,
         'routerReportsNewRouteInformation':
-            _RouteInformationProvider_routerReportsNewRouteInformation$
+            _RouteInformationProvider_routerReportsNewRouteInformation$,
       },
       {},
     ),
     'PlatformRouteInformationProvider': m.ClassMirror(
       'PlatformRouteInformationProvider',
       {
+        '#as': PlatformRouteInformationProvider_as$,
+        '#is': PlatformRouteInformationProvider_is$,
         'value': _PlatformRouteInformationProvider_value$,
         'routerReportsNewRouteInformation':
             _PlatformRouteInformationProvider_routerReportsNewRouteInformation$,
@@ -148,6 +184,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RouteInformation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteInformation;
+Function RouteInformation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteInformation;
 String? _RouteInformation_location$(RouteInformation target) {
   return target.location;
 }
@@ -156,6 +202,16 @@ Object? _RouteInformation_state$(RouteInformation target) {
   return target.state;
 }
 
+Function RouterConfig_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouterConfig<T>;
+Function RouterConfig_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouterConfig<T>;
 RouteInformationProvider? _RouterConfig_routeInformationProvider$<T>(
     RouterConfig<T> target) {
   return target.routeInformationProvider;
@@ -175,6 +231,16 @@ BackButtonDispatcher? _RouterConfig_backButtonDispatcher$<T>(
   return target.backButtonDispatcher;
 }
 
+Function Router_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Router<T>;
+Function Router_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Router<T>;
 RouteInformationProvider? _Router_routeInformationProvider$<T>(
     Router<T> target) {
   return target.routeInformationProvider;
@@ -200,11 +266,51 @@ String? _Router_restorationScopeId$<T>(Router<T> target) {
 Function _Router_of$<T extends Object?>(m.Scope scope) => Router.of<T>;
 Function _Router_maybeOf$<T extends Object?>(m.Scope scope) =>
     Router.maybeOf<T>;
+Function _Router_navigate$(m.Scope scope) => (
+      BuildContext context,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      Router.navigate(
+        context,
+        callbackProxy,
+      );
+    };
+Function _Router_neglect$(m.Scope scope) => (
+      BuildContext context,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      Router.neglect(
+        context,
+        callbackProxy,
+      );
+    };
 Function _Router_createState$<T>(
   m.Scope scope,
   Router<T> target,
 ) =>
     target.createState;
+Function BackButtonDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackButtonDispatcher;
+Function BackButtonDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackButtonDispatcher;
 bool _BackButtonDispatcher_hasCallbacks$(BackButtonDispatcher target) {
   return target.hasCallbacks;
 }
@@ -234,11 +340,59 @@ Function _BackButtonDispatcher_forget$(
   BackButtonDispatcher target,
 ) =>
     target.forget;
+Function RootBackButtonDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RootBackButtonDispatcher;
+Function RootBackButtonDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RootBackButtonDispatcher;
+Function _RootBackButtonDispatcher_addCallback$(
+  m.Scope scope,
+  RootBackButtonDispatcher target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<bool> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.addCallback(callbackProxy);
+    };
+Function _RootBackButtonDispatcher_removeCallback$(
+  m.Scope scope,
+  RootBackButtonDispatcher target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<bool> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.removeCallback(callbackProxy);
+    };
 Function _RootBackButtonDispatcher_didPopRoute$(
   m.Scope scope,
   RootBackButtonDispatcher target,
 ) =>
     target.didPopRoute;
+Function ChildBackButtonDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChildBackButtonDispatcher;
+Function ChildBackButtonDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChildBackButtonDispatcher;
 BackButtonDispatcher _ChildBackButtonDispatcher_parent$(
     ChildBackButtonDispatcher target) {
   return target.parent;
@@ -259,6 +413,30 @@ Function _ChildBackButtonDispatcher_deferTo$(
   ChildBackButtonDispatcher target,
 ) =>
     target.deferTo;
+Function _ChildBackButtonDispatcher_removeCallback$(
+  m.Scope scope,
+  ChildBackButtonDispatcher target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<bool> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.removeCallback(callbackProxy);
+    };
+Function BackButtonListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackButtonListener;
+Function BackButtonListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackButtonListener;
 Widget _BackButtonListener_child$(BackButtonListener target) {
   return target.child;
 }
@@ -273,6 +451,16 @@ Function _BackButtonListener_createState$(
   BackButtonListener target,
 ) =>
     target.createState;
+Function RouteInformationParser_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteInformationParser<T>;
+Function RouteInformationParser_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteInformationParser<T>;
 Function _RouteInformationParser_parseRouteInformation$<T>(
   m.Scope scope,
   RouteInformationParser<T> target,
@@ -288,6 +476,16 @@ Function _RouteInformationParser_restoreRouteInformation$<T>(
   RouteInformationParser<T> target,
 ) =>
     target.restoreRouteInformation;
+Function RouterDelegate_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouterDelegate<T>;
+Function RouterDelegate_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouterDelegate<T>;
 T? _RouterDelegate_currentConfiguration$<T>(RouterDelegate<T> target) {
   return target.currentConfiguration;
 }
@@ -317,11 +515,31 @@ Function _RouterDelegate_build$<T>(
   RouterDelegate<T> target,
 ) =>
     target.build;
+Function RouteInformationProvider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteInformationProvider;
+Function RouteInformationProvider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteInformationProvider;
 Function _RouteInformationProvider_routerReportsNewRouteInformation$(
   m.Scope scope,
   RouteInformationProvider target,
 ) =>
     target.routerReportsNewRouteInformation;
+Function PlatformRouteInformationProvider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformRouteInformationProvider;
+Function PlatformRouteInformationProvider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformRouteInformationProvider;
 RouteInformation _PlatformRouteInformationProvider_value$(
     PlatformRouteInformationProvider target) {
   return target.value;
@@ -332,6 +550,32 @@ Function _PlatformRouteInformationProvider_routerReportsNewRouteInformation$(
   PlatformRouteInformationProvider target,
 ) =>
     target.routerReportsNewRouteInformation;
+Function _PlatformRouteInformationProvider_addListener$(
+  m.Scope scope,
+  PlatformRouteInformationProvider target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _PlatformRouteInformationProvider_removeListener$(
+  m.Scope scope,
+  PlatformRouteInformationProvider target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _PlatformRouteInformationProvider_dispose$(
   m.Scope scope,
   PlatformRouteInformationProvider target,

@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableValue': m.ClassMirror(
       'RestorableValue',
       {
+        '#as': RestorableValue_as$,
+        '#is': RestorableValue_is$,
         'value': _RestorableValue_value$,
         'initWithValue': _RestorableValue_initWithValue$,
         'didUpdateValue': _RestorableValue_didUpdateValue$,
@@ -25,57 +27,89 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RestorableNum': m.ClassMirror(
       'RestorableNum',
-      {},
+      {
+        '#as': RestorableNum_as$,
+        '#is': RestorableNum_is$,
+      },
       {},
     ),
     'RestorableDouble': m.ClassMirror(
       'RestorableDouble',
-      {},
+      {
+        '#as': RestorableDouble_as$,
+        '#is': RestorableDouble_is$,
+      },
       {},
     ),
     'RestorableInt': m.ClassMirror(
       'RestorableInt',
-      {},
+      {
+        '#as': RestorableInt_as$,
+        '#is': RestorableInt_is$,
+      },
       {},
     ),
     'RestorableString': m.ClassMirror(
       'RestorableString',
-      {},
+      {
+        '#as': RestorableString_as$,
+        '#is': RestorableString_is$,
+      },
       {},
     ),
     'RestorableBool': m.ClassMirror(
       'RestorableBool',
-      {},
+      {
+        '#as': RestorableBool_as$,
+        '#is': RestorableBool_is$,
+      },
       {},
     ),
     'RestorableBoolN': m.ClassMirror(
       'RestorableBoolN',
-      {},
+      {
+        '#as': RestorableBoolN_as$,
+        '#is': RestorableBoolN_is$,
+      },
       {},
     ),
     'RestorableNumN': m.ClassMirror(
       'RestorableNumN',
-      {},
+      {
+        '#as': RestorableNumN_as$,
+        '#is': RestorableNumN_is$,
+      },
       {},
     ),
     'RestorableDoubleN': m.ClassMirror(
       'RestorableDoubleN',
-      {},
+      {
+        '#as': RestorableDoubleN_as$,
+        '#is': RestorableDoubleN_is$,
+      },
       {},
     ),
     'RestorableIntN': m.ClassMirror(
       'RestorableIntN',
-      {},
+      {
+        '#as': RestorableIntN_as$,
+        '#is': RestorableIntN_is$,
+      },
       {},
     ),
     'RestorableStringN': m.ClassMirror(
       'RestorableStringN',
-      {},
+      {
+        '#as': RestorableStringN_as$,
+        '#is': RestorableStringN_is$,
+      },
       {},
     ),
     'RestorableDateTime': m.ClassMirror(
       'RestorableDateTime',
       {
+        '#as': RestorableDateTime_as$,
+        '#is': RestorableDateTime_is$,
         'createDefaultValue': _RestorableDateTime_createDefaultValue$,
         'didUpdateValue': _RestorableDateTime_didUpdateValue$,
         'fromPrimitives': _RestorableDateTime_fromPrimitives$,
@@ -86,6 +120,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableDateTimeN': m.ClassMirror(
       'RestorableDateTimeN',
       {
+        '#as': RestorableDateTimeN_as$,
+        '#is': RestorableDateTimeN_is$,
         'createDefaultValue': _RestorableDateTimeN_createDefaultValue$,
         'didUpdateValue': _RestorableDateTimeN_didUpdateValue$,
         'fromPrimitives': _RestorableDateTimeN_fromPrimitives$,
@@ -96,6 +132,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableListenable': m.ClassMirror(
       'RestorableListenable',
       {
+        '#as': RestorableListenable_as$,
+        '#is': RestorableListenable_is$,
         'value': _RestorableListenable_value$,
         'initWithValue': _RestorableListenable_initWithValue$,
         'dispose': _RestorableListenable_dispose$,
@@ -105,6 +143,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableChangeNotifier': m.ClassMirror(
       'RestorableChangeNotifier',
       {
+        '#as': RestorableChangeNotifier_as$,
+        '#is': RestorableChangeNotifier_is$,
         'initWithValue': _RestorableChangeNotifier_initWithValue$,
         'dispose': _RestorableChangeNotifier_dispose$,
       },
@@ -113,6 +153,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableTextEditingController': m.ClassMirror(
       'RestorableTextEditingController',
       {
+        '#as': RestorableTextEditingController_as$,
+        '#is': RestorableTextEditingController_is$,
         'createDefaultValue':
             _RestorableTextEditingController_createDefaultValue$,
         'fromPrimitives': _RestorableTextEditingController_fromPrimitives$,
@@ -123,6 +165,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableEnumN': m.ClassMirror(
       'RestorableEnumN',
       {
+        '#as': RestorableEnumN_as$,
+        '#is': RestorableEnumN_is$,
         'values': _RestorableEnumN_values$,
         'createDefaultValue': _RestorableEnumN_createDefaultValue$,
         'didUpdateValue': _RestorableEnumN_didUpdateValue$,
@@ -137,6 +181,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableEnum': m.ClassMirror(
       'RestorableEnum',
       {
+        '#as': RestorableEnum_as$,
+        '#is': RestorableEnum_is$,
         'values': _RestorableEnum_values$,
         'createDefaultValue': _RestorableEnum_createDefaultValue$,
         'didUpdateValue': _RestorableEnum_didUpdateValue$,
@@ -150,6 +196,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RestorableValue_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableValue<T>;
+Function RestorableValue_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableValue<T>;
 T _RestorableValue_value$<T>(RestorableValue<T> target) {
   return target.value;
 }
@@ -171,6 +227,116 @@ Function _RestorableValue_didUpdateValue$<T>(
   RestorableValue<T> target,
 ) =>
     target.didUpdateValue;
+Function RestorableNum_as$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableNum<T>;
+Function RestorableNum_is$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableNum<T>;
+Function RestorableDouble_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableDouble;
+Function RestorableDouble_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableDouble;
+Function RestorableInt_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableInt;
+Function RestorableInt_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableInt;
+Function RestorableString_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableString;
+Function RestorableString_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableString;
+Function RestorableBool_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableBool;
+Function RestorableBool_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableBool;
+Function RestorableBoolN_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableBoolN;
+Function RestorableBoolN_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableBoolN;
+Function RestorableNumN_as$<T extends num?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableNumN<T>;
+Function RestorableNumN_is$<T extends num?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableNumN<T>;
+Function RestorableDoubleN_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableDoubleN;
+Function RestorableDoubleN_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableDoubleN;
+Function RestorableIntN_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableIntN;
+Function RestorableIntN_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableIntN;
+Function RestorableStringN_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableStringN;
+Function RestorableStringN_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableStringN;
+Function RestorableDateTime_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableDateTime;
+Function RestorableDateTime_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableDateTime;
 Function _RestorableDateTime_createDefaultValue$(
   m.Scope scope,
   RestorableDateTime target,
@@ -191,6 +357,16 @@ Function _RestorableDateTime_toPrimitives$(
   RestorableDateTime target,
 ) =>
     target.toPrimitives;
+Function RestorableDateTimeN_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableDateTimeN;
+Function RestorableDateTimeN_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableDateTimeN;
 Function _RestorableDateTimeN_createDefaultValue$(
   m.Scope scope,
   RestorableDateTimeN target,
@@ -211,6 +387,16 @@ Function _RestorableDateTimeN_toPrimitives$(
   RestorableDateTimeN target,
 ) =>
     target.toPrimitives;
+Function RestorableListenable_as$<T extends Listenable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableListenable<T>;
+Function RestorableListenable_is$<T extends Listenable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableListenable<T>;
 T _RestorableListenable_value$<T extends Listenable>(
     RestorableListenable<T> target) {
   return target.value;
@@ -226,6 +412,16 @@ Function _RestorableListenable_dispose$<T extends Listenable>(
   RestorableListenable<T> target,
 ) =>
     target.dispose;
+Function RestorableChangeNotifier_as$<T extends ChangeNotifier>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableChangeNotifier<T>;
+Function RestorableChangeNotifier_is$<T extends ChangeNotifier>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableChangeNotifier<T>;
 Function _RestorableChangeNotifier_initWithValue$<T extends ChangeNotifier>(
   m.Scope scope,
   RestorableChangeNotifier<T> target,
@@ -236,6 +432,16 @@ Function _RestorableChangeNotifier_dispose$<T extends ChangeNotifier>(
   RestorableChangeNotifier<T> target,
 ) =>
     target.dispose;
+Function RestorableTextEditingController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableTextEditingController;
+Function RestorableTextEditingController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableTextEditingController;
 Function _RestorableTextEditingController_createDefaultValue$(
   m.Scope scope,
   RestorableTextEditingController target,
@@ -251,6 +457,16 @@ Function _RestorableTextEditingController_toPrimitives$(
   RestorableTextEditingController target,
 ) =>
     target.toPrimitives;
+Function RestorableEnumN_as$<T extends Enum>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableEnumN<T>;
+Function RestorableEnumN_is$<T extends Enum>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableEnumN<T>;
 Set<T> _RestorableEnumN_values$<T extends Enum>(RestorableEnumN<T> target) {
   return target.values;
 }
@@ -289,6 +505,16 @@ Function _RestorableEnumN_toPrimitives$<T extends Enum>(
   RestorableEnumN<T> target,
 ) =>
     target.toPrimitives;
+Function RestorableEnum_as$<T extends Enum>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableEnum<T>;
+Function RestorableEnum_is$<T extends Enum>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableEnum<T>;
 Set<T> _RestorableEnum_values$<T extends Enum>(RestorableEnum<T> target) {
   return target.values;
 }

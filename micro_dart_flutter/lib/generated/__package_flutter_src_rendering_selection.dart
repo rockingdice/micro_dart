@@ -55,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionHandler': m.ClassMirror(
       'SelectionHandler',
       {
+        '#as': SelectionHandler_as$,
+        '#is': SelectionHandler_is$,
         'pushHandleLayers': _SelectionHandler_pushHandleLayers$,
         'getSelectedContent': _SelectionHandler_getSelectedContent$,
         'dispatchSelectionEvent': _SelectionHandler_dispatchSelectionEvent$,
@@ -63,42 +65,69 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SelectedContent': m.ClassMirror(
       'SelectedContent',
-      {'plainText': _SelectedContent_plainText$},
+      {
+        '#as': SelectedContent_as$,
+        '#is': SelectedContent_is$,
+        'plainText': _SelectedContent_plainText$,
+      },
       {},
     ),
     'SelectionUtils': m.ClassMirror(
       'SelectionUtils',
-      {},
+      {
+        '#as': SelectionUtils_as$,
+        '#is': SelectionUtils_is$,
+      },
       {},
     ),
     'SelectionEvent': m.ClassMirror(
       'SelectionEvent',
-      {'type': _SelectionEvent_type$},
+      {
+        '#as': SelectionEvent_as$,
+        '#is': SelectionEvent_is$,
+        'type': _SelectionEvent_type$,
+      },
       {},
     ),
     'SelectAllSelectionEvent': m.ClassMirror(
       'SelectAllSelectionEvent',
-      {},
+      {
+        '#as': SelectAllSelectionEvent_as$,
+        '#is': SelectAllSelectionEvent_is$,
+      },
       {},
     ),
     'ClearSelectionEvent': m.ClassMirror(
       'ClearSelectionEvent',
-      {},
+      {
+        '#as': ClearSelectionEvent_as$,
+        '#is': ClearSelectionEvent_is$,
+      },
       {},
     ),
     'SelectWordSelectionEvent': m.ClassMirror(
       'SelectWordSelectionEvent',
-      {'globalPosition': _SelectWordSelectionEvent_globalPosition$},
+      {
+        '#as': SelectWordSelectionEvent_as$,
+        '#is': SelectWordSelectionEvent_is$,
+        'globalPosition': _SelectWordSelectionEvent_globalPosition$,
+      },
       {},
     ),
     'SelectionEdgeUpdateEvent': m.ClassMirror(
       'SelectionEdgeUpdateEvent',
-      {'globalPosition': _SelectionEdgeUpdateEvent_globalPosition$},
+      {
+        '#as': SelectionEdgeUpdateEvent_as$,
+        '#is': SelectionEdgeUpdateEvent_is$,
+        'globalPosition': _SelectionEdgeUpdateEvent_globalPosition$,
+      },
       {},
     ),
     'GranularlyExtendSelectionEvent': m.ClassMirror(
       'GranularlyExtendSelectionEvent',
       {
+        '#as': GranularlyExtendSelectionEvent_as$,
+        '#is': GranularlyExtendSelectionEvent_is$,
         'forward': _GranularlyExtendSelectionEvent_forward$,
         'isEnd': _GranularlyExtendSelectionEvent_isEnd$,
         'granularity': _GranularlyExtendSelectionEvent_granularity$,
@@ -108,6 +137,8 @@ const libraryMirror = m.LibraryMirror(
     'DirectionallyExtendSelectionEvent': m.ClassMirror(
       'DirectionallyExtendSelectionEvent',
       {
+        '#as': DirectionallyExtendSelectionEvent_as$,
+        '#is': DirectionallyExtendSelectionEvent_is$,
         'dx': _DirectionallyExtendSelectionEvent_dx$,
         'isEnd': _DirectionallyExtendSelectionEvent_isEnd$,
         'direction': _DirectionallyExtendSelectionEvent_direction$,
@@ -118,6 +149,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionRegistrar': m.ClassMirror(
       'SelectionRegistrar',
       {
+        '#as': SelectionRegistrar_as$,
+        '#is': SelectionRegistrar_is$,
         'add': _SelectionRegistrar_add$,
         'remove': _SelectionRegistrar_remove$,
       },
@@ -126,6 +159,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionGeometry': m.ClassMirror(
       'SelectionGeometry',
       {
+        '#as': SelectionGeometry_as$,
+        '#is': SelectionGeometry_is$,
         'startSelectionPoint': _SelectionGeometry_startSelectionPoint$,
         'endSelectionPoint': _SelectionGeometry_endSelectionPoint$,
         'status': _SelectionGeometry_status$,
@@ -133,16 +168,20 @@ const libraryMirror = m.LibraryMirror(
         'hasSelection': _SelectionGeometry_hasSelection$,
         'hashCode': _SelectionGeometry_hashCode$,
         'copyWith': _SelectionGeometry_copyWith$,
+        '==': _SelectionGeometry_eq$$,
       },
       {},
     ),
     'SelectionPoint': m.ClassMirror(
       'SelectionPoint',
       {
+        '#as': SelectionPoint_as$,
+        '#is': SelectionPoint_is$,
         'localPosition': _SelectionPoint_localPosition$,
         'lineHeight': _SelectionPoint_lineHeight$,
         'handleType': _SelectionPoint_handleType$,
         'hashCode': _SelectionPoint_hashCode$,
+        '==': _SelectionPoint_eq$$,
       },
       {},
     ),
@@ -178,6 +217,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SelectionHandler_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionHandler;
+Function SelectionHandler_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionHandler;
 Function _SelectionHandler_pushHandleLayers$(
   m.Scope scope,
   SelectionHandler target,
@@ -193,28 +242,108 @@ Function _SelectionHandler_dispatchSelectionEvent$(
   SelectionHandler target,
 ) =>
     target.dispatchSelectionEvent;
+Function SelectedContent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectedContent;
+Function SelectedContent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectedContent;
 String _SelectedContent_plainText$(SelectedContent target) {
   return target.plainText;
 }
 
+Function SelectionUtils_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionUtils;
+Function SelectionUtils_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionUtils;
 Function _SelectionUtils_getResultBasedOnRect$(m.Scope scope) =>
     SelectionUtils.getResultBasedOnRect;
 Function _SelectionUtils_adjustDragOffset$(m.Scope scope) =>
     SelectionUtils.adjustDragOffset;
+Function SelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionEvent;
+Function SelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionEvent;
 SelectionEventType _SelectionEvent_type$(SelectionEvent target) {
   return target.type;
 }
 
+Function SelectAllSelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectAllSelectionEvent;
+Function SelectAllSelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectAllSelectionEvent;
+Function ClearSelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClearSelectionEvent;
+Function ClearSelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClearSelectionEvent;
+Function SelectWordSelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectWordSelectionEvent;
+Function SelectWordSelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectWordSelectionEvent;
 Offset _SelectWordSelectionEvent_globalPosition$(
     SelectWordSelectionEvent target) {
   return target.globalPosition;
 }
 
+Function SelectionEdgeUpdateEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionEdgeUpdateEvent;
+Function SelectionEdgeUpdateEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionEdgeUpdateEvent;
 Offset _SelectionEdgeUpdateEvent_globalPosition$(
     SelectionEdgeUpdateEvent target) {
   return target.globalPosition;
 }
 
+Function GranularlyExtendSelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GranularlyExtendSelectionEvent;
+Function GranularlyExtendSelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GranularlyExtendSelectionEvent;
 bool _GranularlyExtendSelectionEvent_forward$(
     GranularlyExtendSelectionEvent target) {
   return target.forward;
@@ -230,6 +359,16 @@ TextGranularity _GranularlyExtendSelectionEvent_granularity$(
   return target.granularity;
 }
 
+Function DirectionallyExtendSelectionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DirectionallyExtendSelectionEvent;
+Function DirectionallyExtendSelectionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DirectionallyExtendSelectionEvent;
 double _DirectionallyExtendSelectionEvent_dx$(
     DirectionallyExtendSelectionEvent target) {
   return target.dx;
@@ -250,6 +389,16 @@ Function _DirectionallyExtendSelectionEvent_copyWith$(
   DirectionallyExtendSelectionEvent target,
 ) =>
     target.copyWith;
+Function SelectionRegistrar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionRegistrar;
+Function SelectionRegistrar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionRegistrar;
 Function _SelectionRegistrar_add$(
   m.Scope scope,
   SelectionRegistrar target,
@@ -260,6 +409,16 @@ Function _SelectionRegistrar_remove$(
   SelectionRegistrar target,
 ) =>
     target.remove;
+Function SelectionGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionGeometry;
+Function SelectionGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionGeometry;
 SelectionPoint? _SelectionGeometry_startSelectionPoint$(
     SelectionGeometry target) {
   return target.startSelectionPoint;
@@ -291,6 +450,21 @@ Function _SelectionGeometry_copyWith$(
   SelectionGeometry target,
 ) =>
     target.copyWith;
+Function _SelectionGeometry_eq$$(
+  m.Scope scope,
+  SelectionGeometry target,
+) =>
+    (Object other) => target == other;
+Function SelectionPoint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionPoint;
+Function SelectionPoint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionPoint;
 Offset _SelectionPoint_localPosition$(SelectionPoint target) {
   return target.localPosition;
 }
@@ -307,6 +481,11 @@ int _SelectionPoint_hashCode$(SelectionPoint target) {
   return target.hashCode;
 }
 
+Function _SelectionPoint_eq$$(
+  m.Scope scope,
+  SelectionPoint target,
+) =>
+    (Object other) => target == other;
 SelectionResult _SelectionResult_next$() {
   return SelectionResult.next;
 }

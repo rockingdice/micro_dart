@@ -14,12 +14,25 @@ import 'package:flutter/src/rendering/object.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/box.dart',
-  {'BoxConstraints.lerp': _BoxConstraints_lerp$},
+  {
+    'BoxConstraints.lerp': _BoxConstraints_lerp$,
+    'BoxConstraints.debugAssertIsValid': _BoxConstraints_debugAssertIsValid$,
+    'BoxHitTestResult.addWithPaintTransform':
+        _BoxHitTestResult_addWithPaintTransform$,
+    'BoxHitTestResult.addWithPaintOffset':
+        _BoxHitTestResult_addWithPaintOffset$,
+    'BoxHitTestResult.addWithRawTransform':
+        _BoxHitTestResult_addWithRawTransform$,
+    'BoxHitTestResult.addWithOutOfBandPosition':
+        _BoxHitTestResult_addWithOutOfBandPosition$,
+  },
   {},
   {
     'BoxConstraints': m.ClassMirror(
       'BoxConstraints',
       {
+        '#as': BoxConstraints_as$,
+        '#is': BoxConstraints_is$,
         'minWidth': _BoxConstraints_minWidth$,
         'maxWidth': _BoxConstraints_maxWidth$,
         'minHeight': _BoxConstraints_minHeight$,
@@ -50,19 +63,29 @@ const libraryMirror = m.LibraryMirror(
         'constrainSizeAndAttemptToPreserveAspectRatio':
             _BoxConstraints_constrainSizeAndAttemptToPreserveAspectRatio$,
         'isSatisfiedBy': _BoxConstraints_isSatisfiedBy$,
+        '*': _BoxConstraints_times$$,
+        '/': _BoxConstraints_over$$,
+        '~/': _BoxConstraints_division$$,
+        '%': _BoxConstraints_surplus$$,
         'normalize': _BoxConstraints_normalize$,
+        '==': _BoxConstraints_eq$$,
         'toString': _BoxConstraints_toString$,
       },
       {},
     ),
     'BoxHitTestResult': m.ClassMirror(
       'BoxHitTestResult',
-      {},
+      {
+        '#as': BoxHitTestResult_as$,
+        '#is': BoxHitTestResult_is$,
+      },
       {},
     ),
     'BoxHitTestEntry': m.ClassMirror(
       'BoxHitTestEntry',
       {
+        '#as': BoxHitTestEntry_as$,
+        '#is': BoxHitTestEntry_is$,
         'localPosition': _BoxHitTestEntry_localPosition$,
         'toString': _BoxHitTestEntry_toString$,
       },
@@ -71,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'BoxParentData': m.ClassMirror(
       'BoxParentData',
       {
+        '#as': BoxParentData_as$,
+        '#is': BoxParentData_is$,
         'offset': _BoxParentData_offset$,
         'toString': _BoxParentData_toString$,
       },
@@ -78,12 +103,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ContainerBoxParentData': m.ClassMirror(
       'ContainerBoxParentData',
-      {},
+      {
+        '#as': ContainerBoxParentData_as$,
+        '#is': ContainerBoxParentData_is$,
+      },
       {},
     ),
     'RenderBox': m.ClassMirror(
       'RenderBox',
       {
+        '#as': RenderBox_as$,
+        '#is': RenderBox_is$,
         'hasSize': _RenderBox_hasSize$,
         'size': _RenderBox_size$,
         'semanticBounds': _RenderBox_semanticBounds$,
@@ -131,6 +161,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BoxConstraints_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxConstraints;
+Function BoxConstraints_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxConstraints;
 double _BoxConstraints_minWidth$(BoxConstraints target) {
   return target.minWidth;
 }
@@ -260,17 +300,192 @@ Function _BoxConstraints_isSatisfiedBy$(
   BoxConstraints target,
 ) =>
     target.isSatisfiedBy;
+Function _BoxConstraints_times$$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    (double other) => target * other;
+Function _BoxConstraints_over$$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    (double other) => target / other;
+Function _BoxConstraints_division$$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    (double other) => target ~/ other;
+Function _BoxConstraints_surplus$$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    (double other) => target % other;
 Function _BoxConstraints_lerp$(m.Scope scope) => BoxConstraints.lerp;
+Function _BoxConstraints_debugAssertIsValid$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    ({
+      m.FunctionPointer? informationCollector,
+      bool? isAppliedConstraint,
+    }) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      return target.debugAssertIsValid(
+        informationCollector:
+            informationCollector == null ? null : informationCollectorProxy,
+        isAppliedConstraint:
+            isAppliedConstraint == null ? false : isAppliedConstraint,
+      );
+    };
 Function _BoxConstraints_normalize$(
   m.Scope scope,
   BoxConstraints target,
 ) =>
     target.normalize;
+Function _BoxConstraints_eq$$(
+  m.Scope scope,
+  BoxConstraints target,
+) =>
+    (Object other) => target == other;
 Function _BoxConstraints_toString$(
   m.Scope scope,
   BoxConstraints target,
 ) =>
     target.toString;
+Function BoxHitTestResult_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxHitTestResult;
+Function BoxHitTestResult_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxHitTestResult;
+Function _BoxHitTestResult_addWithPaintTransform$(
+  m.Scope scope,
+  BoxHitTestResult target,
+) =>
+    ({
+      required m.FunctionPointer hitTest,
+      required Offset position,
+      required Matrix4? transform,
+    }) {
+      bool hitTestProxy(
+        BoxHitTestResult hitTest_result,
+        Offset hitTest_position,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            hitTest,
+            [
+              hitTest_result,
+              hitTest_position,
+            ],
+            {},
+          );
+      return target.addWithPaintTransform(
+        hitTest: hitTestProxy,
+        position: position,
+        transform: transform,
+      );
+    };
+Function _BoxHitTestResult_addWithPaintOffset$(
+  m.Scope scope,
+  BoxHitTestResult target,
+) =>
+    ({
+      required m.FunctionPointer hitTest,
+      required Offset? offset,
+      required Offset position,
+    }) {
+      bool hitTestProxy(
+        BoxHitTestResult hitTest_result,
+        Offset hitTest_position,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            hitTest,
+            [
+              hitTest_result,
+              hitTest_position,
+            ],
+            {},
+          );
+      return target.addWithPaintOffset(
+        hitTest: hitTestProxy,
+        offset: offset,
+        position: position,
+      );
+    };
+Function _BoxHitTestResult_addWithRawTransform$(
+  m.Scope scope,
+  BoxHitTestResult target,
+) =>
+    ({
+      required m.FunctionPointer hitTest,
+      required Offset position,
+      required Matrix4? transform,
+    }) {
+      bool hitTestProxy(
+        BoxHitTestResult hitTest_result,
+        Offset hitTest_position,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            hitTest,
+            [
+              hitTest_result,
+              hitTest_position,
+            ],
+            {},
+          );
+      return target.addWithRawTransform(
+        hitTest: hitTestProxy,
+        position: position,
+        transform: transform,
+      );
+    };
+Function _BoxHitTestResult_addWithOutOfBandPosition$(
+  m.Scope scope,
+  BoxHitTestResult target,
+) =>
+    ({
+      required m.FunctionPointer hitTest,
+      Offset? paintOffset,
+      Matrix4? paintTransform,
+      Matrix4? rawTransform,
+    }) {
+      bool hitTestProxy(BoxHitTestResult hitTest_result) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            hitTest,
+            [hitTest_result],
+            {},
+          );
+      return target.addWithOutOfBandPosition(
+        hitTest: hitTestProxy,
+        paintOffset: paintOffset,
+        paintTransform: paintTransform,
+        rawTransform: rawTransform,
+      );
+    };
+Function BoxHitTestEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxHitTestEntry;
+Function BoxHitTestEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxHitTestEntry;
 Offset _BoxHitTestEntry_localPosition$(BoxHitTestEntry target) {
   return target.localPosition;
 }
@@ -280,6 +495,16 @@ Function _BoxHitTestEntry_toString$(
   BoxHitTestEntry target,
 ) =>
     target.toString;
+Function BoxParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxParentData;
+Function BoxParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxParentData;
 Offset _BoxParentData_offset$(BoxParentData target) {
   return target.offset;
 }
@@ -296,6 +521,26 @@ Function _BoxParentData_toString$(
   BoxParentData target,
 ) =>
     target.toString;
+Function ContainerBoxParentData_as$<ChildType extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContainerBoxParentData<ChildType>;
+Function ContainerBoxParentData_is$<ChildType extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContainerBoxParentData<ChildType>;
+Function RenderBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderBox;
+Function RenderBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderBox;
 bool _RenderBox_hasSize$(RenderBox target) {
   return target.hasSize;
 }

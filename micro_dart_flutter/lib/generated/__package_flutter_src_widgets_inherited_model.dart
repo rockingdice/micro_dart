@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'InheritedModel': m.ClassMirror(
       'InheritedModel',
       {
+        '#as': InheritedModel_as$,
+        '#is': InheritedModel_is$,
         'createElement': _InheritedModel_createElement$,
         'updateShouldNotifyDependent':
             _InheritedModel_updateShouldNotifyDependent$,
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'InheritedModelElement': m.ClassMirror(
       'InheritedModelElement',
       {
+        '#as': InheritedModelElement_as$,
+        '#is': InheritedModelElement_is$,
         'updateDependencies': _InheritedModelElement_updateDependencies$,
         'notifyDependent': _InheritedModelElement_notifyDependent$,
       },
@@ -31,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function InheritedModel_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedModel<T>;
+Function InheritedModel_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedModel<T>;
 Function _InheritedModel_createElement$<T>(
   m.Scope scope,
   InheritedModel<T> target,
@@ -49,6 +63,16 @@ Function _InheritedModel_isSupportedAspect$<T>(
 Function _InheritedModel_inheritFrom$<T extends InheritedModel<Object>>(
         m.Scope scope) =>
     InheritedModel.inheritFrom<T>;
+Function InheritedModelElement_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedModelElement<T>;
+Function InheritedModelElement_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedModelElement<T>;
 Function _InheritedModelElement_updateDependencies$<T>(
   m.Scope scope,
   InheritedModelElement<T> target,

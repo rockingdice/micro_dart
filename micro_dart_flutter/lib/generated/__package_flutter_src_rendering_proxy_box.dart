@@ -17,6 +17,20 @@ import 'package:flutter/src/rendering/object.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/proxy_box.dart',
   {
+    'RenderOpacity.visitChildrenForSemantics':
+        _RenderOpacity_visitChildrenForSemantics$,
+    'CustomClipper.addListener': _CustomClipper_addListener$,
+    'CustomClipper.removeListener': _CustomClipper_removeListener$,
+    'RenderIgnorePointer.visitChildrenForSemantics':
+        _RenderIgnorePointer_visitChildrenForSemantics$,
+    'RenderOffstage.visitChildrenForSemantics':
+        _RenderOffstage_visitChildrenForSemantics$,
+    'RenderAbsorbPointer.visitChildrenForSemantics':
+        _RenderAbsorbPointer_visitChildrenForSemantics$,
+    'RenderSemanticsAnnotations.visitChildrenForSemantics':
+        _RenderSemanticsAnnotations_visitChildrenForSemantics$,
+    'RenderExcludeSemantics.visitChildrenForSemantics':
+        _RenderExcludeSemantics_visitChildrenForSemantics$,
     'HitTestBehavior.deferToChild': _HitTestBehavior_deferToChild$,
     'HitTestBehavior.opaque': _HitTestBehavior_opaque$,
     'HitTestBehavior.translucent': _HitTestBehavior_translucent$,
@@ -29,12 +43,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'RenderProxyBox': m.ClassMirror(
       'RenderProxyBox',
-      {},
+      {
+        '#as': RenderProxyBox_as$,
+        '#is': RenderProxyBox_is$,
+      },
       {},
     ),
     'RenderProxyBoxWithHitTestBehavior': m.ClassMirror(
       'RenderProxyBoxWithHitTestBehavior',
       {
+        '#as': RenderProxyBoxWithHitTestBehavior_as$,
+        '#is': RenderProxyBoxWithHitTestBehavior_is$,
         'behavior': _RenderProxyBoxWithHitTestBehavior_behavior$,
         'hitTest': _RenderProxyBoxWithHitTestBehavior_hitTest$,
         'hitTestSelf': _RenderProxyBoxWithHitTestBehavior_hitTestSelf$,
@@ -46,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderConstrainedBox': m.ClassMirror(
       'RenderConstrainedBox',
       {
+        '#as': RenderConstrainedBox_as$,
+        '#is': RenderConstrainedBox_is$,
         'additionalConstraints': _RenderConstrainedBox_additionalConstraints$,
         'computeMinIntrinsicWidth':
             _RenderConstrainedBox_computeMinIntrinsicWidth$,
@@ -68,6 +89,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderLimitedBox': m.ClassMirror(
       'RenderLimitedBox',
       {
+        '#as': RenderLimitedBox_as$,
+        '#is': RenderLimitedBox_is$,
         'maxWidth': _RenderLimitedBox_maxWidth$,
         'maxHeight': _RenderLimitedBox_maxHeight$,
         'computeDryLayout': _RenderLimitedBox_computeDryLayout$,
@@ -82,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAspectRatio': m.ClassMirror(
       'RenderAspectRatio',
       {
+        '#as': RenderAspectRatio_as$,
+        '#is': RenderAspectRatio_is$,
         'aspectRatio': _RenderAspectRatio_aspectRatio$,
         'computeMinIntrinsicWidth':
             _RenderAspectRatio_computeMinIntrinsicWidth$,
@@ -100,6 +125,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderIntrinsicWidth': m.ClassMirror(
       'RenderIntrinsicWidth',
       {
+        '#as': RenderIntrinsicWidth_as$,
+        '#is': RenderIntrinsicWidth_is$,
         'stepWidth': _RenderIntrinsicWidth_stepWidth$,
         'stepHeight': _RenderIntrinsicWidth_stepHeight$,
         'computeMinIntrinsicWidth':
@@ -122,6 +149,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderIntrinsicHeight': m.ClassMirror(
       'RenderIntrinsicHeight',
       {
+        '#as': RenderIntrinsicHeight_as$,
+        '#is': RenderIntrinsicHeight_is$,
         'computeMinIntrinsicWidth':
             _RenderIntrinsicHeight_computeMinIntrinsicWidth$,
         'computeMaxIntrinsicWidth':
@@ -136,6 +165,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderOpacity': m.ClassMirror(
       'RenderOpacity',
       {
+        '#as': RenderOpacity_as$,
+        '#is': RenderOpacity_is$,
         'alwaysNeedsCompositing': _RenderOpacity_alwaysNeedsCompositing$,
         'isRepaintBoundary': _RenderOpacity_isRepaintBoundary$,
         'opacity': _RenderOpacity_opacity$,
@@ -152,12 +183,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RenderAnimatedOpacity': m.ClassMirror(
       'RenderAnimatedOpacity',
-      {},
+      {
+        '#as': RenderAnimatedOpacity_as$,
+        '#is': RenderAnimatedOpacity_is$,
+      },
       {},
     ),
     'RenderShaderMask': m.ClassMirror(
       'RenderShaderMask',
       {
+        '#as': RenderShaderMask_as$,
+        '#is': RenderShaderMask_is$,
         'layer': _RenderShaderMask_layer$,
         'shaderCallback': _RenderShaderMask_shaderCallback$,
         'blendMode': _RenderShaderMask_blendMode$,
@@ -172,6 +208,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderBackdropFilter': m.ClassMirror(
       'RenderBackdropFilter',
       {
+        '#as': RenderBackdropFilter_as$,
+        '#is': RenderBackdropFilter_is$,
         'layer': _RenderBackdropFilter_layer$,
         'filter': _RenderBackdropFilter_filter$,
         'blendMode': _RenderBackdropFilter_blendMode$,
@@ -186,6 +224,8 @@ const libraryMirror = m.LibraryMirror(
     'CustomClipper': m.ClassMirror(
       'CustomClipper',
       {
+        '#as': CustomClipper_as$,
+        '#is': CustomClipper_is$,
         'getClip': _CustomClipper_getClip$,
         'getApproximateClipRect': _CustomClipper_getApproximateClipRect$,
         'shouldReclip': _CustomClipper_shouldReclip$,
@@ -196,6 +236,8 @@ const libraryMirror = m.LibraryMirror(
     'ShapeBorderClipper': m.ClassMirror(
       'ShapeBorderClipper',
       {
+        '#as': ShapeBorderClipper_as$,
+        '#is': ShapeBorderClipper_is$,
         'shape': _ShapeBorderClipper_shape$,
         'textDirection': _ShapeBorderClipper_textDirection$,
         'getClip': _ShapeBorderClipper_getClip$,
@@ -206,6 +248,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderClipRect': m.ClassMirror(
       'RenderClipRect',
       {
+        '#as': RenderClipRect_as$,
+        '#is': RenderClipRect_is$,
         'hitTest': _RenderClipRect_hitTest$,
         'paint': _RenderClipRect_paint$,
         'debugPaintSize': _RenderClipRect_debugPaintSize$,
@@ -215,6 +259,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderClipRRect': m.ClassMirror(
       'RenderClipRRect',
       {
+        '#as': RenderClipRRect_as$,
+        '#is': RenderClipRRect_is$,
         'borderRadius': _RenderClipRRect_borderRadius$,
         'textDirection': _RenderClipRRect_textDirection$,
         'hitTest': _RenderClipRRect_hitTest$,
@@ -229,6 +275,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderClipOval': m.ClassMirror(
       'RenderClipOval',
       {
+        '#as': RenderClipOval_as$,
+        '#is': RenderClipOval_is$,
         'hitTest': _RenderClipOval_hitTest$,
         'paint': _RenderClipOval_paint$,
         'debugPaintSize': _RenderClipOval_debugPaintSize$,
@@ -238,6 +286,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderClipPath': m.ClassMirror(
       'RenderClipPath',
       {
+        '#as': RenderClipPath_as$,
+        '#is': RenderClipPath_is$,
         'hitTest': _RenderClipPath_hitTest$,
         'paint': _RenderClipPath_paint$,
         'debugPaintSize': _RenderClipPath_debugPaintSize$,
@@ -247,6 +297,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPhysicalModel': m.ClassMirror(
       'RenderPhysicalModel',
       {
+        '#as': RenderPhysicalModel_as$,
+        '#is': RenderPhysicalModel_is$,
         'shape': _RenderPhysicalModel_shape$,
         'borderRadius': _RenderPhysicalModel_borderRadius$,
         'hitTest': _RenderPhysicalModel_hitTest$,
@@ -261,6 +313,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPhysicalShape': m.ClassMirror(
       'RenderPhysicalShape',
       {
+        '#as': RenderPhysicalShape_as$,
+        '#is': RenderPhysicalShape_is$,
         'hitTest': _RenderPhysicalShape_hitTest$,
         'paint': _RenderPhysicalShape_paint$,
         'debugFillProperties': _RenderPhysicalShape_debugFillProperties$,
@@ -270,6 +324,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderDecoratedBox': m.ClassMirror(
       'RenderDecoratedBox',
       {
+        '#as': RenderDecoratedBox_as$,
+        '#is': RenderDecoratedBox_is$,
         'decoration': _RenderDecoratedBox_decoration$,
         'position': _RenderDecoratedBox_position$,
         'configuration': _RenderDecoratedBox_configuration$,
@@ -287,6 +343,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderTransform': m.ClassMirror(
       'RenderTransform',
       {
+        '#as': RenderTransform_as$,
+        '#is': RenderTransform_is$,
         'transformHitTests': _RenderTransform_transformHitTests$,
         'origin': _RenderTransform_origin$,
         'alignment': _RenderTransform_alignment$,
@@ -317,6 +375,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderFittedBox': m.ClassMirror(
       'RenderFittedBox',
       {
+        '#as': RenderFittedBox_as$,
+        '#is': RenderFittedBox_is$,
         'fit': _RenderFittedBox_fit$,
         'alignment': _RenderFittedBox_alignment$,
         'textDirection': _RenderFittedBox_textDirection$,
@@ -339,6 +399,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderFractionalTranslation': m.ClassMirror(
       'RenderFractionalTranslation',
       {
+        '#as': RenderFractionalTranslation_as$,
+        '#is': RenderFractionalTranslation_is$,
         'transformHitTests': _RenderFractionalTranslation_transformHitTests$,
         'translation': _RenderFractionalTranslation_translation$,
         'hitTest': _RenderFractionalTranslation_hitTest$,
@@ -358,6 +420,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPointerListener': m.ClassMirror(
       'RenderPointerListener',
       {
+        '#as': RenderPointerListener_as$,
+        '#is': RenderPointerListener_is$,
         'onPointerDown': _RenderPointerListener_onPointerDown$,
         'onPointerMove': _RenderPointerListener_onPointerMove$,
         'onPointerUp': _RenderPointerListener_onPointerUp$,
@@ -389,6 +453,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderMouseRegion': m.ClassMirror(
       'RenderMouseRegion',
       {
+        '#as': RenderMouseRegion_as$,
+        '#is': RenderMouseRegion_is$,
         'onEnter': _RenderMouseRegion_onEnter$,
         'onHover': _RenderMouseRegion_onHover$,
         'onExit': _RenderMouseRegion_onExit$,
@@ -415,6 +481,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderRepaintBoundary': m.ClassMirror(
       'RenderRepaintBoundary',
       {
+        '#as': RenderRepaintBoundary_as$,
+        '#is': RenderRepaintBoundary_is$,
         'isRepaintBoundary': _RenderRepaintBoundary_isRepaintBoundary$,
         'debugSymmetricPaintCount':
             _RenderRepaintBoundary_debugSymmetricPaintCount$,
@@ -432,6 +500,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderIgnorePointer': m.ClassMirror(
       'RenderIgnorePointer',
       {
+        '#as': RenderIgnorePointer_as$,
+        '#is': RenderIgnorePointer_is$,
         'ignoring': _RenderIgnorePointer_ignoring$,
         'ignoringSemantics': _RenderIgnorePointer_ignoringSemantics$,
         'hitTest': _RenderIgnorePointer_hitTest$,
@@ -445,6 +515,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderOffstage': m.ClassMirror(
       'RenderOffstage',
       {
+        '#as': RenderOffstage_as$,
+        '#is': RenderOffstage_is$,
         'offstage': _RenderOffstage_offstage$,
         'sizedByParent': _RenderOffstage_sizedByParent$,
         'computeMinIntrinsicWidth': _RenderOffstage_computeMinIntrinsicWidth$,
@@ -467,6 +539,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAbsorbPointer': m.ClassMirror(
       'RenderAbsorbPointer',
       {
+        '#as': RenderAbsorbPointer_as$,
+        '#is': RenderAbsorbPointer_is$,
         'absorbing': _RenderAbsorbPointer_absorbing$,
         'ignoringSemantics': _RenderAbsorbPointer_ignoringSemantics$,
         'hitTest': _RenderAbsorbPointer_hitTest$,
@@ -480,6 +554,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderMetaData': m.ClassMirror(
       'RenderMetaData',
       {
+        '#as': RenderMetaData_as$,
+        '#is': RenderMetaData_is$,
         'metaData': _RenderMetaData_metaData$,
         'debugFillProperties': _RenderMetaData_debugFillProperties$,
       },
@@ -488,6 +564,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSemanticsGestureHandler': m.ClassMirror(
       'RenderSemanticsGestureHandler',
       {
+        '#as': RenderSemanticsGestureHandler_as$,
+        '#is': RenderSemanticsGestureHandler_is$,
         'scrollFactor': _RenderSemanticsGestureHandler_scrollFactor$,
         'validActions': _RenderSemanticsGestureHandler_validActions$,
         'onTap': _RenderSemanticsGestureHandler_onTap$,
@@ -515,6 +593,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSemanticsAnnotations': m.ClassMirror(
       'RenderSemanticsAnnotations',
       {
+        '#as': RenderSemanticsAnnotations_as$,
+        '#is': RenderSemanticsAnnotations_is$,
         'properties': _RenderSemanticsAnnotations_properties$,
         'container': _RenderSemanticsAnnotations_container$,
         'explicitChildNodes': _RenderSemanticsAnnotations_explicitChildNodes$,
@@ -535,6 +615,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderBlockSemantics': m.ClassMirror(
       'RenderBlockSemantics',
       {
+        '#as': RenderBlockSemantics_as$,
+        '#is': RenderBlockSemantics_is$,
         'blocking': _RenderBlockSemantics_blocking$,
         'describeSemanticsConfiguration':
             _RenderBlockSemantics_describeSemanticsConfiguration$,
@@ -545,14 +627,18 @@ const libraryMirror = m.LibraryMirror(
     'RenderMergeSemantics': m.ClassMirror(
       'RenderMergeSemantics',
       {
+        '#as': RenderMergeSemantics_as$,
+        '#is': RenderMergeSemantics_is$,
         'describeSemanticsConfiguration':
-            _RenderMergeSemantics_describeSemanticsConfiguration$
+            _RenderMergeSemantics_describeSemanticsConfiguration$,
       },
       {},
     ),
     'RenderExcludeSemantics': m.ClassMirror(
       'RenderExcludeSemantics',
       {
+        '#as': RenderExcludeSemantics_as$,
+        '#is': RenderExcludeSemantics_is$,
         'excluding': _RenderExcludeSemantics_excluding$,
         'debugFillProperties': _RenderExcludeSemantics_debugFillProperties$,
       },
@@ -561,6 +647,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderIndexedSemantics': m.ClassMirror(
       'RenderIndexedSemantics',
       {
+        '#as': RenderIndexedSemantics_as$,
+        '#is': RenderIndexedSemantics_is$,
         'index': _RenderIndexedSemantics_index$,
         'describeSemanticsConfiguration':
             _RenderIndexedSemantics_describeSemanticsConfiguration$,
@@ -571,6 +659,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderLeaderLayer': m.ClassMirror(
       'RenderLeaderLayer',
       {
+        '#as': RenderLeaderLayer_as$,
+        '#is': RenderLeaderLayer_is$,
         'link': _RenderLeaderLayer_link$,
         'alwaysNeedsCompositing': _RenderLeaderLayer_alwaysNeedsCompositing$,
         'performLayout': _RenderLeaderLayer_performLayout$,
@@ -582,6 +672,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderFollowerLayer': m.ClassMirror(
       'RenderFollowerLayer',
       {
+        '#as': RenderFollowerLayer_as$,
+        '#is': RenderFollowerLayer_is$,
         'link': _RenderFollowerLayer_link$,
         'showWhenUnlinked': _RenderFollowerLayer_showWhenUnlinked$,
         'offset': _RenderFollowerLayer_offset$,
@@ -608,6 +700,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAnnotatedRegion': m.ClassMirror(
       'RenderAnnotatedRegion',
       {
+        '#as': RenderAnnotatedRegion_as$,
+        '#is': RenderAnnotatedRegion_is$,
         'alwaysNeedsCompositing':
             _RenderAnnotatedRegion_alwaysNeedsCompositing$,
         'value': _RenderAnnotatedRegion_value$,
@@ -631,6 +725,26 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderProxyBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderProxyBox;
+Function RenderProxyBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderProxyBox;
+Function RenderProxyBoxWithHitTestBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderProxyBoxWithHitTestBehavior;
+Function RenderProxyBoxWithHitTestBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderProxyBoxWithHitTestBehavior;
 HitTestBehavior _RenderProxyBoxWithHitTestBehavior_behavior$(
     RenderProxyBoxWithHitTestBehavior target) {
   return target.behavior;
@@ -658,6 +772,16 @@ Function _RenderProxyBoxWithHitTestBehavior_debugFillProperties$(
   RenderProxyBoxWithHitTestBehavior target,
 ) =>
     target.debugFillProperties;
+Function RenderConstrainedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderConstrainedBox;
+Function RenderConstrainedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderConstrainedBox;
 BoxConstraints _RenderConstrainedBox_additionalConstraints$(
     RenderConstrainedBox target) {
   return target.additionalConstraints;
@@ -710,6 +834,16 @@ Function _RenderConstrainedBox_debugFillProperties$(
   RenderConstrainedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderLimitedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderLimitedBox;
+Function RenderLimitedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderLimitedBox;
 double _RenderLimitedBox_maxWidth$(RenderLimitedBox target) {
   return target.maxWidth;
 }
@@ -747,6 +881,16 @@ Function _RenderLimitedBox_debugFillProperties$(
   RenderLimitedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderAspectRatio_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAspectRatio;
+Function RenderAspectRatio_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAspectRatio;
 double _RenderAspectRatio_aspectRatio$(RenderAspectRatio target) {
   return target.aspectRatio;
 }
@@ -793,6 +937,16 @@ Function _RenderAspectRatio_debugFillProperties$(
   RenderAspectRatio target,
 ) =>
     target.debugFillProperties;
+Function RenderIntrinsicWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderIntrinsicWidth;
+Function RenderIntrinsicWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderIntrinsicWidth;
 double? _RenderIntrinsicWidth_stepWidth$(RenderIntrinsicWidth target) {
   return target.stepWidth;
 }
@@ -850,6 +1004,16 @@ Function _RenderIntrinsicWidth_debugFillProperties$(
   RenderIntrinsicWidth target,
 ) =>
     target.debugFillProperties;
+Function RenderIntrinsicHeight_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderIntrinsicHeight;
+Function RenderIntrinsicHeight_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderIntrinsicHeight;
 Function _RenderIntrinsicHeight_computeMinIntrinsicWidth$(
   m.Scope scope,
   RenderIntrinsicHeight target,
@@ -875,6 +1039,16 @@ Function _RenderIntrinsicHeight_performLayout$(
   RenderIntrinsicHeight target,
 ) =>
     target.performLayout;
+Function RenderOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderOpacity;
+Function RenderOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderOpacity;
 bool _RenderOpacity_alwaysNeedsCompositing$(RenderOpacity target) {
   return target.alwaysNeedsCompositing;
 }
@@ -920,11 +1094,45 @@ Function _RenderOpacity_paint$(
   RenderOpacity target,
 ) =>
     target.paint;
+Function _RenderOpacity_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderOpacity target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderOpacity_debugFillProperties$(
   m.Scope scope,
   RenderOpacity target,
 ) =>
     target.debugFillProperties;
+Function RenderAnimatedOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAnimatedOpacity;
+Function RenderAnimatedOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAnimatedOpacity;
+Function RenderShaderMask_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderShaderMask;
+Function RenderShaderMask_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderShaderMask;
 ShaderMaskLayer? _RenderShaderMask_layer$(RenderShaderMask target) {
   return target.layer;
 }
@@ -967,6 +1175,16 @@ Function _RenderShaderMask_paint$(
   RenderShaderMask target,
 ) =>
     target.paint;
+Function RenderBackdropFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderBackdropFilter;
+Function RenderBackdropFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderBackdropFilter;
 BackdropFilterLayer? _RenderBackdropFilter_layer$(RenderBackdropFilter target) {
   return target.layer;
 }
@@ -1003,6 +1221,42 @@ Function _RenderBackdropFilter_paint$(
   RenderBackdropFilter target,
 ) =>
     target.paint;
+Function CustomClipper_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomClipper<T>;
+Function CustomClipper_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomClipper<T>;
+Function _CustomClipper_addListener$<T>(
+  m.Scope scope,
+  CustomClipper<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _CustomClipper_removeListener$<T>(
+  m.Scope scope,
+  CustomClipper<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _CustomClipper_getClip$<T>(
   m.Scope scope,
   CustomClipper<T> target,
@@ -1023,6 +1277,16 @@ Function _CustomClipper_toString$<T>(
   CustomClipper<T> target,
 ) =>
     target.toString;
+Function ShapeBorderClipper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShapeBorderClipper;
+Function ShapeBorderClipper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShapeBorderClipper;
 ShapeBorder _ShapeBorderClipper_shape$(ShapeBorderClipper target) {
   return target.shape;
 }
@@ -1041,6 +1305,16 @@ Function _ShapeBorderClipper_shouldReclip$(
   ShapeBorderClipper target,
 ) =>
     target.shouldReclip;
+Function RenderClipRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderClipRect;
+Function RenderClipRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderClipRect;
 Function _RenderClipRect_hitTest$(
   m.Scope scope,
   RenderClipRect target,
@@ -1056,6 +1330,16 @@ Function _RenderClipRect_debugPaintSize$(
   RenderClipRect target,
 ) =>
     target.debugPaintSize;
+Function RenderClipRRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderClipRRect;
+Function RenderClipRRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderClipRRect;
 BorderRadiusGeometry _RenderClipRRect_borderRadius$(RenderClipRRect target) {
   return target.borderRadius;
 }
@@ -1093,6 +1377,16 @@ Function _RenderClipRRect_debugPaintSize$(
   RenderClipRRect target,
 ) =>
     target.debugPaintSize;
+Function RenderClipOval_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderClipOval;
+Function RenderClipOval_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderClipOval;
 Function _RenderClipOval_hitTest$(
   m.Scope scope,
   RenderClipOval target,
@@ -1108,6 +1402,16 @@ Function _RenderClipOval_debugPaintSize$(
   RenderClipOval target,
 ) =>
     target.debugPaintSize;
+Function RenderClipPath_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderClipPath;
+Function RenderClipPath_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderClipPath;
 Function _RenderClipPath_hitTest$(
   m.Scope scope,
   RenderClipPath target,
@@ -1123,6 +1427,16 @@ Function _RenderClipPath_debugPaintSize$(
   RenderClipPath target,
 ) =>
     target.debugPaintSize;
+Function RenderPhysicalModel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPhysicalModel;
+Function RenderPhysicalModel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPhysicalModel;
 BoxShape _RenderPhysicalModel_shape$(RenderPhysicalModel target) {
   return target.shape;
 }
@@ -1160,6 +1474,16 @@ Function _RenderPhysicalModel_debugFillProperties$(
   RenderPhysicalModel target,
 ) =>
     target.debugFillProperties;
+Function RenderPhysicalShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPhysicalShape;
+Function RenderPhysicalShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPhysicalShape;
 Function _RenderPhysicalShape_hitTest$(
   m.Scope scope,
   RenderPhysicalShape target,
@@ -1175,6 +1499,16 @@ Function _RenderPhysicalShape_debugFillProperties$(
   RenderPhysicalShape target,
 ) =>
     target.debugFillProperties;
+Function RenderDecoratedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderDecoratedBox;
+Function RenderDecoratedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderDecoratedBox;
 Decoration _RenderDecoratedBox_decoration$(RenderDecoratedBox target) {
   return target.decoration;
 }
@@ -1229,6 +1563,16 @@ Function _RenderDecoratedBox_debugFillProperties$(
   RenderDecoratedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderTransform_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderTransform;
+Function RenderTransform_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderTransform;
 bool _RenderTransform_transformHitTests$(RenderTransform target) {
   return target.transformHitTests;
 }
@@ -1350,6 +1694,16 @@ Function _RenderTransform_debugFillProperties$(
   RenderTransform target,
 ) =>
     target.debugFillProperties;
+Function RenderFittedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFittedBox;
+Function RenderFittedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFittedBox;
 BoxFit _RenderFittedBox_fit$(RenderFittedBox target) {
   return target.fit;
 }
@@ -1429,6 +1783,16 @@ Function _RenderFittedBox_debugFillProperties$(
   RenderFittedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderFractionalTranslation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFractionalTranslation;
+Function RenderFractionalTranslation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFractionalTranslation;
 bool _RenderFractionalTranslation_transformHitTests$(
     RenderFractionalTranslation target) {
   return target.transformHitTests;
@@ -1478,6 +1842,16 @@ Function _RenderFractionalTranslation_debugFillProperties$(
   RenderFractionalTranslation target,
 ) =>
     target.debugFillProperties;
+Function RenderPointerListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPointerListener;
+Function RenderPointerListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPointerListener;
 void Function(PointerDownEvent)? _RenderPointerListener_onPointerDown$(
     RenderPointerListener target) {
   return target.onPointerDown;
@@ -1678,6 +2052,16 @@ Function _RenderPointerListener_debugFillProperties$(
   RenderPointerListener target,
 ) =>
     target.debugFillProperties;
+Function RenderMouseRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderMouseRegion;
+Function RenderMouseRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderMouseRegion;
 void Function(PointerEnterEvent)? _RenderMouseRegion_onEnter$(
     RenderMouseRegion target) {
   return target.onEnter;
@@ -1802,6 +2186,16 @@ Function _RenderMouseRegion_debugFillProperties$(
   RenderMouseRegion target,
 ) =>
     target.debugFillProperties;
+Function RenderRepaintBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderRepaintBoundary;
+Function RenderRepaintBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderRepaintBoundary;
 bool _RenderRepaintBoundary_isRepaintBoundary$(RenderRepaintBoundary target) {
   return target.isRepaintBoundary;
 }
@@ -1841,6 +2235,16 @@ Function _RenderRepaintBoundary_debugFillProperties$(
   RenderRepaintBoundary target,
 ) =>
     target.debugFillProperties;
+Function RenderIgnorePointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderIgnorePointer;
+Function RenderIgnorePointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderIgnorePointer;
 bool _RenderIgnorePointer_ignoring$(RenderIgnorePointer target) {
   return target.ignoring;
 }
@@ -1868,11 +2272,35 @@ Function _RenderIgnorePointer_hitTest$(
   RenderIgnorePointer target,
 ) =>
     target.hitTest;
+Function _RenderIgnorePointer_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderIgnorePointer target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderIgnorePointer_debugFillProperties$(
   m.Scope scope,
   RenderIgnorePointer target,
 ) =>
     target.debugFillProperties;
+Function RenderOffstage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderOffstage;
+Function RenderOffstage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderOffstage;
 bool _RenderOffstage_offstage$(RenderOffstage target) {
   return target.offstage;
 }
@@ -1943,6 +2371,20 @@ Function _RenderOffstage_paint$(
   RenderOffstage target,
 ) =>
     target.paint;
+Function _RenderOffstage_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderOffstage target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderOffstage_debugFillProperties$(
   m.Scope scope,
   RenderOffstage target,
@@ -1953,6 +2395,16 @@ Function _RenderOffstage_debugDescribeChildren$(
   RenderOffstage target,
 ) =>
     target.debugDescribeChildren;
+Function RenderAbsorbPointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAbsorbPointer;
+Function RenderAbsorbPointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAbsorbPointer;
 bool _RenderAbsorbPointer_absorbing$(RenderAbsorbPointer target) {
   return target.absorbing;
 }
@@ -1980,11 +2432,35 @@ Function _RenderAbsorbPointer_hitTest$(
   RenderAbsorbPointer target,
 ) =>
     target.hitTest;
+Function _RenderAbsorbPointer_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderAbsorbPointer target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderAbsorbPointer_debugFillProperties$(
   m.Scope scope,
   RenderAbsorbPointer target,
 ) =>
     target.debugFillProperties;
+Function RenderMetaData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderMetaData;
+Function RenderMetaData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderMetaData;
 dynamic _RenderMetaData_metaData$(RenderMetaData target) {
   return target.metaData;
 }
@@ -2001,6 +2477,16 @@ Function _RenderMetaData_debugFillProperties$(
   RenderMetaData target,
 ) =>
     target.debugFillProperties;
+Function RenderSemanticsGestureHandler_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSemanticsGestureHandler;
+Function RenderSemanticsGestureHandler_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSemanticsGestureHandler;
 double _RenderSemanticsGestureHandler_scrollFactor$(
     RenderSemanticsGestureHandler target) {
   return target.scrollFactor;
@@ -2111,6 +2597,16 @@ Function _RenderSemanticsGestureHandler_debugFillProperties$(
   RenderSemanticsGestureHandler target,
 ) =>
     target.debugFillProperties;
+Function RenderSemanticsAnnotations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSemanticsAnnotations;
+Function RenderSemanticsAnnotations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSemanticsAnnotations;
 SemanticsProperties _RenderSemanticsAnnotations_properties$(
     RenderSemanticsAnnotations target) {
   return target.properties;
@@ -2170,11 +2666,35 @@ void _RenderSemanticsAnnotations_textDirection_set$(
   target.textDirection = other;
 }
 
+Function _RenderSemanticsAnnotations_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderSemanticsAnnotations target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderSemanticsAnnotations_describeSemanticsConfiguration$(
   m.Scope scope,
   RenderSemanticsAnnotations target,
 ) =>
     target.describeSemanticsConfiguration;
+Function RenderBlockSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderBlockSemantics;
+Function RenderBlockSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderBlockSemantics;
 bool _RenderBlockSemantics_blocking$(RenderBlockSemantics target) {
   return target.blocking;
 }
@@ -2196,11 +2716,31 @@ Function _RenderBlockSemantics_debugFillProperties$(
   RenderBlockSemantics target,
 ) =>
     target.debugFillProperties;
+Function RenderMergeSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderMergeSemantics;
+Function RenderMergeSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderMergeSemantics;
 Function _RenderMergeSemantics_describeSemanticsConfiguration$(
   m.Scope scope,
   RenderMergeSemantics target,
 ) =>
     target.describeSemanticsConfiguration;
+Function RenderExcludeSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderExcludeSemantics;
+Function RenderExcludeSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderExcludeSemantics;
 bool _RenderExcludeSemantics_excluding$(RenderExcludeSemantics target) {
   return target.excluding;
 }
@@ -2212,11 +2752,35 @@ void _RenderExcludeSemantics_excluding_set$(
   target.excluding = other;
 }
 
+Function _RenderExcludeSemantics_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderExcludeSemantics target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderExcludeSemantics_debugFillProperties$(
   m.Scope scope,
   RenderExcludeSemantics target,
 ) =>
     target.debugFillProperties;
+Function RenderIndexedSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderIndexedSemantics;
+Function RenderIndexedSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderIndexedSemantics;
 int _RenderIndexedSemantics_index$(RenderIndexedSemantics target) {
   return target.index;
 }
@@ -2238,6 +2802,16 @@ Function _RenderIndexedSemantics_debugFillProperties$(
   RenderIndexedSemantics target,
 ) =>
     target.debugFillProperties;
+Function RenderLeaderLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderLeaderLayer;
+Function RenderLeaderLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderLeaderLayer;
 LayerLink _RenderLeaderLayer_link$(RenderLeaderLayer target) {
   return target.link;
 }
@@ -2268,6 +2842,16 @@ Function _RenderLeaderLayer_debugFillProperties$(
   RenderLeaderLayer target,
 ) =>
     target.debugFillProperties;
+Function RenderFollowerLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFollowerLayer;
+Function RenderFollowerLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFollowerLayer;
 LayerLink _RenderFollowerLayer_link$(RenderFollowerLayer target) {
   return target.link;
 }
@@ -2366,6 +2950,16 @@ Function _RenderFollowerLayer_debugFillProperties$(
   RenderFollowerLayer target,
 ) =>
     target.debugFillProperties;
+Function RenderAnnotatedRegion_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAnnotatedRegion<T>;
+Function RenderAnnotatedRegion_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAnnotatedRegion<T>;
 bool _RenderAnnotatedRegion_alwaysNeedsCompositing$<T extends Object>(
     RenderAnnotatedRegion<T> target) {
   return target.alwaysNeedsCompositing;

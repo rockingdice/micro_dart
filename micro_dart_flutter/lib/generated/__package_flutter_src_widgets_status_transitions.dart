@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'StatusTransitionWidget': m.ClassMirror(
       'StatusTransitionWidget',
       {
+        '#as': StatusTransitionWidget_as$,
+        '#is': StatusTransitionWidget_is$,
         'animation': _StatusTransitionWidget_animation$,
         'build': _StatusTransitionWidget_build$,
         'createState': _StatusTransitionWidget_createState$,
@@ -22,6 +24,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function StatusTransitionWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatusTransitionWidget;
+Function StatusTransitionWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatusTransitionWidget;
 Animation<double> _StatusTransitionWidget_animation$(
     StatusTransitionWidget target) {
   return target.animation;

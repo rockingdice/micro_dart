@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'PrimaryScrollController': m.ClassMirror(
       'PrimaryScrollController',
       {
+        '#as': PrimaryScrollController_as$,
+        '#is': PrimaryScrollController_is$,
         'controller': _PrimaryScrollController_controller$,
         'scrollDirection': _PrimaryScrollController_scrollDirection$,
         'automaticallyInheritForPlatforms':
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function PrimaryScrollController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PrimaryScrollController;
+Function PrimaryScrollController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PrimaryScrollController;
 ScrollController? _PrimaryScrollController_controller$(
     PrimaryScrollController target) {
   return target.controller;

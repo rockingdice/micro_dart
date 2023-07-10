@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialPageRoute': m.ClassMirror(
       'MaterialPageRoute',
       {
+        '#as': MaterialPageRoute_as$,
+        '#is': MaterialPageRoute_is$,
         'builder': _MaterialPageRoute_builder$,
         'maintainState': _MaterialPageRoute_maintainState$,
         'debugLabel': _MaterialPageRoute_debugLabel$,
@@ -25,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialPage': m.ClassMirror(
       'MaterialPage',
       {
+        '#as': MaterialPage_as$,
+        '#is': MaterialPage_is$,
         'child': _MaterialPage_child$,
         'maintainState': _MaterialPage_maintainState$,
         'fullscreenDialog': _MaterialPage_fullscreenDialog$,
@@ -35,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialPageRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialPageRoute<T>;
+Function MaterialPageRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialPageRoute<T>;
 Widget Function(BuildContext) _MaterialPageRoute_builder$<T>(
     MaterialPageRoute<T> target) {
   return target.builder;
@@ -53,6 +67,16 @@ Function _MaterialPageRoute_buildContent$<T>(
   MaterialPageRoute<T> target,
 ) =>
     target.buildContent;
+Function MaterialPage_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialPage<T>;
+Function MaterialPage_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialPage<T>;
 Widget _MaterialPage_child$<T>(MaterialPage<T> target) {
   return target.child;
 }

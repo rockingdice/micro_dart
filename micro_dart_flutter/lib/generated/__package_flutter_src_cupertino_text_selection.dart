@@ -17,12 +17,16 @@ const libraryMirror = m.LibraryMirror(
     'cupertinoTextSelectionHandleControls':
         _cupertinoTextSelectionHandleControls$,
     'cupertinoTextSelectionControls': _cupertinoTextSelectionControls$,
+    'CupertinoTextSelectionControls.buildHandle':
+        _CupertinoTextSelectionControls_buildHandle$,
   },
   {},
   {
     'CupertinoTextSelectionControls': m.ClassMirror(
       'CupertinoTextSelectionControls',
       {
+        '#as': CupertinoTextSelectionControls_as$,
+        '#is': CupertinoTextSelectionControls_is$,
         'getHandleSize': _CupertinoTextSelectionControls_getHandleSize$,
         'getHandleAnchor': _CupertinoTextSelectionControls_getHandleAnchor$,
       },
@@ -38,11 +42,50 @@ TextSelectionControls _cupertinoTextSelectionControls$() {
   return cupertinoTextSelectionControls;
 }
 
+Function CupertinoTextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTextSelectionControls;
+Function CupertinoTextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTextSelectionControls;
 Function _CupertinoTextSelectionControls_getHandleSize$(
   m.Scope scope,
   CupertinoTextSelectionControls target,
 ) =>
     target.getHandleSize;
+Function _CupertinoTextSelectionControls_buildHandle$(
+  m.Scope scope,
+  CupertinoTextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textLineHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _CupertinoTextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   CupertinoTextSelectionControls target,

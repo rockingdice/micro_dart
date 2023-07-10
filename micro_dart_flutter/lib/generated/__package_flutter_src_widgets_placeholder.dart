@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'Placeholder': m.ClassMirror(
       'Placeholder',
       {
+        '#as': Placeholder_as$,
+        '#is': Placeholder_is$,
         'color': _Placeholder_color$,
         'strokeWidth': _Placeholder_strokeWidth$,
         'fallbackWidth': _Placeholder_fallbackWidth$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Placeholder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Placeholder;
+Function Placeholder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Placeholder;
 Color _Placeholder_color$(Placeholder target) {
   return target.color;
 }

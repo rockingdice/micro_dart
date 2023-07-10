@@ -22,10 +22,13 @@ const libraryMirror = m.LibraryMirror(
     'ViewConfiguration': m.ClassMirror(
       'ViewConfiguration',
       {
+        '#as': ViewConfiguration_as$,
+        '#is': ViewConfiguration_is$,
         'size': _ViewConfiguration_size$,
         'devicePixelRatio': _ViewConfiguration_devicePixelRatio$,
         'hashCode': _ViewConfiguration_hashCode$,
         'toMatrix': _ViewConfiguration_toMatrix$,
+        '==': _ViewConfiguration_eq$$,
         'toString': _ViewConfiguration_toString$,
       },
       {},
@@ -33,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderView': m.ClassMirror(
       'RenderView',
       {
+        '#as': RenderView_as$,
+        '#is': RenderView_is$,
         'automaticSystemUiAdjustment': _RenderView_automaticSystemUiAdjustment$,
         'size': _RenderView_size$,
         'configuration': _RenderView_configuration$,
@@ -60,6 +65,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ViewConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ViewConfiguration;
+Function ViewConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ViewConfiguration;
 Size _ViewConfiguration_size$(ViewConfiguration target) {
   return target.size;
 }
@@ -77,11 +92,26 @@ Function _ViewConfiguration_toMatrix$(
   ViewConfiguration target,
 ) =>
     target.toMatrix;
+Function _ViewConfiguration_eq$$(
+  m.Scope scope,
+  ViewConfiguration target,
+) =>
+    (Object other) => target == other;
 Function _ViewConfiguration_toString$(
   m.Scope scope,
   ViewConfiguration target,
 ) =>
     target.toString;
+Function RenderView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderView;
+Function RenderView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderView;
 bool _RenderView_automaticSystemUiAdjustment$(RenderView target) {
   return target.automaticSystemUiAdjustment;
 }

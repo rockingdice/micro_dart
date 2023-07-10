@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'IconThemeData': m.ClassMirror(
       'IconThemeData',
       {
+        '#as': IconThemeData_as$,
+        '#is': IconThemeData_is$,
         'size': _IconThemeData_size$,
         'fill': _IconThemeData_fill$,
         'weight': _IconThemeData_weight$,
@@ -29,12 +31,23 @@ const libraryMirror = m.LibraryMirror(
         'copyWith': _IconThemeData_copyWith$,
         'merge': _IconThemeData_merge$,
         'resolve': _IconThemeData_resolve$,
+        '==': _IconThemeData_eq$$,
         'debugFillProperties': _IconThemeData_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function IconThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconThemeData;
+Function IconThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconThemeData;
 double? _IconThemeData_size$(IconThemeData target) {
   return target.size;
 }
@@ -91,6 +104,11 @@ Function _IconThemeData_resolve$(
 ) =>
     target.resolve;
 Function _IconThemeData_lerp$(m.Scope scope) => IconThemeData.lerp;
+Function _IconThemeData_eq$$(
+  m.Scope scope,
+  IconThemeData target,
+) =>
+    (Object other) => target == other;
 Function _IconThemeData_debugFillProperties$(
   m.Scope scope,
   IconThemeData target,

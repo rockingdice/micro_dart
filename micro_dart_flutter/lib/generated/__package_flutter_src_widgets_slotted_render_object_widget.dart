@@ -9,12 +9,17 @@ import 'package:flutter/src/widgets/framework.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/slotted_render_object_widget.dart',
-  {},
+  {
+    'SlottedRenderObjectElement.visitChildren':
+        _SlottedRenderObjectElement_visitChildren$
+  },
   {},
   {
     'SlottedRenderObjectElement': m.ClassMirror(
       'SlottedRenderObjectElement',
       {
+        '#as': SlottedRenderObjectElement_as$,
+        '#is': SlottedRenderObjectElement_is$,
         'renderObject': _SlottedRenderObjectElement_renderObject$,
         'forgetChild': _SlottedRenderObjectElement_forgetChild$,
         'mount': _SlottedRenderObjectElement_mount$,
@@ -30,12 +35,36 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SlottedRenderObjectElement_as$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SlottedRenderObjectElement<S>;
+Function SlottedRenderObjectElement_is$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SlottedRenderObjectElement<S>;
 SlottedContainerRenderObjectMixin<S>
     _SlottedRenderObjectElement_renderObject$<S>(
         SlottedRenderObjectElement<S> target) {
   return target.renderObject;
 }
 
+Function _SlottedRenderObjectElement_visitChildren$<S>(
+  m.Scope scope,
+  SlottedRenderObjectElement<S> target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _SlottedRenderObjectElement_forgetChild$<S>(
   m.Scope scope,
   SlottedRenderObjectElement<S> target,

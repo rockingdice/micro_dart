@@ -8,12 +8,19 @@ import 'package:flutter/src/gestures/events.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/pointer_router.dart',
-  {},
+  {
+    'PointerRouter.addRoute': _PointerRouter_addRoute$,
+    'PointerRouter.removeRoute': _PointerRouter_removeRoute$,
+    'PointerRouter.addGlobalRoute': _PointerRouter_addGlobalRoute$,
+    'PointerRouter.removeGlobalRoute': _PointerRouter_removeGlobalRoute$,
+  },
   {},
   {
     'PointerRouter': m.ClassMirror(
       'PointerRouter',
       {
+        '#as': PointerRouter_as$,
+        '#is': PointerRouter_is$,
         'debugGlobalRouteCount': _PointerRouter_debugGlobalRouteCount$,
         'route': _PointerRouter_route$,
       },
@@ -21,10 +28,105 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function PointerRouter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerRouter;
+Function PointerRouter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerRouter;
 int _PointerRouter_debugGlobalRouteCount$(PointerRouter target) {
   return target.debugGlobalRouteCount;
 }
 
+Function _PointerRouter_addRoute$(
+  m.Scope scope,
+  PointerRouter target,
+) =>
+    (
+      int pointer,
+      m.FunctionPointer route,
+      Matrix4? transform,
+    ) {
+      void routeProxy(PointerEvent route_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            route,
+            [route_event],
+            {},
+          );
+      if (transform == null) {}
+      target.addRoute(
+        pointer,
+        routeProxy,
+      );
+      target.addRoute(
+        pointer,
+        routeProxy,
+        transform,
+      );
+      return;
+    };
+Function _PointerRouter_removeRoute$(
+  m.Scope scope,
+  PointerRouter target,
+) =>
+    (
+      int pointer,
+      m.FunctionPointer route,
+    ) {
+      void routeProxy(PointerEvent route_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            route,
+            [route_event],
+            {},
+          );
+      target.removeRoute(
+        pointer,
+        routeProxy,
+      );
+    };
+Function _PointerRouter_addGlobalRoute$(
+  m.Scope scope,
+  PointerRouter target,
+) =>
+    (
+      m.FunctionPointer route,
+      Matrix4? transform,
+    ) {
+      void routeProxy(PointerEvent route_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            route,
+            [route_event],
+            {},
+          );
+      if (transform == null) {}
+      target.addGlobalRoute(routeProxy);
+      target.addGlobalRoute(
+        routeProxy,
+        transform,
+      );
+      return;
+    };
+Function _PointerRouter_removeGlobalRoute$(
+  m.Scope scope,
+  PointerRouter target,
+) =>
+    (m.FunctionPointer route) {
+      void routeProxy(PointerEvent route_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            route,
+            [route_event],
+            {},
+          );
+      target.removeGlobalRoute(routeProxy);
+    };
 Function _PointerRouter_route$(
   m.Scope scope,
   PointerRouter target,

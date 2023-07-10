@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ToggleButtonsThemeData': m.ClassMirror(
       'ToggleButtonsThemeData',
       {
+        '#as': ToggleButtonsThemeData_as$,
+        '#is': ToggleButtonsThemeData_is$,
         'textStyle': _ToggleButtonsThemeData_textStyle$,
         'constraints': _ToggleButtonsThemeData_constraints$,
         'color': _ToggleButtonsThemeData_color$,
@@ -37,6 +39,7 @@ const libraryMirror = m.LibraryMirror(
         'borderRadius': _ToggleButtonsThemeData_borderRadius$,
         'hashCode': _ToggleButtonsThemeData_hashCode$,
         'copyWith': _ToggleButtonsThemeData_copyWith$,
+        '==': _ToggleButtonsThemeData_eq$$,
         'debugFillProperties': _ToggleButtonsThemeData_debugFillProperties$,
       },
       {},
@@ -44,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'ToggleButtonsTheme': m.ClassMirror(
       'ToggleButtonsTheme',
       {
+        '#as': ToggleButtonsTheme_as$,
+        '#is': ToggleButtonsTheme_is$,
         'data': _ToggleButtonsTheme_data$,
         'wrap': _ToggleButtonsTheme_wrap$,
         'updateShouldNotify': _ToggleButtonsTheme_updateShouldNotify$,
@@ -52,6 +57,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ToggleButtonsThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToggleButtonsThemeData;
+Function ToggleButtonsThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToggleButtonsThemeData;
 TextStyle? _ToggleButtonsThemeData_textStyle$(ToggleButtonsThemeData target) {
   return target.textStyle;
 }
@@ -127,11 +142,26 @@ Function _ToggleButtonsThemeData_copyWith$(
     target.copyWith;
 Function _ToggleButtonsThemeData_lerp$(m.Scope scope) =>
     ToggleButtonsThemeData.lerp;
+Function _ToggleButtonsThemeData_eq$$(
+  m.Scope scope,
+  ToggleButtonsThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ToggleButtonsThemeData_debugFillProperties$(
   m.Scope scope,
   ToggleButtonsThemeData target,
 ) =>
     target.debugFillProperties;
+Function ToggleButtonsTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToggleButtonsTheme;
+Function ToggleButtonsTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToggleButtonsTheme;
 ToggleButtonsThemeData _ToggleButtonsTheme_data$(ToggleButtonsTheme target) {
   return target.data;
 }

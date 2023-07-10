@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedWidget': m.ClassMirror(
       'AnimatedWidget',
       {
+        '#as': AnimatedWidget_as$,
+        '#is': AnimatedWidget_is$,
         'listenable': _AnimatedWidget_listenable$,
         'build': _AnimatedWidget_build$,
         'createState': _AnimatedWidget_createState$,
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'SlideTransition': m.ClassMirror(
       'SlideTransition',
       {
+        '#as': SlideTransition_as$,
+        '#is': SlideTransition_is$,
         'textDirection': _SlideTransition_textDirection$,
         'transformHitTests': _SlideTransition_transformHitTests$,
         'child': _SlideTransition_child$,
@@ -39,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaleTransition': m.ClassMirror(
       'ScaleTransition',
       {
+        '#as': ScaleTransition_as$,
+        '#is': ScaleTransition_is$,
         'alignment': _ScaleTransition_alignment$,
         'filterQuality': _ScaleTransition_filterQuality$,
         'child': _ScaleTransition_child$,
@@ -50,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'RotationTransition': m.ClassMirror(
       'RotationTransition',
       {
+        '#as': RotationTransition_as$,
+        '#is': RotationTransition_is$,
         'alignment': _RotationTransition_alignment$,
         'filterQuality': _RotationTransition_filterQuality$,
         'child': _RotationTransition_child$,
@@ -61,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'SizeTransition': m.ClassMirror(
       'SizeTransition',
       {
+        '#as': SizeTransition_as$,
+        '#is': SizeTransition_is$,
         'axis': _SizeTransition_axis$,
         'axisAlignment': _SizeTransition_axisAlignment$,
         'child': _SizeTransition_child$,
@@ -72,6 +82,8 @@ const libraryMirror = m.LibraryMirror(
     'FadeTransition': m.ClassMirror(
       'FadeTransition',
       {
+        '#as': FadeTransition_as$,
+        '#is': FadeTransition_is$,
         'opacity': _FadeTransition_opacity$,
         'alwaysIncludeSemantics': _FadeTransition_alwaysIncludeSemantics$,
         'createRenderObject': _FadeTransition_createRenderObject$,
@@ -83,6 +95,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverFadeTransition': m.ClassMirror(
       'SliverFadeTransition',
       {
+        '#as': SliverFadeTransition_as$,
+        '#is': SliverFadeTransition_is$,
         'opacity': _SliverFadeTransition_opacity$,
         'alwaysIncludeSemantics': _SliverFadeTransition_alwaysIncludeSemantics$,
         'createRenderObject': _SliverFadeTransition_createRenderObject$,
@@ -93,12 +107,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RelativeRectTween': m.ClassMirror(
       'RelativeRectTween',
-      {'lerp': _RelativeRectTween_lerp$},
+      {
+        '#as': RelativeRectTween_as$,
+        '#is': RelativeRectTween_is$,
+        'lerp': _RelativeRectTween_lerp$,
+      },
       {},
     ),
     'PositionedTransition': m.ClassMirror(
       'PositionedTransition',
       {
+        '#as': PositionedTransition_as$,
+        '#is': PositionedTransition_is$,
         'child': _PositionedTransition_child$,
         'rect': _PositionedTransition_rect$,
         'build': _PositionedTransition_build$,
@@ -108,6 +128,8 @@ const libraryMirror = m.LibraryMirror(
     'RelativePositionedTransition': m.ClassMirror(
       'RelativePositionedTransition',
       {
+        '#as': RelativePositionedTransition_as$,
+        '#is': RelativePositionedTransition_is$,
         'size': _RelativePositionedTransition_size$,
         'child': _RelativePositionedTransition_child$,
         'rect': _RelativePositionedTransition_rect$,
@@ -118,6 +140,8 @@ const libraryMirror = m.LibraryMirror(
     'DecoratedBoxTransition': m.ClassMirror(
       'DecoratedBoxTransition',
       {
+        '#as': DecoratedBoxTransition_as$,
+        '#is': DecoratedBoxTransition_is$,
         'decoration': _DecoratedBoxTransition_decoration$,
         'position': _DecoratedBoxTransition_position$,
         'child': _DecoratedBoxTransition_child$,
@@ -128,6 +152,8 @@ const libraryMirror = m.LibraryMirror(
     'AlignTransition': m.ClassMirror(
       'AlignTransition',
       {
+        '#as': AlignTransition_as$,
+        '#is': AlignTransition_is$,
         'widthFactor': _AlignTransition_widthFactor$,
         'heightFactor': _AlignTransition_heightFactor$,
         'child': _AlignTransition_child$,
@@ -139,6 +165,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultTextStyleTransition': m.ClassMirror(
       'DefaultTextStyleTransition',
       {
+        '#as': DefaultTextStyleTransition_as$,
+        '#is': DefaultTextStyleTransition_is$,
         'textAlign': _DefaultTextStyleTransition_textAlign$,
         'softWrap': _DefaultTextStyleTransition_softWrap$,
         'overflow': _DefaultTextStyleTransition_overflow$,
@@ -152,6 +180,8 @@ const libraryMirror = m.LibraryMirror(
     'ListenableBuilder': m.ClassMirror(
       'ListenableBuilder',
       {
+        '#as': ListenableBuilder_as$,
+        '#is': ListenableBuilder_is$,
         'builder': _ListenableBuilder_builder$,
         'child': _ListenableBuilder_child$,
         'listenable': _ListenableBuilder_listenable$,
@@ -162,6 +192,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedBuilder': m.ClassMirror(
       'AnimatedBuilder',
       {
+        '#as': AnimatedBuilder_as$,
+        '#is': AnimatedBuilder_is$,
         'animation': _AnimatedBuilder_animation$,
         'listenable': _AnimatedBuilder_listenable$,
         'builder': _AnimatedBuilder_builder$,
@@ -170,6 +202,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AnimatedWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedWidget;
+Function AnimatedWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedWidget;
 Listenable _AnimatedWidget_listenable$(AnimatedWidget target) {
   return target.listenable;
 }
@@ -189,6 +231,16 @@ Function _AnimatedWidget_debugFillProperties$(
   AnimatedWidget target,
 ) =>
     target.debugFillProperties;
+Function SlideTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SlideTransition;
+Function SlideTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SlideTransition;
 TextDirection? _SlideTransition_textDirection$(SlideTransition target) {
   return target.textDirection;
 }
@@ -210,6 +262,16 @@ Function _SlideTransition_build$(
   SlideTransition target,
 ) =>
     target.build;
+Function ScaleTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaleTransition;
+Function ScaleTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaleTransition;
 Alignment _ScaleTransition_alignment$(ScaleTransition target) {
   return target.alignment;
 }
@@ -231,6 +293,16 @@ Function _ScaleTransition_build$(
   ScaleTransition target,
 ) =>
     target.build;
+Function RotationTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RotationTransition;
+Function RotationTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RotationTransition;
 Alignment _RotationTransition_alignment$(RotationTransition target) {
   return target.alignment;
 }
@@ -252,6 +324,16 @@ Function _RotationTransition_build$(
   RotationTransition target,
 ) =>
     target.build;
+Function SizeTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizeTransition;
+Function SizeTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizeTransition;
 Axis _SizeTransition_axis$(SizeTransition target) {
   return target.axis;
 }
@@ -273,6 +355,16 @@ Function _SizeTransition_build$(
   SizeTransition target,
 ) =>
     target.build;
+Function FadeTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FadeTransition;
+Function FadeTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FadeTransition;
 Animation<double> _FadeTransition_opacity$(FadeTransition target) {
   return target.opacity;
 }
@@ -296,6 +388,16 @@ Function _FadeTransition_debugFillProperties$(
   FadeTransition target,
 ) =>
     target.debugFillProperties;
+Function SliverFadeTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverFadeTransition;
+Function SliverFadeTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverFadeTransition;
 Animation<double> _SliverFadeTransition_opacity$(SliverFadeTransition target) {
   return target.opacity;
 }
@@ -320,11 +422,31 @@ Function _SliverFadeTransition_debugFillProperties$(
   SliverFadeTransition target,
 ) =>
     target.debugFillProperties;
+Function RelativeRectTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RelativeRectTween;
+Function RelativeRectTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RelativeRectTween;
 Function _RelativeRectTween_lerp$(
   m.Scope scope,
   RelativeRectTween target,
 ) =>
     target.lerp;
+Function PositionedTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PositionedTransition;
+Function PositionedTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PositionedTransition;
 Widget _PositionedTransition_child$(PositionedTransition target) {
   return target.child;
 }
@@ -339,6 +461,16 @@ Function _PositionedTransition_build$(
   PositionedTransition target,
 ) =>
     target.build;
+Function RelativePositionedTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RelativePositionedTransition;
+Function RelativePositionedTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RelativePositionedTransition;
 Size _RelativePositionedTransition_size$(RelativePositionedTransition target) {
   return target.size;
 }
@@ -358,6 +490,16 @@ Function _RelativePositionedTransition_build$(
   RelativePositionedTransition target,
 ) =>
     target.build;
+Function DecoratedBoxTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DecoratedBoxTransition;
+Function DecoratedBoxTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DecoratedBoxTransition;
 Animation<Decoration> _DecoratedBoxTransition_decoration$(
     DecoratedBoxTransition target) {
   return target.decoration;
@@ -377,6 +519,16 @@ Function _DecoratedBoxTransition_build$(
   DecoratedBoxTransition target,
 ) =>
     target.build;
+Function AlignTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlignTransition;
+Function AlignTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlignTransition;
 double? _AlignTransition_widthFactor$(AlignTransition target) {
   return target.widthFactor;
 }
@@ -399,6 +551,16 @@ Function _AlignTransition_build$(
   AlignTransition target,
 ) =>
     target.build;
+Function DefaultTextStyleTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTextStyleTransition;
+Function DefaultTextStyleTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTextStyleTransition;
 TextAlign? _DefaultTextStyleTransition_textAlign$(
     DefaultTextStyleTransition target) {
   return target.textAlign;
@@ -431,6 +593,16 @@ Function _DefaultTextStyleTransition_build$(
   DefaultTextStyleTransition target,
 ) =>
     target.build;
+Function ListenableBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListenableBuilder;
+Function ListenableBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListenableBuilder;
 Widget Function(BuildContext, Widget?) _ListenableBuilder_builder$(
     ListenableBuilder target) {
   return target.builder;
@@ -449,6 +621,16 @@ Function _ListenableBuilder_build$(
   ListenableBuilder target,
 ) =>
     target.build;
+Function AnimatedBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedBuilder;
+Function AnimatedBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedBuilder;
 Listenable _AnimatedBuilder_animation$(AnimatedBuilder target) {
   return target.animation;
 }

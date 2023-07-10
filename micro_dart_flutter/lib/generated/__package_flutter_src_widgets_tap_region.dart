@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'TapRegionRegistry': m.ClassMirror(
       'TapRegionRegistry',
       {
+        '#as': TapRegionRegistry_as$,
+        '#is': TapRegionRegistry_is$,
         'registerTapRegion': _TapRegionRegistry_registerTapRegion$,
         'unregisterTapRegion': _TapRegionRegistry_unregisterTapRegion$,
       },
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'TapRegionSurface': m.ClassMirror(
       'TapRegionSurface',
       {
+        '#as': TapRegionSurface_as$,
+        '#is': TapRegionSurface_is$,
         'createRenderObject': _TapRegionSurface_createRenderObject$,
         'updateRenderObject': _TapRegionSurface_updateRenderObject$,
       },
@@ -36,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderTapRegionSurface': m.ClassMirror(
       'RenderTapRegionSurface',
       {
+        '#as': RenderTapRegionSurface_as$,
+        '#is': RenderTapRegionSurface_is$,
         'registerTapRegion': _RenderTapRegionSurface_registerTapRegion$,
         'unregisterTapRegion': _RenderTapRegionSurface_unregisterTapRegion$,
         'hitTest': _RenderTapRegionSurface_hitTest$,
@@ -46,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'TapRegion': m.ClassMirror(
       'TapRegion',
       {
+        '#as': TapRegion_as$,
+        '#is': TapRegion_is$,
         'enabled': _TapRegion_enabled$,
         'behavior': _TapRegion_behavior$,
         'onTapOutside': _TapRegion_onTapOutside$,
@@ -61,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderTapRegion': m.ClassMirror(
       'RenderTapRegion',
       {
+        '#as': RenderTapRegion_as$,
+        '#is': RenderTapRegion_is$,
         'onTapOutside': _RenderTapRegion_onTapOutside$,
         'onTapInside': _RenderTapRegion_onTapInside$,
         'debugLabel': _RenderTapRegion_debugLabel$,
@@ -82,11 +92,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TextFieldTapRegion': m.ClassMirror(
       'TextFieldTapRegion',
-      {},
+      {
+        '#as': TextFieldTapRegion_as$,
+        '#is': TextFieldTapRegion_is$,
+      },
       {},
     ),
   },
 );
+Function TapRegionRegistry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapRegionRegistry;
+Function TapRegionRegistry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapRegionRegistry;
 Function _TapRegionRegistry_registerTapRegion$(
   m.Scope scope,
   TapRegionRegistry target,
@@ -100,6 +123,16 @@ Function _TapRegionRegistry_unregisterTapRegion$(
 Function _TapRegionRegistry_of$(m.Scope scope) => TapRegionRegistry.of;
 Function _TapRegionRegistry_maybeOf$(m.Scope scope) =>
     TapRegionRegistry.maybeOf;
+Function TapRegionSurface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapRegionSurface;
+Function TapRegionSurface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapRegionSurface;
 Function _TapRegionSurface_createRenderObject$(
   m.Scope scope,
   TapRegionSurface target,
@@ -110,6 +143,16 @@ Function _TapRegionSurface_updateRenderObject$(
   TapRegionSurface target,
 ) =>
     target.updateRenderObject;
+Function RenderTapRegionSurface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderTapRegionSurface;
+Function RenderTapRegionSurface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderTapRegionSurface;
 Function _RenderTapRegionSurface_registerTapRegion$(
   m.Scope scope,
   RenderTapRegionSurface target,
@@ -130,6 +173,16 @@ Function _RenderTapRegionSurface_handleEvent$(
   RenderTapRegionSurface target,
 ) =>
     target.handleEvent;
+Function TapRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapRegion;
+Function TapRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapRegion;
 bool _TapRegion_enabled$(TapRegion target) {
   return target.enabled;
 }
@@ -169,6 +222,16 @@ Function _TapRegion_debugFillProperties$(
   TapRegion target,
 ) =>
     target.debugFillProperties;
+Function RenderTapRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderTapRegion;
+Function RenderTapRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderTapRegion;
 void Function(PointerDownEvent)? _RenderTapRegion_onTapOutside$(
     RenderTapRegion target) {
   return target.onTapOutside;
@@ -266,3 +329,13 @@ Function _RenderTapRegion_debugFillProperties$(
   RenderTapRegion target,
 ) =>
     target.debugFillProperties;
+Function TextFieldTapRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextFieldTapRegion;
+Function TextFieldTapRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextFieldTapRegion;

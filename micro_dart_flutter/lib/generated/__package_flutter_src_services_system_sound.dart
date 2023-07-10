@@ -17,7 +17,10 @@ const libraryMirror = m.LibraryMirror(
   {
     'SystemSound': m.ClassMirror(
       'SystemSound',
-      {},
+      {
+        '#as': SystemSound_as$,
+        '#is': SystemSound_is$,
+      },
       {},
     ),
     'SystemSoundType': m.ClassMirror(
@@ -27,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SystemSound_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemSound;
+Function SystemSound_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemSound;
 Function _SystemSound_play$(m.Scope scope) => SystemSound.play;
 SystemSoundType _SystemSoundType_click$() {
   return SystemSoundType.click;

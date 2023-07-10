@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'CardTheme': m.ClassMirror(
       'CardTheme',
       {
+        '#as': CardTheme_as$,
+        '#is': CardTheme_is$,
         'clipBehavior': _CardTheme_clipBehavior$,
         'color': _CardTheme_color$,
         'shadowColor': _CardTheme_shadowColor$,
@@ -28,12 +30,23 @@ const libraryMirror = m.LibraryMirror(
         'shape': _CardTheme_shape$,
         'hashCode': _CardTheme_hashCode$,
         'copyWith': _CardTheme_copyWith$,
+        '==': _CardTheme_eq$$,
         'debugFillProperties': _CardTheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function CardTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CardTheme;
+Function CardTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CardTheme;
 Clip? _CardTheme_clipBehavior$(CardTheme target) {
   return target.clipBehavior;
 }
@@ -73,6 +86,11 @@ Function _CardTheme_copyWith$(
     target.copyWith;
 Function _CardTheme_of$(m.Scope scope) => CardTheme.of;
 Function _CardTheme_lerp$(m.Scope scope) => CardTheme.lerp;
+Function _CardTheme_eq$$(
+  m.Scope scope,
+  CardTheme target,
+) =>
+    (Object other) => target == other;
 Function _CardTheme_debugFillProperties$(
   m.Scope scope,
   CardTheme target,

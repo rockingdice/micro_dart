@@ -12,24 +12,37 @@ import 'package:flutter/src/foundation/memory_allocations.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/change_notifier.dart',
   {
+    'Listenable.addListener': _Listenable_addListener$,
+    'Listenable.removeListener': _Listenable_removeListener$,
     'ChangeNotifier.debugAssertNotDisposed':
-        _ChangeNotifier_debugAssertNotDisposed$
+        _ChangeNotifier_debugAssertNotDisposed$,
+    'ChangeNotifier.addListener': _ChangeNotifier_addListener$,
+    'ChangeNotifier.removeListener': _ChangeNotifier_removeListener$,
   },
   {},
   {
     'Listenable': m.ClassMirror(
       'Listenable',
-      {},
+      {
+        '#as': Listenable_as$,
+        '#is': Listenable_is$,
+      },
       {},
     ),
     'ValueListenable': m.ClassMirror(
       'ValueListenable',
-      {'value': _ValueListenable_value$},
+      {
+        '#as': ValueListenable_as$,
+        '#is': ValueListenable_is$,
+        'value': _ValueListenable_value$,
+      },
       {},
     ),
     'ChangeNotifier': m.ClassMirror(
       'ChangeNotifier',
       {
+        '#as': ChangeNotifier_as$,
+        '#is': ChangeNotifier_is$,
         'hasListeners': _ChangeNotifier_hasListeners$,
         'dispose': _ChangeNotifier_dispose$,
         'notifyListeners': _ChangeNotifier_notifyListeners$,
@@ -39,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'ValueNotifier': m.ClassMirror(
       'ValueNotifier',
       {
+        '#as': ValueNotifier_as$,
+        '#is': ValueNotifier_is$,
         'value': _ValueNotifier_value$,
         'toString': _ValueNotifier_toString$,
       },
@@ -46,16 +61,98 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Listenable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Listenable;
+Function Listenable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Listenable;
+Function _Listenable_addListener$(
+  m.Scope scope,
+  Listenable target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _Listenable_removeListener$(
+  m.Scope scope,
+  Listenable target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
+Function ValueListenable_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ValueListenable<T>;
+Function ValueListenable_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ValueListenable<T>;
 T _ValueListenable_value$<T>(ValueListenable<T> target) {
   return target.value;
 }
 
+Function ChangeNotifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChangeNotifier;
+Function ChangeNotifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChangeNotifier;
 bool _ChangeNotifier_hasListeners$(ChangeNotifier target) {
   return target.hasListeners;
 }
 
 Function _ChangeNotifier_debugAssertNotDisposed$(m.Scope scope) =>
     ChangeNotifier.debugAssertNotDisposed;
+Function _ChangeNotifier_addListener$(
+  m.Scope scope,
+  ChangeNotifier target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _ChangeNotifier_removeListener$(
+  m.Scope scope,
+  ChangeNotifier target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _ChangeNotifier_dispose$(
   m.Scope scope,
   ChangeNotifier target,
@@ -66,6 +163,16 @@ Function _ChangeNotifier_notifyListeners$(
   ChangeNotifier target,
 ) =>
     target.notifyListeners;
+Function ValueNotifier_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ValueNotifier<T>;
+Function ValueNotifier_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ValueNotifier<T>;
 T _ValueNotifier_value$<T>(ValueNotifier<T> target) {
   return target.value;
 }

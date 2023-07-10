@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'FlowPaintingContext': m.ClassMirror(
       'FlowPaintingContext',
       {
+        '#as': FlowPaintingContext_as$,
+        '#is': FlowPaintingContext_is$,
         'size': _FlowPaintingContext_size$,
         'childCount': _FlowPaintingContext_childCount$,
         'getChildSize': _FlowPaintingContext_getChildSize$,
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'FlowDelegate': m.ClassMirror(
       'FlowDelegate',
       {
+        '#as': FlowDelegate_as$,
+        '#is': FlowDelegate_is$,
         'getSize': _FlowDelegate_getSize$,
         'getConstraintsForChild': _FlowDelegate_getConstraintsForChild$,
         'paintChildren': _FlowDelegate_paintChildren$,
@@ -39,12 +43,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FlowParentData': m.ClassMirror(
       'FlowParentData',
-      {},
+      {
+        '#as': FlowParentData_as$,
+        '#is': FlowParentData_is$,
+      },
       {},
     ),
     'RenderFlow': m.ClassMirror(
       'RenderFlow',
       {
+        '#as': RenderFlow_as$,
+        '#is': RenderFlow_is$,
         'delegate': _RenderFlow_delegate$,
         'clipBehavior': _RenderFlow_clipBehavior$,
         'isRepaintBoundary': _RenderFlow_isRepaintBoundary$,
@@ -71,6 +80,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FlowPaintingContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlowPaintingContext;
+Function FlowPaintingContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlowPaintingContext;
 Size _FlowPaintingContext_size$(FlowPaintingContext target) {
   return target.size;
 }
@@ -89,6 +108,16 @@ Function _FlowPaintingContext_paintChild$(
   FlowPaintingContext target,
 ) =>
     target.paintChild;
+Function FlowDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlowDelegate;
+Function FlowDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlowDelegate;
 Function _FlowDelegate_getSize$(
   m.Scope scope,
   FlowDelegate target,
@@ -119,6 +148,26 @@ Function _FlowDelegate_toString$(
   FlowDelegate target,
 ) =>
     target.toString;
+Function FlowParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlowParentData;
+Function FlowParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlowParentData;
+Function RenderFlow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFlow;
+Function RenderFlow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFlow;
 FlowDelegate _RenderFlow_delegate$(RenderFlow target) {
   return target.delegate;
 }

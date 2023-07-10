@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/raw_keyboard.dart',
   {
     'RawKeyboard.instance': _RawKeyboard_instance$,
+    'RawKeyboard.addListener': _RawKeyboard_addListener$,
+    'RawKeyboard.removeListener': _RawKeyboard_removeListener$,
     'KeyboardSide.any': _KeyboardSide_any$,
     'KeyboardSide.left': _KeyboardSide_left$,
     'KeyboardSide.right': _KeyboardSide_right$,
@@ -42,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventData': m.ClassMirror(
       'RawKeyEventData',
       {
+        '#as': RawKeyEventData_as$,
+        '#is': RawKeyEventData_is$,
         'isControlPressed': _RawKeyEventData_isControlPressed$,
         'isShiftPressed': _RawKeyEventData_isShiftPressed$,
         'isAltPressed': _RawKeyEventData_isAltPressed$,
@@ -59,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEvent': m.ClassMirror(
       'RawKeyEvent',
       {
+        '#as': RawKeyEvent_as$,
+        '#is': RawKeyEvent_is$,
         'character': _RawKeyEvent_character$,
         'repeat': _RawKeyEvent_repeat$,
         'data': _RawKeyEvent_data$,
@@ -75,17 +81,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawKeyDownEvent': m.ClassMirror(
       'RawKeyDownEvent',
-      {},
+      {
+        '#as': RawKeyDownEvent_as$,
+        '#is': RawKeyDownEvent_is$,
+      },
       {},
     ),
     'RawKeyUpEvent': m.ClassMirror(
       'RawKeyUpEvent',
-      {},
+      {
+        '#as': RawKeyUpEvent_as$,
+        '#is': RawKeyUpEvent_is$,
+      },
       {},
     ),
     'RawKeyboard': m.ClassMirror(
       'RawKeyboard',
       {
+        '#as': RawKeyboard_as$,
+        '#is': RawKeyboard_is$,
         'keyEventHandler': _RawKeyboard_keyEventHandler$,
         'keysPressed': _RawKeyboard_keysPressed$,
         'physicalKeysPressed': _RawKeyboard_physicalKeysPressed$,
@@ -107,6 +121,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RawKeyEventData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventData;
+Function RawKeyEventData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventData;
 bool _RawKeyEventData_isControlPressed$(RawKeyEventData target) {
   return target.isControlPressed;
 }
@@ -155,6 +179,16 @@ Function _RawKeyEventData_shouldDispatchEvent$(
   RawKeyEventData target,
 ) =>
     target.shouldDispatchEvent;
+Function RawKeyEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEvent;
+Function RawKeyEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEvent;
 String? _RawKeyEvent_character$(RawKeyEvent target) {
   return target.character;
 }
@@ -201,6 +235,36 @@ Function _RawKeyEvent_debugFillProperties$(
   RawKeyEvent target,
 ) =>
     target.debugFillProperties;
+Function RawKeyDownEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyDownEvent;
+Function RawKeyDownEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyDownEvent;
+Function RawKeyUpEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyUpEvent;
+Function RawKeyUpEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyUpEvent;
+Function RawKeyboard_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyboard;
+Function RawKeyboard_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyboard;
 RawKeyboard _RawKeyboard_instance$() {
   return RawKeyboard.instance;
 }
@@ -231,6 +295,34 @@ Set<PhysicalKeyboardKey> _RawKeyboard_physicalKeysPressed$(RawKeyboard target) {
   return target.physicalKeysPressed;
 }
 
+Function _RawKeyboard_addListener$(
+  m.Scope scope,
+  RawKeyboard target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(RawKeyEvent listener_value) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_value],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _RawKeyboard_removeListener$(
+  m.Scope scope,
+  RawKeyboard target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(RawKeyEvent listener_value) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_value],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _RawKeyboard_handleRawKeyEvent$(
   m.Scope scope,
   RawKeyboard target,

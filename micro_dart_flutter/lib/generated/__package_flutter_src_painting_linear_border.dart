@@ -20,9 +20,12 @@ const libraryMirror = m.LibraryMirror(
     'LinearBorderEdge': m.ClassMirror(
       'LinearBorderEdge',
       {
+        '#as': LinearBorderEdge_as$,
+        '#is': LinearBorderEdge_is$,
         'size': _LinearBorderEdge_size$,
         'alignment': _LinearBorderEdge_alignment$,
         'hashCode': _LinearBorderEdge_hashCode$,
+        '==': _LinearBorderEdge_eq$$,
         'toString': _LinearBorderEdge_toString$,
       },
       {},
@@ -30,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'LinearBorder': m.ClassMirror(
       'LinearBorder',
       {
+        '#as': LinearBorder_as$,
+        '#is': LinearBorder_is$,
         'start': _LinearBorder_start$,
         'end': _LinearBorder_end$,
         'top': _LinearBorder_top$,
@@ -43,12 +48,23 @@ const libraryMirror = m.LibraryMirror(
         'getInnerPath': _LinearBorder_getInnerPath$,
         'getOuterPath': _LinearBorder_getOuterPath$,
         'paint': _LinearBorder_paint$,
+        '==': _LinearBorder_eq$$,
         'toString': _LinearBorder_toString$,
       },
       {},
     ),
   },
 );
+Function LinearBorderEdge_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinearBorderEdge;
+Function LinearBorderEdge_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinearBorderEdge;
 double _LinearBorderEdge_size$(LinearBorderEdge target) {
   return target.size;
 }
@@ -62,11 +78,26 @@ int _LinearBorderEdge_hashCode$(LinearBorderEdge target) {
 }
 
 Function _LinearBorderEdge_lerp$(m.Scope scope) => LinearBorderEdge.lerp;
+Function _LinearBorderEdge_eq$$(
+  m.Scope scope,
+  LinearBorderEdge target,
+) =>
+    (Object other) => target == other;
 Function _LinearBorderEdge_toString$(
   m.Scope scope,
   LinearBorderEdge target,
 ) =>
     target.toString;
+Function LinearBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinearBorder;
+Function LinearBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinearBorder;
 LinearBorder _LinearBorder_none$() {
   return LinearBorder.none;
 }
@@ -130,6 +161,11 @@ Function _LinearBorder_paint$(
   LinearBorder target,
 ) =>
     target.paint;
+Function _LinearBorder_eq$$(
+  m.Scope scope,
+  LinearBorder target,
+) =>
+    (Object other) => target == other;
 Function _LinearBorder_toString$(
   m.Scope scope,
   LinearBorder target,

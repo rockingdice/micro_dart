@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'OverflowBar': m.ClassMirror(
       'OverflowBar',
       {
+        '#as': OverflowBar_as$,
+        '#is': OverflowBar_is$,
         'spacing': _OverflowBar_spacing$,
         'alignment': _OverflowBar_alignment$,
         'overflowSpacing': _OverflowBar_overflowSpacing$,
@@ -41,6 +43,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function OverflowBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverflowBar;
+Function OverflowBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverflowBar;
 double _OverflowBar_spacing$(OverflowBar target) {
   return target.spacing;
 }

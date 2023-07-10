@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSlidingSegmentedControl': m.ClassMirror(
       'CupertinoSlidingSegmentedControl',
       {
+        '#as': CupertinoSlidingSegmentedControl_as$,
+        '#is': CupertinoSlidingSegmentedControl_is$,
         'children': _CupertinoSlidingSegmentedControl_children$,
         'groupValue': _CupertinoSlidingSegmentedControl_groupValue$,
         'onValueChanged': _CupertinoSlidingSegmentedControl_onValueChanged$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoSlidingSegmentedControl_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSlidingSegmentedControl<T>;
+Function CupertinoSlidingSegmentedControl_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSlidingSegmentedControl<T>;
 Map<T, Widget> _CupertinoSlidingSegmentedControl_children$<T>(
     CupertinoSlidingSegmentedControl<T> target) {
   return target.children;

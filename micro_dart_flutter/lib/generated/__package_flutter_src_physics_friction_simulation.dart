@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'FrictionSimulation': m.ClassMirror(
       'FrictionSimulation',
       {
+        '#as': FrictionSimulation_as$,
+        '#is': FrictionSimulation_is$,
         'finalX': _FrictionSimulation_finalX$,
         'x': _FrictionSimulation_x$,
         'dx': _FrictionSimulation_dx$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'BoundedFrictionSimulation': m.ClassMirror(
       'BoundedFrictionSimulation',
       {
+        '#as': BoundedFrictionSimulation_as$,
+        '#is': BoundedFrictionSimulation_is$,
         'x': _BoundedFrictionSimulation_x$,
         'isDone': _BoundedFrictionSimulation_isDone$,
         'toString': _BoundedFrictionSimulation_toString$,
@@ -35,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FrictionSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FrictionSimulation;
+Function FrictionSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FrictionSimulation;
 double _FrictionSimulation_finalX$(FrictionSimulation target) {
   return target.finalX;
 }
@@ -64,6 +78,16 @@ Function _FrictionSimulation_toString$(
   FrictionSimulation target,
 ) =>
     target.toString;
+Function BoundedFrictionSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoundedFrictionSimulation;
+Function BoundedFrictionSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoundedFrictionSimulation;
 Function _BoundedFrictionSimulation_x$(
   m.Scope scope,
   BoundedFrictionSimulation target,

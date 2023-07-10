@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'Scrollbar': m.ClassMirror(
       'Scrollbar',
       {
+        '#as': Scrollbar_as$,
+        '#is': Scrollbar_is$,
         'child': _Scrollbar_child$,
         'controller': _Scrollbar_controller$,
         'thumbVisibility': _Scrollbar_thumbVisibility$,
@@ -36,6 +38,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Scrollbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Scrollbar;
+Function Scrollbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Scrollbar;
 Widget _Scrollbar_child$(Scrollbar target) {
   return target.child;
 }

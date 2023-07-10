@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPageScaffold': m.ClassMirror(
       'CupertinoPageScaffold',
       {
+        '#as': CupertinoPageScaffold_as$,
+        '#is': CupertinoPageScaffold_is$,
         'navigationBar': _CupertinoPageScaffold_navigationBar$,
         'child': _CupertinoPageScaffold_child$,
         'backgroundColor': _CupertinoPageScaffold_backgroundColor$,
@@ -27,13 +29,25 @@ const libraryMirror = m.LibraryMirror(
     'ObstructingPreferredSizeWidget': m.ClassMirror(
       'ObstructingPreferredSizeWidget',
       {
+        '#as': ObstructingPreferredSizeWidget_as$,
+        '#is': ObstructingPreferredSizeWidget_is$,
         'shouldFullyObstruct':
-            _ObstructingPreferredSizeWidget_shouldFullyObstruct$
+            _ObstructingPreferredSizeWidget_shouldFullyObstruct$,
       },
       {},
     ),
   },
 );
+Function CupertinoPageScaffold_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPageScaffold;
+Function CupertinoPageScaffold_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPageScaffold;
 ObstructingPreferredSizeWidget? _CupertinoPageScaffold_navigationBar$(
     CupertinoPageScaffold target) {
   return target.navigationBar;
@@ -57,6 +71,16 @@ Function _CupertinoPageScaffold_createState$(
   CupertinoPageScaffold target,
 ) =>
     target.createState;
+Function ObstructingPreferredSizeWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObstructingPreferredSizeWidget;
+Function ObstructingPreferredSizeWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObstructingPreferredSizeWidget;
 Function _ObstructingPreferredSizeWidget_shouldFullyObstruct$(
   m.Scope scope,
   ObstructingPreferredSizeWidget target,

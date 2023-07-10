@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'SpellCheckSuggestionsToolbarLayoutDelegate': m.ClassMirror(
       'SpellCheckSuggestionsToolbarLayoutDelegate',
       {
+        '#as': SpellCheckSuggestionsToolbarLayoutDelegate_as$,
+        '#is': SpellCheckSuggestionsToolbarLayoutDelegate_is$,
         'anchor': _SpellCheckSuggestionsToolbarLayoutDelegate_anchor$,
         'getConstraintsForChild':
             _SpellCheckSuggestionsToolbarLayoutDelegate_getConstraintsForChild$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SpellCheckSuggestionsToolbarLayoutDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpellCheckSuggestionsToolbarLayoutDelegate;
+Function SpellCheckSuggestionsToolbarLayoutDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpellCheckSuggestionsToolbarLayoutDelegate;
 Offset _SpellCheckSuggestionsToolbarLayoutDelegate_anchor$(
     SpellCheckSuggestionsToolbarLayoutDelegate target) {
   return target.anchor;

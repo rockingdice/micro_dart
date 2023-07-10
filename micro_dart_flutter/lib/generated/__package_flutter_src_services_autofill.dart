@@ -95,12 +95,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'AutofillHints': m.ClassMirror(
       'AutofillHints',
-      {},
+      {
+        '#as': AutofillHints_as$,
+        '#is': AutofillHints_is$,
+      },
       {},
     ),
     'AutofillConfiguration': m.ClassMirror(
       'AutofillConfiguration',
       {
+        '#as': AutofillConfiguration_as$,
+        '#is': AutofillConfiguration_is$,
         'enabled': _AutofillConfiguration_enabled$,
         'uniqueIdentifier': _AutofillConfiguration_uniqueIdentifier$,
         'autofillHints': _AutofillConfiguration_autofillHints$,
@@ -113,6 +118,8 @@ const libraryMirror = m.LibraryMirror(
     'AutofillClient': m.ClassMirror(
       'AutofillClient',
       {
+        '#as': AutofillClient_as$,
+        '#is': AutofillClient_is$,
         'autofillId': _AutofillClient_autofillId$,
         'textInputConfiguration': _AutofillClient_textInputConfiguration$,
         'autofill': _AutofillClient_autofill$,
@@ -122,6 +129,8 @@ const libraryMirror = m.LibraryMirror(
     'AutofillScope': m.ClassMirror(
       'AutofillScope',
       {
+        '#as': AutofillScope_as$,
+        '#is': AutofillScope_is$,
         'autofillClients': _AutofillScope_autofillClients$,
         'getAutofillClient': _AutofillScope_getAutofillClient$,
         'attach': _AutofillScope_attach$,
@@ -130,6 +139,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AutofillHints_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillHints;
+Function AutofillHints_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillHints;
 String _AutofillHints_addressCity$() {
   return AutofillHints.addressCity;
 }
@@ -394,6 +413,16 @@ String _AutofillHints_username$() {
   return AutofillHints.username;
 }
 
+Function AutofillConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillConfiguration;
+Function AutofillConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillConfiguration;
 AutofillConfiguration _AutofillConfiguration_disabled$() {
   return AutofillConfiguration.disabled;
 }
@@ -425,6 +454,16 @@ Function _AutofillConfiguration_toJson$(
   AutofillConfiguration target,
 ) =>
     target.toJson;
+Function AutofillClient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillClient;
+Function AutofillClient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillClient;
 String _AutofillClient_autofillId$(AutofillClient target) {
   return target.autofillId;
 }
@@ -439,6 +478,16 @@ Function _AutofillClient_autofill$(
   AutofillClient target,
 ) =>
     target.autofill;
+Function AutofillScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutofillScope;
+Function AutofillScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutofillScope;
 Iterable<AutofillClient> _AutofillScope_autofillClients$(AutofillScope target) {
   return target.autofillClients;
 }

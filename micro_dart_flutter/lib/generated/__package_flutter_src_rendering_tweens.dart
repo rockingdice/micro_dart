@@ -13,31 +13,73 @@ const libraryMirror = m.LibraryMirror(
   {
     'FractionalOffsetTween': m.ClassMirror(
       'FractionalOffsetTween',
-      {'lerp': _FractionalOffsetTween_lerp$},
+      {
+        '#as': FractionalOffsetTween_as$,
+        '#is': FractionalOffsetTween_is$,
+        'lerp': _FractionalOffsetTween_lerp$,
+      },
       {},
     ),
     'AlignmentTween': m.ClassMirror(
       'AlignmentTween',
-      {'lerp': _AlignmentTween_lerp$},
+      {
+        '#as': AlignmentTween_as$,
+        '#is': AlignmentTween_is$,
+        'lerp': _AlignmentTween_lerp$,
+      },
       {},
     ),
     'AlignmentGeometryTween': m.ClassMirror(
       'AlignmentGeometryTween',
-      {'lerp': _AlignmentGeometryTween_lerp$},
+      {
+        '#as': AlignmentGeometryTween_as$,
+        '#is': AlignmentGeometryTween_is$,
+        'lerp': _AlignmentGeometryTween_lerp$,
+      },
       {},
     ),
   },
 );
+Function FractionalOffsetTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FractionalOffsetTween;
+Function FractionalOffsetTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FractionalOffsetTween;
 Function _FractionalOffsetTween_lerp$(
   m.Scope scope,
   FractionalOffsetTween target,
 ) =>
     target.lerp;
+Function AlignmentTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlignmentTween;
+Function AlignmentTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlignmentTween;
 Function _AlignmentTween_lerp$(
   m.Scope scope,
   AlignmentTween target,
 ) =>
     target.lerp;
+Function AlignmentGeometryTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlignmentGeometryTween;
+Function AlignmentGeometryTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlignmentGeometryTween;
 Function _AlignmentGeometryTween_lerp$(
   m.Scope scope,
   AlignmentGeometryTween target,

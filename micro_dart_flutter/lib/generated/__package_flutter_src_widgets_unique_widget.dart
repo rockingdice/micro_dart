@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'UniqueWidget': m.ClassMirror(
       'UniqueWidget',
       {
+        '#as': UniqueWidget_as$,
+        '#is': UniqueWidget_is$,
         'currentState': _UniqueWidget_currentState$,
         'createState': _UniqueWidget_createState$,
       },
@@ -20,6 +22,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function UniqueWidget_as$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UniqueWidget<T>;
+Function UniqueWidget_is$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UniqueWidget<T>;
 T? _UniqueWidget_currentState$<T extends State<StatefulWidget>>(
     UniqueWidget<T> target) {
   return target.currentState;

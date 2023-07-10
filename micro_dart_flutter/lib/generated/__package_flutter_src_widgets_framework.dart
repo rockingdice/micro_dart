@@ -19,16 +19,33 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/framework.dart',
   {
     'Widget.canUpdate': _Widget_canUpdate$,
+    'State.setState': _State_setState$,
+    'BuildContext.visitAncestorElements': _BuildContext_visitAncestorElements$,
+    'BuildContext.visitChildElements': _BuildContext_visitChildElements$,
+    'BuildOwner.lockState': _BuildOwner_lockState$,
+    'BuildOwner.buildScope': _BuildOwner_buildScope$,
     'Element.describeElements': _Element_describeElements$,
+    'Element.visitChildren': _Element_visitChildren$,
+    'Element.debugVisitOnstageChildren': _Element_debugVisitOnstageChildren$,
+    'Element.visitChildElements': _Element_visitChildElements$,
+    'Element.visitAncestorElements': _Element_visitAncestorElements$,
     'ErrorWidget.builder': _ErrorWidget_builder$,
+    'ComponentElement.visitChildren': _ComponentElement_visitChildren$,
+    'SingleChildRenderObjectElement.visitChildren':
+        _SingleChildRenderObjectElement_visitChildren$,
+    'MultiChildRenderObjectElement.visitChildren':
+        _MultiChildRenderObjectElement_visitChildren$,
   },
   {'ErrorWidget.builder': _ErrorWidget_builder_set$},
   {
     'ObjectKey': m.ClassMirror(
       'ObjectKey',
       {
+        '#as': ObjectKey_as$,
+        '#is': ObjectKey_is$,
         'value': _ObjectKey_value$,
         'hashCode': _ObjectKey_hashCode$,
+        '==': _ObjectKey_eq$$,
         'toString': _ObjectKey_toString$,
       },
       {},
@@ -36,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'GlobalKey': m.ClassMirror(
       'GlobalKey',
       {
+        '#as': GlobalKey_as$,
+        '#is': GlobalKey_is$,
         'currentContext': _GlobalKey_currentContext$,
         'currentWidget': _GlobalKey_currentWidget$,
         'currentState': _GlobalKey_currentState$,
@@ -44,14 +63,21 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LabeledGlobalKey': m.ClassMirror(
       'LabeledGlobalKey',
-      {'toString': _LabeledGlobalKey_toString$},
+      {
+        '#as': LabeledGlobalKey_as$,
+        '#is': LabeledGlobalKey_is$,
+        'toString': _LabeledGlobalKey_toString$,
+      },
       {},
     ),
     'GlobalObjectKey': m.ClassMirror(
       'GlobalObjectKey',
       {
+        '#as': GlobalObjectKey_as$,
+        '#is': GlobalObjectKey_is$,
         'value': _GlobalObjectKey_value$,
         'hashCode': _GlobalObjectKey_hashCode$,
+        '==': _GlobalObjectKey_eq$$,
         'toString': _GlobalObjectKey_toString$,
       },
       {},
@@ -59,17 +85,22 @@ const libraryMirror = m.LibraryMirror(
     'Widget': m.ClassMirror(
       'Widget',
       {
+        '#as': Widget_as$,
+        '#is': Widget_is$,
         'key': _Widget_key$,
         'hashCode': _Widget_hashCode$,
         'createElement': _Widget_createElement$,
         'toStringShort': _Widget_toStringShort$,
         'debugFillProperties': _Widget_debugFillProperties$,
+        '==': _Widget_eq$$,
       },
       {},
     ),
     'StatelessWidget': m.ClassMirror(
       'StatelessWidget',
       {
+        '#as': StatelessWidget_as$,
+        '#is': StatelessWidget_is$,
         'createElement': _StatelessWidget_createElement$,
         'build': _StatelessWidget_build$,
       },
@@ -78,6 +109,8 @@ const libraryMirror = m.LibraryMirror(
     'StatefulWidget': m.ClassMirror(
       'StatefulWidget',
       {
+        '#as': StatefulWidget_as$,
+        '#is': StatefulWidget_is$,
         'createElement': _StatefulWidget_createElement$,
         'createState': _StatefulWidget_createState$,
       },
@@ -86,6 +119,8 @@ const libraryMirror = m.LibraryMirror(
     'State': m.ClassMirror(
       'State',
       {
+        '#as': State_as$,
+        '#is': State_is$,
         'widget': _State_widget$,
         'context': _State_context$,
         'mounted': _State_mounted$,
@@ -103,12 +138,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProxyWidget': m.ClassMirror(
       'ProxyWidget',
-      {'child': _ProxyWidget_child$},
+      {
+        '#as': ProxyWidget_as$,
+        '#is': ProxyWidget_is$,
+        'child': _ProxyWidget_child$,
+      },
       {},
     ),
     'ParentDataWidget': m.ClassMirror(
       'ParentDataWidget',
       {
+        '#as': ParentDataWidget_as$,
+        '#is': ParentDataWidget_is$,
         'debugTypicalAncestorWidgetClass':
             _ParentDataWidget_debugTypicalAncestorWidgetClass$,
         'createElement': _ParentDataWidget_createElement$,
@@ -121,6 +162,8 @@ const libraryMirror = m.LibraryMirror(
     'InheritedWidget': m.ClassMirror(
       'InheritedWidget',
       {
+        '#as': InheritedWidget_as$,
+        '#is': InheritedWidget_is$,
         'createElement': _InheritedWidget_createElement$,
         'updateShouldNotify': _InheritedWidget_updateShouldNotify$,
       },
@@ -129,6 +172,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderObjectWidget': m.ClassMirror(
       'RenderObjectWidget',
       {
+        '#as': RenderObjectWidget_as$,
+        '#is': RenderObjectWidget_is$,
         'createElement': _RenderObjectWidget_createElement$,
         'createRenderObject': _RenderObjectWidget_createRenderObject$,
         'updateRenderObject': _RenderObjectWidget_updateRenderObject$,
@@ -138,12 +183,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LeafRenderObjectWidget': m.ClassMirror(
       'LeafRenderObjectWidget',
-      {'createElement': _LeafRenderObjectWidget_createElement$},
+      {
+        '#as': LeafRenderObjectWidget_as$,
+        '#is': LeafRenderObjectWidget_is$,
+        'createElement': _LeafRenderObjectWidget_createElement$,
+      },
       {},
     ),
     'SingleChildRenderObjectWidget': m.ClassMirror(
       'SingleChildRenderObjectWidget',
       {
+        '#as': SingleChildRenderObjectWidget_as$,
+        '#is': SingleChildRenderObjectWidget_is$,
         'child': _SingleChildRenderObjectWidget_child$,
         'createElement': _SingleChildRenderObjectWidget_createElement$,
       },
@@ -152,6 +203,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiChildRenderObjectWidget': m.ClassMirror(
       'MultiChildRenderObjectWidget',
       {
+        '#as': MultiChildRenderObjectWidget_as$,
+        '#is': MultiChildRenderObjectWidget_is$,
         'children': _MultiChildRenderObjectWidget_children$,
         'createElement': _MultiChildRenderObjectWidget_createElement$,
       },
@@ -160,6 +213,8 @@ const libraryMirror = m.LibraryMirror(
     'BuildContext': m.ClassMirror(
       'BuildContext',
       {
+        '#as': BuildContext_as$,
+        '#is': BuildContext_is$,
         'widget': _BuildContext_widget$,
         'owner': _BuildContext_owner$,
         'mounted': _BuildContext_mounted$,
@@ -191,6 +246,8 @@ const libraryMirror = m.LibraryMirror(
     'BuildOwner': m.ClassMirror(
       'BuildOwner',
       {
+        '#as': BuildOwner_as$,
+        '#is': BuildOwner_is$,
         'onBuildScheduled': _BuildOwner_onBuildScheduled$,
         'focusManager': _BuildOwner_focusManager$,
         'debugBuilding': _BuildOwner_debugBuilding$,
@@ -207,6 +264,8 @@ const libraryMirror = m.LibraryMirror(
     'Element': m.ClassMirror(
       'Element',
       {
+        '#as': Element_as$,
+        '#is': Element_is$,
         'slot': _Element_slot$,
         'depth': _Element_depth$,
         'widget': _Element_widget$,
@@ -217,6 +276,7 @@ const libraryMirror = m.LibraryMirror(
         'renderObject': _Element_renderObject$,
         'size': _Element_size$,
         'dirty': _Element_dirty$,
+        '==': _Element_eq$$,
         'reassemble': _Element_reassemble$,
         'describeMissingAncestor': _Element_describeMissingAncestor$,
         'describeElement': _Element_describeElement$,
@@ -268,6 +328,8 @@ const libraryMirror = m.LibraryMirror(
     'ErrorWidget': m.ClassMirror(
       'ErrorWidget',
       {
+        '#as': ErrorWidget_as$,
+        '#is': ErrorWidget_is$,
         'message': _ErrorWidget_message$,
         'createRenderObject': _ErrorWidget_createRenderObject$,
         'debugFillProperties': _ErrorWidget_debugFillProperties$,
@@ -277,6 +339,8 @@ const libraryMirror = m.LibraryMirror(
     'ComponentElement': m.ClassMirror(
       'ComponentElement',
       {
+        '#as': ComponentElement_as$,
+        '#is': ComponentElement_is$,
         'debugDoingBuild': _ComponentElement_debugDoingBuild$,
         'mount': _ComponentElement_mount$,
         'performRebuild': _ComponentElement_performRebuild$,
@@ -288,6 +352,8 @@ const libraryMirror = m.LibraryMirror(
     'StatelessElement': m.ClassMirror(
       'StatelessElement',
       {
+        '#as': StatelessElement_as$,
+        '#is': StatelessElement_is$,
         'build': _StatelessElement_build$,
         'update': _StatelessElement_update$,
       },
@@ -296,6 +362,8 @@ const libraryMirror = m.LibraryMirror(
     'StatefulElement': m.ClassMirror(
       'StatefulElement',
       {
+        '#as': StatefulElement_as$,
+        '#is': StatefulElement_is$,
         'state': _StatefulElement_state$,
         'build': _StatefulElement_build$,
         'reassemble': _StatefulElement_reassemble$,
@@ -314,6 +382,8 @@ const libraryMirror = m.LibraryMirror(
     'ProxyElement': m.ClassMirror(
       'ProxyElement',
       {
+        '#as': ProxyElement_as$,
+        '#is': ProxyElement_is$,
         'build': _ProxyElement_build$,
         'update': _ProxyElement_update$,
         'updated': _ProxyElement_updated$,
@@ -324,6 +394,8 @@ const libraryMirror = m.LibraryMirror(
     'ParentDataElement': m.ClassMirror(
       'ParentDataElement',
       {
+        '#as': ParentDataElement_as$,
+        '#is': ParentDataElement_is$,
         'applyWidgetOutOfTurn': _ParentDataElement_applyWidgetOutOfTurn$,
         'notifyClients': _ParentDataElement_notifyClients$,
       },
@@ -332,6 +404,8 @@ const libraryMirror = m.LibraryMirror(
     'InheritedElement': m.ClassMirror(
       'InheritedElement',
       {
+        '#as': InheritedElement_as$,
+        '#is': InheritedElement_is$,
         'debugDeactivated': _InheritedElement_debugDeactivated$,
         'getDependencies': _InheritedElement_getDependencies$,
         'setDependencies': _InheritedElement_setDependencies$,
@@ -345,6 +419,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderObjectElement': m.ClassMirror(
       'RenderObjectElement',
       {
+        '#as': RenderObjectElement_as$,
+        '#is': RenderObjectElement_is$,
         'renderObject': _RenderObjectElement_renderObject$,
         'debugDoingBuild': _RenderObjectElement_debugDoingBuild$,
         'mount': _RenderObjectElement_mount$,
@@ -367,6 +443,8 @@ const libraryMirror = m.LibraryMirror(
     'LeafRenderObjectElement': m.ClassMirror(
       'LeafRenderObjectElement',
       {
+        '#as': LeafRenderObjectElement_as$,
+        '#is': LeafRenderObjectElement_is$,
         'forgetChild': _LeafRenderObjectElement_forgetChild$,
         'insertRenderObjectChild':
             _LeafRenderObjectElement_insertRenderObjectChild$,
@@ -382,6 +460,8 @@ const libraryMirror = m.LibraryMirror(
     'SingleChildRenderObjectElement': m.ClassMirror(
       'SingleChildRenderObjectElement',
       {
+        '#as': SingleChildRenderObjectElement_as$,
+        '#is': SingleChildRenderObjectElement_is$,
         'forgetChild': _SingleChildRenderObjectElement_forgetChild$,
         'mount': _SingleChildRenderObjectElement_mount$,
         'update': _SingleChildRenderObjectElement_update$,
@@ -397,6 +477,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiChildRenderObjectElement': m.ClassMirror(
       'MultiChildRenderObjectElement',
       {
+        '#as': MultiChildRenderObjectElement_as$,
+        '#is': MultiChildRenderObjectElement_is$,
         'renderObject': _MultiChildRenderObjectElement_renderObject$,
         'children': _MultiChildRenderObjectElement_children$,
         'insertRenderObjectChild':
@@ -415,6 +497,8 @@ const libraryMirror = m.LibraryMirror(
     'DebugCreator': m.ClassMirror(
       'DebugCreator',
       {
+        '#as': DebugCreator_as$,
+        '#is': DebugCreator_is$,
         'element': _DebugCreator_element$,
         'toString': _DebugCreator_toString$,
       },
@@ -423,14 +507,27 @@ const libraryMirror = m.LibraryMirror(
     'IndexedSlot': m.ClassMirror(
       'IndexedSlot',
       {
+        '#as': IndexedSlot_as$,
+        '#is': IndexedSlot_is$,
         'value': _IndexedSlot_value$,
         'index': _IndexedSlot_index$,
         'hashCode': _IndexedSlot_hashCode$,
+        '==': _IndexedSlot_eq$$,
       },
       {},
     ),
   },
 );
+Function ObjectKey_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObjectKey;
+Function ObjectKey_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObjectKey;
 Object? _ObjectKey_value$(ObjectKey target) {
   return target.value;
 }
@@ -439,11 +536,26 @@ int _ObjectKey_hashCode$(ObjectKey target) {
   return target.hashCode;
 }
 
+Function _ObjectKey_eq$$(
+  m.Scope scope,
+  ObjectKey target,
+) =>
+    (Object other) => target == other;
 Function _ObjectKey_toString$(
   m.Scope scope,
   ObjectKey target,
 ) =>
     target.toString;
+Function GlobalKey_as$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GlobalKey<T>;
+Function GlobalKey_is$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GlobalKey<T>;
 BuildContext? _GlobalKey_currentContext$<T extends State<StatefulWidget>>(
     GlobalKey<T> target) {
   return target.currentContext;
@@ -459,11 +571,31 @@ T? _GlobalKey_currentState$<T extends State<StatefulWidget>>(
   return target.currentState;
 }
 
+Function LabeledGlobalKey_as$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LabeledGlobalKey<T>;
+Function LabeledGlobalKey_is$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LabeledGlobalKey<T>;
 Function _LabeledGlobalKey_toString$<T extends State<StatefulWidget>>(
   m.Scope scope,
   LabeledGlobalKey<T> target,
 ) =>
     target.toString;
+Function GlobalObjectKey_as$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GlobalObjectKey<T>;
+Function GlobalObjectKey_is$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GlobalObjectKey<T>;
 Object _GlobalObjectKey_value$<T extends State<StatefulWidget>>(
     GlobalObjectKey<T> target) {
   return target.value;
@@ -474,11 +606,26 @@ int _GlobalObjectKey_hashCode$<T extends State<StatefulWidget>>(
   return target.hashCode;
 }
 
+Function _GlobalObjectKey_eq$$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  GlobalObjectKey<T> target,
+) =>
+    (Object other) => target == other;
 Function _GlobalObjectKey_toString$<T extends State<StatefulWidget>>(
   m.Scope scope,
   GlobalObjectKey<T> target,
 ) =>
     target.toString;
+Function Widget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Widget;
+Function Widget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Widget;
 Key? _Widget_key$(Widget target) {
   return target.key;
 }
@@ -502,7 +649,22 @@ Function _Widget_debugFillProperties$(
   Widget target,
 ) =>
     target.debugFillProperties;
+Function _Widget_eq$$(
+  m.Scope scope,
+  Widget target,
+) =>
+    (Object other) => target == other;
 Function _Widget_canUpdate$(m.Scope scope) => Widget.canUpdate;
+Function StatelessWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatelessWidget;
+Function StatelessWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatelessWidget;
 Function _StatelessWidget_createElement$(
   m.Scope scope,
   StatelessWidget target,
@@ -513,6 +675,16 @@ Function _StatelessWidget_build$(
   StatelessWidget target,
 ) =>
     target.build;
+Function StatefulWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatefulWidget;
+Function StatefulWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatefulWidget;
 Function _StatefulWidget_createElement$(
   m.Scope scope,
   StatefulWidget target,
@@ -523,6 +695,16 @@ Function _StatefulWidget_createState$(
   StatefulWidget target,
 ) =>
     target.createState;
+Function State_as$<T extends StatefulWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as State<T>;
+Function State_is$<T extends StatefulWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is State<T>;
 T _State_widget$<T extends StatefulWidget>(State<T> target) {
   return target.widget;
 }
@@ -550,6 +732,19 @@ Function _State_reassemble$<T extends StatefulWidget>(
   State<T> target,
 ) =>
     target.reassemble;
+Function _State_setState$<T extends StatefulWidget>(
+  m.Scope scope,
+  State<T> target,
+) =>
+    (m.FunctionPointer fn) {
+      void fnProxy() => scope.engine.callFunctionPointer(
+            scope,
+            fn,
+            [],
+            {},
+          );
+      target.setState(fnProxy);
+    };
 Function _State_deactivate$<T extends StatefulWidget>(
   m.Scope scope,
   State<T> target,
@@ -580,10 +775,30 @@ Function _State_debugFillProperties$<T extends StatefulWidget>(
   State<T> target,
 ) =>
     target.debugFillProperties;
+Function ProxyWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProxyWidget;
+Function ProxyWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProxyWidget;
 Widget _ProxyWidget_child$(ProxyWidget target) {
   return target.child;
 }
 
+Function ParentDataWidget_as$<T extends ParentData>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParentDataWidget<T>;
+Function ParentDataWidget_is$<T extends ParentData>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParentDataWidget<T>;
 Type _ParentDataWidget_debugTypicalAncestorWidgetClass$<T extends ParentData>(
     ParentDataWidget<T> target) {
   return target.debugTypicalAncestorWidgetClass;
@@ -609,6 +824,16 @@ Function _ParentDataWidget_debugCanApplyOutOfTurn$<T extends ParentData>(
   ParentDataWidget<T> target,
 ) =>
     target.debugCanApplyOutOfTurn;
+Function InheritedWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedWidget;
+Function InheritedWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedWidget;
 Function _InheritedWidget_createElement$(
   m.Scope scope,
   InheritedWidget target,
@@ -619,6 +844,16 @@ Function _InheritedWidget_updateShouldNotify$(
   InheritedWidget target,
 ) =>
     target.updateShouldNotify;
+Function RenderObjectWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderObjectWidget;
+Function RenderObjectWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderObjectWidget;
 Function _RenderObjectWidget_createElement$(
   m.Scope scope,
   RenderObjectWidget target,
@@ -639,11 +874,31 @@ Function _RenderObjectWidget_didUnmountRenderObject$(
   RenderObjectWidget target,
 ) =>
     target.didUnmountRenderObject;
+Function LeafRenderObjectWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LeafRenderObjectWidget;
+Function LeafRenderObjectWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LeafRenderObjectWidget;
 Function _LeafRenderObjectWidget_createElement$(
   m.Scope scope,
   LeafRenderObjectWidget target,
 ) =>
     target.createElement;
+Function SingleChildRenderObjectWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SingleChildRenderObjectWidget;
+Function SingleChildRenderObjectWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SingleChildRenderObjectWidget;
 Widget? _SingleChildRenderObjectWidget_child$(
     SingleChildRenderObjectWidget target) {
   return target.child;
@@ -654,6 +909,16 @@ Function _SingleChildRenderObjectWidget_createElement$(
   SingleChildRenderObjectWidget target,
 ) =>
     target.createElement;
+Function MultiChildRenderObjectWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiChildRenderObjectWidget;
+Function MultiChildRenderObjectWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiChildRenderObjectWidget;
 List<Widget> _MultiChildRenderObjectWidget_children$(
     MultiChildRenderObjectWidget target) {
   return target.children;
@@ -664,6 +929,16 @@ Function _MultiChildRenderObjectWidget_createElement$(
   MultiChildRenderObjectWidget target,
 ) =>
     target.createElement;
+Function BuildContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BuildContext;
+Function BuildContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BuildContext;
 Widget _BuildContext_widget$(BuildContext target) {
   return target.widget;
 }
@@ -734,6 +1009,34 @@ Function _BuildContext_findAncestorRenderObjectOfType$<T extends RenderObject>(
   BuildContext target,
 ) =>
     target.findAncestorRenderObjectOfType<T>;
+Function _BuildContext_visitAncestorElements$(
+  m.Scope scope,
+  BuildContext target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitAncestorElements(visitorProxy);
+    };
+Function _BuildContext_visitChildElements$(
+  m.Scope scope,
+  BuildContext target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildElements(visitorProxy);
+    };
 Function _BuildContext_dispatchNotification$(
   m.Scope scope,
   BuildContext target,
@@ -759,6 +1062,16 @@ Function _BuildContext_describeOwnershipChain$(
   BuildContext target,
 ) =>
     target.describeOwnershipChain;
+Function BuildOwner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BuildOwner;
+Function BuildOwner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BuildOwner;
 void Function()? _BuildOwner_onBuildScheduled$(BuildOwner target) {
   return target.onBuildScheduled;
 }
@@ -801,6 +1114,41 @@ Function _BuildOwner_scheduleBuildFor$(
   BuildOwner target,
 ) =>
     target.scheduleBuildFor;
+Function _BuildOwner_lockState$(
+  m.Scope scope,
+  BuildOwner target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.lockState(callbackProxy);
+    };
+Function _BuildOwner_buildScope$(
+  m.Scope scope,
+  BuildOwner target,
+) =>
+    (
+      Element context,
+      m.FunctionPointer? callback,
+    ) {
+      if (callback == null) {}
+      target.buildScope(context);
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback!,
+            [],
+            {},
+          );
+      target.buildScope(
+        context,
+        callback == null ? null : callbackProxy,
+      );
+      return;
+    };
 Function _BuildOwner_finalizeTree$(
   m.Scope scope,
   BuildOwner target,
@@ -811,6 +1159,16 @@ Function _BuildOwner_reassemble$(
   BuildOwner target,
 ) =>
     target.reassemble;
+Function Element_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Element;
+Function Element_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Element;
 Object? _Element_slot$(Element target) {
   return target.slot;
 }
@@ -851,6 +1209,11 @@ bool _Element_dirty$(Element target) {
   return target.dirty;
 }
 
+Function _Element_eq$$(
+  m.Scope scope,
+  Element target,
+) =>
+    (Object other) => target == other;
 Function _Element_reassemble$(
   m.Scope scope,
   Element target,
@@ -877,6 +1240,48 @@ Function _Element_describeOwnershipChain$(
   Element target,
 ) =>
     target.describeOwnershipChain;
+Function _Element_visitChildren$(
+  m.Scope scope,
+  Element target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
+Function _Element_debugVisitOnstageChildren$(
+  m.Scope scope,
+  Element target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.debugVisitOnstageChildren(visitorProxy);
+    };
+Function _Element_visitChildElements$(
+  m.Scope scope,
+  Element target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildElements(visitorProxy);
+    };
 Function _Element_updateChild$(
   m.Scope scope,
   Element target,
@@ -999,6 +1404,20 @@ Function _Element_findAncestorRenderObjectOfType$<T extends RenderObject>(
   Element target,
 ) =>
     target.findAncestorRenderObjectOfType<T>;
+Function _Element_visitAncestorElements$(
+  m.Scope scope,
+  Element target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitAncestorElements(visitorProxy);
+    };
 Function _Element_didChangeDependencies$(
   m.Scope scope,
   Element target,
@@ -1054,6 +1473,16 @@ Function _Element_performRebuild$(
   Element target,
 ) =>
     target.performRebuild;
+Function ErrorWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ErrorWidget;
+Function ErrorWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ErrorWidget;
 Widget Function(FlutterErrorDetails) _ErrorWidget_builder$() {
   return ErrorWidget.builder;
 }
@@ -1083,6 +1512,16 @@ Function _ErrorWidget_debugFillProperties$(
   ErrorWidget target,
 ) =>
     target.debugFillProperties;
+Function ComponentElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ComponentElement;
+Function ComponentElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ComponentElement;
 bool _ComponentElement_debugDoingBuild$(ComponentElement target) {
   return target.debugDoingBuild;
 }
@@ -1102,11 +1541,35 @@ Function _ComponentElement_build$(
   ComponentElement target,
 ) =>
     target.build;
+Function _ComponentElement_visitChildren$(
+  m.Scope scope,
+  ComponentElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _ComponentElement_forgetChild$(
   m.Scope scope,
   ComponentElement target,
 ) =>
     target.forgetChild;
+Function StatelessElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatelessElement;
+Function StatelessElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatelessElement;
 Function _StatelessElement_build$(
   m.Scope scope,
   StatelessElement target,
@@ -1117,6 +1580,16 @@ Function _StatelessElement_update$(
   StatelessElement target,
 ) =>
     target.update;
+Function StatefulElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatefulElement;
+Function StatefulElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatefulElement;
 State<StatefulWidget> _StatefulElement_state$(StatefulElement target) {
   return target.state;
 }
@@ -1176,6 +1649,16 @@ Function _StatefulElement_debugFillProperties$(
   StatefulElement target,
 ) =>
     target.debugFillProperties;
+Function ProxyElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProxyElement;
+Function ProxyElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProxyElement;
 Function _ProxyElement_build$(
   m.Scope scope,
   ProxyElement target,
@@ -1196,6 +1679,16 @@ Function _ProxyElement_notifyClients$(
   ProxyElement target,
 ) =>
     target.notifyClients;
+Function ParentDataElement_as$<T extends ParentData>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParentDataElement<T>;
+Function ParentDataElement_is$<T extends ParentData>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParentDataElement<T>;
 Function _ParentDataElement_applyWidgetOutOfTurn$<T extends ParentData>(
   m.Scope scope,
   ParentDataElement<T> target,
@@ -1206,6 +1699,16 @@ Function _ParentDataElement_notifyClients$<T extends ParentData>(
   ParentDataElement<T> target,
 ) =>
     target.notifyClients;
+Function InheritedElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedElement;
+Function InheritedElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedElement;
 Function _InheritedElement_debugDeactivated$(
   m.Scope scope,
   InheritedElement target,
@@ -1241,6 +1744,16 @@ Function _InheritedElement_notifyClients$(
   InheritedElement target,
 ) =>
     target.notifyClients;
+Function RenderObjectElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderObjectElement;
+Function RenderObjectElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderObjectElement;
 RenderObject _RenderObjectElement_renderObject$(RenderObjectElement target) {
   return target.renderObject;
 }
@@ -1309,6 +1822,16 @@ Function _RenderObjectElement_debugFillProperties$(
   RenderObjectElement target,
 ) =>
     target.debugFillProperties;
+Function LeafRenderObjectElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LeafRenderObjectElement;
+Function LeafRenderObjectElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LeafRenderObjectElement;
 Function _LeafRenderObjectElement_forgetChild$(
   m.Scope scope,
   LeafRenderObjectElement target,
@@ -1334,6 +1857,30 @@ Function _LeafRenderObjectElement_debugDescribeChildren$(
   LeafRenderObjectElement target,
 ) =>
     target.debugDescribeChildren;
+Function SingleChildRenderObjectElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SingleChildRenderObjectElement;
+Function SingleChildRenderObjectElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SingleChildRenderObjectElement;
+Function _SingleChildRenderObjectElement_visitChildren$(
+  m.Scope scope,
+  SingleChildRenderObjectElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _SingleChildRenderObjectElement_forgetChild$(
   m.Scope scope,
   SingleChildRenderObjectElement target,
@@ -1364,6 +1911,16 @@ Function _SingleChildRenderObjectElement_removeRenderObjectChild$(
   SingleChildRenderObjectElement target,
 ) =>
     target.removeRenderObjectChild;
+Function MultiChildRenderObjectElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiChildRenderObjectElement;
+Function MultiChildRenderObjectElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiChildRenderObjectElement;
 ContainerRenderObjectMixin<RenderObject, ContainerParentDataMixin<RenderObject>>
     _MultiChildRenderObjectElement_renderObject$(
         MultiChildRenderObjectElement target) {
@@ -1390,6 +1947,20 @@ Function _MultiChildRenderObjectElement_removeRenderObjectChild$(
   MultiChildRenderObjectElement target,
 ) =>
     target.removeRenderObjectChild;
+Function _MultiChildRenderObjectElement_visitChildren$(
+  m.Scope scope,
+  MultiChildRenderObjectElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _MultiChildRenderObjectElement_forgetChild$(
   m.Scope scope,
   MultiChildRenderObjectElement target,
@@ -1410,6 +1981,16 @@ Function _MultiChildRenderObjectElement_update$(
   MultiChildRenderObjectElement target,
 ) =>
     target.update;
+Function DebugCreator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DebugCreator;
+Function DebugCreator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DebugCreator;
 Element _DebugCreator_element$(DebugCreator target) {
   return target.element;
 }
@@ -1419,6 +2000,16 @@ Function _DebugCreator_toString$(
   DebugCreator target,
 ) =>
     target.toString;
+Function IndexedSlot_as$<T extends Element?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IndexedSlot<T>;
+Function IndexedSlot_is$<T extends Element?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IndexedSlot<T>;
 T _IndexedSlot_value$<T extends Element?>(IndexedSlot<T> target) {
   return target.value;
 }
@@ -1430,3 +2021,9 @@ int _IndexedSlot_index$<T extends Element?>(IndexedSlot<T> target) {
 int _IndexedSlot_hashCode$<T extends Element?>(IndexedSlot<T> target) {
   return target.hashCode;
 }
+
+Function _IndexedSlot_eq$$<T extends Element?>(
+  m.Scope scope,
+  IndexedSlot<T> target,
+) =>
+    (Object other) => target == other;

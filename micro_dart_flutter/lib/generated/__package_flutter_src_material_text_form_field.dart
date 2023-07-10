@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'TextFormField': m.ClassMirror(
       'TextFormField',
       {
+        '#as': TextFormField_as$,
+        '#is': TextFormField_is$,
         'controller': _TextFormField_controller$,
         'createState': _TextFormField_createState$,
       },
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextFormField_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextFormField;
+Function TextFormField_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextFormField;
 TextEditingController? _TextFormField_controller$(TextFormField target) {
   return target.controller;
 }

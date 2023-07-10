@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'ColorFiltered': m.ClassMirror(
       'ColorFiltered',
       {
+        '#as': ColorFiltered_as$,
+        '#is': ColorFiltered_is$,
         'colorFilter': _ColorFiltered_colorFilter$,
         'createRenderObject': _ColorFiltered_createRenderObject$,
         'updateRenderObject': _ColorFiltered_updateRenderObject$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ColorFiltered_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorFiltered;
+Function ColorFiltered_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorFiltered;
 ColorFilter _ColorFiltered_colorFilter$(ColorFiltered target) {
   return target.colorFilter;
 }

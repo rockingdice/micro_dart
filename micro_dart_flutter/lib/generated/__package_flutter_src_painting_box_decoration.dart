@@ -18,12 +18,17 @@ import 'package:flutter/src/painting/image_provider.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/box_decoration.dart',
-  {'BoxDecoration.lerp': _BoxDecoration_lerp$},
+  {
+    'BoxDecoration.lerp': _BoxDecoration_lerp$,
+    'BoxDecoration.createBoxPainter': _BoxDecoration_createBoxPainter$,
+  },
   {},
   {
     'BoxDecoration': m.ClassMirror(
       'BoxDecoration',
       {
+        '#as': BoxDecoration_as$,
+        '#is': BoxDecoration_is$,
         'color': _BoxDecoration_color$,
         'image': _BoxDecoration_image$,
         'border': _BoxDecoration_border$,
@@ -41,6 +46,7 @@ const libraryMirror = m.LibraryMirror(
         'scale': _BoxDecoration_scale$,
         'lerpFrom': _BoxDecoration_lerpFrom$,
         'lerpTo': _BoxDecoration_lerpTo$,
+        '==': _BoxDecoration_eq$$,
         'debugFillProperties': _BoxDecoration_debugFillProperties$,
         'hitTest': _BoxDecoration_hitTest$,
       },
@@ -48,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function BoxDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxDecoration;
+Function BoxDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxDecoration;
 Color? _BoxDecoration_color$(BoxDecoration target) {
   return target.color;
 }
@@ -123,6 +139,11 @@ Function _BoxDecoration_lerpTo$(
 ) =>
     target.lerpTo;
 Function _BoxDecoration_lerp$(m.Scope scope) => BoxDecoration.lerp;
+Function _BoxDecoration_eq$$(
+  m.Scope scope,
+  BoxDecoration target,
+) =>
+    (Object other) => target == other;
 Function _BoxDecoration_debugFillProperties$(
   m.Scope scope,
   BoxDecoration target,
@@ -133,3 +154,18 @@ Function _BoxDecoration_hitTest$(
   BoxDecoration target,
 ) =>
     target.hitTest;
+Function _BoxDecoration_createBoxPainter$(
+  m.Scope scope,
+  BoxDecoration target,
+) =>
+    (m.FunctionPointer? onChanged) {
+      if (onChanged == null) {}
+      return target.createBoxPainter();
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged!,
+            [],
+            {},
+          );
+      return target.createBoxPainter(onChanged == null ? null : onChangedProxy);
+    };

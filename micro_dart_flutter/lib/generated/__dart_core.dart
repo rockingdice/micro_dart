@@ -91,20 +91,51 @@ const libraryMirror = m.LibraryMirror(
     'int.parse': _int_parse$,
     'int.tryParse': _int_tryParse$,
     'Iterable.castFrom': _Iterable_castFrom$,
+    'Iterable.map': _Iterable_map$,
+    'Iterable.where': _Iterable_where$,
+    'Iterable.expand': _Iterable_expand$,
+    'Iterable.forEach': _Iterable_forEach$,
+    'Iterable.reduce': _Iterable_reduce$,
+    'Iterable.fold': _Iterable_fold$,
+    'Iterable.every': _Iterable_every$,
+    'Iterable.any': _Iterable_any$,
+    'Iterable.takeWhile': _Iterable_takeWhile$,
+    'Iterable.skipWhile': _Iterable_skipWhile$,
+    'Iterable.firstWhere': _Iterable_firstWhere$,
+    'Iterable.lastWhere': _Iterable_lastWhere$,
+    'Iterable.singleWhere': _Iterable_singleWhere$,
     'Iterable.iterableToShortString': _Iterable_iterableToShortString$,
     'Iterable.iterableToFullString': _Iterable_iterableToFullString$,
     'List.castFrom': _List_castFrom$,
     'List.copyRange': _List_copyRange$,
     'List.writeIterable': _List_writeIterable$,
+    'List.sort': _List_sort$,
+    'List.indexWhere': _List_indexWhere$,
+    'List.lastIndexWhere': _List_lastIndexWhere$,
+    'List.removeWhere': _List_removeWhere$,
+    'List.retainWhere': _List_retainWhere$,
     'Map.castFrom': _Map_castFrom$,
+    'Map.map': _Map_map$,
+    'Map.update': _Map_update$,
+    'Map.updateAll': _Map_updateAll$,
+    'Map.removeWhere': _Map_removeWhere$,
+    'Map.putIfAbsent': _Map_putIfAbsent$,
+    'Map.forEach': _Map_forEach$,
+    'num.parse': _num_parse$,
     'num.tryParse': _num_tryParse$,
     'Object.hash': _Object_hash$,
     'Object.hashAll': _Object_hashAll$,
     'Object.hashAllUnordered': _Object_hashAllUnordered$,
     'print': _print$,
     'RegExp.escape': _RegExp_escape$,
+    'Set.castFrom': _Set_castFrom$,
+    'Set.removeWhere': _Set_removeWhere$,
+    'Set.retainWhere': _Set_retainWhere$,
     'StackTrace.empty': _StackTrace_empty$,
     'StackTrace.current': _StackTrace_current$,
+    'String.replaceFirstMapped': _String_replaceFirstMapped$,
+    'String.replaceAllMapped': _String_replaceAllMapped$,
+    'String.splitMapJoin': _String_splitMapJoin$,
     'Symbol.unaryMinus': _Symbol_unaryMinus$,
     'Symbol.empty': _Symbol_empty$,
     'Uri.base': _Uri_base$,
@@ -126,6 +157,8 @@ const libraryMirror = m.LibraryMirror(
     'Deprecated': m.ClassMirror(
       'Deprecated',
       {
+        '#as': Deprecated_as$,
+        '#is': Deprecated_is$,
         'message': _Deprecated_message$,
         'toString': _Deprecated_toString$,
       },
@@ -134,6 +167,8 @@ const libraryMirror = m.LibraryMirror(
     'pragma': m.ClassMirror(
       'pragma',
       {
+        '#as': pragma_as$,
+        '#is': pragma_is$,
         'name': _pragma_name$,
         'options': _pragma_options$,
       },
@@ -142,6 +177,8 @@ const libraryMirror = m.LibraryMirror(
     'BigInt': m.ClassMirror(
       'BigInt',
       {
+        '#as': BigInt_as$,
+        '#is': BigInt_is$,
         'bitLength': _BigInt_bitLength$,
         'sign': _BigInt_sign$,
         'isEven': _BigInt_isEven$,
@@ -149,7 +186,24 @@ const libraryMirror = m.LibraryMirror(
         'isNegative': _BigInt_isNegative$,
         'isValidInt': _BigInt_isValidInt$,
         'abs': _BigInt_abs$,
+        'unary-': _BigInt_unary_minus$$,
+        '+': _BigInt_plus$$,
+        '-': _BigInt_minus$$,
+        '*': _BigInt_times$$,
+        '/': _BigInt_over$$,
+        '~/': _BigInt_division$$,
+        '%': _BigInt_surplus$$,
         'remainder': _BigInt_remainder$,
+        '<<': _BigInt_left_move$$,
+        '>>': _BigInt_right_move$$,
+        '&': _BigInt_bit_and$$,
+        '|': _BigInt_bit_or$$,
+        '^': _BigInt_bit_xor$$,
+        '~': _BigInt_bit_non$$,
+        '<': _BigInt_low$$,
+        '<=': _BigInt_low_eq$$,
+        '>': _BigInt_more$$,
+        '>=': _BigInt_more_eq$$,
         'compareTo': _BigInt_compareTo$,
         'pow': _BigInt_pow$,
         'modPow': _BigInt_modPow$,
@@ -167,19 +221,30 @@ const libraryMirror = m.LibraryMirror(
     'bool': m.ClassMirror(
       'bool',
       {
+        '#as': bool_as$,
+        '#is': bool_is$,
         'hashCode': _bool_hashCode$,
+        '&': _bool_bit_and$$,
+        '|': _bool_bit_or$$,
+        '^': _bool_bit_xor$$,
         'toString': _bool_toString$,
       },
       {},
     ),
     'Comparable': m.ClassMirror(
       'Comparable',
-      {'compareTo': _Comparable_compareTo$},
+      {
+        '#as': Comparable_as$,
+        '#is': Comparable_is$,
+        'compareTo': _Comparable_compareTo$,
+      },
       {},
     ),
     'DateTime': m.ClassMirror(
       'DateTime',
       {
+        '#as': DateTime_as$,
+        '#is': DateTime_is$,
         'isUtc': _DateTime_isUtc$,
         'hashCode': _DateTime_hashCode$,
         'millisecondsSinceEpoch': _DateTime_millisecondsSinceEpoch$,
@@ -195,6 +260,7 @@ const libraryMirror = m.LibraryMirror(
         'millisecond': _DateTime_millisecond$,
         'microsecond': _DateTime_microsecond$,
         'weekday': _DateTime_weekday$,
+        '==': _DateTime_eq$$,
         'isBefore': _DateTime_isBefore$,
         'isAfter': _DateTime_isAfter$,
         'isAtSameMomentAs': _DateTime_isAtSameMomentAs$,
@@ -212,8 +278,17 @@ const libraryMirror = m.LibraryMirror(
     'double': m.ClassMirror(
       'double',
       {
+        '#as': double_as$,
+        '#is': double_is$,
         'sign': _double_sign$,
         'remainder': _double_remainder$,
+        '+': _double_plus$$,
+        '-': _double_minus$$,
+        '*': _double_times$$,
+        '%': _double_surplus$$,
+        '/': _double_over$$,
+        '~/': _double_division$$,
+        'unary-': _double_unary_minus$$,
         'abs': _double_abs$,
         'round': _double_round$,
         'floor': _double_floor$,
@@ -230,6 +305,8 @@ const libraryMirror = m.LibraryMirror(
     'Duration': m.ClassMirror(
       'Duration',
       {
+        '#as': Duration_as$,
+        '#is': Duration_is$,
         'inDays': _Duration_inDays$,
         'inHours': _Duration_inHours$,
         'inMinutes': _Duration_inMinutes$,
@@ -238,25 +315,45 @@ const libraryMirror = m.LibraryMirror(
         'inMicroseconds': _Duration_inMicroseconds$,
         'hashCode': _Duration_hashCode$,
         'isNegative': _Duration_isNegative$,
+        '+': _Duration_plus$$,
+        '-': _Duration_minus$$,
+        '*': _Duration_times$$,
+        '~/': _Duration_division$$,
+        '<': _Duration_low$$,
+        '>': _Duration_more$$,
+        '<=': _Duration_low_eq$$,
+        '>=': _Duration_more_eq$$,
+        '==': _Duration_eq$$,
         'compareTo': _Duration_compareTo$,
         'toString': _Duration_toString$,
         'abs': _Duration_abs$,
+        'unary-': _Duration_unary_minus$$,
       },
       {},
     ),
     'Enum': m.ClassMirror(
       'Enum',
-      {'index': _Enum_index$},
+      {
+        '#as': Enum_as$,
+        '#is': Enum_is$,
+        'index': _Enum_index$,
+      },
       {},
     ),
     'Error': m.ClassMirror(
       'Error',
-      {'stackTrace': _Error_stackTrace$},
+      {
+        '#as': Error_as$,
+        '#is': Error_is$,
+        'stackTrace': _Error_stackTrace$,
+      },
       {},
     ),
     'AssertionError': m.ClassMirror(
       'AssertionError',
       {
+        '#as': AssertionError_as$,
+        '#is': AssertionError_is$,
         'message': _AssertionError_message$,
         'toString': _AssertionError_toString$,
       },
@@ -264,12 +361,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TypeError': m.ClassMirror(
       'TypeError',
-      {},
+      {
+        '#as': TypeError_as$,
+        '#is': TypeError_is$,
+      },
       {},
     ),
     'ArgumentError': m.ClassMirror(
       'ArgumentError',
       {
+        '#as': ArgumentError_as$,
+        '#is': ArgumentError_is$,
         'invalidValue': _ArgumentError_invalidValue$,
         'name': _ArgumentError_name$,
         'message': _ArgumentError_message$,
@@ -280,6 +382,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeError': m.ClassMirror(
       'RangeError',
       {
+        '#as': RangeError_as$,
+        '#is': RangeError_is$,
         'start': _RangeError_start$,
         'end': _RangeError_end$,
         'invalidValue': _RangeError_invalidValue$,
@@ -289,6 +393,8 @@ const libraryMirror = m.LibraryMirror(
     'IndexError': m.ClassMirror(
       'IndexError',
       {
+        '#as': IndexError_as$,
+        '#is': IndexError_is$,
         'indexable': _IndexError_indexable$,
         'length': _IndexError_length$,
         'invalidValue': _IndexError_invalidValue$,
@@ -299,12 +405,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NoSuchMethodError': m.ClassMirror(
       'NoSuchMethodError',
-      {'toString': _NoSuchMethodError_toString$},
+      {
+        '#as': NoSuchMethodError_as$,
+        '#is': NoSuchMethodError_is$,
+        'toString': _NoSuchMethodError_toString$,
+      },
       {},
     ),
     'UnsupportedError': m.ClassMirror(
       'UnsupportedError',
       {
+        '#as': UnsupportedError_as$,
+        '#is': UnsupportedError_is$,
         'message': _UnsupportedError_message$,
         'toString': _UnsupportedError_toString$,
       },
@@ -313,6 +425,8 @@ const libraryMirror = m.LibraryMirror(
     'UnimplementedError': m.ClassMirror(
       'UnimplementedError',
       {
+        '#as': UnimplementedError_as$,
+        '#is': UnimplementedError_is$,
         'message': _UnimplementedError_message$,
         'toString': _UnimplementedError_toString$,
       },
@@ -321,6 +435,8 @@ const libraryMirror = m.LibraryMirror(
     'StateError': m.ClassMirror(
       'StateError',
       {
+        '#as': StateError_as$,
+        '#is': StateError_is$,
         'message': _StateError_message$,
         'toString': _StateError_toString$,
       },
@@ -329,6 +445,8 @@ const libraryMirror = m.LibraryMirror(
     'ConcurrentModificationError': m.ClassMirror(
       'ConcurrentModificationError',
       {
+        '#as': ConcurrentModificationError_as$,
+        '#is': ConcurrentModificationError_is$,
         'modifiedObject': _ConcurrentModificationError_modifiedObject$,
         'toString': _ConcurrentModificationError_toString$,
       },
@@ -337,6 +455,8 @@ const libraryMirror = m.LibraryMirror(
     'OutOfMemoryError': m.ClassMirror(
       'OutOfMemoryError',
       {
+        '#as': OutOfMemoryError_as$,
+        '#is': OutOfMemoryError_is$,
         'stackTrace': _OutOfMemoryError_stackTrace$,
         'toString': _OutOfMemoryError_toString$,
       },
@@ -345,6 +465,8 @@ const libraryMirror = m.LibraryMirror(
     'StackOverflowError': m.ClassMirror(
       'StackOverflowError',
       {
+        '#as': StackOverflowError_as$,
+        '#is': StackOverflowError_is$,
         'stackTrace': _StackOverflowError_stackTrace$,
         'toString': _StackOverflowError_toString$,
       },
@@ -352,12 +474,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Exception': m.ClassMirror(
       'Exception',
-      {},
+      {
+        '#as': Exception_as$,
+        '#is': Exception_is$,
+      },
       {},
     ),
     'FormatException': m.ClassMirror(
       'FormatException',
       {
+        '#as': FormatException_as$,
+        '#is': FormatException_is$,
         'message': _FormatException_message$,
         'source': _FormatException_source$,
         'offset': _FormatException_offset$,
@@ -367,21 +494,36 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Function': m.ClassMirror(
       'Function',
-      {'hashCode': _Function_hashCode$},
+      {
+        '#as': Function_as$,
+        '#is': Function_is$,
+        'hashCode': _Function_hashCode$,
+        '==': _Function_eq$$,
+      },
       {},
     ),
     'int': m.ClassMirror(
       'int',
       {
+        '#as': int_as$,
+        '#is': int_is$,
         'isEven': _int_isEven$,
         'isOdd': _int_isOdd$,
         'bitLength': _int_bitLength$,
         'sign': _int_sign$,
+        '&': _int_bit_and$$,
+        '|': _int_bit_or$$,
+        '^': _int_bit_xor$$,
+        '~': _int_bit_non$$,
+        '<<': _int_left_move$$,
+        '>>': _int_right_move$$,
+        '>>>': _int_unsign_right_move$$,
         'modPow': _int_modPow$,
         'modInverse': _int_modInverse$,
         'gcd': _int_gcd$,
         'toUnsigned': _int_toUnsigned$,
         'toSigned': _int_toSigned$,
+        'unary-': _int_unary_minus$$,
         'abs': _int_abs$,
         'round': _int_round$,
         'floor': _int_floor$,
@@ -399,6 +541,8 @@ const libraryMirror = m.LibraryMirror(
     'Invocation': m.ClassMirror(
       'Invocation',
       {
+        '#as': Invocation_as$,
+        '#is': Invocation_is$,
         'memberName': _Invocation_memberName$,
         'typeArguments': _Invocation_typeArguments$,
         'positionalArguments': _Invocation_positionalArguments$,
@@ -413,6 +557,8 @@ const libraryMirror = m.LibraryMirror(
     'Iterable': m.ClassMirror(
       'Iterable',
       {
+        '#as': Iterable_as$,
+        '#is': Iterable_is$,
         'iterator': _Iterable_iterator$,
         'length': _Iterable_length$,
         'isEmpty': _Iterable_isEmpty$,
@@ -437,6 +583,8 @@ const libraryMirror = m.LibraryMirror(
     'Iterator': m.ClassMirror(
       'Iterator',
       {
+        '#as': Iterator_as$,
+        '#is': Iterator_is$,
         'current': _Iterator_current$,
         'moveNext': _Iterator_moveNext$,
       },
@@ -445,9 +593,13 @@ const libraryMirror = m.LibraryMirror(
     'List': m.ClassMirror(
       'List',
       {
+        '#as': List_as$,
+        '#is': List_is$,
         'length': _List_length$,
         'reversed': _List_reversed$,
         'cast': _List_cast$,
+        '[]': _List_$index$$,
+        '[]=': _List_$index_set$$,
         'add': _List_add$,
         'addAll': _List_addAll$,
         'shuffle': _List_shuffle$,
@@ -460,6 +612,7 @@ const libraryMirror = m.LibraryMirror(
         'remove': _List_remove$,
         'removeAt': _List_removeAt$,
         'removeLast': _List_removeLast$,
+        '+': _List_plus$$,
         'sublist': _List_sublist$,
         'getRange': _List_getRange$,
         'setRange': _List_setRange$,
@@ -467,6 +620,7 @@ const libraryMirror = m.LibraryMirror(
         'fillRange': _List_fillRange$,
         'replaceRange': _List_replaceRange$,
         'asMap': _List_asMap$,
+        '==': _List_eq$$,
       },
       {
         'first': _List_first_set$,
@@ -477,6 +631,8 @@ const libraryMirror = m.LibraryMirror(
     'Map': m.ClassMirror(
       'Map',
       {
+        '#as': Map_as$,
+        '#is': Map_is$,
         'entries': _Map_entries$,
         'keys': _Map_keys$,
         'values': _Map_values$,
@@ -486,6 +642,8 @@ const libraryMirror = m.LibraryMirror(
         'cast': _Map_cast$,
         'containsValue': _Map_containsValue$,
         'containsKey': _Map_containsKey$,
+        '[]': _Map_$index$$,
+        '[]=': _Map_$index_set$$,
         'addEntries': _Map_addEntries$,
         'addAll': _Map_addAll$,
         'remove': _Map_remove$,
@@ -496,6 +654,8 @@ const libraryMirror = m.LibraryMirror(
     'MapEntry': m.ClassMirror(
       'MapEntry',
       {
+        '#as': MapEntry_as$,
+        '#is': MapEntry_is$,
         'key': _MapEntry_key$,
         'value': _MapEntry_value$,
         'toString': _MapEntry_toString$,
@@ -505,6 +665,8 @@ const libraryMirror = m.LibraryMirror(
     'Null': m.ClassMirror(
       'Null',
       {
+        '#as': Null_as$,
+        '#is': Null_is$,
         'hashCode': _Null_hashCode$,
         'toString': _Null_toString$,
       },
@@ -513,14 +675,28 @@ const libraryMirror = m.LibraryMirror(
     'num': m.ClassMirror(
       'num',
       {
+        '#as': num_as$,
+        '#is': num_is$,
         'hashCode': _num_hashCode$,
         'isNaN': _num_isNaN$,
         'isNegative': _num_isNegative$,
         'isInfinite': _num_isInfinite$,
         'isFinite': _num_isFinite$,
         'sign': _num_sign$,
+        '==': _num_eq$$,
         'compareTo': _num_compareTo$,
+        '+': _num_plus$$,
+        '-': _num_minus$$,
+        '*': _num_times$$,
+        '%': _num_surplus$$,
+        '/': _num_over$$,
+        '~/': _num_division$$,
+        'unary-': _num_unary_minus$$,
         'remainder': _num_remainder$,
+        '<': _num_low$$,
+        '<=': _num_low_eq$$,
+        '>': _num_more$$,
+        '>=': _num_more_eq$$,
         'abs': _num_abs$,
         'round': _num_round$,
         'floor': _num_floor$,
@@ -543,8 +719,11 @@ const libraryMirror = m.LibraryMirror(
     'Object': m.ClassMirror(
       'Object',
       {
+        '#as': Object_as$,
+        '#is': Object_is$,
         'hashCode': _Object_hashCode$,
         'runtimeType': _Object_runtimeType$,
+        '==': _Object_eq$$,
         'toString': _Object_toString$,
         'noSuchMethod': _Object_noSuchMethod$,
       },
@@ -553,6 +732,8 @@ const libraryMirror = m.LibraryMirror(
     'Pattern': m.ClassMirror(
       'Pattern',
       {
+        '#as': Pattern_as$,
+        '#is': Pattern_is$,
         'allMatches': _Pattern_allMatches$,
         'matchAsPrefix': _Pattern_matchAsPrefix$,
       },
@@ -561,12 +742,15 @@ const libraryMirror = m.LibraryMirror(
     'Match': m.ClassMirror(
       'Match',
       {
+        '#as': Match_as$,
+        '#is': Match_is$,
         'start': _Match_start$,
         'end': _Match_end$,
         'groupCount': _Match_groupCount$,
         'input': _Match_input$,
         'pattern': _Match_pattern$,
         'group': _Match_group$,
+        '[]': _Match_$index$$,
         'groups': _Match_groups$,
       },
       {},
@@ -574,6 +758,8 @@ const libraryMirror = m.LibraryMirror(
     'RegExp': m.ClassMirror(
       'RegExp',
       {
+        '#as': RegExp_as$,
+        '#is': RegExp_is$,
         'pattern': _RegExp_pattern$,
         'isMultiLine': _RegExp_isMultiLine$,
         'isCaseSensitive': _RegExp_isCaseSensitive$,
@@ -589,6 +775,8 @@ const libraryMirror = m.LibraryMirror(
     'RegExpMatch': m.ClassMirror(
       'RegExpMatch',
       {
+        '#as': RegExpMatch_as$,
+        '#is': RegExpMatch_is$,
         'groupNames': _RegExpMatch_groupNames$,
         'pattern': _RegExpMatch_pattern$,
         'namedGroup': _RegExpMatch_namedGroup$,
@@ -598,6 +786,8 @@ const libraryMirror = m.LibraryMirror(
     'Set': m.ClassMirror(
       'Set',
       {
+        '#as': Set_as$,
+        '#is': Set_is$,
         'iterator': _Set_iterator$,
         'cast': _Set_cast$,
         'contains': _Set_contains$,
@@ -619,6 +809,8 @@ const libraryMirror = m.LibraryMirror(
     'Sink': m.ClassMirror(
       'Sink',
       {
+        '#as': Sink_as$,
+        '#is': Sink_is$,
         'add': _Sink_add$,
         'close': _Sink_close$,
       },
@@ -626,12 +818,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StackTrace': m.ClassMirror(
       'StackTrace',
-      {'toString': _StackTrace_toString$},
+      {
+        '#as': StackTrace_as$,
+        '#is': StackTrace_is$,
+        'toString': _StackTrace_toString$,
+      },
       {},
     ),
     'Stopwatch': m.ClassMirror(
       'Stopwatch',
       {
+        '#as': Stopwatch_as$,
+        '#is': Stopwatch_is$,
         'frequency': _Stopwatch_frequency$,
         'elapsedTicks': _Stopwatch_elapsedTicks$,
         'elapsed': _Stopwatch_elapsed$,
@@ -647,22 +845,28 @@ const libraryMirror = m.LibraryMirror(
     'String': m.ClassMirror(
       'String',
       {
+        '#as': String_as$,
+        '#is': String_is$,
         'length': _String_length$,
         'hashCode': _String_hashCode$,
         'isEmpty': _String_isEmpty$,
         'isNotEmpty': _String_isNotEmpty$,
         'codeUnits': _String_codeUnits$,
         'runes': _String_runes$,
+        '[]': _String_$index$$,
         'codeUnitAt': _String_codeUnitAt$,
+        '==': _String_eq$$,
         'compareTo': _String_compareTo$,
         'endsWith': _String_endsWith$,
         'startsWith': _String_startsWith$,
         'indexOf': _String_indexOf$,
         'lastIndexOf': _String_lastIndexOf$,
+        '+': _String_plus$$,
         'substring': _String_substring$,
         'trim': _String_trim$,
         'trimLeft': _String_trimLeft$,
         'trimRight': _String_trimRight$,
+        '*': _String_times$$,
         'padLeft': _String_padLeft$,
         'padRight': _String_padRight$,
         'contains': _String_contains$,
@@ -678,6 +882,8 @@ const libraryMirror = m.LibraryMirror(
     'Runes': m.ClassMirror(
       'Runes',
       {
+        '#as': Runes_as$,
+        '#is': Runes_is$,
         'string': _Runes_string$,
         'iterator': _Runes_iterator$,
         'last': _Runes_last$,
@@ -687,6 +893,8 @@ const libraryMirror = m.LibraryMirror(
     'RuneIterator': m.ClassMirror(
       'RuneIterator',
       {
+        '#as': RuneIterator_as$,
+        '#is': RuneIterator_is$,
         'string': _RuneIterator_string$,
         'rawIndex': _RuneIterator_rawIndex$,
         'current': _RuneIterator_current$,
@@ -701,6 +909,8 @@ const libraryMirror = m.LibraryMirror(
     'StringBuffer': m.ClassMirror(
       'StringBuffer',
       {
+        '#as': StringBuffer_as$,
+        '#is': StringBuffer_is$,
         'length': _StringBuffer_length$,
         'isEmpty': _StringBuffer_isEmpty$,
         'isNotEmpty': _StringBuffer_isNotEmpty$,
@@ -716,6 +926,8 @@ const libraryMirror = m.LibraryMirror(
     'StringSink': m.ClassMirror(
       'StringSink',
       {
+        '#as': StringSink_as$,
+        '#is': StringSink_is$,
         'write': _StringSink_write$,
         'writeAll': _StringSink_writeAll$,
         'writeln': _StringSink_writeln$,
@@ -725,13 +937,21 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Symbol': m.ClassMirror(
       'Symbol',
-      {'hashCode': _Symbol_hashCode$},
+      {
+        '#as': Symbol_as$,
+        '#is': Symbol_is$,
+        'hashCode': _Symbol_hashCode$,
+        '==': _Symbol_eq$$,
+      },
       {},
     ),
     'Type': m.ClassMirror(
       'Type',
       {
+        '#as': Type_as$,
+        '#is': Type_is$,
         'hashCode': _Type_hashCode$,
+        '==': _Type_eq$$,
         'toString': _Type_toString$,
       },
       {},
@@ -739,6 +959,8 @@ const libraryMirror = m.LibraryMirror(
     'Uri': m.ClassMirror(
       'Uri',
       {
+        '#as': Uri_as$,
+        '#is': Uri_is$,
         'scheme': _Uri_scheme$,
         'authority': _Uri_authority$,
         'userInfo': _Uri_userInfo$,
@@ -763,6 +985,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _Uri_hashCode$,
         'isScheme': _Uri_isScheme$,
         'toFilePath': _Uri_toFilePath$,
+        '==': _Uri_eq$$,
         'toString': _Uri_toString$,
         'replace': _Uri_replace$,
         'removeFragment': _Uri_removeFragment$,
@@ -775,6 +998,8 @@ const libraryMirror = m.LibraryMirror(
     'UriData': m.ClassMirror(
       'UriData',
       {
+        '#as': UriData_as$,
+        '#is': UriData_is$,
         'uri': _UriData_uri$,
         'mimeType': _UriData_mimeType$,
         'charset': _UriData_charset$,
@@ -793,19 +1018,29 @@ const libraryMirror = m.LibraryMirror(
     'Expando': m.ClassMirror(
       'Expando',
       {
+        '#as': Expando_as$,
+        '#is': Expando_is$,
         'name': _Expando_name$,
         'toString': _Expando_toString$,
+        '[]': _Expando_$index$$,
+        '[]=': _Expando_$index_set$$,
       },
       {},
     ),
     'WeakReference': m.ClassMirror(
       'WeakReference',
-      {'target': _WeakReference_target$},
+      {
+        '#as': WeakReference_as$,
+        '#is': WeakReference_is$,
+        'target': _WeakReference_target$,
+      },
       {},
     ),
     'Finalizer': m.ClassMirror(
       'Finalizer',
       {
+        '#as': Finalizer_as$,
+        '#is': Finalizer_is$,
         'attach': _Finalizer_attach$,
         'detach': _Finalizer_detach$,
       },
@@ -821,6 +1056,16 @@ Object _override$() {
   return override;
 }
 
+Function Deprecated_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Deprecated;
+Function Deprecated_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Deprecated;
 String _Deprecated_message$(Deprecated target) {
   return target.message;
 }
@@ -830,6 +1075,16 @@ Function _Deprecated_toString$(
   Deprecated target,
 ) =>
     target.toString;
+Function pragma_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as pragma;
+Function pragma_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is pragma;
 String _pragma_name$(pragma target) {
   return target.name;
 }
@@ -838,6 +1093,16 @@ Object? _pragma_options$(pragma target) {
   return target.options;
 }
 
+Function BigInt_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BigInt;
+Function BigInt_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BigInt;
 BigInt _BigInt_zero$() {
   return BigInt.zero;
 }
@@ -881,11 +1146,96 @@ Function _BigInt_abs$(
   BigInt target,
 ) =>
     target.abs;
+Function _BigInt_unary_minus$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    () => -target;
+Function _BigInt_plus$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target + other;
+Function _BigInt_minus$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target - other;
+Function _BigInt_times$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target * other;
+Function _BigInt_over$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target / other;
+Function _BigInt_division$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target ~/ other;
+Function _BigInt_surplus$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target % other;
 Function _BigInt_remainder$(
   m.Scope scope,
   BigInt target,
 ) =>
     target.remainder;
+Function _BigInt_left_move$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (int other) => target << other;
+Function _BigInt_right_move$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (int other) => target >> other;
+Function _BigInt_bit_and$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target & other;
+Function _BigInt_bit_or$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target | other;
+Function _BigInt_bit_xor$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target ^ other;
+Function _BigInt_bit_non$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    () => ~target;
+Function _BigInt_low$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target < other;
+Function _BigInt_low_eq$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target <= other;
+Function _BigInt_more$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target > other;
+Function _BigInt_more_eq$$(
+  m.Scope scope,
+  BigInt target,
+) =>
+    (BigInt other) => target >= other;
 Function _BigInt_compareTo$(
   m.Scope scope,
   BigInt target,
@@ -941,23 +1291,68 @@ Function _BigInt_toRadixString$(
   BigInt target,
 ) =>
     target.toRadixString;
+Function bool_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as bool;
+Function bool_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is bool;
 int _bool_hashCode$(bool target) {
   return target.hashCode;
 }
 
 Function _bool_parse$(m.Scope scope) => bool.parse;
 Function _bool_tryParse$(m.Scope scope) => bool.tryParse;
+Function _bool_bit_and$$(
+  m.Scope scope,
+  bool target,
+) =>
+    (bool other) => target & other;
+Function _bool_bit_or$$(
+  m.Scope scope,
+  bool target,
+) =>
+    (bool other) => target | other;
+Function _bool_bit_xor$$(
+  m.Scope scope,
+  bool target,
+) =>
+    (bool other) => target ^ other;
 Function _bool_toString$(
   m.Scope scope,
   bool target,
 ) =>
     target.toString;
+Function Comparable_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Comparable<T>;
+Function Comparable_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Comparable<T>;
 Function _Comparable_compareTo$<T>(
   m.Scope scope,
   Comparable<T> target,
 ) =>
     target.compareTo;
 Function _Comparable_compare$(m.Scope scope) => Comparable.compare;
+Function DateTime_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DateTime;
+Function DateTime_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DateTime;
 int _DateTime_monday$() {
   return DateTime.monday;
 }
@@ -1104,6 +1499,11 @@ int _DateTime_weekday$(DateTime target) {
 
 Function _DateTime_parse$(m.Scope scope) => DateTime.parse;
 Function _DateTime_tryParse$(m.Scope scope) => DateTime.tryParse;
+Function _DateTime_eq$$(
+  m.Scope scope,
+  DateTime target,
+) =>
+    (Object other) => target == other;
 Function _DateTime_isBefore$(
   m.Scope scope,
   DateTime target,
@@ -1159,6 +1559,16 @@ Function _DateTime_difference$(
   DateTime target,
 ) =>
     target.difference;
+Function double_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as double;
+Function double_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is double;
 double _double_nan$() {
   return double.nan;
 }
@@ -1188,6 +1598,41 @@ Function _double_remainder$(
   double target,
 ) =>
     target.remainder;
+Function _double_plus$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target + other;
+Function _double_minus$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target - other;
+Function _double_times$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target * other;
+Function _double_surplus$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target % other;
+Function _double_over$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target / other;
+Function _double_division$$(
+  m.Scope scope,
+  double target,
+) =>
+    (num other) => target ~/ other;
+Function _double_unary_minus$$(
+  m.Scope scope,
+  double target,
+) =>
+    () => -target;
 Function _double_abs$(
   m.Scope scope,
   double target,
@@ -1240,6 +1685,16 @@ Function _double_toString$(
     target.toString;
 Function _double_parse$(m.Scope scope) => double.parse;
 Function _double_tryParse$(m.Scope scope) => double.tryParse;
+Function Duration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Duration;
+Function Duration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Duration;
 int _Duration_microsecondsPerMillisecond$() {
   return Duration.microsecondsPerMillisecond;
 }
@@ -1336,6 +1791,51 @@ bool _Duration_isNegative$(Duration target) {
   return target.isNegative;
 }
 
+Function _Duration_plus$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target + other;
+Function _Duration_minus$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target - other;
+Function _Duration_times$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (num other) => target * other;
+Function _Duration_division$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (int other) => target ~/ other;
+Function _Duration_low$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target < other;
+Function _Duration_more$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target > other;
+Function _Duration_low_eq$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target <= other;
+Function _Duration_more_eq$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Duration other) => target >= other;
+Function _Duration_eq$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    (Object other) => target == other;
 Function _Duration_compareTo$(
   m.Scope scope,
   Duration target,
@@ -1351,6 +1851,21 @@ Function _Duration_abs$(
   Duration target,
 ) =>
     target.abs;
+Function _Duration_unary_minus$$(
+  m.Scope scope,
+  Duration target,
+) =>
+    () => -target;
+Function Enum_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Enum;
+Function Enum_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Enum;
 int _Enum_index$(Enum target) {
   return target.index;
 }
@@ -1359,6 +1874,16 @@ Function _Enum_compareByIndex$<T extends Enum>(m.Scope scope) =>
     Enum.compareByIndex<T>;
 Function _Enum_compareByName$<T extends Enum>(m.Scope scope) =>
     Enum.compareByName<T>;
+Function Error_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Error;
+Function Error_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Error;
 StackTrace? _Error_stackTrace$(Error target) {
   return target.stackTrace;
 }
@@ -1366,6 +1891,16 @@ StackTrace? _Error_stackTrace$(Error target) {
 Function _Error_safeToString$(m.Scope scope) => Error.safeToString;
 Function _Error_throwWithStackTrace$(m.Scope scope) =>
     Error.throwWithStackTrace;
+Function AssertionError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AssertionError;
+Function AssertionError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AssertionError;
 Object? _AssertionError_message$(AssertionError target) {
   return target.message;
 }
@@ -1375,6 +1910,26 @@ Function _AssertionError_toString$(
   AssertionError target,
 ) =>
     target.toString;
+Function TypeError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TypeError;
+Function TypeError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TypeError;
+Function ArgumentError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ArgumentError;
+Function ArgumentError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ArgumentError;
 dynamic _ArgumentError_invalidValue$(ArgumentError target) {
   return target.invalidValue;
 }
@@ -1394,6 +1949,16 @@ Function _ArgumentError_toString$(
   ArgumentError target,
 ) =>
     target.toString;
+Function RangeError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeError;
+Function RangeError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeError;
 num? _RangeError_start$(RangeError target) {
   return target.start;
 }
@@ -1414,6 +1979,16 @@ Function _RangeError_checkValidRange$(m.Scope scope) =>
     RangeError.checkValidRange;
 Function _RangeError_checkNotNegative$(m.Scope scope) =>
     RangeError.checkNotNegative;
+Function IndexError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IndexError;
+Function IndexError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IndexError;
 Object? _IndexError_indexable$(IndexError target) {
   return target.indexable;
 }
@@ -1435,11 +2010,31 @@ int _IndexError_end$(IndexError target) {
 }
 
 Function _IndexError_check$(m.Scope scope) => IndexError.check;
+Function NoSuchMethodError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NoSuchMethodError;
+Function NoSuchMethodError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NoSuchMethodError;
 Function _NoSuchMethodError_toString$(
   m.Scope scope,
   NoSuchMethodError target,
 ) =>
     target.toString;
+Function UnsupportedError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsupportedError;
+Function UnsupportedError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsupportedError;
 String? _UnsupportedError_message$(UnsupportedError target) {
   return target.message;
 }
@@ -1449,6 +2044,16 @@ Function _UnsupportedError_toString$(
   UnsupportedError target,
 ) =>
     target.toString;
+Function UnimplementedError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnimplementedError;
+Function UnimplementedError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnimplementedError;
 String? _UnimplementedError_message$(UnimplementedError target) {
   return target.message;
 }
@@ -1458,6 +2063,16 @@ Function _UnimplementedError_toString$(
   UnimplementedError target,
 ) =>
     target.toString;
+Function StateError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StateError;
+Function StateError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StateError;
 String _StateError_message$(StateError target) {
   return target.message;
 }
@@ -1467,6 +2082,16 @@ Function _StateError_toString$(
   StateError target,
 ) =>
     target.toString;
+Function ConcurrentModificationError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConcurrentModificationError;
+Function ConcurrentModificationError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConcurrentModificationError;
 Object? _ConcurrentModificationError_modifiedObject$(
     ConcurrentModificationError target) {
   return target.modifiedObject;
@@ -1477,6 +2102,16 @@ Function _ConcurrentModificationError_toString$(
   ConcurrentModificationError target,
 ) =>
     target.toString;
+Function OutOfMemoryError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutOfMemoryError;
+Function OutOfMemoryError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutOfMemoryError;
 StackTrace? _OutOfMemoryError_stackTrace$(OutOfMemoryError target) {
   return target.stackTrace;
 }
@@ -1486,6 +2121,16 @@ Function _OutOfMemoryError_toString$(
   OutOfMemoryError target,
 ) =>
     target.toString;
+Function StackOverflowError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StackOverflowError;
+Function StackOverflowError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StackOverflowError;
 StackTrace? _StackOverflowError_stackTrace$(StackOverflowError target) {
   return target.stackTrace;
 }
@@ -1495,6 +2140,26 @@ Function _StackOverflowError_toString$(
   StackOverflowError target,
 ) =>
     target.toString;
+Function Exception_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Exception;
+Function Exception_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Exception;
+Function FormatException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FormatException;
+Function FormatException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FormatException;
 String _FormatException_message$(FormatException target) {
   return target.message;
 }
@@ -1512,13 +2177,38 @@ Function _FormatException_toString$(
   FormatException target,
 ) =>
     target.toString;
+Function Function_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Function;
+Function Function_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Function;
 int _Function_hashCode$(Function target) {
   return target.hashCode;
 }
 
 Function _Function_apply$(m.Scope scope) => Function.apply;
+Function _Function_eq$$(
+  m.Scope scope,
+  Function target,
+) =>
+    (Object other) => target == other;
 Function _identical$(m.Scope scope) => identical;
 Function _identityHashCode$(m.Scope scope) => identityHashCode;
+Function int_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as int;
+Function int_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is int;
 bool _int_isEven$(int target) {
   return target.isEven;
 }
@@ -1535,6 +2225,41 @@ int _int_sign$(int target) {
   return target.sign;
 }
 
+Function _int_bit_and$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target & other;
+Function _int_bit_or$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target | other;
+Function _int_bit_xor$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target ^ other;
+Function _int_bit_non$$(
+  m.Scope scope,
+  int target,
+) =>
+    () => ~target;
+Function _int_left_move$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target << other;
+Function _int_right_move$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target >> other;
+Function _int_unsign_right_move$$(
+  m.Scope scope,
+  int target,
+) =>
+    (int other) => target >>> other;
 Function _int_modPow$(
   m.Scope scope,
   int target,
@@ -1560,6 +2285,11 @@ Function _int_toSigned$(
   int target,
 ) =>
     target.toSigned;
+Function _int_unary_minus$$(
+  m.Scope scope,
+  int target,
+) =>
+    () => -target;
 Function _int_abs$(
   m.Scope scope,
   int target,
@@ -1617,6 +2347,16 @@ Function _int_toRadixString$(
     target.toRadixString;
 Function _int_parse$(m.Scope scope) => int.parse;
 Function _int_tryParse$(m.Scope scope) => int.tryParse;
+Function Invocation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Invocation;
+Function Invocation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Invocation;
 Symbol _Invocation_memberName$(Invocation target) {
   return target.memberName;
 }
@@ -1649,6 +2389,16 @@ bool _Invocation_isAccessor$(Invocation target) {
   return target.isAccessor;
 }
 
+Function Iterable_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Iterable<E>;
+Function Iterable_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Iterable<E>;
 Iterator<E> _Iterable_iterator$<E>(Iterable<E> target) {
   return target.iterator;
 }
@@ -1688,21 +2438,146 @@ Function _Iterable_followedBy$<E>(
   Iterable<E> target,
 ) =>
     target.followedBy;
+Function _Iterable_map$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    <T>(m.FunctionPointer toElement) {
+      T toElementProxy(E toElement_e) => scope.engine.callFunctionPointer(
+            scope,
+            toElement,
+            [toElement_e],
+            {},
+          );
+      return target.map<T>(toElementProxy);
+    };
+Function _Iterable_where$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.where(testProxy);
+    };
 Function _Iterable_whereType$<E, T>(
   m.Scope scope,
   Iterable<E> target,
 ) =>
     target.whereType<T>;
+Function _Iterable_expand$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    <T>(m.FunctionPointer toElements) {
+      Iterable<T> toElementsProxy(E toElements_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            toElements,
+            [toElements_element],
+            {},
+          );
+      return target.expand<T>(toElementsProxy);
+    };
 Function _Iterable_contains$<E>(
   m.Scope scope,
   Iterable<E> target,
 ) =>
     target.contains;
+Function _Iterable_forEach$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(E action_element) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
+Function _Iterable_reduce$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer combine) {
+      E combineProxy(
+        E combine_value,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_value,
+              combine_element,
+            ],
+            {},
+          );
+      return target.reduce(combineProxy);
+    };
+Function _Iterable_fold$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    <T>(
+      T initialValue,
+      m.FunctionPointer combine,
+    ) {
+      T combineProxy(
+        T combine_previousValue,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previousValue,
+              combine_element,
+            ],
+            {},
+          );
+      return target.fold<T>(
+        initialValue,
+        combineProxy,
+      );
+    };
+Function _Iterable_every$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.every(testProxy);
+    };
 Function _Iterable_join$<E>(
   m.Scope scope,
   Iterable<E> target,
 ) =>
     target.join;
+Function _Iterable_any$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.any(testProxy);
+    };
 Function _Iterable_toList$<E>(
   m.Scope scope,
   Iterable<E> target,
@@ -1718,11 +2593,112 @@ Function _Iterable_take$<E>(
   Iterable<E> target,
 ) =>
     target.take;
+Function _Iterable_takeWhile$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.takeWhile(testProxy);
+    };
 Function _Iterable_skip$<E>(
   m.Scope scope,
   Iterable<E> target,
 ) =>
     target.skip;
+Function _Iterable_skipWhile$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.skipWhile(testProxy);
+    };
+Function _Iterable_firstWhere$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.firstWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Iterable_lastWhere$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.lastWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Iterable_singleWhere$<E>(
+  m.Scope scope,
+  Iterable<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.singleWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
 Function _Iterable_elementAt$<E>(
   m.Scope scope,
   Iterable<E> target,
@@ -1737,6 +2713,16 @@ Function _Iterable_iterableToShortString$(m.Scope scope) =>
     Iterable.iterableToShortString;
 Function _Iterable_iterableToFullString$(m.Scope scope) =>
     Iterable.iterableToFullString;
+Function Iterator_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Iterator<E>;
+Function Iterator_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Iterator<E>;
 E _Iterator_current$<E>(Iterator<E> target) {
   return target.current;
 }
@@ -1746,6 +2732,16 @@ Function _Iterator_moveNext$<E>(
   Iterator<E> target,
 ) =>
     target.moveNext;
+Function List_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as List<E>;
+Function List_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is List<E>;
 void _List_first_set$<E>(
   List<E> target,
   E other,
@@ -1783,6 +2779,20 @@ Function _List_cast$<E, R>(
   List<E> target,
 ) =>
     target.cast<R>;
+Function _List_$index$$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (int index) => target[index];
+Function _List_$index_set$$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (
+      int index,
+      E other,
+    ) =>
+        target[index] = other;
 Function _List_add$<E>(
   m.Scope scope,
   List<E> target,
@@ -1793,6 +2803,29 @@ Function _List_addAll$<E>(
   List<E> target,
 ) =>
     target.addAll;
+Function _List_sort$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (m.FunctionPointer? compare) {
+      if (compare == null) {}
+      target.sort();
+      int compareProxy(
+        E compare_a,
+        E compare_b,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            compare!,
+            [
+              compare_a,
+              compare_b,
+            ],
+            {},
+          );
+      target.sort(compare == null ? null : compareProxy);
+      return;
+    };
 Function _List_shuffle$<E>(
   m.Scope scope,
   List<E> target,
@@ -1803,6 +2836,48 @@ Function _List_indexOf$<E>(
   List<E> target,
 ) =>
     target.indexOf;
+Function _List_indexWhere$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (
+      m.FunctionPointer test,
+      int? start,
+    ) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      if (start == null) {}
+      return target.indexWhere(testProxy);
+      return target.indexWhere(
+        testProxy,
+        start ?? 0,
+      );
+    };
+Function _List_lastIndexWhere$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (
+      m.FunctionPointer test,
+      int? start,
+    ) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      if (start == null) {}
+      return target.lastIndexWhere(testProxy);
+      return target.lastIndexWhere(
+        testProxy,
+        start,
+      );
+    };
 Function _List_lastIndexOf$<E>(
   m.Scope scope,
   List<E> target,
@@ -1843,6 +2918,37 @@ Function _List_removeLast$<E>(
   List<E> target,
 ) =>
     target.removeLast;
+Function _List_removeWhere$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _List_retainWhere$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
+Function _List_plus$$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (List<E> other) => target + other;
 Function _List_sublist$<E>(
   m.Scope scope,
   List<E> target,
@@ -1878,6 +2984,21 @@ Function _List_asMap$<E>(
   List<E> target,
 ) =>
     target.asMap;
+Function _List_eq$$<E>(
+  m.Scope scope,
+  List<E> target,
+) =>
+    (Object other) => target == other;
+Function Map_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Map<K, V>;
+Function Map_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Map<K, V>;
 Iterable<MapEntry<K, V>> _Map_entries$<K, V>(Map<K, V> target) {
   return target.entries;
 }
@@ -1919,11 +3040,131 @@ Function _Map_containsKey$<K, V>(
   Map<K, V> target,
 ) =>
     target.containsKey;
+Function _Map_$index$$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (Object? index) => target[index];
+Function _Map_$index_set$$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (
+      K index,
+      V other,
+    ) =>
+        target[index] = other;
+Function _Map_map$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    <K2, V2>(m.FunctionPointer convert) {
+      MapEntry<K2, V2> convertProxy(
+        K convert_key,
+        V convert_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            convert,
+            [
+              convert_key,
+              convert_value,
+            ],
+            {},
+          );
+      return target.map<K2, V2>(convertProxy);
+    };
 Function _Map_addEntries$<K, V>(
   m.Scope scope,
   Map<K, V> target,
 ) =>
     target.addEntries;
+Function _Map_update$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer update, {
+      m.FunctionPointer? ifAbsent,
+    }) {
+      V updateProxy(V update_value) => scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [update_value],
+            {},
+          );
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent!,
+            [],
+            {},
+          );
+      return target.update(
+        key,
+        updateProxy,
+        ifAbsent: ifAbsent == null ? null : ifAbsentProxy,
+      );
+    };
+Function _Map_updateAll$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (m.FunctionPointer update) {
+      V updateProxy(
+        K update_key,
+        V update_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [
+              update_key,
+              update_value,
+            ],
+            {},
+          );
+      target.updateAll(updateProxy);
+    };
+Function _Map_removeWhere$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(
+        K test_key,
+        V test_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [
+              test_key,
+              test_value,
+            ],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _Map_putIfAbsent$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer ifAbsent,
+    ) {
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent,
+            [],
+            {},
+          );
+      return target.putIfAbsent(
+        key,
+        ifAbsentProxy,
+      );
+    };
 Function _Map_addAll$<K, V>(
   m.Scope scope,
   Map<K, V> target,
@@ -1939,6 +3180,36 @@ Function _Map_clear$<K, V>(
   Map<K, V> target,
 ) =>
     target.clear;
+Function _Map_forEach$<K, V>(
+  m.Scope scope,
+  Map<K, V> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(
+        K action_key,
+        V action_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [
+              action_key,
+              action_value,
+            ],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
+Function MapEntry_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MapEntry<K, V>;
+Function MapEntry_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MapEntry<K, V>;
 K _MapEntry_key$<K, V>(MapEntry<K, V> target) {
   return target.key;
 }
@@ -1952,6 +3223,16 @@ Function _MapEntry_toString$<K, V>(
   MapEntry<K, V> target,
 ) =>
     target.toString;
+Function Null_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Null;
+Function Null_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Null;
 int _Null_hashCode$(Null target) {
   return target.hashCode;
 }
@@ -1961,6 +3242,16 @@ Function _Null_toString$(
   Null target,
 ) =>
     target.toString;
+Function num_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as num;
+Function num_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is num;
 int _num_hashCode$(num target) {
   return target.hashCode;
 }
@@ -1985,16 +3276,76 @@ num _num_sign$(num target) {
   return target.sign;
 }
 
+Function _num_eq$$(
+  m.Scope scope,
+  num target,
+) =>
+    (Object other) => target == other;
 Function _num_compareTo$(
   m.Scope scope,
   num target,
 ) =>
     target.compareTo;
+Function _num_plus$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target + other;
+Function _num_minus$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target - other;
+Function _num_times$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target * other;
+Function _num_surplus$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target % other;
+Function _num_over$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target / other;
+Function _num_division$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target ~/ other;
+Function _num_unary_minus$$(
+  m.Scope scope,
+  num target,
+) =>
+    () => -target;
 Function _num_remainder$(
   m.Scope scope,
   num target,
 ) =>
     target.remainder;
+Function _num_low$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target < other;
+Function _num_low_eq$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target <= other;
+Function _num_more$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target > other;
+Function _num_more_eq$$(
+  m.Scope scope,
+  num target,
+) =>
+    (num other) => target >= other;
 Function _num_abs$(
   m.Scope scope,
   num target,
@@ -2075,7 +3426,35 @@ Function _num_toString$(
   num target,
 ) =>
     target.toString;
+Function _num_parse$(m.Scope scope) => (
+      String input,
+      m.FunctionPointer? onError,
+    ) {
+      if (onError == null) {}
+      return num.parse(input);
+      num onErrorProxy(String onError_input) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onError!,
+            [onError_input],
+            {},
+          );
+      return num.parse(
+        input,
+        onError == null ? null : onErrorProxy,
+      );
+    };
 Function _num_tryParse$(m.Scope scope) => num.tryParse;
+Function Object_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Object;
+Function Object_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Object;
 int _Object_hashCode$(Object target) {
   return target.hashCode;
 }
@@ -2084,6 +3463,11 @@ Type _Object_runtimeType$(Object target) {
   return target.runtimeType;
 }
 
+Function _Object_eq$$(
+  m.Scope scope,
+  Object target,
+) =>
+    (Object other) => target == other;
 Function _Object_toString$(
   m.Scope scope,
   Object target,
@@ -2097,6 +3481,16 @@ Function _Object_noSuchMethod$(
 Function _Object_hash$(m.Scope scope) => Object.hash;
 Function _Object_hashAll$(m.Scope scope) => Object.hashAll;
 Function _Object_hashAllUnordered$(m.Scope scope) => Object.hashAllUnordered;
+Function Pattern_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Pattern;
+Function Pattern_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Pattern;
 Function _Pattern_allMatches$(
   m.Scope scope,
   Pattern target,
@@ -2107,6 +3501,16 @@ Function _Pattern_matchAsPrefix$(
   Pattern target,
 ) =>
     target.matchAsPrefix;
+Function Match_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Match;
+Function Match_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Match;
 int _Match_start$(Match target) {
   return target.start;
 }
@@ -2132,12 +3536,27 @@ Function _Match_group$(
   Match target,
 ) =>
     target.group;
+Function _Match_$index$$(
+  m.Scope scope,
+  Match target,
+) =>
+    (int index) => target[index];
 Function _Match_groups$(
   m.Scope scope,
   Match target,
 ) =>
     target.groups;
 Function _print$(m.Scope scope) => print;
+Function RegExp_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RegExp;
+Function RegExp_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RegExp;
 String _RegExp_pattern$(RegExp target) {
   return target.pattern;
 }
@@ -2179,6 +3598,16 @@ Function _RegExp_stringMatch$(
   RegExp target,
 ) =>
     target.stringMatch;
+Function RegExpMatch_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RegExpMatch;
+Function RegExpMatch_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RegExpMatch;
 Iterable<String> _RegExpMatch_groupNames$(RegExpMatch target) {
   return target.groupNames;
 }
@@ -2192,10 +3621,35 @@ Function _RegExpMatch_namedGroup$(
   RegExpMatch target,
 ) =>
     target.namedGroup;
+Function Set_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Set<E>;
+Function Set_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Set<E>;
 Iterator<E> _Set_iterator$<E>(Set<E> target) {
   return target.iterator;
 }
 
+Function _Set_castFrom$(m.Scope scope) => <S, T>(
+      Set<S> source, {
+      m.FunctionPointer? newSet,
+    }) {
+      Set<R> newSetProxy<R>() => scope.engine.callFunctionPointer(
+            scope,
+            newSet!,
+            [],
+            {},
+          );
+      return Set.castFrom<S, T>(
+        source,
+        newSet: newSet == null ? null : newSetProxy,
+      );
+    };
 Function _Set_cast$<E, R>(
   m.Scope scope,
   Set<E> target,
@@ -2236,6 +3690,32 @@ Function _Set_retainAll$<E>(
   Set<E> target,
 ) =>
     target.retainAll;
+Function _Set_removeWhere$<E>(
+  m.Scope scope,
+  Set<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _Set_retainWhere$<E>(
+  m.Scope scope,
+  Set<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _Set_containsAll$<E>(
   m.Scope scope,
   Set<E> target,
@@ -2266,6 +3746,16 @@ Function _Set_toSet$<E>(
   Set<E> target,
 ) =>
     target.toSet;
+Function Sink_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Sink<T>;
+Function Sink_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Sink<T>;
 Function _Sink_add$<T>(
   m.Scope scope,
   Sink<T> target,
@@ -2276,6 +3766,16 @@ Function _Sink_close$<T>(
   Sink<T> target,
 ) =>
     target.close;
+Function StackTrace_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StackTrace;
+Function StackTrace_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StackTrace;
 dynamic _StackTrace_empty$() {
   return StackTrace.empty;
 }
@@ -2289,6 +3789,16 @@ Function _StackTrace_toString$(
   StackTrace target,
 ) =>
     target.toString;
+Function Stopwatch_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stopwatch;
+Function Stopwatch_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stopwatch;
 int _Stopwatch_frequency$(Stopwatch target) {
   return target.frequency;
 }
@@ -2328,6 +3838,16 @@ Function _Stopwatch_reset$(
   Stopwatch target,
 ) =>
     target.reset;
+Function String_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as String;
+Function String_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is String;
 int _String_length$(String target) {
   return target.length;
 }
@@ -2352,11 +3872,21 @@ Runes _String_runes$(String target) {
   return target.runes;
 }
 
+Function _String_$index$$(
+  m.Scope scope,
+  String target,
+) =>
+    (int index) => target[index];
 Function _String_codeUnitAt$(
   m.Scope scope,
   String target,
 ) =>
     target.codeUnitAt;
+Function _String_eq$$(
+  m.Scope scope,
+  String target,
+) =>
+    (Object other) => target == other;
 Function _String_compareTo$(
   m.Scope scope,
   String target,
@@ -2382,6 +3912,11 @@ Function _String_lastIndexOf$(
   String target,
 ) =>
     target.lastIndexOf;
+Function _String_plus$$(
+  m.Scope scope,
+  String target,
+) =>
+    (String other) => target + other;
 Function _String_substring$(
   m.Scope scope,
   String target,
@@ -2402,6 +3937,11 @@ Function _String_trimRight$(
   String target,
 ) =>
     target.trimRight;
+Function _String_times$$(
+  m.Scope scope,
+  String target,
+) =>
+    (int other) => target * other;
 Function _String_padLeft$(
   m.Scope scope,
   String target,
@@ -2422,11 +3962,58 @@ Function _String_replaceFirst$(
   String target,
 ) =>
     target.replaceFirst;
+Function _String_replaceFirstMapped$(
+  m.Scope scope,
+  String target,
+) =>
+    (
+      Pattern from,
+      m.FunctionPointer replace,
+      int? startIndex,
+    ) {
+      String replaceProxy(Match replace_match) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            replace,
+            [replace_match],
+            {},
+          );
+      if (startIndex == null) {}
+      return target.replaceFirstMapped(
+        from,
+        replaceProxy,
+      );
+      return target.replaceFirstMapped(
+        from,
+        replaceProxy,
+        startIndex ?? 0,
+      );
+    };
 Function _String_replaceAll$(
   m.Scope scope,
   String target,
 ) =>
     target.replaceAll;
+Function _String_replaceAllMapped$(
+  m.Scope scope,
+  String target,
+) =>
+    (
+      Pattern from,
+      m.FunctionPointer replace,
+    ) {
+      String replaceProxy(Match replace_match) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            replace,
+            [replace_match],
+            {},
+          );
+      return target.replaceAllMapped(
+        from,
+        replaceProxy,
+      );
+    };
 Function _String_replaceRange$(
   m.Scope scope,
   String target,
@@ -2437,6 +4024,35 @@ Function _String_split$(
   String target,
 ) =>
     target.split;
+Function _String_splitMapJoin$(
+  m.Scope scope,
+  String target,
+) =>
+    (
+      Pattern pattern, {
+      m.FunctionPointer? onMatch,
+      m.FunctionPointer? onNonMatch,
+    }) {
+      String onMatchProxy(Match onMatch_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onMatch!,
+            [onMatch_$p0],
+            {},
+          );
+      String onNonMatchProxy(String onNonMatch_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onNonMatch!,
+            [onNonMatch_$p0],
+            {},
+          );
+      return target.splitMapJoin(
+        pattern,
+        onMatch: onMatch == null ? null : onMatchProxy,
+        onNonMatch: onNonMatch == null ? null : onNonMatchProxy,
+      );
+    };
 Function _String_toLowerCase$(
   m.Scope scope,
   String target,
@@ -2447,6 +4063,16 @@ Function _String_toUpperCase$(
   String target,
 ) =>
     target.toUpperCase;
+Function Runes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Runes;
+Function Runes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Runes;
 String _Runes_string$(Runes target) {
   return target.string;
 }
@@ -2459,6 +4085,16 @@ int _Runes_last$(Runes target) {
   return target.last;
 }
 
+Function RuneIterator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RuneIterator;
+Function RuneIterator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RuneIterator;
 String _RuneIterator_string$(RuneIterator target) {
   return target.string;
 }
@@ -2501,6 +4137,16 @@ Function _RuneIterator_movePrevious$(
   RuneIterator target,
 ) =>
     target.movePrevious;
+Function StringBuffer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringBuffer;
+Function StringBuffer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringBuffer;
 int _StringBuffer_length$(StringBuffer target) {
   return target.length;
 }
@@ -2543,6 +4189,16 @@ Function _StringBuffer_toString$(
   StringBuffer target,
 ) =>
     target.toString;
+Function StringSink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringSink;
+Function StringSink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringSink;
 Function _StringSink_write$(
   m.Scope scope,
   StringSink target,
@@ -2563,6 +4219,16 @@ Function _StringSink_writeCharCode$(
   StringSink target,
 ) =>
     target.writeCharCode;
+Function Symbol_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Symbol;
+Function Symbol_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Symbol;
 Symbol _Symbol_unaryMinus$() {
   return Symbol.unaryMinus;
 }
@@ -2575,15 +4241,45 @@ int _Symbol_hashCode$(Symbol target) {
   return target.hashCode;
 }
 
+Function _Symbol_eq$$(
+  m.Scope scope,
+  Symbol target,
+) =>
+    (Object other) => target == other;
+Function Type_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Type;
+Function Type_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Type;
 int _Type_hashCode$(Type target) {
   return target.hashCode;
 }
 
+Function _Type_eq$$(
+  m.Scope scope,
+  Type target,
+) =>
+    (Object other) => target == other;
 Function _Type_toString$(
   m.Scope scope,
   Type target,
 ) =>
     target.toString;
+Function Uri_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uri;
+Function Uri_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uri;
 Uri _Uri_base$() {
   return Uri.base;
 }
@@ -2686,6 +4382,11 @@ Function _Uri_toFilePath$(
   Uri target,
 ) =>
     target.toFilePath;
+Function _Uri_eq$$(
+  m.Scope scope,
+  Uri target,
+) =>
+    (Object other) => target == other;
 Function _Uri_toString$(
   m.Scope scope,
   Uri target,
@@ -2727,6 +4428,16 @@ Function _Uri_decodeFull$(m.Scope scope) => Uri.decodeFull;
 Function _Uri_splitQueryString$(m.Scope scope) => Uri.splitQueryString;
 Function _Uri_parseIPv4Address$(m.Scope scope) => Uri.parseIPv4Address;
 Function _Uri_parseIPv6Address$(m.Scope scope) => Uri.parseIPv6Address;
+Function UriData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UriData;
+Function UriData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UriData;
 Uri _UriData_uri$(UriData target) {
   return target.uri;
 }
@@ -2782,6 +4493,16 @@ Function _UriData_toString$(
   UriData target,
 ) =>
     target.toString;
+Function Expando_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Expando<T>;
+Function Expando_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Expando<T>;
 String? _Expando_name$<T extends Object>(Expando<T> target) {
   return target.name;
 }
@@ -2791,10 +4512,44 @@ Function _Expando_toString$<T extends Object>(
   Expando<T> target,
 ) =>
     target.toString;
+Function _Expando_$index$$<T extends Object>(
+  m.Scope scope,
+  Expando<T> target,
+) =>
+    (Object index) => target[index];
+Function _Expando_$index_set$$<T extends Object>(
+  m.Scope scope,
+  Expando<T> target,
+) =>
+    (
+      Object index,
+      T? other,
+    ) =>
+        target[index] = other;
+Function WeakReference_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WeakReference<T>;
+Function WeakReference_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WeakReference<T>;
 T? _WeakReference_target$<T extends Object>(WeakReference<T> target) {
   return target.target;
 }
 
+Function Finalizer_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Finalizer<T>;
+Function Finalizer_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Finalizer<T>;
 Function _Finalizer_attach$<T>(
   m.Scope scope,
   Finalizer<T> target,

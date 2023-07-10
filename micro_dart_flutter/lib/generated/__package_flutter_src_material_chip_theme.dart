@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'ChipTheme': m.ClassMirror(
       'ChipTheme',
       {
+        '#as': ChipTheme_as$,
+        '#is': ChipTheme_is$,
         'data': _ChipTheme_data$,
         'wrap': _ChipTheme_wrap$,
         'updateShouldNotify': _ChipTheme_updateShouldNotify$,
@@ -30,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'ChipThemeData': m.ClassMirror(
       'ChipThemeData',
       {
+        '#as': ChipThemeData_as$,
+        '#is': ChipThemeData_is$,
         'backgroundColor': _ChipThemeData_backgroundColor$,
         'deleteIconColor': _ChipThemeData_deleteIconColor$,
         'disabledColor': _ChipThemeData_disabledColor$,
@@ -52,12 +56,23 @@ const libraryMirror = m.LibraryMirror(
         'iconTheme': _ChipThemeData_iconTheme$,
         'hashCode': _ChipThemeData_hashCode$,
         'copyWith': _ChipThemeData_copyWith$,
+        '==': _ChipThemeData_eq$$,
         'debugFillProperties': _ChipThemeData_debugFillProperties$,
       },
       {},
     ),
   },
 );
+Function ChipTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChipTheme;
+Function ChipTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChipTheme;
 ChipThemeData _ChipTheme_data$(ChipTheme target) {
   return target.data;
 }
@@ -73,6 +88,16 @@ Function _ChipTheme_updateShouldNotify$(
   ChipTheme target,
 ) =>
     target.updateShouldNotify;
+Function ChipThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChipThemeData;
+Function ChipThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChipThemeData;
 Color? _ChipThemeData_backgroundColor$(ChipThemeData target) {
   return target.backgroundColor;
 }
@@ -163,6 +188,11 @@ Function _ChipThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _ChipThemeData_lerp$(m.Scope scope) => ChipThemeData.lerp;
+Function _ChipThemeData_eq$$(
+  m.Scope scope,
+  ChipThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ChipThemeData_debugFillProperties$(
   m.Scope scope,
   ChipThemeData target,

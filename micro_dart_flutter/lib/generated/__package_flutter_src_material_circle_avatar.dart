@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CircleAvatar': m.ClassMirror(
       'CircleAvatar',
       {
+        '#as': CircleAvatar_as$,
+        '#is': CircleAvatar_is$,
         'child': _CircleAvatar_child$,
         'backgroundColor': _CircleAvatar_backgroundColor$,
         'foregroundColor': _CircleAvatar_foregroundColor$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CircleAvatar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CircleAvatar;
+Function CircleAvatar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CircleAvatar;
 Widget? _CircleAvatar_child$(CircleAvatar target) {
   return target.child;
 }

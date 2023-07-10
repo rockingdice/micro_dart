@@ -14,12 +14,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'ListBodyParentData': m.ClassMirror(
       'ListBodyParentData',
-      {},
+      {
+        '#as': ListBodyParentData_as$,
+        '#is': ListBodyParentData_is$,
+      },
       {},
     ),
     'RenderListBody': m.ClassMirror(
       'RenderListBody',
       {
+        '#as': RenderListBody_as$,
+        '#is': RenderListBody_is$,
         'axisDirection': _RenderListBody_axisDirection$,
         'mainAxis': _RenderListBody_mainAxis$,
         'setupParentData': _RenderListBody_setupParentData$,
@@ -39,6 +44,26 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ListBodyParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListBodyParentData;
+Function ListBodyParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListBodyParentData;
+Function RenderListBody_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderListBody;
+Function RenderListBody_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderListBody;
 AxisDirection _RenderListBody_axisDirection$(RenderListBody target) {
   return target.axisDirection;
 }

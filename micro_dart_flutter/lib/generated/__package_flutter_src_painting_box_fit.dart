@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'FittedSizes': m.ClassMirror(
       'FittedSizes',
       {
+        '#as': FittedSizes_as$,
+        '#is': FittedSizes_is$,
         'source': _FittedSizes_source$,
         'destination': _FittedSizes_destination$,
       },
@@ -37,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FittedSizes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FittedSizes;
+Function FittedSizes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FittedSizes;
 Size _FittedSizes_source$(FittedSizes target) {
   return target.source;
 }

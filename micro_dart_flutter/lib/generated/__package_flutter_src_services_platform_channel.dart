@@ -16,12 +16,18 @@ import 'package:flutter/src/services/message_codecs.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/platform_channel.dart',
-  {},
+  {
+    'BasicMessageChannel.setMessageHandler':
+        _BasicMessageChannel_setMessageHandler$,
+    'MethodChannel.setMethodCallHandler': _MethodChannel_setMethodCallHandler$,
+  },
   {},
   {
     'BasicMessageChannel': m.ClassMirror(
       'BasicMessageChannel',
       {
+        '#as': BasicMessageChannel_as$,
+        '#is': BasicMessageChannel_is$,
         'name': _BasicMessageChannel_name$,
         'codec': _BasicMessageChannel_codec$,
         'binaryMessenger': _BasicMessageChannel_binaryMessenger$,
@@ -32,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'MethodChannel': m.ClassMirror(
       'MethodChannel',
       {
+        '#as': MethodChannel_as$,
+        '#is': MethodChannel_is$,
         'name': _MethodChannel_name$,
         'codec': _MethodChannel_codec$,
         'binaryMessenger': _MethodChannel_binaryMessenger$,
@@ -43,12 +51,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'OptionalMethodChannel': m.ClassMirror(
       'OptionalMethodChannel',
-      {'invokeMethod': _OptionalMethodChannel_invokeMethod$},
+      {
+        '#as': OptionalMethodChannel_as$,
+        '#is': OptionalMethodChannel_is$,
+        'invokeMethod': _OptionalMethodChannel_invokeMethod$,
+      },
       {},
     ),
     'EventChannel': m.ClassMirror(
       'EventChannel',
       {
+        '#as': EventChannel_as$,
+        '#is': EventChannel_is$,
         'name': _EventChannel_name$,
         'codec': _EventChannel_codec$,
         'binaryMessenger': _EventChannel_binaryMessenger$,
@@ -58,6 +72,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BasicMessageChannel_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BasicMessageChannel<T>;
+Function BasicMessageChannel_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BasicMessageChannel<T>;
 String _BasicMessageChannel_name$<T>(BasicMessageChannel<T> target) {
   return target.name;
 }
@@ -76,6 +100,30 @@ Function _BasicMessageChannel_send$<T>(
   BasicMessageChannel<T> target,
 ) =>
     target.send;
+Function _BasicMessageChannel_setMessageHandler$<T>(
+  m.Scope scope,
+  BasicMessageChannel<T> target,
+) =>
+    (m.FunctionPointer? handler) {
+      Future<T> handlerProxy(T? handler_message) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            handler!,
+            [handler_message],
+            {},
+          );
+      target.setMessageHandler(handler == null ? null : handlerProxy);
+    };
+Function MethodChannel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MethodChannel;
+Function MethodChannel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MethodChannel;
 String _MethodChannel_name$(MethodChannel target) {
   return target.name;
 }
@@ -103,11 +151,45 @@ Function _MethodChannel_invokeMapMethod$<K, V>(
   MethodChannel target,
 ) =>
     target.invokeMapMethod<K, V>;
+Function _MethodChannel_setMethodCallHandler$(
+  m.Scope scope,
+  MethodChannel target,
+) =>
+    (m.FunctionPointer? handler) {
+      Future<dynamic> handlerProxy(MethodCall handler_call) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            handler!,
+            [handler_call],
+            {},
+          );
+      target.setMethodCallHandler(handler == null ? null : handlerProxy);
+    };
+Function OptionalMethodChannel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OptionalMethodChannel;
+Function OptionalMethodChannel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OptionalMethodChannel;
 Function _OptionalMethodChannel_invokeMethod$<T>(
   m.Scope scope,
   OptionalMethodChannel target,
 ) =>
     target.invokeMethod<T>;
+Function EventChannel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EventChannel;
+Function EventChannel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EventChannel;
 String _EventChannel_name$(EventChannel target) {
   return target.name;
 }

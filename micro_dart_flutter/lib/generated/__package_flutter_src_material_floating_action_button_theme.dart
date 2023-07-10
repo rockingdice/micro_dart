@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'FloatingActionButtonThemeData': m.ClassMirror(
       'FloatingActionButtonThemeData',
       {
+        '#as': FloatingActionButtonThemeData_as$,
+        '#is': FloatingActionButtonThemeData_is$,
         'foregroundColor': _FloatingActionButtonThemeData_foregroundColor$,
         'backgroundColor': _FloatingActionButtonThemeData_backgroundColor$,
         'focusColor': _FloatingActionButtonThemeData_focusColor$,
@@ -44,6 +46,7 @@ const libraryMirror = m.LibraryMirror(
         'mouseCursor': _FloatingActionButtonThemeData_mouseCursor$,
         'hashCode': _FloatingActionButtonThemeData_hashCode$,
         'copyWith': _FloatingActionButtonThemeData_copyWith$,
+        '==': _FloatingActionButtonThemeData_eq$$,
         'debugFillProperties':
             _FloatingActionButtonThemeData_debugFillProperties$,
       },
@@ -51,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FloatingActionButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingActionButtonThemeData;
+Function FloatingActionButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingActionButtonThemeData;
 Color? _FloatingActionButtonThemeData_foregroundColor$(
     FloatingActionButtonThemeData target) {
   return target.foregroundColor;
@@ -169,6 +182,11 @@ Function _FloatingActionButtonThemeData_copyWith$(
     target.copyWith;
 Function _FloatingActionButtonThemeData_lerp$(m.Scope scope) =>
     FloatingActionButtonThemeData.lerp;
+Function _FloatingActionButtonThemeData_eq$$(
+  m.Scope scope,
+  FloatingActionButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _FloatingActionButtonThemeData_debugFillProperties$(
   m.Scope scope,
   FloatingActionButtonThemeData target,

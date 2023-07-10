@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'Badge': m.ClassMirror(
       'Badge',
       {
+        '#as': Badge_as$,
+        '#is': Badge_is$,
         'backgroundColor': _Badge_backgroundColor$,
         'textColor': _Badge_textColor$,
         'smallSize': _Badge_smallSize$,
@@ -34,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Badge_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Badge;
+Function Badge_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Badge;
 Color? _Badge_backgroundColor$(Badge target) {
   return target.backgroundColor;
 }

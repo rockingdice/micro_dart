@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'Dialog': m.ClassMirror(
       'Dialog',
       {
+        '#as': Dialog_as$,
+        '#is': Dialog_is$,
         'backgroundColor': _Dialog_backgroundColor$,
         'elevation': _Dialog_elevation$,
         'shadowColor': _Dialog_shadowColor$,
@@ -43,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'AlertDialog': m.ClassMirror(
       'AlertDialog',
       {
+        '#as': AlertDialog_as$,
+        '#is': AlertDialog_is$,
         'icon': _AlertDialog_icon$,
         'iconColor': _AlertDialog_iconColor$,
         'iconPadding': _AlertDialog_iconPadding$,
@@ -77,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'SimpleDialogOption': m.ClassMirror(
       'SimpleDialogOption',
       {
+        '#as': SimpleDialogOption_as$,
+        '#is': SimpleDialogOption_is$,
         'onPressed': _SimpleDialogOption_onPressed$,
         'child': _SimpleDialogOption_child$,
         'padding': _SimpleDialogOption_padding$,
@@ -87,6 +93,8 @@ const libraryMirror = m.LibraryMirror(
     'SimpleDialog': m.ClassMirror(
       'SimpleDialog',
       {
+        '#as': SimpleDialog_as$,
+        '#is': SimpleDialog_is$,
         'title': _SimpleDialog_title$,
         'titlePadding': _SimpleDialog_titlePadding$,
         'titleTextStyle': _SimpleDialog_titleTextStyle$,
@@ -107,11 +115,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DialogRoute': m.ClassMirror(
       'DialogRoute',
-      {},
+      {
+        '#as': DialogRoute_as$,
+        '#is': DialogRoute_is$,
+      },
       {},
     ),
   },
 );
+Function Dialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Dialog;
+Function Dialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Dialog;
 Color? _Dialog_backgroundColor$(Dialog target) {
   return target.backgroundColor;
 }
@@ -161,6 +182,16 @@ Function _Dialog_build$(
   Dialog target,
 ) =>
     target.build;
+Function AlertDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlertDialog;
+Function AlertDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlertDialog;
 Widget? _AlertDialog_icon$(AlertDialog target) {
   return target.icon;
 }
@@ -271,6 +302,16 @@ Function _AlertDialog_build$(
   AlertDialog target,
 ) =>
     target.build;
+Function SimpleDialogOption_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SimpleDialogOption;
+Function SimpleDialogOption_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SimpleDialogOption;
 void Function()? _SimpleDialogOption_onPressed$(SimpleDialogOption target) {
   return target.onPressed;
 }
@@ -288,6 +329,16 @@ Function _SimpleDialogOption_build$(
   SimpleDialogOption target,
 ) =>
     target.build;
+Function SimpleDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SimpleDialog;
+Function SimpleDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SimpleDialog;
 Widget? _SimpleDialog_title$(SimpleDialog target) {
   return target.title;
 }
@@ -349,17 +400,27 @@ Function _SimpleDialog_build$(
   SimpleDialog target,
 ) =>
     target.build;
-Function _showDialog$(m.Scope scope) => <T>(
-      BuildContext context,
-      m.FunctionPointer builder, {
-      bool? barrierDismissible,
-      Color? barrierColor,
-      String? barrierLabel,
-      bool? useSafeArea,
-      bool? useRootNavigator,
-      RouteSettings? routeSettings,
+Function DialogRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DialogRoute<T>;
+Function DialogRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DialogRoute<T>;
+Function _showDialog$(m.Scope scope) => <T>({
       Offset? anchorPoint,
+      Color? barrierColor,
+      bool? barrierDismissible,
+      String? barrierLabel,
+      required m.FunctionPointer builder,
+      required BuildContext context,
+      RouteSettings? routeSettings,
       TraversalEdgeBehavior? traversalEdgeBehavior,
+      bool? useRootNavigator,
+      bool? useSafeArea,
     }) {
       Widget builderProxy(BuildContext builder_context) =>
           scope.engine.callFunctionPointer(

@@ -32,6 +32,8 @@ import 'package:flutter/src/widgets/widget_inspector.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/binding.dart',
   {
+    'RenderObjectToWidgetElement.visitChildren':
+        _RenderObjectToWidgetElement_visitChildren$,
     'WidgetsFlutterBinding.ensureInitialized':
         _WidgetsFlutterBinding_ensureInitialized$,
     'runApp': _runApp$,
@@ -42,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'WidgetsBindingObserver': m.ClassMirror(
       'WidgetsBindingObserver',
       {
+        '#as': WidgetsBindingObserver_as$,
+        '#is': WidgetsBindingObserver_is$,
         'didPopRoute': _WidgetsBindingObserver_didPopRoute$,
         'didPushRoute': _WidgetsBindingObserver_didPushRoute$,
         'didPushRouteInformation':
@@ -64,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderObjectToWidgetAdapter': m.ClassMirror(
       'RenderObjectToWidgetAdapter',
       {
+        '#as': RenderObjectToWidgetAdapter_as$,
+        '#is': RenderObjectToWidgetAdapter_is$,
         'child': _RenderObjectToWidgetAdapter_child$,
         'container': _RenderObjectToWidgetAdapter_container$,
         'debugShortDescription':
@@ -79,6 +85,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderObjectToWidgetElement': m.ClassMirror(
       'RenderObjectToWidgetElement',
       {
+        '#as': RenderObjectToWidgetElement_as$,
+        '#is': RenderObjectToWidgetElement_is$,
         'renderObject': _RenderObjectToWidgetElement_renderObject$,
         'forgetChild': _RenderObjectToWidgetElement_forgetChild$,
         'mount': _RenderObjectToWidgetElement_mount$,
@@ -95,11 +103,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'WidgetsFlutterBinding': m.ClassMirror(
       'WidgetsFlutterBinding',
-      {},
+      {
+        '#as': WidgetsFlutterBinding_as$,
+        '#is': WidgetsFlutterBinding_is$,
+      },
       {},
     ),
   },
 );
+Function WidgetsBindingObserver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetsBindingObserver;
+Function WidgetsBindingObserver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetsBindingObserver;
 Function _WidgetsBindingObserver_didPopRoute$(
   m.Scope scope,
   WidgetsBindingObserver target,
@@ -155,6 +176,16 @@ Function _WidgetsBindingObserver_didChangeAccessibilityFeatures$(
   WidgetsBindingObserver target,
 ) =>
     target.didChangeAccessibilityFeatures;
+Function RenderObjectToWidgetAdapter_as$<T extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderObjectToWidgetAdapter<T>;
+Function RenderObjectToWidgetAdapter_is$<T extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderObjectToWidgetAdapter<T>;
 Widget? _RenderObjectToWidgetAdapter_child$<T extends RenderObject>(
     RenderObjectToWidgetAdapter<T> target) {
   return target.child;
@@ -200,12 +231,36 @@ Function _RenderObjectToWidgetAdapter_toStringShort$<T extends RenderObject>(
   RenderObjectToWidgetAdapter<T> target,
 ) =>
     target.toStringShort;
+Function RenderObjectToWidgetElement_as$<T extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderObjectToWidgetElement<T>;
+Function RenderObjectToWidgetElement_is$<T extends RenderObject>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderObjectToWidgetElement<T>;
 RenderObjectWithChildMixin<T>
     _RenderObjectToWidgetElement_renderObject$<T extends RenderObject>(
         RenderObjectToWidgetElement<T> target) {
   return target.renderObject;
 }
 
+Function _RenderObjectToWidgetElement_visitChildren$<T extends RenderObject>(
+  m.Scope scope,
+  RenderObjectToWidgetElement<T> target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _RenderObjectToWidgetElement_forgetChild$<T extends RenderObject>(
   m.Scope scope,
   RenderObjectToWidgetElement<T> target,
@@ -244,6 +299,16 @@ Function _RenderObjectToWidgetElement_removeRenderObjectChild$<
   RenderObjectToWidgetElement<T> target,
 ) =>
     target.removeRenderObjectChild;
+Function WidgetsFlutterBinding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetsFlutterBinding;
+Function WidgetsFlutterBinding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetsFlutterBinding;
 Function _WidgetsFlutterBinding_ensureInitialized$(m.Scope scope) =>
     WidgetsFlutterBinding.ensureInitialized;
 Function _runApp$(m.Scope scope) => runApp;

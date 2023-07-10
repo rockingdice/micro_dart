@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonStyle': m.ClassMirror(
       'ButtonStyle',
       {
+        '#as': ButtonStyle_as$,
+        '#is': ButtonStyle_is$,
         'textStyle': _ButtonStyle_textStyle$,
         'backgroundColor': _ButtonStyle_backgroundColor$,
         'foregroundColor': _ButtonStyle_foregroundColor$,
@@ -44,12 +46,23 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _ButtonStyle_hashCode$,
         'copyWith': _ButtonStyle_copyWith$,
         'merge': _ButtonStyle_merge$,
+        '==': _ButtonStyle_eq$$,
         'debugFillProperties': _ButtonStyle_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function ButtonStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonStyle;
+Function ButtonStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonStyle;
 MaterialStateProperty<TextStyle?>? _ButtonStyle_textStyle$(ButtonStyle target) {
   return target.textStyle;
 }
@@ -158,6 +171,11 @@ Function _ButtonStyle_merge$(
   ButtonStyle target,
 ) =>
     target.merge;
+Function _ButtonStyle_eq$$(
+  m.Scope scope,
+  ButtonStyle target,
+) =>
+    (Object other) => target == other;
 Function _ButtonStyle_debugFillProperties$(
   m.Scope scope,
   ButtonStyle target,

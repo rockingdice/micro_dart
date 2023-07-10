@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialButton': m.ClassMirror(
       'MaterialButton',
       {
+        '#as': MaterialButton_as$,
+        '#is': MaterialButton_is$,
         'onPressed': _MaterialButton_onPressed$,
         'onLongPress': _MaterialButton_onLongPress$,
         'onHighlightChanged': _MaterialButton_onHighlightChanged$,
@@ -61,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function MaterialButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialButton;
+Function MaterialButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialButton;
 void Function()? _MaterialButton_onPressed$(MaterialButton target) {
   return target.onPressed;
 }

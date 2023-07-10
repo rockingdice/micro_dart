@@ -50,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataAndroid': m.ClassMirror(
       'RawKeyEventDataAndroid',
       {
+        '#as': RawKeyEventDataAndroid_as$,
+        '#is': RawKeyEventDataAndroid_is$,
         'flags': _RawKeyEventDataAndroid_flags$,
         'codePoint': _RawKeyEventDataAndroid_codePoint$,
         'plainCodePoint': _RawKeyEventDataAndroid_plainCodePoint$,
@@ -68,11 +70,22 @@ const libraryMirror = m.LibraryMirror(
         'isModifierPressed': _RawKeyEventDataAndroid_isModifierPressed$,
         'getModifierSide': _RawKeyEventDataAndroid_getModifierSide$,
         'debugFillProperties': _RawKeyEventDataAndroid_debugFillProperties$,
+        '==': _RawKeyEventDataAndroid_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataAndroid_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataAndroid;
+Function RawKeyEventDataAndroid_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataAndroid;
 int _RawKeyEventDataAndroid_flags$(RawKeyEventDataAndroid target) {
   return target.flags;
 }
@@ -222,3 +235,8 @@ Function _RawKeyEventDataAndroid_debugFillProperties$(
   RawKeyEventDataAndroid target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataAndroid_eq$$(
+  m.Scope scope,
+  RawKeyEventDataAndroid target,
+) =>
+    (Object other) => target == other;

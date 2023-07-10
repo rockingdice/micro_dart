@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'DropdownMenuItem': m.ClassMirror(
       'DropdownMenuItem',
       {
+        '#as': DropdownMenuItem_as$,
+        '#is': DropdownMenuItem_is$,
         'onTap': _DropdownMenuItem_onTap$,
         'value': _DropdownMenuItem_value$,
         'enabled': _DropdownMenuItem_enabled$,
@@ -38,12 +40,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DropdownButtonHideUnderline': m.ClassMirror(
       'DropdownButtonHideUnderline',
-      {'updateShouldNotify': _DropdownButtonHideUnderline_updateShouldNotify$},
+      {
+        '#as': DropdownButtonHideUnderline_as$,
+        '#is': DropdownButtonHideUnderline_is$,
+        'updateShouldNotify': _DropdownButtonHideUnderline_updateShouldNotify$,
+      },
       {},
     ),
     'DropdownButton': m.ClassMirror(
       'DropdownButton',
       {
+        '#as': DropdownButton_as$,
+        '#is': DropdownButton_is$,
         'items': _DropdownButton_items$,
         'value': _DropdownButton_value$,
         'hint': _DropdownButton_hint$,
@@ -77,6 +85,8 @@ const libraryMirror = m.LibraryMirror(
     'DropdownButtonFormField': m.ClassMirror(
       'DropdownButtonFormField',
       {
+        '#as': DropdownButtonFormField_as$,
+        '#is': DropdownButtonFormField_is$,
         'onChanged': _DropdownButtonFormField_onChanged$,
         'decoration': _DropdownButtonFormField_decoration$,
         'createState': _DropdownButtonFormField_createState$,
@@ -85,6 +95,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DropdownMenuItem_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownMenuItem<T>;
+Function DropdownMenuItem_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownMenuItem<T>;
 void Function()? _DropdownMenuItem_onTap$<T>(DropdownMenuItem<T> target) {
   return target.onTap;
 }
@@ -97,6 +117,16 @@ bool _DropdownMenuItem_enabled$<T>(DropdownMenuItem<T> target) {
   return target.enabled;
 }
 
+Function DropdownButtonHideUnderline_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownButtonHideUnderline;
+Function DropdownButtonHideUnderline_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownButtonHideUnderline;
 Function _DropdownButtonHideUnderline_at$(m.Scope scope) =>
     DropdownButtonHideUnderline.at;
 Function _DropdownButtonHideUnderline_updateShouldNotify$(
@@ -104,6 +134,16 @@ Function _DropdownButtonHideUnderline_updateShouldNotify$(
   DropdownButtonHideUnderline target,
 ) =>
     target.updateShouldNotify;
+Function DropdownButton_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownButton<T>;
+Function DropdownButton_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownButton<T>;
 List<DropdownMenuItem<T>>? _DropdownButton_items$<T>(DropdownButton<T> target) {
   return target.items;
 }
@@ -214,6 +254,16 @@ Function _DropdownButton_createState$<T>(
   DropdownButton<T> target,
 ) =>
     target.createState;
+Function DropdownButtonFormField_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownButtonFormField<T>;
+Function DropdownButtonFormField_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownButtonFormField<T>;
 void Function(T?)? _DropdownButtonFormField_onChanged$<T>(
     DropdownButtonFormField<T> target) {
   return target.onChanged;

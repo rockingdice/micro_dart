@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'Drawer': m.ClassMirror(
       'Drawer',
       {
+        '#as': Drawer_as$,
+        '#is': Drawer_is$,
         'backgroundColor': _Drawer_backgroundColor$,
         'elevation': _Drawer_elevation$,
         'shadowColor': _Drawer_shadowColor$,
@@ -44,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'DrawerController': m.ClassMirror(
       'DrawerController',
       {
+        '#as': DrawerController_as$,
+        '#is': DrawerController_is$,
         'child': _DrawerController_child$,
         'alignment': _DrawerController_alignment$,
         'drawerCallback': _DrawerController_drawerCallback$,
@@ -59,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
     'DrawerControllerState': m.ClassMirror(
       'DrawerControllerState',
       {
+        '#as': DrawerControllerState_as$,
+        '#is': DrawerControllerState_is$,
         'initState': _DrawerControllerState_initState$,
         'dispose': _DrawerControllerState_dispose$,
         'didChangeDependencies': _DrawerControllerState_didChangeDependencies$,
@@ -76,6 +82,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Drawer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Drawer;
+Function Drawer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Drawer;
 Color? _Drawer_backgroundColor$(Drawer target) {
   return target.backgroundColor;
 }
@@ -117,6 +133,16 @@ Function _Drawer_build$(
   Drawer target,
 ) =>
     target.build;
+Function DrawerController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerController;
+Function DrawerController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerController;
 Widget _DrawerController_child$(DrawerController target) {
   return target.child;
 }
@@ -158,6 +184,16 @@ Function _DrawerController_createState$(
   DrawerController target,
 ) =>
     target.createState;
+Function DrawerControllerState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerControllerState;
+Function DrawerControllerState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerControllerState;
 Function _DrawerControllerState_initState$(
   m.Scope scope,
   DrawerControllerState target,

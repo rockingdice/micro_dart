@@ -13,12 +13,14 @@ import 'package:flutter/src/rendering/debug.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/layer.dart',
-  {},
+  {'Layer.addCompositionCallback': _Layer_addCompositionCallback$},
   {},
   {
     'AnnotationEntry': m.ClassMirror(
       'AnnotationEntry',
       {
+        '#as': AnnotationEntry_as$,
+        '#is': AnnotationEntry_is$,
         'annotation': _AnnotationEntry_annotation$,
         'localPosition': _AnnotationEntry_localPosition$,
         'toString': _AnnotationEntry_toString$,
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'AnnotationResult': m.ClassMirror(
       'AnnotationResult',
       {
+        '#as': AnnotationResult_as$,
+        '#is': AnnotationResult_is$,
         'entries': _AnnotationResult_entries$,
         'annotations': _AnnotationResult_annotations$,
         'add': _AnnotationResult_add$,
@@ -37,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'Layer': m.ClassMirror(
       'Layer',
       {
+        '#as': Layer_as$,
+        '#is': Layer_is$,
         'debugCreator': _Layer_debugCreator$,
         'subtreeHasCompositionCallbacks':
             _Layer_subtreeHasCompositionCallbacks$,
@@ -72,6 +78,8 @@ const libraryMirror = m.LibraryMirror(
     'LayerHandle': m.ClassMirror(
       'LayerHandle',
       {
+        '#as': LayerHandle_as$,
+        '#is': LayerHandle_is$,
         'layer': _LayerHandle_layer$,
         'toString': _LayerHandle_toString$,
       },
@@ -80,6 +88,8 @@ const libraryMirror = m.LibraryMirror(
     'PictureLayer': m.ClassMirror(
       'PictureLayer',
       {
+        '#as': PictureLayer_as$,
+        '#is': PictureLayer_is$,
         'canvasBounds': _PictureLayer_canvasBounds$,
         'picture': _PictureLayer_picture$,
         'isComplexHint': _PictureLayer_isComplexHint$,
@@ -98,6 +108,8 @@ const libraryMirror = m.LibraryMirror(
     'TextureLayer': m.ClassMirror(
       'TextureLayer',
       {
+        '#as': TextureLayer_as$,
+        '#is': TextureLayer_is$,
         'rect': _TextureLayer_rect$,
         'textureId': _TextureLayer_textureId$,
         'freeze': _TextureLayer_freeze$,
@@ -110,6 +122,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewLayer': m.ClassMirror(
       'PlatformViewLayer',
       {
+        '#as': PlatformViewLayer_as$,
+        '#is': PlatformViewLayer_is$,
         'rect': _PlatformViewLayer_rect$,
         'viewId': _PlatformViewLayer_viewId$,
         'supportsRasterization': _PlatformViewLayer_supportsRasterization$,
@@ -120,6 +134,8 @@ const libraryMirror = m.LibraryMirror(
     'PerformanceOverlayLayer': m.ClassMirror(
       'PerformanceOverlayLayer',
       {
+        '#as': PerformanceOverlayLayer_as$,
+        '#is': PerformanceOverlayLayer_is$,
         'optionsMask': _PerformanceOverlayLayer_optionsMask$,
         'rasterizerThreshold': _PerformanceOverlayLayer_rasterizerThreshold$,
         'checkerboardRasterCacheImages':
@@ -135,6 +151,8 @@ const libraryMirror = m.LibraryMirror(
     'ContainerLayer': m.ClassMirror(
       'ContainerLayer',
       {
+        '#as': ContainerLayer_as$,
+        '#is': ContainerLayer_is$,
         'firstChild': _ContainerLayer_firstChild$,
         'lastChild': _ContainerLayer_lastChild$,
         'hasChildren': _ContainerLayer_hasChildren$,
@@ -159,6 +177,8 @@ const libraryMirror = m.LibraryMirror(
     'OffsetLayer': m.ClassMirror(
       'OffsetLayer',
       {
+        '#as': OffsetLayer_as$,
+        '#is': OffsetLayer_is$,
         'offset': _OffsetLayer_offset$,
         'findAnnotations': _OffsetLayer_findAnnotations$,
         'applyTransform': _OffsetLayer_applyTransform$,
@@ -172,6 +192,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipRectLayer': m.ClassMirror(
       'ClipRectLayer',
       {
+        '#as': ClipRectLayer_as$,
+        '#is': ClipRectLayer_is$,
         'clipRect': _ClipRectLayer_clipRect$,
         'clipBehavior': _ClipRectLayer_clipBehavior$,
         'describeClipBounds': _ClipRectLayer_describeClipBounds$,
@@ -187,6 +209,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipRRectLayer': m.ClassMirror(
       'ClipRRectLayer',
       {
+        '#as': ClipRRectLayer_as$,
+        '#is': ClipRRectLayer_is$,
         'clipRRect': _ClipRRectLayer_clipRRect$,
         'clipBehavior': _ClipRRectLayer_clipBehavior$,
         'describeClipBounds': _ClipRRectLayer_describeClipBounds$,
@@ -202,6 +226,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipPathLayer': m.ClassMirror(
       'ClipPathLayer',
       {
+        '#as': ClipPathLayer_as$,
+        '#is': ClipPathLayer_is$,
         'clipPath': _ClipPathLayer_clipPath$,
         'clipBehavior': _ClipPathLayer_clipBehavior$,
         'describeClipBounds': _ClipPathLayer_describeClipBounds$,
@@ -217,6 +243,8 @@ const libraryMirror = m.LibraryMirror(
     'ColorFilterLayer': m.ClassMirror(
       'ColorFilterLayer',
       {
+        '#as': ColorFilterLayer_as$,
+        '#is': ColorFilterLayer_is$,
         'colorFilter': _ColorFilterLayer_colorFilter$,
         'addToScene': _ColorFilterLayer_addToScene$,
         'debugFillProperties': _ColorFilterLayer_debugFillProperties$,
@@ -226,6 +254,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageFilterLayer': m.ClassMirror(
       'ImageFilterLayer',
       {
+        '#as': ImageFilterLayer_as$,
+        '#is': ImageFilterLayer_is$,
         'imageFilter': _ImageFilterLayer_imageFilter$,
         'addToScene': _ImageFilterLayer_addToScene$,
         'debugFillProperties': _ImageFilterLayer_debugFillProperties$,
@@ -235,6 +265,8 @@ const libraryMirror = m.LibraryMirror(
     'TransformLayer': m.ClassMirror(
       'TransformLayer',
       {
+        '#as': TransformLayer_as$,
+        '#is': TransformLayer_is$,
         'transform': _TransformLayer_transform$,
         'addToScene': _TransformLayer_addToScene$,
         'findAnnotations': _TransformLayer_findAnnotations$,
@@ -246,6 +278,8 @@ const libraryMirror = m.LibraryMirror(
     'OpacityLayer': m.ClassMirror(
       'OpacityLayer',
       {
+        '#as': OpacityLayer_as$,
+        '#is': OpacityLayer_is$,
         'alpha': _OpacityLayer_alpha$,
         'addToScene': _OpacityLayer_addToScene$,
         'debugFillProperties': _OpacityLayer_debugFillProperties$,
@@ -255,6 +289,8 @@ const libraryMirror = m.LibraryMirror(
     'ShaderMaskLayer': m.ClassMirror(
       'ShaderMaskLayer',
       {
+        '#as': ShaderMaskLayer_as$,
+        '#is': ShaderMaskLayer_is$,
         'shader': _ShaderMaskLayer_shader$,
         'maskRect': _ShaderMaskLayer_maskRect$,
         'blendMode': _ShaderMaskLayer_blendMode$,
@@ -270,6 +306,8 @@ const libraryMirror = m.LibraryMirror(
     'BackdropFilterLayer': m.ClassMirror(
       'BackdropFilterLayer',
       {
+        '#as': BackdropFilterLayer_as$,
+        '#is': BackdropFilterLayer_is$,
         'filter': _BackdropFilterLayer_filter$,
         'blendMode': _BackdropFilterLayer_blendMode$,
         'addToScene': _BackdropFilterLayer_addToScene$,
@@ -283,6 +321,8 @@ const libraryMirror = m.LibraryMirror(
     'LayerLink': m.ClassMirror(
       'LayerLink',
       {
+        '#as': LayerLink_as$,
+        '#is': LayerLink_is$,
         'leaderSize': _LayerLink_leaderSize$,
         'leader': _LayerLink_leader$,
         'toString': _LayerLink_toString$,
@@ -292,6 +332,8 @@ const libraryMirror = m.LibraryMirror(
     'LeaderLayer': m.ClassMirror(
       'LeaderLayer',
       {
+        '#as': LeaderLayer_as$,
+        '#is': LeaderLayer_is$,
         'link': _LeaderLayer_link$,
         'offset': _LeaderLayer_offset$,
         'attach': _LeaderLayer_attach$,
@@ -309,6 +351,8 @@ const libraryMirror = m.LibraryMirror(
     'FollowerLayer': m.ClassMirror(
       'FollowerLayer',
       {
+        '#as': FollowerLayer_as$,
+        '#is': FollowerLayer_is$,
         'link': _FollowerLayer_link$,
         'showWhenUnlinked': _FollowerLayer_showWhenUnlinked$,
         'unlinkedOffset': _FollowerLayer_unlinkedOffset$,
@@ -330,6 +374,8 @@ const libraryMirror = m.LibraryMirror(
     'AnnotatedRegionLayer': m.ClassMirror(
       'AnnotatedRegionLayer',
       {
+        '#as': AnnotatedRegionLayer_as$,
+        '#is': AnnotatedRegionLayer_is$,
         'value': _AnnotatedRegionLayer_value$,
         'size': _AnnotatedRegionLayer_size$,
         'offset': _AnnotatedRegionLayer_offset$,
@@ -341,6 +387,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AnnotationEntry_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnnotationEntry<T>;
+Function AnnotationEntry_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnnotationEntry<T>;
 T _AnnotationEntry_annotation$<T>(AnnotationEntry<T> target) {
   return target.annotation;
 }
@@ -354,6 +410,16 @@ Function _AnnotationEntry_toString$<T>(
   AnnotationEntry<T> target,
 ) =>
     target.toString;
+Function AnnotationResult_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnnotationResult<T>;
+Function AnnotationResult_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnnotationResult<T>;
 Iterable<AnnotationEntry<T>> _AnnotationResult_entries$<T>(
     AnnotationResult<T> target) {
   return target.entries;
@@ -368,6 +434,16 @@ Function _AnnotationResult_add$<T>(
   AnnotationResult<T> target,
 ) =>
     target.add;
+Function Layer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Layer;
+Function Layer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Layer;
 Object? _Layer_debugCreator$(Layer target) {
   return target.debugCreator;
 }
@@ -432,6 +508,20 @@ Function _Layer_describeClipBounds$(
   Layer target,
 ) =>
     target.describeClipBounds;
+Function _Layer_addCompositionCallback$(
+  m.Scope scope,
+  Layer target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy(Layer callback_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_$p0],
+            {},
+          );
+      return target.addCompositionCallback(callbackProxy);
+    };
 Function _Layer_dispose$(
   m.Scope scope,
   Layer target,
@@ -497,6 +587,16 @@ Function _Layer_debugFillProperties$(
   Layer target,
 ) =>
     target.debugFillProperties;
+Function LayerHandle_as$<T extends Layer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LayerHandle<T>;
+Function LayerHandle_is$<T extends Layer>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LayerHandle<T>;
 T? _LayerHandle_layer$<T extends Layer>(LayerHandle<T> target) {
   return target.layer;
 }
@@ -513,6 +613,16 @@ Function _LayerHandle_toString$<T extends Layer>(
   LayerHandle<T> target,
 ) =>
     target.toString;
+Function PictureLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PictureLayer;
+Function PictureLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PictureLayer;
 Rect _PictureLayer_canvasBounds$(PictureLayer target) {
   return target.canvasBounds;
 }
@@ -570,6 +680,16 @@ Function _PictureLayer_findAnnotations$<S extends Object>(
   PictureLayer target,
 ) =>
     target.findAnnotations<S>;
+Function TextureLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextureLayer;
+Function TextureLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextureLayer;
 Rect _TextureLayer_rect$(TextureLayer target) {
   return target.rect;
 }
@@ -596,6 +716,16 @@ Function _TextureLayer_findAnnotations$<S extends Object>(
   TextureLayer target,
 ) =>
     target.findAnnotations<S>;
+Function PlatformViewLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewLayer;
+Function PlatformViewLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewLayer;
 Rect _PlatformViewLayer_rect$(PlatformViewLayer target) {
   return target.rect;
 }
@@ -614,6 +744,16 @@ Function _PlatformViewLayer_addToScene$(
   PlatformViewLayer target,
 ) =>
     target.addToScene;
+Function PerformanceOverlayLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PerformanceOverlayLayer;
+Function PerformanceOverlayLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PerformanceOverlayLayer;
 int _PerformanceOverlayLayer_optionsMask$(PerformanceOverlayLayer target) {
   return target.optionsMask;
 }
@@ -654,6 +794,16 @@ Function _PerformanceOverlayLayer_findAnnotations$<S extends Object>(
   PerformanceOverlayLayer target,
 ) =>
     target.findAnnotations<S>;
+Function ContainerLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContainerLayer;
+Function ContainerLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContainerLayer;
 Layer? _ContainerLayer_firstChild$(ContainerLayer target) {
   return target.firstChild;
 }
@@ -736,6 +886,16 @@ Function _ContainerLayer_debugDescribeChildren$(
   ContainerLayer target,
 ) =>
     target.debugDescribeChildren;
+Function OffsetLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OffsetLayer;
+Function OffsetLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OffsetLayer;
 Offset _OffsetLayer_offset$(OffsetLayer target) {
   return target.offset;
 }
@@ -777,6 +937,16 @@ Function _OffsetLayer_toImageSync$(
   OffsetLayer target,
 ) =>
     target.toImageSync;
+Function ClipRectLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRectLayer;
+Function ClipRectLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRectLayer;
 Rect? _ClipRectLayer_clipRect$(ClipRectLayer target) {
   return target.clipRect;
 }
@@ -819,6 +989,16 @@ Function _ClipRectLayer_debugFillProperties$(
   ClipRectLayer target,
 ) =>
     target.debugFillProperties;
+Function ClipRRectLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRRectLayer;
+Function ClipRRectLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRRectLayer;
 RRect? _ClipRRectLayer_clipRRect$(ClipRRectLayer target) {
   return target.clipRRect;
 }
@@ -861,6 +1041,16 @@ Function _ClipRRectLayer_debugFillProperties$(
   ClipRRectLayer target,
 ) =>
     target.debugFillProperties;
+Function ClipPathLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipPathLayer;
+Function ClipPathLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipPathLayer;
 Path? _ClipPathLayer_clipPath$(ClipPathLayer target) {
   return target.clipPath;
 }
@@ -903,6 +1093,16 @@ Function _ClipPathLayer_debugFillProperties$(
   ClipPathLayer target,
 ) =>
     target.debugFillProperties;
+Function ColorFilterLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorFilterLayer;
+Function ColorFilterLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorFilterLayer;
 ColorFilter? _ColorFilterLayer_colorFilter$(ColorFilterLayer target) {
   return target.colorFilter;
 }
@@ -924,6 +1124,16 @@ Function _ColorFilterLayer_debugFillProperties$(
   ColorFilterLayer target,
 ) =>
     target.debugFillProperties;
+Function ImageFilterLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageFilterLayer;
+Function ImageFilterLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageFilterLayer;
 ImageFilter? _ImageFilterLayer_imageFilter$(ImageFilterLayer target) {
   return target.imageFilter;
 }
@@ -945,6 +1155,16 @@ Function _ImageFilterLayer_debugFillProperties$(
   ImageFilterLayer target,
 ) =>
     target.debugFillProperties;
+Function TransformLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransformLayer;
+Function TransformLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransformLayer;
 Matrix4? _TransformLayer_transform$(TransformLayer target) {
   return target.transform;
 }
@@ -976,6 +1196,16 @@ Function _TransformLayer_debugFillProperties$(
   TransformLayer target,
 ) =>
     target.debugFillProperties;
+Function OpacityLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OpacityLayer;
+Function OpacityLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OpacityLayer;
 int? _OpacityLayer_alpha$(OpacityLayer target) {
   return target.alpha;
 }
@@ -997,6 +1227,16 @@ Function _OpacityLayer_debugFillProperties$(
   OpacityLayer target,
 ) =>
     target.debugFillProperties;
+Function ShaderMaskLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShaderMaskLayer;
+Function ShaderMaskLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShaderMaskLayer;
 Shader? _ShaderMaskLayer_shader$(ShaderMaskLayer target) {
   return target.shader;
 }
@@ -1040,6 +1280,16 @@ Function _ShaderMaskLayer_debugFillProperties$(
   ShaderMaskLayer target,
 ) =>
     target.debugFillProperties;
+Function BackdropFilterLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackdropFilterLayer;
+Function BackdropFilterLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackdropFilterLayer;
 ImageFilter? _BackdropFilterLayer_filter$(BackdropFilterLayer target) {
   return target.filter;
 }
@@ -1072,6 +1322,16 @@ Function _BackdropFilterLayer_debugFillProperties$(
   BackdropFilterLayer target,
 ) =>
     target.debugFillProperties;
+Function LayerLink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LayerLink;
+Function LayerLink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LayerLink;
 Size? _LayerLink_leaderSize$(LayerLink target) {
   return target.leaderSize;
 }
@@ -1092,6 +1352,16 @@ Function _LayerLink_toString$(
   LayerLink target,
 ) =>
     target.toString;
+Function LeaderLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LeaderLayer;
+Function LeaderLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LeaderLayer;
 LayerLink _LeaderLayer_link$(LeaderLayer target) {
   return target.link;
 }
@@ -1144,6 +1414,16 @@ Function _LeaderLayer_debugFillProperties$(
   LeaderLayer target,
 ) =>
     target.debugFillProperties;
+Function FollowerLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FollowerLayer;
+Function FollowerLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FollowerLayer;
 LayerLink _FollowerLayer_link$(FollowerLayer target) {
   return target.link;
 }
@@ -1217,6 +1497,16 @@ Function _FollowerLayer_debugFillProperties$(
   FollowerLayer target,
 ) =>
     target.debugFillProperties;
+Function AnnotatedRegionLayer_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnnotatedRegionLayer<T>;
+Function AnnotatedRegionLayer_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnnotatedRegionLayer<T>;
 T _AnnotatedRegionLayer_value$<T extends Object>(
     AnnotatedRegionLayer<T> target) {
   return target.value;

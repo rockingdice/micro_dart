@@ -16,6 +16,7 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/slider_theme.dart',
   {
     'SliderTheme.of': _SliderTheme_of$,
+    'SliderThemeData.copyWith': _SliderThemeData_copyWith$,
     'SliderThemeData.lerp': _SliderThemeData_lerp$,
     'SliderComponentShape.noThumb': _SliderComponentShape_noThumb$,
     'SliderComponentShape.noOverlay': _SliderComponentShape_noOverlay$,
@@ -35,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'SliderTheme': m.ClassMirror(
       'SliderTheme',
       {
+        '#as': SliderTheme_as$,
+        '#is': SliderTheme_is$,
         'data': _SliderTheme_data$,
         'wrap': _SliderTheme_wrap$,
         'updateShouldNotify': _SliderTheme_updateShouldNotify$,
@@ -44,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'SliderThemeData': m.ClassMirror(
       'SliderThemeData',
       {
+        '#as': SliderThemeData_as$,
+        '#is': SliderThemeData_is$,
         'trackHeight': _SliderThemeData_trackHeight$,
         'activeTrackColor': _SliderThemeData_activeTrackColor$,
         'inactiveTrackColor': _SliderThemeData_inactiveTrackColor$,
@@ -81,6 +86,7 @@ const libraryMirror = m.LibraryMirror(
         'thumbSelector': _SliderThemeData_thumbSelector$,
         'mouseCursor': _SliderThemeData_mouseCursor$,
         'hashCode': _SliderThemeData_hashCode$,
+        '==': _SliderThemeData_eq$$,
         'debugFillProperties': _SliderThemeData_debugFillProperties$,
       },
       {},
@@ -88,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'SliderComponentShape': m.ClassMirror(
       'SliderComponentShape',
       {
+        '#as': SliderComponentShape_as$,
+        '#is': SliderComponentShape_is$,
         'getPreferredSize': _SliderComponentShape_getPreferredSize$,
         'paint': _SliderComponentShape_paint$,
       },
@@ -96,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
     'SliderTickMarkShape': m.ClassMirror(
       'SliderTickMarkShape',
       {
+        '#as': SliderTickMarkShape_as$,
+        '#is': SliderTickMarkShape_is$,
         'getPreferredSize': _SliderTickMarkShape_getPreferredSize$,
         'paint': _SliderTickMarkShape_paint$,
       },
@@ -104,6 +114,8 @@ const libraryMirror = m.LibraryMirror(
     'SliderTrackShape': m.ClassMirror(
       'SliderTrackShape',
       {
+        '#as': SliderTrackShape_as$,
+        '#is': SliderTrackShape_is$,
         'getPreferredRect': _SliderTrackShape_getPreferredRect$,
         'paint': _SliderTrackShape_paint$,
       },
@@ -112,6 +124,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeSliderThumbShape': m.ClassMirror(
       'RangeSliderThumbShape',
       {
+        '#as': RangeSliderThumbShape_as$,
+        '#is': RangeSliderThumbShape_is$,
         'getPreferredSize': _RangeSliderThumbShape_getPreferredSize$,
         'paint': _RangeSliderThumbShape_paint$,
       },
@@ -120,6 +134,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeSliderValueIndicatorShape': m.ClassMirror(
       'RangeSliderValueIndicatorShape',
       {
+        '#as': RangeSliderValueIndicatorShape_as$,
+        '#is': RangeSliderValueIndicatorShape_is$,
         'getPreferredSize': _RangeSliderValueIndicatorShape_getPreferredSize$,
         'getHorizontalShift':
             _RangeSliderValueIndicatorShape_getHorizontalShift$,
@@ -130,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeSliderTickMarkShape': m.ClassMirror(
       'RangeSliderTickMarkShape',
       {
+        '#as': RangeSliderTickMarkShape_as$,
+        '#is': RangeSliderTickMarkShape_is$,
         'getPreferredSize': _RangeSliderTickMarkShape_getPreferredSize$,
         'paint': _RangeSliderTickMarkShape_paint$,
       },
@@ -138,6 +156,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeSliderTrackShape': m.ClassMirror(
       'RangeSliderTrackShape',
       {
+        '#as': RangeSliderTrackShape_as$,
+        '#is': RangeSliderTrackShape_is$,
         'getPreferredRect': _RangeSliderTrackShape_getPreferredRect$,
         'paint': _RangeSliderTrackShape_paint$,
       },
@@ -145,17 +165,27 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RectangularSliderTrackShape': m.ClassMirror(
       'RectangularSliderTrackShape',
-      {'paint': _RectangularSliderTrackShape_paint$},
+      {
+        '#as': RectangularSliderTrackShape_as$,
+        '#is': RectangularSliderTrackShape_is$,
+        'paint': _RectangularSliderTrackShape_paint$,
+      },
       {},
     ),
     'RoundedRectSliderTrackShape': m.ClassMirror(
       'RoundedRectSliderTrackShape',
-      {'paint': _RoundedRectSliderTrackShape_paint$},
+      {
+        '#as': RoundedRectSliderTrackShape_as$,
+        '#is': RoundedRectSliderTrackShape_is$,
+        'paint': _RoundedRectSliderTrackShape_paint$,
+      },
       {},
     ),
     'RectangularRangeSliderTrackShape': m.ClassMirror(
       'RectangularRangeSliderTrackShape',
       {
+        '#as': RectangularRangeSliderTrackShape_as$,
+        '#is': RectangularRangeSliderTrackShape_is$,
         'getPreferredRect': _RectangularRangeSliderTrackShape_getPreferredRect$,
         'paint': _RectangularRangeSliderTrackShape_paint$,
       },
@@ -164,6 +194,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundedRectRangeSliderTrackShape': m.ClassMirror(
       'RoundedRectRangeSliderTrackShape',
       {
+        '#as': RoundedRectRangeSliderTrackShape_as$,
+        '#is': RoundedRectRangeSliderTrackShape_is$,
         'getPreferredRect': _RoundedRectRangeSliderTrackShape_getPreferredRect$,
         'paint': _RoundedRectRangeSliderTrackShape_paint$,
       },
@@ -172,6 +204,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundSliderTickMarkShape': m.ClassMirror(
       'RoundSliderTickMarkShape',
       {
+        '#as': RoundSliderTickMarkShape_as$,
+        '#is': RoundSliderTickMarkShape_is$,
         'tickMarkRadius': _RoundSliderTickMarkShape_tickMarkRadius$,
         'getPreferredSize': _RoundSliderTickMarkShape_getPreferredSize$,
         'paint': _RoundSliderTickMarkShape_paint$,
@@ -181,6 +215,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundRangeSliderTickMarkShape': m.ClassMirror(
       'RoundRangeSliderTickMarkShape',
       {
+        '#as': RoundRangeSliderTickMarkShape_as$,
+        '#is': RoundRangeSliderTickMarkShape_is$,
         'tickMarkRadius': _RoundRangeSliderTickMarkShape_tickMarkRadius$,
         'getPreferredSize': _RoundRangeSliderTickMarkShape_getPreferredSize$,
         'paint': _RoundRangeSliderTickMarkShape_paint$,
@@ -190,6 +226,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundSliderThumbShape': m.ClassMirror(
       'RoundSliderThumbShape',
       {
+        '#as': RoundSliderThumbShape_as$,
+        '#is': RoundSliderThumbShape_is$,
         'enabledThumbRadius': _RoundSliderThumbShape_enabledThumbRadius$,
         'disabledThumbRadius': _RoundSliderThumbShape_disabledThumbRadius$,
         'elevation': _RoundSliderThumbShape_elevation$,
@@ -202,6 +240,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundRangeSliderThumbShape': m.ClassMirror(
       'RoundRangeSliderThumbShape',
       {
+        '#as': RoundRangeSliderThumbShape_as$,
+        '#is': RoundRangeSliderThumbShape_is$,
         'enabledThumbRadius': _RoundRangeSliderThumbShape_enabledThumbRadius$,
         'disabledThumbRadius': _RoundRangeSliderThumbShape_disabledThumbRadius$,
         'elevation': _RoundRangeSliderThumbShape_elevation$,
@@ -214,6 +254,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundSliderOverlayShape': m.ClassMirror(
       'RoundSliderOverlayShape',
       {
+        '#as': RoundSliderOverlayShape_as$,
+        '#is': RoundSliderOverlayShape_is$,
         'overlayRadius': _RoundSliderOverlayShape_overlayRadius$,
         'getPreferredSize': _RoundSliderOverlayShape_getPreferredSize$,
         'paint': _RoundSliderOverlayShape_paint$,
@@ -223,6 +265,8 @@ const libraryMirror = m.LibraryMirror(
     'RectangularSliderValueIndicatorShape': m.ClassMirror(
       'RectangularSliderValueIndicatorShape',
       {
+        '#as': RectangularSliderValueIndicatorShape_as$,
+        '#is': RectangularSliderValueIndicatorShape_is$,
         'getPreferredSize':
             _RectangularSliderValueIndicatorShape_getPreferredSize$,
         'paint': _RectangularSliderValueIndicatorShape_paint$,
@@ -232,6 +276,8 @@ const libraryMirror = m.LibraryMirror(
     'RectangularRangeSliderValueIndicatorShape': m.ClassMirror(
       'RectangularRangeSliderValueIndicatorShape',
       {
+        '#as': RectangularRangeSliderValueIndicatorShape_as$,
+        '#is': RectangularRangeSliderValueIndicatorShape_is$,
         'getPreferredSize':
             _RectangularRangeSliderValueIndicatorShape_getPreferredSize$,
         'getHorizontalShift':
@@ -243,6 +289,8 @@ const libraryMirror = m.LibraryMirror(
     'PaddleSliderValueIndicatorShape': m.ClassMirror(
       'PaddleSliderValueIndicatorShape',
       {
+        '#as': PaddleSliderValueIndicatorShape_as$,
+        '#is': PaddleSliderValueIndicatorShape_is$,
         'getPreferredSize': _PaddleSliderValueIndicatorShape_getPreferredSize$,
         'paint': _PaddleSliderValueIndicatorShape_paint$,
       },
@@ -251,6 +299,8 @@ const libraryMirror = m.LibraryMirror(
     'PaddleRangeSliderValueIndicatorShape': m.ClassMirror(
       'PaddleRangeSliderValueIndicatorShape',
       {
+        '#as': PaddleRangeSliderValueIndicatorShape_as$,
+        '#is': PaddleRangeSliderValueIndicatorShape_is$,
         'getPreferredSize':
             _PaddleRangeSliderValueIndicatorShape_getPreferredSize$,
         'getHorizontalShift':
@@ -262,9 +312,12 @@ const libraryMirror = m.LibraryMirror(
     'RangeValues': m.ClassMirror(
       'RangeValues',
       {
+        '#as': RangeValues_as$,
+        '#is': RangeValues_is$,
         'start': _RangeValues_start$,
         'end': _RangeValues_end$,
         'hashCode': _RangeValues_hashCode$,
+        '==': _RangeValues_eq$$,
         'toString': _RangeValues_toString$,
       },
       {},
@@ -272,9 +325,12 @@ const libraryMirror = m.LibraryMirror(
     'RangeLabels': m.ClassMirror(
       'RangeLabels',
       {
+        '#as': RangeLabels_as$,
+        '#is': RangeLabels_is$,
         'start': _RangeLabels_start$,
         'end': _RangeLabels_end$,
         'hashCode': _RangeLabels_hashCode$,
+        '==': _RangeLabels_eq$$,
         'toString': _RangeLabels_toString$,
       },
       {},
@@ -282,6 +338,8 @@ const libraryMirror = m.LibraryMirror(
     'DropSliderValueIndicatorShape': m.ClassMirror(
       'DropSliderValueIndicatorShape',
       {
+        '#as': DropSliderValueIndicatorShape_as$,
+        '#is': DropSliderValueIndicatorShape_is$,
         'getPreferredSize': _DropSliderValueIndicatorShape_getPreferredSize$,
         'paint': _DropSliderValueIndicatorShape_paint$,
       },
@@ -299,6 +357,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliderTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliderTheme;
+Function SliderTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliderTheme;
 SliderThemeData _SliderTheme_data$(SliderTheme target) {
   return target.data;
 }
@@ -314,6 +382,16 @@ Function _SliderTheme_updateShouldNotify$(
   SliderTheme target,
 ) =>
     target.updateShouldNotify;
+Function SliderThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliderThemeData;
+Function SliderThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliderThemeData;
 double? _SliderThemeData_trackHeight$(SliderThemeData target) {
   return target.trackHeight;
 }
@@ -447,12 +525,117 @@ int _SliderThemeData_hashCode$(SliderThemeData target) {
   return target.hashCode;
 }
 
+Function _SliderThemeData_copyWith$(
+  m.Scope scope,
+  SliderThemeData target,
+) =>
+    ({
+      Color? activeTickMarkColor,
+      Color? activeTrackColor,
+      Color? disabledActiveTickMarkColor,
+      Color? disabledActiveTrackColor,
+      Color? disabledInactiveTickMarkColor,
+      Color? disabledInactiveTrackColor,
+      Color? disabledSecondaryActiveTrackColor,
+      Color? disabledThumbColor,
+      Color? inactiveTickMarkColor,
+      Color? inactiveTrackColor,
+      double? minThumbSeparation,
+      MaterialStateProperty<MouseCursor?>? mouseCursor,
+      Color? overlappingShapeStrokeColor,
+      Color? overlayColor,
+      SliderComponentShape? overlayShape,
+      RangeSliderThumbShape? rangeThumbShape,
+      RangeSliderTickMarkShape? rangeTickMarkShape,
+      RangeSliderTrackShape? rangeTrackShape,
+      RangeSliderValueIndicatorShape? rangeValueIndicatorShape,
+      Color? secondaryActiveTrackColor,
+      ShowValueIndicator? showValueIndicator,
+      Color? thumbColor,
+      m.FunctionPointer? thumbSelector,
+      SliderComponentShape? thumbShape,
+      SliderTickMarkShape? tickMarkShape,
+      double? trackHeight,
+      SliderTrackShape? trackShape,
+      Color? valueIndicatorColor,
+      SliderComponentShape? valueIndicatorShape,
+      TextStyle? valueIndicatorTextStyle,
+    }) {
+      Thumb? thumbSelectorProxy(
+        TextDirection thumbSelector_textDirection,
+        RangeValues thumbSelector_values,
+        double thumbSelector_tapValue,
+        Size thumbSelector_thumbSize,
+        Size thumbSelector_trackSize,
+        double thumbSelector_dx,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            thumbSelector!,
+            [
+              thumbSelector_textDirection,
+              thumbSelector_values,
+              thumbSelector_tapValue,
+              thumbSelector_thumbSize,
+              thumbSelector_trackSize,
+              thumbSelector_dx,
+            ],
+            {},
+          );
+      return target.copyWith(
+        activeTickMarkColor: activeTickMarkColor,
+        activeTrackColor: activeTrackColor,
+        disabledActiveTickMarkColor: disabledActiveTickMarkColor,
+        disabledActiveTrackColor: disabledActiveTrackColor,
+        disabledInactiveTickMarkColor: disabledInactiveTickMarkColor,
+        disabledInactiveTrackColor: disabledInactiveTrackColor,
+        disabledSecondaryActiveTrackColor: disabledSecondaryActiveTrackColor,
+        disabledThumbColor: disabledThumbColor,
+        inactiveTickMarkColor: inactiveTickMarkColor,
+        inactiveTrackColor: inactiveTrackColor,
+        minThumbSeparation: minThumbSeparation,
+        mouseCursor: mouseCursor,
+        overlappingShapeStrokeColor: overlappingShapeStrokeColor,
+        overlayColor: overlayColor,
+        overlayShape: overlayShape,
+        rangeThumbShape: rangeThumbShape,
+        rangeTickMarkShape: rangeTickMarkShape,
+        rangeTrackShape: rangeTrackShape,
+        rangeValueIndicatorShape: rangeValueIndicatorShape,
+        secondaryActiveTrackColor: secondaryActiveTrackColor,
+        showValueIndicator: showValueIndicator,
+        thumbColor: thumbColor,
+        thumbSelector: thumbSelector == null ? null : thumbSelectorProxy,
+        thumbShape: thumbShape,
+        tickMarkShape: tickMarkShape,
+        trackHeight: trackHeight,
+        trackShape: trackShape,
+        valueIndicatorColor: valueIndicatorColor,
+        valueIndicatorShape: valueIndicatorShape,
+        valueIndicatorTextStyle: valueIndicatorTextStyle,
+      );
+    };
 Function _SliderThemeData_lerp$(m.Scope scope) => SliderThemeData.lerp;
+Function _SliderThemeData_eq$$(
+  m.Scope scope,
+  SliderThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SliderThemeData_debugFillProperties$(
   m.Scope scope,
   SliderThemeData target,
 ) =>
     target.debugFillProperties;
+Function SliderComponentShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliderComponentShape;
+Function SliderComponentShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliderComponentShape;
 SliderComponentShape _SliderComponentShape_noThumb$() {
   return SliderComponentShape.noThumb;
 }
@@ -471,6 +654,16 @@ Function _SliderComponentShape_paint$(
   SliderComponentShape target,
 ) =>
     target.paint;
+Function SliderTickMarkShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliderTickMarkShape;
+Function SliderTickMarkShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliderTickMarkShape;
 SliderTickMarkShape _SliderTickMarkShape_noTickMark$() {
   return SliderTickMarkShape.noTickMark;
 }
@@ -485,6 +678,16 @@ Function _SliderTickMarkShape_paint$(
   SliderTickMarkShape target,
 ) =>
     target.paint;
+Function SliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliderTrackShape;
+Function SliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliderTrackShape;
 Function _SliderTrackShape_getPreferredRect$(
   m.Scope scope,
   SliderTrackShape target,
@@ -495,6 +698,16 @@ Function _SliderTrackShape_paint$(
   SliderTrackShape target,
 ) =>
     target.paint;
+Function RangeSliderThumbShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeSliderThumbShape;
+Function RangeSliderThumbShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeSliderThumbShape;
 Function _RangeSliderThumbShape_getPreferredSize$(
   m.Scope scope,
   RangeSliderThumbShape target,
@@ -505,6 +718,16 @@ Function _RangeSliderThumbShape_paint$(
   RangeSliderThumbShape target,
 ) =>
     target.paint;
+Function RangeSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeSliderValueIndicatorShape;
+Function RangeSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeSliderValueIndicatorShape;
 Function _RangeSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   RangeSliderValueIndicatorShape target,
@@ -520,6 +743,16 @@ Function _RangeSliderValueIndicatorShape_paint$(
   RangeSliderValueIndicatorShape target,
 ) =>
     target.paint;
+Function RangeSliderTickMarkShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeSliderTickMarkShape;
+Function RangeSliderTickMarkShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeSliderTickMarkShape;
 Function _RangeSliderTickMarkShape_getPreferredSize$(
   m.Scope scope,
   RangeSliderTickMarkShape target,
@@ -530,6 +763,16 @@ Function _RangeSliderTickMarkShape_paint$(
   RangeSliderTickMarkShape target,
 ) =>
     target.paint;
+Function RangeSliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeSliderTrackShape;
+Function RangeSliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeSliderTrackShape;
 Function _RangeSliderTrackShape_getPreferredRect$(
   m.Scope scope,
   RangeSliderTrackShape target,
@@ -540,16 +783,46 @@ Function _RangeSliderTrackShape_paint$(
   RangeSliderTrackShape target,
 ) =>
     target.paint;
+Function RectangularSliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RectangularSliderTrackShape;
+Function RectangularSliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RectangularSliderTrackShape;
 Function _RectangularSliderTrackShape_paint$(
   m.Scope scope,
   RectangularSliderTrackShape target,
 ) =>
     target.paint;
+Function RoundedRectSliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundedRectSliderTrackShape;
+Function RoundedRectSliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundedRectSliderTrackShape;
 Function _RoundedRectSliderTrackShape_paint$(
   m.Scope scope,
   RoundedRectSliderTrackShape target,
 ) =>
     target.paint;
+Function RectangularRangeSliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RectangularRangeSliderTrackShape;
+Function RectangularRangeSliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RectangularRangeSliderTrackShape;
 Function _RectangularRangeSliderTrackShape_getPreferredRect$(
   m.Scope scope,
   RectangularRangeSliderTrackShape target,
@@ -560,6 +833,16 @@ Function _RectangularRangeSliderTrackShape_paint$(
   RectangularRangeSliderTrackShape target,
 ) =>
     target.paint;
+Function RoundedRectRangeSliderTrackShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundedRectRangeSliderTrackShape;
+Function RoundedRectRangeSliderTrackShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundedRectRangeSliderTrackShape;
 Function _RoundedRectRangeSliderTrackShape_getPreferredRect$(
   m.Scope scope,
   RoundedRectRangeSliderTrackShape target,
@@ -570,6 +853,16 @@ Function _RoundedRectRangeSliderTrackShape_paint$(
   RoundedRectRangeSliderTrackShape target,
 ) =>
     target.paint;
+Function RoundSliderTickMarkShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundSliderTickMarkShape;
+Function RoundSliderTickMarkShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundSliderTickMarkShape;
 double? _RoundSliderTickMarkShape_tickMarkRadius$(
     RoundSliderTickMarkShape target) {
   return target.tickMarkRadius;
@@ -585,6 +878,16 @@ Function _RoundSliderTickMarkShape_paint$(
   RoundSliderTickMarkShape target,
 ) =>
     target.paint;
+Function RoundRangeSliderTickMarkShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundRangeSliderTickMarkShape;
+Function RoundRangeSliderTickMarkShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundRangeSliderTickMarkShape;
 double? _RoundRangeSliderTickMarkShape_tickMarkRadius$(
     RoundRangeSliderTickMarkShape target) {
   return target.tickMarkRadius;
@@ -600,6 +903,16 @@ Function _RoundRangeSliderTickMarkShape_paint$(
   RoundRangeSliderTickMarkShape target,
 ) =>
     target.paint;
+Function RoundSliderThumbShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundSliderThumbShape;
+Function RoundSliderThumbShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundSliderThumbShape;
 double _RoundSliderThumbShape_enabledThumbRadius$(
     RoundSliderThumbShape target) {
   return target.enabledThumbRadius;
@@ -628,6 +941,16 @@ Function _RoundSliderThumbShape_paint$(
   RoundSliderThumbShape target,
 ) =>
     target.paint;
+Function RoundRangeSliderThumbShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundRangeSliderThumbShape;
+Function RoundRangeSliderThumbShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundRangeSliderThumbShape;
 double _RoundRangeSliderThumbShape_enabledThumbRadius$(
     RoundRangeSliderThumbShape target) {
   return target.enabledThumbRadius;
@@ -658,6 +981,16 @@ Function _RoundRangeSliderThumbShape_paint$(
   RoundRangeSliderThumbShape target,
 ) =>
     target.paint;
+Function RoundSliderOverlayShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundSliderOverlayShape;
+Function RoundSliderOverlayShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundSliderOverlayShape;
 double _RoundSliderOverlayShape_overlayRadius$(RoundSliderOverlayShape target) {
   return target.overlayRadius;
 }
@@ -672,6 +1005,16 @@ Function _RoundSliderOverlayShape_paint$(
   RoundSliderOverlayShape target,
 ) =>
     target.paint;
+Function RectangularSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RectangularSliderValueIndicatorShape;
+Function RectangularSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RectangularSliderValueIndicatorShape;
 Function _RectangularSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   RectangularSliderValueIndicatorShape target,
@@ -682,6 +1025,16 @@ Function _RectangularSliderValueIndicatorShape_paint$(
   RectangularSliderValueIndicatorShape target,
 ) =>
     target.paint;
+Function RectangularRangeSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RectangularRangeSliderValueIndicatorShape;
+Function RectangularRangeSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RectangularRangeSliderValueIndicatorShape;
 Function _RectangularRangeSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   RectangularRangeSliderValueIndicatorShape target,
@@ -697,6 +1050,16 @@ Function _RectangularRangeSliderValueIndicatorShape_paint$(
   RectangularRangeSliderValueIndicatorShape target,
 ) =>
     target.paint;
+Function PaddleSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PaddleSliderValueIndicatorShape;
+Function PaddleSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PaddleSliderValueIndicatorShape;
 Function _PaddleSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   PaddleSliderValueIndicatorShape target,
@@ -707,6 +1070,16 @@ Function _PaddleSliderValueIndicatorShape_paint$(
   PaddleSliderValueIndicatorShape target,
 ) =>
     target.paint;
+Function PaddleRangeSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PaddleRangeSliderValueIndicatorShape;
+Function PaddleRangeSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PaddleRangeSliderValueIndicatorShape;
 Function _PaddleRangeSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   PaddleRangeSliderValueIndicatorShape target,
@@ -722,6 +1095,16 @@ Function _PaddleRangeSliderValueIndicatorShape_paint$(
   PaddleRangeSliderValueIndicatorShape target,
 ) =>
     target.paint;
+Function RangeValues_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeValues;
+Function RangeValues_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeValues;
 double _RangeValues_start$(RangeValues target) {
   return target.start;
 }
@@ -734,11 +1117,26 @@ int _RangeValues_hashCode$(RangeValues target) {
   return target.hashCode;
 }
 
+Function _RangeValues_eq$$(
+  m.Scope scope,
+  RangeValues target,
+) =>
+    (Object other) => target == other;
 Function _RangeValues_toString$(
   m.Scope scope,
   RangeValues target,
 ) =>
     target.toString;
+Function RangeLabels_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeLabels;
+Function RangeLabels_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeLabels;
 String _RangeLabels_start$(RangeLabels target) {
   return target.start;
 }
@@ -751,11 +1149,26 @@ int _RangeLabels_hashCode$(RangeLabels target) {
   return target.hashCode;
 }
 
+Function _RangeLabels_eq$$(
+  m.Scope scope,
+  RangeLabels target,
+) =>
+    (Object other) => target == other;
 Function _RangeLabels_toString$(
   m.Scope scope,
   RangeLabels target,
 ) =>
     target.toString;
+Function DropSliderValueIndicatorShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropSliderValueIndicatorShape;
+Function DropSliderValueIndicatorShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropSliderValueIndicatorShape;
 Function _DropSliderValueIndicatorShape_getPreferredSize$(
   m.Scope scope,
   DropSliderValueIndicatorShape target,

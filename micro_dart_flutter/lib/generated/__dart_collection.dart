@@ -8,44 +8,122 @@ import 'dart:math' show Random;
 const libraryMirror = m.LibraryMirror(
   'dart:collection',
   {
+    'LinkedHashSet.forEach': _LinkedHashSet_forEach$,
+    'LinkedList.forEach': _LinkedList_forEach$,
+    'ListBase.forEach': _ListBase_forEach$,
+    'ListBase.every': _ListBase_every$,
+    'ListBase.any': _ListBase_any$,
+    'ListBase.firstWhere': _ListBase_firstWhere$,
+    'ListBase.lastWhere': _ListBase_lastWhere$,
+    'ListBase.singleWhere': _ListBase_singleWhere$,
+    'ListBase.where': _ListBase_where$,
+    'ListBase.map': _ListBase_map$,
+    'ListBase.expand': _ListBase_expand$,
+    'ListBase.reduce': _ListBase_reduce$,
+    'ListBase.fold': _ListBase_fold$,
+    'ListBase.skipWhile': _ListBase_skipWhile$,
+    'ListBase.takeWhile': _ListBase_takeWhile$,
+    'ListBase.removeWhere': _ListBase_removeWhere$,
+    'ListBase.retainWhere': _ListBase_retainWhere$,
+    'ListBase.sort': _ListBase_sort$,
+    'ListBase.indexWhere': _ListBase_indexWhere$,
+    'ListBase.lastIndexWhere': _ListBase_lastIndexWhere$,
     'ListBase.listToString': _ListBase_listToString$,
+    'MapBase.forEach': _MapBase_forEach$,
+    'MapBase.putIfAbsent': _MapBase_putIfAbsent$,
+    'MapBase.update': _MapBase_update$,
+    'MapBase.updateAll': _MapBase_updateAll$,
+    'MapBase.map': _MapBase_map$,
+    'MapBase.removeWhere': _MapBase_removeWhere$,
     'MapBase.mapToString': _MapBase_mapToString$,
+    'MapView.putIfAbsent': _MapView_putIfAbsent$,
+    'MapView.forEach': _MapView_forEach$,
+    'MapView.map': _MapView_map$,
+    'MapView.update': _MapView_update$,
+    'MapView.updateAll': _MapView_updateAll$,
+    'MapView.removeWhere': _MapView_removeWhere$,
     'Queue.castFrom': _Queue_castFrom$,
+    'Queue.removeWhere': _Queue_removeWhere$,
+    'Queue.retainWhere': _Queue_retainWhere$,
+    'DoubleLinkedQueue.removeWhere': _DoubleLinkedQueue_removeWhere$,
+    'DoubleLinkedQueue.retainWhere': _DoubleLinkedQueue_retainWhere$,
+    'DoubleLinkedQueue.forEachEntry': _DoubleLinkedQueue_forEachEntry$,
+    'ListQueue.forEach': _ListQueue_forEach$,
+    'ListQueue.removeWhere': _ListQueue_removeWhere$,
+    'ListQueue.retainWhere': _ListQueue_retainWhere$,
+    'SetBase.removeWhere': _SetBase_removeWhere$,
+    'SetBase.retainWhere': _SetBase_retainWhere$,
+    'SetBase.map': _SetBase_map$,
+    'SetBase.where': _SetBase_where$,
+    'SetBase.expand': _SetBase_expand$,
+    'SetBase.forEach': _SetBase_forEach$,
+    'SetBase.reduce': _SetBase_reduce$,
+    'SetBase.fold': _SetBase_fold$,
+    'SetBase.every': _SetBase_every$,
+    'SetBase.any': _SetBase_any$,
+    'SetBase.takeWhile': _SetBase_takeWhile$,
+    'SetBase.skipWhile': _SetBase_skipWhile$,
+    'SetBase.firstWhere': _SetBase_firstWhere$,
+    'SetBase.lastWhere': _SetBase_lastWhere$,
+    'SetBase.singleWhere': _SetBase_singleWhere$,
     'SetBase.setToString': _SetBase_setToString$,
+    'SplayTreeMap.putIfAbsent': _SplayTreeMap_putIfAbsent$,
+    'SplayTreeMap.update': _SplayTreeMap_update$,
+    'SplayTreeMap.updateAll': _SplayTreeMap_updateAll$,
+    'SplayTreeMap.forEach': _SplayTreeMap_forEach$,
   },
   {},
   {
     'UnmodifiableListView': m.ClassMirror(
       'UnmodifiableListView',
       {
+        '#as': UnmodifiableListView_as$,
+        '#is': UnmodifiableListView_is$,
         'length': _UnmodifiableListView_length$,
         'cast': _UnmodifiableListView_cast$,
+        '[]': _UnmodifiableListView_$index$$,
       },
       {},
     ),
     'HashMap': m.ClassMirror(
       'HashMap',
-      {},
+      {
+        '#as': HashMap_as$,
+        '#is': HashMap_is$,
+      },
       {},
     ),
     'HashSet': m.ClassMirror(
       'HashSet',
-      {'iterator': _HashSet_iterator$},
+      {
+        '#as': HashSet_as$,
+        '#is': HashSet_is$,
+        'iterator': _HashSet_iterator$,
+      },
       {},
     ),
     'LinkedHashMap': m.ClassMirror(
       'LinkedHashMap',
-      {},
+      {
+        '#as': LinkedHashMap_as$,
+        '#is': LinkedHashMap_is$,
+      },
       {},
     ),
     'LinkedHashSet': m.ClassMirror(
       'LinkedHashSet',
-      {'iterator': _LinkedHashSet_iterator$},
+      {
+        '#as': LinkedHashSet_as$,
+        '#is': LinkedHashSet_is$,
+        'iterator': _LinkedHashSet_iterator$,
+      },
       {},
     ),
     'LinkedList': m.ClassMirror(
       'LinkedList',
       {
+        '#as': LinkedList_as$,
+        '#is': LinkedList_is$,
         'iterator': _LinkedList_iterator$,
         'length': _LinkedList_length$,
         'first': _LinkedList_first$,
@@ -64,6 +142,8 @@ const libraryMirror = m.LibraryMirror(
     'LinkedListEntry': m.ClassMirror(
       'LinkedListEntry',
       {
+        '#as': LinkedListEntry_as$,
+        '#is': LinkedListEntry_is$,
         'list': _LinkedListEntry_list$,
         'next': _LinkedListEntry_next$,
         'previous': _LinkedListEntry_previous$,
@@ -76,6 +156,8 @@ const libraryMirror = m.LibraryMirror(
     'ListBase': m.ClassMirror(
       'ListBase',
       {
+        '#as': ListBase_as$,
+        '#is': ListBase_is$,
         'iterator': _ListBase_iterator$,
         'isEmpty': _ListBase_isEmpty$,
         'isNotEmpty': _ListBase_isNotEmpty$,
@@ -100,6 +182,7 @@ const libraryMirror = m.LibraryMirror(
         'removeLast': _ListBase_removeLast$,
         'shuffle': _ListBase_shuffle$,
         'asMap': _ListBase_asMap$,
+        '+': _ListBase_plus$$,
         'sublist': _ListBase_sublist$,
         'getRange': _ListBase_getRange$,
         'removeRange': _ListBase_removeRange$,
@@ -122,12 +205,16 @@ const libraryMirror = m.LibraryMirror(
     'MapBase': m.ClassMirror(
       'MapBase',
       {
+        '#as': MapBase_as$,
+        '#is': MapBase_is$,
         'keys': _MapBase_keys$,
         'entries': _MapBase_entries$,
         'length': _MapBase_length$,
         'isEmpty': _MapBase_isEmpty$,
         'isNotEmpty': _MapBase_isNotEmpty$,
         'values': _MapBase_values$,
+        '[]': _MapBase_$index$$,
+        '[]=': _MapBase_$index_set$$,
         'remove': _MapBase_remove$,
         'clear': _MapBase_clear$,
         'cast': _MapBase_cast$,
@@ -141,12 +228,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableMapBase': m.ClassMirror(
       'UnmodifiableMapBase',
-      {},
+      {
+        '#as': UnmodifiableMapBase_as$,
+        '#is': UnmodifiableMapBase_is$,
+      },
       {},
     ),
     'MapView': m.ClassMirror(
       'MapView',
       {
+        '#as': MapView_as$,
+        '#is': MapView_is$,
         'isEmpty': _MapView_isEmpty$,
         'isNotEmpty': _MapView_isNotEmpty$,
         'length': _MapView_length$,
@@ -154,6 +246,8 @@ const libraryMirror = m.LibraryMirror(
         'values': _MapView_values$,
         'entries': _MapView_entries$,
         'cast': _MapView_cast$,
+        '[]': _MapView_$index$$,
+        '[]=': _MapView_$index_set$$,
         'addAll': _MapView_addAll$,
         'clear': _MapView_clear$,
         'containsKey': _MapView_containsKey$,
@@ -166,12 +260,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableMapView': m.ClassMirror(
       'UnmodifiableMapView',
-      {'cast': _UnmodifiableMapView_cast$},
+      {
+        '#as': UnmodifiableMapView_as$,
+        '#is': UnmodifiableMapView_is$,
+        'cast': _UnmodifiableMapView_cast$,
+      },
       {},
     ),
     'Queue': m.ClassMirror(
       'Queue',
       {
+        '#as': Queue_as$,
+        '#is': Queue_is$,
         'cast': _Queue_cast$,
         'removeFirst': _Queue_removeFirst$,
         'removeLast': _Queue_removeLast$,
@@ -187,6 +287,8 @@ const libraryMirror = m.LibraryMirror(
     'DoubleLinkedQueue': m.ClassMirror(
       'DoubleLinkedQueue',
       {
+        '#as': DoubleLinkedQueue_as$,
+        '#is': DoubleLinkedQueue_is$,
         'length': _DoubleLinkedQueue_length$,
         'first': _DoubleLinkedQueue_first$,
         'last': _DoubleLinkedQueue_last$,
@@ -211,6 +313,8 @@ const libraryMirror = m.LibraryMirror(
     'ListQueue': m.ClassMirror(
       'ListQueue',
       {
+        '#as': ListQueue_as$,
+        '#is': ListQueue_is$,
         'iterator': _ListQueue_iterator$,
         'isEmpty': _ListQueue_isEmpty$,
         'length': _ListQueue_length$,
@@ -235,6 +339,8 @@ const libraryMirror = m.LibraryMirror(
     'SetBase': m.ClassMirror(
       'SetBase',
       {
+        '#as': SetBase_as$,
+        '#is': SetBase_is$,
         'iterator': _SetBase_iterator$,
         'length': _SetBase_length$,
         'isEmpty': _SetBase_isEmpty$,
@@ -270,6 +376,8 @@ const libraryMirror = m.LibraryMirror(
     'UnmodifiableSetView': m.ClassMirror(
       'UnmodifiableSetView',
       {
+        '#as': UnmodifiableSetView_as$,
+        '#is': UnmodifiableSetView_is$,
         'length': _UnmodifiableSetView_length$,
         'iterator': _UnmodifiableSetView_iterator$,
         'contains': _UnmodifiableSetView_contains$,
@@ -281,13 +389,17 @@ const libraryMirror = m.LibraryMirror(
     'SplayTreeMap': m.ClassMirror(
       'SplayTreeMap',
       {
+        '#as': SplayTreeMap_as$,
+        '#is': SplayTreeMap_is$,
         'isEmpty': _SplayTreeMap_isEmpty$,
         'isNotEmpty': _SplayTreeMap_isNotEmpty$,
         'length': _SplayTreeMap_length$,
         'keys': _SplayTreeMap_keys$,
         'values': _SplayTreeMap_values$,
         'entries': _SplayTreeMap_entries$,
+        '[]': _SplayTreeMap_$index$$,
         'remove': _SplayTreeMap_remove$,
+        '[]=': _SplayTreeMap_$index_set$$,
         'addAll': _SplayTreeMap_addAll$,
         'clear': _SplayTreeMap_clear$,
         'containsKey': _SplayTreeMap_containsKey$,
@@ -302,6 +414,8 @@ const libraryMirror = m.LibraryMirror(
     'SplayTreeSet': m.ClassMirror(
       'SplayTreeSet',
       {
+        '#as': SplayTreeSet_as$,
+        '#is': SplayTreeSet_is$,
         'iterator': _SplayTreeSet_iterator$,
         'length': _SplayTreeSet_length$,
         'isEmpty': _SplayTreeSet_isEmpty$,
@@ -328,6 +442,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function UnmodifiableListView_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableListView<E>;
+Function UnmodifiableListView_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableListView<E>;
 int _UnmodifiableListView_length$<E>(UnmodifiableListView<E> target) {
   return target.length;
 }
@@ -337,14 +461,82 @@ Function _UnmodifiableListView_cast$<E, R>(
   UnmodifiableListView<E> target,
 ) =>
     target.cast<R>;
+Function _UnmodifiableListView_$index$$<E>(
+  m.Scope scope,
+  UnmodifiableListView<E> target,
+) =>
+    (int index) => target[index];
+Function HashMap_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HashMap<K, V>;
+Function HashMap_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HashMap<K, V>;
+Function HashSet_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HashSet<E>;
+Function HashSet_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HashSet<E>;
 Iterator<E> _HashSet_iterator$<E>(HashSet<E> target) {
   return target.iterator;
 }
 
+Function LinkedHashMap_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinkedHashMap<K, V>;
+Function LinkedHashMap_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinkedHashMap<K, V>;
+Function LinkedHashSet_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinkedHashSet<E>;
+Function LinkedHashSet_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinkedHashSet<E>;
 Iterator<E> _LinkedHashSet_iterator$<E>(LinkedHashSet<E> target) {
   return target.iterator;
 }
 
+Function _LinkedHashSet_forEach$<E>(
+  m.Scope scope,
+  LinkedHashSet<E> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(E action_element) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
+Function LinkedList_as$<E extends LinkedListEntry<E>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinkedList<E>;
+Function LinkedList_is$<E extends LinkedListEntry<E>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinkedList<E>;
 Iterator<E> _LinkedList_iterator$<E extends LinkedListEntry<E>>(
     LinkedList<E> target) {
   return target.iterator;
@@ -400,6 +592,29 @@ Function _LinkedList_clear$<E extends LinkedListEntry<E>>(
   LinkedList<E> target,
 ) =>
     target.clear;
+Function _LinkedList_forEach$<E extends LinkedListEntry<E>>(
+  m.Scope scope,
+  LinkedList<E> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(E action_entry) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_entry],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
+Function LinkedListEntry_as$<E extends LinkedListEntry<E>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinkedListEntry<E>;
+Function LinkedListEntry_is$<E extends LinkedListEntry<E>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinkedListEntry<E>;
 LinkedList<E>? _LinkedListEntry_list$<E extends LinkedListEntry<E>>(
     LinkedListEntry<E> target) {
   return target.list;
@@ -430,6 +645,16 @@ Function _LinkedListEntry_insertBefore$<E extends LinkedListEntry<E>>(
   LinkedListEntry<E> target,
 ) =>
     target.insertBefore;
+Function ListBase_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListBase<E>;
+Function ListBase_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListBase<E>;
 Iterator<E> _ListBase_iterator$<E>(ListBase<E> target) {
   return target.iterator;
 }
@@ -482,31 +707,256 @@ Function _ListBase_followedBy$<E>(
   ListBase<E> target,
 ) =>
     target.followedBy;
+Function _ListBase_forEach$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(E action_element) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
 Function _ListBase_contains$<E>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.contains;
+Function _ListBase_every$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.every(testProxy);
+    };
+Function _ListBase_any$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.any(testProxy);
+    };
+Function _ListBase_firstWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.firstWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _ListBase_lastWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.lastWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _ListBase_singleWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.singleWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
 Function _ListBase_join$<E>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.join;
+Function _ListBase_where$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.where(testProxy);
+    };
 Function _ListBase_whereType$<E, T>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.whereType<T>;
+Function _ListBase_map$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    <T>(m.FunctionPointer f) {
+      T fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.map<T>(fProxy);
+    };
+Function _ListBase_expand$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    <T>(m.FunctionPointer f) {
+      Iterable<T> fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.expand<T>(fProxy);
+    };
+Function _ListBase_reduce$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer combine) {
+      E combineProxy(
+        E combine_previousValue,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previousValue,
+              combine_element,
+            ],
+            {},
+          );
+      return target.reduce(combineProxy);
+    };
+Function _ListBase_fold$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    <T>(
+      T initialValue,
+      m.FunctionPointer combine,
+    ) {
+      T combineProxy(
+        T combine_previousValue,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previousValue,
+              combine_element,
+            ],
+            {},
+          );
+      return target.fold<T>(
+        initialValue,
+        combineProxy,
+      );
+    };
 Function _ListBase_skip$<E>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.skip;
+Function _ListBase_skipWhile$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.skipWhile(testProxy);
+    };
 Function _ListBase_take$<E>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.take;
+Function _ListBase_takeWhile$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.takeWhile(testProxy);
+    };
 Function _ListBase_toList$<E>(
   m.Scope scope,
   ListBase<E> target,
@@ -532,6 +982,32 @@ Function _ListBase_remove$<E>(
   ListBase<E> target,
 ) =>
     target.remove;
+Function _ListBase_removeWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _ListBase_retainWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _ListBase_clear$<E>(
   m.Scope scope,
   ListBase<E> target,
@@ -547,6 +1023,29 @@ Function _ListBase_removeLast$<E>(
   ListBase<E> target,
 ) =>
     target.removeLast;
+Function _ListBase_sort$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (m.FunctionPointer? compare) {
+      if (compare == null) {}
+      target.sort();
+      int compareProxy(
+        E compare_a,
+        E compare_b,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            compare!,
+            [
+              compare_a,
+              compare_b,
+            ],
+            {},
+          );
+      target.sort(compare == null ? null : compareProxy);
+      return;
+    };
 Function _ListBase_shuffle$<E>(
   m.Scope scope,
   ListBase<E> target,
@@ -557,6 +1056,11 @@ Function _ListBase_asMap$<E>(
   ListBase<E> target,
 ) =>
     target.asMap;
+Function _ListBase_plus$$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (List<E> other) => target + other;
 Function _ListBase_sublist$<E>(
   m.Scope scope,
   ListBase<E> target,
@@ -592,11 +1096,53 @@ Function _ListBase_indexOf$<E>(
   ListBase<E> target,
 ) =>
     target.indexOf;
+Function _ListBase_indexWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (
+      m.FunctionPointer test,
+      int? start,
+    ) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      if (start == null) {}
+      return target.indexWhere(testProxy);
+      return target.indexWhere(
+        testProxy,
+        start ?? 0,
+      );
+    };
 Function _ListBase_lastIndexOf$<E>(
   m.Scope scope,
   ListBase<E> target,
 ) =>
     target.lastIndexOf;
+Function _ListBase_lastIndexWhere$<E>(
+  m.Scope scope,
+  ListBase<E> target,
+) =>
+    (
+      m.FunctionPointer test,
+      int? start,
+    ) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      if (start == null) {}
+      return target.lastIndexWhere(testProxy);
+      return target.lastIndexWhere(
+        testProxy,
+        start,
+      );
+    };
 Function _ListBase_insert$<E>(
   m.Scope scope,
   ListBase<E> target,
@@ -623,6 +1169,16 @@ Function _ListBase_toString$<E>(
 ) =>
     target.toString;
 Function _ListBase_listToString$(m.Scope scope) => ListBase.listToString;
+Function MapBase_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MapBase<K, V>;
+Function MapBase_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MapBase<K, V>;
 Iterable<K> _MapBase_keys$<K, V>(MapBase<K, V> target) {
   return target.keys;
 }
@@ -647,6 +1203,20 @@ Iterable<V> _MapBase_values$<K, V>(MapBase<K, V> target) {
   return target.values;
 }
 
+Function _MapBase_$index$$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (Object? index) => target[index];
+Function _MapBase_$index_set$$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (
+      K index,
+      V other,
+    ) =>
+        target[index] = other;
 Function _MapBase_remove$<K, V>(
   m.Scope scope,
   MapBase<K, V> target,
@@ -662,6 +1232,26 @@ Function _MapBase_cast$<K, V, RK, RV>(
   MapBase<K, V> target,
 ) =>
     target.cast<RK, RV>;
+Function _MapBase_forEach$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(
+        K action_key,
+        V action_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [
+              action_key,
+              action_value,
+            ],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
 Function _MapBase_addAll$<K, V>(
   m.Scope scope,
   MapBase<K, V> target,
@@ -672,11 +1262,117 @@ Function _MapBase_containsValue$<K, V>(
   MapBase<K, V> target,
 ) =>
     target.containsValue;
+Function _MapBase_putIfAbsent$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer ifAbsent,
+    ) {
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent,
+            [],
+            {},
+          );
+      return target.putIfAbsent(
+        key,
+        ifAbsentProxy,
+      );
+    };
+Function _MapBase_update$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer update, {
+      m.FunctionPointer? ifAbsent,
+    }) {
+      V updateProxy(V update_value) => scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [update_value],
+            {},
+          );
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent!,
+            [],
+            {},
+          );
+      return target.update(
+        key,
+        updateProxy,
+        ifAbsent: ifAbsent == null ? null : ifAbsentProxy,
+      );
+    };
+Function _MapBase_updateAll$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (m.FunctionPointer update) {
+      V updateProxy(
+        K update_key,
+        V update_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [
+              update_key,
+              update_value,
+            ],
+            {},
+          );
+      target.updateAll(updateProxy);
+    };
+Function _MapBase_map$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    <K2, V2>(m.FunctionPointer transform) {
+      MapEntry<K2, V2> transformProxy(
+        K transform_key,
+        V transform_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            transform,
+            [
+              transform_key,
+              transform_value,
+            ],
+            {},
+          );
+      return target.map<K2, V2>(transformProxy);
+    };
 Function _MapBase_addEntries$<K, V>(
   m.Scope scope,
   MapBase<K, V> target,
 ) =>
     target.addEntries;
+Function _MapBase_removeWhere$<K, V>(
+  m.Scope scope,
+  MapBase<K, V> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(
+        K test_key,
+        V test_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [
+              test_key,
+              test_value,
+            ],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
 Function _MapBase_containsKey$<K, V>(
   m.Scope scope,
   MapBase<K, V> target,
@@ -688,6 +1384,26 @@ Function _MapBase_toString$<K, V>(
 ) =>
     target.toString;
 Function _MapBase_mapToString$(m.Scope scope) => MapBase.mapToString;
+Function UnmodifiableMapBase_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableMapBase<K, V>;
+Function UnmodifiableMapBase_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableMapBase<K, V>;
+Function MapView_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MapView<K, V>;
+Function MapView_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MapView<K, V>;
 bool _MapView_isEmpty$<K, V>(MapView<K, V> target) {
   return target.isEmpty;
 }
@@ -717,6 +1433,20 @@ Function _MapView_cast$<K, V, RK, RV>(
   MapView<K, V> target,
 ) =>
     target.cast<RK, RV>;
+Function _MapView_$index$$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (Object? index) => target[index];
+Function _MapView_$index_set$$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (
+      K index,
+      V other,
+    ) =>
+        target[index] = other;
 Function _MapView_addAll$<K, V>(
   m.Scope scope,
   MapView<K, V> target,
@@ -727,6 +1457,25 @@ Function _MapView_clear$<K, V>(
   MapView<K, V> target,
 ) =>
     target.clear;
+Function _MapView_putIfAbsent$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer ifAbsent,
+    ) {
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent,
+            [],
+            {},
+          );
+      return target.putIfAbsent(
+        key,
+        ifAbsentProxy,
+      );
+    };
 Function _MapView_containsKey$<K, V>(
   m.Scope scope,
   MapView<K, V> target,
@@ -737,6 +1486,26 @@ Function _MapView_containsValue$<K, V>(
   MapView<K, V> target,
 ) =>
     target.containsValue;
+Function _MapView_forEach$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(
+        K action_key,
+        V action_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [
+              action_key,
+              action_value,
+            ],
+            {},
+          );
+      target.forEach(actionProxy);
+    };
 Function _MapView_remove$<K, V>(
   m.Scope scope,
   MapView<K, V> target,
@@ -752,11 +1521,118 @@ Function _MapView_addEntries$<K, V>(
   MapView<K, V> target,
 ) =>
     target.addEntries;
+Function _MapView_map$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    <K2, V2>(m.FunctionPointer transform) {
+      MapEntry<K2, V2> transformProxy(
+        K transform_key,
+        V transform_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            transform,
+            [
+              transform_key,
+              transform_value,
+            ],
+            {},
+          );
+      return target.map<K2, V2>(transformProxy);
+    };
+Function _MapView_update$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer update, {
+      m.FunctionPointer? ifAbsent,
+    }) {
+      V updateProxy(V update_value) => scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [update_value],
+            {},
+          );
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent!,
+            [],
+            {},
+          );
+      return target.update(
+        key,
+        updateProxy,
+        ifAbsent: ifAbsent == null ? null : ifAbsentProxy,
+      );
+    };
+Function _MapView_updateAll$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (m.FunctionPointer update) {
+      V updateProxy(
+        K update_key,
+        V update_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [
+              update_key,
+              update_value,
+            ],
+            {},
+          );
+      target.updateAll(updateProxy);
+    };
+Function _MapView_removeWhere$<K, V>(
+  m.Scope scope,
+  MapView<K, V> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(
+        K test_key,
+        V test_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [
+              test_key,
+              test_value,
+            ],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function UnmodifiableMapView_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableMapView<K, V>;
+Function UnmodifiableMapView_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableMapView<K, V>;
 Function _UnmodifiableMapView_cast$<K, V, RK, RV>(
   m.Scope scope,
   UnmodifiableMapView<K, V> target,
 ) =>
     target.cast<RK, RV>;
+Function Queue_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Queue<E>;
+Function Queue_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Queue<E>;
 Function _Queue_castFrom$<S, T>(m.Scope scope) => Queue.castFrom<S, T>;
 Function _Queue_cast$<E, R>(
   m.Scope scope,
@@ -798,11 +1674,47 @@ Function _Queue_addAll$<E>(
   Queue<E> target,
 ) =>
     target.addAll;
+Function _Queue_removeWhere$<E>(
+  m.Scope scope,
+  Queue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _Queue_retainWhere$<E>(
+  m.Scope scope,
+  Queue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _Queue_clear$<E>(
   m.Scope scope,
   Queue<E> target,
 ) =>
     target.clear;
+Function DoubleLinkedQueue_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoubleLinkedQueue<E>;
+Function DoubleLinkedQueue_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoubleLinkedQueue<E>;
 int _DoubleLinkedQueue_length$<E>(DoubleLinkedQueue<E> target) {
   return target.length;
 }
@@ -867,6 +1779,32 @@ Function _DoubleLinkedQueue_remove$<E>(
   DoubleLinkedQueue<E> target,
 ) =>
     target.remove;
+Function _DoubleLinkedQueue_removeWhere$<E>(
+  m.Scope scope,
+  DoubleLinkedQueue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _DoubleLinkedQueue_retainWhere$<E>(
+  m.Scope scope,
+  DoubleLinkedQueue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _DoubleLinkedQueue_firstEntry$<E>(
   m.Scope scope,
   DoubleLinkedQueue<E> target,
@@ -882,11 +1820,35 @@ Function _DoubleLinkedQueue_clear$<E>(
   DoubleLinkedQueue<E> target,
 ) =>
     target.clear;
+Function _DoubleLinkedQueue_forEachEntry$<E>(
+  m.Scope scope,
+  DoubleLinkedQueue<E> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(DoubleLinkedQueueEntry<E> action_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      target.forEachEntry(actionProxy);
+    };
 Function _DoubleLinkedQueue_toString$<E>(
   m.Scope scope,
   DoubleLinkedQueue<E> target,
 ) =>
     target.toString;
+Function ListQueue_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListQueue<E>;
+Function ListQueue_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListQueue<E>;
 Iterator<E> _ListQueue_iterator$<E>(ListQueue<E> target) {
   return target.iterator;
 }
@@ -916,6 +1878,19 @@ Function _ListQueue_cast$<E, R>(
   ListQueue<E> target,
 ) =>
     target.cast<R>;
+Function _ListQueue_forEach$<E>(
+  m.Scope scope,
+  ListQueue<E> target,
+) =>
+    (m.FunctionPointer f) {
+      void fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      target.forEach(fProxy);
+    };
 Function _ListQueue_elementAt$<E>(
   m.Scope scope,
   ListQueue<E> target,
@@ -941,6 +1916,32 @@ Function _ListQueue_remove$<E>(
   ListQueue<E> target,
 ) =>
     target.remove;
+Function _ListQueue_removeWhere$<E>(
+  m.Scope scope,
+  ListQueue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _ListQueue_retainWhere$<E>(
+  m.Scope scope,
+  ListQueue<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _ListQueue_clear$<E>(
   m.Scope scope,
   ListQueue<E> target,
@@ -971,6 +1972,16 @@ Function _ListQueue_removeLast$<E>(
   ListQueue<E> target,
 ) =>
     target.removeLast;
+Function SetBase_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SetBase<E>;
+Function SetBase_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SetBase<E>;
 Iterator<E> _SetBase_iterator$<E>(SetBase<E> target) {
   return target.iterator;
 }
@@ -1059,6 +2070,32 @@ Function _SetBase_retainAll$<E>(
   SetBase<E> target,
 ) =>
     target.retainAll;
+Function _SetBase_removeWhere$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.removeWhere(testProxy);
+    };
+Function _SetBase_retainWhere$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      target.retainWhere(testProxy);
+    };
 Function _SetBase_containsAll$<E>(
   m.Scope scope,
   SetBase<E> target,
@@ -1084,32 +2121,267 @@ Function _SetBase_toList$<E>(
   SetBase<E> target,
 ) =>
     target.toList;
+Function _SetBase_map$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    <T>(m.FunctionPointer f) {
+      T fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.map<T>(fProxy);
+    };
 Function _SetBase_toString$<E>(
   m.Scope scope,
   SetBase<E> target,
 ) =>
     target.toString;
+Function _SetBase_where$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer f) {
+      bool fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.where(fProxy);
+    };
+Function _SetBase_expand$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    <T>(m.FunctionPointer f) {
+      Iterable<T> fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.expand<T>(fProxy);
+    };
+Function _SetBase_forEach$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer f) {
+      void fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      target.forEach(fProxy);
+    };
+Function _SetBase_reduce$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer combine) {
+      E combineProxy(
+        E combine_value,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_value,
+              combine_element,
+            ],
+            {},
+          );
+      return target.reduce(combineProxy);
+    };
+Function _SetBase_fold$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    <T>(
+      T initialValue,
+      m.FunctionPointer combine,
+    ) {
+      T combineProxy(
+        T combine_previousValue,
+        E combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previousValue,
+              combine_element,
+            ],
+            {},
+          );
+      return target.fold<T>(
+        initialValue,
+        combineProxy,
+      );
+    };
+Function _SetBase_every$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer f) {
+      bool fProxy(E f_element) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_element],
+            {},
+          );
+      return target.every(fProxy);
+    };
 Function _SetBase_join$<E>(
   m.Scope scope,
   SetBase<E> target,
 ) =>
     target.join;
+Function _SetBase_any$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.any(testProxy);
+    };
 Function _SetBase_take$<E>(
   m.Scope scope,
   SetBase<E> target,
 ) =>
     target.take;
+Function _SetBase_takeWhile$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.takeWhile(testProxy);
+    };
 Function _SetBase_skip$<E>(
   m.Scope scope,
   SetBase<E> target,
 ) =>
     target.skip;
+Function _SetBase_skipWhile$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.skipWhile(testProxy);
+    };
+Function _SetBase_firstWhere$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.firstWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _SetBase_lastWhere$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.lastWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _SetBase_singleWhere$<E>(
+  m.Scope scope,
+  SetBase<E> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      E orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.singleWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
 Function _SetBase_elementAt$<E>(
   m.Scope scope,
   SetBase<E> target,
 ) =>
     target.elementAt;
 Function _SetBase_setToString$(m.Scope scope) => SetBase.setToString;
+Function UnmodifiableSetView_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableSetView<E>;
+Function UnmodifiableSetView_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableSetView<E>;
 int _UnmodifiableSetView_length$<E>(UnmodifiableSetView<E> target) {
   return target.length;
 }
@@ -1133,6 +2405,16 @@ Function _UnmodifiableSetView_toSet$<E>(
   UnmodifiableSetView<E> target,
 ) =>
     target.toSet;
+Function SplayTreeMap_as$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SplayTreeMap<K, V>;
+Function SplayTreeMap_is$<K, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SplayTreeMap<K, V>;
 bool _SplayTreeMap_isEmpty$<K, V>(SplayTreeMap<K, V> target) {
   return target.isEmpty;
 }
@@ -1158,16 +2440,116 @@ Iterable<MapEntry<K, V>> _SplayTreeMap_entries$<K, V>(
   return target.entries;
 }
 
+Function _SplayTreeMap_$index$$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (Object? index) => target[index];
 Function _SplayTreeMap_remove$<K, V>(
   m.Scope scope,
   SplayTreeMap<K, V> target,
 ) =>
     target.remove;
+Function _SplayTreeMap_$index_set$$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (
+      K index,
+      V other,
+    ) =>
+        target[index] = other;
+Function _SplayTreeMap_putIfAbsent$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer ifAbsent,
+    ) {
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent,
+            [],
+            {},
+          );
+      return target.putIfAbsent(
+        key,
+        ifAbsentProxy,
+      );
+    };
+Function _SplayTreeMap_update$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (
+      K key,
+      m.FunctionPointer update, {
+      m.FunctionPointer? ifAbsent,
+    }) {
+      V updateProxy(V update_value) => scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [update_value],
+            {},
+          );
+      V ifAbsentProxy() => scope.engine.callFunctionPointer(
+            scope,
+            ifAbsent!,
+            [],
+            {},
+          );
+      return target.update(
+        key,
+        updateProxy,
+        ifAbsent: ifAbsent == null ? null : ifAbsentProxy,
+      );
+    };
+Function _SplayTreeMap_updateAll$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (m.FunctionPointer update) {
+      V updateProxy(
+        K update_key,
+        V update_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            update,
+            [
+              update_key,
+              update_value,
+            ],
+            {},
+          );
+      target.updateAll(updateProxy);
+    };
 Function _SplayTreeMap_addAll$<K, V>(
   m.Scope scope,
   SplayTreeMap<K, V> target,
 ) =>
     target.addAll;
+Function _SplayTreeMap_forEach$<K, V>(
+  m.Scope scope,
+  SplayTreeMap<K, V> target,
+) =>
+    (m.FunctionPointer f) {
+      void fProxy(
+        K f_key,
+        V f_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [
+              f_key,
+              f_value,
+            ],
+            {},
+          );
+      target.forEach(fProxy);
+    };
 Function _SplayTreeMap_clear$<K, V>(
   m.Scope scope,
   SplayTreeMap<K, V> target,
@@ -1203,6 +2585,16 @@ Function _SplayTreeMap_firstKeyAfter$<K, V>(
   SplayTreeMap<K, V> target,
 ) =>
     target.firstKeyAfter;
+Function SplayTreeSet_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SplayTreeSet<E>;
+Function SplayTreeSet_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SplayTreeSet<E>;
 Iterator<E> _SplayTreeSet_iterator$<E>(SplayTreeSet<E> target) {
   return target.iterator;
 }

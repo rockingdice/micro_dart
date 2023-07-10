@@ -47,30 +47,44 @@ const libraryMirror = m.LibraryMirror(
     'Pointer': m.ClassMirror(
       'Pointer',
       {
+        '#as': Pointer_as$,
+        '#is': Pointer_is$,
         'address': _Pointer_address$,
         'hashCode': _Pointer_hashCode$,
         'cast': _Pointer_cast$,
+        '==': _Pointer_eq$$,
       },
       {},
     ),
     'Array': m.ClassMirror(
       'Array',
-      {},
+      {
+        '#as': Array_as$,
+        '#is': Array_is$,
+      },
       {},
     ),
     'Dart_CObject': m.ClassMirror(
       'Dart_CObject',
-      {},
+      {
+        '#as': Dart_CObject_as$,
+        '#is': Dart_CObject_is$,
+      },
       {},
     ),
     'NativeApi': m.ClassMirror(
       'NativeApi',
-      {},
+      {
+        '#as': NativeApi_as$,
+        '#is': NativeApi_is$,
+      },
       {},
     ),
     'Native': m.ClassMirror(
       'Native',
       {
+        '#as': Native_as$,
+        '#is': Native_is$,
         'symbol': _Native_symbol$,
         'assetId': _Native_assetId$,
         'isLeaf': _Native_isLeaf$,
@@ -79,102 +93,165 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DefaultAsset': m.ClassMirror(
       'DefaultAsset',
-      {'id': _DefaultAsset_id$},
+      {
+        '#as': DefaultAsset_as$,
+        '#is': DefaultAsset_is$,
+        'id': _DefaultAsset_id$,
+      },
       {},
     ),
     'Abi': m.ClassMirror(
       'Abi',
-      {'toString': _Abi_toString$},
+      {
+        '#as': Abi_as$,
+        '#is': Abi_is$,
+        'toString': _Abi_toString$,
+      },
       {},
     ),
     'AbiSpecificInteger': m.ClassMirror(
       'AbiSpecificInteger',
-      {},
+      {
+        '#as': AbiSpecificInteger_as$,
+        '#is': AbiSpecificInteger_is$,
+      },
       {},
     ),
     'AbiSpecificIntegerMapping': m.ClassMirror(
       'AbiSpecificIntegerMapping',
-      {'mapping': _AbiSpecificIntegerMapping_mapping$},
+      {
+        '#as': AbiSpecificIntegerMapping_as$,
+        '#is': AbiSpecificIntegerMapping_is$,
+        'mapping': _AbiSpecificIntegerMapping_mapping$,
+      },
       {},
     ),
     'NativeType': m.ClassMirror(
       'NativeType',
-      {},
+      {
+        '#as': NativeType_as$,
+        '#is': NativeType_is$,
+      },
       {},
     ),
     'Opaque': m.ClassMirror(
       'Opaque',
-      {},
+      {
+        '#as': Opaque_as$,
+        '#is': Opaque_is$,
+      },
       {},
     ),
     'Int8': m.ClassMirror(
       'Int8',
-      {},
+      {
+        '#as': Int8_as$,
+        '#is': Int8_is$,
+      },
       {},
     ),
     'Int16': m.ClassMirror(
       'Int16',
-      {},
+      {
+        '#as': Int16_as$,
+        '#is': Int16_is$,
+      },
       {},
     ),
     'Int32': m.ClassMirror(
       'Int32',
-      {},
+      {
+        '#as': Int32_as$,
+        '#is': Int32_is$,
+      },
       {},
     ),
     'Int64': m.ClassMirror(
       'Int64',
-      {},
+      {
+        '#as': Int64_as$,
+        '#is': Int64_is$,
+      },
       {},
     ),
     'Uint8': m.ClassMirror(
       'Uint8',
-      {},
+      {
+        '#as': Uint8_as$,
+        '#is': Uint8_is$,
+      },
       {},
     ),
     'Uint16': m.ClassMirror(
       'Uint16',
-      {},
+      {
+        '#as': Uint16_as$,
+        '#is': Uint16_is$,
+      },
       {},
     ),
     'Uint32': m.ClassMirror(
       'Uint32',
-      {},
+      {
+        '#as': Uint32_as$,
+        '#is': Uint32_is$,
+      },
       {},
     ),
     'Uint64': m.ClassMirror(
       'Uint64',
-      {},
+      {
+        '#as': Uint64_as$,
+        '#is': Uint64_is$,
+      },
       {},
     ),
     'Float': m.ClassMirror(
       'Float',
-      {},
+      {
+        '#as': Float_as$,
+        '#is': Float_is$,
+      },
       {},
     ),
     'Double': m.ClassMirror(
       'Double',
-      {},
+      {
+        '#as': Double_as$,
+        '#is': Double_is$,
+      },
       {},
     ),
     'Bool': m.ClassMirror(
       'Bool',
-      {},
+      {
+        '#as': Bool_as$,
+        '#is': Bool_is$,
+      },
       {},
     ),
     'Void': m.ClassMirror(
       'Void',
-      {},
+      {
+        '#as': Void_as$,
+        '#is': Void_is$,
+      },
       {},
     ),
     'Handle': m.ClassMirror(
       'Handle',
-      {},
+      {
+        '#as': Handle_as$,
+        '#is': Handle_is$,
+      },
       {},
     ),
     'NativeFunction': m.ClassMirror(
       'NativeFunction',
-      {},
+      {
+        '#as': NativeFunction_as$,
+        '#is': NativeFunction_is$,
+      },
       {},
     ),
     'VarArgs': m.ClassMirror(
@@ -184,12 +261,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Finalizable': m.ClassMirror(
       'Finalizable',
-      {},
+      {
+        '#as': Finalizable_as$,
+        '#is': Finalizable_is$,
+      },
       {},
     ),
     'NativeFinalizer': m.ClassMirror(
       'NativeFinalizer',
       {
+        '#as': NativeFinalizer_as$,
+        '#is': NativeFinalizer_is$,
         'attach': _NativeFinalizer_attach$,
         'detach': _NativeFinalizer_detach$,
       },
@@ -198,6 +280,8 @@ const libraryMirror = m.LibraryMirror(
     'Allocator': m.ClassMirror(
       'Allocator',
       {
+        '#as': Allocator_as$,
+        '#is': Allocator_is$,
         'allocate': _Allocator_allocate$,
         'free': _Allocator_free$,
       },
@@ -205,112 +289,176 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DartRepresentationOf': m.ClassMirror(
       'DartRepresentationOf',
-      {},
+      {
+        '#as': DartRepresentationOf_as$,
+        '#is': DartRepresentationOf_is$,
+      },
       {},
     ),
     'Unsized': m.ClassMirror(
       'Unsized',
-      {},
+      {
+        '#as': Unsized_as$,
+        '#is': Unsized_is$,
+      },
       {},
     ),
     'Char': m.ClassMirror(
       'Char',
-      {},
+      {
+        '#as': Char_as$,
+        '#is': Char_is$,
+      },
       {},
     ),
     'SignedChar': m.ClassMirror(
       'SignedChar',
-      {},
+      {
+        '#as': SignedChar_as$,
+        '#is': SignedChar_is$,
+      },
       {},
     ),
     'UnsignedChar': m.ClassMirror(
       'UnsignedChar',
-      {},
+      {
+        '#as': UnsignedChar_as$,
+        '#is': UnsignedChar_is$,
+      },
       {},
     ),
     'Short': m.ClassMirror(
       'Short',
-      {},
+      {
+        '#as': Short_as$,
+        '#is': Short_is$,
+      },
       {},
     ),
     'UnsignedShort': m.ClassMirror(
       'UnsignedShort',
-      {},
+      {
+        '#as': UnsignedShort_as$,
+        '#is': UnsignedShort_is$,
+      },
       {},
     ),
     'Int': m.ClassMirror(
       'Int',
-      {},
+      {
+        '#as': Int_as$,
+        '#is': Int_is$,
+      },
       {},
     ),
     'UnsignedInt': m.ClassMirror(
       'UnsignedInt',
-      {},
+      {
+        '#as': UnsignedInt_as$,
+        '#is': UnsignedInt_is$,
+      },
       {},
     ),
     'Long': m.ClassMirror(
       'Long',
-      {},
+      {
+        '#as': Long_as$,
+        '#is': Long_is$,
+      },
       {},
     ),
     'UnsignedLong': m.ClassMirror(
       'UnsignedLong',
-      {},
+      {
+        '#as': UnsignedLong_as$,
+        '#is': UnsignedLong_is$,
+      },
       {},
     ),
     'LongLong': m.ClassMirror(
       'LongLong',
-      {},
+      {
+        '#as': LongLong_as$,
+        '#is': LongLong_is$,
+      },
       {},
     ),
     'UnsignedLongLong': m.ClassMirror(
       'UnsignedLongLong',
-      {},
+      {
+        '#as': UnsignedLongLong_as$,
+        '#is': UnsignedLongLong_is$,
+      },
       {},
     ),
     'IntPtr': m.ClassMirror(
       'IntPtr',
-      {},
+      {
+        '#as': IntPtr_as$,
+        '#is': IntPtr_is$,
+      },
       {},
     ),
     'UintPtr': m.ClassMirror(
       'UintPtr',
-      {},
+      {
+        '#as': UintPtr_as$,
+        '#is': UintPtr_is$,
+      },
       {},
     ),
     'Size': m.ClassMirror(
       'Size',
-      {},
+      {
+        '#as': Size_as$,
+        '#is': Size_is$,
+      },
       {},
     ),
     'WChar': m.ClassMirror(
       'WChar',
-      {},
+      {
+        '#as': WChar_as$,
+        '#is': WChar_is$,
+      },
       {},
     ),
     'DynamicLibrary': m.ClassMirror(
       'DynamicLibrary',
       {
+        '#as': DynamicLibrary_as$,
+        '#is': DynamicLibrary_is$,
         'hashCode': _DynamicLibrary_hashCode$,
         'handle': _DynamicLibrary_handle$,
         'lookup': _DynamicLibrary_lookup$,
         'providesSymbol': _DynamicLibrary_providesSymbol$,
+        '==': _DynamicLibrary_eq$$,
       },
       {},
     ),
     'Struct': m.ClassMirror(
       'Struct',
-      {},
+      {
+        '#as': Struct_as$,
+        '#is': Struct_is$,
+      },
       {},
     ),
     'Packed': m.ClassMirror(
       'Packed',
-      {'memberAlignment': _Packed_memberAlignment$},
+      {
+        '#as': Packed_as$,
+        '#is': Packed_is$,
+        'memberAlignment': _Packed_memberAlignment$,
+      },
       {},
     ),
     'Union': m.ClassMirror(
       'Union',
-      {},
+      {
+        '#as': Union_as$,
+        '#is': Union_is$,
+      },
       {},
     ),
   },
@@ -319,6 +467,16 @@ Pointer<Never> _nullptr$() {
   return nullptr;
 }
 
+Function Pointer_as$<T extends NativeType>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Pointer<T>;
+Function Pointer_is$<T extends NativeType>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Pointer<T>;
 int _Pointer_address$<T extends NativeType>(Pointer<T> target) {
   return target.address;
 }
@@ -334,6 +492,41 @@ Function _Pointer_cast$<T extends NativeType, U extends NativeType>(
   Pointer<T> target,
 ) =>
     target.cast<U>;
+Function _Pointer_eq$$<T extends NativeType>(
+  m.Scope scope,
+  Pointer<T> target,
+) =>
+    (Object other) => target == other;
+Function Array_as$<T extends NativeType>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Array<T>;
+Function Array_is$<T extends NativeType>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Array<T>;
+Function Dart_CObject_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Dart_CObject;
+Function Dart_CObject_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Dart_CObject;
+Function NativeApi_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NativeApi;
+Function NativeApi_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NativeApi;
 int _NativeApi_majorVersion$() {
   return NativeApi.majorVersion;
 }
@@ -365,6 +558,16 @@ Pointer<Void> _NativeApi_initializeApiDLData$() {
   return NativeApi.initializeApiDLData;
 }
 
+Function Native_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Native<T>;
+Function Native_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Native<T>;
 String? _Native_symbol$<T>(Native<T> target) {
   return target.symbol;
 }
@@ -377,11 +580,31 @@ bool _Native_isLeaf$<T>(Native<T> target) {
   return target.isLeaf;
 }
 
+Function DefaultAsset_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultAsset;
+Function DefaultAsset_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultAsset;
 String _DefaultAsset_id$(DefaultAsset target) {
   return target.id;
 }
 
 Function _sizeOf$<T extends NativeType>(m.Scope scope) => sizeOf<T>;
+Function Abi_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Abi;
+Function Abi_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Abi;
 Abi _Abi_androidArm$() {
   return Abi.androidArm;
 }
@@ -475,11 +698,211 @@ Function _Abi_toString$(
   Abi target,
 ) =>
     target.toString;
+Function AbiSpecificInteger_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AbiSpecificInteger;
+Function AbiSpecificInteger_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AbiSpecificInteger;
+Function AbiSpecificIntegerMapping_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AbiSpecificIntegerMapping;
+Function AbiSpecificIntegerMapping_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AbiSpecificIntegerMapping;
 Map<Abi, NativeType> _AbiSpecificIntegerMapping_mapping$(
     AbiSpecificIntegerMapping target) {
   return target.mapping;
 }
 
+Function NativeType_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NativeType;
+Function NativeType_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NativeType;
+Function Opaque_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Opaque;
+Function Opaque_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Opaque;
+Function Int8_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int8;
+Function Int8_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int8;
+Function Int16_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int16;
+Function Int16_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int16;
+Function Int32_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int32;
+Function Int32_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int32;
+Function Int64_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int64;
+Function Int64_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int64;
+Function Uint8_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint8;
+Function Uint8_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint8;
+Function Uint16_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint16;
+Function Uint16_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint16;
+Function Uint32_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint32;
+Function Uint32_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint32;
+Function Uint64_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint64;
+Function Uint64_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint64;
+Function Float_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float;
+Function Float_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float;
+Function Double_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Double;
+Function Double_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Double;
+Function Bool_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Bool;
+Function Bool_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Bool;
+Function Void_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Void;
+Function Void_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Void;
+Function Handle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Handle;
+Function Handle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Handle;
+Function NativeFunction_as$<T extends Function>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NativeFunction<T>;
+Function NativeFunction_is$<T extends Function>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NativeFunction<T>;
+Function Finalizable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Finalizable;
+Function Finalizable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Finalizable;
+Function NativeFinalizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NativeFinalizer;
+Function NativeFinalizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NativeFinalizer;
 Function _NativeFinalizer_attach$(
   m.Scope scope,
   NativeFinalizer target,
@@ -490,6 +913,16 @@ Function _NativeFinalizer_detach$(
   NativeFinalizer target,
 ) =>
     target.detach;
+Function Allocator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Allocator;
+Function Allocator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Allocator;
 Function _Allocator_allocate$<T extends NativeType>(
   m.Scope scope,
   Allocator target,
@@ -504,6 +937,186 @@ Unsized _unsized$() {
   return unsized;
 }
 
+Function DartRepresentationOf_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DartRepresentationOf;
+Function DartRepresentationOf_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DartRepresentationOf;
+Function Unsized_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Unsized;
+Function Unsized_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Unsized;
+Function Char_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Char;
+Function Char_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Char;
+Function SignedChar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SignedChar;
+Function SignedChar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SignedChar;
+Function UnsignedChar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsignedChar;
+Function UnsignedChar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsignedChar;
+Function Short_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Short;
+Function Short_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Short;
+Function UnsignedShort_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsignedShort;
+Function UnsignedShort_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsignedShort;
+Function Int_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int;
+Function Int_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int;
+Function UnsignedInt_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsignedInt;
+Function UnsignedInt_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsignedInt;
+Function Long_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Long;
+Function Long_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Long;
+Function UnsignedLong_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsignedLong;
+Function UnsignedLong_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsignedLong;
+Function LongLong_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongLong;
+Function LongLong_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongLong;
+Function UnsignedLongLong_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnsignedLongLong;
+Function UnsignedLongLong_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnsignedLongLong;
+Function IntPtr_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntPtr;
+Function IntPtr_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntPtr;
+Function UintPtr_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UintPtr;
+Function UintPtr_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UintPtr;
+Function Size_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Size;
+Function Size_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Size;
+Function WChar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WChar;
+Function WChar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WChar;
+Function DynamicLibrary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DynamicLibrary;
+Function DynamicLibrary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DynamicLibrary;
 int _DynamicLibrary_hashCode$(DynamicLibrary target) {
   return target.hashCode;
 }
@@ -522,6 +1135,42 @@ Function _DynamicLibrary_providesSymbol$(
   DynamicLibrary target,
 ) =>
     target.providesSymbol;
+Function _DynamicLibrary_eq$$(
+  m.Scope scope,
+  DynamicLibrary target,
+) =>
+    (Object other) => target == other;
+Function Struct_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Struct;
+Function Struct_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Struct;
+Function Packed_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Packed;
+Function Packed_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Packed;
 int _Packed_memberAlignment$(Packed target) {
   return target.memberAlignment;
 }
+
+Function Union_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Union;
+Function Union_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Union;

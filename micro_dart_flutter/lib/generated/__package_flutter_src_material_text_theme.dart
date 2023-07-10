@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'TextTheme': m.ClassMirror(
       'TextTheme',
       {
+        '#as': TextTheme_as$,
+        '#is': TextTheme_is$,
         'displayLarge': _TextTheme_displayLarge$,
         'displayMedium': _TextTheme_displayMedium$,
         'displaySmall': _TextTheme_displaySmall$,
@@ -34,12 +36,23 @@ const libraryMirror = m.LibraryMirror(
         'copyWith': _TextTheme_copyWith$,
         'merge': _TextTheme_merge$,
         'apply': _TextTheme_apply$,
+        '==': _TextTheme_eq$$,
         'debugFillProperties': _TextTheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function TextTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextTheme;
+Function TextTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextTheme;
 TextStyle? _TextTheme_displayLarge$(TextTheme target) {
   return target.displayLarge;
 }
@@ -120,6 +133,11 @@ Function _TextTheme_apply$(
 ) =>
     target.apply;
 Function _TextTheme_lerp$(m.Scope scope) => TextTheme.lerp;
+Function _TextTheme_eq$$(
+  m.Scope scope,
+  TextTheme target,
+) =>
+    (Object other) => target == other;
 Function _TextTheme_debugFillProperties$(
   m.Scope scope,
   TextTheme target,

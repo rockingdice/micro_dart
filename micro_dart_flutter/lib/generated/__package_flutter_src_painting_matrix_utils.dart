@@ -26,16 +26,33 @@ const libraryMirror = m.LibraryMirror(
   {
     'MatrixUtils': m.ClassMirror(
       'MatrixUtils',
-      {},
+      {
+        '#as': MatrixUtils_as$,
+        '#is': MatrixUtils_is$,
+      },
       {},
     ),
     'TransformProperty': m.ClassMirror(
       'TransformProperty',
-      {'valueToString': _TransformProperty_valueToString$},
+      {
+        '#as': TransformProperty_as$,
+        '#is': TransformProperty_is$,
+        'valueToString': _TransformProperty_valueToString$,
+      },
       {},
     ),
   },
 );
+Function MatrixUtils_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MatrixUtils;
+Function MatrixUtils_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MatrixUtils;
 Function _MatrixUtils_getAsTranslation$(m.Scope scope) =>
     MatrixUtils.getAsTranslation;
 Function _MatrixUtils_getAsScale$(m.Scope scope) => MatrixUtils.getAsScale;
@@ -50,6 +67,16 @@ Function _MatrixUtils_inverseTransformRect$(m.Scope scope) =>
 Function _MatrixUtils_createCylindricalProjectionTransform$(m.Scope scope) =>
     MatrixUtils.createCylindricalProjectionTransform;
 Function _MatrixUtils_forceToPoint$(m.Scope scope) => MatrixUtils.forceToPoint;
+Function TransformProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransformProperty;
+Function TransformProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransformProperty;
 Function _TransformProperty_valueToString$(
   m.Scope scope,
   TransformProperty target,

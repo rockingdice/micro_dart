@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'DialogTheme': m.ClassMirror(
       'DialogTheme',
       {
+        '#as': DialogTheme_as$,
+        '#is': DialogTheme_is$,
         'backgroundColor': _DialogTheme_backgroundColor$,
         'elevation': _DialogTheme_elevation$,
         'shadowColor': _DialogTheme_shadowColor$,
@@ -31,12 +33,23 @@ const libraryMirror = m.LibraryMirror(
         'iconColor': _DialogTheme_iconColor$,
         'hashCode': _DialogTheme_hashCode$,
         'copyWith': _DialogTheme_copyWith$,
+        '==': _DialogTheme_eq$$,
         'debugFillProperties': _DialogTheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function DialogTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DialogTheme;
+Function DialogTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DialogTheme;
 Color? _DialogTheme_backgroundColor$(DialogTheme target) {
   return target.backgroundColor;
 }
@@ -88,6 +101,11 @@ Function _DialogTheme_copyWith$(
     target.copyWith;
 Function _DialogTheme_of$(m.Scope scope) => DialogTheme.of;
 Function _DialogTheme_lerp$(m.Scope scope) => DialogTheme.lerp;
+Function _DialogTheme_eq$$(
+  m.Scope scope,
+  DialogTheme target,
+) =>
+    (Object other) => target == other;
 Function _DialogTheme_debugFillProperties$(
   m.Scope scope,
   DialogTheme target,

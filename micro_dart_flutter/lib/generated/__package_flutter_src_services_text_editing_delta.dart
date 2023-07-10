@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingDelta': m.ClassMirror(
       'TextEditingDelta',
       {
+        '#as': TextEditingDelta_as$,
+        '#is': TextEditingDelta_is$,
         'oldText': _TextEditingDelta_oldText$,
         'selection': _TextEditingDelta_selection$,
         'composing': _TextEditingDelta_composing$,
@@ -26,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingDeltaInsertion': m.ClassMirror(
       'TextEditingDeltaInsertion',
       {
+        '#as': TextEditingDeltaInsertion_as$,
+        '#is': TextEditingDeltaInsertion_is$,
         'textInserted': _TextEditingDeltaInsertion_textInserted$,
         'insertionOffset': _TextEditingDeltaInsertion_insertionOffset$,
         'apply': _TextEditingDeltaInsertion_apply$,
@@ -36,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingDeltaDeletion': m.ClassMirror(
       'TextEditingDeltaDeletion',
       {
+        '#as': TextEditingDeltaDeletion_as$,
+        '#is': TextEditingDeltaDeletion_is$,
         'deletedRange': _TextEditingDeltaDeletion_deletedRange$,
         'textDeleted': _TextEditingDeltaDeletion_textDeleted$,
         'apply': _TextEditingDeltaDeletion_apply$,
@@ -46,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingDeltaReplacement': m.ClassMirror(
       'TextEditingDeltaReplacement',
       {
+        '#as': TextEditingDeltaReplacement_as$,
+        '#is': TextEditingDeltaReplacement_is$,
         'replacementText': _TextEditingDeltaReplacement_replacementText$,
         'replacedRange': _TextEditingDeltaReplacement_replacedRange$,
         'textReplaced': _TextEditingDeltaReplacement_textReplaced$,
@@ -58,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingDeltaNonTextUpdate': m.ClassMirror(
       'TextEditingDeltaNonTextUpdate',
       {
+        '#as': TextEditingDeltaNonTextUpdate_as$,
+        '#is': TextEditingDeltaNonTextUpdate_is$,
         'apply': _TextEditingDeltaNonTextUpdate_apply$,
         'debugFillProperties':
             _TextEditingDeltaNonTextUpdate_debugFillProperties$,
@@ -66,6 +76,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextEditingDelta_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingDelta;
+Function TextEditingDelta_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingDelta;
 String _TextEditingDelta_oldText$(TextEditingDelta target) {
   return target.oldText;
 }
@@ -83,6 +103,16 @@ Function _TextEditingDelta_apply$(
   TextEditingDelta target,
 ) =>
     target.apply;
+Function TextEditingDeltaInsertion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingDeltaInsertion;
+Function TextEditingDeltaInsertion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingDeltaInsertion;
 String _TextEditingDeltaInsertion_textInserted$(
     TextEditingDeltaInsertion target) {
   return target.textInserted;
@@ -103,6 +133,16 @@ Function _TextEditingDeltaInsertion_debugFillProperties$(
   TextEditingDeltaInsertion target,
 ) =>
     target.debugFillProperties;
+Function TextEditingDeltaDeletion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingDeltaDeletion;
+Function TextEditingDeltaDeletion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingDeltaDeletion;
 TextRange _TextEditingDeltaDeletion_deletedRange$(
     TextEditingDeltaDeletion target) {
   return target.deletedRange;
@@ -122,6 +162,16 @@ Function _TextEditingDeltaDeletion_debugFillProperties$(
   TextEditingDeltaDeletion target,
 ) =>
     target.debugFillProperties;
+Function TextEditingDeltaReplacement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingDeltaReplacement;
+Function TextEditingDeltaReplacement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingDeltaReplacement;
 String _TextEditingDeltaReplacement_replacementText$(
     TextEditingDeltaReplacement target) {
   return target.replacementText;
@@ -147,6 +197,16 @@ Function _TextEditingDeltaReplacement_debugFillProperties$(
   TextEditingDeltaReplacement target,
 ) =>
     target.debugFillProperties;
+Function TextEditingDeltaNonTextUpdate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingDeltaNonTextUpdate;
+Function TextEditingDeltaNonTextUpdate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingDeltaNonTextUpdate;
 Function _TextEditingDeltaNonTextUpdate_apply$(
   m.Scope scope,
   TextEditingDeltaNonTextUpdate target,

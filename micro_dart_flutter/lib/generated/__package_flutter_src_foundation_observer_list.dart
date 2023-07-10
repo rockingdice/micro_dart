@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'ObserverList': m.ClassMirror(
       'ObserverList',
       {
+        '#as': ObserverList_as$,
+        '#is': ObserverList_is$,
         'iterator': _ObserverList_iterator$,
         'isEmpty': _ObserverList_isEmpty$,
         'isNotEmpty': _ObserverList_isNotEmpty$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'HashedObserverList': m.ClassMirror(
       'HashedObserverList',
       {
+        '#as': HashedObserverList_as$,
+        '#is': HashedObserverList_is$,
         'iterator': _HashedObserverList_iterator$,
         'isEmpty': _HashedObserverList_isEmpty$,
         'isNotEmpty': _HashedObserverList_isNotEmpty$,
@@ -38,6 +42,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ObserverList_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObserverList<T>;
+Function ObserverList_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObserverList<T>;
 Iterator<T> _ObserverList_iterator$<T>(ObserverList<T> target) {
   return target.iterator;
 }
@@ -75,6 +89,16 @@ Function _ObserverList_toList$<T>(
   ObserverList<T> target,
 ) =>
     target.toList;
+Function HashedObserverList_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HashedObserverList<T>;
+Function HashedObserverList_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HashedObserverList<T>;
 Iterator<T> _HashedObserverList_iterator$<T>(HashedObserverList<T> target) {
   return target.iterator;
 }

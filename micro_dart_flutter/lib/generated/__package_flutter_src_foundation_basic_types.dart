@@ -7,12 +7,21 @@ import 'dart:collection';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/basic_types.dart',
-  {'lerpDuration': _lerpDuration$},
+  {
+    'CachingIterable.map': _CachingIterable_map$,
+    'CachingIterable.where': _CachingIterable_where$,
+    'CachingIterable.expand': _CachingIterable_expand$,
+    'CachingIterable.takeWhile': _CachingIterable_takeWhile$,
+    'CachingIterable.skipWhile': _CachingIterable_skipWhile$,
+    'lerpDuration': _lerpDuration$,
+  },
   {},
   {
     'CachingIterable': m.ClassMirror(
       'CachingIterable',
       {
+        '#as': CachingIterable_as$,
+        '#is': CachingIterable_is$,
         'iterator': _CachingIterable_iterator$,
         'length': _CachingIterable_length$,
         'take': _CachingIterable_take$,
@@ -24,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'Factory': m.ClassMirror(
       'Factory',
       {
+        '#as': Factory_as$,
+        '#is': Factory_is$,
         'constructor': _Factory_constructor$,
         'type': _Factory_type$,
         'toString': _Factory_toString$,
@@ -32,6 +43,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CachingIterable_as$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CachingIterable<E>;
+Function CachingIterable_is$<E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CachingIterable<E>;
 Iterator<E> _CachingIterable_iterator$<E>(CachingIterable<E> target) {
   return target.iterator;
 }
@@ -40,21 +61,97 @@ int _CachingIterable_length$<E>(CachingIterable<E> target) {
   return target.length;
 }
 
+Function _CachingIterable_map$<E>(
+  m.Scope scope,
+  CachingIterable<E> target,
+) =>
+    <T>(m.FunctionPointer toElement) {
+      T toElementProxy(E toElement_e) => scope.engine.callFunctionPointer(
+            scope,
+            toElement,
+            [toElement_e],
+            {},
+          );
+      return target.map<T>(toElementProxy);
+    };
+Function _CachingIterable_where$<E>(
+  m.Scope scope,
+  CachingIterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.where(testProxy);
+    };
+Function _CachingIterable_expand$<E>(
+  m.Scope scope,
+  CachingIterable<E> target,
+) =>
+    <T>(m.FunctionPointer toElements) {
+      Iterable<T> toElementsProxy(E toElements_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            toElements,
+            [toElements_element],
+            {},
+          );
+      return target.expand<T>(toElementsProxy);
+    };
 Function _CachingIterable_take$<E>(
   m.Scope scope,
   CachingIterable<E> target,
 ) =>
     target.take;
+Function _CachingIterable_takeWhile$<E>(
+  m.Scope scope,
+  CachingIterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.takeWhile(testProxy);
+    };
 Function _CachingIterable_skip$<E>(
   m.Scope scope,
   CachingIterable<E> target,
 ) =>
     target.skip;
+Function _CachingIterable_skipWhile$<E>(
+  m.Scope scope,
+  CachingIterable<E> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(E test_value) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_value],
+            {},
+          );
+      return target.skipWhile(testProxy);
+    };
 Function _CachingIterable_toList$<E>(
   m.Scope scope,
   CachingIterable<E> target,
 ) =>
     target.toList;
+Function Factory_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Factory<T>;
+Function Factory_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Factory<T>;
 T Function() _Factory_constructor$<T>(Factory<T> target) {
   return target.constructor;
 }

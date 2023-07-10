@@ -59,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'TextTreeConfiguration': m.ClassMirror(
       'TextTreeConfiguration',
       {
+        '#as': TextTreeConfiguration_as$,
+        '#is': TextTreeConfiguration_is$,
         'prefixLineOne': _TextTreeConfiguration_prefixLineOne$,
         'suffixLineOne': _TextTreeConfiguration_suffixLineOne$,
         'prefixOtherLines': _TextTreeConfiguration_prefixOtherLines$,
@@ -98,12 +100,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TextTreeRenderer': m.ClassMirror(
       'TextTreeRenderer',
-      {'render': _TextTreeRenderer_render$},
+      {
+        '#as': TextTreeRenderer_as$,
+        '#is': TextTreeRenderer_is$,
+        'render': _TextTreeRenderer_render$,
+      },
       {},
     ),
     'DiagnosticsNode': m.ClassMirror(
       'DiagnosticsNode',
       {
+        '#as': DiagnosticsNode_as$,
+        '#is': DiagnosticsNode_is$,
         'name': _DiagnosticsNode_name$,
         'showSeparator': _DiagnosticsNode_showSeparator$,
         'showName': _DiagnosticsNode_showName$,
@@ -129,12 +137,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MessageProperty': m.ClassMirror(
       'MessageProperty',
-      {},
+      {
+        '#as': MessageProperty_as$,
+        '#is': MessageProperty_is$,
+      },
       {},
     ),
     'StringProperty': m.ClassMirror(
       'StringProperty',
       {
+        '#as': StringProperty_as$,
+        '#is': StringProperty_is$,
         'quoted': _StringProperty_quoted$,
         'toJsonMap': _StringProperty_toJsonMap$,
         'valueToString': _StringProperty_valueToString$,
@@ -143,17 +156,27 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DoubleProperty': m.ClassMirror(
       'DoubleProperty',
-      {'numberToString': _DoubleProperty_numberToString$},
+      {
+        '#as': DoubleProperty_as$,
+        '#is': DoubleProperty_is$,
+        'numberToString': _DoubleProperty_numberToString$,
+      },
       {},
     ),
     'IntProperty': m.ClassMirror(
       'IntProperty',
-      {'numberToString': _IntProperty_numberToString$},
+      {
+        '#as': IntProperty_as$,
+        '#is': IntProperty_is$,
+        'numberToString': _IntProperty_numberToString$,
+      },
       {},
     ),
     'PercentProperty': m.ClassMirror(
       'PercentProperty',
       {
+        '#as': PercentProperty_as$,
+        '#is': PercentProperty_is$,
         'valueToString': _PercentProperty_valueToString$,
         'numberToString': _PercentProperty_numberToString$,
       },
@@ -162,6 +185,8 @@ const libraryMirror = m.LibraryMirror(
     'FlagProperty': m.ClassMirror(
       'FlagProperty',
       {
+        '#as': FlagProperty_as$,
+        '#is': FlagProperty_is$,
         'ifTrue': _FlagProperty_ifTrue$,
         'ifFalse': _FlagProperty_ifFalse$,
         'showName': _FlagProperty_showName$,
@@ -174,6 +199,8 @@ const libraryMirror = m.LibraryMirror(
     'IterableProperty': m.ClassMirror(
       'IterableProperty',
       {
+        '#as': IterableProperty_as$,
+        '#is': IterableProperty_is$,
         'level': _IterableProperty_level$,
         'valueToString': _IterableProperty_valueToString$,
         'toJsonMap': _IterableProperty_toJsonMap$,
@@ -182,12 +209,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'EnumProperty': m.ClassMirror(
       'EnumProperty',
-      {'valueToString': _EnumProperty_valueToString$},
+      {
+        '#as': EnumProperty_as$,
+        '#is': EnumProperty_is$,
+        'valueToString': _EnumProperty_valueToString$,
+      },
       {},
     ),
     'ObjectFlagProperty': m.ClassMirror(
       'ObjectFlagProperty',
       {
+        '#as': ObjectFlagProperty_as$,
+        '#is': ObjectFlagProperty_is$,
         'ifPresent': _ObjectFlagProperty_ifPresent$,
         'showName': _ObjectFlagProperty_showName$,
         'level': _ObjectFlagProperty_level$,
@@ -199,6 +232,8 @@ const libraryMirror = m.LibraryMirror(
     'FlagsSummary': m.ClassMirror(
       'FlagsSummary',
       {
+        '#as': FlagsSummary_as$,
+        '#is': FlagsSummary_is$,
         'value': _FlagsSummary_value$,
         'level': _FlagsSummary_level$,
         'valueToString': _FlagsSummary_valueToString$,
@@ -209,6 +244,8 @@ const libraryMirror = m.LibraryMirror(
     'DiagnosticsProperty': m.ClassMirror(
       'DiagnosticsProperty',
       {
+        '#as': DiagnosticsProperty_as$,
+        '#is': DiagnosticsProperty_is$,
         'expandableValue': _DiagnosticsProperty_expandableValue$,
         'allowWrap': _DiagnosticsProperty_allowWrap$,
         'allowNameWrap': _DiagnosticsProperty_allowNameWrap$,
@@ -233,6 +270,8 @@ const libraryMirror = m.LibraryMirror(
     'DiagnosticableNode': m.ClassMirror(
       'DiagnosticableNode',
       {
+        '#as': DiagnosticableNode_as$,
+        '#is': DiagnosticableNode_is$,
         'value': _DiagnosticableNode_value$,
         'builder': _DiagnosticableNode_builder$,
         'style': _DiagnosticableNode_style$,
@@ -245,12 +284,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DiagnosticableTreeNode': m.ClassMirror(
       'DiagnosticableTreeNode',
-      {'getChildren': _DiagnosticableTreeNode_getChildren$},
+      {
+        '#as': DiagnosticableTreeNode_as$,
+        '#is': DiagnosticableTreeNode_is$,
+        'getChildren': _DiagnosticableTreeNode_getChildren$,
+      },
       {},
     ),
     'DiagnosticPropertiesBuilder': m.ClassMirror(
       'DiagnosticPropertiesBuilder',
       {
+        '#as': DiagnosticPropertiesBuilder_as$,
+        '#is': DiagnosticPropertiesBuilder_is$,
         'properties': _DiagnosticPropertiesBuilder_properties$,
         'defaultDiagnosticsTreeStyle':
             _DiagnosticPropertiesBuilder_defaultDiagnosticsTreeStyle$,
@@ -268,6 +313,8 @@ const libraryMirror = m.LibraryMirror(
     'DiagnosticableTree': m.ClassMirror(
       'DiagnosticableTree',
       {
+        '#as': DiagnosticableTree_as$,
+        '#is': DiagnosticableTree_is$,
         'toStringShallow': _DiagnosticableTree_toStringShallow$,
         'toStringDeep': _DiagnosticableTree_toStringDeep$,
         'toStringShort': _DiagnosticableTree_toStringShort$,
@@ -279,6 +326,8 @@ const libraryMirror = m.LibraryMirror(
     'DiagnosticsBlock': m.ClassMirror(
       'DiagnosticsBlock',
       {
+        '#as': DiagnosticsBlock_as$,
+        '#is': DiagnosticsBlock_is$,
         'level': _DiagnosticsBlock_level$,
         'value': _DiagnosticsBlock_value$,
         'allowTruncate': _DiagnosticsBlock_allowTruncate$,
@@ -291,6 +340,8 @@ const libraryMirror = m.LibraryMirror(
     'DiagnosticsSerializationDelegate': m.ClassMirror(
       'DiagnosticsSerializationDelegate',
       {
+        '#as': DiagnosticsSerializationDelegate_as$,
+        '#is': DiagnosticsSerializationDelegate_is$,
         'subtreeDepth': _DiagnosticsSerializationDelegate_subtreeDepth$,
         'includeProperties':
             _DiagnosticsSerializationDelegate_includeProperties$,
@@ -363,6 +414,16 @@ Object _kNoDefaultValue$() {
   return kNoDefaultValue;
 }
 
+Function TextTreeConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextTreeConfiguration;
+Function TextTreeConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextTreeConfiguration;
 String _TextTreeConfiguration_prefixLineOne$(TextTreeConfiguration target) {
   return target.prefixLineOne;
 }
@@ -475,11 +536,31 @@ bool _TextTreeConfiguration_isBlankLineBetweenPropertiesAndChildren$(
   return target.isBlankLineBetweenPropertiesAndChildren;
 }
 
+Function TextTreeRenderer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextTreeRenderer;
+Function TextTreeRenderer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextTreeRenderer;
 Function _TextTreeRenderer_render$(
   m.Scope scope,
   TextTreeRenderer target,
 ) =>
     target.render;
+Function DiagnosticsNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsNode;
+Function DiagnosticsNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsNode;
 String? _DiagnosticsNode_name$(DiagnosticsNode target) {
   return target.name;
 }
@@ -571,6 +652,26 @@ Function _DiagnosticsNode_toStringDeep$(
   DiagnosticsNode target,
 ) =>
     target.toStringDeep;
+Function MessageProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MessageProperty;
+Function MessageProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MessageProperty;
+Function StringProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringProperty;
+Function StringProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringProperty;
 bool _StringProperty_quoted$(StringProperty target) {
   return target.quoted;
 }
@@ -585,16 +686,46 @@ Function _StringProperty_valueToString$(
   StringProperty target,
 ) =>
     target.valueToString;
+Function DoubleProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoubleProperty;
+Function DoubleProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoubleProperty;
 Function _DoubleProperty_numberToString$(
   m.Scope scope,
   DoubleProperty target,
 ) =>
     target.numberToString;
+Function IntProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntProperty;
+Function IntProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntProperty;
 Function _IntProperty_numberToString$(
   m.Scope scope,
   IntProperty target,
 ) =>
     target.numberToString;
+Function PercentProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PercentProperty;
+Function PercentProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PercentProperty;
 Function _PercentProperty_valueToString$(
   m.Scope scope,
   PercentProperty target,
@@ -605,6 +736,16 @@ Function _PercentProperty_numberToString$(
   PercentProperty target,
 ) =>
     target.numberToString;
+Function FlagProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlagProperty;
+Function FlagProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlagProperty;
 String? _FlagProperty_ifTrue$(FlagProperty target) {
   return target.ifTrue;
 }
@@ -631,6 +772,16 @@ Function _FlagProperty_valueToString$(
   FlagProperty target,
 ) =>
     target.valueToString;
+Function IterableProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IterableProperty<T>;
+Function IterableProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IterableProperty<T>;
 DiagnosticLevel _IterableProperty_level$<T>(IterableProperty<T> target) {
   return target.level;
 }
@@ -645,11 +796,31 @@ Function _IterableProperty_toJsonMap$<T>(
   IterableProperty<T> target,
 ) =>
     target.toJsonMap;
+Function EnumProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EnumProperty<T>;
+Function EnumProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EnumProperty<T>;
 Function _EnumProperty_valueToString$<T>(
   m.Scope scope,
   EnumProperty<T> target,
 ) =>
     target.valueToString;
+Function ObjectFlagProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObjectFlagProperty<T>;
+Function ObjectFlagProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObjectFlagProperty<T>;
 String? _ObjectFlagProperty_ifPresent$<T>(ObjectFlagProperty<T> target) {
   return target.ifPresent;
 }
@@ -672,6 +843,16 @@ Function _ObjectFlagProperty_toJsonMap$<T>(
   ObjectFlagProperty<T> target,
 ) =>
     target.toJsonMap;
+Function FlagsSummary_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlagsSummary<T>;
+Function FlagsSummary_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlagsSummary<T>;
 Map<String, T?> _FlagsSummary_value$<T>(FlagsSummary<T> target) {
   return target.value;
 }
@@ -690,6 +871,16 @@ Function _FlagsSummary_toJsonMap$<T>(
   FlagsSummary<T> target,
 ) =>
     target.toJsonMap;
+Function DiagnosticsProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsProperty<T>;
+Function DiagnosticsProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsProperty<T>;
 bool _DiagnosticsProperty_expandableValue$<T>(DiagnosticsProperty<T> target) {
   return target.expandableValue;
 }
@@ -767,6 +958,16 @@ Function _DiagnosticsProperty_getChildren$<T>(
   DiagnosticsProperty<T> target,
 ) =>
     target.getChildren;
+Function DiagnosticableNode_as$<T extends Diagnosticable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticableNode<T>;
+Function DiagnosticableNode_is$<T extends Diagnosticable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticableNode<T>;
 T _DiagnosticableNode_value$<T extends Diagnosticable>(
     DiagnosticableNode<T> target) {
   return target.value;
@@ -803,11 +1004,31 @@ Function _DiagnosticableNode_toDescription$<T extends Diagnosticable>(
   DiagnosticableNode<T> target,
 ) =>
     target.toDescription;
+Function DiagnosticableTreeNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticableTreeNode;
+Function DiagnosticableTreeNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticableTreeNode;
 Function _DiagnosticableTreeNode_getChildren$(
   m.Scope scope,
   DiagnosticableTreeNode target,
 ) =>
     target.getChildren;
+Function DiagnosticPropertiesBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticPropertiesBuilder;
+Function DiagnosticPropertiesBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticPropertiesBuilder;
 List<DiagnosticsNode> _DiagnosticPropertiesBuilder_properties$(
     DiagnosticPropertiesBuilder target) {
   return target.properties;
@@ -842,6 +1063,16 @@ Function _DiagnosticPropertiesBuilder_add$(
   DiagnosticPropertiesBuilder target,
 ) =>
     target.add;
+Function DiagnosticableTree_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticableTree;
+Function DiagnosticableTree_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticableTree;
 Function _DiagnosticableTree_toStringShallow$(
   m.Scope scope,
   DiagnosticableTree target,
@@ -867,6 +1098,16 @@ Function _DiagnosticableTree_debugDescribeChildren$(
   DiagnosticableTree target,
 ) =>
     target.debugDescribeChildren;
+Function DiagnosticsBlock_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsBlock;
+Function DiagnosticsBlock_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsBlock;
 DiagnosticLevel _DiagnosticsBlock_level$(DiagnosticsBlock target) {
   return target.level;
 }
@@ -894,6 +1135,16 @@ Function _DiagnosticsBlock_toDescription$(
   DiagnosticsBlock target,
 ) =>
     target.toDescription;
+Function DiagnosticsSerializationDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsSerializationDelegate;
+Function DiagnosticsSerializationDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsSerializationDelegate;
 int _DiagnosticsSerializationDelegate_subtreeDepth$(
     DiagnosticsSerializationDelegate target) {
   return target.subtreeDepth;

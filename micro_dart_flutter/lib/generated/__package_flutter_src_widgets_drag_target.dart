@@ -17,6 +17,9 @@ import 'package:flutter/src/widgets/overlay.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/drag_target.dart',
   {
+    'Draggable.createRecognizer': _Draggable_createRecognizer$,
+    'LongPressDraggable.createRecognizer':
+        _LongPressDraggable_createRecognizer$,
     'childDragAnchorStrategy': _childDragAnchorStrategy$,
     'pointerDragAnchorStrategy': _pointerDragAnchorStrategy$,
   },
@@ -25,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'Draggable': m.ClassMirror(
       'Draggable',
       {
+        '#as': Draggable_as$,
+        '#is': Draggable_is$,
         'data': _Draggable_data$,
         'axis': _Draggable_axis$,
         'child': _Draggable_child$,
@@ -51,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressDraggable': m.ClassMirror(
       'LongPressDraggable',
       {
+        '#as': LongPressDraggable_as$,
+        '#is': LongPressDraggable_is$,
         'hapticFeedbackOnStart': _LongPressDraggable_hapticFeedbackOnStart$,
         'delay': _LongPressDraggable_delay$,
       },
@@ -59,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'DraggableDetails': m.ClassMirror(
       'DraggableDetails',
       {
+        '#as': DraggableDetails_as$,
+        '#is': DraggableDetails_is$,
         'wasAccepted': _DraggableDetails_wasAccepted$,
         'velocity': _DraggableDetails_velocity$,
         'offset': _DraggableDetails_offset$,
@@ -68,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
     'DragTargetDetails': m.ClassMirror(
       'DragTargetDetails',
       {
+        '#as': DragTargetDetails_as$,
+        '#is': DragTargetDetails_is$,
         'data': _DragTargetDetails_data$,
         'offset': _DragTargetDetails_offset$,
       },
@@ -76,6 +87,8 @@ const libraryMirror = m.LibraryMirror(
     'DragTarget': m.ClassMirror(
       'DragTarget',
       {
+        '#as': DragTarget_as$,
+        '#is': DragTarget_is$,
         'builder': _DragTarget_builder$,
         'onWillAccept': _DragTarget_onWillAccept$,
         'onAccept': _DragTarget_onAccept$,
@@ -89,6 +102,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Draggable_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Draggable<T>;
+Function Draggable_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Draggable<T>;
 T? _Draggable_data$<T extends Object>(Draggable<T> target) {
   return target.data;
 }
@@ -175,11 +198,35 @@ bool Function(int)? _Draggable_allowedButtonsFilter$<T extends Object>(
   return target.allowedButtonsFilter;
 }
 
+Function _Draggable_createRecognizer$<T extends Object>(
+  m.Scope scope,
+  Draggable<T> target,
+) =>
+    (m.FunctionPointer onStart) {
+      Drag? onStartProxy(Offset onStart_position) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onStart,
+            [onStart_position],
+            {},
+          );
+      return target.createRecognizer(onStartProxy);
+    };
 Function _Draggable_createState$<T extends Object>(
   m.Scope scope,
   Draggable<T> target,
 ) =>
     target.createState;
+Function LongPressDraggable_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressDraggable<T>;
+Function LongPressDraggable_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressDraggable<T>;
 bool _LongPressDraggable_hapticFeedbackOnStart$<T extends Object>(
     LongPressDraggable<T> target) {
   return target.hapticFeedbackOnStart;
@@ -190,6 +237,30 @@ Duration _LongPressDraggable_delay$<T extends Object>(
   return target.delay;
 }
 
+Function _LongPressDraggable_createRecognizer$<T extends Object>(
+  m.Scope scope,
+  LongPressDraggable<T> target,
+) =>
+    (m.FunctionPointer onStart) {
+      Drag? onStartProxy(Offset onStart_position) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onStart,
+            [onStart_position],
+            {},
+          );
+      return target.createRecognizer(onStartProxy);
+    };
+Function DraggableDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DraggableDetails;
+Function DraggableDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DraggableDetails;
 bool _DraggableDetails_wasAccepted$(DraggableDetails target) {
   return target.wasAccepted;
 }
@@ -202,6 +273,16 @@ Offset _DraggableDetails_offset$(DraggableDetails target) {
   return target.offset;
 }
 
+Function DragTargetDetails_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragTargetDetails<T>;
+Function DragTargetDetails_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragTargetDetails<T>;
 T _DragTargetDetails_data$<T>(DragTargetDetails<T> target) {
   return target.data;
 }
@@ -210,6 +291,16 @@ Offset _DragTargetDetails_offset$<T>(DragTargetDetails<T> target) {
   return target.offset;
 }
 
+Function DragTarget_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragTarget<T>;
+Function DragTarget_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragTarget<T>;
 Widget Function(BuildContext, List<T?>, List<dynamic>)
     _DragTarget_builder$<T extends Object>(DragTarget<T> target) {
   return target.builder;

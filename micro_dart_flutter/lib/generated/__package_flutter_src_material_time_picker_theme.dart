@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'TimePickerThemeData': m.ClassMirror(
       'TimePickerThemeData',
       {
+        '#as': TimePickerThemeData_as$,
+        '#is': TimePickerThemeData_is$,
         'backgroundColor': _TimePickerThemeData_backgroundColor$,
         'cancelButtonStyle': _TimePickerThemeData_cancelButtonStyle$,
         'confirmButtonStyle': _TimePickerThemeData_confirmButtonStyle$,
@@ -46,6 +48,7 @@ const libraryMirror = m.LibraryMirror(
         'shape': _TimePickerThemeData_shape$,
         'hashCode': _TimePickerThemeData_hashCode$,
         'copyWith': _TimePickerThemeData_copyWith$,
+        '==': _TimePickerThemeData_eq$$,
         'debugFillProperties': _TimePickerThemeData_debugFillProperties$,
       },
       {},
@@ -53,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'TimePickerTheme': m.ClassMirror(
       'TimePickerTheme',
       {
+        '#as': TimePickerTheme_as$,
+        '#is': TimePickerTheme_is$,
         'data': _TimePickerTheme_data$,
         'wrap': _TimePickerTheme_wrap$,
         'updateShouldNotify': _TimePickerTheme_updateShouldNotify$,
@@ -61,6 +66,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TimePickerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimePickerThemeData;
+Function TimePickerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimePickerThemeData;
 Color? _TimePickerThemeData_backgroundColor$(TimePickerThemeData target) {
   return target.backgroundColor;
 }
@@ -166,11 +181,26 @@ Function _TimePickerThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _TimePickerThemeData_lerp$(m.Scope scope) => TimePickerThemeData.lerp;
+Function _TimePickerThemeData_eq$$(
+  m.Scope scope,
+  TimePickerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _TimePickerThemeData_debugFillProperties$(
   m.Scope scope,
   TimePickerThemeData target,
 ) =>
     target.debugFillProperties;
+Function TimePickerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimePickerTheme;
+Function TimePickerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimePickerTheme;
 TimePickerThemeData _TimePickerTheme_data$(TimePickerTheme target) {
   return target.data;
 }

@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'FadeInImage': m.ClassMirror(
       'FadeInImage',
       {
+        '#as': FadeInImage_as$,
+        '#is': FadeInImage_is$,
         'placeholder': _FadeInImage_placeholder$,
         'placeholderErrorBuilder': _FadeInImage_placeholderErrorBuilder$,
         'image': _FadeInImage_image$,
@@ -42,6 +44,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FadeInImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FadeInImage;
+Function FadeInImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FadeInImage;
 ImageProvider<Object> _FadeInImage_placeholder$(FadeInImage target) {
   return target.placeholder;
 }

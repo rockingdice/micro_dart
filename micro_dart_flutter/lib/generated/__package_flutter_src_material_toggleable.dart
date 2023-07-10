@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'ToggleablePainter': m.ClassMirror(
       'ToggleablePainter',
       {
+        '#as': ToggleablePainter_as$,
+        '#is': ToggleablePainter_is$,
         'position': _ToggleablePainter_position$,
         'reaction': _ToggleablePainter_reaction$,
         'reactionFocusFade': _ToggleablePainter_reactionFocusFade$,
@@ -58,6 +60,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ToggleablePainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToggleablePainter;
+Function ToggleablePainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToggleablePainter;
 Animation<double> _ToggleablePainter_position$(ToggleablePainter target) {
   return target.position;
 }

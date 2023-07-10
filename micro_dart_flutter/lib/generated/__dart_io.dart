@@ -72,6 +72,8 @@ const libraryMirror = m.LibraryMirror(
     'FileSystemEvent.move': _FileSystemEvent_move$,
     'FileSystemEvent.all': _FileSystemEvent_all$,
     'IOOverrides.current': _IOOverrides_current$,
+    'IOOverrides.runZoned': _IOOverrides_runZoned$,
+    'IOOverrides.runWithIOOverrides': _IOOverrides_runWithIOOverrides$,
     'Platform.isLinux': _Platform_isLinux$,
     'Platform.isMacOS': _Platform_isMacOS$,
     'Platform.isWindows': _Platform_isWindows$,
@@ -136,8 +138,16 @@ const libraryMirror = m.LibraryMirror(
     'exit': _exit$,
     'sleep': _sleep$,
     'SecureServerSocket.bind': _SecureServerSocket_bind$,
+    'SecureServerSocket.listen': _SecureServerSocket_listen$,
     'RawSecureServerSocket.bind': _RawSecureServerSocket_bind$,
+    'RawSecureServerSocket.listen': _RawSecureServerSocket_listen$,
+    'SecureSocket.connect': _SecureSocket_connect$,
+    'SecureSocket.startConnect': _SecureSocket_startConnect$,
+    'SecureSocket.secure': _SecureSocket_secure$,
     'SecureSocket.secureServer': _SecureSocket_secureServer$,
+    'RawSecureSocket.connect': _RawSecureSocket_connect$,
+    'RawSecureSocket.startConnect': _RawSecureSocket_startConnect$,
+    'RawSecureSocket.secure': _RawSecureSocket_secure$,
     'RawSecureSocket.secureServer': _RawSecureSocket_secureServer$,
     'SecurityContext.defaultContext': _SecurityContext_defaultContext$,
     'InternetAddressType.IPv4': _InternetAddressType_IPv4$,
@@ -194,12 +204,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'IOException': m.ClassMirror(
       'IOException',
-      {'toString': _IOException_toString$},
+      {
+        '#as': IOException_as$,
+        '#is': IOException_is$,
+        'toString': _IOException_toString$,
+      },
       {},
     ),
     'OSError': m.ClassMirror(
       'OSError',
       {
+        '#as': OSError_as$,
+        '#is': OSError_is$,
         'message': _OSError_message$,
         'errorCode': _OSError_errorCode$,
         'toString': _OSError_toString$,
@@ -208,12 +224,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZLibOption': m.ClassMirror(
       'ZLibOption',
-      {},
+      {
+        '#as': ZLibOption_as$,
+        '#is': ZLibOption_is$,
+      },
       {},
     ),
     'ZLibCodec': m.ClassMirror(
       'ZLibCodec',
       {
+        '#as': ZLibCodec_as$,
+        '#is': ZLibCodec_is$,
         'gzip': _ZLibCodec_gzip$,
         'level': _ZLibCodec_level$,
         'memLevel': _ZLibCodec_memLevel$,
@@ -229,6 +250,8 @@ const libraryMirror = m.LibraryMirror(
     'GZipCodec': m.ClassMirror(
       'GZipCodec',
       {
+        '#as': GZipCodec_as$,
+        '#is': GZipCodec_is$,
         'gzip': _GZipCodec_gzip$,
         'level': _GZipCodec_level$,
         'memLevel': _GZipCodec_memLevel$,
@@ -244,6 +267,8 @@ const libraryMirror = m.LibraryMirror(
     'ZLibEncoder': m.ClassMirror(
       'ZLibEncoder',
       {
+        '#as': ZLibEncoder_as$,
+        '#is': ZLibEncoder_is$,
         'gzip': _ZLibEncoder_gzip$,
         'level': _ZLibEncoder_level$,
         'memLevel': _ZLibEncoder_memLevel$,
@@ -259,6 +284,8 @@ const libraryMirror = m.LibraryMirror(
     'ZLibDecoder': m.ClassMirror(
       'ZLibDecoder',
       {
+        '#as': ZLibDecoder_as$,
+        '#is': ZLibDecoder_is$,
         'windowBits': _ZLibDecoder_windowBits$,
         'dictionary': _ZLibDecoder_dictionary$,
         'raw': _ZLibDecoder_raw$,
@@ -270,6 +297,8 @@ const libraryMirror = m.LibraryMirror(
     'RawZLibFilter': m.ClassMirror(
       'RawZLibFilter',
       {
+        '#as': RawZLibFilter_as$,
+        '#is': RawZLibFilter_is$,
         'process': _RawZLibFilter_process$,
         'processed': _RawZLibFilter_processed$,
       },
@@ -278,6 +307,8 @@ const libraryMirror = m.LibraryMirror(
     'Directory': m.ClassMirror(
       'Directory',
       {
+        '#as': Directory_as$,
+        '#is': Directory_is$,
         'path': _Directory_path$,
         'uri': _Directory_uri$,
         'absolute': _Directory_absolute$,
@@ -297,17 +328,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileMode': m.ClassMirror(
       'FileMode',
-      {},
+      {
+        '#as': FileMode_as$,
+        '#is': FileMode_is$,
+      },
       {},
     ),
     'FileLock': m.ClassMirror(
       'FileLock',
-      {},
+      {
+        '#as': FileLock_as$,
+        '#is': FileLock_is$,
+      },
       {},
     ),
     'File': m.ClassMirror(
       'File',
       {
+        '#as': File_as$,
+        '#is': File_is$,
         'absolute': _File_absolute$,
         'path': _File_path$,
         'create': _File_create$,
@@ -346,6 +385,8 @@ const libraryMirror = m.LibraryMirror(
     'RandomAccessFile': m.ClassMirror(
       'RandomAccessFile',
       {
+        '#as': RandomAccessFile_as$,
+        '#is': RandomAccessFile_is$,
         'path': _RandomAccessFile_path$,
         'close': _RandomAccessFile_close$,
         'closeSync': _RandomAccessFile_closeSync$,
@@ -382,6 +423,8 @@ const libraryMirror = m.LibraryMirror(
     'FileSystemException': m.ClassMirror(
       'FileSystemException',
       {
+        '#as': FileSystemException_as$,
+        '#is': FileSystemException_is$,
         'message': _FileSystemException_message$,
         'path': _FileSystemException_path$,
         'osError': _FileSystemException_osError$,
@@ -391,32 +434,52 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PathAccessException': m.ClassMirror(
       'PathAccessException',
-      {'toString': _PathAccessException_toString$},
+      {
+        '#as': PathAccessException_as$,
+        '#is': PathAccessException_is$,
+        'toString': _PathAccessException_toString$,
+      },
       {},
     ),
     'PathExistsException': m.ClassMirror(
       'PathExistsException',
-      {'toString': _PathExistsException_toString$},
+      {
+        '#as': PathExistsException_as$,
+        '#is': PathExistsException_is$,
+        'toString': _PathExistsException_toString$,
+      },
       {},
     ),
     'PathNotFoundException': m.ClassMirror(
       'PathNotFoundException',
-      {'toString': _PathNotFoundException_toString$},
+      {
+        '#as': PathNotFoundException_as$,
+        '#is': PathNotFoundException_is$,
+        'toString': _PathNotFoundException_toString$,
+      },
       {},
     ),
     'ReadPipe': m.ClassMirror(
       'ReadPipe',
-      {},
+      {
+        '#as': ReadPipe_as$,
+        '#is': ReadPipe_is$,
+      },
       {},
     ),
     'WritePipe': m.ClassMirror(
       'WritePipe',
-      {},
+      {
+        '#as': WritePipe_as$,
+        '#is': WritePipe_is$,
+      },
       {},
     ),
     'Pipe': m.ClassMirror(
       'Pipe',
       {
+        '#as': Pipe_as$,
+        '#is': Pipe_is$,
         'read': _Pipe_read$,
         'write': _Pipe_write$,
       },
@@ -424,12 +487,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemEntityType': m.ClassMirror(
       'FileSystemEntityType',
-      {'toString': _FileSystemEntityType_toString$},
+      {
+        '#as': FileSystemEntityType_as$,
+        '#is': FileSystemEntityType_is$,
+        'toString': _FileSystemEntityType_toString$,
+      },
       {},
     ),
     'FileStat': m.ClassMirror(
       'FileStat',
       {
+        '#as': FileStat_as$,
+        '#is': FileStat_is$,
         'changed': _FileStat_changed$,
         'modified': _FileStat_modified$,
         'accessed': _FileStat_accessed$,
@@ -444,6 +513,8 @@ const libraryMirror = m.LibraryMirror(
     'FileSystemEntity': m.ClassMirror(
       'FileSystemEntity',
       {
+        '#as': FileSystemEntity_as$,
+        '#is': FileSystemEntity_is$,
         'path': _FileSystemEntity_path$,
         'uri': _FileSystemEntity_uri$,
         'isAbsolute': _FileSystemEntity_isAbsolute$,
@@ -466,6 +537,8 @@ const libraryMirror = m.LibraryMirror(
     'FileSystemEvent': m.ClassMirror(
       'FileSystemEvent',
       {
+        '#as': FileSystemEvent_as$,
+        '#is': FileSystemEvent_is$,
         'type': _FileSystemEvent_type$,
         'path': _FileSystemEvent_path$,
         'isDirectory': _FileSystemEvent_isDirectory$,
@@ -474,12 +547,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemCreateEvent': m.ClassMirror(
       'FileSystemCreateEvent',
-      {'toString': _FileSystemCreateEvent_toString$},
+      {
+        '#as': FileSystemCreateEvent_as$,
+        '#is': FileSystemCreateEvent_is$,
+        'toString': _FileSystemCreateEvent_toString$,
+      },
       {},
     ),
     'FileSystemModifyEvent': m.ClassMirror(
       'FileSystemModifyEvent',
       {
+        '#as': FileSystemModifyEvent_as$,
+        '#is': FileSystemModifyEvent_is$,
         'contentChanged': _FileSystemModifyEvent_contentChanged$,
         'toString': _FileSystemModifyEvent_toString$,
       },
@@ -487,12 +566,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemDeleteEvent': m.ClassMirror(
       'FileSystemDeleteEvent',
-      {'toString': _FileSystemDeleteEvent_toString$},
+      {
+        '#as': FileSystemDeleteEvent_as$,
+        '#is': FileSystemDeleteEvent_is$,
+        'toString': _FileSystemDeleteEvent_toString$,
+      },
       {},
     ),
     'FileSystemMoveEvent': m.ClassMirror(
       'FileSystemMoveEvent',
       {
+        '#as': FileSystemMoveEvent_as$,
+        '#is': FileSystemMoveEvent_is$,
         'destination': _FileSystemMoveEvent_destination$,
         'toString': _FileSystemMoveEvent_toString$,
       },
@@ -501,6 +586,8 @@ const libraryMirror = m.LibraryMirror(
     'IOSink': m.ClassMirror(
       'IOSink',
       {
+        '#as': IOSink_as$,
+        '#is': IOSink_is$,
         'encoding': _IOSink_encoding$,
         'done': _IOSink_done$,
         'add': _IOSink_add$,
@@ -518,6 +605,8 @@ const libraryMirror = m.LibraryMirror(
     'Link': m.ClassMirror(
       'Link',
       {
+        '#as': Link_as$,
+        '#is': Link_is$,
         'absolute': _Link_absolute$,
         'create': _Link_create$,
         'createSync': _Link_createSync$,
@@ -535,6 +624,8 @@ const libraryMirror = m.LibraryMirror(
     'IOOverrides': m.ClassMirror(
       'IOOverrides',
       {
+        '#as': IOOverrides_as$,
+        '#is': IOOverrides_is$,
         'stdin': _IOOverrides_stdin$,
         'stdout': _IOOverrides_stdout$,
         'stderr': _IOOverrides_stderr$,
@@ -560,22 +651,34 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Platform': m.ClassMirror(
       'Platform',
-      {},
+      {
+        '#as': Platform_as$,
+        '#is': Platform_is$,
+      },
       {},
     ),
     'ProcessInfo': m.ClassMirror(
       'ProcessInfo',
-      {},
+      {
+        '#as': ProcessInfo_as$,
+        '#is': ProcessInfo_is$,
+      },
       {},
     ),
     'ProcessStartMode': m.ClassMirror(
       'ProcessStartMode',
-      {'toString': _ProcessStartMode_toString$},
+      {
+        '#as': ProcessStartMode_as$,
+        '#is': ProcessStartMode_is$,
+        'toString': _ProcessStartMode_toString$,
+      },
       {},
     ),
     'Process': m.ClassMirror(
       'Process',
       {
+        '#as': Process_as$,
+        '#is': Process_is$,
         'exitCode': _Process_exitCode$,
         'stdout': _Process_stdout$,
         'stderr': _Process_stderr$,
@@ -588,6 +691,8 @@ const libraryMirror = m.LibraryMirror(
     'ProcessResult': m.ClassMirror(
       'ProcessResult',
       {
+        '#as': ProcessResult_as$,
+        '#is': ProcessResult_is$,
         'exitCode': _ProcessResult_exitCode$,
         'stdout': _ProcessResult_stdout$,
         'stderr': _ProcessResult_stderr$,
@@ -598,6 +703,8 @@ const libraryMirror = m.LibraryMirror(
     'ProcessSignal': m.ClassMirror(
       'ProcessSignal',
       {
+        '#as': ProcessSignal_as$,
+        '#is': ProcessSignal_is$,
         'signalNumber': _ProcessSignal_signalNumber$,
         'name': _ProcessSignal_name$,
         'toString': _ProcessSignal_toString$,
@@ -608,6 +715,8 @@ const libraryMirror = m.LibraryMirror(
     'SignalException': m.ClassMirror(
       'SignalException',
       {
+        '#as': SignalException_as$,
+        '#is': SignalException_is$,
         'message': _SignalException_message$,
         'osError': _SignalException_osError$,
         'toString': _SignalException_toString$,
@@ -617,6 +726,8 @@ const libraryMirror = m.LibraryMirror(
     'ProcessException': m.ClassMirror(
       'ProcessException',
       {
+        '#as': ProcessException_as$,
+        '#is': ProcessException_is$,
         'executable': _ProcessException_executable$,
         'arguments': _ProcessException_arguments$,
         'message': _ProcessException_message$,
@@ -628,6 +739,8 @@ const libraryMirror = m.LibraryMirror(
     'SecureServerSocket': m.ClassMirror(
       'SecureServerSocket',
       {
+        '#as': SecureServerSocket_as$,
+        '#is': SecureServerSocket_is$,
         'port': _SecureServerSocket_port$,
         'address': _SecureServerSocket_address$,
         'close': _SecureServerSocket_close$,
@@ -637,6 +750,8 @@ const libraryMirror = m.LibraryMirror(
     'RawSecureServerSocket': m.ClassMirror(
       'RawSecureServerSocket',
       {
+        '#as': RawSecureServerSocket_as$,
+        '#is': RawSecureServerSocket_is$,
         'requestClientCertificate':
             _RawSecureServerSocket_requestClientCertificate$,
         'requireClientCertificate':
@@ -651,6 +766,8 @@ const libraryMirror = m.LibraryMirror(
     'SecureSocket': m.ClassMirror(
       'SecureSocket',
       {
+        '#as': SecureSocket_as$,
+        '#is': SecureSocket_is$,
         'peerCertificate': _SecureSocket_peerCertificate$,
         'selectedProtocol': _SecureSocket_selectedProtocol$,
       },
@@ -659,6 +776,8 @@ const libraryMirror = m.LibraryMirror(
     'RawSecureSocket': m.ClassMirror(
       'RawSecureSocket',
       {
+        '#as': RawSecureSocket_as$,
+        '#is': RawSecureSocket_is$,
         'peerCertificate': _RawSecureSocket_peerCertificate$,
         'selectedProtocol': _RawSecureSocket_selectedProtocol$,
       },
@@ -667,6 +786,8 @@ const libraryMirror = m.LibraryMirror(
     'X509Certificate': m.ClassMirror(
       'X509Certificate',
       {
+        '#as': X509Certificate_as$,
+        '#is': X509Certificate_is$,
         'der': _X509Certificate_der$,
         'pem': _X509Certificate_pem$,
         'sha1': _X509Certificate_sha1$,
@@ -680,6 +801,8 @@ const libraryMirror = m.LibraryMirror(
     'TlsException': m.ClassMirror(
       'TlsException',
       {
+        '#as': TlsException_as$,
+        '#is': TlsException_is$,
         'type': _TlsException_type$,
         'message': _TlsException_message$,
         'osError': _TlsException_osError$,
@@ -689,17 +812,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'HandshakeException': m.ClassMirror(
       'HandshakeException',
-      {},
+      {
+        '#as': HandshakeException_as$,
+        '#is': HandshakeException_is$,
+      },
       {},
     ),
     'CertificateException': m.ClassMirror(
       'CertificateException',
-      {},
+      {
+        '#as': CertificateException_as$,
+        '#is': CertificateException_is$,
+      },
       {},
     ),
     'SecurityContext': m.ClassMirror(
       'SecurityContext',
       {
+        '#as': SecurityContext_as$,
+        '#is': SecurityContext_is$,
         'allowLegacyUnsafeRenegotiation':
             _SecurityContext_allowLegacyUnsafeRenegotiation$,
         'usePrivateKey': _SecurityContext_usePrivateKey$,
@@ -722,6 +853,8 @@ const libraryMirror = m.LibraryMirror(
     'InternetAddressType': m.ClassMirror(
       'InternetAddressType',
       {
+        '#as': InternetAddressType_as$,
+        '#is': InternetAddressType_is$,
         'name': _InternetAddressType_name$,
         'toString': _InternetAddressType_toString$,
       },
@@ -730,6 +863,8 @@ const libraryMirror = m.LibraryMirror(
     'InternetAddress': m.ClassMirror(
       'InternetAddress',
       {
+        '#as': InternetAddress_as$,
+        '#is': InternetAddress_is$,
         'type': _InternetAddress_type$,
         'address': _InternetAddress_address$,
         'host': _InternetAddress_host$,
@@ -744,6 +879,8 @@ const libraryMirror = m.LibraryMirror(
     'NetworkInterface': m.ClassMirror(
       'NetworkInterface',
       {
+        '#as': NetworkInterface_as$,
+        '#is': NetworkInterface_is$,
         'name': _NetworkInterface_name$,
         'index': _NetworkInterface_index$,
         'addresses': _NetworkInterface_addresses$,
@@ -753,6 +890,8 @@ const libraryMirror = m.LibraryMirror(
     'RawServerSocket': m.ClassMirror(
       'RawServerSocket',
       {
+        '#as': RawServerSocket_as$,
+        '#is': RawServerSocket_is$,
         'port': _RawServerSocket_port$,
         'address': _RawServerSocket_address$,
         'close': _RawServerSocket_close$,
@@ -762,6 +901,8 @@ const libraryMirror = m.LibraryMirror(
     'ServerSocket': m.ClassMirror(
       'ServerSocket',
       {
+        '#as': ServerSocket_as$,
+        '#is': ServerSocket_is$,
         'port': _ServerSocket_port$,
         'address': _ServerSocket_address$,
         'close': _ServerSocket_close$,
@@ -770,17 +911,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SocketDirection': m.ClassMirror(
       'SocketDirection',
-      {},
+      {
+        '#as': SocketDirection_as$,
+        '#is': SocketDirection_is$,
+      },
       {},
     ),
     'SocketOption': m.ClassMirror(
       'SocketOption',
-      {},
+      {
+        '#as': SocketOption_as$,
+        '#is': SocketOption_is$,
+      },
       {},
     ),
     'RawSocketOption': m.ClassMirror(
       'RawSocketOption',
       {
+        '#as': RawSocketOption_as$,
+        '#is': RawSocketOption_is$,
         'level': _RawSocketOption_level$,
         'option': _RawSocketOption_option$,
         'value': _RawSocketOption_value$,
@@ -789,12 +938,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSocketEvent': m.ClassMirror(
       'RawSocketEvent',
-      {'toString': _RawSocketEvent_toString$},
+      {
+        '#as': RawSocketEvent_as$,
+        '#is': RawSocketEvent_is$,
+        'toString': _RawSocketEvent_toString$,
+      },
       {},
     ),
     'ConnectionTask': m.ClassMirror(
       'ConnectionTask',
       {
+        '#as': ConnectionTask_as$,
+        '#is': ConnectionTask_is$,
         'socket': _ConnectionTask_socket$,
         'cancel': _ConnectionTask_cancel$,
       },
@@ -803,6 +958,8 @@ const libraryMirror = m.LibraryMirror(
     'RawSocket': m.ClassMirror(
       'RawSocket',
       {
+        '#as': RawSocket_as$,
+        '#is': RawSocket_is$,
         'readEventsEnabled': _RawSocket_readEventsEnabled$,
         'writeEventsEnabled': _RawSocket_writeEventsEnabled$,
         'port': _RawSocket_port$,
@@ -828,6 +985,8 @@ const libraryMirror = m.LibraryMirror(
     'Socket': m.ClassMirror(
       'Socket',
       {
+        '#as': Socket_as$,
+        '#is': Socket_is$,
         'port': _Socket_port$,
         'remotePort': _Socket_remotePort$,
         'address': _Socket_address$,
@@ -844,6 +1003,8 @@ const libraryMirror = m.LibraryMirror(
     'Datagram': m.ClassMirror(
       'Datagram',
       {
+        '#as': Datagram_as$,
+        '#is': Datagram_is$,
         'data': _Datagram_data$,
         'address': _Datagram_address$,
         'port': _Datagram_port$,
@@ -857,6 +1018,8 @@ const libraryMirror = m.LibraryMirror(
     'ResourceHandle': m.ClassMirror(
       'ResourceHandle',
       {
+        '#as': ResourceHandle_as$,
+        '#is': ResourceHandle_is$,
         'toFile': _ResourceHandle_toFile$,
         'toSocket': _ResourceHandle_toSocket$,
         'toRawSocket': _ResourceHandle_toRawSocket$,
@@ -869,6 +1032,8 @@ const libraryMirror = m.LibraryMirror(
     'SocketControlMessage': m.ClassMirror(
       'SocketControlMessage',
       {
+        '#as': SocketControlMessage_as$,
+        '#is': SocketControlMessage_is$,
         'level': _SocketControlMessage_level$,
         'type': _SocketControlMessage_type$,
         'data': _SocketControlMessage_data$,
@@ -879,6 +1044,8 @@ const libraryMirror = m.LibraryMirror(
     'SocketMessage': m.ClassMirror(
       'SocketMessage',
       {
+        '#as': SocketMessage_as$,
+        '#is': SocketMessage_is$,
         'data': _SocketMessage_data$,
         'controlMessages': _SocketMessage_controlMessages$,
       },
@@ -887,6 +1054,8 @@ const libraryMirror = m.LibraryMirror(
     'RawDatagramSocket': m.ClassMirror(
       'RawDatagramSocket',
       {
+        '#as': RawDatagramSocket_as$,
+        '#is': RawDatagramSocket_is$,
         'readEventsEnabled': _RawDatagramSocket_readEventsEnabled$,
         'writeEventsEnabled': _RawDatagramSocket_writeEventsEnabled$,
         'multicastLoopback': _RawDatagramSocket_multicastLoopback$,
@@ -915,6 +1084,8 @@ const libraryMirror = m.LibraryMirror(
     'SocketException': m.ClassMirror(
       'SocketException',
       {
+        '#as': SocketException_as$,
+        '#is': SocketException_is$,
         'message': _SocketException_message$,
         'osError': _SocketException_osError$,
         'address': _SocketException_address$,
@@ -926,6 +1097,8 @@ const libraryMirror = m.LibraryMirror(
     'Stdin': m.ClassMirror(
       'Stdin',
       {
+        '#as': Stdin_as$,
+        '#is': Stdin_is$,
         'echoMode': _Stdin_echoMode$,
         'echoNewlineMode': _Stdin_echoNewlineMode$,
         'lineMode': _Stdin_lineMode$,
@@ -943,6 +1116,8 @@ const libraryMirror = m.LibraryMirror(
     'Stdout': m.ClassMirror(
       'Stdout',
       {
+        '#as': Stdout_as$,
+        '#is': Stdout_is$,
         'hasTerminal': _Stdout_hasTerminal$,
         'terminalColumns': _Stdout_terminalColumns$,
         'terminalLines': _Stdout_terminalLines$,
@@ -954,6 +1129,8 @@ const libraryMirror = m.LibraryMirror(
     'StdoutException': m.ClassMirror(
       'StdoutException',
       {
+        '#as': StdoutException_as$,
+        '#is': StdoutException_is$,
         'message': _StdoutException_message$,
         'osError': _StdoutException_osError$,
         'toString': _StdoutException_toString$,
@@ -963,6 +1140,8 @@ const libraryMirror = m.LibraryMirror(
     'StdinException': m.ClassMirror(
       'StdinException',
       {
+        '#as': StdinException_as$,
+        '#is': StdinException_is$,
         'message': _StdinException_message$,
         'osError': _StdinException_osError$,
         'toString': _StdinException_toString$,
@@ -972,6 +1151,8 @@ const libraryMirror = m.LibraryMirror(
     'StdioType': m.ClassMirror(
       'StdioType',
       {
+        '#as': StdioType_as$,
+        '#is': StdioType_is$,
         'name': _StdioType_name$,
         'toString': _StdioType_toString$,
       },
@@ -980,6 +1161,8 @@ const libraryMirror = m.LibraryMirror(
     'SystemEncoding': m.ClassMirror(
       'SystemEncoding',
       {
+        '#as': SystemEncoding_as$,
+        '#is': SystemEncoding_is$,
         'name': _SystemEncoding_name$,
         'encoder': _SystemEncoding_encoder$,
         'decoder': _SystemEncoding_decoder$,
@@ -991,6 +1174,8 @@ const libraryMirror = m.LibraryMirror(
     'RawSynchronousSocket': m.ClassMirror(
       'RawSynchronousSocket',
       {
+        '#as': RawSynchronousSocket_as$,
+        '#is': RawSynchronousSocket_is$,
         'port': _RawSynchronousSocket_port$,
         'remotePort': _RawSynchronousSocket_remotePort$,
         'address': _RawSynchronousSocket_address$,
@@ -1006,11 +1191,31 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function IOException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IOException;
+Function IOException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IOException;
 Function _IOException_toString$(
   m.Scope scope,
   IOException target,
 ) =>
     target.toString;
+Function OSError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OSError;
+Function OSError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OSError;
 int _OSError_noErrorCode$() {
   return OSError.noErrorCode;
 }
@@ -1036,6 +1241,16 @@ GZipCodec _gzip$() {
   return gzip;
 }
 
+Function ZLibOption_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZLibOption;
+Function ZLibOption_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZLibOption;
 int _ZLibOption_minWindowBits$() {
   return ZLibOption.minWindowBits;
 }
@@ -1092,6 +1307,16 @@ int _ZLibOption_strategyDefault$() {
   return ZLibOption.strategyDefault;
 }
 
+Function ZLibCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZLibCodec;
+Function ZLibCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZLibCodec;
 bool _ZLibCodec_gzip$(ZLibCodec target) {
   return target.gzip;
 }
@@ -1128,6 +1353,16 @@ ZLibDecoder _ZLibCodec_decoder$(ZLibCodec target) {
   return target.decoder;
 }
 
+Function GZipCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GZipCodec;
+Function GZipCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GZipCodec;
 bool _GZipCodec_gzip$(GZipCodec target) {
   return target.gzip;
 }
@@ -1164,6 +1399,16 @@ ZLibDecoder _GZipCodec_decoder$(GZipCodec target) {
   return target.decoder;
 }
 
+Function ZLibEncoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZLibEncoder;
+Function ZLibEncoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZLibEncoder;
 bool _ZLibEncoder_gzip$(ZLibEncoder target) {
   return target.gzip;
 }
@@ -1202,6 +1447,16 @@ Function _ZLibEncoder_startChunkedConversion$(
   ZLibEncoder target,
 ) =>
     target.startChunkedConversion;
+Function ZLibDecoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZLibDecoder;
+Function ZLibDecoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZLibDecoder;
 int _ZLibDecoder_windowBits$(ZLibDecoder target) {
   return target.windowBits;
 }
@@ -1224,6 +1479,16 @@ Function _ZLibDecoder_startChunkedConversion$(
   ZLibDecoder target,
 ) =>
     target.startChunkedConversion;
+Function RawZLibFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawZLibFilter;
+Function RawZLibFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawZLibFilter;
 Function _RawZLibFilter_process$(
   m.Scope scope,
   RawZLibFilter target,
@@ -1234,6 +1499,16 @@ Function _RawZLibFilter_processed$(
   RawZLibFilter target,
 ) =>
     target.processed;
+Function Directory_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Directory;
+Function Directory_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Directory;
 String _Directory_path$(Directory target) {
   return target.path;
 }
@@ -1313,6 +1588,16 @@ Function _Directory_toString$(
   Directory target,
 ) =>
     target.toString;
+Function FileMode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileMode;
+Function FileMode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileMode;
 FileMode _FileMode_read$() {
   return FileMode.read;
 }
@@ -1333,6 +1618,16 @@ FileMode _FileMode_writeOnlyAppend$() {
   return FileMode.writeOnlyAppend;
 }
 
+Function FileLock_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileLock;
+Function FileLock_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileLock;
 FileLock _FileLock_shared$() {
   return FileLock.shared;
 }
@@ -1349,6 +1644,16 @@ FileLock _FileLock_blockingExclusive$() {
   return FileLock.blockingExclusive;
 }
 
+Function File_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as File;
+Function File_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is File;
 File _File_absolute$(File target) {
   return target.absolute;
 }
@@ -1507,6 +1812,16 @@ Function _File_writeAsStringSync$(
   File target,
 ) =>
     target.writeAsStringSync;
+Function RandomAccessFile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RandomAccessFile;
+Function RandomAccessFile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RandomAccessFile;
 String _RandomAccessFile_path$(RandomAccessFile target) {
   return target.path;
 }
@@ -1656,6 +1971,16 @@ Function _RandomAccessFile_toString$(
   RandomAccessFile target,
 ) =>
     target.toString;
+Function FileSystemException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemException;
+Function FileSystemException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemException;
 String _FileSystemException_message$(FileSystemException target) {
   return target.message;
 }
@@ -1673,21 +1998,81 @@ Function _FileSystemException_toString$(
   FileSystemException target,
 ) =>
     target.toString;
+Function PathAccessException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathAccessException;
+Function PathAccessException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathAccessException;
 Function _PathAccessException_toString$(
   m.Scope scope,
   PathAccessException target,
 ) =>
     target.toString;
+Function PathExistsException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathExistsException;
+Function PathExistsException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathExistsException;
 Function _PathExistsException_toString$(
   m.Scope scope,
   PathExistsException target,
 ) =>
     target.toString;
+Function PathNotFoundException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathNotFoundException;
+Function PathNotFoundException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathNotFoundException;
 Function _PathNotFoundException_toString$(
   m.Scope scope,
   PathNotFoundException target,
 ) =>
     target.toString;
+Function ReadPipe_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReadPipe;
+Function ReadPipe_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReadPipe;
+Function WritePipe_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WritePipe;
+Function WritePipe_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WritePipe;
+Function Pipe_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Pipe;
+Function Pipe_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Pipe;
 ReadPipe _Pipe_read$(Pipe target) {
   return target.read;
 }
@@ -1697,6 +2082,16 @@ WritePipe _Pipe_write$(Pipe target) {
 }
 
 Function _Pipe_create$(m.Scope scope) => Pipe.create;
+Function FileSystemEntityType_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemEntityType;
+Function FileSystemEntityType_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemEntityType;
 FileSystemEntityType _FileSystemEntityType_file$() {
   return FileSystemEntityType.file;
 }
@@ -1730,6 +2125,16 @@ Function _FileSystemEntityType_toString$(
   FileSystemEntityType target,
 ) =>
     target.toString;
+Function FileStat_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileStat;
+Function FileStat_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileStat;
 DateTime _FileStat_changed$(FileStat target) {
   return target.changed;
 }
@@ -1766,6 +2171,16 @@ Function _FileStat_modeString$(
   FileStat target,
 ) =>
     target.modeString;
+Function FileSystemEntity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemEntity;
+Function FileSystemEntity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemEntity;
 String _FileSystemEntity_path$(FileSystemEntity target) {
   return target.path;
 }
@@ -1864,6 +2279,16 @@ Function _FileSystemEntity_isDirectorySync$(m.Scope scope) =>
     FileSystemEntity.isDirectorySync;
 Function _FileSystemEntity_parentOf$(m.Scope scope) =>
     FileSystemEntity.parentOf;
+Function FileSystemEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemEvent;
+Function FileSystemEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemEvent;
 int _FileSystemEvent_create$() {
   return FileSystemEvent.create;
 }
@@ -1896,11 +2321,31 @@ bool _FileSystemEvent_isDirectory$(FileSystemEvent target) {
   return target.isDirectory;
 }
 
+Function FileSystemCreateEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemCreateEvent;
+Function FileSystemCreateEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemCreateEvent;
 Function _FileSystemCreateEvent_toString$(
   m.Scope scope,
   FileSystemCreateEvent target,
 ) =>
     target.toString;
+Function FileSystemModifyEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemModifyEvent;
+Function FileSystemModifyEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemModifyEvent;
 bool _FileSystemModifyEvent_contentChanged$(FileSystemModifyEvent target) {
   return target.contentChanged;
 }
@@ -1910,11 +2355,31 @@ Function _FileSystemModifyEvent_toString$(
   FileSystemModifyEvent target,
 ) =>
     target.toString;
+Function FileSystemDeleteEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemDeleteEvent;
+Function FileSystemDeleteEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemDeleteEvent;
 Function _FileSystemDeleteEvent_toString$(
   m.Scope scope,
   FileSystemDeleteEvent target,
 ) =>
     target.toString;
+Function FileSystemMoveEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FileSystemMoveEvent;
+Function FileSystemMoveEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FileSystemMoveEvent;
 String? _FileSystemMoveEvent_destination$(FileSystemMoveEvent target) {
   return target.destination;
 }
@@ -1924,6 +2389,16 @@ Function _FileSystemMoveEvent_toString$(
   FileSystemMoveEvent target,
 ) =>
     target.toString;
+Function IOSink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IOSink;
+Function IOSink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IOSink;
 Encoding _IOSink_encoding$(IOSink target) {
   return target.encoding;
 }
@@ -1984,6 +2459,16 @@ Function _IOSink_close$(
   IOSink target,
 ) =>
     target.close;
+Function Link_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Link;
+Function Link_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Link;
 Link _Link_absolute$(Link target) {
   return target.absolute;
 }
@@ -2038,6 +2523,16 @@ Function _Link_targetSync$(
   Link target,
 ) =>
     target.targetSync;
+Function IOOverrides_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IOOverrides;
+Function IOOverrides_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IOOverrides;
 IOOverrides? _IOOverrides_current$() {
   return IOOverrides.current;
 }
@@ -2058,6 +2553,285 @@ Stdout _IOOverrides_stderr$(IOOverrides target) {
   return target.stderr;
 }
 
+Function _IOOverrides_runZoned$(m.Scope scope) => <R>(
+      m.FunctionPointer body, {
+      m.FunctionPointer? createDirectory,
+      m.FunctionPointer? createFile,
+      m.FunctionPointer? createLink,
+      m.FunctionPointer? fsWatch,
+      m.FunctionPointer? fsWatchIsSupported,
+      m.FunctionPointer? fseGetType,
+      m.FunctionPointer? fseGetTypeSync,
+      m.FunctionPointer? fseIdentical,
+      m.FunctionPointer? fseIdenticalSync,
+      m.FunctionPointer? getCurrentDirectory,
+      m.FunctionPointer? getSystemTempDirectory,
+      m.FunctionPointer? serverSocketBind,
+      m.FunctionPointer? setCurrentDirectory,
+      m.FunctionPointer? socketConnect,
+      m.FunctionPointer? socketStartConnect,
+      m.FunctionPointer? stat,
+      m.FunctionPointer? statSync,
+      m.FunctionPointer? stderr,
+      m.FunctionPointer? stdin,
+      m.FunctionPointer? stdout,
+    }) {
+      R bodyProxy() => scope.engine.callFunctionPointer(
+            scope,
+            body,
+            [],
+            {},
+          );
+      Directory createDirectoryProxy(String createDirectory_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            createDirectory!,
+            [createDirectory_$p0],
+            {},
+          );
+      File createFileProxy(String createFile_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            createFile!,
+            [createFile_$p0],
+            {},
+          );
+      Link createLinkProxy(String createLink_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            createLink!,
+            [createLink_$p0],
+            {},
+          );
+      Stream<FileSystemEvent> fsWatchProxy(
+        String fsWatch_$p0,
+        int fsWatch_$p1,
+        bool fsWatch_$p2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            fsWatch!,
+            [
+              fsWatch_$p0,
+              fsWatch_$p1,
+              fsWatch_$p2,
+            ],
+            {},
+          );
+      bool fsWatchIsSupportedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            fsWatchIsSupported!,
+            [],
+            {},
+          );
+      Future<FileSystemEntityType> fseGetTypeProxy(
+        String fseGetType_$p0,
+        bool fseGetType_$p1,
+      ) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            fseGetType!,
+            [
+              fseGetType_$p0,
+              fseGetType_$p1,
+            ],
+            {},
+          );
+      FileSystemEntityType fseGetTypeSyncProxy(
+        String fseGetTypeSync_$p0,
+        bool fseGetTypeSync_$p1,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            fseGetTypeSync!,
+            [
+              fseGetTypeSync_$p0,
+              fseGetTypeSync_$p1,
+            ],
+            {},
+          );
+      Future<bool> fseIdenticalProxy(
+        String fseIdentical_$p0,
+        String fseIdentical_$p1,
+      ) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            fseIdentical!,
+            [
+              fseIdentical_$p0,
+              fseIdentical_$p1,
+            ],
+            {},
+          );
+      bool fseIdenticalSyncProxy(
+        String fseIdenticalSync_$p0,
+        String fseIdenticalSync_$p1,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            fseIdenticalSync!,
+            [
+              fseIdenticalSync_$p0,
+              fseIdenticalSync_$p1,
+            ],
+            {},
+          );
+      Directory getCurrentDirectoryProxy() => scope.engine.callFunctionPointer(
+            scope,
+            getCurrentDirectory!,
+            [],
+            {},
+          );
+      Directory getSystemTempDirectoryProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getSystemTempDirectory!,
+            [],
+            {},
+          );
+      Future<ServerSocket> serverSocketBindProxy(
+        dynamic serverSocketBind_$p0,
+        int serverSocketBind_$p1, {
+        int? backlog,
+        bool? shared,
+        bool? v6Only,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            serverSocketBind!,
+            [
+              serverSocketBind_$p0,
+              serverSocketBind_$p1,
+            ],
+            {
+              'backlog': backlog,
+              'shared': shared,
+              'v6Only': v6Only,
+            },
+          );
+      void setCurrentDirectoryProxy(String setCurrentDirectory_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            setCurrentDirectory!,
+            [setCurrentDirectory_$p0],
+            {},
+          );
+      Future<Socket> socketConnectProxy(
+        dynamic socketConnect_$p0,
+        int socketConnect_$p1, {
+        dynamic? sourceAddress,
+        int? sourcePort,
+        Duration? timeout,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            socketConnect!,
+            [
+              socketConnect_$p0,
+              socketConnect_$p1,
+            ],
+            {
+              'sourceAddress': sourceAddress,
+              'sourcePort': sourcePort,
+              'timeout': timeout,
+            },
+          );
+      Future<ConnectionTask<Socket>> socketStartConnectProxy(
+        dynamic socketStartConnect_$p0,
+        int socketStartConnect_$p1, {
+        dynamic? sourceAddress,
+        int? sourcePort,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            socketStartConnect!,
+            [
+              socketStartConnect_$p0,
+              socketStartConnect_$p1,
+            ],
+            {
+              'sourceAddress': sourceAddress,
+              'sourcePort': sourcePort,
+            },
+          );
+      Future<FileStat> statProxy(String stat_$p0) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            stat!,
+            [stat_$p0],
+            {},
+          );
+      FileStat statSyncProxy(String statSync_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            statSync!,
+            [statSync_$p0],
+            {},
+          );
+      Stdout stderrProxy() => scope.engine.callFunctionPointer(
+            scope,
+            stderr!,
+            [],
+            {},
+          );
+      Stdin stdinProxy() => scope.engine.callFunctionPointer(
+            scope,
+            stdin!,
+            [],
+            {},
+          );
+      Stdout stdoutProxy() => scope.engine.callFunctionPointer(
+            scope,
+            stdout!,
+            [],
+            {},
+          );
+      return IOOverrides.runZoned<R>(
+        bodyProxy,
+        createDirectory: createDirectory == null ? null : createDirectoryProxy,
+        createFile: createFile == null ? null : createFileProxy,
+        createLink: createLink == null ? null : createLinkProxy,
+        fsWatch: fsWatch == null ? null : fsWatchProxy,
+        fsWatchIsSupported:
+            fsWatchIsSupported == null ? null : fsWatchIsSupportedProxy,
+        fseGetType: fseGetType == null ? null : fseGetTypeProxy,
+        fseGetTypeSync: fseGetTypeSync == null ? null : fseGetTypeSyncProxy,
+        fseIdentical: fseIdentical == null ? null : fseIdenticalProxy,
+        fseIdenticalSync:
+            fseIdenticalSync == null ? null : fseIdenticalSyncProxy,
+        getCurrentDirectory:
+            getCurrentDirectory == null ? null : getCurrentDirectoryProxy,
+        getSystemTempDirectory:
+            getSystemTempDirectory == null ? null : getSystemTempDirectoryProxy,
+        serverSocketBind:
+            serverSocketBind == null ? null : serverSocketBindProxy,
+        setCurrentDirectory:
+            setCurrentDirectory == null ? null : setCurrentDirectoryProxy,
+        socketConnect: socketConnect == null ? null : socketConnectProxy,
+        socketStartConnect:
+            socketStartConnect == null ? null : socketStartConnectProxy,
+        stat: stat == null ? null : statProxy,
+        statSync: statSync == null ? null : statSyncProxy,
+        stderr: stderr == null ? null : stderrProxy,
+        stdin: stdin == null ? null : stdinProxy,
+        stdout: stdout == null ? null : stdoutProxy,
+      );
+    };
+Function _IOOverrides_runWithIOOverrides$(m.Scope scope) => <R>(
+      m.FunctionPointer body,
+      IOOverrides overrides,
+    ) {
+      R bodyProxy() => scope.engine.callFunctionPointer(
+            scope,
+            body,
+            [],
+            {},
+          );
+      return IOOverrides.runWithIOOverrides<R>(
+        bodyProxy,
+        overrides,
+      );
+    };
 Function _IOOverrides_createDirectory$(
   m.Scope scope,
   IOOverrides target,
@@ -2143,6 +2917,16 @@ Function _IOOverrides_serverSocketBind$(
   IOOverrides target,
 ) =>
     target.serverSocketBind;
+Function Platform_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Platform;
+Function Platform_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Platform;
 bool _Platform_isLinux$() {
   return Platform.isLinux;
 }
@@ -2231,6 +3015,16 @@ int _pid$() {
   return pid;
 }
 
+Function ProcessInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProcessInfo;
+Function ProcessInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProcessInfo;
 int _ProcessInfo_currentRss$() {
   return ProcessInfo.currentRss;
 }
@@ -2239,6 +3033,16 @@ int _ProcessInfo_maxRss$() {
   return ProcessInfo.maxRss;
 }
 
+Function ProcessStartMode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProcessStartMode;
+Function ProcessStartMode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProcessStartMode;
 ProcessStartMode _ProcessStartMode_normal$() {
   return ProcessStartMode.normal;
 }
@@ -2264,6 +3068,16 @@ Function _ProcessStartMode_toString$(
   ProcessStartMode target,
 ) =>
     target.toString;
+Function Process_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Process;
+Function Process_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Process;
 Future<int> _Process_exitCode$(Process target) {
   return target.exitCode;
 }
@@ -2293,6 +3107,16 @@ Function _Process_kill$(
   Process target,
 ) =>
     target.kill;
+Function ProcessResult_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProcessResult;
+Function ProcessResult_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProcessResult;
 int _ProcessResult_exitCode$(ProcessResult target) {
   return target.exitCode;
 }
@@ -2309,6 +3133,16 @@ int _ProcessResult_pid$(ProcessResult target) {
   return target.pid;
 }
 
+Function ProcessSignal_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProcessSignal;
+Function ProcessSignal_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProcessSignal;
 ProcessSignal _ProcessSignal_sighup$() {
   return ProcessSignal.sighup;
 }
@@ -2443,6 +3277,16 @@ Function _ProcessSignal_watch$(
   ProcessSignal target,
 ) =>
     target.watch;
+Function SignalException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SignalException;
+Function SignalException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SignalException;
 String _SignalException_message$(SignalException target) {
   return target.message;
 }
@@ -2456,6 +3300,16 @@ Function _SignalException_toString$(
   SignalException target,
 ) =>
     target.toString;
+Function ProcessException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProcessException;
+Function ProcessException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProcessException;
 String _ProcessException_executable$(ProcessException target) {
   return target.executable;
 }
@@ -2479,6 +3333,16 @@ Function _ProcessException_toString$(
     target.toString;
 Function _exit$(m.Scope scope) => exit;
 Function _sleep$(m.Scope scope) => sleep;
+Function SecureServerSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SecureServerSocket;
+Function SecureServerSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SecureServerSocket;
 int _SecureServerSocket_port$(SecureServerSocket target) {
   return target.port;
 }
@@ -2488,11 +3352,51 @@ InternetAddress _SecureServerSocket_address$(SecureServerSocket target) {
 }
 
 Function _SecureServerSocket_bind$(m.Scope scope) => SecureServerSocket.bind;
+Function _SecureServerSocket_listen$(
+  m.Scope scope,
+  SecureServerSocket target,
+) =>
+    (
+      m.FunctionPointer? onData, {
+      bool? cancelOnError,
+      m.FunctionPointer? onDone,
+      Function? onError,
+    }) {
+      void onDataProxy(SecureSocket onData_socket) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onData!,
+            [onData_socket],
+            {},
+          );
+      void onDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onDone!,
+            [],
+            {},
+          );
+      return target.listen(
+        onData == null ? null : onDataProxy,
+        cancelOnError: cancelOnError,
+        onDone: onDone == null ? null : onDoneProxy,
+        onError: onError,
+      );
+    };
 Function _SecureServerSocket_close$(
   m.Scope scope,
   SecureServerSocket target,
 ) =>
     target.close;
+Function RawSecureServerSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSecureServerSocket;
+Function RawSecureServerSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSecureServerSocket;
 bool _RawSecureServerSocket_requestClientCertificate$(
     RawSecureServerSocket target) {
   return target.requestClientCertificate;
@@ -2518,11 +3422,51 @@ InternetAddress _RawSecureServerSocket_address$(RawSecureServerSocket target) {
 
 Function _RawSecureServerSocket_bind$(m.Scope scope) =>
     RawSecureServerSocket.bind;
+Function _RawSecureServerSocket_listen$(
+  m.Scope scope,
+  RawSecureServerSocket target,
+) =>
+    (
+      m.FunctionPointer? onData, {
+      bool? cancelOnError,
+      m.FunctionPointer? onDone,
+      Function? onError,
+    }) {
+      void onDataProxy(RawSecureSocket onData_s) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onData!,
+            [onData_s],
+            {},
+          );
+      void onDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onDone!,
+            [],
+            {},
+          );
+      return target.listen(
+        onData == null ? null : onDataProxy,
+        cancelOnError: cancelOnError,
+        onDone: onDone == null ? null : onDoneProxy,
+        onError: onError,
+      );
+    };
 Function _RawSecureServerSocket_close$(
   m.Scope scope,
   RawSecureServerSocket target,
 ) =>
     target.close;
+Function SecureSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SecureSocket;
+Function SecureSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SecureSocket;
 X509Certificate? _SecureSocket_peerCertificate$(SecureSocket target) {
   return target.peerCertificate;
 }
@@ -2531,8 +3475,116 @@ String? _SecureSocket_selectedProtocol$(SecureSocket target) {
   return target.selectedProtocol;
 }
 
+Function _SecureSocket_connect$(m.Scope scope) => (
+      dynamic host,
+      int port, {
+      SecurityContext? context,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      List<String>? supportedProtocols,
+      Duration? timeout,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return SecureSocket.connect(
+        host,
+        port,
+        context: context,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        supportedProtocols: supportedProtocols,
+        timeout: timeout,
+      );
+    };
+Function _SecureSocket_startConnect$(m.Scope scope) => (
+      dynamic host,
+      int port, {
+      SecurityContext? context,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      List<String>? supportedProtocols,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return SecureSocket.startConnect(
+        host,
+        port,
+        context: context,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        supportedProtocols: supportedProtocols,
+      );
+    };
+Function _SecureSocket_secure$(m.Scope scope) => (
+      Socket socket, {
+      SecurityContext? context,
+      required dynamic host,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      List<String>? supportedProtocols,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return SecureSocket.secure(
+        socket,
+        context: context,
+        host: host,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        supportedProtocols: supportedProtocols,
+      );
+    };
 Function _SecureSocket_secureServer$(m.Scope scope) =>
     SecureSocket.secureServer;
+Function RawSecureSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSecureSocket;
+Function RawSecureSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSecureSocket;
 X509Certificate? _RawSecureSocket_peerCertificate$(RawSecureSocket target) {
   return target.peerCertificate;
 }
@@ -2541,8 +3593,118 @@ String? _RawSecureSocket_selectedProtocol$(RawSecureSocket target) {
   return target.selectedProtocol;
 }
 
+Function _RawSecureSocket_connect$(m.Scope scope) => (
+      dynamic host,
+      int port, {
+      SecurityContext? context,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      List<String>? supportedProtocols,
+      Duration? timeout,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return RawSecureSocket.connect(
+        host,
+        port,
+        context: context,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        supportedProtocols: supportedProtocols,
+        timeout: timeout,
+      );
+    };
+Function _RawSecureSocket_startConnect$(m.Scope scope) => (
+      dynamic host,
+      int port, {
+      SecurityContext? context,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      List<String>? supportedProtocols,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return RawSecureSocket.startConnect(
+        host,
+        port,
+        context: context,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        supportedProtocols: supportedProtocols,
+      );
+    };
+Function _RawSecureSocket_secure$(m.Scope scope) => (
+      RawSocket socket, {
+      SecurityContext? context,
+      required dynamic host,
+      m.FunctionPointer? keyLog,
+      m.FunctionPointer? onBadCertificate,
+      StreamSubscription<RawSocketEvent>? subscription,
+      List<String>? supportedProtocols,
+    }) {
+      void keyLogProxy(String keyLog_line) => scope.engine.callFunctionPointer(
+            scope,
+            keyLog!,
+            [keyLog_line],
+            {},
+          );
+      bool onBadCertificateProxy(
+              X509Certificate onBadCertificate_certificate) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onBadCertificate!,
+            [onBadCertificate_certificate],
+            {},
+          );
+      return RawSecureSocket.secure(
+        socket,
+        context: context,
+        host: host,
+        keyLog: keyLog == null ? null : keyLogProxy,
+        onBadCertificate:
+            onBadCertificate == null ? null : onBadCertificateProxy,
+        subscription: subscription,
+        supportedProtocols: supportedProtocols,
+      );
+    };
 Function _RawSecureSocket_secureServer$(m.Scope scope) =>
     RawSecureSocket.secureServer;
+Function X509Certificate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as X509Certificate;
+Function X509Certificate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is X509Certificate;
 Uint8List _X509Certificate_der$(X509Certificate target) {
   return target.der;
 }
@@ -2571,6 +3733,16 @@ DateTime _X509Certificate_endValidity$(X509Certificate target) {
   return target.endValidity;
 }
 
+Function TlsException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TlsException;
+Function TlsException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TlsException;
 String _TlsException_type$(TlsException target) {
   return target.type;
 }
@@ -2588,6 +3760,36 @@ Function _TlsException_toString$(
   TlsException target,
 ) =>
     target.toString;
+Function HandshakeException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HandshakeException;
+Function HandshakeException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HandshakeException;
+Function CertificateException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CertificateException;
+Function CertificateException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CertificateException;
+Function SecurityContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SecurityContext;
+Function SecurityContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SecurityContext;
 bool _SecurityContext_allowLegacyUnsafeRenegotiation$(SecurityContext target) {
   return target.allowLegacyUnsafeRenegotiation;
 }
@@ -2648,6 +3850,16 @@ Function _SecurityContext_setAlpnProtocols$(
   SecurityContext target,
 ) =>
     target.setAlpnProtocols;
+Function InternetAddressType_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InternetAddressType;
+Function InternetAddressType_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InternetAddressType;
 InternetAddressType _InternetAddressType_IPv4$() {
   return InternetAddressType.IPv4;
 }
@@ -2673,6 +3885,16 @@ Function _InternetAddressType_toString$(
   InternetAddressType target,
 ) =>
     target.toString;
+Function InternetAddress_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InternetAddress;
+Function InternetAddress_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InternetAddress;
 InternetAddress _InternetAddress_loopbackIPv4$() {
   return InternetAddress.loopbackIPv4;
 }
@@ -2724,6 +3946,16 @@ Function _InternetAddress_reverse$(
     target.reverse;
 Function _InternetAddress_lookup$(m.Scope scope) => InternetAddress.lookup;
 Function _InternetAddress_tryParse$(m.Scope scope) => InternetAddress.tryParse;
+Function NetworkInterface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NetworkInterface;
+Function NetworkInterface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NetworkInterface;
 String _NetworkInterface_name$(NetworkInterface target) {
   return target.name;
 }
@@ -2737,6 +3969,16 @@ List<InternetAddress> _NetworkInterface_addresses$(NetworkInterface target) {
 }
 
 Function _NetworkInterface_list$(m.Scope scope) => NetworkInterface.list;
+Function RawServerSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawServerSocket;
+Function RawServerSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawServerSocket;
 int _RawServerSocket_port$(RawServerSocket target) {
   return target.port;
 }
@@ -2751,6 +3993,16 @@ Function _RawServerSocket_close$(
   RawServerSocket target,
 ) =>
     target.close;
+Function ServerSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ServerSocket;
+Function ServerSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ServerSocket;
 int _ServerSocket_port$(ServerSocket target) {
   return target.port;
 }
@@ -2765,6 +4017,16 @@ Function _ServerSocket_close$(
   ServerSocket target,
 ) =>
     target.close;
+Function SocketDirection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SocketDirection;
+Function SocketDirection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SocketDirection;
 SocketDirection _SocketDirection_receive$() {
   return SocketDirection.receive;
 }
@@ -2777,10 +4039,30 @@ SocketDirection _SocketDirection_both$() {
   return SocketDirection.both;
 }
 
+Function SocketOption_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SocketOption;
+Function SocketOption_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SocketOption;
 SocketOption _SocketOption_tcpNoDelay$() {
   return SocketOption.tcpNoDelay;
 }
 
+Function RawSocketOption_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSocketOption;
+Function RawSocketOption_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSocketOption;
 int _RawSocketOption_level$(RawSocketOption target) {
   return target.level;
 }
@@ -2821,6 +4103,16 @@ int _RawSocketOption_levelUdp$() {
   return RawSocketOption.levelUdp;
 }
 
+Function RawSocketEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSocketEvent;
+Function RawSocketEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSocketEvent;
 RawSocketEvent _RawSocketEvent_read$() {
   return RawSocketEvent.read;
 }
@@ -2842,6 +4134,16 @@ Function _RawSocketEvent_toString$(
   RawSocketEvent target,
 ) =>
     target.toString;
+Function ConnectionTask_as$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConnectionTask<S>;
+Function ConnectionTask_is$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConnectionTask<S>;
 Future<S> _ConnectionTask_socket$<S>(ConnectionTask<S> target) {
   return target.socket;
 }
@@ -2851,6 +4153,16 @@ Function _ConnectionTask_cancel$<S>(
   ConnectionTask<S> target,
 ) =>
     target.cancel;
+Function RawSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSocket;
+Function RawSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSocket;
 bool _RawSocket_readEventsEnabled$(RawSocket target) {
   return target.readEventsEnabled;
 }
@@ -2941,6 +4253,16 @@ Function _RawSocket_setRawOption$(
   RawSocket target,
 ) =>
     target.setRawOption;
+Function Socket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Socket;
+Function Socket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Socket;
 int _Socket_port$(Socket target) {
   return target.port;
 }
@@ -2988,6 +4310,16 @@ Function _Socket_close$(
   Socket target,
 ) =>
     target.close;
+Function Datagram_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Datagram;
+Function Datagram_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Datagram;
 Uint8List _Datagram_data$(Datagram target) {
   return target.data;
 }
@@ -3021,6 +4353,16 @@ void _Datagram_port_set$(
   target.port = other;
 }
 
+Function ResourceHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ResourceHandle;
+Function ResourceHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ResourceHandle;
 Function _ResourceHandle_toFile$(
   m.Scope scope,
   ResourceHandle target,
@@ -3051,6 +4393,16 @@ Function _ResourceHandle_toWritePipe$(
   ResourceHandle target,
 ) =>
     target.toWritePipe;
+Function SocketControlMessage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SocketControlMessage;
+Function SocketControlMessage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SocketControlMessage;
 int _SocketControlMessage_level$(SocketControlMessage target) {
   return target.level;
 }
@@ -3068,6 +4420,16 @@ Function _SocketControlMessage_extractHandles$(
   SocketControlMessage target,
 ) =>
     target.extractHandles;
+Function SocketMessage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SocketMessage;
+Function SocketMessage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SocketMessage;
 Uint8List _SocketMessage_data$(SocketMessage target) {
   return target.data;
 }
@@ -3077,6 +4439,16 @@ List<SocketControlMessage> _SocketMessage_controlMessages$(
   return target.controlMessages;
 }
 
+Function RawDatagramSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawDatagramSocket;
+Function RawDatagramSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawDatagramSocket;
 bool _RawDatagramSocket_readEventsEnabled$(RawDatagramSocket target) {
   return target.readEventsEnabled;
 }
@@ -3188,6 +4560,16 @@ Function _RawDatagramSocket_setRawOption$(
   RawDatagramSocket target,
 ) =>
     target.setRawOption;
+Function SocketException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SocketException;
+Function SocketException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SocketException;
 String _SocketException_message$(SocketException target) {
   return target.message;
 }
@@ -3221,6 +4603,16 @@ Stdout _stderr$() {
   return stderr;
 }
 
+Function Stdin_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stdin;
+Function Stdin_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stdin;
 bool _Stdin_echoMode$(Stdin target) {
   return target.echoMode;
 }
@@ -3272,6 +4664,16 @@ Function _Stdin_readByteSync$(
   Stdin target,
 ) =>
     target.readByteSync;
+Function Stdout_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stdout;
+Function Stdout_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stdout;
 bool _Stdout_hasTerminal$(Stdout target) {
   return target.hasTerminal;
 }
@@ -3292,6 +4694,16 @@ IOSink _Stdout_nonBlocking$(Stdout target) {
   return target.nonBlocking;
 }
 
+Function StdoutException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StdoutException;
+Function StdoutException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StdoutException;
 String _StdoutException_message$(StdoutException target) {
   return target.message;
 }
@@ -3305,6 +4717,16 @@ Function _StdoutException_toString$(
   StdoutException target,
 ) =>
     target.toString;
+Function StdinException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StdinException;
+Function StdinException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StdinException;
 String _StdinException_message$(StdinException target) {
   return target.message;
 }
@@ -3318,6 +4740,16 @@ Function _StdinException_toString$(
   StdinException target,
 ) =>
     target.toString;
+Function StdioType_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StdioType;
+Function StdioType_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StdioType;
 StdioType _StdioType_terminal$() {
   return StdioType.terminal;
 }
@@ -3348,6 +4780,16 @@ SystemEncoding _systemEncoding$() {
   return systemEncoding;
 }
 
+Function SystemEncoding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemEncoding;
+Function SystemEncoding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemEncoding;
 String _SystemEncoding_name$(SystemEncoding target) {
   return target.name;
 }
@@ -3370,6 +4812,16 @@ Function _SystemEncoding_decode$(
   SystemEncoding target,
 ) =>
     target.decode;
+Function RawSynchronousSocket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawSynchronousSocket;
+Function RawSynchronousSocket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawSynchronousSocket;
 int _RawSynchronousSocket_port$(RawSynchronousSocket target) {
   return target.port;
 }

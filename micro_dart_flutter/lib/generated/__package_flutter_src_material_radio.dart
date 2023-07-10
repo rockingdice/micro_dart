@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'Radio': m.ClassMirror(
       'Radio',
       {
+        '#as': Radio_as$,
+        '#is': Radio_is$,
         'value': _Radio_value$,
         'groupValue': _Radio_groupValue$,
         'onChanged': _Radio_onChanged$,
@@ -43,6 +45,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Radio_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Radio<T>;
+Function Radio_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Radio<T>;
 T _Radio_value$<T>(Radio<T> target) {
   return target.value;
 }

@@ -18,11 +18,25 @@ const libraryMirror = m.LibraryMirror(
   {
     'PlatformSelectableRegionContextMenu': m.ClassMirror(
       'PlatformSelectableRegionContextMenu',
-      {'build': _PlatformSelectableRegionContextMenu_build$},
+      {
+        '#as': PlatformSelectableRegionContextMenu_as$,
+        '#is': PlatformSelectableRegionContextMenu_is$,
+        'build': _PlatformSelectableRegionContextMenu_build$,
+      },
       {},
     )
   },
 );
+Function PlatformSelectableRegionContextMenu_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformSelectableRegionContextMenu;
+Function PlatformSelectableRegionContextMenu_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformSelectableRegionContextMenu;
 Function _PlatformSelectableRegionContextMenu_attach$(m.Scope scope) =>
     PlatformSelectableRegionContextMenu.attach;
 Function _PlatformSelectableRegionContextMenu_detach$(m.Scope scope) =>

@@ -17,26 +17,38 @@ const libraryMirror = m.LibraryMirror(
   {
     'PageTransitionsBuilder': m.ClassMirror(
       'PageTransitionsBuilder',
-      {'buildTransitions': _PageTransitionsBuilder_buildTransitions$},
+      {
+        '#as': PageTransitionsBuilder_as$,
+        '#is': PageTransitionsBuilder_is$,
+        'buildTransitions': _PageTransitionsBuilder_buildTransitions$,
+      },
       {},
     ),
     'FadeUpwardsPageTransitionsBuilder': m.ClassMirror(
       'FadeUpwardsPageTransitionsBuilder',
       {
-        'buildTransitions': _FadeUpwardsPageTransitionsBuilder_buildTransitions$
+        '#as': FadeUpwardsPageTransitionsBuilder_as$,
+        '#is': FadeUpwardsPageTransitionsBuilder_is$,
+        'buildTransitions':
+            _FadeUpwardsPageTransitionsBuilder_buildTransitions$,
       },
       {},
     ),
     'OpenUpwardsPageTransitionsBuilder': m.ClassMirror(
       'OpenUpwardsPageTransitionsBuilder',
       {
-        'buildTransitions': _OpenUpwardsPageTransitionsBuilder_buildTransitions$
+        '#as': OpenUpwardsPageTransitionsBuilder_as$,
+        '#is': OpenUpwardsPageTransitionsBuilder_is$,
+        'buildTransitions':
+            _OpenUpwardsPageTransitionsBuilder_buildTransitions$,
       },
       {},
     ),
     'ZoomPageTransitionsBuilder': m.ClassMirror(
       'ZoomPageTransitionsBuilder',
       {
+        '#as': ZoomPageTransitionsBuilder_as$,
+        '#is': ZoomPageTransitionsBuilder_is$,
         'allowSnapshotting': _ZoomPageTransitionsBuilder_allowSnapshotting$,
         'allowEnterRouteSnapshotting':
             _ZoomPageTransitionsBuilder_allowEnterRouteSnapshotting$,
@@ -46,36 +58,83 @@ const libraryMirror = m.LibraryMirror(
     ),
     'CupertinoPageTransitionsBuilder': m.ClassMirror(
       'CupertinoPageTransitionsBuilder',
-      {'buildTransitions': _CupertinoPageTransitionsBuilder_buildTransitions$},
+      {
+        '#as': CupertinoPageTransitionsBuilder_as$,
+        '#is': CupertinoPageTransitionsBuilder_is$,
+        'buildTransitions': _CupertinoPageTransitionsBuilder_buildTransitions$,
+      },
       {},
     ),
     'PageTransitionsTheme': m.ClassMirror(
       'PageTransitionsTheme',
       {
+        '#as': PageTransitionsTheme_as$,
+        '#is': PageTransitionsTheme_is$,
         'builders': _PageTransitionsTheme_builders$,
         'hashCode': _PageTransitionsTheme_hashCode$,
         'buildTransitions': _PageTransitionsTheme_buildTransitions$,
+        '==': _PageTransitionsTheme_eq$$,
         'debugFillProperties': _PageTransitionsTheme_debugFillProperties$,
       },
       {},
     ),
   },
 );
+Function PageTransitionsBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageTransitionsBuilder;
+Function PageTransitionsBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageTransitionsBuilder;
 Function _PageTransitionsBuilder_buildTransitions$<T>(
   m.Scope scope,
   PageTransitionsBuilder target,
 ) =>
     target.buildTransitions<T>;
+Function FadeUpwardsPageTransitionsBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FadeUpwardsPageTransitionsBuilder;
+Function FadeUpwardsPageTransitionsBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FadeUpwardsPageTransitionsBuilder;
 Function _FadeUpwardsPageTransitionsBuilder_buildTransitions$<T>(
   m.Scope scope,
   FadeUpwardsPageTransitionsBuilder target,
 ) =>
     target.buildTransitions<T>;
+Function OpenUpwardsPageTransitionsBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OpenUpwardsPageTransitionsBuilder;
+Function OpenUpwardsPageTransitionsBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OpenUpwardsPageTransitionsBuilder;
 Function _OpenUpwardsPageTransitionsBuilder_buildTransitions$<T>(
   m.Scope scope,
   OpenUpwardsPageTransitionsBuilder target,
 ) =>
     target.buildTransitions<T>;
+Function ZoomPageTransitionsBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZoomPageTransitionsBuilder;
+Function ZoomPageTransitionsBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZoomPageTransitionsBuilder;
 bool _ZoomPageTransitionsBuilder_allowSnapshotting$(
     ZoomPageTransitionsBuilder target) {
   return target.allowSnapshotting;
@@ -91,11 +150,31 @@ Function _ZoomPageTransitionsBuilder_buildTransitions$<T>(
   ZoomPageTransitionsBuilder target,
 ) =>
     target.buildTransitions<T>;
+Function CupertinoPageTransitionsBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPageTransitionsBuilder;
+Function CupertinoPageTransitionsBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPageTransitionsBuilder;
 Function _CupertinoPageTransitionsBuilder_buildTransitions$<T>(
   m.Scope scope,
   CupertinoPageTransitionsBuilder target,
 ) =>
     target.buildTransitions<T>;
+Function PageTransitionsTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageTransitionsTheme;
+Function PageTransitionsTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageTransitionsTheme;
 Map<TargetPlatform, PageTransitionsBuilder> _PageTransitionsTheme_builders$(
     PageTransitionsTheme target) {
   return target.builders;
@@ -110,6 +189,11 @@ Function _PageTransitionsTheme_buildTransitions$<T>(
   PageTransitionsTheme target,
 ) =>
     target.buildTransitions<T>;
+Function _PageTransitionsTheme_eq$$(
+  m.Scope scope,
+  PageTransitionsTheme target,
+) =>
+    (Object other) => target == other;
 Function _PageTransitionsTheme_debugFillProperties$(
   m.Scope scope,
   PageTransitionsTheme target,

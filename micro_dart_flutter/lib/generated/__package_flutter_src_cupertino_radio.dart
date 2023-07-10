@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoRadio': m.ClassMirror(
       'CupertinoRadio',
       {
+        '#as': CupertinoRadio_as$,
+        '#is': CupertinoRadio_is$,
         'value': _CupertinoRadio_value$,
         'groupValue': _CupertinoRadio_groupValue$,
         'onChanged': _CupertinoRadio_onChanged$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoRadio_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoRadio<T>;
+Function CupertinoRadio_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoRadio<T>;
 T _CupertinoRadio_value$<T>(CupertinoRadio<T> target) {
   return target.value;
 }

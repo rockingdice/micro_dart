@@ -27,6 +27,17 @@ const libraryMirror = m.LibraryMirror(
         _BindingBase_debugZoneErrorsAreFatal$,
     'BindingBase.checkInstance': _BindingBase_checkInstance$,
     'BindingBase.debugBindingType': _BindingBase_debugBindingType$,
+    'BindingBase.lockEvents': _BindingBase_lockEvents$,
+    'BindingBase.registerSignalServiceExtension':
+        _BindingBase_registerSignalServiceExtension$,
+    'BindingBase.registerBoolServiceExtension':
+        _BindingBase_registerBoolServiceExtension$,
+    'BindingBase.registerNumericServiceExtension':
+        _BindingBase_registerNumericServiceExtension$,
+    'BindingBase.registerStringServiceExtension':
+        _BindingBase_registerStringServiceExtension$,
+    'BindingBase.registerServiceExtension':
+        _BindingBase_registerServiceExtension$,
   },
   {
     'BindingBase.debugReassembleConfig':
@@ -38,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'BindingBase': m.ClassMirror(
       'BindingBase',
       {
+        '#as': BindingBase_as$,
+        '#is': BindingBase_is$,
         'platformDispatcher': _BindingBase_platformDispatcher$,
         'locked': _BindingBase_locked$,
         'initInstances': _BindingBase_initInstances$,
@@ -53,11 +66,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DebugReassembleConfig': m.ClassMirror(
       'DebugReassembleConfig',
-      {'widgetName': _DebugReassembleConfig_widgetName$},
+      {
+        '#as': DebugReassembleConfig_as$,
+        '#is': DebugReassembleConfig_is$,
+        'widgetName': _DebugReassembleConfig_widgetName$,
+      },
       {},
     ),
   },
 );
+Function BindingBase_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BindingBase;
+Function BindingBase_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BindingBase;
 DebugReassembleConfig? _BindingBase_debugReassembleConfig$() {
   return BindingBase.debugReassembleConfig;
 }
@@ -101,6 +128,20 @@ Function _BindingBase_initServiceExtensions$(
   BindingBase target,
 ) =>
     target.initServiceExtensions;
+Function _BindingBase_lockEvents$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<void> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      return target.lockEvents(callbackProxy);
+    };
 Function _BindingBase_unlocked$(
   m.Scope scope,
   BindingBase target,
@@ -116,16 +157,154 @@ Function _BindingBase_performReassemble$(
   BindingBase target,
 ) =>
     target.performReassemble;
+Function _BindingBase_registerSignalServiceExtension$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    ({
+      required m.FunctionPointer callback,
+      required String name,
+    }) {
+      Future<void> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.registerSignalServiceExtension(
+        callback: callbackProxy,
+        name: name,
+      );
+    };
+Function _BindingBase_registerBoolServiceExtension$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    ({
+      required m.FunctionPointer getter,
+      required String name,
+      required m.FunctionPointer setter,
+    }) {
+      Future<bool> getterProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            getter,
+            [],
+            {},
+          );
+      Future<void> setterProxy(bool setter_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            setter,
+            [setter_value],
+            {},
+          );
+      target.registerBoolServiceExtension(
+        getter: getterProxy,
+        name: name,
+        setter: setterProxy,
+      );
+    };
+Function _BindingBase_registerNumericServiceExtension$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    ({
+      required m.FunctionPointer getter,
+      required String name,
+      required m.FunctionPointer setter,
+    }) {
+      Future<double> getterProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            getter,
+            [],
+            {},
+          );
+      Future<void> setterProxy(double setter_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            setter,
+            [setter_value],
+            {},
+          );
+      target.registerNumericServiceExtension(
+        getter: getterProxy,
+        name: name,
+        setter: setterProxy,
+      );
+    };
 Function _BindingBase_postEvent$(
   m.Scope scope,
   BindingBase target,
 ) =>
     target.postEvent;
+Function _BindingBase_registerStringServiceExtension$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    ({
+      required m.FunctionPointer getter,
+      required String name,
+      required m.FunctionPointer setter,
+    }) {
+      Future<String> getterProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            getter,
+            [],
+            {},
+          );
+      Future<void> setterProxy(String setter_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            setter,
+            [setter_value],
+            {},
+          );
+      target.registerStringServiceExtension(
+        getter: getterProxy,
+        name: name,
+        setter: setterProxy,
+      );
+    };
+Function _BindingBase_registerServiceExtension$(
+  m.Scope scope,
+  BindingBase target,
+) =>
+    ({
+      required m.FunctionPointer callback,
+      required String name,
+    }) {
+      Future<Map<String, dynamic>> callbackProxy(
+              Map<String, String> callback_parameters) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [callback_parameters],
+            {},
+          );
+      target.registerServiceExtension(
+        callback: callbackProxy,
+        name: name,
+      );
+    };
 Function _BindingBase_toString$(
   m.Scope scope,
   BindingBase target,
 ) =>
     target.toString;
+Function DebugReassembleConfig_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DebugReassembleConfig;
+Function DebugReassembleConfig_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DebugReassembleConfig;
 String? _DebugReassembleConfig_widgetName$(DebugReassembleConfig target) {
   return target.widgetName;
 }

@@ -20,8 +20,11 @@ const libraryMirror = m.LibraryMirror(
     'MenuThemeData': m.ClassMirror(
       'MenuThemeData',
       {
+        '#as': MenuThemeData_as$,
+        '#is': MenuThemeData_is$,
         'style': _MenuThemeData_style$,
         'hashCode': _MenuThemeData_hashCode$,
+        '==': _MenuThemeData_eq$$,
         'debugFillProperties': _MenuThemeData_debugFillProperties$,
       },
       {},
@@ -29,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuTheme': m.ClassMirror(
       'MenuTheme',
       {
+        '#as': MenuTheme_as$,
+        '#is': MenuTheme_is$,
         'data': _MenuTheme_data$,
         'wrap': _MenuTheme_wrap$,
         'updateShouldNotify': _MenuTheme_updateShouldNotify$,
@@ -37,6 +42,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MenuThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuThemeData;
+Function MenuThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuThemeData;
 MenuStyle? _MenuThemeData_style$(MenuThemeData target) {
   return target.style;
 }
@@ -46,11 +61,26 @@ int _MenuThemeData_hashCode$(MenuThemeData target) {
 }
 
 Function _MenuThemeData_lerp$(m.Scope scope) => MenuThemeData.lerp;
+Function _MenuThemeData_eq$$(
+  m.Scope scope,
+  MenuThemeData target,
+) =>
+    (Object other) => target == other;
 Function _MenuThemeData_debugFillProperties$(
   m.Scope scope,
   MenuThemeData target,
 ) =>
     target.debugFillProperties;
+Function MenuTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuTheme;
+Function MenuTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuTheme;
 MenuThemeData _MenuTheme_data$(MenuTheme target) {
   return target.data;
 }

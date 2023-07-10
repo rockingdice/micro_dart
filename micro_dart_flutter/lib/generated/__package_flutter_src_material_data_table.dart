@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'DataColumn': m.ClassMirror(
       'DataColumn',
       {
+        '#as': DataColumn_as$,
+        '#is': DataColumn_is$,
         'label': _DataColumn_label$,
         'tooltip': _DataColumn_tooltip$,
         'numeric': _DataColumn_numeric$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'DataRow': m.ClassMirror(
       'DataRow',
       {
+        '#as': DataRow_as$,
+        '#is': DataRow_is$,
         'key': _DataRow_key$,
         'onSelectChanged': _DataRow_onSelectChanged$,
         'onLongPress': _DataRow_onLongPress$,
@@ -52,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'DataCell': m.ClassMirror(
       'DataCell',
       {
+        '#as': DataCell_as$,
+        '#is': DataCell_is$,
         'child': _DataCell_child$,
         'placeholder': _DataCell_placeholder$,
         'showEditIcon': _DataCell_showEditIcon$,
@@ -66,6 +72,8 @@ const libraryMirror = m.LibraryMirror(
     'DataTable': m.ClassMirror(
       'DataTable',
       {
+        '#as': DataTable_as$,
+        '#is': DataTable_is$,
         'columns': _DataTable_columns$,
         'sortColumnIndex': _DataTable_sortColumnIndex$,
         'sortAscending': _DataTable_sortAscending$,
@@ -94,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'TableRowInkWell': m.ClassMirror(
       'TableRowInkWell',
       {
+        '#as': TableRowInkWell_as$,
+        '#is': TableRowInkWell_is$,
         'getRectCallback': _TableRowInkWell_getRectCallback$,
         'debugCheckContext': _TableRowInkWell_debugCheckContext$,
       },
@@ -101,6 +111,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DataColumn_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataColumn;
+Function DataColumn_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataColumn;
 Widget _DataColumn_label$(DataColumn target) {
   return target.label;
 }
@@ -122,6 +142,16 @@ MaterialStateProperty<MouseCursor?>? _DataColumn_mouseCursor$(
   return target.mouseCursor;
 }
 
+Function DataRow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataRow;
+Function DataRow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataRow;
 LocalKey? _DataRow_key$(DataRow target) {
   return target.key;
 }
@@ -150,6 +180,16 @@ MaterialStateProperty<MouseCursor?>? _DataRow_mouseCursor$(DataRow target) {
   return target.mouseCursor;
 }
 
+Function DataCell_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataCell;
+Function DataCell_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataCell;
 DataCell _DataCell_empty$() {
   return DataCell.empty;
 }
@@ -186,6 +226,16 @@ void Function()? _DataCell_onTapCancel$(DataCell target) {
   return target.onTapCancel;
 }
 
+Function DataTable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataTable;
+Function DataTable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataTable;
 List<DataColumn> _DataTable_columns$(DataTable target) {
   return target.columns;
 }
@@ -275,6 +325,16 @@ Function _DataTable_build$(
   DataTable target,
 ) =>
     target.build;
+Function TableRowInkWell_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableRowInkWell;
+Function TableRowInkWell_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableRowInkWell;
 Function _TableRowInkWell_getRectCallback$(
   m.Scope scope,
   TableRowInkWell target,

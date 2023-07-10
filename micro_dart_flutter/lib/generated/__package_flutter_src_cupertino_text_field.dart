@@ -40,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTextField': m.ClassMirror(
       'CupertinoTextField',
       {
+        '#as': CupertinoTextField_as$,
+        '#is': CupertinoTextField_is$,
         'controller': _CupertinoTextField_controller$,
         'focusNode': _CupertinoTextField_focusNode$,
         'decoration': _CupertinoTextField_decoration$,
@@ -121,6 +123,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoTextField_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTextField;
+Function CupertinoTextField_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTextField;
 TextEditingController? _CupertinoTextField_controller$(
     CupertinoTextField target) {
   return target.controller;

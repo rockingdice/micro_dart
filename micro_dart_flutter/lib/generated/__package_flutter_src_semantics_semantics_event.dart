@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsEvent': m.ClassMirror(
       'SemanticsEvent',
       {
+        '#as': SemanticsEvent_as$,
+        '#is': SemanticsEvent_is$,
         'type': _SemanticsEvent_type$,
         'toMap': _SemanticsEvent_toMap$,
         'getDataMap': _SemanticsEvent_getDataMap$,
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'AnnounceSemanticsEvent': m.ClassMirror(
       'AnnounceSemanticsEvent',
       {
+        '#as': AnnounceSemanticsEvent_as$,
+        '#is': AnnounceSemanticsEvent_is$,
         'message': _AnnounceSemanticsEvent_message$,
         'textDirection': _AnnounceSemanticsEvent_textDirection$,
         'assertiveness': _AnnounceSemanticsEvent_assertiveness$,
@@ -38,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'TooltipSemanticsEvent': m.ClassMirror(
       'TooltipSemanticsEvent',
       {
+        '#as': TooltipSemanticsEvent_as$,
+        '#is': TooltipSemanticsEvent_is$,
         'message': _TooltipSemanticsEvent_message$,
         'getDataMap': _TooltipSemanticsEvent_getDataMap$,
       },
@@ -45,12 +51,20 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LongPressSemanticsEvent': m.ClassMirror(
       'LongPressSemanticsEvent',
-      {'getDataMap': _LongPressSemanticsEvent_getDataMap$},
+      {
+        '#as': LongPressSemanticsEvent_as$,
+        '#is': LongPressSemanticsEvent_is$,
+        'getDataMap': _LongPressSemanticsEvent_getDataMap$,
+      },
       {},
     ),
     'TapSemanticEvent': m.ClassMirror(
       'TapSemanticEvent',
-      {'getDataMap': _TapSemanticEvent_getDataMap$},
+      {
+        '#as': TapSemanticEvent_as$,
+        '#is': TapSemanticEvent_is$,
+        'getDataMap': _TapSemanticEvent_getDataMap$,
+      },
       {},
     ),
     'Assertiveness': m.ClassMirror(
@@ -60,6 +74,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SemanticsEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsEvent;
+Function SemanticsEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsEvent;
 String _SemanticsEvent_type$(SemanticsEvent target) {
   return target.type;
 }
@@ -79,6 +103,16 @@ Function _SemanticsEvent_toString$(
   SemanticsEvent target,
 ) =>
     target.toString;
+Function AnnounceSemanticsEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnnounceSemanticsEvent;
+Function AnnounceSemanticsEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnnounceSemanticsEvent;
 String _AnnounceSemanticsEvent_message$(AnnounceSemanticsEvent target) {
   return target.message;
 }
@@ -98,6 +132,16 @@ Function _AnnounceSemanticsEvent_getDataMap$(
   AnnounceSemanticsEvent target,
 ) =>
     target.getDataMap;
+Function TooltipSemanticsEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TooltipSemanticsEvent;
+Function TooltipSemanticsEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TooltipSemanticsEvent;
 String _TooltipSemanticsEvent_message$(TooltipSemanticsEvent target) {
   return target.message;
 }
@@ -107,11 +151,31 @@ Function _TooltipSemanticsEvent_getDataMap$(
   TooltipSemanticsEvent target,
 ) =>
     target.getDataMap;
+Function LongPressSemanticsEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressSemanticsEvent;
+Function LongPressSemanticsEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressSemanticsEvent;
 Function _LongPressSemanticsEvent_getDataMap$(
   m.Scope scope,
   LongPressSemanticsEvent target,
 ) =>
     target.getDataMap;
+Function TapSemanticEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapSemanticEvent;
+Function TapSemanticEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapSemanticEvent;
 Function _TapSemanticEvent_getDataMap$(
   m.Scope scope,
   TapSemanticEvent target,

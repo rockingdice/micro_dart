@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'ElevatedButton': m.ClassMirror(
       'ElevatedButton',
       {
+        '#as': ElevatedButton_as$,
+        '#is': ElevatedButton_is$,
         'defaultStyleOf': _ElevatedButton_defaultStyleOf$,
         'themeStyleOf': _ElevatedButton_themeStyleOf$,
       },
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ElevatedButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElevatedButton;
+Function ElevatedButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElevatedButton;
 Function _ElevatedButton_styleFrom$(m.Scope scope) => ElevatedButton.styleFrom;
 Function _ElevatedButton_defaultStyleOf$(
   m.Scope scope,

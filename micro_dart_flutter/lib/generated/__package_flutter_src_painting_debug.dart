@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageSizeInfo': m.ClassMirror(
       'ImageSizeInfo',
       {
+        '#as': ImageSizeInfo_as$,
+        '#is': ImageSizeInfo_is$,
         'source': _ImageSizeInfo_source$,
         'displaySize': _ImageSizeInfo_displaySize$,
         'imageSize': _ImageSizeInfo_imageSize$,
@@ -41,6 +43,7 @@ const libraryMirror = m.LibraryMirror(
         'decodedSizeInBytes': _ImageSizeInfo_decodedSizeInBytes$,
         'hashCode': _ImageSizeInfo_hashCode$,
         'toJson': _ImageSizeInfo_toJson$,
+        '==': _ImageSizeInfo_eq$$,
         'toString': _ImageSizeInfo_toString$,
       },
       {},
@@ -137,6 +140,16 @@ Function _debugCaptureShaderWarmUpImage_set$(m.Scope scope) =>
           );
       debugCaptureShaderWarmUpImage = (_debugCaptureShaderWarmUpImageProxy);
     };
+Function ImageSizeInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageSizeInfo;
+Function ImageSizeInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageSizeInfo;
 String? _ImageSizeInfo_source$(ImageSizeInfo target) {
   return target.source;
 }
@@ -166,6 +179,11 @@ Function _ImageSizeInfo_toJson$(
   ImageSizeInfo target,
 ) =>
     target.toJson;
+Function _ImageSizeInfo_eq$$(
+  m.Scope scope,
+  ImageSizeInfo target,
+) =>
+    (Object other) => target == other;
 Function _ImageSizeInfo_toString$(
   m.Scope scope,
   ImageSizeInfo target,

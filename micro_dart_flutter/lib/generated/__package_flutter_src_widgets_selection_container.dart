@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionContainer': m.ClassMirror(
       'SelectionContainer',
       {
+        '#as': SelectionContainer_as$,
+        '#is': SelectionContainer_is$,
         'registrar': _SelectionContainer_registrar$,
         'child': _SelectionContainer_child$,
         'delegate': _SelectionContainer_delegate$,
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionRegistrarScope': m.ClassMirror(
       'SelectionRegistrarScope',
       {
+        '#as': SelectionRegistrarScope_as$,
+        '#is': SelectionRegistrarScope_is$,
         'registrar': _SelectionRegistrarScope_registrar$,
         'updateShouldNotify': _SelectionRegistrarScope_updateShouldNotify$,
       },
@@ -32,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionContainerDelegate': m.ClassMirror(
       'SelectionContainerDelegate',
       {
+        '#as': SelectionContainerDelegate_as$,
+        '#is': SelectionContainerDelegate_is$,
         'hasSize': _SelectionContainerDelegate_hasSize$,
         'containerSize': _SelectionContainerDelegate_containerSize$,
         'getTransformFrom': _SelectionContainerDelegate_getTransformFrom$,
@@ -41,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SelectionContainer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionContainer;
+Function SelectionContainer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionContainer;
 SelectionRegistrar? _SelectionContainer_registrar$(SelectionContainer target) {
   return target.registrar;
 }
@@ -61,6 +77,16 @@ Function _SelectionContainer_createState$(
   SelectionContainer target,
 ) =>
     target.createState;
+Function SelectionRegistrarScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionRegistrarScope;
+Function SelectionRegistrarScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionRegistrarScope;
 SelectionRegistrar? _SelectionRegistrarScope_registrar$(
     SelectionRegistrarScope target) {
   return target.registrar;
@@ -71,6 +97,16 @@ Function _SelectionRegistrarScope_updateShouldNotify$(
   SelectionRegistrarScope target,
 ) =>
     target.updateShouldNotify;
+Function SelectionContainerDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionContainerDelegate;
+Function SelectionContainerDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionContainerDelegate;
 bool _SelectionContainerDelegate_hasSize$(SelectionContainerDelegate target) {
   return target.hasSize;
 }

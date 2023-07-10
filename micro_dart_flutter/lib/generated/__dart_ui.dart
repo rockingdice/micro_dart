@@ -19,6 +19,9 @@ const libraryMirror = m.LibraryMirror(
     'channelBuffers': _channelBuffers$,
     'ChannelBuffers.kDefaultBufferSize': _ChannelBuffers_kDefaultBufferSize$,
     'ChannelBuffers.kControlChannelName': _ChannelBuffers_kControlChannelName$,
+    'ChannelBuffers.push': _ChannelBuffers_push$,
+    'ChannelBuffers.setListener': _ChannelBuffers_setListener$,
+    'ChannelBuffers.drain': _ChannelBuffers_drain$,
     'Offset.zero': _Offset_zero$,
     'Offset.infinite': _Offset_infinite$,
     'Offset.lerp': _Offset_lerp$,
@@ -164,6 +167,8 @@ const libraryMirror = m.LibraryMirror(
     'decodeImageFromPixels': _decodeImageFromPixels$,
     'RootIsolateToken.instance': _RootIsolateToken_instance$,
     'PlatformDispatcher.instance': _PlatformDispatcher_instance$,
+    'PlatformDispatcher.sendPlatformMessage':
+        _PlatformDispatcher_sendPlatformMessage$,
     'ViewPadding.zero': _ViewPadding_zero$,
     'FramePhase.vsyncStart': _FramePhase_vsyncStart$,
     'FramePhase.buildStart': _FramePhase_buildStart$,
@@ -381,6 +386,8 @@ const libraryMirror = m.LibraryMirror(
     'ChannelBuffers': m.ClassMirror(
       'ChannelBuffers',
       {
+        '#as': ChannelBuffers_as$,
+        '#is': ChannelBuffers_is$,
         'clearListener': _ChannelBuffers_clearListener$,
         'handleMessage': _ChannelBuffers_handleMessage$,
         'resize': _ChannelBuffers_resize$,
@@ -391,6 +398,8 @@ const libraryMirror = m.LibraryMirror(
     'Scene': m.ClassMirror(
       'Scene',
       {
+        '#as': Scene_as$,
+        '#is': Scene_is$,
         'toImageSync': _Scene_toImageSync$,
         'toImage': _Scene_toImage$,
         'dispose': _Scene_dispose$,
@@ -399,62 +408,97 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TransformEngineLayer': m.ClassMirror(
       'TransformEngineLayer',
-      {},
+      {
+        '#as': TransformEngineLayer_as$,
+        '#is': TransformEngineLayer_is$,
+      },
       {},
     ),
     'OffsetEngineLayer': m.ClassMirror(
       'OffsetEngineLayer',
-      {},
+      {
+        '#as': OffsetEngineLayer_as$,
+        '#is': OffsetEngineLayer_is$,
+      },
       {},
     ),
     'ClipRectEngineLayer': m.ClassMirror(
       'ClipRectEngineLayer',
-      {},
+      {
+        '#as': ClipRectEngineLayer_as$,
+        '#is': ClipRectEngineLayer_is$,
+      },
       {},
     ),
     'ClipRRectEngineLayer': m.ClassMirror(
       'ClipRRectEngineLayer',
-      {},
+      {
+        '#as': ClipRRectEngineLayer_as$,
+        '#is': ClipRRectEngineLayer_is$,
+      },
       {},
     ),
     'ClipPathEngineLayer': m.ClassMirror(
       'ClipPathEngineLayer',
-      {},
+      {
+        '#as': ClipPathEngineLayer_as$,
+        '#is': ClipPathEngineLayer_is$,
+      },
       {},
     ),
     'OpacityEngineLayer': m.ClassMirror(
       'OpacityEngineLayer',
-      {},
+      {
+        '#as': OpacityEngineLayer_as$,
+        '#is': OpacityEngineLayer_is$,
+      },
       {},
     ),
     'ColorFilterEngineLayer': m.ClassMirror(
       'ColorFilterEngineLayer',
-      {},
+      {
+        '#as': ColorFilterEngineLayer_as$,
+        '#is': ColorFilterEngineLayer_is$,
+      },
       {},
     ),
     'ImageFilterEngineLayer': m.ClassMirror(
       'ImageFilterEngineLayer',
-      {},
+      {
+        '#as': ImageFilterEngineLayer_as$,
+        '#is': ImageFilterEngineLayer_is$,
+      },
       {},
     ),
     'BackdropFilterEngineLayer': m.ClassMirror(
       'BackdropFilterEngineLayer',
-      {},
+      {
+        '#as': BackdropFilterEngineLayer_as$,
+        '#is': BackdropFilterEngineLayer_is$,
+      },
       {},
     ),
     'ShaderMaskEngineLayer': m.ClassMirror(
       'ShaderMaskEngineLayer',
-      {},
+      {
+        '#as': ShaderMaskEngineLayer_as$,
+        '#is': ShaderMaskEngineLayer_is$,
+      },
       {},
     ),
     'PhysicalShapeEngineLayer': m.ClassMirror(
       'PhysicalShapeEngineLayer',
-      {},
+      {
+        '#as': PhysicalShapeEngineLayer_as$,
+        '#is': PhysicalShapeEngineLayer_is$,
+      },
       {},
     ),
     'SceneBuilder': m.ClassMirror(
       'SceneBuilder',
       {
+        '#as': SceneBuilder_as$,
+        '#is': SceneBuilder_is$,
         'pushTransform': _SceneBuilder_pushTransform$,
         'pushOffset': _SceneBuilder_pushOffset$,
         'pushClipRect': _SceneBuilder_pushClipRect$,
@@ -484,9 +528,16 @@ const libraryMirror = m.LibraryMirror(
     'OffsetBase': m.ClassMirror(
       'OffsetBase',
       {
+        '#as': OffsetBase_as$,
+        '#is': OffsetBase_is$,
         'isInfinite': _OffsetBase_isInfinite$,
         'isFinite': _OffsetBase_isFinite$,
         'hashCode': _OffsetBase_hashCode$,
+        '<': _OffsetBase_low$$,
+        '<=': _OffsetBase_low_eq$$,
+        '>': _OffsetBase_more$$,
+        '>=': _OffsetBase_more_eq$$,
+        '==': _OffsetBase_eq$$,
         'toString': _OffsetBase_toString$,
       },
       {},
@@ -494,6 +545,8 @@ const libraryMirror = m.LibraryMirror(
     'Offset': m.ClassMirror(
       'Offset',
       {
+        '#as': Offset_as$,
+        '#is': Offset_is$,
         'dx': _Offset_dx$,
         'dy': _Offset_dy$,
         'distance': _Offset_distance$,
@@ -502,6 +555,15 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _Offset_hashCode$,
         'scale': _Offset_scale$,
         'translate': _Offset_translate$,
+        'unary-': _Offset_unary_minus$$,
+        '-': _Offset_minus$$,
+        '+': _Offset_plus$$,
+        '*': _Offset_times$$,
+        '/': _Offset_over$$,
+        '~/': _Offset_division$$,
+        '%': _Offset_surplus$$,
+        '&': _Offset_bit_and$$,
+        '==': _Offset_eq$$,
         'toString': _Offset_toString$,
       },
       {},
@@ -509,6 +571,8 @@ const libraryMirror = m.LibraryMirror(
     'Size': m.ClassMirror(
       'Size',
       {
+        '#as': Size_as$,
+        '#is': Size_is$,
         'width': _Size_width$,
         'height': _Size_height$,
         'aspectRatio': _Size_aspectRatio$,
@@ -517,6 +581,12 @@ const libraryMirror = m.LibraryMirror(
         'longestSide': _Size_longestSide$,
         'flipped': _Size_flipped$,
         'hashCode': _Size_hashCode$,
+        '-': _Size_minus$$,
+        '+': _Size_plus$$,
+        '*': _Size_times$$,
+        '/': _Size_over$$,
+        '~/': _Size_division$$,
+        '%': _Size_surplus$$,
         'topLeft': _Size_topLeft$,
         'topCenter': _Size_topCenter$,
         'topRight': _Size_topRight$,
@@ -527,6 +597,7 @@ const libraryMirror = m.LibraryMirror(
         'bottomCenter': _Size_bottomCenter$,
         'bottomRight': _Size_bottomRight$,
         'contains': _Size_contains$,
+        '==': _Size_eq$$,
         'toString': _Size_toString$,
       },
       {},
@@ -534,6 +605,8 @@ const libraryMirror = m.LibraryMirror(
     'Rect': m.ClassMirror(
       'Rect',
       {
+        '#as': Rect_as$,
+        '#is': Rect_is$,
         'left': _Rect_left$,
         'top': _Rect_top$,
         'right': _Rect_right$,
@@ -565,6 +638,7 @@ const libraryMirror = m.LibraryMirror(
         'expandToInclude': _Rect_expandToInclude$,
         'overlaps': _Rect_overlaps$,
         'contains': _Rect_contains$,
+        '==': _Rect_eq$$,
         'toString': _Rect_toString$,
       },
       {},
@@ -572,11 +646,21 @@ const libraryMirror = m.LibraryMirror(
     'Radius': m.ClassMirror(
       'Radius',
       {
+        '#as': Radius_as$,
+        '#is': Radius_is$,
         'x': _Radius_x$,
         'y': _Radius_y$,
         'hashCode': _Radius_hashCode$,
         'clamp': _Radius_clamp$,
         'clampValues': _Radius_clampValues$,
+        'unary-': _Radius_unary_minus$$,
+        '-': _Radius_minus$$,
+        '+': _Radius_plus$$,
+        '*': _Radius_times$$,
+        '/': _Radius_over$$,
+        '~/': _Radius_division$$,
+        '%': _Radius_surplus$$,
+        '==': _Radius_eq$$,
         'toString': _Radius_toString$,
       },
       {},
@@ -584,6 +668,8 @@ const libraryMirror = m.LibraryMirror(
     'RRect': m.ClassMirror(
       'RRect',
       {
+        '#as': RRect_as$,
+        '#is': RRect_is$,
         'left': _RRect_left$,
         'top': _RRect_top$,
         'right': _RRect_right$,
@@ -623,6 +709,7 @@ const libraryMirror = m.LibraryMirror(
         'deflate': _RRect_deflate$,
         'scaleRadii': _RRect_scaleRadii$,
         'contains': _RRect_contains$,
+        '==': _RRect_eq$$,
         'toString': _RRect_toString$,
       },
       {},
@@ -630,6 +717,8 @@ const libraryMirror = m.LibraryMirror(
     'RSTransform': m.ClassMirror(
       'RSTransform',
       {
+        '#as': RSTransform_as$,
+        '#is': RSTransform_is$,
         'scos': _RSTransform_scos$,
         'ssin': _RSTransform_ssin$,
         'tx': _RSTransform_tx$,
@@ -639,12 +728,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IsolateNameServer': m.ClassMirror(
       'IsolateNameServer',
-      {},
+      {
+        '#as': IsolateNameServer_as$,
+        '#is': IsolateNameServer_is$,
+      },
       {},
     ),
     'KeyData': m.ClassMirror(
       'KeyData',
       {
+        '#as': KeyData_as$,
+        '#is': KeyData_is$,
         'timeStamp': _KeyData_timeStamp$,
         'type': _KeyData_type$,
         'physical': _KeyData_physical$,
@@ -663,12 +757,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DartPluginRegistrant': m.ClassMirror(
       'DartPluginRegistrant',
-      {},
+      {
+        '#as': DartPluginRegistrant_as$,
+        '#is': DartPluginRegistrant_is$,
+      },
       {},
     ),
     'Color': m.ClassMirror(
       'Color',
       {
+        '#as': Color_as$,
+        '#is': Color_is$,
         'value': _Color_value$,
         'alpha': _Color_alpha$,
         'opacity': _Color_opacity$,
@@ -682,6 +781,7 @@ const libraryMirror = m.LibraryMirror(
         'withGreen': _Color_withGreen$,
         'withBlue': _Color_withBlue$,
         'computeLuminance': _Color_computeLuminance$,
+        '==': _Color_eq$$,
         'toString': _Color_toString$,
       },
       {},
@@ -689,6 +789,8 @@ const libraryMirror = m.LibraryMirror(
     'Paint': m.ClassMirror(
       'Paint',
       {
+        '#as': Paint_as$,
+        '#is': Paint_is$,
         'isAntiAlias': _Paint_isAntiAlias$,
         'color': _Paint_color$,
         'blendMode': _Paint_blendMode$,
@@ -725,6 +827,8 @@ const libraryMirror = m.LibraryMirror(
     'Image': m.ClassMirror(
       'Image',
       {
+        '#as': Image_as$,
+        '#is': Image_is$,
         'width': _Image_width$,
         'height': _Image_height$,
         'debugDisposed': _Image_debugDisposed$,
@@ -741,6 +845,8 @@ const libraryMirror = m.LibraryMirror(
     'FrameInfo': m.ClassMirror(
       'FrameInfo',
       {
+        '#as': FrameInfo_as$,
+        '#is': FrameInfo_is$,
         'duration': _FrameInfo_duration$,
         'image': _FrameInfo_image$,
       },
@@ -749,6 +855,8 @@ const libraryMirror = m.LibraryMirror(
     'Codec': m.ClassMirror(
       'Codec',
       {
+        '#as': Codec_as$,
+        '#is': Codec_is$,
         'frameCount': _Codec_frameCount$,
         'repetitionCount': _Codec_repetitionCount$,
         'getNextFrame': _Codec_getNextFrame$,
@@ -759,6 +867,8 @@ const libraryMirror = m.LibraryMirror(
     'TargetImageSize': m.ClassMirror(
       'TargetImageSize',
       {
+        '#as': TargetImageSize_as$,
+        '#is': TargetImageSize_is$,
         'width': _TargetImageSize_width$,
         'height': _TargetImageSize_height$,
         'toString': _TargetImageSize_toString$,
@@ -767,12 +877,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'EngineLayer': m.ClassMirror(
       'EngineLayer',
-      {'dispose': _EngineLayer_dispose$},
+      {
+        '#as': EngineLayer_as$,
+        '#is': EngineLayer_is$,
+        'dispose': _EngineLayer_dispose$,
+      },
       {},
     ),
     'Path': m.ClassMirror(
       'Path',
       {
+        '#as': Path_as$,
+        '#is': Path_is$,
         'fillType': _Path_fillType$,
         'moveTo': _Path_moveTo$,
         'relativeMoveTo': _Path_relativeMoveTo$,
@@ -807,6 +923,8 @@ const libraryMirror = m.LibraryMirror(
     'Tangent': m.ClassMirror(
       'Tangent',
       {
+        '#as': Tangent_as$,
+        '#is': Tangent_is$,
         'position': _Tangent_position$,
         'vector': _Tangent_vector$,
         'angle': _Tangent_angle$,
@@ -815,12 +933,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PathMetrics': m.ClassMirror(
       'PathMetrics',
-      {'iterator': _PathMetrics_iterator$},
+      {
+        '#as': PathMetrics_as$,
+        '#is': PathMetrics_is$,
+        'iterator': _PathMetrics_iterator$,
+      },
       {},
     ),
     'PathMetricIterator': m.ClassMirror(
       'PathMetricIterator',
       {
+        '#as': PathMetricIterator_as$,
+        '#is': PathMetricIterator_is$,
         'current': _PathMetricIterator_current$,
         'moveNext': _PathMetricIterator_moveNext$,
       },
@@ -829,6 +953,8 @@ const libraryMirror = m.LibraryMirror(
     'PathMetric': m.ClassMirror(
       'PathMetric',
       {
+        '#as': PathMetric_as$,
+        '#is': PathMetric_is$,
         'length': _PathMetric_length$,
         'isClosed': _PathMetric_isClosed$,
         'contourIndex': _PathMetric_contourIndex$,
@@ -841,7 +967,10 @@ const libraryMirror = m.LibraryMirror(
     'MaskFilter': m.ClassMirror(
       'MaskFilter',
       {
+        '#as': MaskFilter_as$,
+        '#is': MaskFilter_is$,
         'hashCode': _MaskFilter_hashCode$,
+        '==': _MaskFilter_eq$$,
         'toString': _MaskFilter_toString$,
       },
       {},
@@ -849,19 +978,27 @@ const libraryMirror = m.LibraryMirror(
     'ColorFilter': m.ClassMirror(
       'ColorFilter',
       {
+        '#as': ColorFilter_as$,
+        '#is': ColorFilter_is$,
         'hashCode': _ColorFilter_hashCode$,
+        '==': _ColorFilter_eq$$,
         'toString': _ColorFilter_toString$,
       },
       {},
     ),
     'ImageFilter': m.ClassMirror(
       'ImageFilter',
-      {},
+      {
+        '#as': ImageFilter_as$,
+        '#is': ImageFilter_is$,
+      },
       {},
     ),
     'Shader': m.ClassMirror(
       'Shader',
       {
+        '#as': Shader_as$,
+        '#is': Shader_is$,
         'debugDisposed': _Shader_debugDisposed$,
         'dispose': _Shader_dispose$,
       },
@@ -869,22 +1006,35 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Gradient': m.ClassMirror(
       'Gradient',
-      {},
+      {
+        '#as': Gradient_as$,
+        '#is': Gradient_is$,
+      },
       {},
     ),
     'ImageShader': m.ClassMirror(
       'ImageShader',
-      {'dispose': _ImageShader_dispose$},
+      {
+        '#as': ImageShader_as$,
+        '#is': ImageShader_is$,
+        'dispose': _ImageShader_dispose$,
+      },
       {},
     ),
     'FragmentProgram': m.ClassMirror(
       'FragmentProgram',
-      {'fragmentShader': _FragmentProgram_fragmentShader$},
+      {
+        '#as': FragmentProgram_as$,
+        '#is': FragmentProgram_is$,
+        'fragmentShader': _FragmentProgram_fragmentShader$,
+      },
       {},
     ),
     'FragmentShader': m.ClassMirror(
       'FragmentShader',
       {
+        '#as': FragmentShader_as$,
+        '#is': FragmentShader_is$,
         'setFloat': _FragmentShader_setFloat$,
         'setImageSampler': _FragmentShader_setImageSampler$,
         'dispose': _FragmentShader_dispose$,
@@ -894,6 +1044,8 @@ const libraryMirror = m.LibraryMirror(
     'Vertices': m.ClassMirror(
       'Vertices',
       {
+        '#as': Vertices_as$,
+        '#is': Vertices_is$,
         'debugDisposed': _Vertices_debugDisposed$,
         'dispose': _Vertices_dispose$,
       },
@@ -902,6 +1054,8 @@ const libraryMirror = m.LibraryMirror(
     'Canvas': m.ClassMirror(
       'Canvas',
       {
+        '#as': Canvas_as$,
+        '#is': Canvas_is$,
         'save': _Canvas_save$,
         'saveLayer': _Canvas_saveLayer$,
         'restore': _Canvas_restore$,
@@ -945,6 +1099,8 @@ const libraryMirror = m.LibraryMirror(
     'Picture': m.ClassMirror(
       'Picture',
       {
+        '#as': Picture_as$,
+        '#is': Picture_is$,
         'debugDisposed': _Picture_debugDisposed$,
         'approximateBytesUsed': _Picture_approximateBytesUsed$,
         'toImage': _Picture_toImage$,
@@ -956,6 +1112,8 @@ const libraryMirror = m.LibraryMirror(
     'PictureRecorder': m.ClassMirror(
       'PictureRecorder',
       {
+        '#as': PictureRecorder_as$,
+        '#is': PictureRecorder_is$,
         'isRecording': _PictureRecorder_isRecording$,
         'endRecording': _PictureRecorder_endRecording$,
       },
@@ -964,6 +1122,8 @@ const libraryMirror = m.LibraryMirror(
     'Shadow': m.ClassMirror(
       'Shadow',
       {
+        '#as': Shadow_as$,
+        '#is': Shadow_is$,
         'color': _Shadow_color$,
         'offset': _Shadow_offset$,
         'blurRadius': _Shadow_blurRadius$,
@@ -971,6 +1131,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _Shadow_hashCode$,
         'toPaint': _Shadow_toPaint$,
         'scale': _Shadow_scale$,
+        '==': _Shadow_eq$$,
         'toString': _Shadow_toString$,
       },
       {},
@@ -978,6 +1139,8 @@ const libraryMirror = m.LibraryMirror(
     'ImmutableBuffer': m.ClassMirror(
       'ImmutableBuffer',
       {
+        '#as': ImmutableBuffer_as$,
+        '#is': ImmutableBuffer_is$,
         'length': _ImmutableBuffer_length$,
         'debugDisposed': _ImmutableBuffer_debugDisposed$,
         'dispose': _ImmutableBuffer_dispose$,
@@ -987,6 +1150,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageDescriptor': m.ClassMirror(
       'ImageDescriptor',
       {
+        '#as': ImageDescriptor_as$,
+        '#is': ImageDescriptor_is$,
         'width': _ImageDescriptor_width$,
         'height': _ImageDescriptor_height$,
         'bytesPerPixel': _ImageDescriptor_bytesPerPixel$,
@@ -998,6 +1163,8 @@ const libraryMirror = m.LibraryMirror(
     'PictureRasterizationException': m.ClassMirror(
       'PictureRasterizationException',
       {
+        '#as': PictureRasterizationException_as$,
+        '#is': PictureRasterizationException_is$,
         'message': _PictureRasterizationException_message$,
         'stack': _PictureRasterizationException_stack$,
         'toString': _PictureRasterizationException_toString$,
@@ -1086,12 +1253,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RootIsolateToken': m.ClassMirror(
       'RootIsolateToken',
-      {},
+      {
+        '#as': RootIsolateToken_as$,
+        '#is': RootIsolateToken_is$,
+      },
       {},
     ),
     'PlatformDispatcher': m.ClassMirror(
       'PlatformDispatcher',
       {
+        '#as': PlatformDispatcher_as$,
+        '#is': PlatformDispatcher_is$,
         'onPlatformConfigurationChanged':
             _PlatformDispatcher_onPlatformConfigurationChanged$,
         'views': _PlatformDispatcher_views$,
@@ -1172,6 +1344,8 @@ const libraryMirror = m.LibraryMirror(
     'FrameTiming': m.ClassMirror(
       'FrameTiming',
       {
+        '#as': FrameTiming_as$,
+        '#is': FrameTiming_is$,
         'buildDuration': _FrameTiming_buildDuration$,
         'rasterDuration': _FrameTiming_rasterDuration$,
         'vsyncOverhead': _FrameTiming_vsyncOverhead$,
@@ -1191,6 +1365,8 @@ const libraryMirror = m.LibraryMirror(
     'ViewPadding': m.ClassMirror(
       'ViewPadding',
       {
+        '#as': ViewPadding_as$,
+        '#is': ViewPadding_is$,
         'left': _ViewPadding_left$,
         'top': _ViewPadding_top$,
         'right': _ViewPadding_right$,
@@ -1202,10 +1378,13 @@ const libraryMirror = m.LibraryMirror(
     'DisplayFeature': m.ClassMirror(
       'DisplayFeature',
       {
+        '#as': DisplayFeature_as$,
+        '#is': DisplayFeature_is$,
         'bounds': _DisplayFeature_bounds$,
         'type': _DisplayFeature_type$,
         'state': _DisplayFeature_state$,
         'hashCode': _DisplayFeature_hashCode$,
+        '==': _DisplayFeature_eq$$,
         'toString': _DisplayFeature_toString$,
       },
       {},
@@ -1213,10 +1392,13 @@ const libraryMirror = m.LibraryMirror(
     'Locale': m.ClassMirror(
       'Locale',
       {
+        '#as': Locale_as$,
+        '#is': Locale_is$,
         'scriptCode': _Locale_scriptCode$,
         'languageCode': _Locale_languageCode$,
         'countryCode': _Locale_countryCode$,
         'hashCode': _Locale_hashCode$,
+        '==': _Locale_eq$$,
         'toString': _Locale_toString$,
         'toLanguageTag': _Locale_toLanguageTag$,
       },
@@ -1260,19 +1442,27 @@ const libraryMirror = m.LibraryMirror(
     'CallbackHandle': m.ClassMirror(
       'CallbackHandle',
       {
+        '#as': CallbackHandle_as$,
+        '#is': CallbackHandle_is$,
         'hashCode': _CallbackHandle_hashCode$,
         'toRawHandle': _CallbackHandle_toRawHandle$,
+        '==': _CallbackHandle_eq$$,
       },
       {},
     ),
     'PluginUtilities': m.ClassMirror(
       'PluginUtilities',
-      {},
+      {
+        '#as': PluginUtilities_as$,
+        '#is': PluginUtilities_is$,
+      },
       {},
     ),
     'PointerData': m.ClassMirror(
       'PointerData',
       {
+        '#as': PointerData_as$,
+        '#is': PointerData_is$,
         'embedderId': _PointerData_embedderId$,
         'timeStamp': _PointerData_timeStamp$,
         'change': _PointerData_change$,
@@ -1317,7 +1507,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PointerDataPacket': m.ClassMirror(
       'PointerDataPacket',
-      {'data': _PointerDataPacket_data$},
+      {
+        '#as': PointerDataPacket_as$,
+        '#is': PointerDataPacket_is$,
+        'data': _PointerDataPacket_data$,
+      },
       {},
     ),
     'PointerChange': m.ClassMirror(
@@ -1343,6 +1537,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsAction': m.ClassMirror(
       'SemanticsAction',
       {
+        '#as': SemanticsAction_as$,
+        '#is': SemanticsAction_is$,
         'index': _SemanticsAction_index$,
         'toString': _SemanticsAction_toString$,
       },
@@ -1351,6 +1547,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsFlag': m.ClassMirror(
       'SemanticsFlag',
       {
+        '#as': SemanticsFlag_as$,
+        '#is': SemanticsFlag_is$,
         'index': _SemanticsFlag_index$,
         'toString': _SemanticsFlag_toString$,
       },
@@ -1359,6 +1557,8 @@ const libraryMirror = m.LibraryMirror(
     'StringAttribute': m.ClassMirror(
       'StringAttribute',
       {
+        '#as': StringAttribute_as$,
+        '#is': StringAttribute_is$,
         'range': _StringAttribute_range$,
         'copy': _StringAttribute_copy$,
       },
@@ -1367,6 +1567,8 @@ const libraryMirror = m.LibraryMirror(
     'SpellOutStringAttribute': m.ClassMirror(
       'SpellOutStringAttribute',
       {
+        '#as': SpellOutStringAttribute_as$,
+        '#is': SpellOutStringAttribute_is$,
         'copy': _SpellOutStringAttribute_copy$,
         'toString': _SpellOutStringAttribute_toString$,
       },
@@ -1375,6 +1577,8 @@ const libraryMirror = m.LibraryMirror(
     'LocaleStringAttribute': m.ClassMirror(
       'LocaleStringAttribute',
       {
+        '#as': LocaleStringAttribute_as$,
+        '#is': LocaleStringAttribute_is$,
         'locale': _LocaleStringAttribute_locale$,
         'copy': _LocaleStringAttribute_copy$,
         'toString': _LocaleStringAttribute_toString$,
@@ -1384,6 +1588,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsUpdateBuilder': m.ClassMirror(
       'SemanticsUpdateBuilder',
       {
+        '#as': SemanticsUpdateBuilder_as$,
+        '#is': SemanticsUpdateBuilder_is$,
         'updateNode': _SemanticsUpdateBuilder_updateNode$,
         'updateCustomAction': _SemanticsUpdateBuilder_updateCustomAction$,
         'build': _SemanticsUpdateBuilder_build$,
@@ -1392,12 +1598,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SemanticsUpdate': m.ClassMirror(
       'SemanticsUpdate',
-      {'dispose': _SemanticsUpdate_dispose$},
+      {
+        '#as': SemanticsUpdate_as$,
+        '#is': SemanticsUpdate_is$,
+        'dispose': _SemanticsUpdate_dispose$,
+      },
       {},
     ),
     'FontWeight': m.ClassMirror(
       'FontWeight',
       {
+        '#as': FontWeight_as$,
+        '#is': FontWeight_is$,
         'index': _FontWeight_index$,
         'value': _FontWeight_value$,
         'toString': _FontWeight_toString$,
@@ -1407,9 +1619,12 @@ const libraryMirror = m.LibraryMirror(
     'FontFeature': m.ClassMirror(
       'FontFeature',
       {
+        '#as': FontFeature_as$,
+        '#is': FontFeature_is$,
         'feature': _FontFeature_feature$,
         'value': _FontFeature_value$,
         'hashCode': _FontFeature_hashCode$,
+        '==': _FontFeature_eq$$,
         'toString': _FontFeature_toString$,
       },
       {},
@@ -1417,9 +1632,12 @@ const libraryMirror = m.LibraryMirror(
     'FontVariation': m.ClassMirror(
       'FontVariation',
       {
+        '#as': FontVariation_as$,
+        '#is': FontVariation_is$,
         'axis': _FontVariation_axis$,
         'value': _FontVariation_value$,
         'hashCode': _FontVariation_hashCode$,
+        '==': _FontVariation_eq$$,
         'toString': _FontVariation_toString$,
       },
       {},
@@ -1427,8 +1645,11 @@ const libraryMirror = m.LibraryMirror(
     'TextDecoration': m.ClassMirror(
       'TextDecoration',
       {
+        '#as': TextDecoration_as$,
+        '#is': TextDecoration_is$,
         'hashCode': _TextDecoration_hashCode$,
         'contains': _TextDecoration_contains$,
+        '==': _TextDecoration_eq$$,
         'toString': _TextDecoration_toString$,
       },
       {},
@@ -1436,12 +1657,15 @@ const libraryMirror = m.LibraryMirror(
     'TextHeightBehavior': m.ClassMirror(
       'TextHeightBehavior',
       {
+        '#as': TextHeightBehavior_as$,
+        '#is': TextHeightBehavior_is$,
         'applyHeightToFirstAscent':
             _TextHeightBehavior_applyHeightToFirstAscent$,
         'applyHeightToLastDescent':
             _TextHeightBehavior_applyHeightToLastDescent$,
         'leadingDistribution': _TextHeightBehavior_leadingDistribution$,
         'hashCode': _TextHeightBehavior_hashCode$,
+        '==': _TextHeightBehavior_eq$$,
         'toString': _TextHeightBehavior_toString$,
       },
       {},
@@ -1449,7 +1673,10 @@ const libraryMirror = m.LibraryMirror(
     'TextStyle': m.ClassMirror(
       'TextStyle',
       {
+        '#as': TextStyle_as$,
+        '#is': TextStyle_is$,
         'hashCode': _TextStyle_hashCode$,
+        '==': _TextStyle_eq$$,
         'toString': _TextStyle_toString$,
       },
       {},
@@ -1457,19 +1684,29 @@ const libraryMirror = m.LibraryMirror(
     'ParagraphStyle': m.ClassMirror(
       'ParagraphStyle',
       {
+        '#as': ParagraphStyle_as$,
+        '#is': ParagraphStyle_is$,
         'hashCode': _ParagraphStyle_hashCode$,
+        '==': _ParagraphStyle_eq$$,
         'toString': _ParagraphStyle_toString$,
       },
       {},
     ),
     'StrutStyle': m.ClassMirror(
       'StrutStyle',
-      {'hashCode': _StrutStyle_hashCode$},
+      {
+        '#as': StrutStyle_as$,
+        '#is': StrutStyle_is$,
+        'hashCode': _StrutStyle_hashCode$,
+        '==': _StrutStyle_eq$$,
+      },
       {},
     ),
     'TextBox': m.ClassMirror(
       'TextBox',
       {
+        '#as': TextBox_as$,
+        '#is': TextBox_is$,
         'left': _TextBox_left$,
         'top': _TextBox_top$,
         'right': _TextBox_right$,
@@ -1479,6 +1716,7 @@ const libraryMirror = m.LibraryMirror(
         'end': _TextBox_end$,
         'hashCode': _TextBox_hashCode$,
         'toRect': _TextBox_toRect$,
+        '==': _TextBox_eq$$,
         'toString': _TextBox_toString$,
       },
       {},
@@ -1486,9 +1724,12 @@ const libraryMirror = m.LibraryMirror(
     'TextPosition': m.ClassMirror(
       'TextPosition',
       {
+        '#as': TextPosition_as$,
+        '#is': TextPosition_is$,
         'offset': _TextPosition_offset$,
         'affinity': _TextPosition_affinity$,
         'hashCode': _TextPosition_hashCode$,
+        '==': _TextPosition_eq$$,
         'toString': _TextPosition_toString$,
       },
       {},
@@ -1496,6 +1737,8 @@ const libraryMirror = m.LibraryMirror(
     'TextRange': m.ClassMirror(
       'TextRange',
       {
+        '#as': TextRange_as$,
+        '#is': TextRange_is$,
         'start': _TextRange_start$,
         'end': _TextRange_end$,
         'isValid': _TextRange_isValid$,
@@ -1505,6 +1748,7 @@ const libraryMirror = m.LibraryMirror(
         'textBefore': _TextRange_textBefore$,
         'textAfter': _TextRange_textAfter$,
         'textInside': _TextRange_textInside$,
+        '==': _TextRange_eq$$,
         'toString': _TextRange_toString$,
       },
       {},
@@ -1512,8 +1756,11 @@ const libraryMirror = m.LibraryMirror(
     'ParagraphConstraints': m.ClassMirror(
       'ParagraphConstraints',
       {
+        '#as': ParagraphConstraints_as$,
+        '#is': ParagraphConstraints_is$,
         'width': _ParagraphConstraints_width$,
         'hashCode': _ParagraphConstraints_hashCode$,
+        '==': _ParagraphConstraints_eq$$,
         'toString': _ParagraphConstraints_toString$,
       },
       {},
@@ -1521,6 +1768,8 @@ const libraryMirror = m.LibraryMirror(
     'LineMetrics': m.ClassMirror(
       'LineMetrics',
       {
+        '#as': LineMetrics_as$,
+        '#is': LineMetrics_is$,
         'hardBreak': _LineMetrics_hardBreak$,
         'ascent': _LineMetrics_ascent$,
         'descent': _LineMetrics_descent$,
@@ -1531,6 +1780,7 @@ const libraryMirror = m.LibraryMirror(
         'baseline': _LineMetrics_baseline$,
         'lineNumber': _LineMetrics_lineNumber$,
         'hashCode': _LineMetrics_hashCode$,
+        '==': _LineMetrics_eq$$,
         'toString': _LineMetrics_toString$,
       },
       {},
@@ -1538,6 +1788,8 @@ const libraryMirror = m.LibraryMirror(
     'Paragraph': m.ClassMirror(
       'Paragraph',
       {
+        '#as': Paragraph_as$,
+        '#is': Paragraph_is$,
         'width': _Paragraph_width$,
         'height': _Paragraph_height$,
         'longestLine': _Paragraph_longestLine$,
@@ -1561,6 +1813,8 @@ const libraryMirror = m.LibraryMirror(
     'ParagraphBuilder': m.ClassMirror(
       'ParagraphBuilder',
       {
+        '#as': ParagraphBuilder_as$,
+        '#is': ParagraphBuilder_is$,
         'placeholderCount': _ParagraphBuilder_placeholderCount$,
         'placeholderScales': _ParagraphBuilder_placeholderScales$,
         'pushStyle': _ParagraphBuilder_pushStyle$,
@@ -1624,6 +1878,8 @@ const libraryMirror = m.LibraryMirror(
     'FlutterView': m.ClassMirror(
       'FlutterView',
       {
+        '#as': FlutterView_as$,
+        '#is': FlutterView_is$,
         'viewId': _FlutterView_viewId$,
         'platformDispatcher': _FlutterView_platformDispatcher$,
         'devicePixelRatio': _FlutterView_devicePixelRatio$,
@@ -1643,6 +1899,8 @@ const libraryMirror = m.LibraryMirror(
     'AccessibilityFeatures': m.ClassMirror(
       'AccessibilityFeatures',
       {
+        '#as': AccessibilityFeatures_as$,
+        '#is': AccessibilityFeatures_is$,
         'accessibleNavigation': _AccessibilityFeatures_accessibleNavigation$,
         'invertColors': _AccessibilityFeatures_invertColors$,
         'disableAnimations': _AccessibilityFeatures_disableAnimations$,
@@ -1652,21 +1910,29 @@ const libraryMirror = m.LibraryMirror(
         'onOffSwitchLabels': _AccessibilityFeatures_onOffSwitchLabels$,
         'hashCode': _AccessibilityFeatures_hashCode$,
         'toString': _AccessibilityFeatures_toString$,
+        '==': _AccessibilityFeatures_eq$$,
       },
       {},
     ),
     'FrameData': m.ClassMirror(
       'FrameData',
-      {'frameNumber': _FrameData_frameNumber$},
+      {
+        '#as': FrameData_as$,
+        '#is': FrameData_is$,
+        'frameNumber': _FrameData_frameNumber$,
+      },
       {},
     ),
     'GestureSettings': m.ClassMirror(
       'GestureSettings',
       {
+        '#as': GestureSettings_as$,
+        '#is': GestureSettings_is$,
         'physicalTouchSlop': _GestureSettings_physicalTouchSlop$,
         'physicalDoubleTapSlop': _GestureSettings_physicalDoubleTapSlop$,
         'hashCode': _GestureSettings_hashCode$,
         'copyWith': _GestureSettings_copyWith$,
+        '==': _GestureSettings_eq$$,
         'toString': _GestureSettings_toString$,
       },
       {},
@@ -1686,6 +1952,16 @@ ChannelBuffers _channelBuffers$() {
   return channelBuffers;
 }
 
+Function ChannelBuffers_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChannelBuffers;
+Function ChannelBuffers_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChannelBuffers;
 int _ChannelBuffers_kDefaultBufferSize$() {
   return ChannelBuffers.kDefaultBufferSize;
 }
@@ -1694,11 +1970,85 @@ String _ChannelBuffers_kControlChannelName$() {
   return ChannelBuffers.kControlChannelName;
 }
 
+Function _ChannelBuffers_push$(
+  m.Scope scope,
+  ChannelBuffers target,
+) =>
+    (
+      String name,
+      ByteData? data,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy(ByteData? callback_data) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_data],
+            {},
+          );
+      target.push(
+        name,
+        data,
+        callbackProxy,
+      );
+    };
+Function _ChannelBuffers_setListener$(
+  m.Scope scope,
+  ChannelBuffers target,
+) =>
+    (
+      String name,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy(
+        ByteData? callback_data,
+        void Function(ByteData?) callback_callback,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [
+              callback_data,
+              callback_callback,
+            ],
+            {},
+          );
+      target.setListener(
+        name,
+        callbackProxy,
+      );
+    };
 Function _ChannelBuffers_clearListener$(
   m.Scope scope,
   ChannelBuffers target,
 ) =>
     target.clearListener;
+Function _ChannelBuffers_drain$(
+  m.Scope scope,
+  ChannelBuffers target,
+) =>
+    (
+      String name,
+      m.FunctionPointer callback,
+    ) {
+      Future<void> callbackProxy(
+        ByteData? callback_data,
+        void Function(ByteData?) callback_callback,
+      ) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [
+              callback_data,
+              callback_callback,
+            ],
+            {},
+          );
+      return target.drain(
+        name,
+        callbackProxy,
+      );
+    };
 Function _ChannelBuffers_handleMessage$(
   m.Scope scope,
   ChannelBuffers target,
@@ -1714,6 +2064,16 @@ Function _ChannelBuffers_allowOverflow$(
   ChannelBuffers target,
 ) =>
     target.allowOverflow;
+Function Scene_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Scene;
+Function Scene_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Scene;
 Function _Scene_toImageSync$(
   m.Scope scope,
   Scene target,
@@ -1729,6 +2089,126 @@ Function _Scene_dispose$(
   Scene target,
 ) =>
     target.dispose;
+Function TransformEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransformEngineLayer;
+Function TransformEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransformEngineLayer;
+Function OffsetEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OffsetEngineLayer;
+Function OffsetEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OffsetEngineLayer;
+Function ClipRectEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRectEngineLayer;
+Function ClipRectEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRectEngineLayer;
+Function ClipRRectEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRRectEngineLayer;
+Function ClipRRectEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRRectEngineLayer;
+Function ClipPathEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipPathEngineLayer;
+Function ClipPathEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipPathEngineLayer;
+Function OpacityEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OpacityEngineLayer;
+Function OpacityEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OpacityEngineLayer;
+Function ColorFilterEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorFilterEngineLayer;
+Function ColorFilterEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorFilterEngineLayer;
+Function ImageFilterEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageFilterEngineLayer;
+Function ImageFilterEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageFilterEngineLayer;
+Function BackdropFilterEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackdropFilterEngineLayer;
+Function BackdropFilterEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackdropFilterEngineLayer;
+Function ShaderMaskEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShaderMaskEngineLayer;
+Function ShaderMaskEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShaderMaskEngineLayer;
+Function PhysicalShapeEngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PhysicalShapeEngineLayer;
+Function PhysicalShapeEngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PhysicalShapeEngineLayer;
+Function SceneBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SceneBuilder;
+Function SceneBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SceneBuilder;
 Function _SceneBuilder_pushTransform$(
   m.Scope scope,
   SceneBuilder target,
@@ -1829,6 +2309,16 @@ Function _SceneBuilder_build$(
   SceneBuilder target,
 ) =>
     target.build;
+Function OffsetBase_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OffsetBase;
+Function OffsetBase_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OffsetBase;
 bool _OffsetBase_isInfinite$(OffsetBase target) {
   return target.isInfinite;
 }
@@ -1841,11 +2331,46 @@ int _OffsetBase_hashCode$(OffsetBase target) {
   return target.hashCode;
 }
 
+Function _OffsetBase_low$$(
+  m.Scope scope,
+  OffsetBase target,
+) =>
+    (OffsetBase other) => target < other;
+Function _OffsetBase_low_eq$$(
+  m.Scope scope,
+  OffsetBase target,
+) =>
+    (OffsetBase other) => target <= other;
+Function _OffsetBase_more$$(
+  m.Scope scope,
+  OffsetBase target,
+) =>
+    (OffsetBase other) => target > other;
+Function _OffsetBase_more_eq$$(
+  m.Scope scope,
+  OffsetBase target,
+) =>
+    (OffsetBase other) => target >= other;
+Function _OffsetBase_eq$$(
+  m.Scope scope,
+  OffsetBase target,
+) =>
+    (Object other) => target == other;
 Function _OffsetBase_toString$(
   m.Scope scope,
   OffsetBase target,
 ) =>
     target.toString;
+Function Offset_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Offset;
+Function Offset_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Offset;
 Offset _Offset_zero$() {
   return Offset.zero;
 }
@@ -1888,12 +2413,67 @@ Function _Offset_translate$(
   Offset target,
 ) =>
     target.translate;
+Function _Offset_unary_minus$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    () => -target;
+Function _Offset_minus$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (Offset other) => target - other;
+Function _Offset_plus$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (Offset other) => target + other;
+Function _Offset_times$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (double other) => target * other;
+Function _Offset_over$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (double other) => target / other;
+Function _Offset_division$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (double other) => target ~/ other;
+Function _Offset_surplus$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (double other) => target % other;
+Function _Offset_bit_and$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (Size other) => target & other;
 Function _Offset_lerp$(m.Scope scope) => Offset.lerp;
+Function _Offset_eq$$(
+  m.Scope scope,
+  Offset target,
+) =>
+    (Object other) => target == other;
 Function _Offset_toString$(
   m.Scope scope,
   Offset target,
 ) =>
     target.toString;
+Function Size_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Size;
+Function Size_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Size;
 Size _Size_zero$() {
   return Size.zero;
 }
@@ -1934,6 +2514,36 @@ int _Size_hashCode$(Size target) {
   return target.hashCode;
 }
 
+Function _Size_minus$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (OffsetBase other) => target - other;
+Function _Size_plus$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (Offset other) => target + other;
+Function _Size_times$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (double other) => target * other;
+Function _Size_over$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (double other) => target / other;
+Function _Size_division$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (double other) => target ~/ other;
+Function _Size_surplus$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (double other) => target % other;
 Function _Size_topLeft$(
   m.Scope scope,
   Size target,
@@ -1985,11 +2595,26 @@ Function _Size_contains$(
 ) =>
     target.contains;
 Function _Size_lerp$(m.Scope scope) => Size.lerp;
+Function _Size_eq$$(
+  m.Scope scope,
+  Size target,
+) =>
+    (Object other) => target == other;
 Function _Size_toString$(
   m.Scope scope,
   Size target,
 ) =>
     target.toString;
+Function Rect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Rect;
+Function Rect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Rect;
 double _Rect_left$(Rect target) {
   return target.left;
 }
@@ -2131,11 +2756,26 @@ Function _Rect_contains$(
 ) =>
     target.contains;
 Function _Rect_lerp$(m.Scope scope) => Rect.lerp;
+Function _Rect_eq$$(
+  m.Scope scope,
+  Rect target,
+) =>
+    (Object other) => target == other;
 Function _Rect_toString$(
   m.Scope scope,
   Rect target,
 ) =>
     target.toString;
+Function Radius_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Radius;
+Function Radius_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Radius;
 double _Radius_x$(Radius target) {
   return target.x;
 }
@@ -2162,12 +2802,62 @@ Function _Radius_clampValues$(
   Radius target,
 ) =>
     target.clampValues;
+Function _Radius_unary_minus$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    () => -target;
+Function _Radius_minus$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (Radius other) => target - other;
+Function _Radius_plus$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (Radius other) => target + other;
+Function _Radius_times$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (double other) => target * other;
+Function _Radius_over$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (double other) => target / other;
+Function _Radius_division$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (double other) => target ~/ other;
+Function _Radius_surplus$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (double other) => target % other;
 Function _Radius_lerp$(m.Scope scope) => Radius.lerp;
+Function _Radius_eq$$(
+  m.Scope scope,
+  Radius target,
+) =>
+    (Object other) => target == other;
 Function _Radius_toString$(
   m.Scope scope,
   Radius target,
 ) =>
     target.toString;
+Function RRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RRect;
+Function RRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RRect;
 double _RRect_left$(RRect target) {
   return target.left;
 }
@@ -2334,11 +3024,26 @@ Function _RRect_contains$(
 ) =>
     target.contains;
 Function _RRect_lerp$(m.Scope scope) => RRect.lerp;
+Function _RRect_eq$$(
+  m.Scope scope,
+  RRect target,
+) =>
+    (Object other) => target == other;
 Function _RRect_toString$(
   m.Scope scope,
   RRect target,
 ) =>
     target.toString;
+Function RSTransform_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RSTransform;
+Function RSTransform_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RSTransform;
 double _RSTransform_scos$(RSTransform target) {
   return target.scos;
 }
@@ -2355,12 +3060,32 @@ double _RSTransform_ty$(RSTransform target) {
   return target.ty;
 }
 
+Function IsolateNameServer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IsolateNameServer;
+Function IsolateNameServer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IsolateNameServer;
 Function _IsolateNameServer_lookupPortByName$(m.Scope scope) =>
     IsolateNameServer.lookupPortByName;
 Function _IsolateNameServer_registerPortWithName$(m.Scope scope) =>
     IsolateNameServer.registerPortWithName;
 Function _IsolateNameServer_removePortNameMapping$(m.Scope scope) =>
     IsolateNameServer.removePortNameMapping;
+Function KeyData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyData;
+Function KeyData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyData;
 Duration _KeyData_timeStamp$(KeyData target) {
   return target.timeStamp;
 }
@@ -2413,9 +3138,29 @@ List<KeyEventType> _KeyEventType_values$() {
 
 Function _lerpDouble$(m.Scope scope) => lerpDouble;
 Function _clampDouble$(m.Scope scope) => clampDouble;
+Function DartPluginRegistrant_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DartPluginRegistrant;
+Function DartPluginRegistrant_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DartPluginRegistrant;
 Function _DartPluginRegistrant_ensureInitialized$(m.Scope scope) =>
     DartPluginRegistrant.ensureInitialized;
 Function _saveCompilationTrace$(m.Scope scope) => saveCompilationTrace;
+Function Color_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Color;
+Function Color_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Color;
 int _Color_value$(Color target) {
   return target.value;
 }
@@ -2478,11 +3223,26 @@ Function _Color_lerp$(m.Scope scope) => Color.lerp;
 Function _Color_alphaBlend$(m.Scope scope) => Color.alphaBlend;
 Function _Color_getAlphaFromOpacity$(m.Scope scope) =>
     Color.getAlphaFromOpacity;
+Function _Color_eq$$(
+  m.Scope scope,
+  Color target,
+) =>
+    (Object other) => target == other;
 Function _Color_toString$(
   m.Scope scope,
   Color target,
 ) =>
     target.toString;
+Function Paint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Paint;
+Function Paint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Paint;
 bool _Paint_enableDithering$() {
   return Paint.enableDithering;
 }
@@ -2650,6 +3410,16 @@ Function _Paint_toString$(
   Paint target,
 ) =>
     target.toString;
+Function Image_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Image;
+Function Image_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Image;
 void Function(Image)? _Image_onCreate$() {
   return Image.onCreate;
 }
@@ -2725,6 +3495,16 @@ Function _Image_toString$(
   Image target,
 ) =>
     target.toString;
+Function FrameInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FrameInfo;
+Function FrameInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FrameInfo;
 Duration _FrameInfo_duration$(FrameInfo target) {
   return target.duration;
 }
@@ -2733,6 +3513,16 @@ Image _FrameInfo_image$(FrameInfo target) {
   return target.image;
 }
 
+Function Codec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Codec;
+Function Codec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Codec;
 int _Codec_frameCount$(Codec target) {
   return target.frameCount;
 }
@@ -2751,6 +3541,16 @@ Function _Codec_dispose$(
   Codec target,
 ) =>
     target.dispose;
+Function TargetImageSize_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TargetImageSize;
+Function TargetImageSize_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TargetImageSize;
 int? _TargetImageSize_width$(TargetImageSize target) {
   return target.width;
 }
@@ -2764,11 +3564,31 @@ Function _TargetImageSize_toString$(
   TargetImageSize target,
 ) =>
     target.toString;
+Function EngineLayer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EngineLayer;
+Function EngineLayer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EngineLayer;
 Function _EngineLayer_dispose$(
   m.Scope scope,
   EngineLayer target,
 ) =>
     target.dispose;
+Function Path_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Path;
+Function Path_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Path;
 PathFillType _Path_fillType$(Path target) {
   return target.fillType;
 }
@@ -2916,6 +3736,16 @@ Function _Path_computeMetrics$(
   Path target,
 ) =>
     target.computeMetrics;
+Function Tangent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Tangent;
+Function Tangent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Tangent;
 Offset _Tangent_position$(Tangent target) {
   return target.position;
 }
@@ -2928,10 +3758,30 @@ double _Tangent_angle$(Tangent target) {
   return target.angle;
 }
 
+Function PathMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathMetrics;
+Function PathMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathMetrics;
 Iterator<PathMetric> _PathMetrics_iterator$(PathMetrics target) {
   return target.iterator;
 }
 
+Function PathMetricIterator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathMetricIterator;
+Function PathMetricIterator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathMetricIterator;
 PathMetric _PathMetricIterator_current$(PathMetricIterator target) {
   return target.current;
 }
@@ -2941,6 +3791,16 @@ Function _PathMetricIterator_moveNext$(
   PathMetricIterator target,
 ) =>
     target.moveNext;
+Function PathMetric_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PathMetric;
+Function PathMetric_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PathMetric;
 double _PathMetric_length$(PathMetric target) {
   return target.length;
 }
@@ -2968,24 +3828,74 @@ Function _PathMetric_toString$(
   PathMetric target,
 ) =>
     target.toString;
+Function MaskFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaskFilter;
+Function MaskFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaskFilter;
 int _MaskFilter_hashCode$(MaskFilter target) {
   return target.hashCode;
 }
 
+Function _MaskFilter_eq$$(
+  m.Scope scope,
+  MaskFilter target,
+) =>
+    (Object other) => target == other;
 Function _MaskFilter_toString$(
   m.Scope scope,
   MaskFilter target,
 ) =>
     target.toString;
+Function ColorFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorFilter;
+Function ColorFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorFilter;
 int _ColorFilter_hashCode$(ColorFilter target) {
   return target.hashCode;
 }
 
+Function _ColorFilter_eq$$(
+  m.Scope scope,
+  ColorFilter target,
+) =>
+    (Object other) => target == other;
 Function _ColorFilter_toString$(
   m.Scope scope,
   ColorFilter target,
 ) =>
     target.toString;
+Function ImageFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageFilter;
+Function ImageFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageFilter;
+Function Shader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Shader;
+Function Shader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Shader;
 bool _Shader_debugDisposed$(Shader target) {
   return target.debugDisposed;
 }
@@ -2995,11 +3905,41 @@ Function _Shader_dispose$(
   Shader target,
 ) =>
     target.dispose;
+Function Gradient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Gradient;
+Function Gradient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Gradient;
+Function ImageShader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageShader;
+Function ImageShader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageShader;
 Function _ImageShader_dispose$(
   m.Scope scope,
   ImageShader target,
 ) =>
     target.dispose;
+Function FragmentProgram_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FragmentProgram;
+Function FragmentProgram_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FragmentProgram;
 Function _FragmentProgram_fromAsset$(m.Scope scope) =>
     FragmentProgram.fromAsset;
 Function _FragmentProgram_fragmentShader$(
@@ -3007,6 +3947,16 @@ Function _FragmentProgram_fragmentShader$(
   FragmentProgram target,
 ) =>
     target.fragmentShader;
+Function FragmentShader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FragmentShader;
+Function FragmentShader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FragmentShader;
 Function _FragmentShader_setFloat$(
   m.Scope scope,
   FragmentShader target,
@@ -3022,6 +3972,16 @@ Function _FragmentShader_dispose$(
   FragmentShader target,
 ) =>
     target.dispose;
+Function Vertices_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Vertices;
+Function Vertices_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Vertices;
 bool _Vertices_debugDisposed$(Vertices target) {
   return target.debugDisposed;
 }
@@ -3031,6 +3991,16 @@ Function _Vertices_dispose$(
   Vertices target,
 ) =>
     target.dispose;
+Function Canvas_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Canvas;
+Function Canvas_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Canvas;
 Function _Canvas_save$(
   m.Scope scope,
   Canvas target,
@@ -3216,6 +4186,16 @@ Function _Canvas_drawShadow$(
   Canvas target,
 ) =>
     target.drawShadow;
+Function Picture_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Picture;
+Function Picture_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Picture;
 void Function(Picture)? _Picture_onCreate$() {
   return Picture.onCreate;
 }
@@ -3269,6 +4249,16 @@ Function _Picture_dispose$(
   Picture target,
 ) =>
     target.dispose;
+Function PictureRecorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PictureRecorder;
+Function PictureRecorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PictureRecorder;
 bool _PictureRecorder_isRecording$(PictureRecorder target) {
   return target.isRecording;
 }
@@ -3278,6 +4268,16 @@ Function _PictureRecorder_endRecording$(
   PictureRecorder target,
 ) =>
     target.endRecording;
+Function Shadow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Shadow;
+Function Shadow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Shadow;
 Color _Shadow_color$(Shadow target) {
   return target.color;
 }
@@ -3312,11 +4312,26 @@ Function _Shadow_scale$(
     target.scale;
 Function _Shadow_lerp$(m.Scope scope) => Shadow.lerp;
 Function _Shadow_lerpList$(m.Scope scope) => Shadow.lerpList;
+Function _Shadow_eq$$(
+  m.Scope scope,
+  Shadow target,
+) =>
+    (Object other) => target == other;
 Function _Shadow_toString$(
   m.Scope scope,
   Shadow target,
 ) =>
     target.toString;
+Function ImmutableBuffer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImmutableBuffer;
+Function ImmutableBuffer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImmutableBuffer;
 int _ImmutableBuffer_length$(ImmutableBuffer target) {
   return target.length;
 }
@@ -3336,6 +4351,16 @@ Function _ImmutableBuffer_dispose$(
   ImmutableBuffer target,
 ) =>
     target.dispose;
+Function ImageDescriptor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageDescriptor;
+Function ImageDescriptor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageDescriptor;
 int _ImageDescriptor_width$(ImageDescriptor target) {
   return target.width;
 }
@@ -3359,6 +4384,16 @@ Function _ImageDescriptor_instantiateCodec$(
   ImageDescriptor target,
 ) =>
     target.instantiateCodec;
+Function PictureRasterizationException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PictureRasterizationException;
+Function PictureRasterizationException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PictureRasterizationException;
 String _PictureRasterizationException_message$(
     PictureRasterizationException target) {
   return target.message;
@@ -3797,10 +4832,10 @@ Function _decodeImageFromPixels$(m.Scope scope) => (
       int height,
       PixelFormat format,
       m.FunctionPointer callback, {
-      int? rowBytes,
-      int? targetWidth,
-      int? targetHeight,
       bool? allowUpscaling,
+      int? rowBytes,
+      int? targetHeight,
+      int? targetWidth,
     }) {
       void callbackProxy(Image callback_result) =>
           scope.engine.callFunctionPointer(
@@ -3821,10 +4856,30 @@ Function _decodeImageFromPixels$(m.Scope scope) => (
         targetWidth: targetWidth,
       );
     };
+Function RootIsolateToken_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RootIsolateToken;
+Function RootIsolateToken_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RootIsolateToken;
 RootIsolateToken? _RootIsolateToken_instance$() {
   return RootIsolateToken.instance;
 }
 
+Function PlatformDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformDispatcher;
+Function PlatformDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformDispatcher;
 PlatformDispatcher _PlatformDispatcher_instance$() {
   return PlatformDispatcher.instance;
 }
@@ -4231,6 +5286,28 @@ String _PlatformDispatcher_defaultRouteName$(PlatformDispatcher target) {
   return target.defaultRouteName;
 }
 
+Function _PlatformDispatcher_sendPlatformMessage$(
+  m.Scope scope,
+  PlatformDispatcher target,
+) =>
+    (
+      String name,
+      ByteData? data,
+      m.FunctionPointer? callback,
+    ) {
+      void callbackProxy(ByteData? callback_data) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback!,
+            [callback_data],
+            {},
+          );
+      target.sendPlatformMessage(
+        name,
+        data,
+        callback == null ? null : callbackProxy,
+      );
+    };
 Function _PlatformDispatcher_sendPortPlatformMessage$(
   m.Scope scope,
   PlatformDispatcher target,
@@ -4266,6 +5343,16 @@ Function _PlatformDispatcher_computePlatformResolvedLocale$(
   PlatformDispatcher target,
 ) =>
     target.computePlatformResolvedLocale;
+Function FrameTiming_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FrameTiming;
+Function FrameTiming_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FrameTiming;
 Duration _FrameTiming_buildDuration$(FrameTiming target) {
   return target.buildDuration;
 }
@@ -4320,6 +5407,16 @@ Function _FrameTiming_toString$(
   FrameTiming target,
 ) =>
     target.toString;
+Function ViewPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ViewPadding;
+Function ViewPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ViewPadding;
 double _ViewPadding_left$(ViewPadding target) {
   return target.left;
 }
@@ -4345,6 +5442,16 @@ Function _ViewPadding_toString$(
   ViewPadding target,
 ) =>
     target.toString;
+Function DisplayFeature_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DisplayFeature;
+Function DisplayFeature_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DisplayFeature;
 Rect _DisplayFeature_bounds$(DisplayFeature target) {
   return target.bounds;
 }
@@ -4361,11 +5468,26 @@ int _DisplayFeature_hashCode$(DisplayFeature target) {
   return target.hashCode;
 }
 
+Function _DisplayFeature_eq$$(
+  m.Scope scope,
+  DisplayFeature target,
+) =>
+    (Object other) => target == other;
 Function _DisplayFeature_toString$(
   m.Scope scope,
   DisplayFeature target,
 ) =>
     target.toString;
+Function Locale_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Locale;
+Function Locale_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Locale;
 String? _Locale_scriptCode$(Locale target) {
   return target.scriptCode;
 }
@@ -4382,6 +5504,11 @@ int _Locale_hashCode$(Locale target) {
   return target.hashCode;
 }
 
+Function _Locale_eq$$(
+  m.Scope scope,
+  Locale target,
+) =>
+    (Object other) => target == other;
 Function _Locale_toString$(
   m.Scope scope,
   Locale target,
@@ -4520,6 +5647,16 @@ List<DartPerformanceMode> _DartPerformanceMode_values$() {
   return DartPerformanceMode.values;
 }
 
+Function CallbackHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CallbackHandle;
+Function CallbackHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CallbackHandle;
 int _CallbackHandle_hashCode$(CallbackHandle target) {
   return target.hashCode;
 }
@@ -4529,10 +5666,35 @@ Function _CallbackHandle_toRawHandle$(
   CallbackHandle target,
 ) =>
     target.toRawHandle;
+Function _CallbackHandle_eq$$(
+  m.Scope scope,
+  CallbackHandle target,
+) =>
+    (Object other) => target == other;
+Function PluginUtilities_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PluginUtilities;
+Function PluginUtilities_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PluginUtilities;
 Function _PluginUtilities_getCallbackHandle$(m.Scope scope) =>
     PluginUtilities.getCallbackHandle;
 Function _PluginUtilities_getCallbackFromHandle$(m.Scope scope) =>
     PluginUtilities.getCallbackFromHandle;
+Function PointerData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerData;
+Function PointerData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerData;
 int _PointerData_embedderId$(PointerData target) {
   return target.embedderId;
 }
@@ -4688,6 +5850,16 @@ Function _PointerData_toStringFull$(
   PointerData target,
 ) =>
     target.toStringFull;
+Function PointerDataPacket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerDataPacket;
+Function PointerDataPacket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerDataPacket;
 List<PointerData> _PointerDataPacket_data$(PointerDataPacket target) {
   return target.data;
 }
@@ -4822,6 +5994,16 @@ List<PointerPreferredStylusAuxiliaryAction>
   return PointerPreferredStylusAuxiliaryAction.values;
 }
 
+Function SemanticsAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsAction;
+Function SemanticsAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsAction;
 int _SemanticsAction_index$(SemanticsAction target) {
   return target.index;
 }
@@ -4923,6 +6105,16 @@ Function _SemanticsAction_toString$(
   SemanticsAction target,
 ) =>
     target.toString;
+Function SemanticsFlag_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsFlag;
+Function SemanticsFlag_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsFlag;
 int _SemanticsFlag_index$(SemanticsFlag target) {
   return target.index;
 }
@@ -5040,6 +6232,16 @@ Function _SemanticsFlag_toString$(
   SemanticsFlag target,
 ) =>
     target.toString;
+Function StringAttribute_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringAttribute;
+Function StringAttribute_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringAttribute;
 TextRange _StringAttribute_range$(StringAttribute target) {
   return target.range;
 }
@@ -5049,6 +6251,16 @@ Function _StringAttribute_copy$(
   StringAttribute target,
 ) =>
     target.copy;
+Function SpellOutStringAttribute_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpellOutStringAttribute;
+Function SpellOutStringAttribute_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpellOutStringAttribute;
 Function _SpellOutStringAttribute_copy$(
   m.Scope scope,
   SpellOutStringAttribute target,
@@ -5059,6 +6271,16 @@ Function _SpellOutStringAttribute_toString$(
   SpellOutStringAttribute target,
 ) =>
     target.toString;
+Function LocaleStringAttribute_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LocaleStringAttribute;
+Function LocaleStringAttribute_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LocaleStringAttribute;
 Locale _LocaleStringAttribute_locale$(LocaleStringAttribute target) {
   return target.locale;
 }
@@ -5073,6 +6295,16 @@ Function _LocaleStringAttribute_toString$(
   LocaleStringAttribute target,
 ) =>
     target.toString;
+Function SemanticsUpdateBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsUpdateBuilder;
+Function SemanticsUpdateBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsUpdateBuilder;
 Function _SemanticsUpdateBuilder_updateNode$(
   m.Scope scope,
   SemanticsUpdateBuilder target,
@@ -5088,11 +6320,31 @@ Function _SemanticsUpdateBuilder_build$(
   SemanticsUpdateBuilder target,
 ) =>
     target.build;
+Function SemanticsUpdate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsUpdate;
+Function SemanticsUpdate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsUpdate;
 Function _SemanticsUpdate_dispose$(
   m.Scope scope,
   SemanticsUpdate target,
 ) =>
     target.dispose;
+Function FontWeight_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FontWeight;
+Function FontWeight_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FontWeight;
 int _FontWeight_index$(FontWeight target) {
   return target.index;
 }
@@ -5155,6 +6407,16 @@ Function _FontWeight_toString$(
   FontWeight target,
 ) =>
     target.toString;
+Function FontFeature_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FontFeature;
+Function FontFeature_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FontFeature;
 String _FontFeature_feature$(FontFeature target) {
   return target.feature;
 }
@@ -5167,11 +6429,26 @@ int _FontFeature_hashCode$(FontFeature target) {
   return target.hashCode;
 }
 
+Function _FontFeature_eq$$(
+  m.Scope scope,
+  FontFeature target,
+) =>
+    (Object other) => target == other;
 Function _FontFeature_toString$(
   m.Scope scope,
   FontFeature target,
 ) =>
     target.toString;
+Function FontVariation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FontVariation;
+Function FontVariation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FontVariation;
 String _FontVariation_axis$(FontVariation target) {
   return target.axis;
 }
@@ -5184,11 +6461,26 @@ int _FontVariation_hashCode$(FontVariation target) {
   return target.hashCode;
 }
 
+Function _FontVariation_eq$$(
+  m.Scope scope,
+  FontVariation target,
+) =>
+    (Object other) => target == other;
 Function _FontVariation_toString$(
   m.Scope scope,
   FontVariation target,
 ) =>
     target.toString;
+Function TextDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextDecoration;
+Function TextDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextDecoration;
 TextDecoration _TextDecoration_none$() {
   return TextDecoration.none;
 }
@@ -5214,11 +6506,26 @@ Function _TextDecoration_contains$(
   TextDecoration target,
 ) =>
     target.contains;
+Function _TextDecoration_eq$$(
+  m.Scope scope,
+  TextDecoration target,
+) =>
+    (Object other) => target == other;
 Function _TextDecoration_toString$(
   m.Scope scope,
   TextDecoration target,
 ) =>
     target.toString;
+Function TextHeightBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextHeightBehavior;
+Function TextHeightBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextHeightBehavior;
 bool _TextHeightBehavior_applyHeightToFirstAscent$(TextHeightBehavior target) {
   return target.applyHeightToFirstAscent;
 }
@@ -5236,33 +6543,93 @@ int _TextHeightBehavior_hashCode$(TextHeightBehavior target) {
   return target.hashCode;
 }
 
+Function _TextHeightBehavior_eq$$(
+  m.Scope scope,
+  TextHeightBehavior target,
+) =>
+    (Object other) => target == other;
 Function _TextHeightBehavior_toString$(
   m.Scope scope,
   TextHeightBehavior target,
 ) =>
     target.toString;
+Function TextStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextStyle;
+Function TextStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextStyle;
 int _TextStyle_hashCode$(TextStyle target) {
   return target.hashCode;
 }
 
+Function _TextStyle_eq$$(
+  m.Scope scope,
+  TextStyle target,
+) =>
+    (Object other) => target == other;
 Function _TextStyle_toString$(
   m.Scope scope,
   TextStyle target,
 ) =>
     target.toString;
+Function ParagraphStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParagraphStyle;
+Function ParagraphStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParagraphStyle;
 int _ParagraphStyle_hashCode$(ParagraphStyle target) {
   return target.hashCode;
 }
 
+Function _ParagraphStyle_eq$$(
+  m.Scope scope,
+  ParagraphStyle target,
+) =>
+    (Object other) => target == other;
 Function _ParagraphStyle_toString$(
   m.Scope scope,
   ParagraphStyle target,
 ) =>
     target.toString;
+Function StrutStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StrutStyle;
+Function StrutStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StrutStyle;
 int _StrutStyle_hashCode$(StrutStyle target) {
   return target.hashCode;
 }
 
+Function _StrutStyle_eq$$(
+  m.Scope scope,
+  StrutStyle target,
+) =>
+    (Object other) => target == other;
+Function TextBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextBox;
+Function TextBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextBox;
 double _TextBox_left$(TextBox target) {
   return target.left;
 }
@@ -5300,11 +6667,26 @@ Function _TextBox_toRect$(
   TextBox target,
 ) =>
     target.toRect;
+Function _TextBox_eq$$(
+  m.Scope scope,
+  TextBox target,
+) =>
+    (Object other) => target == other;
 Function _TextBox_toString$(
   m.Scope scope,
   TextBox target,
 ) =>
     target.toString;
+Function TextPosition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextPosition;
+Function TextPosition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextPosition;
 int _TextPosition_offset$(TextPosition target) {
   return target.offset;
 }
@@ -5317,11 +6699,26 @@ int _TextPosition_hashCode$(TextPosition target) {
   return target.hashCode;
 }
 
+Function _TextPosition_eq$$(
+  m.Scope scope,
+  TextPosition target,
+) =>
+    (Object other) => target == other;
 Function _TextPosition_toString$(
   m.Scope scope,
   TextPosition target,
 ) =>
     target.toString;
+Function TextRange_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextRange;
+Function TextRange_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextRange;
 TextRange _TextRange_empty$() {
   return TextRange.empty;
 }
@@ -5365,11 +6762,26 @@ Function _TextRange_textInside$(
   TextRange target,
 ) =>
     target.textInside;
+Function _TextRange_eq$$(
+  m.Scope scope,
+  TextRange target,
+) =>
+    (Object other) => target == other;
 Function _TextRange_toString$(
   m.Scope scope,
   TextRange target,
 ) =>
     target.toString;
+Function ParagraphConstraints_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParagraphConstraints;
+Function ParagraphConstraints_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParagraphConstraints;
 double _ParagraphConstraints_width$(ParagraphConstraints target) {
   return target.width;
 }
@@ -5378,11 +6790,26 @@ int _ParagraphConstraints_hashCode$(ParagraphConstraints target) {
   return target.hashCode;
 }
 
+Function _ParagraphConstraints_eq$$(
+  m.Scope scope,
+  ParagraphConstraints target,
+) =>
+    (Object other) => target == other;
 Function _ParagraphConstraints_toString$(
   m.Scope scope,
   ParagraphConstraints target,
 ) =>
     target.toString;
+Function LineMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LineMetrics;
+Function LineMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LineMetrics;
 bool _LineMetrics_hardBreak$(LineMetrics target) {
   return target.hardBreak;
 }
@@ -5423,11 +6850,26 @@ int _LineMetrics_hashCode$(LineMetrics target) {
   return target.hashCode;
 }
 
+Function _LineMetrics_eq$$(
+  m.Scope scope,
+  LineMetrics target,
+) =>
+    (Object other) => target == other;
 Function _LineMetrics_toString$(
   m.Scope scope,
   LineMetrics target,
 ) =>
     target.toString;
+Function Paragraph_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Paragraph;
+Function Paragraph_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Paragraph;
 double _Paragraph_width$(Paragraph target) {
   return target.width;
 }
@@ -5504,6 +6946,16 @@ Function _Paragraph_dispose$(
   Paragraph target,
 ) =>
     target.dispose;
+Function ParagraphBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParagraphBuilder;
+Function ParagraphBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParagraphBuilder;
 int _ParagraphBuilder_placeholderCount$(ParagraphBuilder target) {
   return target.placeholderCount;
 }
@@ -5722,6 +7174,16 @@ SingletonFlutterWindow _window$() {
   return window;
 }
 
+Function FlutterView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterView;
+Function FlutterView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterView;
 Object _FlutterView_viewId$(FlutterView target) {
   return target.viewId;
 }
@@ -5776,6 +7238,16 @@ Function _FlutterView_updateSemantics$(
   FlutterView target,
 ) =>
     target.updateSemantics;
+Function AccessibilityFeatures_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AccessibilityFeatures;
+Function AccessibilityFeatures_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AccessibilityFeatures;
 bool _AccessibilityFeatures_accessibleNavigation$(
     AccessibilityFeatures target) {
   return target.accessibleNavigation;
@@ -5814,10 +7286,35 @@ Function _AccessibilityFeatures_toString$(
   AccessibilityFeatures target,
 ) =>
     target.toString;
+Function _AccessibilityFeatures_eq$$(
+  m.Scope scope,
+  AccessibilityFeatures target,
+) =>
+    (Object other) => target == other;
+Function FrameData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FrameData;
+Function FrameData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FrameData;
 int _FrameData_frameNumber$(FrameData target) {
   return target.frameNumber;
 }
 
+Function GestureSettings_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureSettings;
+Function GestureSettings_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureSettings;
 double? _GestureSettings_physicalTouchSlop$(GestureSettings target) {
   return target.physicalTouchSlop;
 }
@@ -5835,6 +7332,11 @@ Function _GestureSettings_copyWith$(
   GestureSettings target,
 ) =>
     target.copyWith;
+Function _GestureSettings_eq$$(
+  m.Scope scope,
+  GestureSettings target,
+) =>
+    (Object other) => target == other;
 Function _GestureSettings_toString$(
   m.Scope scope,
   GestureSettings target,

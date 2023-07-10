@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationDrawerThemeData': m.ClassMirror(
       'NavigationDrawerThemeData',
       {
+        '#as': NavigationDrawerThemeData_as$,
+        '#is': NavigationDrawerThemeData_is$,
         'tileHeight': _NavigationDrawerThemeData_tileHeight$,
         'backgroundColor': _NavigationDrawerThemeData_backgroundColor$,
         'elevation': _NavigationDrawerThemeData_elevation$,
@@ -34,6 +36,7 @@ const libraryMirror = m.LibraryMirror(
         'iconTheme': _NavigationDrawerThemeData_iconTheme$,
         'hashCode': _NavigationDrawerThemeData_hashCode$,
         'copyWith': _NavigationDrawerThemeData_copyWith$,
+        '==': _NavigationDrawerThemeData_eq$$,
         'debugFillProperties': _NavigationDrawerThemeData_debugFillProperties$,
       },
       {},
@@ -41,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationDrawerTheme': m.ClassMirror(
       'NavigationDrawerTheme',
       {
+        '#as': NavigationDrawerTheme_as$,
+        '#is': NavigationDrawerTheme_is$,
         'data': _NavigationDrawerTheme_data$,
         'wrap': _NavigationDrawerTheme_wrap$,
         'updateShouldNotify': _NavigationDrawerTheme_updateShouldNotify$,
@@ -49,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationDrawerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationDrawerThemeData;
+Function NavigationDrawerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationDrawerThemeData;
 double? _NavigationDrawerThemeData_tileHeight$(
     NavigationDrawerThemeData target) {
   return target.tileHeight;
@@ -110,11 +125,26 @@ Function _NavigationDrawerThemeData_copyWith$(
     target.copyWith;
 Function _NavigationDrawerThemeData_lerp$(m.Scope scope) =>
     NavigationDrawerThemeData.lerp;
+Function _NavigationDrawerThemeData_eq$$(
+  m.Scope scope,
+  NavigationDrawerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _NavigationDrawerThemeData_debugFillProperties$(
   m.Scope scope,
   NavigationDrawerThemeData target,
 ) =>
     target.debugFillProperties;
+Function NavigationDrawerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationDrawerTheme;
+Function NavigationDrawerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationDrawerTheme;
 NavigationDrawerThemeData _NavigationDrawerTheme_data$(
     NavigationDrawerTheme target) {
   return target.data;

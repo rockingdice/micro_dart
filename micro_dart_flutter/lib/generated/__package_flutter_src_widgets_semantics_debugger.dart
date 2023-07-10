@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsDebugger': m.ClassMirror(
       'SemanticsDebugger',
       {
+        '#as': SemanticsDebugger_as$,
+        '#is': SemanticsDebugger_is$,
         'child': _SemanticsDebugger_child$,
         'labelStyle': _SemanticsDebugger_labelStyle$,
         'createState': _SemanticsDebugger_createState$,
@@ -29,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SemanticsDebugger_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsDebugger;
+Function SemanticsDebugger_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsDebugger;
 Widget _SemanticsDebugger_child$(SemanticsDebugger target) {
   return target.child;
 }

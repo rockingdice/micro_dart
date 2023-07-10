@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'ToggleablePainter': m.ClassMirror(
       'ToggleablePainter',
       {
+        '#as': ToggleablePainter_as$,
+        '#is': ToggleablePainter_is$,
         'activeColor': _ToggleablePainter_activeColor$,
         'inactiveColor': _ToggleablePainter_inactiveColor$,
         'focusColor': _ToggleablePainter_focusColor$,
@@ -38,6 +40,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ToggleablePainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToggleablePainter;
+Function ToggleablePainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToggleablePainter;
 Color _ToggleablePainter_activeColor$(ToggleablePainter target) {
   return target.activeColor;
 }

@@ -25,14 +25,19 @@ const libraryMirror = m.LibraryMirror(
     'KeySet': m.ClassMirror(
       'KeySet',
       {
+        '#as': KeySet_as$,
+        '#is': KeySet_is$,
         'hashCode': _KeySet_hashCode$,
         'keys': _KeySet_keys$,
+        '==': _KeySet_eq$$,
       },
       {},
     ),
     'ShortcutActivator': m.ClassMirror(
       'ShortcutActivator',
       {
+        '#as': ShortcutActivator_as$,
+        '#is': ShortcutActivator_is$,
         'triggers': _ShortcutActivator_triggers$,
         'accepts': _ShortcutActivator_accepts$,
         'debugDescribeKeys': _ShortcutActivator_debugDescribeKeys$,
@@ -42,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'LogicalKeySet': m.ClassMirror(
       'LogicalKeySet',
       {
+        '#as': LogicalKeySet_as$,
+        '#is': LogicalKeySet_is$,
         'triggers': _LogicalKeySet_triggers$,
         'accepts': _LogicalKeySet_accepts$,
         'debugDescribeKeys': _LogicalKeySet_debugDescribeKeys$,
@@ -52,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutMapProperty': m.ClassMirror(
       'ShortcutMapProperty',
       {
+        '#as': ShortcutMapProperty_as$,
+        '#is': ShortcutMapProperty_is$,
         'value': _ShortcutMapProperty_value$,
         'valueToString': _ShortcutMapProperty_valueToString$,
       },
@@ -60,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'SingleActivator': m.ClassMirror(
       'SingleActivator',
       {
+        '#as': SingleActivator_as$,
+        '#is': SingleActivator_is$,
         'trigger': _SingleActivator_trigger$,
         'control': _SingleActivator_control$,
         'shift': _SingleActivator_shift$,
@@ -77,6 +88,8 @@ const libraryMirror = m.LibraryMirror(
     'CharacterActivator': m.ClassMirror(
       'CharacterActivator',
       {
+        '#as': CharacterActivator_as$,
+        '#is': CharacterActivator_is$,
         'alt': _CharacterActivator_alt$,
         'control': _CharacterActivator_control$,
         'meta': _CharacterActivator_meta$,
@@ -93,6 +106,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutManager': m.ClassMirror(
       'ShortcutManager',
       {
+        '#as': ShortcutManager_as$,
+        '#is': ShortcutManager_is$,
         'modal': _ShortcutManager_modal$,
         'shortcuts': _ShortcutManager_shortcuts$,
         'handleKeypress': _ShortcutManager_handleKeypress$,
@@ -103,6 +118,8 @@ const libraryMirror = m.LibraryMirror(
     'Shortcuts': m.ClassMirror(
       'Shortcuts',
       {
+        '#as': Shortcuts_as$,
+        '#is': Shortcuts_is$,
         'manager': _Shortcuts_manager$,
         'child': _Shortcuts_child$,
         'debugLabel': _Shortcuts_debugLabel$,
@@ -115,6 +132,8 @@ const libraryMirror = m.LibraryMirror(
     'CallbackShortcuts': m.ClassMirror(
       'CallbackShortcuts',
       {
+        '#as': CallbackShortcuts_as$,
+        '#is': CallbackShortcuts_is$,
         'bindings': _CallbackShortcuts_bindings$,
         'child': _CallbackShortcuts_child$,
         'build': _CallbackShortcuts_build$,
@@ -124,6 +143,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutRegistryEntry': m.ClassMirror(
       'ShortcutRegistryEntry',
       {
+        '#as': ShortcutRegistryEntry_as$,
+        '#is': ShortcutRegistryEntry_is$,
         'registry': _ShortcutRegistryEntry_registry$,
         'replaceAll': _ShortcutRegistryEntry_replaceAll$,
         'dispose': _ShortcutRegistryEntry_dispose$,
@@ -133,6 +154,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutRegistry': m.ClassMirror(
       'ShortcutRegistry',
       {
+        '#as': ShortcutRegistry_as$,
+        '#is': ShortcutRegistry_is$,
         'shortcuts': _ShortcutRegistry_shortcuts$,
         'dispose': _ShortcutRegistry_dispose$,
         'addAll': _ShortcutRegistry_addAll$,
@@ -142,6 +165,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutRegistrar': m.ClassMirror(
       'ShortcutRegistrar',
       {
+        '#as': ShortcutRegistrar_as$,
+        '#is': ShortcutRegistrar_is$,
         'child': _ShortcutRegistrar_child$,
         'createState': _ShortcutRegistrar_createState$,
       },
@@ -149,6 +174,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function KeySet_as$<T extends KeyboardKey>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeySet<T>;
+Function KeySet_is$<T extends KeyboardKey>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeySet<T>;
 int _KeySet_hashCode$<T extends KeyboardKey>(KeySet<T> target) {
   return target.hashCode;
 }
@@ -157,6 +192,21 @@ Set<T> _KeySet_keys$<T extends KeyboardKey>(KeySet<T> target) {
   return target.keys;
 }
 
+Function _KeySet_eq$$<T extends KeyboardKey>(
+  m.Scope scope,
+  KeySet<T> target,
+) =>
+    (Object other) => target == other;
+Function ShortcutActivator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutActivator;
+Function ShortcutActivator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutActivator;
 Iterable<LogicalKeyboardKey>? _ShortcutActivator_triggers$(
     ShortcutActivator target) {
   return target.triggers;
@@ -174,6 +224,16 @@ Function _ShortcutActivator_debugDescribeKeys$(
   ShortcutActivator target,
 ) =>
     target.debugDescribeKeys;
+Function LogicalKeySet_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LogicalKeySet;
+Function LogicalKeySet_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LogicalKeySet;
 Iterable<LogicalKeyboardKey> _LogicalKeySet_triggers$(LogicalKeySet target) {
   return target.triggers;
 }
@@ -193,6 +253,16 @@ Function _LogicalKeySet_debugFillProperties$(
   LogicalKeySet target,
 ) =>
     target.debugFillProperties;
+Function ShortcutMapProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutMapProperty;
+Function ShortcutMapProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutMapProperty;
 Map<ShortcutActivator, Intent> _ShortcutMapProperty_value$(
     ShortcutMapProperty target) {
   return target.value;
@@ -203,6 +273,16 @@ Function _ShortcutMapProperty_valueToString$(
   ShortcutMapProperty target,
 ) =>
     target.valueToString;
+Function SingleActivator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SingleActivator;
+Function SingleActivator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SingleActivator;
 LogicalKeyboardKey _SingleActivator_trigger$(SingleActivator target) {
   return target.trigger;
 }
@@ -252,6 +332,16 @@ Function _SingleActivator_debugFillProperties$(
   SingleActivator target,
 ) =>
     target.debugFillProperties;
+Function CharacterActivator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CharacterActivator;
+Function CharacterActivator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CharacterActivator;
 bool _CharacterActivator_alt$(CharacterActivator target) {
   return target.alt;
 }
@@ -297,6 +387,16 @@ Function _CharacterActivator_debugFillProperties$(
   CharacterActivator target,
 ) =>
     target.debugFillProperties;
+Function ShortcutManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutManager;
+Function ShortcutManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutManager;
 bool _ShortcutManager_modal$(ShortcutManager target) {
   return target.modal;
 }
@@ -323,6 +423,16 @@ Function _ShortcutManager_debugFillProperties$(
   ShortcutManager target,
 ) =>
     target.debugFillProperties;
+Function Shortcuts_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Shortcuts;
+Function Shortcuts_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Shortcuts;
 ShortcutManager? _Shortcuts_manager$(Shortcuts target) {
   return target.manager;
 }
@@ -349,6 +459,16 @@ Function _Shortcuts_debugFillProperties$(
   Shortcuts target,
 ) =>
     target.debugFillProperties;
+Function CallbackShortcuts_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CallbackShortcuts;
+Function CallbackShortcuts_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CallbackShortcuts;
 Map<ShortcutActivator, void Function()> _CallbackShortcuts_bindings$(
     CallbackShortcuts target) {
   return target.bindings;
@@ -363,6 +483,16 @@ Function _CallbackShortcuts_build$(
   CallbackShortcuts target,
 ) =>
     target.build;
+Function ShortcutRegistryEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutRegistryEntry;
+Function ShortcutRegistryEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutRegistryEntry;
 ShortcutRegistry _ShortcutRegistryEntry_registry$(
     ShortcutRegistryEntry target) {
   return target.registry;
@@ -378,6 +508,16 @@ Function _ShortcutRegistryEntry_dispose$(
   ShortcutRegistryEntry target,
 ) =>
     target.dispose;
+Function ShortcutRegistry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutRegistry;
+Function ShortcutRegistry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutRegistry;
 Map<ShortcutActivator, Intent> _ShortcutRegistry_shortcuts$(
     ShortcutRegistry target) {
   return target.shortcuts;
@@ -395,6 +535,16 @@ Function _ShortcutRegistry_addAll$(
     target.addAll;
 Function _ShortcutRegistry_of$(m.Scope scope) => ShortcutRegistry.of;
 Function _ShortcutRegistry_maybeOf$(m.Scope scope) => ShortcutRegistry.maybeOf;
+Function ShortcutRegistrar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutRegistrar;
+Function ShortcutRegistrar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutRegistrar;
 Widget _ShortcutRegistrar_child$(ShortcutRegistrar target) {
   return target.child;
 }

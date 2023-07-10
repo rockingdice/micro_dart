@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSlider': m.ClassMirror(
       'CupertinoSlider',
       {
+        '#as': CupertinoSlider_as$,
+        '#is': CupertinoSlider_is$,
         'value': _CupertinoSlider_value$,
         'onChanged': _CupertinoSlider_onChanged$,
         'onChangeStart': _CupertinoSlider_onChangeStart$,
@@ -38,6 +40,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoSlider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSlider;
+Function CupertinoSlider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSlider;
 double _CupertinoSlider_value$(CupertinoSlider target) {
   return target.value;
 }

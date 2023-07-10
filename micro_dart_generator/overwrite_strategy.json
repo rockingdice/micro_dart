@@ -1,6 +1,8 @@
 {
     "ingoreKeys":[
         "dart:core@Record",
+        "dart:ffi@VarArgs@#as",
+        "dart:ffi@VarArgs@#is",
         "package:flutter/src/widgets/routes.dart@FocusTrap",
         "dart:html",
         "dart:html_common",

@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoAlertDialog': m.ClassMirror(
       'CupertinoAlertDialog',
       {
+        '#as': CupertinoAlertDialog_as$,
+        '#is': CupertinoAlertDialog_is$,
         'title': _CupertinoAlertDialog_title$,
         'content': _CupertinoAlertDialog_content$,
         'actions': _CupertinoAlertDialog_actions$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPopupSurface': m.ClassMirror(
       'CupertinoPopupSurface',
       {
+        '#as': CupertinoPopupSurface_as$,
+        '#is': CupertinoPopupSurface_is$,
         'isSurfacePainted': _CupertinoPopupSurface_isSurfacePainted$,
         'child': _CupertinoPopupSurface_child$,
         'build': _CupertinoPopupSurface_build$,
@@ -45,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoActionSheet': m.ClassMirror(
       'CupertinoActionSheet',
       {
+        '#as': CupertinoActionSheet_as$,
+        '#is': CupertinoActionSheet_is$,
         'title': _CupertinoActionSheet_title$,
         'message': _CupertinoActionSheet_message$,
         'actions': _CupertinoActionSheet_actions$,
@@ -59,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoActionSheetAction': m.ClassMirror(
       'CupertinoActionSheetAction',
       {
+        '#as': CupertinoActionSheetAction_as$,
+        '#is': CupertinoActionSheetAction_is$,
         'onPressed': _CupertinoActionSheetAction_onPressed$,
         'isDefaultAction': _CupertinoActionSheetAction_isDefaultAction$,
         'isDestructiveAction': _CupertinoActionSheetAction_isDestructiveAction$,
@@ -70,6 +78,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoDialogAction': m.ClassMirror(
       'CupertinoDialogAction',
       {
+        '#as': CupertinoDialogAction_as$,
+        '#is': CupertinoDialogAction_is$,
         'onPressed': _CupertinoDialogAction_onPressed$,
         'isDefaultAction': _CupertinoDialogAction_isDefaultAction$,
         'isDestructiveAction': _CupertinoDialogAction_isDestructiveAction$,
@@ -82,6 +92,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoAlertDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoAlertDialog;
+Function CupertinoAlertDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoAlertDialog;
 Widget? _CupertinoAlertDialog_title$(CupertinoAlertDialog target) {
   return target.title;
 }
@@ -118,6 +138,16 @@ Function _CupertinoAlertDialog_build$(
   CupertinoAlertDialog target,
 ) =>
     target.build;
+Function CupertinoPopupSurface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPopupSurface;
+Function CupertinoPopupSurface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPopupSurface;
 bool _CupertinoPopupSurface_isSurfacePainted$(CupertinoPopupSurface target) {
   return target.isSurfacePainted;
 }
@@ -131,6 +161,16 @@ Function _CupertinoPopupSurface_build$(
   CupertinoPopupSurface target,
 ) =>
     target.build;
+Function CupertinoActionSheet_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoActionSheet;
+Function CupertinoActionSheet_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoActionSheet;
 Widget? _CupertinoActionSheet_title$(CupertinoActionSheet target) {
   return target.title;
 }
@@ -162,6 +202,16 @@ Function _CupertinoActionSheet_build$(
   CupertinoActionSheet target,
 ) =>
     target.build;
+Function CupertinoActionSheetAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoActionSheetAction;
+Function CupertinoActionSheetAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoActionSheetAction;
 void Function() _CupertinoActionSheetAction_onPressed$(
     CupertinoActionSheetAction target) {
   return target.onPressed;
@@ -186,6 +236,16 @@ Function _CupertinoActionSheetAction_build$(
   CupertinoActionSheetAction target,
 ) =>
     target.build;
+Function CupertinoDialogAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDialogAction;
+Function CupertinoDialogAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDialogAction;
 void Function()? _CupertinoDialogAction_onPressed$(
     CupertinoDialogAction target) {
   return target.onPressed;

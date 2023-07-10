@@ -10,12 +10,20 @@ import 'package:flutter/scheduler.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/image_stream.dart',
-  {},
+  {
+    'ImageStreamCompleter.addOnLastListenerRemovedCallback':
+        _ImageStreamCompleter_addOnLastListenerRemovedCallback$,
+    'ImageStreamCompleter.removeOnLastListenerRemovedCallback':
+        _ImageStreamCompleter_removeOnLastListenerRemovedCallback$,
+    'ImageStreamCompleter.reportError': _ImageStreamCompleter_reportError$,
+  },
   {},
   {
     'ImageInfo': m.ClassMirror(
       'ImageInfo',
       {
+        '#as': ImageInfo_as$,
+        '#is': ImageInfo_is$,
         'image': _ImageInfo_image$,
         'scale': _ImageInfo_scale$,
         'debugLabel': _ImageInfo_debugLabel$,
@@ -25,22 +33,28 @@ const libraryMirror = m.LibraryMirror(
         'isCloneOf': _ImageInfo_isCloneOf$,
         'dispose': _ImageInfo_dispose$,
         'toString': _ImageInfo_toString$,
+        '==': _ImageInfo_eq$$,
       },
       {},
     ),
     'ImageStreamListener': m.ClassMirror(
       'ImageStreamListener',
       {
+        '#as': ImageStreamListener_as$,
+        '#is': ImageStreamListener_is$,
         'onImage': _ImageStreamListener_onImage$,
         'onChunk': _ImageStreamListener_onChunk$,
         'onError': _ImageStreamListener_onError$,
         'hashCode': _ImageStreamListener_hashCode$,
+        '==': _ImageStreamListener_eq$$,
       },
       {},
     ),
     'ImageChunkEvent': m.ClassMirror(
       'ImageChunkEvent',
       {
+        '#as': ImageChunkEvent_as$,
+        '#is': ImageChunkEvent_is$,
         'cumulativeBytesLoaded': _ImageChunkEvent_cumulativeBytesLoaded$,
         'expectedTotalBytes': _ImageChunkEvent_expectedTotalBytes$,
         'debugFillProperties': _ImageChunkEvent_debugFillProperties$,
@@ -50,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageStream': m.ClassMirror(
       'ImageStream',
       {
+        '#as': ImageStream_as$,
+        '#is': ImageStream_is$,
         'completer': _ImageStream_completer$,
         'key': _ImageStream_key$,
         'setCompleter': _ImageStream_setCompleter$,
@@ -61,12 +77,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ImageStreamCompleterHandle': m.ClassMirror(
       'ImageStreamCompleterHandle',
-      {'dispose': _ImageStreamCompleterHandle_dispose$},
+      {
+        '#as': ImageStreamCompleterHandle_as$,
+        '#is': ImageStreamCompleterHandle_is$,
+        'dispose': _ImageStreamCompleterHandle_dispose$,
+      },
       {},
     ),
     'ImageStreamCompleter': m.ClassMirror(
       'ImageStreamCompleter',
       {
+        '#as': ImageStreamCompleter_as$,
+        '#is': ImageStreamCompleter_is$,
         'debugLabel': _ImageStreamCompleter_debugLabel$,
         'hasListeners': _ImageStreamCompleter_hasListeners$,
         'addListener': _ImageStreamCompleter_addListener$,
@@ -80,12 +102,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'OneFrameImageStreamCompleter': m.ClassMirror(
       'OneFrameImageStreamCompleter',
-      {},
+      {
+        '#as': OneFrameImageStreamCompleter_as$,
+        '#is': OneFrameImageStreamCompleter_is$,
+      },
       {},
     ),
     'MultiFrameImageStreamCompleter': m.ClassMirror(
       'MultiFrameImageStreamCompleter',
       {
+        '#as': MultiFrameImageStreamCompleter_as$,
+        '#is': MultiFrameImageStreamCompleter_is$,
         'addListener': _MultiFrameImageStreamCompleter_addListener$,
         'removeListener': _MultiFrameImageStreamCompleter_removeListener$,
       },
@@ -93,6 +120,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ImageInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageInfo;
+Function ImageInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageInfo;
 Image _ImageInfo_image$(ImageInfo target) {
   return target.image;
 }
@@ -133,6 +170,21 @@ Function _ImageInfo_toString$(
   ImageInfo target,
 ) =>
     target.toString;
+Function _ImageInfo_eq$$(
+  m.Scope scope,
+  ImageInfo target,
+) =>
+    (Object other) => target == other;
+Function ImageStreamListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageStreamListener;
+Function ImageStreamListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageStreamListener;
 void Function(ImageInfo, bool) _ImageStreamListener_onImage$(
     ImageStreamListener target) {
   return target.onImage;
@@ -152,6 +204,21 @@ int _ImageStreamListener_hashCode$(ImageStreamListener target) {
   return target.hashCode;
 }
 
+Function _ImageStreamListener_eq$$(
+  m.Scope scope,
+  ImageStreamListener target,
+) =>
+    (Object other) => target == other;
+Function ImageChunkEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageChunkEvent;
+Function ImageChunkEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageChunkEvent;
 int _ImageChunkEvent_cumulativeBytesLoaded$(ImageChunkEvent target) {
   return target.cumulativeBytesLoaded;
 }
@@ -165,6 +232,16 @@ Function _ImageChunkEvent_debugFillProperties$(
   ImageChunkEvent target,
 ) =>
     target.debugFillProperties;
+Function ImageStream_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageStream;
+Function ImageStream_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageStream;
 ImageStreamCompleter? _ImageStream_completer$(ImageStream target) {
   return target.completer;
 }
@@ -193,11 +270,31 @@ Function _ImageStream_debugFillProperties$(
   ImageStream target,
 ) =>
     target.debugFillProperties;
+Function ImageStreamCompleterHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageStreamCompleterHandle;
+Function ImageStreamCompleterHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageStreamCompleterHandle;
 Function _ImageStreamCompleterHandle_dispose$(
   m.Scope scope,
   ImageStreamCompleterHandle target,
 ) =>
     target.dispose;
+Function ImageStreamCompleter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageStreamCompleter;
+Function ImageStreamCompleter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageStreamCompleter;
 String? _ImageStreamCompleter_debugLabel$(ImageStreamCompleter target) {
   return target.debugLabel;
 }
@@ -228,11 +325,64 @@ Function _ImageStreamCompleter_removeListener$(
   ImageStreamCompleter target,
 ) =>
     target.removeListener;
+Function _ImageStreamCompleter_addOnLastListenerRemovedCallback$(
+  m.Scope scope,
+  ImageStreamCompleter target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.addOnLastListenerRemovedCallback(callbackProxy);
+    };
+Function _ImageStreamCompleter_removeOnLastListenerRemovedCallback$(
+  m.Scope scope,
+  ImageStreamCompleter target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.removeOnLastListenerRemovedCallback(callbackProxy);
+    };
 Function _ImageStreamCompleter_setImage$(
   m.Scope scope,
   ImageStreamCompleter target,
 ) =>
     target.setImage;
+Function _ImageStreamCompleter_reportError$(
+  m.Scope scope,
+  ImageStreamCompleter target,
+) =>
+    ({
+      DiagnosticsNode? context,
+      required Object exception,
+      m.FunctionPointer? informationCollector,
+      bool? silent,
+      StackTrace? stack,
+    }) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      target.reportError(
+        context: context,
+        exception: exception,
+        informationCollector:
+            informationCollector == null ? null : informationCollectorProxy,
+        silent: silent == null ? false : silent,
+        stack: stack,
+      );
+    };
 Function _ImageStreamCompleter_reportImageChunkEvent$(
   m.Scope scope,
   ImageStreamCompleter target,
@@ -243,6 +393,26 @@ Function _ImageStreamCompleter_debugFillProperties$(
   ImageStreamCompleter target,
 ) =>
     target.debugFillProperties;
+Function OneFrameImageStreamCompleter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OneFrameImageStreamCompleter;
+Function OneFrameImageStreamCompleter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OneFrameImageStreamCompleter;
+Function MultiFrameImageStreamCompleter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiFrameImageStreamCompleter;
+Function MultiFrameImageStreamCompleter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiFrameImageStreamCompleter;
 Function _MultiFrameImageStreamCompleter_addListener$(
   m.Scope scope,
   MultiFrameImageStreamCompleter target,

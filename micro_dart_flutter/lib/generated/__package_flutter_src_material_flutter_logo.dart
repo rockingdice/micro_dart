@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'FlutterLogo': m.ClassMirror(
       'FlutterLogo',
       {
+        '#as': FlutterLogo_as$,
+        '#is': FlutterLogo_is$,
         'size': _FlutterLogo_size$,
         'textColor': _FlutterLogo_textColor$,
         'style': _FlutterLogo_style$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FlutterLogo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterLogo;
+Function FlutterLogo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterLogo;
 double? _FlutterLogo_size$(FlutterLogo target) {
   return target.size;
 }

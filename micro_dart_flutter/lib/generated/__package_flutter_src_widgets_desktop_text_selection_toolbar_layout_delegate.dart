@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'DesktopTextSelectionToolbarLayoutDelegate': m.ClassMirror(
       'DesktopTextSelectionToolbarLayoutDelegate',
       {
+        '#as': DesktopTextSelectionToolbarLayoutDelegate_as$,
+        '#is': DesktopTextSelectionToolbarLayoutDelegate_is$,
         'anchor': _DesktopTextSelectionToolbarLayoutDelegate_anchor$,
         'getConstraintsForChild':
             _DesktopTextSelectionToolbarLayoutDelegate_getConstraintsForChild$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DesktopTextSelectionToolbarLayoutDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DesktopTextSelectionToolbarLayoutDelegate;
+Function DesktopTextSelectionToolbarLayoutDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DesktopTextSelectionToolbarLayoutDelegate;
 Offset _DesktopTextSelectionToolbarLayoutDelegate_anchor$(
     DesktopTextSelectionToolbarLayoutDelegate target) {
   return target.anchor;

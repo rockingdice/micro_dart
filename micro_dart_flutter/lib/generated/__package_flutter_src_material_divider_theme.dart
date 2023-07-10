@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'DividerThemeData': m.ClassMirror(
       'DividerThemeData',
       {
+        '#as': DividerThemeData_as$,
+        '#is': DividerThemeData_is$,
         'color': _DividerThemeData_color$,
         'space': _DividerThemeData_space$,
         'thickness': _DividerThemeData_thickness$,
@@ -26,6 +28,7 @@ const libraryMirror = m.LibraryMirror(
         'endIndent': _DividerThemeData_endIndent$,
         'hashCode': _DividerThemeData_hashCode$,
         'copyWith': _DividerThemeData_copyWith$,
+        '==': _DividerThemeData_eq$$,
         'debugFillProperties': _DividerThemeData_debugFillProperties$,
       },
       {},
@@ -33,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'DividerTheme': m.ClassMirror(
       'DividerTheme',
       {
+        '#as': DividerTheme_as$,
+        '#is': DividerTheme_is$,
         'data': _DividerTheme_data$,
         'wrap': _DividerTheme_wrap$,
         'updateShouldNotify': _DividerTheme_updateShouldNotify$,
@@ -41,6 +46,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DividerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DividerThemeData;
+Function DividerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DividerThemeData;
 Color? _DividerThemeData_color$(DividerThemeData target) {
   return target.color;
 }
@@ -71,11 +86,26 @@ Function _DividerThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _DividerThemeData_lerp$(m.Scope scope) => DividerThemeData.lerp;
+Function _DividerThemeData_eq$$(
+  m.Scope scope,
+  DividerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _DividerThemeData_debugFillProperties$(
   m.Scope scope,
   DividerThemeData target,
 ) =>
     target.debugFillProperties;
+Function DividerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DividerTheme;
+Function DividerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DividerTheme;
 DividerThemeData _DividerTheme_data$(DividerTheme target) {
   return target.data;
 }

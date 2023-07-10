@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAnimatedSize': m.ClassMirror(
       'RenderAnimatedSize',
       {
+        '#as': RenderAnimatedSize_as$,
+        '#is': RenderAnimatedSize_is$,
         'state': _RenderAnimatedSize_state$,
         'duration': _RenderAnimatedSize_duration$,
         'reverseDuration': _RenderAnimatedSize_reverseDuration$,
@@ -53,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderAnimatedSize_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAnimatedSize;
+Function RenderAnimatedSize_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAnimatedSize;
 RenderAnimatedSizeState _RenderAnimatedSize_state$(RenderAnimatedSize target) {
   return target.state;
 }

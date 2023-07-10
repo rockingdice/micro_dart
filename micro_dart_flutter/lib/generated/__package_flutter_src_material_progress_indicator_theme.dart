@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'ProgressIndicatorThemeData': m.ClassMirror(
       'ProgressIndicatorThemeData',
       {
+        '#as': ProgressIndicatorThemeData_as$,
+        '#is': ProgressIndicatorThemeData_is$,
         'color': _ProgressIndicatorThemeData_color$,
         'linearTrackColor': _ProgressIndicatorThemeData_linearTrackColor$,
         'linearMinHeight': _ProgressIndicatorThemeData_linearMinHeight$,
@@ -27,6 +29,7 @@ const libraryMirror = m.LibraryMirror(
             _ProgressIndicatorThemeData_refreshBackgroundColor$,
         'hashCode': _ProgressIndicatorThemeData_hashCode$,
         'copyWith': _ProgressIndicatorThemeData_copyWith$,
+        '==': _ProgressIndicatorThemeData_eq$$,
         'debugFillProperties': _ProgressIndicatorThemeData_debugFillProperties$,
       },
       {},
@@ -34,6 +37,8 @@ const libraryMirror = m.LibraryMirror(
     'ProgressIndicatorTheme': m.ClassMirror(
       'ProgressIndicatorTheme',
       {
+        '#as': ProgressIndicatorTheme_as$,
+        '#is': ProgressIndicatorTheme_is$,
         'data': _ProgressIndicatorTheme_data$,
         'wrap': _ProgressIndicatorTheme_wrap$,
         'updateShouldNotify': _ProgressIndicatorTheme_updateShouldNotify$,
@@ -42,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ProgressIndicatorThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProgressIndicatorThemeData;
+Function ProgressIndicatorThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProgressIndicatorThemeData;
 Color? _ProgressIndicatorThemeData_color$(ProgressIndicatorThemeData target) {
   return target.color;
 }
@@ -77,11 +92,26 @@ Function _ProgressIndicatorThemeData_copyWith$(
     target.copyWith;
 Function _ProgressIndicatorThemeData_lerp$(m.Scope scope) =>
     ProgressIndicatorThemeData.lerp;
+Function _ProgressIndicatorThemeData_eq$$(
+  m.Scope scope,
+  ProgressIndicatorThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ProgressIndicatorThemeData_debugFillProperties$(
   m.Scope scope,
   ProgressIndicatorThemeData target,
 ) =>
     target.debugFillProperties;
+Function ProgressIndicatorTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ProgressIndicatorTheme;
+Function ProgressIndicatorTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ProgressIndicatorTheme;
 ProgressIndicatorThemeData _ProgressIndicatorTheme_data$(
     ProgressIndicatorTheme target) {
   return target.data;

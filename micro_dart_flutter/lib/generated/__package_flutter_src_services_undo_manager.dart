@@ -20,7 +20,10 @@ const libraryMirror = m.LibraryMirror(
   {
     'UndoManager': m.ClassMirror(
       'UndoManager',
-      {},
+      {
+        '#as': UndoManager_as$,
+        '#is': UndoManager_is$,
+      },
       {},
     ),
     'UndoDirection': m.ClassMirror(
@@ -30,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function UndoManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UndoManager;
+Function UndoManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UndoManager;
 void _UndoManager_client_set$(UndoManagerClient? other) {
   UndoManager.client = other;
 }

@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'Simulation': m.ClassMirror(
       'Simulation',
       {
+        '#as': Simulation_as$,
+        '#is': Simulation_is$,
         'tolerance': _Simulation_tolerance$,
         'x': _Simulation_x$,
         'dx': _Simulation_dx$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Simulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Simulation;
+Function Simulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Simulation;
 Tolerance _Simulation_tolerance$(Simulation target) {
   return target.tolerance;
 }

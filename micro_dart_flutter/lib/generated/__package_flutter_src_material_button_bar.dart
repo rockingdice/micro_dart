@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonBar': m.ClassMirror(
       'ButtonBar',
       {
+        '#as': ButtonBar_as$,
+        '#is': ButtonBar_is$,
         'alignment': _ButtonBar_alignment$,
         'mainAxisSize': _ButtonBar_mainAxisSize$,
         'buttonTextTheme': _ButtonBar_buttonTextTheme$,
@@ -34,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ButtonBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonBar;
+Function ButtonBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonBar;
 MainAxisAlignment? _ButtonBar_alignment$(ButtonBar target) {
   return target.alignment;
 }

@@ -15,12 +15,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'ScrollNotificationObserver.maybeOf': _ScrollNotificationObserver_maybeOf$,
     'ScrollNotificationObserver.of': _ScrollNotificationObserver_of$,
+    'ScrollNotificationObserverState.addListener':
+        _ScrollNotificationObserverState_addListener$,
+    'ScrollNotificationObserverState.removeListener':
+        _ScrollNotificationObserverState_removeListener$,
   },
   {},
   {
     'ScrollNotificationObserver': m.ClassMirror(
       'ScrollNotificationObserver',
       {
+        '#as': ScrollNotificationObserver_as$,
+        '#is': ScrollNotificationObserver_is$,
         'child': _ScrollNotificationObserver_child$,
         'createState': _ScrollNotificationObserver_createState$,
       },
@@ -29,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollNotificationObserverState': m.ClassMirror(
       'ScrollNotificationObserverState',
       {
+        '#as': ScrollNotificationObserverState_as$,
+        '#is': ScrollNotificationObserverState_is$,
         'build': _ScrollNotificationObserverState_build$,
         'dispose': _ScrollNotificationObserverState_dispose$,
       },
@@ -36,6 +44,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollNotificationObserver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollNotificationObserver;
+Function ScrollNotificationObserver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollNotificationObserver;
 Widget _ScrollNotificationObserver_child$(ScrollNotificationObserver target) {
   return target.child;
 }
@@ -49,6 +67,44 @@ Function _ScrollNotificationObserver_createState$(
   ScrollNotificationObserver target,
 ) =>
     target.createState;
+Function ScrollNotificationObserverState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollNotificationObserverState;
+Function ScrollNotificationObserverState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollNotificationObserverState;
+Function _ScrollNotificationObserverState_addListener$(
+  m.Scope scope,
+  ScrollNotificationObserverState target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(ScrollNotification listener_notification) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_notification],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _ScrollNotificationObserverState_removeListener$(
+  m.Scope scope,
+  ScrollNotificationObserverState target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(ScrollNotification listener_notification) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_notification],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _ScrollNotificationObserverState_build$(
   m.Scope scope,
   ScrollNotificationObserverState target,

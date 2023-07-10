@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'BoxBorder': m.ClassMirror(
       'BoxBorder',
       {
+        '#as': BoxBorder_as$,
+        '#is': BoxBorder_is$,
         'top': _BoxBorder_top$,
         'bottom': _BoxBorder_bottom$,
         'isUniform': _BoxBorder_isUniform$,
@@ -41,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'Border': m.ClassMirror(
       'Border',
       {
+        '#as': Border_as$,
+        '#is': Border_is$,
         'top': _Border_top$,
         'right': _Border_right$,
         'bottom': _Border_bottom$,
@@ -53,6 +57,7 @@ const libraryMirror = m.LibraryMirror(
         'lerpFrom': _Border_lerpFrom$,
         'lerpTo': _Border_lerpTo$,
         'paint': _Border_paint$,
+        '==': _Border_eq$$,
         'toString': _Border_toString$,
       },
       {},
@@ -60,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'BorderDirectional': m.ClassMirror(
       'BorderDirectional',
       {
+        '#as': BorderDirectional_as$,
+        '#is': BorderDirectional_is$,
         'top': _BorderDirectional_top$,
         'start': _BorderDirectional_start$,
         'end': _BorderDirectional_end$,
@@ -72,6 +79,7 @@ const libraryMirror = m.LibraryMirror(
         'lerpFrom': _BorderDirectional_lerpFrom$,
         'lerpTo': _BorderDirectional_lerpTo$,
         'paint': _BorderDirectional_paint$,
+        '==': _BorderDirectional_eq$$,
         'toString': _BorderDirectional_toString$,
       },
       {},
@@ -83,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BoxBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxBorder;
+Function BoxBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxBorder;
 BorderSide _BoxBorder_top$(BoxBorder target) {
   return target.top;
 }
@@ -125,6 +143,16 @@ Function _BoxBorder_paint$(
   BoxBorder target,
 ) =>
     target.paint;
+Function Border_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Border;
+Function Border_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Border;
 BorderSide _Border_top$(Border target) {
   return target.top;
 }
@@ -180,11 +208,26 @@ Function _Border_paint$(
   Border target,
 ) =>
     target.paint;
+Function _Border_eq$$(
+  m.Scope scope,
+  Border target,
+) =>
+    (Object other) => target == other;
 Function _Border_toString$(
   m.Scope scope,
   Border target,
 ) =>
     target.toString;
+Function BorderDirectional_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BorderDirectional;
+Function BorderDirectional_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BorderDirectional;
 BorderSide _BorderDirectional_top$(BorderDirectional target) {
   return target.top;
 }
@@ -240,6 +283,11 @@ Function _BorderDirectional_paint$(
   BorderDirectional target,
 ) =>
     target.paint;
+Function _BorderDirectional_eq$$(
+  m.Scope scope,
+  BorderDirectional target,
+) =>
+    (Object other) => target == other;
 Function _BorderDirectional_toString$(
   m.Scope scope,
   BorderDirectional target,

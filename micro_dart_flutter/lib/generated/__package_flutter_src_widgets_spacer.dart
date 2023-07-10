@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'Spacer': m.ClassMirror(
       'Spacer',
       {
+        '#as': Spacer_as$,
+        '#is': Spacer_is$,
         'flex': _Spacer_flex$,
         'build': _Spacer_build$,
       },
@@ -21,6 +23,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Spacer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Spacer;
+Function Spacer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Spacer;
 int _Spacer_flex$(Spacer target) {
   return target.flex;
 }

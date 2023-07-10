@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataWeb': m.ClassMirror(
       'RawKeyEventDataWeb',
       {
+        '#as': RawKeyEventDataWeb_as$,
+        '#is': RawKeyEventDataWeb_is$,
         'code': _RawKeyEventDataWeb_code$,
         'key': _RawKeyEventDataWeb_key$,
         'location': _RawKeyEventDataWeb_location$,
@@ -38,11 +40,22 @@ const libraryMirror = m.LibraryMirror(
         'isModifierPressed': _RawKeyEventDataWeb_isModifierPressed$,
         'getModifierSide': _RawKeyEventDataWeb_getModifierSide$,
         'debugFillProperties': _RawKeyEventDataWeb_debugFillProperties$,
+        '==': _RawKeyEventDataWeb_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataWeb_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataWeb;
+Function RawKeyEventDataWeb_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataWeb;
 String _RawKeyEventDataWeb_code$(RawKeyEventDataWeb target) {
   return target.code;
 }
@@ -127,3 +140,8 @@ Function _RawKeyEventDataWeb_debugFillProperties$(
   RawKeyEventDataWeb target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataWeb_eq$$(
+  m.Scope scope,
+  RawKeyEventDataWeb target,
+) =>
+    (Object other) => target == other;

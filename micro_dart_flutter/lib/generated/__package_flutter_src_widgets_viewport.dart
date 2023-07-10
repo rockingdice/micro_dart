@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'Viewport': m.ClassMirror(
       'Viewport',
       {
+        '#as': Viewport_as$,
+        '#is': Viewport_is$,
         'axisDirection': _Viewport_axisDirection$,
         'crossAxisDirection': _Viewport_crossAxisDirection$,
         'anchor': _Viewport_anchor$,
@@ -38,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'ShrinkWrappingViewport': m.ClassMirror(
       'ShrinkWrappingViewport',
       {
+        '#as': ShrinkWrappingViewport_as$,
+        '#is': ShrinkWrappingViewport_is$,
         'axisDirection': _ShrinkWrappingViewport_axisDirection$,
         'crossAxisDirection': _ShrinkWrappingViewport_crossAxisDirection$,
         'offset': _ShrinkWrappingViewport_offset$,
@@ -50,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Viewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Viewport;
+Function Viewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Viewport;
 AxisDirection _Viewport_axisDirection$(Viewport target) {
   return target.axisDirection;
 }
@@ -104,6 +118,16 @@ Function _Viewport_debugFillProperties$(
   Viewport target,
 ) =>
     target.debugFillProperties;
+Function ShrinkWrappingViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShrinkWrappingViewport;
+Function ShrinkWrappingViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShrinkWrappingViewport;
 AxisDirection _ShrinkWrappingViewport_axisDirection$(
     ShrinkWrappingViewport target) {
   return target.axisDirection;

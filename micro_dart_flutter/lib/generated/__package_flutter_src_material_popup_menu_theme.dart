@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuThemeData': m.ClassMirror(
       'PopupMenuThemeData',
       {
+        '#as': PopupMenuThemeData_as$,
+        '#is': PopupMenuThemeData_is$,
         'color': _PopupMenuThemeData_color$,
         'shape': _PopupMenuThemeData_shape$,
         'elevation': _PopupMenuThemeData_elevation$,
@@ -35,6 +37,7 @@ const libraryMirror = m.LibraryMirror(
         'position': _PopupMenuThemeData_position$,
         'hashCode': _PopupMenuThemeData_hashCode$,
         'copyWith': _PopupMenuThemeData_copyWith$,
+        '==': _PopupMenuThemeData_eq$$,
         'debugFillProperties': _PopupMenuThemeData_debugFillProperties$,
       },
       {},
@@ -42,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupMenuTheme': m.ClassMirror(
       'PopupMenuTheme',
       {
+        '#as': PopupMenuTheme_as$,
+        '#is': PopupMenuTheme_is$,
         'data': _PopupMenuTheme_data$,
         'wrap': _PopupMenuTheme_wrap$,
         'updateShouldNotify': _PopupMenuTheme_updateShouldNotify$,
@@ -55,6 +60,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PopupMenuThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuThemeData;
+Function PopupMenuThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuThemeData;
 Color? _PopupMenuThemeData_color$(PopupMenuThemeData target) {
   return target.color;
 }
@@ -107,11 +122,26 @@ Function _PopupMenuThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _PopupMenuThemeData_lerp$(m.Scope scope) => PopupMenuThemeData.lerp;
+Function _PopupMenuThemeData_eq$$(
+  m.Scope scope,
+  PopupMenuThemeData target,
+) =>
+    (Object other) => target == other;
 Function _PopupMenuThemeData_debugFillProperties$(
   m.Scope scope,
   PopupMenuThemeData target,
 ) =>
     target.debugFillProperties;
+Function PopupMenuTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupMenuTheme;
+Function PopupMenuTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupMenuTheme;
 PopupMenuThemeData _PopupMenuTheme_data$(PopupMenuTheme target) {
   return target.data;
 }

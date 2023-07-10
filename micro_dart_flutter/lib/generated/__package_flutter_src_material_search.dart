@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchDelegate': m.ClassMirror(
       'SearchDelegate',
       {
+        '#as': SearchDelegate_as$,
+        '#is': SearchDelegate_is$,
         'searchFieldLabel': _SearchDelegate_searchFieldLabel$,
         'searchFieldStyle': _SearchDelegate_searchFieldStyle$,
         'searchFieldDecorationTheme':
@@ -47,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SearchDelegate_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchDelegate<T>;
+Function SearchDelegate_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchDelegate<T>;
 String? _SearchDelegate_searchFieldLabel$<T>(SearchDelegate<T> target) {
   return target.searchFieldLabel;
 }

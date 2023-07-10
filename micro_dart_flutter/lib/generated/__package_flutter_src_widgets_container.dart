@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'DecoratedBox': m.ClassMirror(
       'DecoratedBox',
       {
+        '#as': DecoratedBox_as$,
+        '#is': DecoratedBox_is$,
         'decoration': _DecoratedBox_decoration$,
         'position': _DecoratedBox_position$,
         'createRenderObject': _DecoratedBox_createRenderObject$,
@@ -28,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'Container': m.ClassMirror(
       'Container',
       {
+        '#as': Container_as$,
+        '#is': Container_is$,
         'child': _Container_child$,
         'alignment': _Container_alignment$,
         'padding': _Container_padding$,
@@ -46,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DecoratedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DecoratedBox;
+Function DecoratedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DecoratedBox;
 Decoration _DecoratedBox_decoration$(DecoratedBox target) {
   return target.decoration;
 }
@@ -69,6 +83,16 @@ Function _DecoratedBox_debugFillProperties$(
   DecoratedBox target,
 ) =>
     target.debugFillProperties;
+Function Container_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Container;
+Function Container_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Container;
 Widget? _Container_child$(Container target) {
   return target.child;
 }

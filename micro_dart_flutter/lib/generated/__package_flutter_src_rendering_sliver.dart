@@ -15,7 +15,12 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/sliver.dart',
   {
+    'SliverConstraints.debugAssertIsValid':
+        _SliverConstraints_debugAssertIsValid$,
     'SliverGeometry.zero': _SliverGeometry_zero$,
+    'SliverGeometry.debugAssertIsValid': _SliverGeometry_debugAssertIsValid$,
+    'SliverHitTestResult.addWithAxisOffset':
+        _SliverHitTestResult_addWithAxisOffset$,
     'GrowthDirection.forward': _GrowthDirection_forward$,
     'GrowthDirection.reverse': _GrowthDirection_reverse$,
     'GrowthDirection.values': _GrowthDirection_values$,
@@ -29,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverConstraints': m.ClassMirror(
       'SliverConstraints',
       {
+        '#as': SliverConstraints_as$,
+        '#is': SliverConstraints_is$,
         'axisDirection': _SliverConstraints_axisDirection$,
         'growthDirection': _SliverConstraints_growthDirection$,
         'userScrollDirection': _SliverConstraints_userScrollDirection$,
@@ -49,6 +56,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _SliverConstraints_hashCode$,
         'copyWith': _SliverConstraints_copyWith$,
         'asBoxConstraints': _SliverConstraints_asBoxConstraints$,
+        '==': _SliverConstraints_eq$$,
         'toString': _SliverConstraints_toString$,
       },
       {},
@@ -56,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGeometry': m.ClassMirror(
       'SliverGeometry',
       {
+        '#as': SliverGeometry_as$,
+        '#is': SliverGeometry_is$,
         'scrollExtent': _SliverGeometry_scrollExtent$,
         'paintOrigin': _SliverGeometry_paintOrigin$,
         'paintExtent': _SliverGeometry_paintExtent$,
@@ -75,12 +85,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SliverHitTestResult': m.ClassMirror(
       'SliverHitTestResult',
-      {},
+      {
+        '#as': SliverHitTestResult_as$,
+        '#is': SliverHitTestResult_is$,
+      },
       {},
     ),
     'SliverHitTestEntry': m.ClassMirror(
       'SliverHitTestEntry',
       {
+        '#as': SliverHitTestEntry_as$,
+        '#is': SliverHitTestEntry_is$,
         'mainAxisPosition': _SliverHitTestEntry_mainAxisPosition$,
         'crossAxisPosition': _SliverHitTestEntry_crossAxisPosition$,
         'toString': _SliverHitTestEntry_toString$,
@@ -90,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverLogicalParentData': m.ClassMirror(
       'SliverLogicalParentData',
       {
+        '#as': SliverLogicalParentData_as$,
+        '#is': SliverLogicalParentData_is$,
         'layoutOffset': _SliverLogicalParentData_layoutOffset$,
         'toString': _SliverLogicalParentData_toString$,
       },
@@ -97,12 +114,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SliverLogicalContainerParentData': m.ClassMirror(
       'SliverLogicalContainerParentData',
-      {},
+      {
+        '#as': SliverLogicalContainerParentData_as$,
+        '#is': SliverLogicalContainerParentData_is$,
+      },
       {},
     ),
     'SliverPhysicalParentData': m.ClassMirror(
       'SliverPhysicalParentData',
       {
+        '#as': SliverPhysicalParentData_as$,
+        '#is': SliverPhysicalParentData_is$,
         'paintOffset': _SliverPhysicalParentData_paintOffset$,
         'applyPaintTransform': _SliverPhysicalParentData_applyPaintTransform$,
         'toString': _SliverPhysicalParentData_toString$,
@@ -111,12 +133,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SliverPhysicalContainerParentData': m.ClassMirror(
       'SliverPhysicalContainerParentData',
-      {},
+      {
+        '#as': SliverPhysicalContainerParentData_as$,
+        '#is': SliverPhysicalContainerParentData_is$,
+      },
       {},
     ),
     'RenderSliver': m.ClassMirror(
       'RenderSliver',
       {
+        '#as': RenderSliver_as$,
+        '#is': RenderSliver_is$,
         'constraints': _RenderSliver_constraints$,
         'geometry': _RenderSliver_geometry$,
         'semanticBounds': _RenderSliver_semanticBounds$,
@@ -147,6 +174,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverSingleBoxAdapter': m.ClassMirror(
       'RenderSliverSingleBoxAdapter',
       {
+        '#as': RenderSliverSingleBoxAdapter_as$,
+        '#is': RenderSliverSingleBoxAdapter_is$,
         'setupParentData': _RenderSliverSingleBoxAdapter_setupParentData$,
         'setChildParentData': _RenderSliverSingleBoxAdapter_setChildParentData$,
         'hitTestChildren': _RenderSliverSingleBoxAdapter_hitTestChildren$,
@@ -160,7 +189,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RenderSliverToBoxAdapter': m.ClassMirror(
       'RenderSliverToBoxAdapter',
-      {'performLayout': _RenderSliverToBoxAdapter_performLayout$},
+      {
+        '#as': RenderSliverToBoxAdapter_as$,
+        '#is': RenderSliverToBoxAdapter_is$,
+        'performLayout': _RenderSliverToBoxAdapter_performLayout$,
+      },
       {},
     ),
     'GrowthDirection': m.ClassMirror(
@@ -170,6 +203,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverConstraints_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverConstraints;
+Function SliverConstraints_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverConstraints;
 AxisDirection _SliverConstraints_axisDirection$(SliverConstraints target) {
   return target.axisDirection;
 }
@@ -250,11 +293,48 @@ Function _SliverConstraints_asBoxConstraints$(
   SliverConstraints target,
 ) =>
     target.asBoxConstraints;
+Function _SliverConstraints_debugAssertIsValid$(
+  m.Scope scope,
+  SliverConstraints target,
+) =>
+    ({
+      m.FunctionPointer? informationCollector,
+      bool? isAppliedConstraint,
+    }) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      return target.debugAssertIsValid(
+        informationCollector:
+            informationCollector == null ? null : informationCollectorProxy,
+        isAppliedConstraint:
+            isAppliedConstraint == null ? false : isAppliedConstraint,
+      );
+    };
+Function _SliverConstraints_eq$$(
+  m.Scope scope,
+  SliverConstraints target,
+) =>
+    (Object other) => target == other;
 Function _SliverConstraints_toString$(
   m.Scope scope,
   SliverConstraints target,
 ) =>
     target.toString;
+Function SliverGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGeometry;
+Function SliverGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGeometry;
 SliverGeometry _SliverGeometry_zero$() {
   return SliverGeometry.zero;
 }
@@ -303,6 +383,22 @@ double _SliverGeometry_cacheExtent$(SliverGeometry target) {
   return target.cacheExtent;
 }
 
+Function _SliverGeometry_debugAssertIsValid$(
+  m.Scope scope,
+  SliverGeometry target,
+) =>
+    ({m.FunctionPointer? informationCollector}) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      return target.debugAssertIsValid(
+          informationCollector:
+              informationCollector == null ? null : informationCollectorProxy);
+    };
 Function _SliverGeometry_toStringShort$(
   m.Scope scope,
   SliverGeometry target,
@@ -313,6 +409,61 @@ Function _SliverGeometry_debugFillProperties$(
   SliverGeometry target,
 ) =>
     target.debugFillProperties;
+Function SliverHitTestResult_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverHitTestResult;
+Function SliverHitTestResult_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverHitTestResult;
+Function _SliverHitTestResult_addWithAxisOffset$(
+  m.Scope scope,
+  SliverHitTestResult target,
+) =>
+    ({
+      required double crossAxisOffset,
+      required double crossAxisPosition,
+      required m.FunctionPointer hitTest,
+      required double mainAxisOffset,
+      required double mainAxisPosition,
+      required Offset? paintOffset,
+    }) {
+      bool hitTestProxy(
+        SliverHitTestResult hitTest_result, {
+        double? crossAxisPosition,
+        double? mainAxisPosition,
+      }) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            hitTest,
+            [hitTest_result],
+            {
+              'crossAxisPosition': crossAxisPosition,
+              'mainAxisPosition': mainAxisPosition,
+            },
+          );
+      return target.addWithAxisOffset(
+        crossAxisOffset: crossAxisOffset,
+        crossAxisPosition: crossAxisPosition,
+        hitTest: hitTestProxy,
+        mainAxisOffset: mainAxisOffset,
+        mainAxisPosition: mainAxisPosition,
+        paintOffset: paintOffset,
+      );
+    };
+Function SliverHitTestEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverHitTestEntry;
+Function SliverHitTestEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverHitTestEntry;
 double _SliverHitTestEntry_mainAxisPosition$(SliverHitTestEntry target) {
   return target.mainAxisPosition;
 }
@@ -326,6 +477,16 @@ Function _SliverHitTestEntry_toString$(
   SliverHitTestEntry target,
 ) =>
     target.toString;
+Function SliverLogicalParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverLogicalParentData;
+Function SliverLogicalParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverLogicalParentData;
 double? _SliverLogicalParentData_layoutOffset$(SliverLogicalParentData target) {
   return target.layoutOffset;
 }
@@ -342,6 +503,26 @@ Function _SliverLogicalParentData_toString$(
   SliverLogicalParentData target,
 ) =>
     target.toString;
+Function SliverLogicalContainerParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverLogicalContainerParentData;
+Function SliverLogicalContainerParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverLogicalContainerParentData;
+Function SliverPhysicalParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPhysicalParentData;
+Function SliverPhysicalParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPhysicalParentData;
 Offset _SliverPhysicalParentData_paintOffset$(SliverPhysicalParentData target) {
   return target.paintOffset;
 }
@@ -363,6 +544,26 @@ Function _SliverPhysicalParentData_toString$(
   SliverPhysicalParentData target,
 ) =>
     target.toString;
+Function SliverPhysicalContainerParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPhysicalContainerParentData;
+Function SliverPhysicalContainerParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPhysicalContainerParentData;
+Function RenderSliver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliver;
+Function RenderSliver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliver;
 SliverConstraints _RenderSliver_constraints$(RenderSliver target) {
   return target.constraints;
 }
@@ -475,6 +676,16 @@ Function _RenderSliver_debugFillProperties$(
   RenderSliver target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverSingleBoxAdapter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverSingleBoxAdapter;
+Function RenderSliverSingleBoxAdapter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverSingleBoxAdapter;
 Function _RenderSliverSingleBoxAdapter_setupParentData$(
   m.Scope scope,
   RenderSliverSingleBoxAdapter target,
@@ -505,6 +716,16 @@ Function _RenderSliverSingleBoxAdapter_paint$(
   RenderSliverSingleBoxAdapter target,
 ) =>
     target.paint;
+Function RenderSliverToBoxAdapter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverToBoxAdapter;
+Function RenderSliverToBoxAdapter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverToBoxAdapter;
 Function _RenderSliverToBoxAdapter_performLayout$(
   m.Scope scope,
   RenderSliverToBoxAdapter target,

@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationBar': m.ClassMirror(
       'NavigationBar',
       {
+        '#as': NavigationBar_as$,
+        '#is': NavigationBar_is$,
         'animationDuration': _NavigationBar_animationDuration$,
         'selectedIndex': _NavigationBar_selectedIndex$,
         'destinations': _NavigationBar_destinations$,
@@ -53,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationDestination': m.ClassMirror(
       'NavigationDestination',
       {
+        '#as': NavigationDestination_as$,
+        '#is': NavigationDestination_is$,
         'icon': _NavigationDestination_icon$,
         'selectedIcon': _NavigationDestination_selectedIcon$,
         'label': _NavigationDestination_label$,
@@ -64,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationIndicator': m.ClassMirror(
       'NavigationIndicator',
       {
+        '#as': NavigationIndicator_as$,
+        '#is': NavigationIndicator_is$,
         'animation': _NavigationIndicator_animation$,
         'color': _NavigationIndicator_color$,
         'width': _NavigationIndicator_width$,
@@ -81,6 +87,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationBar;
+Function NavigationBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationBar;
 Duration? _NavigationBar_animationDuration$(NavigationBar target) {
   return target.animationDuration;
 }
@@ -136,6 +152,16 @@ Function _NavigationBar_build$(
   NavigationBar target,
 ) =>
     target.build;
+Function NavigationDestination_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationDestination;
+Function NavigationDestination_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationDestination;
 Widget _NavigationDestination_icon$(NavigationDestination target) {
   return target.icon;
 }
@@ -157,6 +183,16 @@ Function _NavigationDestination_build$(
   NavigationDestination target,
 ) =>
     target.build;
+Function NavigationIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationIndicator;
+Function NavigationIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationIndicator;
 Animation<double> _NavigationIndicator_animation$(NavigationIndicator target) {
   return target.animation;
 }

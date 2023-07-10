@@ -11,6 +11,7 @@ const libraryMirror = m.LibraryMirror(
   {
     'LicenseParagraph.centeredIndent': _LicenseParagraph_centeredIndent$,
     'LicenseRegistry.licenses': _LicenseRegistry_licenses$,
+    'LicenseRegistry.addLicense': _LicenseRegistry_addLicense$,
     'LicenseRegistry.reset': _LicenseRegistry_reset$,
   },
   {},
@@ -18,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'LicenseParagraph': m.ClassMirror(
       'LicenseParagraph',
       {
+        '#as': LicenseParagraph_as$,
+        '#is': LicenseParagraph_is$,
         'text': _LicenseParagraph_text$,
         'indent': _LicenseParagraph_indent$,
       },
@@ -26,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'LicenseEntry': m.ClassMirror(
       'LicenseEntry',
       {
+        '#as': LicenseEntry_as$,
+        '#is': LicenseEntry_is$,
         'packages': _LicenseEntry_packages$,
         'paragraphs': _LicenseEntry_paragraphs$,
       },
@@ -34,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'LicenseEntryWithLineBreaks': m.ClassMirror(
       'LicenseEntryWithLineBreaks',
       {
+        '#as': LicenseEntryWithLineBreaks_as$,
+        '#is': LicenseEntryWithLineBreaks_is$,
         'packages': _LicenseEntryWithLineBreaks_packages$,
         'text': _LicenseEntryWithLineBreaks_text$,
         'paragraphs': _LicenseEntryWithLineBreaks_paragraphs$,
@@ -42,11 +49,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LicenseRegistry': m.ClassMirror(
       'LicenseRegistry',
-      {},
+      {
+        '#as': LicenseRegistry_as$,
+        '#is': LicenseRegistry_is$,
+      },
       {},
     ),
   },
 );
+Function LicenseParagraph_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LicenseParagraph;
+Function LicenseParagraph_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LicenseParagraph;
 String _LicenseParagraph_text$(LicenseParagraph target) {
   return target.text;
 }
@@ -59,6 +79,16 @@ int _LicenseParagraph_centeredIndent$() {
   return LicenseParagraph.centeredIndent;
 }
 
+Function LicenseEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LicenseEntry;
+Function LicenseEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LicenseEntry;
 Iterable<String> _LicenseEntry_packages$(LicenseEntry target) {
   return target.packages;
 }
@@ -67,6 +97,16 @@ Iterable<LicenseParagraph> _LicenseEntry_paragraphs$(LicenseEntry target) {
   return target.paragraphs;
 }
 
+Function LicenseEntryWithLineBreaks_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LicenseEntryWithLineBreaks;
+Function LicenseEntryWithLineBreaks_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LicenseEntryWithLineBreaks;
 List<String> _LicenseEntryWithLineBreaks_packages$(
     LicenseEntryWithLineBreaks target) {
   return target.packages;
@@ -81,8 +121,28 @@ Iterable<LicenseParagraph> _LicenseEntryWithLineBreaks_paragraphs$(
   return target.paragraphs;
 }
 
+Function LicenseRegistry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LicenseRegistry;
+Function LicenseRegistry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LicenseRegistry;
 Stream<LicenseEntry> _LicenseRegistry_licenses$() {
   return LicenseRegistry.licenses;
 }
 
+Function _LicenseRegistry_addLicense$(m.Scope scope) =>
+    (m.FunctionPointer collector) {
+      Stream<LicenseEntry> collectorProxy() => scope.engine.callFunctionPointer(
+            scope,
+            collector,
+            [],
+            {},
+          );
+      LicenseRegistry.addLicense(collectorProxy);
+    };
 Function _LicenseRegistry_reset$(m.Scope scope) => LicenseRegistry.reset;

@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'SnackBarAction': m.ClassMirror(
       'SnackBarAction',
       {
+        '#as': SnackBarAction_as$,
+        '#is': SnackBarAction_is$,
         'textColor': _SnackBarAction_textColor$,
         'backgroundColor': _SnackBarAction_backgroundColor$,
         'disabledTextColor': _SnackBarAction_disabledTextColor$,
@@ -48,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'SnackBar': m.ClassMirror(
       'SnackBar',
       {
+        '#as': SnackBar_as$,
+        '#is': SnackBar_is$,
         'content': _SnackBar_content$,
         'backgroundColor': _SnackBar_backgroundColor$,
         'elevation': _SnackBar_elevation$,
@@ -77,6 +81,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SnackBarAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnackBarAction;
+Function SnackBarAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnackBarAction;
 Color? _SnackBarAction_textColor$(SnackBarAction target) {
   return target.textColor;
 }
@@ -106,6 +120,16 @@ Function _SnackBarAction_createState$(
   SnackBarAction target,
 ) =>
     target.createState;
+Function SnackBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnackBar;
+Function SnackBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnackBar;
 Widget _SnackBar_content$(SnackBar target) {
   return target.content;
 }

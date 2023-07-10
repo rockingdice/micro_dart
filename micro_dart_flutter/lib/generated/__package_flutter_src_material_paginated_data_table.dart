@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'PaginatedDataTable': m.ClassMirror(
       'PaginatedDataTable',
       {
+        '#as': PaginatedDataTable_as$,
+        '#is': PaginatedDataTable_is$,
         'header': _PaginatedDataTable_header$,
         'actions': _PaginatedDataTable_actions$,
         'columns': _PaginatedDataTable_columns$,
@@ -62,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'PaginatedDataTableState': m.ClassMirror(
       'PaginatedDataTableState',
       {
+        '#as': PaginatedDataTableState_as$,
+        '#is': PaginatedDataTableState_is$,
         'initState': _PaginatedDataTableState_initState$,
         'didUpdateWidget': _PaginatedDataTableState_didUpdateWidget$,
         'dispose': _PaginatedDataTableState_dispose$,
@@ -72,6 +76,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PaginatedDataTable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PaginatedDataTable;
+Function PaginatedDataTable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PaginatedDataTable;
 Widget? _PaginatedDataTable_header$(PaginatedDataTable target) {
   return target.header;
 }
@@ -182,6 +196,16 @@ Function _PaginatedDataTable_createState$(
   PaginatedDataTable target,
 ) =>
     target.createState;
+Function PaginatedDataTableState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PaginatedDataTableState;
+Function PaginatedDataTableState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PaginatedDataTableState;
 Function _PaginatedDataTableState_initState$(
   m.Scope scope,
   PaginatedDataTableState target,

@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'MouseTrackerAnnotation': m.ClassMirror(
       'MouseTrackerAnnotation',
       {
+        '#as': MouseTrackerAnnotation_as$,
+        '#is': MouseTrackerAnnotation_is$,
         'onEnter': _MouseTrackerAnnotation_onEnter$,
         'onExit': _MouseTrackerAnnotation_onExit$,
         'cursor': _MouseTrackerAnnotation_cursor$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function MouseTrackerAnnotation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MouseTrackerAnnotation;
+Function MouseTrackerAnnotation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MouseTrackerAnnotation;
 void Function(PointerEnterEvent)? _MouseTrackerAnnotation_onEnter$(
     MouseTrackerAnnotation target) {
   return target.onEnter;

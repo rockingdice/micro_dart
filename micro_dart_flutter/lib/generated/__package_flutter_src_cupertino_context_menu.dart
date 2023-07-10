@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoContextMenu': m.ClassMirror(
       'CupertinoContextMenu',
       {
+        '#as': CupertinoContextMenu_as$,
+        '#is': CupertinoContextMenu_is$,
         'builder': _CupertinoContextMenu_builder$,
         'child': _CupertinoContextMenu_child$,
         'actions': _CupertinoContextMenu_actions$,
@@ -37,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoContextMenu_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoContextMenu;
+Function CupertinoContextMenu_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoContextMenu;
 double _CupertinoContextMenu_kOpenBorderRadius$() {
   return CupertinoContextMenu.kOpenBorderRadius;
 }

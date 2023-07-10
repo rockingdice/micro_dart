@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'StrutStyle': m.ClassMirror(
       'StrutStyle',
       {
+        '#as': StrutStyle_as$,
+        '#is': StrutStyle_is$,
         'fontFamily': _StrutStyle_fontFamily$,
         'fontSize': _StrutStyle_fontSize$,
         'height': _StrutStyle_height$,
@@ -29,6 +31,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _StrutStyle_hashCode$,
         'compareTo': _StrutStyle_compareTo$,
         'inheritFromTextStyle': _StrutStyle_inheritFromTextStyle$,
+        '==': _StrutStyle_eq$$,
         'toStringShort': _StrutStyle_toStringShort$,
         'debugFillProperties': _StrutStyle_debugFillProperties$,
       },
@@ -36,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function StrutStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StrutStyle;
+Function StrutStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StrutStyle;
 StrutStyle _StrutStyle_disabled$() {
   return StrutStyle.disabled;
 }
@@ -94,6 +107,11 @@ Function _StrutStyle_inheritFromTextStyle$(
   StrutStyle target,
 ) =>
     target.inheritFromTextStyle;
+Function _StrutStyle_eq$$(
+  m.Scope scope,
+  StrutStyle target,
+) =>
+    (Object other) => target == other;
 Function _StrutStyle_toStringShort$(
   m.Scope scope,
   StrutStyle target,

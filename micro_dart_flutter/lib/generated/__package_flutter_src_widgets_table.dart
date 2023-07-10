@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'TableRow': m.ClassMirror(
       'TableRow',
       {
+        '#as': TableRow_as$,
+        '#is': TableRow_is$,
         'key': _TableRow_key$,
         'decoration': _TableRow_decoration$,
         'children': _TableRow_children$,
@@ -29,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'Table': m.ClassMirror(
       'Table',
       {
+        '#as': Table_as$,
+        '#is': Table_is$,
         'children': _Table_children$,
         'columnWidths': _Table_columnWidths$,
         'defaultColumnWidth': _Table_defaultColumnWidth$,
@@ -45,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'TableCell': m.ClassMirror(
       'TableCell',
       {
+        '#as': TableCell_as$,
+        '#is': TableCell_is$,
         'verticalAlignment': _TableCell_verticalAlignment$,
         'debugTypicalAncestorWidgetClass':
             _TableCell_debugTypicalAncestorWidgetClass$,
@@ -55,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TableRow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableRow;
+Function TableRow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableRow;
 LocalKey? _TableRow_key$(TableRow target) {
   return target.key;
 }
@@ -72,6 +88,16 @@ Function _TableRow_toString$(
   TableRow target,
 ) =>
     target.toString;
+Function Table_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Table;
+Function Table_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Table;
 List<TableRow> _Table_children$(Table target) {
   return target.children;
 }
@@ -115,6 +141,16 @@ Function _Table_updateRenderObject$(
   Table target,
 ) =>
     target.updateRenderObject;
+Function TableCell_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableCell;
+Function TableCell_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableCell;
 TableCellVerticalAlignment? _TableCell_verticalAlignment$(TableCell target) {
   return target.verticalAlignment;
 }

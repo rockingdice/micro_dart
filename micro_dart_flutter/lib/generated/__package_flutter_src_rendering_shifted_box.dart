@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderShiftedBox': m.ClassMirror(
       'RenderShiftedBox',
       {
+        '#as': RenderShiftedBox_as$,
+        '#is': RenderShiftedBox_is$,
         'computeMinIntrinsicWidth': _RenderShiftedBox_computeMinIntrinsicWidth$,
         'computeMaxIntrinsicWidth': _RenderShiftedBox_computeMaxIntrinsicWidth$,
         'computeMinIntrinsicHeight':
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPadding': m.ClassMirror(
       'RenderPadding',
       {
+        '#as': RenderPadding_as$,
+        '#is': RenderPadding_is$,
         'padding': _RenderPadding_padding$,
         'textDirection': _RenderPadding_textDirection$,
         'computeMinIntrinsicWidth': _RenderPadding_computeMinIntrinsicWidth$,
@@ -55,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAligningShiftedBox': m.ClassMirror(
       'RenderAligningShiftedBox',
       {
+        '#as': RenderAligningShiftedBox_as$,
+        '#is': RenderAligningShiftedBox_is$,
         'alignment': _RenderAligningShiftedBox_alignment$,
         'textDirection': _RenderAligningShiftedBox_textDirection$,
         'alignChild': _RenderAligningShiftedBox_alignChild$,
@@ -68,6 +74,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPositionedBox': m.ClassMirror(
       'RenderPositionedBox',
       {
+        '#as': RenderPositionedBox_as$,
+        '#is': RenderPositionedBox_is$,
         'widthFactor': _RenderPositionedBox_widthFactor$,
         'heightFactor': _RenderPositionedBox_heightFactor$,
         'computeDryLayout': _RenderPositionedBox_computeDryLayout$,
@@ -83,6 +91,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderConstrainedOverflowBox': m.ClassMirror(
       'RenderConstrainedOverflowBox',
       {
+        '#as': RenderConstrainedOverflowBox_as$,
+        '#is': RenderConstrainedOverflowBox_is$,
         'minWidth': _RenderConstrainedOverflowBox_minWidth$,
         'maxWidth': _RenderConstrainedOverflowBox_maxWidth$,
         'minHeight': _RenderConstrainedOverflowBox_minHeight$,
@@ -103,6 +113,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderConstraintsTransformBox': m.ClassMirror(
       'RenderConstraintsTransformBox',
       {
+        '#as': RenderConstraintsTransformBox_as$,
+        '#is': RenderConstraintsTransformBox_is$,
         'constraintsTransform':
             _RenderConstraintsTransformBox_constraintsTransform$,
         'clipBehavior': _RenderConstraintsTransformBox_clipBehavior$,
@@ -131,6 +143,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSizedOverflowBox': m.ClassMirror(
       'RenderSizedOverflowBox',
       {
+        '#as': RenderSizedOverflowBox_as$,
+        '#is': RenderSizedOverflowBox_is$,
         'requestedSize': _RenderSizedOverflowBox_requestedSize$,
         'computeMinIntrinsicWidth':
             _RenderSizedOverflowBox_computeMinIntrinsicWidth$,
@@ -150,6 +164,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderFractionallySizedOverflowBox': m.ClassMirror(
       'RenderFractionallySizedOverflowBox',
       {
+        '#as': RenderFractionallySizedOverflowBox_as$,
+        '#is': RenderFractionallySizedOverflowBox_is$,
         'widthFactor': _RenderFractionallySizedOverflowBox_widthFactor$,
         'heightFactor': _RenderFractionallySizedOverflowBox_heightFactor$,
         'computeMinIntrinsicWidth':
@@ -174,6 +190,8 @@ const libraryMirror = m.LibraryMirror(
     'SingleChildLayoutDelegate': m.ClassMirror(
       'SingleChildLayoutDelegate',
       {
+        '#as': SingleChildLayoutDelegate_as$,
+        '#is': SingleChildLayoutDelegate_is$,
         'getSize': _SingleChildLayoutDelegate_getSize$,
         'getConstraintsForChild':
             _SingleChildLayoutDelegate_getConstraintsForChild$,
@@ -185,6 +203,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderCustomSingleChildLayoutBox': m.ClassMirror(
       'RenderCustomSingleChildLayoutBox',
       {
+        '#as': RenderCustomSingleChildLayoutBox_as$,
+        '#is': RenderCustomSingleChildLayoutBox_is$,
         'delegate': _RenderCustomSingleChildLayoutBox_delegate$,
         'attach': _RenderCustomSingleChildLayoutBox_attach$,
         'detach': _RenderCustomSingleChildLayoutBox_detach$,
@@ -204,6 +224,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderBaseline': m.ClassMirror(
       'RenderBaseline',
       {
+        '#as': RenderBaseline_as$,
+        '#is': RenderBaseline_is$,
         'baseline': _RenderBaseline_baseline$,
         'baselineType': _RenderBaseline_baselineType$,
         'computeDryLayout': _RenderBaseline_computeDryLayout$,
@@ -217,6 +239,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderShiftedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderShiftedBox;
+Function RenderShiftedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderShiftedBox;
 Function _RenderShiftedBox_computeMinIntrinsicWidth$(
   m.Scope scope,
   RenderShiftedBox target,
@@ -252,6 +284,16 @@ Function _RenderShiftedBox_hitTestChildren$(
   RenderShiftedBox target,
 ) =>
     target.hitTestChildren;
+Function RenderPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPadding;
+Function RenderPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPadding;
 EdgeInsetsGeometry _RenderPadding_padding$(RenderPadding target) {
   return target.padding;
 }
@@ -314,6 +356,16 @@ Function _RenderPadding_debugFillProperties$(
   RenderPadding target,
 ) =>
     target.debugFillProperties;
+Function RenderAligningShiftedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAligningShiftedBox;
+Function RenderAligningShiftedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAligningShiftedBox;
 AlignmentGeometry _RenderAligningShiftedBox_alignment$(
     RenderAligningShiftedBox target) {
   return target.alignment;
@@ -348,6 +400,16 @@ Function _RenderAligningShiftedBox_debugFillProperties$(
   RenderAligningShiftedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderPositionedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPositionedBox;
+Function RenderPositionedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPositionedBox;
 double? _RenderPositionedBox_widthFactor$(RenderPositionedBox target) {
   return target.widthFactor;
 }
@@ -390,6 +452,16 @@ Function _RenderPositionedBox_debugFillProperties$(
   RenderPositionedBox target,
 ) =>
     target.debugFillProperties;
+Function RenderConstrainedOverflowBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderConstrainedOverflowBox;
+Function RenderConstrainedOverflowBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderConstrainedOverflowBox;
 double? _RenderConstrainedOverflowBox_minWidth$(
     RenderConstrainedOverflowBox target) {
   return target.minWidth;
@@ -458,6 +530,16 @@ Function _RenderConstrainedOverflowBox_debugFillProperties$(
   RenderConstrainedOverflowBox target,
 ) =>
     target.debugFillProperties;
+Function RenderConstraintsTransformBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderConstraintsTransformBox;
+Function RenderConstraintsTransformBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderConstraintsTransformBox;
 BoxConstraints Function(BoxConstraints)
     _RenderConstraintsTransformBox_constraintsTransform$(
         RenderConstraintsTransformBox target) {
@@ -540,6 +622,16 @@ Function _RenderConstraintsTransformBox_toStringShort$(
   RenderConstraintsTransformBox target,
 ) =>
     target.toStringShort;
+Function RenderSizedOverflowBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSizedOverflowBox;
+Function RenderSizedOverflowBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSizedOverflowBox;
 Size _RenderSizedOverflowBox_requestedSize$(RenderSizedOverflowBox target) {
   return target.requestedSize;
 }
@@ -586,6 +678,16 @@ Function _RenderSizedOverflowBox_performLayout$(
   RenderSizedOverflowBox target,
 ) =>
     target.performLayout;
+Function RenderFractionallySizedOverflowBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFractionallySizedOverflowBox;
+Function RenderFractionallySizedOverflowBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFractionallySizedOverflowBox;
 double? _RenderFractionallySizedOverflowBox_widthFactor$(
     RenderFractionallySizedOverflowBox target) {
   return target.widthFactor;
@@ -645,6 +747,16 @@ Function _RenderFractionallySizedOverflowBox_debugFillProperties$(
   RenderFractionallySizedOverflowBox target,
 ) =>
     target.debugFillProperties;
+Function SingleChildLayoutDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SingleChildLayoutDelegate;
+Function SingleChildLayoutDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SingleChildLayoutDelegate;
 Function _SingleChildLayoutDelegate_getSize$(
   m.Scope scope,
   SingleChildLayoutDelegate target,
@@ -665,6 +777,16 @@ Function _SingleChildLayoutDelegate_shouldRelayout$(
   SingleChildLayoutDelegate target,
 ) =>
     target.shouldRelayout;
+Function RenderCustomSingleChildLayoutBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderCustomSingleChildLayoutBox;
+Function RenderCustomSingleChildLayoutBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderCustomSingleChildLayoutBox;
 SingleChildLayoutDelegate _RenderCustomSingleChildLayoutBox_delegate$(
     RenderCustomSingleChildLayoutBox target) {
   return target.delegate;
@@ -717,6 +839,16 @@ Function _RenderCustomSingleChildLayoutBox_performLayout$(
   RenderCustomSingleChildLayoutBox target,
 ) =>
     target.performLayout;
+Function RenderBaseline_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderBaseline;
+Function RenderBaseline_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderBaseline;
 double _RenderBaseline_baseline$(RenderBaseline target) {
   return target.baseline;
 }

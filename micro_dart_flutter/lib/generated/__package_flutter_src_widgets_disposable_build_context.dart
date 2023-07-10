@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'DisposableBuildContext': m.ClassMirror(
       'DisposableBuildContext',
       {
+        '#as': DisposableBuildContext_as$,
+        '#is': DisposableBuildContext_is$,
         'context': _DisposableBuildContext_context$,
         'dispose': _DisposableBuildContext_dispose$,
       },
@@ -20,6 +22,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DisposableBuildContext_as$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DisposableBuildContext<T>;
+Function DisposableBuildContext_is$<T extends State<StatefulWidget>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DisposableBuildContext<T>;
 BuildContext? _DisposableBuildContext_context$<T extends State<StatefulWidget>>(
     DisposableBuildContext<T> target) {
   return target.context;

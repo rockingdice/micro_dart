@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'TweenSequence': m.ClassMirror(
       'TweenSequence',
       {
+        '#as': TweenSequence_as$,
+        '#is': TweenSequence_is$,
         'transform': _TweenSequence_transform$,
         'toString': _TweenSequence_toString$,
       },
@@ -20,12 +22,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FlippedTweenSequence': m.ClassMirror(
       'FlippedTweenSequence',
-      {'transform': _FlippedTweenSequence_transform$},
+      {
+        '#as': FlippedTweenSequence_as$,
+        '#is': FlippedTweenSequence_is$,
+        'transform': _FlippedTweenSequence_transform$,
+      },
       {},
     ),
     'TweenSequenceItem': m.ClassMirror(
       'TweenSequenceItem',
       {
+        '#as': TweenSequenceItem_as$,
+        '#is': TweenSequenceItem_is$,
         'tween': _TweenSequenceItem_tween$,
         'weight': _TweenSequenceItem_weight$,
       },
@@ -33,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TweenSequence_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TweenSequence<T>;
+Function TweenSequence_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TweenSequence<T>;
 Function _TweenSequence_transform$<T>(
   m.Scope scope,
   TweenSequence<T> target,
@@ -43,11 +61,31 @@ Function _TweenSequence_toString$<T>(
   TweenSequence<T> target,
 ) =>
     target.toString;
+Function FlippedTweenSequence_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlippedTweenSequence;
+Function FlippedTweenSequence_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlippedTweenSequence;
 Function _FlippedTweenSequence_transform$(
   m.Scope scope,
   FlippedTweenSequence target,
 ) =>
     target.transform;
+Function TweenSequenceItem_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TweenSequenceItem<T>;
+Function TweenSequenceItem_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TweenSequenceItem<T>;
 Animatable<T> _TweenSequenceItem_tween$<T>(TweenSequenceItem<T> target) {
   return target.tween;
 }

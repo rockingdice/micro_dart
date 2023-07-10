@@ -21,63 +21,171 @@ const libraryMirror = m.LibraryMirror(
   {
     'BackButtonIcon': m.ClassMirror(
       'BackButtonIcon',
-      {'build': _BackButtonIcon_build$},
+      {
+        '#as': BackButtonIcon_as$,
+        '#is': BackButtonIcon_is$,
+        'build': _BackButtonIcon_build$,
+      },
       {},
     ),
     'BackButton': m.ClassMirror(
       'BackButton',
-      {},
+      {
+        '#as': BackButton_as$,
+        '#is': BackButton_is$,
+      },
       {},
     ),
     'CloseButtonIcon': m.ClassMirror(
       'CloseButtonIcon',
-      {'build': _CloseButtonIcon_build$},
+      {
+        '#as': CloseButtonIcon_as$,
+        '#is': CloseButtonIcon_is$,
+        'build': _CloseButtonIcon_build$,
+      },
       {},
     ),
     'CloseButton': m.ClassMirror(
       'CloseButton',
-      {},
+      {
+        '#as': CloseButton_as$,
+        '#is': CloseButton_is$,
+      },
       {},
     ),
     'DrawerButtonIcon': m.ClassMirror(
       'DrawerButtonIcon',
-      {'build': _DrawerButtonIcon_build$},
+      {
+        '#as': DrawerButtonIcon_as$,
+        '#is': DrawerButtonIcon_is$,
+        'build': _DrawerButtonIcon_build$,
+      },
       {},
     ),
     'DrawerButton': m.ClassMirror(
       'DrawerButton',
-      {},
+      {
+        '#as': DrawerButton_as$,
+        '#is': DrawerButton_is$,
+      },
       {},
     ),
     'EndDrawerButtonIcon': m.ClassMirror(
       'EndDrawerButtonIcon',
-      {'build': _EndDrawerButtonIcon_build$},
+      {
+        '#as': EndDrawerButtonIcon_as$,
+        '#is': EndDrawerButtonIcon_is$,
+        'build': _EndDrawerButtonIcon_build$,
+      },
       {},
     ),
     'EndDrawerButton': m.ClassMirror(
       'EndDrawerButton',
-      {},
+      {
+        '#as': EndDrawerButton_as$,
+        '#is': EndDrawerButton_is$,
+      },
       {},
     ),
   },
 );
+Function BackButtonIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackButtonIcon;
+Function BackButtonIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackButtonIcon;
 Function _BackButtonIcon_build$(
   m.Scope scope,
   BackButtonIcon target,
 ) =>
     target.build;
+Function BackButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackButton;
+Function BackButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackButton;
+Function CloseButtonIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CloseButtonIcon;
+Function CloseButtonIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CloseButtonIcon;
 Function _CloseButtonIcon_build$(
   m.Scope scope,
   CloseButtonIcon target,
 ) =>
     target.build;
+Function CloseButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CloseButton;
+Function CloseButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CloseButton;
+Function DrawerButtonIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerButtonIcon;
+Function DrawerButtonIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerButtonIcon;
 Function _DrawerButtonIcon_build$(
   m.Scope scope,
   DrawerButtonIcon target,
 ) =>
     target.build;
+Function DrawerButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerButton;
+Function DrawerButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerButton;
+Function EndDrawerButtonIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EndDrawerButtonIcon;
+Function EndDrawerButtonIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EndDrawerButtonIcon;
 Function _EndDrawerButtonIcon_build$(
   m.Scope scope,
   EndDrawerButtonIcon target,
 ) =>
     target.build;
+Function EndDrawerButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EndDrawerButton;
+Function EndDrawerButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EndDrawerButton;

@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationToolbar': m.ClassMirror(
       'NavigationToolbar',
       {
+        '#as': NavigationToolbar_as$,
+        '#is': NavigationToolbar_is$,
         'leading': _NavigationToolbar_leading$,
         'middle': _NavigationToolbar_middle$,
         'trailing': _NavigationToolbar_trailing$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function NavigationToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationToolbar;
+Function NavigationToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationToolbar;
 double _NavigationToolbar_kMiddleSpacing$() {
   return NavigationToolbar.kMiddleSpacing;
 }

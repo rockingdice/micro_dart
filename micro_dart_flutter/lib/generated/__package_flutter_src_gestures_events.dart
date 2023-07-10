@@ -42,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'PointerEvent': m.ClassMirror(
       'PointerEvent',
       {
+        '#as': PointerEvent_as$,
+        '#is': PointerEvent_is$,
         'embedderId': _PointerEvent_embedderId$,
         'timeStamp': _PointerEvent_timeStamp$,
         'pointer': _PointerEvent_pointer$,
@@ -78,52 +80,89 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PointerAddedEvent': m.ClassMirror(
       'PointerAddedEvent',
-      {'transformed': _PointerAddedEvent_transformed$},
+      {
+        '#as': PointerAddedEvent_as$,
+        '#is': PointerAddedEvent_is$,
+        'transformed': _PointerAddedEvent_transformed$,
+      },
       {},
     ),
     'PointerRemovedEvent': m.ClassMirror(
       'PointerRemovedEvent',
-      {'transformed': _PointerRemovedEvent_transformed$},
+      {
+        '#as': PointerRemovedEvent_as$,
+        '#is': PointerRemovedEvent_is$,
+        'transformed': _PointerRemovedEvent_transformed$,
+      },
       {},
     ),
     'PointerHoverEvent': m.ClassMirror(
       'PointerHoverEvent',
-      {'transformed': _PointerHoverEvent_transformed$},
+      {
+        '#as': PointerHoverEvent_as$,
+        '#is': PointerHoverEvent_is$,
+        'transformed': _PointerHoverEvent_transformed$,
+      },
       {},
     ),
     'PointerEnterEvent': m.ClassMirror(
       'PointerEnterEvent',
-      {'transformed': _PointerEnterEvent_transformed$},
+      {
+        '#as': PointerEnterEvent_as$,
+        '#is': PointerEnterEvent_is$,
+        'transformed': _PointerEnterEvent_transformed$,
+      },
       {},
     ),
     'PointerExitEvent': m.ClassMirror(
       'PointerExitEvent',
-      {'transformed': _PointerExitEvent_transformed$},
+      {
+        '#as': PointerExitEvent_as$,
+        '#is': PointerExitEvent_is$,
+        'transformed': _PointerExitEvent_transformed$,
+      },
       {},
     ),
     'PointerDownEvent': m.ClassMirror(
       'PointerDownEvent',
-      {'transformed': _PointerDownEvent_transformed$},
+      {
+        '#as': PointerDownEvent_as$,
+        '#is': PointerDownEvent_is$,
+        'transformed': _PointerDownEvent_transformed$,
+      },
       {},
     ),
     'PointerMoveEvent': m.ClassMirror(
       'PointerMoveEvent',
-      {'transformed': _PointerMoveEvent_transformed$},
+      {
+        '#as': PointerMoveEvent_as$,
+        '#is': PointerMoveEvent_is$,
+        'transformed': _PointerMoveEvent_transformed$,
+      },
       {},
     ),
     'PointerUpEvent': m.ClassMirror(
       'PointerUpEvent',
-      {'transformed': _PointerUpEvent_transformed$},
+      {
+        '#as': PointerUpEvent_as$,
+        '#is': PointerUpEvent_is$,
+        'transformed': _PointerUpEvent_transformed$,
+      },
       {},
     ),
     'PointerSignalEvent': m.ClassMirror(
       'PointerSignalEvent',
-      {},
+      {
+        '#as': PointerSignalEvent_as$,
+        '#is': PointerSignalEvent_is$,
+      },
       {},
     ),
     'PointerScrollEvent': m.ClassMirror(
       'PointerScrollEvent',
       {
+        '#as': PointerScrollEvent_as$,
+        '#is': PointerScrollEvent_is$,
         'scrollDelta': _PointerScrollEvent_scrollDelta$,
         'transformed': _PointerScrollEvent_transformed$,
         'debugFillProperties': _PointerScrollEvent_debugFillProperties$,
@@ -132,12 +171,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PointerScrollInertiaCancelEvent': m.ClassMirror(
       'PointerScrollInertiaCancelEvent',
-      {'transformed': _PointerScrollInertiaCancelEvent_transformed$},
+      {
+        '#as': PointerScrollInertiaCancelEvent_as$,
+        '#is': PointerScrollInertiaCancelEvent_is$,
+        'transformed': _PointerScrollInertiaCancelEvent_transformed$,
+      },
       {},
     ),
     'PointerScaleEvent': m.ClassMirror(
       'PointerScaleEvent',
       {
+        '#as': PointerScaleEvent_as$,
+        '#is': PointerScaleEvent_is$,
         'scale': _PointerScaleEvent_scale$,
         'transformed': _PointerScaleEvent_transformed$,
       },
@@ -145,12 +190,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PointerPanZoomStartEvent': m.ClassMirror(
       'PointerPanZoomStartEvent',
-      {'transformed': _PointerPanZoomStartEvent_transformed$},
+      {
+        '#as': PointerPanZoomStartEvent_as$,
+        '#is': PointerPanZoomStartEvent_is$,
+        'transformed': _PointerPanZoomStartEvent_transformed$,
+      },
       {},
     ),
     'PointerPanZoomUpdateEvent': m.ClassMirror(
       'PointerPanZoomUpdateEvent',
       {
+        '#as': PointerPanZoomUpdateEvent_as$,
+        '#is': PointerPanZoomUpdateEvent_is$,
         'pan': _PointerPanZoomUpdateEvent_pan$,
         'panDelta': _PointerPanZoomUpdateEvent_panDelta$,
         'scale': _PointerPanZoomUpdateEvent_scale$,
@@ -163,12 +214,20 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PointerPanZoomEndEvent': m.ClassMirror(
       'PointerPanZoomEndEvent',
-      {'transformed': _PointerPanZoomEndEvent_transformed$},
+      {
+        '#as': PointerPanZoomEndEvent_as$,
+        '#is': PointerPanZoomEndEvent_is$,
+        'transformed': _PointerPanZoomEndEvent_transformed$,
+      },
       {},
     ),
     'PointerCancelEvent': m.ClassMirror(
       'PointerCancelEvent',
-      {'transformed': _PointerCancelEvent_transformed$},
+      {
+        '#as': PointerCancelEvent_as$,
+        '#is': PointerCancelEvent_is$,
+        'transformed': _PointerCancelEvent_transformed$,
+      },
       {},
     ),
   },
@@ -221,6 +280,16 @@ int _kTouchContact$() {
   return kTouchContact;
 }
 
+Function PointerEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerEvent;
+Function PointerEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerEvent;
 int _PointerEvent_embedderId$(PointerEvent target) {
   return target.embedderId;
 }
@@ -353,46 +422,146 @@ Function _PointerEvent_transformDeltaViaPositions$(m.Scope scope) =>
     PointerEvent.transformDeltaViaPositions;
 Function _PointerEvent_removePerspectiveTransform$(m.Scope scope) =>
     PointerEvent.removePerspectiveTransform;
+Function PointerAddedEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerAddedEvent;
+Function PointerAddedEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerAddedEvent;
 Function _PointerAddedEvent_transformed$(
   m.Scope scope,
   PointerAddedEvent target,
 ) =>
     target.transformed;
+Function PointerRemovedEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerRemovedEvent;
+Function PointerRemovedEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerRemovedEvent;
 Function _PointerRemovedEvent_transformed$(
   m.Scope scope,
   PointerRemovedEvent target,
 ) =>
     target.transformed;
+Function PointerHoverEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerHoverEvent;
+Function PointerHoverEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerHoverEvent;
 Function _PointerHoverEvent_transformed$(
   m.Scope scope,
   PointerHoverEvent target,
 ) =>
     target.transformed;
+Function PointerEnterEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerEnterEvent;
+Function PointerEnterEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerEnterEvent;
 Function _PointerEnterEvent_transformed$(
   m.Scope scope,
   PointerEnterEvent target,
 ) =>
     target.transformed;
+Function PointerExitEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerExitEvent;
+Function PointerExitEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerExitEvent;
 Function _PointerExitEvent_transformed$(
   m.Scope scope,
   PointerExitEvent target,
 ) =>
     target.transformed;
+Function PointerDownEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerDownEvent;
+Function PointerDownEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerDownEvent;
 Function _PointerDownEvent_transformed$(
   m.Scope scope,
   PointerDownEvent target,
 ) =>
     target.transformed;
+Function PointerMoveEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerMoveEvent;
+Function PointerMoveEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerMoveEvent;
 Function _PointerMoveEvent_transformed$(
   m.Scope scope,
   PointerMoveEvent target,
 ) =>
     target.transformed;
+Function PointerUpEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerUpEvent;
+Function PointerUpEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerUpEvent;
 Function _PointerUpEvent_transformed$(
   m.Scope scope,
   PointerUpEvent target,
 ) =>
     target.transformed;
+Function PointerSignalEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerSignalEvent;
+Function PointerSignalEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerSignalEvent;
+Function PointerScrollEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerScrollEvent;
+Function PointerScrollEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerScrollEvent;
 Offset _PointerScrollEvent_scrollDelta$(PointerScrollEvent target) {
   return target.scrollDelta;
 }
@@ -407,11 +576,31 @@ Function _PointerScrollEvent_debugFillProperties$(
   PointerScrollEvent target,
 ) =>
     target.debugFillProperties;
+Function PointerScrollInertiaCancelEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerScrollInertiaCancelEvent;
+Function PointerScrollInertiaCancelEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerScrollInertiaCancelEvent;
 Function _PointerScrollInertiaCancelEvent_transformed$(
   m.Scope scope,
   PointerScrollInertiaCancelEvent target,
 ) =>
     target.transformed;
+Function PointerScaleEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerScaleEvent;
+Function PointerScaleEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerScaleEvent;
 double _PointerScaleEvent_scale$(PointerScaleEvent target) {
   return target.scale;
 }
@@ -421,11 +610,31 @@ Function _PointerScaleEvent_transformed$(
   PointerScaleEvent target,
 ) =>
     target.transformed;
+Function PointerPanZoomStartEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerPanZoomStartEvent;
+Function PointerPanZoomStartEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerPanZoomStartEvent;
 Function _PointerPanZoomStartEvent_transformed$(
   m.Scope scope,
   PointerPanZoomStartEvent target,
 ) =>
     target.transformed;
+Function PointerPanZoomUpdateEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerPanZoomUpdateEvent;
+Function PointerPanZoomUpdateEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerPanZoomUpdateEvent;
 Offset _PointerPanZoomUpdateEvent_pan$(PointerPanZoomUpdateEvent target) {
   return target.pan;
 }
@@ -456,11 +665,31 @@ Function _PointerPanZoomUpdateEvent_transformed$(
   PointerPanZoomUpdateEvent target,
 ) =>
     target.transformed;
+Function PointerPanZoomEndEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerPanZoomEndEvent;
+Function PointerPanZoomEndEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerPanZoomEndEvent;
 Function _PointerPanZoomEndEvent_transformed$(
   m.Scope scope,
   PointerPanZoomEndEvent target,
 ) =>
     target.transformed;
+Function PointerCancelEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerCancelEvent;
+Function PointerCancelEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerCancelEvent;
 Function _PointerCancelEvent_transformed$(
   m.Scope scope,
   PointerCancelEvent target,

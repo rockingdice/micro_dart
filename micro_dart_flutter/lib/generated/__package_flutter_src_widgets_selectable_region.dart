@@ -29,12 +29,17 @@ import 'package:flutter/src/widgets/text_selection_toolbar_anchors.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/selectable_region.dart',
-  {},
+  {
+    'SelectableRegion.getSelectableButtonItems':
+        _SelectableRegion_getSelectableButtonItems$
+  },
   {},
   {
     'SelectableRegion': m.ClassMirror(
       'SelectableRegion',
       {
+        '#as': SelectableRegion_as$,
+        '#is': SelectableRegion_is$,
         'magnifierConfiguration': _SelectableRegion_magnifierConfiguration$,
         'focusNode': _SelectableRegion_focusNode$,
         'child': _SelectableRegion_child$,
@@ -48,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectableRegionState': m.ClassMirror(
       'SelectableRegionState',
       {
+        '#as': SelectableRegionState_as$,
+        '#is': SelectableRegionState_is$,
         'lastSecondaryTapDownPosition':
             _SelectableRegionState_lastSecondaryTapDownPosition$,
         'textEditingValue': _SelectableRegionState_textEditingValue$,
@@ -77,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiSelectableSelectionContainerDelegate': m.ClassMirror(
       'MultiSelectableSelectionContainerDelegate',
       {
+        '#as': MultiSelectableSelectionContainerDelegate_as$,
+        '#is': MultiSelectableSelectionContainerDelegate_is$,
         'selectables': _MultiSelectableSelectionContainerDelegate_selectables$,
         'currentSelectionEndIndex':
             _MultiSelectableSelectionContainerDelegate_currentSelectionEndIndex$,
@@ -128,6 +137,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SelectableRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectableRegion;
+Function SelectableRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectableRegion;
 TextMagnifierConfiguration _SelectableRegion_magnifierConfiguration$(
     SelectableRegion target) {
   return target.magnifierConfiguration;
@@ -156,11 +175,44 @@ void Function(SelectedContent?)? _SelectableRegion_onSelectionChanged$(
   return target.onSelectionChanged;
 }
 
+Function _SelectableRegion_getSelectableButtonItems$(m.Scope scope) => ({
+      required m.FunctionPointer onCopy,
+      required m.FunctionPointer onSelectAll,
+      required SelectionGeometry selectionGeometry,
+    }) {
+      void onCopyProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onCopy,
+            [],
+            {},
+          );
+      void onSelectAllProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onSelectAll,
+            [],
+            {},
+          );
+      return SelectableRegion.getSelectableButtonItems(
+        onCopy: onCopyProxy,
+        onSelectAll: onSelectAllProxy,
+        selectionGeometry: selectionGeometry,
+      );
+    };
 Function _SelectableRegion_createState$(
   m.Scope scope,
   SelectableRegion target,
 ) =>
     target.createState;
+Function SelectableRegionState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectableRegionState;
+Function SelectableRegionState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectableRegionState;
 Offset? _SelectableRegionState_lastSecondaryTapDownPosition$(
     SelectableRegionState target) {
   return target.lastSecondaryTapDownPosition;
@@ -258,6 +310,16 @@ Function _SelectableRegionState_build$(
   SelectableRegionState target,
 ) =>
     target.build;
+Function MultiSelectableSelectionContainerDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiSelectableSelectionContainerDelegate;
+Function MultiSelectableSelectionContainerDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiSelectableSelectionContainerDelegate;
 List<Selectable> _MultiSelectableSelectionContainerDelegate_selectables$(
     MultiSelectableSelectionContainerDelegate target) {
   return target.selectables;

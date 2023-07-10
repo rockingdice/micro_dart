@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeSlider': m.ClassMirror(
       'RangeSlider',
       {
+        '#as': RangeSlider_as$,
+        '#is': RangeSlider_is$,
         'values': _RangeSlider_values$,
         'onChanged': _RangeSlider_onChanged$,
         'onChangeStart': _RangeSlider_onChangeStart$,
@@ -45,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RangeSlider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeSlider;
+Function RangeSlider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeSlider;
 RangeValues _RangeSlider_values$(RangeSlider target) {
   return target.values;
 }

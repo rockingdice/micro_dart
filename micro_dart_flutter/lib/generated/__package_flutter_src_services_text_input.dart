@@ -90,18 +90,23 @@ const libraryMirror = m.LibraryMirror(
     'TextInputType': m.ClassMirror(
       'TextInputType',
       {
+        '#as': TextInputType_as$,
+        '#is': TextInputType_is$,
         'index': _TextInputType_index$,
         'signed': _TextInputType_signed$,
         'decimal': _TextInputType_decimal$,
         'hashCode': _TextInputType_hashCode$,
         'toJson': _TextInputType_toJson$,
         'toString': _TextInputType_toString$,
+        '==': _TextInputType_eq$$,
       },
       {},
     ),
     'TextInputConfiguration': m.ClassMirror(
       'TextInputConfiguration',
       {
+        '#as': TextInputConfiguration_as$,
+        '#is': TextInputConfiguration_is$,
         'inputType': _TextInputConfiguration_inputType$,
         'readOnly': _TextInputConfiguration_readOnly$,
         'obscureText': _TextInputConfiguration_obscureText$,
@@ -128,6 +133,8 @@ const libraryMirror = m.LibraryMirror(
     'RawFloatingCursorPoint': m.ClassMirror(
       'RawFloatingCursorPoint',
       {
+        '#as': RawFloatingCursorPoint_as$,
+        '#is': RawFloatingCursorPoint_is$,
         'offset': _RawFloatingCursorPoint_offset$,
         'state': _RawFloatingCursorPoint_state$,
       },
@@ -136,6 +143,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingValue': m.ClassMirror(
       'TextEditingValue',
       {
+        '#as': TextEditingValue_as$,
+        '#is': TextEditingValue_is$,
         'text': _TextEditingValue_text$,
         'selection': _TextEditingValue_selection$,
         'composing': _TextEditingValue_composing$,
@@ -145,12 +154,15 @@ const libraryMirror = m.LibraryMirror(
         'replaced': _TextEditingValue_replaced$,
         'toJSON': _TextEditingValue_toJSON$,
         'toString': _TextEditingValue_toString$,
+        '==': _TextEditingValue_eq$$,
       },
       {},
     ),
     'ScribbleClient': m.ClassMirror(
       'ScribbleClient',
       {
+        '#as': ScribbleClient_as$,
+        '#is': ScribbleClient_is$,
         'elementIdentifier': _ScribbleClient_elementIdentifier$,
         'bounds': _ScribbleClient_bounds$,
         'onScribbleFocus': _ScribbleClient_onScribbleFocus$,
@@ -161,10 +173,13 @@ const libraryMirror = m.LibraryMirror(
     'SelectionRect': m.ClassMirror(
       'SelectionRect',
       {
+        '#as': SelectionRect_as$,
+        '#is': SelectionRect_is$,
         'position': _SelectionRect_position$,
         'bounds': _SelectionRect_bounds$,
         'direction': _SelectionRect_direction$,
         'hashCode': _SelectionRect_hashCode$,
+        '==': _SelectionRect_eq$$,
         'toString': _SelectionRect_toString$,
       },
       {},
@@ -172,6 +187,8 @@ const libraryMirror = m.LibraryMirror(
     'TextInputConnection': m.ClassMirror(
       'TextInputConnection',
       {
+        '#as': TextInputConnection_as$,
+        '#is': TextInputConnection_is$,
         'attached': _TextInputConnection_attached$,
         'scribbleInProgress': _TextInputConnection_scribbleInProgress$,
         'show': _TextInputConnection_show$,
@@ -192,7 +209,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TextInput': m.ClassMirror(
       'TextInput',
-      {'scribbleInProgress': _TextInput_scribbleInProgress$},
+      {
+        '#as': TextInput_as$,
+        '#is': TextInput_is$,
+        'scribbleInProgress': _TextInput_scribbleInProgress$,
+      },
       {},
     ),
     'SmartDashesType': m.ClassMirror(
@@ -227,6 +248,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextInputType_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextInputType;
+Function TextInputType_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextInputType;
 int _TextInputType_index$(TextInputType target) {
   return target.index;
 }
@@ -301,6 +332,21 @@ Function _TextInputType_toString$(
   TextInputType target,
 ) =>
     target.toString;
+Function _TextInputType_eq$$(
+  m.Scope scope,
+  TextInputType target,
+) =>
+    (Object other) => target == other;
+Function TextInputConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextInputConfiguration;
+Function TextInputConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextInputConfiguration;
 TextInputType _TextInputConfiguration_inputType$(
     TextInputConfiguration target) {
   return target.inputType;
@@ -385,6 +431,16 @@ Function _TextInputConfiguration_toJson$(
   TextInputConfiguration target,
 ) =>
     target.toJson;
+Function RawFloatingCursorPoint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawFloatingCursorPoint;
+Function RawFloatingCursorPoint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawFloatingCursorPoint;
 Offset? _RawFloatingCursorPoint_offset$(RawFloatingCursorPoint target) {
   return target.offset;
 }
@@ -394,6 +450,16 @@ FloatingCursorDragState _RawFloatingCursorPoint_state$(
   return target.state;
 }
 
+Function TextEditingValue_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingValue;
+Function TextEditingValue_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingValue;
 String _TextEditingValue_text$(TextEditingValue target) {
   return target.text;
 }
@@ -438,6 +504,21 @@ Function _TextEditingValue_toString$(
   TextEditingValue target,
 ) =>
     target.toString;
+Function _TextEditingValue_eq$$(
+  m.Scope scope,
+  TextEditingValue target,
+) =>
+    (Object other) => target == other;
+Function ScribbleClient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScribbleClient;
+Function ScribbleClient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScribbleClient;
 String _ScribbleClient_elementIdentifier$(ScribbleClient target) {
   return target.elementIdentifier;
 }
@@ -456,6 +537,16 @@ Function _ScribbleClient_isInScribbleRect$(
   ScribbleClient target,
 ) =>
     target.isInScribbleRect;
+Function SelectionRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionRect;
+Function SelectionRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionRect;
 int _SelectionRect_position$(SelectionRect target) {
   return target.position;
 }
@@ -472,11 +563,26 @@ int _SelectionRect_hashCode$(SelectionRect target) {
   return target.hashCode;
 }
 
+Function _SelectionRect_eq$$(
+  m.Scope scope,
+  SelectionRect target,
+) =>
+    (Object other) => target == other;
 Function _SelectionRect_toString$(
   m.Scope scope,
   SelectionRect target,
 ) =>
     target.toString;
+Function TextInputConnection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextInputConnection;
+Function TextInputConnection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextInputConnection;
 bool _TextInputConnection_attached$(TextInputConnection target) {
   return target.attached;
 }
@@ -542,6 +648,16 @@ Function _TextInputConnection_connectionClosedReceived$(
   TextInputConnection target,
 ) =>
     target.connectionClosedReceived;
+Function TextInput_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextInput;
+Function TextInput_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextInput;
 Map<String, ScribbleClient> _TextInput_scribbleClients$() {
   return TextInput.scribbleClients;
 }

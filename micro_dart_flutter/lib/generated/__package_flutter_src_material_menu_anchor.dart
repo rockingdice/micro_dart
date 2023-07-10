@@ -39,12 +39,16 @@ const libraryMirror = m.LibraryMirror(
     'MenuAcceleratorCallbackBinding.of': _MenuAcceleratorCallbackBinding_of$,
     'MenuAcceleratorLabel.defaultLabelBuilder':
         _MenuAcceleratorLabel_defaultLabelBuilder$,
+    'MenuAcceleratorLabel.stripAcceleratorMarkers':
+        _MenuAcceleratorLabel_stripAcceleratorMarkers$,
   },
   {},
   {
     'MenuAnchor': m.ClassMirror(
       'MenuAnchor',
       {
+        '#as': MenuAnchor_as$,
+        '#is': MenuAnchor_is$,
         'controller': _MenuAnchor_controller$,
         'childFocusNode': _MenuAnchor_childFocusNode$,
         'style': _MenuAnchor_style$,
@@ -66,6 +70,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuController': m.ClassMirror(
       'MenuController',
       {
+        '#as': MenuController_as$,
+        '#is': MenuController_is$,
         'isOpen': _MenuController_isOpen$,
         'close': _MenuController_close$,
         'open': _MenuController_open$,
@@ -75,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuBar': m.ClassMirror(
       'MenuBar',
       {
+        '#as': MenuBar_as$,
+        '#is': MenuBar_is$,
         'style': _MenuBar_style$,
         'clipBehavior': _MenuBar_clipBehavior$,
         'controller': _MenuBar_controller$,
@@ -88,6 +96,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuItemButton': m.ClassMirror(
       'MenuItemButton',
       {
+        '#as': MenuItemButton_as$,
+        '#is': MenuItemButton_is$,
         'onPressed': _MenuItemButton_onPressed$,
         'onHover': _MenuItemButton_onHover$,
         'requestFocusOnHover': _MenuItemButton_requestFocusOnHover$,
@@ -112,6 +122,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckboxMenuButton': m.ClassMirror(
       'CheckboxMenuButton',
       {
+        '#as': CheckboxMenuButton_as$,
+        '#is': CheckboxMenuButton_is$,
         'value': _CheckboxMenuButton_value$,
         'tristate': _CheckboxMenuButton_tristate$,
         'isError': _CheckboxMenuButton_isError$,
@@ -134,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'RadioMenuButton': m.ClassMirror(
       'RadioMenuButton',
       {
+        '#as': RadioMenuButton_as$,
+        '#is': RadioMenuButton_is$,
         'value': _RadioMenuButton_value$,
         'groupValue': _RadioMenuButton_groupValue$,
         'toggleable': _RadioMenuButton_toggleable$,
@@ -156,6 +170,8 @@ const libraryMirror = m.LibraryMirror(
     'SubmenuButton': m.ClassMirror(
       'SubmenuButton',
       {
+        '#as': SubmenuButton_as$,
+        '#is': SubmenuButton_is$,
         'onHover': _SubmenuButton_onHover$,
         'onFocusChange': _SubmenuButton_onFocusChange$,
         'onOpen': _SubmenuButton_onOpen$,
@@ -181,6 +197,8 @@ const libraryMirror = m.LibraryMirror(
     'DismissMenuAction': m.ClassMirror(
       'DismissMenuAction',
       {
+        '#as': DismissMenuAction_as$,
+        '#is': DismissMenuAction_is$,
         'controller': _DismissMenuAction_controller$,
         'invoke': _DismissMenuAction_invoke$,
         'isEnabled': _DismissMenuAction_isEnabled$,
@@ -190,6 +208,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuAcceleratorCallbackBinding': m.ClassMirror(
       'MenuAcceleratorCallbackBinding',
       {
+        '#as': MenuAcceleratorCallbackBinding_as$,
+        '#is': MenuAcceleratorCallbackBinding_is$,
         'onInvoke': _MenuAcceleratorCallbackBinding_onInvoke$,
         'hasSubmenu': _MenuAcceleratorCallbackBinding_hasSubmenu$,
         'updateShouldNotify':
@@ -200,6 +220,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuAcceleratorLabel': m.ClassMirror(
       'MenuAcceleratorLabel',
       {
+        '#as': MenuAcceleratorLabel_as$,
+        '#is': MenuAcceleratorLabel_is$,
         'label': _MenuAcceleratorLabel_label$,
         'builder': _MenuAcceleratorLabel_builder$,
         'displayLabel': _MenuAcceleratorLabel_displayLabel$,
@@ -212,6 +234,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MenuAnchor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuAnchor;
+Function MenuAnchor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuAnchor;
 MenuController? _MenuAnchor_controller$(MenuAnchor target) {
   return target.controller;
 }
@@ -276,6 +308,16 @@ Function _MenuAnchor_debugFillProperties$(
   MenuAnchor target,
 ) =>
     target.debugFillProperties;
+Function MenuController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuController;
+Function MenuController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuController;
 bool _MenuController_isOpen$(MenuController target) {
   return target.isOpen;
 }
@@ -290,6 +332,16 @@ Function _MenuController_open$(
   MenuController target,
 ) =>
     target.open;
+Function MenuBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuBar;
+Function MenuBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuBar;
 MenuStyle? _MenuBar_style$(MenuBar target) {
   return target.style;
 }
@@ -321,6 +373,16 @@ Function _MenuBar_debugFillProperties$(
   MenuBar target,
 ) =>
     target.debugFillProperties;
+Function MenuItemButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuItemButton;
+Function MenuItemButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuItemButton;
 void Function()? _MenuItemButton_onPressed$(MenuItemButton target) {
   return target.onPressed;
 }
@@ -399,6 +461,16 @@ Function _MenuItemButton_debugFillProperties$(
   MenuItemButton target,
 ) =>
     target.debugFillProperties;
+Function CheckboxMenuButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckboxMenuButton;
+Function CheckboxMenuButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckboxMenuButton;
 bool? _CheckboxMenuButton_value$(CheckboxMenuButton target) {
   return target.value;
 }
@@ -468,6 +540,16 @@ Function _CheckboxMenuButton_build$(
   CheckboxMenuButton target,
 ) =>
     target.build;
+Function RadioMenuButton_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RadioMenuButton<T>;
+Function RadioMenuButton_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RadioMenuButton<T>;
 T _RadioMenuButton_value$<T>(RadioMenuButton<T> target) {
   return target.value;
 }
@@ -536,6 +618,16 @@ Function _RadioMenuButton_build$<T>(
   RadioMenuButton<T> target,
 ) =>
     target.build;
+Function SubmenuButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SubmenuButton;
+Function SubmenuButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SubmenuButton;
 void Function(bool)? _SubmenuButton_onHover$(SubmenuButton target) {
   return target.onHover;
 }
@@ -619,6 +711,16 @@ Function _SubmenuButton_debugFillProperties$(
   SubmenuButton target,
 ) =>
     target.debugFillProperties;
+Function DismissMenuAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DismissMenuAction;
+Function DismissMenuAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DismissMenuAction;
 MenuController _DismissMenuAction_controller$(DismissMenuAction target) {
   return target.controller;
 }
@@ -633,6 +735,16 @@ Function _DismissMenuAction_isEnabled$(
   DismissMenuAction target,
 ) =>
     target.isEnabled;
+Function MenuAcceleratorCallbackBinding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuAcceleratorCallbackBinding;
+Function MenuAcceleratorCallbackBinding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuAcceleratorCallbackBinding;
 void Function()? _MenuAcceleratorCallbackBinding_onInvoke$(
     MenuAcceleratorCallbackBinding target) {
   return target.onInvoke;
@@ -652,6 +764,16 @@ Function _MenuAcceleratorCallbackBinding_maybeOf$(m.Scope scope) =>
     MenuAcceleratorCallbackBinding.maybeOf;
 Function _MenuAcceleratorCallbackBinding_of$(m.Scope scope) =>
     MenuAcceleratorCallbackBinding.of;
+Function MenuAcceleratorLabel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuAcceleratorLabel;
+Function MenuAcceleratorLabel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuAcceleratorLabel;
 String _MenuAcceleratorLabel_label$(MenuAcceleratorLabel target) {
   return target.label;
 }
@@ -671,6 +793,22 @@ bool _MenuAcceleratorLabel_hasAccelerator$(MenuAcceleratorLabel target) {
 
 Function _MenuAcceleratorLabel_defaultLabelBuilder$(m.Scope scope) =>
     MenuAcceleratorLabel.defaultLabelBuilder;
+Function _MenuAcceleratorLabel_stripAcceleratorMarkers$(m.Scope scope) => (
+      String label, {
+      m.FunctionPointer? setIndex,
+    }) {
+      void setIndexProxy(int setIndex_index) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            setIndex!,
+            [setIndex_index],
+            {},
+          );
+      return MenuAcceleratorLabel.stripAcceleratorMarkers(
+        label,
+        setIndex: setIndex == null ? null : setIndexProxy,
+      );
+    };
 Function _MenuAcceleratorLabel_createState$(
   m.Scope scope,
   MenuAcceleratorLabel target,

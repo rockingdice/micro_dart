@@ -1682,11 +1682,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'CupertinoIcons': m.ClassMirror(
       'CupertinoIcons',
-      {},
+      {
+        '#as': CupertinoIcons_as$,
+        '#is': CupertinoIcons_is$,
+      },
       {},
     )
   },
 );
+Function CupertinoIcons_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoIcons;
+Function CupertinoIcons_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoIcons;
 String _CupertinoIcons_iconFont$() {
   return CupertinoIcons.iconFont;
 }

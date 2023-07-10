@@ -24,11 +24,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'Unicode': m.ClassMirror(
       'Unicode',
-      {},
+      {
+        '#as': Unicode_as$,
+        '#is': Unicode_is$,
+      },
       {},
     )
   },
 );
+Function Unicode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Unicode;
+Function Unicode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Unicode;
 String _Unicode_LRE$() {
   return Unicode.LRE;
 }

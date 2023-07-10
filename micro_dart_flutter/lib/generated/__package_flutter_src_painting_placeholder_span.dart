@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'PlaceholderSpan': m.ClassMirror(
       'PlaceholderSpan',
       {
+        '#as': PlaceholderSpan_as$,
+        '#is': PlaceholderSpan_is$,
         'alignment': _PlaceholderSpan_alignment$,
         'baseline': _PlaceholderSpan_baseline$,
         'computeToPlainText': _PlaceholderSpan_computeToPlainText$,
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function PlaceholderSpan_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlaceholderSpan;
+Function PlaceholderSpan_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlaceholderSpan;
 int _PlaceholderSpan_placeholderCodeUnit$() {
   return PlaceholderSpan.placeholderCodeUnit;
 }

@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'InteractiveViewer': m.ClassMirror(
       'InteractiveViewer',
       {
+        '#as': InteractiveViewer_as$,
+        '#is': InteractiveViewer_is$,
         'alignment': _InteractiveViewer_alignment$,
         'clipBehavior': _InteractiveViewer_clipBehavior$,
         'alignPanAxis': _InteractiveViewer_alignPanAxis$,
@@ -63,7 +65,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TransformationController': m.ClassMirror(
       'TransformationController',
-      {'toScene': _TransformationController_toScene$},
+      {
+        '#as': TransformationController_as$,
+        '#is': TransformationController_is$,
+        'toScene': _TransformationController_toScene$,
+      },
       {},
     ),
     'PanAxis': m.ClassMirror(
@@ -73,6 +79,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function InteractiveViewer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InteractiveViewer;
+Function InteractiveViewer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InteractiveViewer;
 Alignment? _InteractiveViewer_alignment$(InteractiveViewer target) {
   return target.alignment;
 }
@@ -168,6 +184,16 @@ Function _InteractiveViewer_createState$(
   InteractiveViewer target,
 ) =>
     target.createState;
+Function TransformationController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransformationController;
+Function TransformationController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransformationController;
 Function _TransformationController_toScene$(
   m.Scope scope,
   TransformationController target,

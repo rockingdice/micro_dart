@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoActivityIndicator': m.ClassMirror(
       'CupertinoActivityIndicator',
       {
+        '#as': CupertinoActivityIndicator_as$,
+        '#is': CupertinoActivityIndicator_is$,
         'color': _CupertinoActivityIndicator_color$,
         'animating': _CupertinoActivityIndicator_animating$,
         'radius': _CupertinoActivityIndicator_radius$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoActivityIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoActivityIndicator;
+Function CupertinoActivityIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoActivityIndicator;
 Color? _CupertinoActivityIndicator_color$(CupertinoActivityIndicator target) {
   return target.color;
 }

@@ -16,7 +16,10 @@ const libraryMirror = m.LibraryMirror(
   {
     'RelativeRect.fill': _RelativeRect_fill$,
     'RelativeRect.lerp': _RelativeRect_lerp$,
+    'RenderStack.getIntrinsicDimension': _RenderStack_getIntrinsicDimension$,
     'RenderStack.layoutPositionedChild': _RenderStack_layoutPositionedChild$,
+    'RenderIndexedStack.visitChildrenForSemantics':
+        _RenderIndexedStack_visitChildrenForSemantics$,
     'StackFit.loose': _StackFit_loose$,
     'StackFit.expand': _StackFit_expand$,
     'StackFit.passthrough': _StackFit_passthrough$,
@@ -27,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'RelativeRect': m.ClassMirror(
       'RelativeRect',
       {
+        '#as': RelativeRect_as$,
+        '#is': RelativeRect_is$,
         'left': _RelativeRect_left$,
         'top': _RelativeRect_top$,
         'right': _RelativeRect_right$,
@@ -39,6 +44,7 @@ const libraryMirror = m.LibraryMirror(
         'intersect': _RelativeRect_intersect$,
         'toRect': _RelativeRect_toRect$,
         'toSize': _RelativeRect_toSize$,
+        '==': _RelativeRect_eq$$,
         'toString': _RelativeRect_toString$,
       },
       {},
@@ -46,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'StackParentData': m.ClassMirror(
       'StackParentData',
       {
+        '#as': StackParentData_as$,
+        '#is': StackParentData_is$,
         'top': _StackParentData_top$,
         'right': _StackParentData_right$,
         'bottom': _StackParentData_bottom$,
@@ -69,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderStack': m.ClassMirror(
       'RenderStack',
       {
+        '#as': RenderStack_as$,
+        '#is': RenderStack_is$,
         'alignment': _RenderStack_alignment$,
         'textDirection': _RenderStack_textDirection$,
         'fit': _RenderStack_fit$,
@@ -100,6 +110,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderIndexedStack': m.ClassMirror(
       'RenderIndexedStack',
       {
+        '#as': RenderIndexedStack_as$,
+        '#is': RenderIndexedStack_is$,
         'index': _RenderIndexedStack_index$,
         'hitTestChildren': _RenderIndexedStack_hitTestChildren$,
         'paintStack': _RenderIndexedStack_paintStack$,
@@ -115,6 +127,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RelativeRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RelativeRect;
+Function RelativeRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RelativeRect;
 RelativeRect _RelativeRect_fill$() {
   return RelativeRect.fill;
 }
@@ -174,11 +196,26 @@ Function _RelativeRect_toSize$(
 ) =>
     target.toSize;
 Function _RelativeRect_lerp$(m.Scope scope) => RelativeRect.lerp;
+Function _RelativeRect_eq$$(
+  m.Scope scope,
+  RelativeRect target,
+) =>
+    (Object other) => target == other;
 Function _RelativeRect_toString$(
   m.Scope scope,
   RelativeRect target,
 ) =>
     target.toString;
+Function StackParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StackParentData;
+Function StackParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StackParentData;
 double? _StackParentData_top$(StackParentData target) {
   return target.top;
 }
@@ -265,6 +302,16 @@ Function _StackParentData_toString$(
   StackParentData target,
 ) =>
     target.toString;
+Function RenderStack_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderStack;
+Function RenderStack_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderStack;
 AlignmentGeometry _RenderStack_alignment$(RenderStack target) {
   return target.alignment;
 }
@@ -314,6 +361,22 @@ Function _RenderStack_setupParentData$(
   RenderStack target,
 ) =>
     target.setupParentData;
+Function _RenderStack_getIntrinsicDimension$(m.Scope scope) => (
+      RenderBox? firstChild,
+      m.FunctionPointer mainChildSizeGetter,
+    ) {
+      double mainChildSizeGetterProxy(RenderBox mainChildSizeGetter_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            mainChildSizeGetter,
+            [mainChildSizeGetter_child],
+            {},
+          );
+      return RenderStack.getIntrinsicDimension(
+        firstChild,
+        mainChildSizeGetterProxy,
+      );
+    };
 Function _RenderStack_computeMinIntrinsicWidth$(
   m.Scope scope,
   RenderStack target,
@@ -381,6 +444,16 @@ Function _RenderStack_debugFillProperties$(
   RenderStack target,
 ) =>
     target.debugFillProperties;
+Function RenderIndexedStack_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderIndexedStack;
+Function RenderIndexedStack_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderIndexedStack;
 int? _RenderIndexedStack_index$(RenderIndexedStack target) {
   return target.index;
 }
@@ -392,6 +465,20 @@ void _RenderIndexedStack_index_set$(
   target.index = other;
 }
 
+Function _RenderIndexedStack_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderIndexedStack target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderIndexedStack_hitTestChildren$(
   m.Scope scope,
   RenderIndexedStack target,

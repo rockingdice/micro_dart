@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollBehavior': m.ClassMirror(
       'ScrollBehavior',
       {
+        '#as': ScrollBehavior_as$,
+        '#is': ScrollBehavior_is$,
         'dragDevices': _ScrollBehavior_dragDevices$,
         'pointerAxisModifiers': _ScrollBehavior_pointerAxisModifiers$,
         'copyWith': _ScrollBehavior_copyWith$,
@@ -43,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollConfiguration': m.ClassMirror(
       'ScrollConfiguration',
       {
+        '#as': ScrollConfiguration_as$,
+        '#is': ScrollConfiguration_is$,
         'behavior': _ScrollConfiguration_behavior$,
         'updateShouldNotify': _ScrollConfiguration_updateShouldNotify$,
         'debugFillProperties': _ScrollConfiguration_debugFillProperties$,
@@ -56,6 +60,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollBehavior;
+Function ScrollBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollBehavior;
 Set<PointerDeviceKind> _ScrollBehavior_dragDevices$(ScrollBehavior target) {
   return target.dragDevices;
 }
@@ -105,6 +119,16 @@ Function _ScrollBehavior_toString$(
   ScrollBehavior target,
 ) =>
     target.toString;
+Function ScrollConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollConfiguration;
+Function ScrollConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollConfiguration;
 ScrollBehavior _ScrollConfiguration_behavior$(ScrollConfiguration target) {
   return target.behavior;
 }

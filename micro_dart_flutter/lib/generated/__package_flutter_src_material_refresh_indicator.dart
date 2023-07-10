@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'RefreshIndicator': m.ClassMirror(
       'RefreshIndicator',
       {
+        '#as': RefreshIndicator_as$,
+        '#is': RefreshIndicator_is$,
         'child': _RefreshIndicator_child$,
         'displacement': _RefreshIndicator_displacement$,
         'edgeOffset': _RefreshIndicator_edgeOffset$,
@@ -43,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'RefreshIndicatorState': m.ClassMirror(
       'RefreshIndicatorState',
       {
+        '#as': RefreshIndicatorState_as$,
+        '#is': RefreshIndicatorState_is$,
         'initState': _RefreshIndicatorState_initState$,
         'didChangeDependencies': _RefreshIndicatorState_didChangeDependencies$,
         'didUpdateWidget': _RefreshIndicatorState_didUpdateWidget$,
@@ -59,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RefreshIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RefreshIndicator;
+Function RefreshIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RefreshIndicator;
 Widget _RefreshIndicator_child$(RefreshIndicator target) {
   return target.child;
 }
@@ -110,6 +124,16 @@ Function _RefreshIndicator_createState$(
   RefreshIndicator target,
 ) =>
     target.createState;
+Function RefreshIndicatorState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RefreshIndicatorState;
+Function RefreshIndicatorState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RefreshIndicatorState;
 Function _RefreshIndicatorState_initState$(
   m.Scope scope,
   RefreshIndicatorState target,

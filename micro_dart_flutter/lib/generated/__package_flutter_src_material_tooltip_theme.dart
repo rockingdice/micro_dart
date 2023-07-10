@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'TooltipThemeData': m.ClassMirror(
       'TooltipThemeData',
       {
+        '#as': TooltipThemeData_as$,
+        '#is': TooltipThemeData_is$,
         'height': _TooltipThemeData_height$,
         'padding': _TooltipThemeData_padding$,
         'margin': _TooltipThemeData_margin$,
@@ -38,6 +40,7 @@ const libraryMirror = m.LibraryMirror(
         'enableFeedback': _TooltipThemeData_enableFeedback$,
         'hashCode': _TooltipThemeData_hashCode$,
         'copyWith': _TooltipThemeData_copyWith$,
+        '==': _TooltipThemeData_eq$$,
         'debugFillProperties': _TooltipThemeData_debugFillProperties$,
       },
       {},
@@ -45,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'TooltipTheme': m.ClassMirror(
       'TooltipTheme',
       {
+        '#as': TooltipTheme_as$,
+        '#is': TooltipTheme_is$,
         'data': _TooltipTheme_data$,
         'wrap': _TooltipTheme_wrap$,
         'updateShouldNotify': _TooltipTheme_updateShouldNotify$,
@@ -58,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TooltipThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TooltipThemeData;
+Function TooltipThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TooltipThemeData;
 double? _TooltipThemeData_height$(TooltipThemeData target) {
   return target.height;
 }
@@ -120,11 +135,26 @@ Function _TooltipThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _TooltipThemeData_lerp$(m.Scope scope) => TooltipThemeData.lerp;
+Function _TooltipThemeData_eq$$(
+  m.Scope scope,
+  TooltipThemeData target,
+) =>
+    (Object other) => target == other;
 Function _TooltipThemeData_debugFillProperties$(
   m.Scope scope,
   TooltipThemeData target,
 ) =>
     target.debugFillProperties;
+Function TooltipTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TooltipTheme;
+Function TooltipTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TooltipTheme;
 TooltipThemeData _TooltipTheme_data$(TooltipTheme target) {
   return target.data;
 }

@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchBarThemeData': m.ClassMirror(
       'SearchBarThemeData',
       {
+        '#as': SearchBarThemeData_as$,
+        '#is': SearchBarThemeData_is$,
         'elevation': _SearchBarThemeData_elevation$,
         'backgroundColor': _SearchBarThemeData_backgroundColor$,
         'shadowColor': _SearchBarThemeData_shadowColor$,
@@ -34,6 +36,7 @@ const libraryMirror = m.LibraryMirror(
         'constraints': _SearchBarThemeData_constraints$,
         'hashCode': _SearchBarThemeData_hashCode$,
         'copyWith': _SearchBarThemeData_copyWith$,
+        '==': _SearchBarThemeData_eq$$,
         'debugFillProperties': _SearchBarThemeData_debugFillProperties$,
       },
       {},
@@ -41,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchBarTheme': m.ClassMirror(
       'SearchBarTheme',
       {
+        '#as': SearchBarTheme_as$,
+        '#is': SearchBarTheme_is$,
         'data': _SearchBarTheme_data$,
         'updateShouldNotify': _SearchBarTheme_updateShouldNotify$,
       },
@@ -48,6 +53,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SearchBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchBarThemeData;
+Function SearchBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchBarThemeData;
 MaterialStateProperty<double?>? _SearchBarThemeData_elevation$(
     SearchBarThemeData target) {
   return target.elevation;
@@ -112,11 +127,26 @@ Function _SearchBarThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _SearchBarThemeData_lerp$(m.Scope scope) => SearchBarThemeData.lerp;
+Function _SearchBarThemeData_eq$$(
+  m.Scope scope,
+  SearchBarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SearchBarThemeData_debugFillProperties$(
   m.Scope scope,
   SearchBarThemeData target,
 ) =>
     target.debugFillProperties;
+Function SearchBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchBarTheme;
+Function SearchBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchBarTheme;
 SearchBarThemeData _SearchBarTheme_data$(SearchBarTheme target) {
   return target.data;
 }

@@ -43,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'Scrollable': m.ClassMirror(
       'Scrollable',
       {
+        '#as': Scrollable_as$,
+        '#is': Scrollable_is$,
         'axisDirection': _Scrollable_axisDirection$,
         'controller': _Scrollable_controller$,
         'physics': _Scrollable_physics$,
@@ -63,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollableState': m.ClassMirror(
       'ScrollableState',
       {
+        '#as': ScrollableState_as$,
+        '#is': ScrollableState_is$,
         'position': _ScrollableState_position$,
         'resolvedPhysics': _ScrollableState_resolvedPhysics$,
         'deltaToScrollOrigin': _ScrollableState_deltaToScrollOrigin$,
@@ -87,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Scrollable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Scrollable;
+Function Scrollable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Scrollable;
 AxisDirection _Scrollable_axisDirection$(Scrollable target) {
   return target.axisDirection;
 }
@@ -152,6 +166,16 @@ Function _Scrollable_of$(m.Scope scope) => Scrollable.of;
 Function _Scrollable_recommendDeferredLoadingForContext$(m.Scope scope) =>
     Scrollable.recommendDeferredLoadingForContext;
 Function _Scrollable_ensureVisible$(m.Scope scope) => Scrollable.ensureVisible;
+Function ScrollableState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollableState;
+Function ScrollableState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollableState;
 ScrollPosition _ScrollableState_position$(ScrollableState target) {
   return target.position;
 }

@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'OrientationBuilder': m.ClassMirror(
       'OrientationBuilder',
       {
+        '#as': OrientationBuilder_as$,
+        '#is': OrientationBuilder_is$,
         'builder': _OrientationBuilder_builder$,
         'build': _OrientationBuilder_build$,
       },
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function OrientationBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OrientationBuilder;
+Function OrientationBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OrientationBuilder;
 Widget Function(BuildContext, Orientation) _OrientationBuilder_builder$(
     OrientationBuilder target) {
   return target.builder;

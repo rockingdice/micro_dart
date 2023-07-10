@@ -28,12 +28,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'WrapParentData': m.ClassMirror(
       'WrapParentData',
-      {},
+      {
+        '#as': WrapParentData_as$,
+        '#is': WrapParentData_is$,
+      },
       {},
     ),
     'RenderWrap': m.ClassMirror(
       'RenderWrap',
       {
+        '#as': RenderWrap_as$,
+        '#is': RenderWrap_is$,
         'direction': _RenderWrap_direction$,
         'alignment': _RenderWrap_alignment$,
         'spacing': _RenderWrap_spacing$,
@@ -81,6 +86,26 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function WrapParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WrapParentData;
+Function WrapParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WrapParentData;
+Function RenderWrap_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderWrap;
+Function RenderWrap_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderWrap;
 Axis _RenderWrap_direction$(RenderWrap target) {
   return target.direction;
 }

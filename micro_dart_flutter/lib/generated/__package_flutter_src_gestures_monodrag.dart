@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'DragGestureRecognizer': m.ClassMirror(
       'DragGestureRecognizer',
       {
+        '#as': DragGestureRecognizer_as$,
+        '#is': DragGestureRecognizer_is$,
         'dragStartBehavior': _DragGestureRecognizer_dragStartBehavior$,
         'onDown': _DragGestureRecognizer_onDown$,
         'onStart': _DragGestureRecognizer_onStart$,
@@ -61,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
     'VerticalDragGestureRecognizer': m.ClassMirror(
       'VerticalDragGestureRecognizer',
       {
+        '#as': VerticalDragGestureRecognizer_as$,
+        '#is': VerticalDragGestureRecognizer_is$,
         'debugDescription': _VerticalDragGestureRecognizer_debugDescription$,
         'isFlingGesture': _VerticalDragGestureRecognizer_isFlingGesture$,
       },
@@ -69,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'HorizontalDragGestureRecognizer': m.ClassMirror(
       'HorizontalDragGestureRecognizer',
       {
+        '#as': HorizontalDragGestureRecognizer_as$,
+        '#is': HorizontalDragGestureRecognizer_is$,
         'debugDescription': _HorizontalDragGestureRecognizer_debugDescription$,
         'isFlingGesture': _HorizontalDragGestureRecognizer_isFlingGesture$,
       },
@@ -77,6 +83,8 @@ const libraryMirror = m.LibraryMirror(
     'PanGestureRecognizer': m.ClassMirror(
       'PanGestureRecognizer',
       {
+        '#as': PanGestureRecognizer_as$,
+        '#is': PanGestureRecognizer_is$,
         'debugDescription': _PanGestureRecognizer_debugDescription$,
         'isFlingGesture': _PanGestureRecognizer_isFlingGesture$,
       },
@@ -84,6 +92,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragGestureRecognizer;
+Function DragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragGestureRecognizer;
 DragStartBehavior _DragGestureRecognizer_dragStartBehavior$(
     DragGestureRecognizer target) {
   return target.dragStartBehavior;
@@ -299,6 +317,16 @@ Function _DragGestureRecognizer_debugFillProperties$(
   DragGestureRecognizer target,
 ) =>
     target.debugFillProperties;
+Function VerticalDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VerticalDragGestureRecognizer;
+Function VerticalDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VerticalDragGestureRecognizer;
 String _VerticalDragGestureRecognizer_debugDescription$(
     VerticalDragGestureRecognizer target) {
   return target.debugDescription;
@@ -309,6 +337,16 @@ Function _VerticalDragGestureRecognizer_isFlingGesture$(
   VerticalDragGestureRecognizer target,
 ) =>
     target.isFlingGesture;
+Function HorizontalDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HorizontalDragGestureRecognizer;
+Function HorizontalDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HorizontalDragGestureRecognizer;
 String _HorizontalDragGestureRecognizer_debugDescription$(
     HorizontalDragGestureRecognizer target) {
   return target.debugDescription;
@@ -319,6 +357,16 @@ Function _HorizontalDragGestureRecognizer_isFlingGesture$(
   HorizontalDragGestureRecognizer target,
 ) =>
     target.isFlingGesture;
+Function PanGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PanGestureRecognizer;
+Function PanGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PanGestureRecognizer;
 String _PanGestureRecognizer_debugDescription$(PanGestureRecognizer target) {
   return target.debugDescription;
 }

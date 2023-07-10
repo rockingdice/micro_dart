@@ -31,16 +31,22 @@ const libraryMirror = m.LibraryMirror(
   {
     'DateUtils': m.ClassMirror(
       'DateUtils',
-      {},
+      {
+        '#as': DateUtils_as$,
+        '#is': DateUtils_is$,
+      },
       {},
     ),
     'DateTimeRange': m.ClassMirror(
       'DateTimeRange',
       {
+        '#as': DateTimeRange_as$,
+        '#is': DateTimeRange_is$,
         'start': _DateTimeRange_start$,
         'end': _DateTimeRange_end$,
         'duration': _DateTimeRange_duration$,
         'hashCode': _DateTimeRange_hashCode$,
+        '==': _DateTimeRange_eq$$,
         'toString': _DateTimeRange_toString$,
       },
       {},
@@ -57,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DateUtils_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DateUtils;
+Function DateUtils_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DateUtils;
 Function _DateUtils_dateOnly$(m.Scope scope) => DateUtils.dateOnly;
 Function _DateUtils_datesOnly$(m.Scope scope) => DateUtils.datesOnly;
 Function _DateUtils_isSameDay$(m.Scope scope) => DateUtils.isSameDay;
@@ -67,6 +83,16 @@ Function _DateUtils_addMonthsToMonthDate$(m.Scope scope) =>
 Function _DateUtils_addDaysToDate$(m.Scope scope) => DateUtils.addDaysToDate;
 Function _DateUtils_firstDayOffset$(m.Scope scope) => DateUtils.firstDayOffset;
 Function _DateUtils_getDaysInMonth$(m.Scope scope) => DateUtils.getDaysInMonth;
+Function DateTimeRange_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DateTimeRange;
+Function DateTimeRange_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DateTimeRange;
 DateTime _DateTimeRange_start$(DateTimeRange target) {
   return target.start;
 }
@@ -83,6 +109,11 @@ int _DateTimeRange_hashCode$(DateTimeRange target) {
   return target.hashCode;
 }
 
+Function _DateTimeRange_eq$$(
+  m.Scope scope,
+  DateTimeRange target,
+) =>
+    (Object other) => target == other;
 Function _DateTimeRange_toString$(
   m.Scope scope,
   DateTimeRange target,

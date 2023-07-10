@@ -19,8 +19,11 @@ const libraryMirror = m.LibraryMirror(
     'OutlinedButtonThemeData': m.ClassMirror(
       'OutlinedButtonThemeData',
       {
+        '#as': OutlinedButtonThemeData_as$,
+        '#is': OutlinedButtonThemeData_is$,
         'style': _OutlinedButtonThemeData_style$,
         'hashCode': _OutlinedButtonThemeData_hashCode$,
+        '==': _OutlinedButtonThemeData_eq$$,
         'debugFillProperties': _OutlinedButtonThemeData_debugFillProperties$,
       },
       {},
@@ -28,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'OutlinedButtonTheme': m.ClassMirror(
       'OutlinedButtonTheme',
       {
+        '#as': OutlinedButtonTheme_as$,
+        '#is': OutlinedButtonTheme_is$,
         'data': _OutlinedButtonTheme_data$,
         'wrap': _OutlinedButtonTheme_wrap$,
         'updateShouldNotify': _OutlinedButtonTheme_updateShouldNotify$,
@@ -36,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function OutlinedButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutlinedButtonThemeData;
+Function OutlinedButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutlinedButtonThemeData;
 ButtonStyle? _OutlinedButtonThemeData_style$(OutlinedButtonThemeData target) {
   return target.style;
 }
@@ -46,11 +61,26 @@ int _OutlinedButtonThemeData_hashCode$(OutlinedButtonThemeData target) {
 
 Function _OutlinedButtonThemeData_lerp$(m.Scope scope) =>
     OutlinedButtonThemeData.lerp;
+Function _OutlinedButtonThemeData_eq$$(
+  m.Scope scope,
+  OutlinedButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _OutlinedButtonThemeData_debugFillProperties$(
   m.Scope scope,
   OutlinedButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function OutlinedButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutlinedButtonTheme;
+Function OutlinedButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutlinedButtonTheme;
 OutlinedButtonThemeData _OutlinedButtonTheme_data$(OutlinedButtonTheme target) {
   return target.data;
 }

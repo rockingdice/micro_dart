@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'ModalBarrier': m.ClassMirror(
       'ModalBarrier',
       {
+        '#as': ModalBarrier_as$,
+        '#is': ModalBarrier_is$,
         'color': _ModalBarrier_color$,
         'dismissible': _ModalBarrier_dismissible$,
         'onDismiss': _ModalBarrier_onDismiss$,
@@ -37,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedModalBarrier': m.ClassMirror(
       'AnimatedModalBarrier',
       {
+        '#as': AnimatedModalBarrier_as$,
+        '#is': AnimatedModalBarrier_is$,
         'dismissible': _AnimatedModalBarrier_dismissible$,
         'semanticsLabel': _AnimatedModalBarrier_semanticsLabel$,
         'barrierSemanticsDismissible':
@@ -51,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ModalBarrier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ModalBarrier;
+Function ModalBarrier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ModalBarrier;
 Color? _ModalBarrier_color$(ModalBarrier target) {
   return target.color;
 }
@@ -85,6 +99,16 @@ Function _ModalBarrier_build$(
   ModalBarrier target,
 ) =>
     target.build;
+Function AnimatedModalBarrier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedModalBarrier;
+Function AnimatedModalBarrier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedModalBarrier;
 bool _AnimatedModalBarrier_dismissible$(AnimatedModalBarrier target) {
   return target.dismissible;
 }

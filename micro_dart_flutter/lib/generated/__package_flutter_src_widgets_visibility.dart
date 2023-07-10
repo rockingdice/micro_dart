@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'Visibility': m.ClassMirror(
       'Visibility',
       {
+        '#as': Visibility_as$,
+        '#is': Visibility_is$,
         'child': _Visibility_child$,
         'replacement': _Visibility_replacement$,
         'visible': _Visibility_visible$,
@@ -33,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverVisibility': m.ClassMirror(
       'SliverVisibility',
       {
+        '#as': SliverVisibility_as$,
+        '#is': SliverVisibility_is$,
         'sliver': _SliverVisibility_sliver$,
         'replacementSliver': _SliverVisibility_replacementSliver$,
         'visible': _SliverVisibility_visible$,
@@ -48,6 +52,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Visibility_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Visibility;
+Function Visibility_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Visibility;
 Widget _Visibility_child$(Visibility target) {
   return target.child;
 }
@@ -91,6 +105,16 @@ Function _Visibility_debugFillProperties$(
   Visibility target,
 ) =>
     target.debugFillProperties;
+Function SliverVisibility_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverVisibility;
+Function SliverVisibility_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverVisibility;
 Widget _SliverVisibility_sliver$(SliverVisibility target) {
   return target.sliver;
 }

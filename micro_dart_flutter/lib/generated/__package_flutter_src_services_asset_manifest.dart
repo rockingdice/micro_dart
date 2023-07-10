@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'AssetManifest': m.ClassMirror(
       'AssetManifest',
       {
+        '#as': AssetManifest_as$,
+        '#is': AssetManifest_is$,
         'listAssets': _AssetManifest_listAssets$,
         'getAssetVariants': _AssetManifest_getAssetVariants$,
       },
@@ -23,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'AssetMetadata': m.ClassMirror(
       'AssetMetadata',
       {
+        '#as': AssetMetadata_as$,
+        '#is': AssetMetadata_is$,
         'targetDevicePixelRatio': _AssetMetadata_targetDevicePixelRatio$,
         'key': _AssetMetadata_key$,
         'main': _AssetMetadata_main$,
@@ -31,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AssetManifest_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AssetManifest;
+Function AssetManifest_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AssetManifest;
 Function _AssetManifest_loadFromAssetBundle$(m.Scope scope) =>
     AssetManifest.loadFromAssetBundle;
 Function _AssetManifest_listAssets$(
@@ -43,6 +57,16 @@ Function _AssetManifest_getAssetVariants$(
   AssetManifest target,
 ) =>
     target.getAssetVariants;
+Function AssetMetadata_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AssetMetadata;
+Function AssetMetadata_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AssetMetadata;
 double? _AssetMetadata_targetDevicePixelRatio$(AssetMetadata target) {
   return target.targetDevicePixelRatio;
 }

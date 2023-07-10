@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressDownDetails': m.ClassMirror(
       'LongPressDownDetails',
       {
+        '#as': LongPressDownDetails_as$,
+        '#is': LongPressDownDetails_is$,
         'globalPosition': _LongPressDownDetails_globalPosition$,
         'kind': _LongPressDownDetails_kind$,
         'localPosition': _LongPressDownDetails_localPosition$,
@@ -25,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressStartDetails': m.ClassMirror(
       'LongPressStartDetails',
       {
+        '#as': LongPressStartDetails_as$,
+        '#is': LongPressStartDetails_is$,
         'globalPosition': _LongPressStartDetails_globalPosition$,
         'localPosition': _LongPressStartDetails_localPosition$,
       },
@@ -33,6 +37,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressMoveUpdateDetails': m.ClassMirror(
       'LongPressMoveUpdateDetails',
       {
+        '#as': LongPressMoveUpdateDetails_as$,
+        '#is': LongPressMoveUpdateDetails_is$,
         'globalPosition': _LongPressMoveUpdateDetails_globalPosition$,
         'localPosition': _LongPressMoveUpdateDetails_localPosition$,
         'offsetFromOrigin': _LongPressMoveUpdateDetails_offsetFromOrigin$,
@@ -44,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressEndDetails': m.ClassMirror(
       'LongPressEndDetails',
       {
+        '#as': LongPressEndDetails_as$,
+        '#is': LongPressEndDetails_is$,
         'globalPosition': _LongPressEndDetails_globalPosition$,
         'localPosition': _LongPressEndDetails_localPosition$,
         'velocity': _LongPressEndDetails_velocity$,
@@ -53,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'LongPressGestureRecognizer': m.ClassMirror(
       'LongPressGestureRecognizer',
       {
+        '#as': LongPressGestureRecognizer_as$,
+        '#is': LongPressGestureRecognizer_is$,
         'onLongPressDown': _LongPressGestureRecognizer_onLongPressDown$,
         'onLongPressCancel': _LongPressGestureRecognizer_onLongPressCancel$,
         'onLongPress': _LongPressGestureRecognizer_onLongPress$,
@@ -137,6 +147,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function LongPressDownDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressDownDetails;
+Function LongPressDownDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressDownDetails;
 Offset _LongPressDownDetails_globalPosition$(LongPressDownDetails target) {
   return target.globalPosition;
 }
@@ -149,6 +169,16 @@ Offset _LongPressDownDetails_localPosition$(LongPressDownDetails target) {
   return target.localPosition;
 }
 
+Function LongPressStartDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressStartDetails;
+Function LongPressStartDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressStartDetails;
 Offset _LongPressStartDetails_globalPosition$(LongPressStartDetails target) {
   return target.globalPosition;
 }
@@ -157,6 +187,16 @@ Offset _LongPressStartDetails_localPosition$(LongPressStartDetails target) {
   return target.localPosition;
 }
 
+Function LongPressMoveUpdateDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressMoveUpdateDetails;
+Function LongPressMoveUpdateDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressMoveUpdateDetails;
 Offset _LongPressMoveUpdateDetails_globalPosition$(
     LongPressMoveUpdateDetails target) {
   return target.globalPosition;
@@ -177,6 +217,16 @@ Offset _LongPressMoveUpdateDetails_localOffsetFromOrigin$(
   return target.localOffsetFromOrigin;
 }
 
+Function LongPressEndDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressEndDetails;
+Function LongPressEndDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressEndDetails;
 Offset _LongPressEndDetails_globalPosition$(LongPressEndDetails target) {
   return target.globalPosition;
 }
@@ -189,6 +239,16 @@ Velocity _LongPressEndDetails_velocity$(LongPressEndDetails target) {
   return target.velocity;
 }
 
+Function LongPressGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LongPressGestureRecognizer;
+Function LongPressGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LongPressGestureRecognizer;
 void Function(LongPressDownDetails)?
     _LongPressGestureRecognizer_onLongPressDown$(
         LongPressGestureRecognizer target) {

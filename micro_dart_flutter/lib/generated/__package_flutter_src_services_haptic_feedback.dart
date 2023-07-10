@@ -18,11 +18,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'HapticFeedback': m.ClassMirror(
       'HapticFeedback',
-      {},
+      {
+        '#as': HapticFeedback_as$,
+        '#is': HapticFeedback_is$,
+      },
       {},
     )
   },
 );
+Function HapticFeedback_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HapticFeedback;
+Function HapticFeedback_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HapticFeedback;
 Function _HapticFeedback_vibrate$(m.Scope scope) => HapticFeedback.vibrate;
 Function _HapticFeedback_lightImpact$(m.Scope scope) =>
     HapticFeedback.lightImpact;

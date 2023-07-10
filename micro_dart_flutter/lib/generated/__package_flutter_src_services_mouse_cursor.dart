@@ -56,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'MouseCursorManager': m.ClassMirror(
       'MouseCursorManager',
       {
+        '#as': MouseCursorManager_as$,
+        '#is': MouseCursorManager_is$,
         'fallbackMouseCursor': _MouseCursorManager_fallbackMouseCursor$,
         'debugDeviceActiveCursor': _MouseCursorManager_debugDeviceActiveCursor$,
         'handleDeviceCursorUpdate':
@@ -66,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'MouseCursorSession': m.ClassMirror(
       'MouseCursorSession',
       {
+        '#as': MouseCursorSession_as$,
+        '#is': MouseCursorSession_is$,
         'cursor': _MouseCursorSession_cursor$,
         'device': _MouseCursorSession_device$,
         'activate': _MouseCursorSession_activate$,
@@ -76,6 +80,8 @@ const libraryMirror = m.LibraryMirror(
     'MouseCursor': m.ClassMirror(
       'MouseCursor',
       {
+        '#as': MouseCursor_as$,
+        '#is': MouseCursor_is$,
         'debugDescription': _MouseCursor_debugDescription$,
         'createSession': _MouseCursor_createSession$,
         'toString': _MouseCursor_toString$,
@@ -85,21 +91,37 @@ const libraryMirror = m.LibraryMirror(
     'SystemMouseCursor': m.ClassMirror(
       'SystemMouseCursor',
       {
+        '#as': SystemMouseCursor_as$,
+        '#is': SystemMouseCursor_is$,
         'kind': _SystemMouseCursor_kind$,
         'debugDescription': _SystemMouseCursor_debugDescription$,
         'hashCode': _SystemMouseCursor_hashCode$,
         'createSession': _SystemMouseCursor_createSession$,
+        '==': _SystemMouseCursor_eq$$,
         'debugFillProperties': _SystemMouseCursor_debugFillProperties$,
       },
       {},
     ),
     'SystemMouseCursors': m.ClassMirror(
       'SystemMouseCursors',
-      {},
+      {
+        '#as': SystemMouseCursors_as$,
+        '#is': SystemMouseCursors_is$,
+      },
       {},
     ),
   },
 );
+Function MouseCursorManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MouseCursorManager;
+Function MouseCursorManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MouseCursorManager;
 MouseCursor _MouseCursorManager_fallbackMouseCursor$(
     MouseCursorManager target) {
   return target.fallbackMouseCursor;
@@ -115,6 +137,16 @@ Function _MouseCursorManager_handleDeviceCursorUpdate$(
   MouseCursorManager target,
 ) =>
     target.handleDeviceCursorUpdate;
+Function MouseCursorSession_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MouseCursorSession;
+Function MouseCursorSession_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MouseCursorSession;
 MouseCursor _MouseCursorSession_cursor$(MouseCursorSession target) {
   return target.cursor;
 }
@@ -133,6 +165,16 @@ Function _MouseCursorSession_dispose$(
   MouseCursorSession target,
 ) =>
     target.dispose;
+Function MouseCursor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MouseCursor;
+Function MouseCursor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MouseCursor;
 MouseCursor _MouseCursor_defer$() {
   return MouseCursor.defer;
 }
@@ -155,6 +197,16 @@ Function _MouseCursor_toString$(
   MouseCursor target,
 ) =>
     target.toString;
+Function SystemMouseCursor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemMouseCursor;
+Function SystemMouseCursor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemMouseCursor;
 String _SystemMouseCursor_kind$(SystemMouseCursor target) {
   return target.kind;
 }
@@ -172,11 +224,26 @@ Function _SystemMouseCursor_createSession$(
   SystemMouseCursor target,
 ) =>
     target.createSession;
+Function _SystemMouseCursor_eq$$(
+  m.Scope scope,
+  SystemMouseCursor target,
+) =>
+    (Object other) => target == other;
 Function _SystemMouseCursor_debugFillProperties$(
   m.Scope scope,
   SystemMouseCursor target,
 ) =>
     target.debugFillProperties;
+Function SystemMouseCursors_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemMouseCursors;
+Function SystemMouseCursors_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemMouseCursors;
 SystemMouseCursor _SystemMouseCursors_none$() {
   return SystemMouseCursors.none;
 }

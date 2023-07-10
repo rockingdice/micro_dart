@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedSize': m.ClassMirror(
       'AnimatedSize',
       {
+        '#as': AnimatedSize_as$,
+        '#is': AnimatedSize_is$,
         'child': _AnimatedSize_child$,
         'alignment': _AnimatedSize_alignment$,
         'curve': _AnimatedSize_curve$,
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function AnimatedSize_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedSize;
+Function AnimatedSize_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedSize;
 Widget? _AnimatedSize_child$(AnimatedSize target) {
   return target.child;
 }

@@ -94,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'ThemeExtension': m.ClassMirror(
       'ThemeExtension',
       {
+        '#as': ThemeExtension_as$,
+        '#is': ThemeExtension_is$,
         'type': _ThemeExtension_type$,
         'copyWith': _ThemeExtension_copyWith$,
         'lerp': _ThemeExtension_lerp$,
@@ -103,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'ThemeData': m.ClassMirror(
       'ThemeData',
       {
+        '#as': ThemeData_as$,
+        '#is': ThemeData_is$,
         'applyElevationOverlayColor': _ThemeData_applyElevationOverlayColor$,
         'cupertinoOverrideTheme': _ThemeData_cupertinoOverrideTheme$,
         'extensions': _ThemeData_extensions$,
@@ -189,6 +193,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _ThemeData_hashCode$,
         'extension': _ThemeData_extension$,
         'copyWith': _ThemeData_copyWith$,
+        '==': _ThemeData_eq$$,
         'debugFillProperties': _ThemeData_debugFillProperties$,
       },
       {},
@@ -196,6 +201,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialBasedCupertinoThemeData': m.ClassMirror(
       'MaterialBasedCupertinoThemeData',
       {
+        '#as': MaterialBasedCupertinoThemeData_as$,
+        '#is': MaterialBasedCupertinoThemeData_is$,
         'brightness': _MaterialBasedCupertinoThemeData_brightness$,
         'primaryColor': _MaterialBasedCupertinoThemeData_primaryColor$,
         'primaryContrastingColor':
@@ -210,12 +217,15 @@ const libraryMirror = m.LibraryMirror(
     'VisualDensity': m.ClassMirror(
       'VisualDensity',
       {
+        '#as': VisualDensity_as$,
+        '#is': VisualDensity_is$,
         'horizontal': _VisualDensity_horizontal$,
         'vertical': _VisualDensity_vertical$,
         'baseSizeAdjustment': _VisualDensity_baseSizeAdjustment$,
         'hashCode': _VisualDensity_hashCode$,
         'copyWith': _VisualDensity_copyWith$,
         'effectiveConstraints': _VisualDensity_effectiveConstraints$,
+        '==': _VisualDensity_eq$$,
         'debugFillProperties': _VisualDensity_debugFillProperties$,
         'toStringShort': _VisualDensity_toStringShort$,
       },
@@ -228,6 +238,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ThemeExtension_as$<T extends ThemeExtension<T>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ThemeExtension<T>;
+Function ThemeExtension_is$<T extends ThemeExtension<T>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ThemeExtension<T>;
 Object _ThemeExtension_type$<T extends ThemeExtension<T>>(
     ThemeExtension<T> target) {
   return target.type;
@@ -243,6 +263,16 @@ Function _ThemeExtension_lerp$<T extends ThemeExtension<T>>(
   ThemeExtension<T> target,
 ) =>
     target.lerp;
+Function ThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ThemeData;
+Function ThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ThemeData;
 bool _ThemeData_applyElevationOverlayColor$(ThemeData target) {
   return target.applyElevationOverlayColor;
 }
@@ -598,11 +628,26 @@ Function _ThemeData_localize$(m.Scope scope) => ThemeData.localize;
 Function _ThemeData_estimateBrightnessForColor$(m.Scope scope) =>
     ThemeData.estimateBrightnessForColor;
 Function _ThemeData_lerp$(m.Scope scope) => ThemeData.lerp;
+Function _ThemeData_eq$$(
+  m.Scope scope,
+  ThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ThemeData_debugFillProperties$(
   m.Scope scope,
   ThemeData target,
 ) =>
     target.debugFillProperties;
+Function MaterialBasedCupertinoThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialBasedCupertinoThemeData;
+Function MaterialBasedCupertinoThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialBasedCupertinoThemeData;
 Brightness _MaterialBasedCupertinoThemeData_brightness$(
     MaterialBasedCupertinoThemeData target) {
   return target.brightness;
@@ -633,6 +678,16 @@ Function _MaterialBasedCupertinoThemeData_resolveFrom$(
   MaterialBasedCupertinoThemeData target,
 ) =>
     target.resolveFrom;
+Function VisualDensity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VisualDensity;
+Function VisualDensity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VisualDensity;
 double _VisualDensity_minimumDensity$() {
   return VisualDensity.minimumDensity;
 }
@@ -686,6 +741,11 @@ Function _VisualDensity_effectiveConstraints$(
   VisualDensity target,
 ) =>
     target.effectiveConstraints;
+Function _VisualDensity_eq$$(
+  m.Scope scope,
+  VisualDensity target,
+) =>
+    (Object other) => target == other;
 Function _VisualDensity_debugFillProperties$(
   m.Scope scope,
   VisualDensity target,

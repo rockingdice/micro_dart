@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataLinux': m.ClassMirror(
       'RawKeyEventDataLinux',
       {
+        '#as': RawKeyEventDataLinux_as$,
+        '#is': RawKeyEventDataLinux_is$,
         'keyHelper': _RawKeyEventDataLinux_keyHelper$,
         'unicodeScalarValues': _RawKeyEventDataLinux_unicodeScalarValues$,
         'scanCode': _RawKeyEventDataLinux_scanCode$,
@@ -42,12 +44,15 @@ const libraryMirror = m.LibraryMirror(
         'isModifierPressed': _RawKeyEventDataLinux_isModifierPressed$,
         'getModifierSide': _RawKeyEventDataLinux_getModifierSide$,
         'debugFillProperties': _RawKeyEventDataLinux_debugFillProperties$,
+        '==': _RawKeyEventDataLinux_eq$$,
       },
       {},
     ),
     'KeyHelper': m.ClassMirror(
       'KeyHelper',
       {
+        '#as': KeyHelper_as$,
+        '#is': KeyHelper_is$,
         'debugToolkit': _KeyHelper_debugToolkit$,
         'platformPlane': _KeyHelper_platformPlane$,
         'getModifierSide': _KeyHelper_getModifierSide$,
@@ -60,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'GLFWKeyHelper': m.ClassMirror(
       'GLFWKeyHelper',
       {
+        '#as': GLFWKeyHelper_as$,
+        '#is': GLFWKeyHelper_is$,
         'debugToolkit': _GLFWKeyHelper_debugToolkit$,
         'platformPlane': _GLFWKeyHelper_platformPlane$,
         'isModifierPressed': _GLFWKeyHelper_isModifierPressed$,
@@ -72,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'GtkKeyHelper': m.ClassMirror(
       'GtkKeyHelper',
       {
+        '#as': GtkKeyHelper_as$,
+        '#is': GtkKeyHelper_is$,
         'debugToolkit': _GtkKeyHelper_debugToolkit$,
         'platformPlane': _GtkKeyHelper_platformPlane$,
         'isModifierPressed': _GtkKeyHelper_isModifierPressed$,
@@ -83,6 +92,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RawKeyEventDataLinux_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataLinux;
+Function RawKeyEventDataLinux_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataLinux;
 KeyHelper _RawKeyEventDataLinux_keyHelper$(RawKeyEventDataLinux target) {
   return target.keyHelper;
 }
@@ -144,6 +163,21 @@ Function _RawKeyEventDataLinux_debugFillProperties$(
   RawKeyEventDataLinux target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataLinux_eq$$(
+  m.Scope scope,
+  RawKeyEventDataLinux target,
+) =>
+    (Object other) => target == other;
+Function KeyHelper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyHelper;
+Function KeyHelper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyHelper;
 String _KeyHelper_debugToolkit$(KeyHelper target) {
   return target.debugToolkit;
 }
@@ -172,6 +206,16 @@ Function _KeyHelper_logicalKey$(
   KeyHelper target,
 ) =>
     target.logicalKey;
+Function GLFWKeyHelper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GLFWKeyHelper;
+Function GLFWKeyHelper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GLFWKeyHelper;
 int _GLFWKeyHelper_modifierCapsLock$() {
   return GLFWKeyHelper.modifierCapsLock;
 }
@@ -224,6 +268,16 @@ Function _GLFWKeyHelper_logicalKey$(
   GLFWKeyHelper target,
 ) =>
     target.logicalKey;
+Function GtkKeyHelper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GtkKeyHelper;
+Function GtkKeyHelper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GtkKeyHelper;
 int _GtkKeyHelper_modifierShift$() {
   return GtkKeyHelper.modifierShift;
 }

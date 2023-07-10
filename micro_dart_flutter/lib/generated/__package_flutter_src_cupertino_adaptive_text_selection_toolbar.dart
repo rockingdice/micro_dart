@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoAdaptiveTextSelectionToolbar': m.ClassMirror(
       'CupertinoAdaptiveTextSelectionToolbar',
       {
+        '#as': CupertinoAdaptiveTextSelectionToolbar_as$,
+        '#is': CupertinoAdaptiveTextSelectionToolbar_is$,
         'anchors': _CupertinoAdaptiveTextSelectionToolbar_anchors$,
         'children': _CupertinoAdaptiveTextSelectionToolbar_children$,
         'buttonItems': _CupertinoAdaptiveTextSelectionToolbar_buttonItems$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoAdaptiveTextSelectionToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoAdaptiveTextSelectionToolbar;
+Function CupertinoAdaptiveTextSelectionToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoAdaptiveTextSelectionToolbar;
 TextSelectionToolbarAnchors _CupertinoAdaptiveTextSelectionToolbar_anchors$(
     CupertinoAdaptiveTextSelectionToolbar target) {
   return target.anchors;

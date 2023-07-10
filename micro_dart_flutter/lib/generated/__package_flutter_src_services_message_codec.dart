@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'MessageCodec': m.ClassMirror(
       'MessageCodec',
       {
+        '#as': MessageCodec_as$,
+        '#is': MessageCodec_is$,
         'encodeMessage': _MessageCodec_encodeMessage$,
         'decodeMessage': _MessageCodec_decodeMessage$,
       },
@@ -22,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'MethodCall': m.ClassMirror(
       'MethodCall',
       {
+        '#as': MethodCall_as$,
+        '#is': MethodCall_is$,
         'method': _MethodCall_method$,
         'arguments': _MethodCall_arguments$,
         'toString': _MethodCall_toString$,
@@ -31,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'MethodCodec': m.ClassMirror(
       'MethodCodec',
       {
+        '#as': MethodCodec_as$,
+        '#is': MethodCodec_is$,
         'encodeMethodCall': _MethodCodec_encodeMethodCall$,
         'decodeMethodCall': _MethodCodec_decodeMethodCall$,
         'decodeEnvelope': _MethodCodec_decodeEnvelope$,
@@ -42,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformException': m.ClassMirror(
       'PlatformException',
       {
+        '#as': PlatformException_as$,
+        '#is': PlatformException_is$,
         'code': _PlatformException_code$,
         'message': _PlatformException_message$,
         'details': _PlatformException_details$,
@@ -53,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'MissingPluginException': m.ClassMirror(
       'MissingPluginException',
       {
+        '#as': MissingPluginException_as$,
+        '#is': MissingPluginException_is$,
         'message': _MissingPluginException_message$,
         'toString': _MissingPluginException_toString$,
       },
@@ -60,6 +70,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MessageCodec_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MessageCodec<T>;
+Function MessageCodec_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MessageCodec<T>;
 Function _MessageCodec_encodeMessage$<T>(
   m.Scope scope,
   MessageCodec<T> target,
@@ -70,6 +90,16 @@ Function _MessageCodec_decodeMessage$<T>(
   MessageCodec<T> target,
 ) =>
     target.decodeMessage;
+Function MethodCall_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MethodCall;
+Function MethodCall_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MethodCall;
 String _MethodCall_method$(MethodCall target) {
   return target.method;
 }
@@ -83,6 +113,16 @@ Function _MethodCall_toString$(
   MethodCall target,
 ) =>
     target.toString;
+Function MethodCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MethodCodec;
+Function MethodCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MethodCodec;
 Function _MethodCodec_encodeMethodCall$(
   m.Scope scope,
   MethodCodec target,
@@ -108,6 +148,16 @@ Function _MethodCodec_encodeErrorEnvelope$(
   MethodCodec target,
 ) =>
     target.encodeErrorEnvelope;
+Function PlatformException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformException;
+Function PlatformException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformException;
 String _PlatformException_code$(PlatformException target) {
   return target.code;
 }
@@ -129,6 +179,16 @@ Function _PlatformException_toString$(
   PlatformException target,
 ) =>
     target.toString;
+Function MissingPluginException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MissingPluginException;
+Function MissingPluginException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MissingPluginException;
 String? _MissingPluginException_message$(MissingPluginException target) {
   return target.message;
 }

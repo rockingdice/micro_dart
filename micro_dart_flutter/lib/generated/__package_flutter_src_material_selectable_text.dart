@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectableText': m.ClassMirror(
       'SelectableText',
       {
+        '#as': SelectableText_as$,
+        '#is': SelectableText_is$,
         'data': _SelectableText_data$,
         'textSpan': _SelectableText_textSpan$,
         'focusNode': _SelectableText_focusNode$,
@@ -66,6 +68,16 @@ int _iOSHorizontalOffset$() {
   return iOSHorizontalOffset;
 }
 
+Function SelectableText_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectableText;
+Function SelectableText_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectableText;
 String? _SelectableText_data$(SelectableText target) {
   return target.data;
 }

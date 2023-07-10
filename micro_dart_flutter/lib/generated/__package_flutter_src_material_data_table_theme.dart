@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'DataTableThemeData': m.ClassMirror(
       'DataTableThemeData',
       {
+        '#as': DataTableThemeData_as$,
+        '#is': DataTableThemeData_is$,
         'decoration': _DataTableThemeData_decoration$,
         'dataRowColor': _DataTableThemeData_dataRowColor$,
         'dataRowMinHeight': _DataTableThemeData_dataRowMinHeight$,
@@ -37,6 +39,7 @@ const libraryMirror = m.LibraryMirror(
         'dataRowCursor': _DataTableThemeData_dataRowCursor$,
         'hashCode': _DataTableThemeData_hashCode$,
         'copyWith': _DataTableThemeData_copyWith$,
+        '==': _DataTableThemeData_eq$$,
         'debugFillProperties': _DataTableThemeData_debugFillProperties$,
       },
       {},
@@ -44,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'DataTableTheme': m.ClassMirror(
       'DataTableTheme',
       {
+        '#as': DataTableTheme_as$,
+        '#is': DataTableTheme_is$,
         'data': _DataTableTheme_data$,
         'updateShouldNotify': _DataTableTheme_updateShouldNotify$,
       },
@@ -51,6 +56,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DataTableThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataTableThemeData;
+Function DataTableThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataTableThemeData;
 Decoration? _DataTableThemeData_decoration$(DataTableThemeData target) {
   return target.decoration;
 }
@@ -122,11 +137,26 @@ Function _DataTableThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _DataTableThemeData_lerp$(m.Scope scope) => DataTableThemeData.lerp;
+Function _DataTableThemeData_eq$$(
+  m.Scope scope,
+  DataTableThemeData target,
+) =>
+    (Object other) => target == other;
 Function _DataTableThemeData_debugFillProperties$(
   m.Scope scope,
   DataTableThemeData target,
 ) =>
     target.debugFillProperties;
+Function DataTableTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DataTableTheme;
+Function DataTableTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DataTableTheme;
 DataTableThemeData _DataTableTheme_data$(DataTableTheme target) {
   return target.data;
 }

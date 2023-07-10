@@ -17,24 +17,84 @@ const libraryMirror = m.LibraryMirror(
         _BackgroundIsolateBinaryMessenger_instance$,
     'BackgroundIsolateBinaryMessenger.ensureInitialized':
         _BackgroundIsolateBinaryMessenger_ensureInitialized$,
+    'BackgroundIsolateBinaryMessenger.handlePlatformMessage':
+        _BackgroundIsolateBinaryMessenger_handlePlatformMessage$,
+    'BackgroundIsolateBinaryMessenger.setMessageHandler':
+        _BackgroundIsolateBinaryMessenger_setMessageHandler$,
   },
   {},
   {
     'BackgroundIsolateBinaryMessenger': m.ClassMirror(
       'BackgroundIsolateBinaryMessenger',
-      {'send': _BackgroundIsolateBinaryMessenger_send$},
+      {
+        '#as': BackgroundIsolateBinaryMessenger_as$,
+        '#is': BackgroundIsolateBinaryMessenger_is$,
+        'send': _BackgroundIsolateBinaryMessenger_send$,
+      },
       {},
     )
   },
 );
+Function BackgroundIsolateBinaryMessenger_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackgroundIsolateBinaryMessenger;
+Function BackgroundIsolateBinaryMessenger_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackgroundIsolateBinaryMessenger;
 BinaryMessenger _BackgroundIsolateBinaryMessenger_instance$() {
   return BackgroundIsolateBinaryMessenger.instance;
 }
 
 Function _BackgroundIsolateBinaryMessenger_ensureInitialized$(m.Scope scope) =>
     BackgroundIsolateBinaryMessenger.ensureInitialized;
+Function _BackgroundIsolateBinaryMessenger_handlePlatformMessage$(
+  m.Scope scope,
+  BackgroundIsolateBinaryMessenger target,
+) =>
+    (
+      String channel,
+      ByteData? data,
+      m.FunctionPointer? callback,
+    ) {
+      void callbackProxy(ByteData? callback_data) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback!,
+            [callback_data],
+            {},
+          );
+      return target.handlePlatformMessage(
+        channel,
+        data,
+        callback == null ? null : callbackProxy,
+      );
+    };
 Function _BackgroundIsolateBinaryMessenger_send$(
   m.Scope scope,
   BackgroundIsolateBinaryMessenger target,
 ) =>
     target.send;
+Function _BackgroundIsolateBinaryMessenger_setMessageHandler$(
+  m.Scope scope,
+  BackgroundIsolateBinaryMessenger target,
+) =>
+    (
+      String channel,
+      m.FunctionPointer? handler,
+    ) {
+      Future<ByteData?>? handlerProxy(ByteData? handler_message) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            handler!,
+            [handler_message],
+            {},
+          );
+      target.setMessageHandler(
+        channel,
+        handler == null ? null : handlerProxy,
+      );
+    };

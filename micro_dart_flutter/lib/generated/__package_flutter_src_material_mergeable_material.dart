@@ -18,12 +18,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'MergeableMaterialItem': m.ClassMirror(
       'MergeableMaterialItem',
-      {'key': _MergeableMaterialItem_key$},
+      {
+        '#as': MergeableMaterialItem_as$,
+        '#is': MergeableMaterialItem_is$,
+        'key': _MergeableMaterialItem_key$,
+      },
       {},
     ),
     'MaterialSlice': m.ClassMirror(
       'MaterialSlice',
       {
+        '#as': MaterialSlice_as$,
+        '#is': MaterialSlice_is$,
         'child': _MaterialSlice_child$,
         'color': _MaterialSlice_color$,
         'toString': _MaterialSlice_toString$,
@@ -33,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialGap': m.ClassMirror(
       'MaterialGap',
       {
+        '#as': MaterialGap_as$,
+        '#is': MaterialGap_is$,
         'size': _MaterialGap_size$,
         'toString': _MaterialGap_toString$,
       },
@@ -41,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'MergeableMaterial': m.ClassMirror(
       'MergeableMaterial',
       {
+        '#as': MergeableMaterial_as$,
+        '#is': MergeableMaterial_is$,
         'children': _MergeableMaterial_children$,
         'mainAxis': _MergeableMaterial_mainAxis$,
         'elevation': _MergeableMaterial_elevation$,
@@ -53,10 +63,30 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MergeableMaterialItem_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MergeableMaterialItem;
+Function MergeableMaterialItem_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MergeableMaterialItem;
 LocalKey _MergeableMaterialItem_key$(MergeableMaterialItem target) {
   return target.key;
 }
 
+Function MaterialSlice_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialSlice;
+Function MaterialSlice_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialSlice;
 Widget _MaterialSlice_child$(MaterialSlice target) {
   return target.child;
 }
@@ -70,6 +100,16 @@ Function _MaterialSlice_toString$(
   MaterialSlice target,
 ) =>
     target.toString;
+Function MaterialGap_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialGap;
+Function MaterialGap_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialGap;
 double _MaterialGap_size$(MaterialGap target) {
   return target.size;
 }
@@ -79,6 +119,16 @@ Function _MaterialGap_toString$(
   MaterialGap target,
 ) =>
     target.toString;
+Function MergeableMaterial_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MergeableMaterial;
+Function MergeableMaterial_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MergeableMaterial;
 List<MergeableMaterialItem> _MergeableMaterial_children$(
     MergeableMaterial target) {
   return target.children;

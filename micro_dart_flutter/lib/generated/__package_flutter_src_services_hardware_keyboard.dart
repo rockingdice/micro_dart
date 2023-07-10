@@ -12,6 +12,8 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/hardware_keyboard.dart',
   {
     'HardwareKeyboard.instance': _HardwareKeyboard_instance$,
+    'HardwareKeyboard.addHandler': _HardwareKeyboard_addHandler$,
+    'HardwareKeyboard.removeHandler': _HardwareKeyboard_removeHandler$,
     'KeyboardLockMode.numLock': _KeyboardLockMode_numLock$,
     'KeyboardLockMode.scrollLock': _KeyboardLockMode_scrollLock$,
     'KeyboardLockMode.capsLock': _KeyboardLockMode_capsLock$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'KeyEvent': m.ClassMirror(
       'KeyEvent',
       {
+        '#as': KeyEvent_as$,
+        '#is': KeyEvent_is$,
         'physicalKey': _KeyEvent_physicalKey$,
         'logicalKey': _KeyEvent_logicalKey$,
         'character': _KeyEvent_character$,
@@ -38,22 +42,33 @@ const libraryMirror = m.LibraryMirror(
     ),
     'KeyDownEvent': m.ClassMirror(
       'KeyDownEvent',
-      {},
+      {
+        '#as': KeyDownEvent_as$,
+        '#is': KeyDownEvent_is$,
+      },
       {},
     ),
     'KeyUpEvent': m.ClassMirror(
       'KeyUpEvent',
-      {},
+      {
+        '#as': KeyUpEvent_as$,
+        '#is': KeyUpEvent_is$,
+      },
       {},
     ),
     'KeyRepeatEvent': m.ClassMirror(
       'KeyRepeatEvent',
-      {},
+      {
+        '#as': KeyRepeatEvent_as$,
+        '#is': KeyRepeatEvent_is$,
+      },
       {},
     ),
     'HardwareKeyboard': m.ClassMirror(
       'HardwareKeyboard',
       {
+        '#as': HardwareKeyboard_as$,
+        '#is': HardwareKeyboard_is$,
         'physicalKeysPressed': _HardwareKeyboard_physicalKeysPressed$,
         'logicalKeysPressed': _HardwareKeyboard_logicalKeysPressed$,
         'lockModesEnabled': _HardwareKeyboard_lockModesEnabled$,
@@ -66,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'KeyMessage': m.ClassMirror(
       'KeyMessage',
       {
+        '#as': KeyMessage_as$,
+        '#is': KeyMessage_is$,
         'events': _KeyMessage_events$,
         'rawEvent': _KeyMessage_rawEvent$,
         'toString': _KeyMessage_toString$,
@@ -75,6 +92,8 @@ const libraryMirror = m.LibraryMirror(
     'KeyEventManager': m.ClassMirror(
       'KeyEventManager',
       {
+        '#as': KeyEventManager_as$,
+        '#is': KeyEventManager_is$,
         'keyMessageHandler': _KeyEventManager_keyMessageHandler$,
         'handleKeyData': _KeyEventManager_handleKeyData$,
         'handleRawKeyMessage': _KeyEventManager_handleRawKeyMessage$,
@@ -94,6 +113,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function KeyEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyEvent;
+Function KeyEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyEvent;
 PhysicalKeyboardKey _KeyEvent_physicalKey$(KeyEvent target) {
   return target.physicalKey;
 }
@@ -119,6 +148,46 @@ Function _KeyEvent_debugFillProperties$(
   KeyEvent target,
 ) =>
     target.debugFillProperties;
+Function KeyDownEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyDownEvent;
+Function KeyDownEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyDownEvent;
+Function KeyUpEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyUpEvent;
+Function KeyUpEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyUpEvent;
+Function KeyRepeatEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyRepeatEvent;
+Function KeyRepeatEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyRepeatEvent;
+Function HardwareKeyboard_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HardwareKeyboard;
+Function HardwareKeyboard_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HardwareKeyboard;
 HardwareKeyboard _HardwareKeyboard_instance$() {
   return HardwareKeyboard.instance;
 }
@@ -143,6 +212,34 @@ Function _HardwareKeyboard_lookUpLayout$(
   HardwareKeyboard target,
 ) =>
     target.lookUpLayout;
+Function _HardwareKeyboard_addHandler$(
+  m.Scope scope,
+  HardwareKeyboard target,
+) =>
+    (m.FunctionPointer handler) {
+      bool handlerProxy(KeyEvent handler_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            handler,
+            [handler_event],
+            {},
+          );
+      target.addHandler(handlerProxy);
+    };
+Function _HardwareKeyboard_removeHandler$(
+  m.Scope scope,
+  HardwareKeyboard target,
+) =>
+    (m.FunctionPointer handler) {
+      bool handlerProxy(KeyEvent handler_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            handler,
+            [handler_event],
+            {},
+          );
+      target.removeHandler(handlerProxy);
+    };
 Function _HardwareKeyboard_handleKeyEvent$(
   m.Scope scope,
   HardwareKeyboard target,
@@ -153,6 +250,16 @@ Function _HardwareKeyboard_clearState$(
   HardwareKeyboard target,
 ) =>
     target.clearState;
+Function KeyMessage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyMessage;
+Function KeyMessage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyMessage;
 List<KeyEvent> _KeyMessage_events$(KeyMessage target) {
   return target.events;
 }
@@ -166,6 +273,16 @@ Function _KeyMessage_toString$(
   KeyMessage target,
 ) =>
     target.toString;
+Function KeyEventManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyEventManager;
+Function KeyEventManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyEventManager;
 bool Function(KeyMessage)? _KeyEventManager_keyMessageHandler$(
     KeyEventManager target) {
   return target.keyMessageHandler;

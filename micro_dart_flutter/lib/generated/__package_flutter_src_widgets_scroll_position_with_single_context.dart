@@ -17,12 +17,19 @@ import 'package:flutter/src/widgets/scroll_position.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/scroll_position_with_single_context.dart',
-  {},
+  {
+    'ScrollPositionWithSingleContext.hold':
+        _ScrollPositionWithSingleContext_hold$,
+    'ScrollPositionWithSingleContext.drag':
+        _ScrollPositionWithSingleContext_drag$,
+  },
   {},
   {
     'ScrollPositionWithSingleContext': m.ClassMirror(
       'ScrollPositionWithSingleContext',
       {
+        '#as': ScrollPositionWithSingleContext_as$,
+        '#is': ScrollPositionWithSingleContext_is$,
         'axisDirection': _ScrollPositionWithSingleContext_axisDirection$,
         'userScrollDirection':
             _ScrollPositionWithSingleContext_userScrollDirection$,
@@ -47,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ScrollPositionWithSingleContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollPositionWithSingleContext;
+Function ScrollPositionWithSingleContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollPositionWithSingleContext;
 AxisDirection _ScrollPositionWithSingleContext_axisDirection$(
     ScrollPositionWithSingleContext target) {
   return target.axisDirection;
@@ -112,6 +129,38 @@ Function _ScrollPositionWithSingleContext_pointerScroll$(
   ScrollPositionWithSingleContext target,
 ) =>
     target.pointerScroll;
+Function _ScrollPositionWithSingleContext_hold$(
+  m.Scope scope,
+  ScrollPositionWithSingleContext target,
+) =>
+    (m.FunctionPointer holdCancelCallback) {
+      void holdCancelCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            holdCancelCallback,
+            [],
+            {},
+          );
+      return target.hold(holdCancelCallbackProxy);
+    };
+Function _ScrollPositionWithSingleContext_drag$(
+  m.Scope scope,
+  ScrollPositionWithSingleContext target,
+) =>
+    (
+      DragStartDetails details,
+      m.FunctionPointer dragCancelCallback,
+    ) {
+      void dragCancelCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            dragCancelCallback,
+            [],
+            {},
+          );
+      return target.drag(
+        details,
+        dragCancelCallbackProxy,
+      );
+    };
 Function _ScrollPositionWithSingleContext_dispose$(
   m.Scope scope,
   ScrollPositionWithSingleContext target,

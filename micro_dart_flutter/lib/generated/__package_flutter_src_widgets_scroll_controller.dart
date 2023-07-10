@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollController': m.ClassMirror(
       'ScrollController',
       {
+        '#as': ScrollController_as$,
+        '#is': ScrollController_is$,
         'keepScrollOffset': _ScrollController_keepScrollOffset$,
         'debugLabel': _ScrollController_debugLabel$,
         'initialScrollOffset': _ScrollController_initialScrollOffset$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'TrackingScrollController': m.ClassMirror(
       'TrackingScrollController',
       {
+        '#as': TrackingScrollController_as$,
+        '#is': TrackingScrollController_is$,
         'mostRecentlyUpdatedPosition':
             _TrackingScrollController_mostRecentlyUpdatedPosition$,
         'initialScrollOffset': _TrackingScrollController_initialScrollOffset$,
@@ -50,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollController;
+Function ScrollController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollController;
 bool _ScrollController_keepScrollOffset$(ScrollController target) {
   return target.keepScrollOffset;
 }
@@ -118,6 +132,16 @@ Function _ScrollController_debugFillDescription$(
   ScrollController target,
 ) =>
     target.debugFillDescription;
+Function TrackingScrollController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TrackingScrollController;
+Function TrackingScrollController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TrackingScrollController;
 ScrollPosition? _TrackingScrollController_mostRecentlyUpdatedPosition$(
     TrackingScrollController target) {
   return target.mostRecentlyUpdatedPosition;

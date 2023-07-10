@@ -13,35 +13,88 @@ const libraryMirror = m.LibraryMirror(
   {
     'Key': m.ClassMirror(
       'Key',
-      {},
+      {
+        '#as': Key_as$,
+        '#is': Key_is$,
+      },
       {},
     ),
     'LocalKey': m.ClassMirror(
       'LocalKey',
-      {},
+      {
+        '#as': LocalKey_as$,
+        '#is': LocalKey_is$,
+      },
       {},
     ),
     'UniqueKey': m.ClassMirror(
       'UniqueKey',
-      {'toString': _UniqueKey_toString$},
+      {
+        '#as': UniqueKey_as$,
+        '#is': UniqueKey_is$,
+        'toString': _UniqueKey_toString$,
+      },
       {},
     ),
     'ValueKey': m.ClassMirror(
       'ValueKey',
       {
+        '#as': ValueKey_as$,
+        '#is': ValueKey_is$,
         'value': _ValueKey_value$,
         'hashCode': _ValueKey_hashCode$,
+        '==': _ValueKey_eq$$,
         'toString': _ValueKey_toString$,
       },
       {},
     ),
   },
 );
+Function Key_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Key;
+Function Key_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Key;
+Function LocalKey_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LocalKey;
+Function LocalKey_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LocalKey;
+Function UniqueKey_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UniqueKey;
+Function UniqueKey_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UniqueKey;
 Function _UniqueKey_toString$(
   m.Scope scope,
   UniqueKey target,
 ) =>
     target.toString;
+Function ValueKey_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ValueKey<T>;
+Function ValueKey_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ValueKey<T>;
 T _ValueKey_value$<T>(ValueKey<T> target) {
   return target.value;
 }
@@ -50,6 +103,11 @@ int _ValueKey_hashCode$<T>(ValueKey<T> target) {
   return target.hashCode;
 }
 
+Function _ValueKey_eq$$<T>(
+  m.Scope scope,
+  ValueKey<T> target,
+) =>
+    (Object other) => target == other;
 Function _ValueKey_toString$<T>(
   m.Scope scope,
   ValueKey<T> target,

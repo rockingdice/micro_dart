@@ -14,12 +14,21 @@ import 'package:flutter/src/rendering/sliver.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/proxy_sliver.dart',
-  {},
+  {
+    'RenderSliverOpacity.visitChildrenForSemantics':
+        _RenderSliverOpacity_visitChildrenForSemantics$,
+    'RenderSliverIgnorePointer.visitChildrenForSemantics':
+        _RenderSliverIgnorePointer_visitChildrenForSemantics$,
+    'RenderSliverOffstage.visitChildrenForSemantics':
+        _RenderSliverOffstage_visitChildrenForSemantics$,
+  },
   {},
   {
     'RenderProxySliver': m.ClassMirror(
       'RenderProxySliver',
       {
+        '#as': RenderProxySliver_as$,
+        '#is': RenderProxySliver_is$,
         'setupParentData': _RenderProxySliver_setupParentData$,
         'performLayout': _RenderProxySliver_performLayout$,
         'paint': _RenderProxySliver_paint$,
@@ -32,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverOpacity': m.ClassMirror(
       'RenderSliverOpacity',
       {
+        '#as': RenderSliverOpacity_as$,
+        '#is': RenderSliverOpacity_is$,
         'alwaysNeedsCompositing': _RenderSliverOpacity_alwaysNeedsCompositing$,
         'opacity': _RenderSliverOpacity_opacity$,
         'alwaysIncludeSemantics': _RenderSliverOpacity_alwaysIncludeSemantics$,
@@ -47,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverIgnorePointer': m.ClassMirror(
       'RenderSliverIgnorePointer',
       {
+        '#as': RenderSliverIgnorePointer_as$,
+        '#is': RenderSliverIgnorePointer_is$,
         'ignoring': _RenderSliverIgnorePointer_ignoring$,
         'ignoringSemantics': _RenderSliverIgnorePointer_ignoringSemantics$,
         'hitTest': _RenderSliverIgnorePointer_hitTest$,
@@ -60,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverOffstage': m.ClassMirror(
       'RenderSliverOffstage',
       {
+        '#as': RenderSliverOffstage_as$,
+        '#is': RenderSliverOffstage_is$,
         'offstage': _RenderSliverOffstage_offstage$,
         'performLayout': _RenderSliverOffstage_performLayout$,
         'hitTest': _RenderSliverOffstage_hitTest$,
@@ -72,11 +87,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RenderSliverAnimatedOpacity': m.ClassMirror(
       'RenderSliverAnimatedOpacity',
-      {},
+      {
+        '#as': RenderSliverAnimatedOpacity_as$,
+        '#is': RenderSliverAnimatedOpacity_is$,
+      },
       {},
     ),
   },
 );
+Function RenderProxySliver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderProxySliver;
+Function RenderProxySliver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderProxySliver;
 Function _RenderProxySliver_setupParentData$(
   m.Scope scope,
   RenderProxySliver target,
@@ -107,6 +135,16 @@ Function _RenderProxySliver_applyPaintTransform$(
   RenderProxySliver target,
 ) =>
     target.applyPaintTransform;
+Function RenderSliverOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverOpacity;
+Function RenderSliverOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverOpacity;
 bool _RenderSliverOpacity_alwaysNeedsCompositing$(RenderSliverOpacity target) {
   return target.alwaysNeedsCompositing;
 }
@@ -138,11 +176,35 @@ Function _RenderSliverOpacity_paint$(
   RenderSliverOpacity target,
 ) =>
     target.paint;
+Function _RenderSliverOpacity_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderSliverOpacity target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderSliverOpacity_debugFillProperties$(
   m.Scope scope,
   RenderSliverOpacity target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverIgnorePointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverIgnorePointer;
+Function RenderSliverIgnorePointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverIgnorePointer;
 bool _RenderSliverIgnorePointer_ignoring$(RenderSliverIgnorePointer target) {
   return target.ignoring;
 }
@@ -171,11 +233,35 @@ Function _RenderSliverIgnorePointer_hitTest$(
   RenderSliverIgnorePointer target,
 ) =>
     target.hitTest;
+Function _RenderSliverIgnorePointer_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderSliverIgnorePointer target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderSliverIgnorePointer_debugFillProperties$(
   m.Scope scope,
   RenderSliverIgnorePointer target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverOffstage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverOffstage;
+Function RenderSliverOffstage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverOffstage;
 bool _RenderSliverOffstage_offstage$(RenderSliverOffstage target) {
   return target.offstage;
 }
@@ -207,6 +293,20 @@ Function _RenderSliverOffstage_paint$(
   RenderSliverOffstage target,
 ) =>
     target.paint;
+Function _RenderSliverOffstage_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderSliverOffstage target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderSliverOffstage_debugFillProperties$(
   m.Scope scope,
   RenderSliverOffstage target,
@@ -217,3 +317,13 @@ Function _RenderSliverOffstage_debugDescribeChildren$(
   RenderSliverOffstage target,
 ) =>
     target.debugDescribeChildren;
+Function RenderSliverAnimatedOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverAnimatedOpacity;
+Function RenderSliverAnimatedOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverAnimatedOpacity;

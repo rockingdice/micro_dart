@@ -13,17 +13,30 @@ const libraryMirror = m.LibraryMirror(
     'KeyboardInsertedContent': m.ClassMirror(
       'KeyboardInsertedContent',
       {
+        '#as': KeyboardInsertedContent_as$,
+        '#is': KeyboardInsertedContent_is$,
         'mimeType': _KeyboardInsertedContent_mimeType$,
         'uri': _KeyboardInsertedContent_uri$,
         'data': _KeyboardInsertedContent_data$,
         'hasData': _KeyboardInsertedContent_hasData$,
         'hashCode': _KeyboardInsertedContent_hashCode$,
         'toString': _KeyboardInsertedContent_toString$,
+        '==': _KeyboardInsertedContent_eq$$,
       },
       {},
     )
   },
 );
+Function KeyboardInsertedContent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyboardInsertedContent;
+Function KeyboardInsertedContent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyboardInsertedContent;
 String _KeyboardInsertedContent_mimeType$(KeyboardInsertedContent target) {
   return target.mimeType;
 }
@@ -49,3 +62,8 @@ Function _KeyboardInsertedContent_toString$(
   KeyboardInsertedContent target,
 ) =>
     target.toString;
+Function _KeyboardInsertedContent_eq$$(
+  m.Scope scope,
+  KeyboardInsertedContent target,
+) =>
+    (Object other) => target == other;

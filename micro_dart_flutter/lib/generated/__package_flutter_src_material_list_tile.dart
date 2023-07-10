@@ -44,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'ListTile': m.ClassMirror(
       'ListTile',
       {
+        '#as': ListTile_as$,
+        '#is': ListTile_is$,
         'leading': _ListTile_leading$,
         'title': _ListTile_title$,
         'subtitle': _ListTile_subtitle$,
@@ -100,6 +102,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ListTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListTile;
+Function ListTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListTile;
 Widget? _ListTile_leading$(ListTile target) {
   return target.leading;
 }

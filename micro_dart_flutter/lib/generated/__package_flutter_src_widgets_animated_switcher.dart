@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedSwitcher': m.ClassMirror(
       'AnimatedSwitcher',
       {
+        '#as': AnimatedSwitcher_as$,
+        '#is': AnimatedSwitcher_is$,
         'child': _AnimatedSwitcher_child$,
         'duration': _AnimatedSwitcher_duration$,
         'reverseDuration': _AnimatedSwitcher_reverseDuration$,
@@ -36,6 +38,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function AnimatedSwitcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedSwitcher;
+Function AnimatedSwitcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedSwitcher;
 Widget? _AnimatedSwitcher_child$(AnimatedSwitcher target) {
   return target.child;
 }

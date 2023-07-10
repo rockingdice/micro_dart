@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'TabBarTheme': m.ClassMirror(
       'TabBarTheme',
       {
+        '#as': TabBarTheme_as$,
+        '#is': TabBarTheme_is$,
         'indicator': _TabBarTheme_indicator$,
         'indicatorColor': _TabBarTheme_indicatorColor$,
         'indicatorSize': _TabBarTheme_indicatorSize$,
@@ -35,11 +37,22 @@ const libraryMirror = m.LibraryMirror(
         'mouseCursor': _TabBarTheme_mouseCursor$,
         'hashCode': _TabBarTheme_hashCode$,
         'copyWith': _TabBarTheme_copyWith$,
+        '==': _TabBarTheme_eq$$,
       },
       {},
     )
   },
 );
+Function TabBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabBarTheme;
+Function TabBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabBarTheme;
 Decoration? _TabBarTheme_indicator$(TabBarTheme target) {
   return target.indicator;
 }
@@ -100,3 +113,8 @@ Function _TabBarTheme_copyWith$(
     target.copyWith;
 Function _TabBarTheme_of$(m.Scope scope) => TabBarTheme.of;
 Function _TabBarTheme_lerp$(m.Scope scope) => TabBarTheme.lerp;
+Function _TabBarTheme_eq$$(
+  m.Scope scope,
+  TabBarTheme target,
+) =>
+    (Object other) => target == other;

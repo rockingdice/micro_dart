@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'ActionChip': m.ClassMirror(
       'ActionChip',
       {
+        '#as': ActionChip_as$,
+        '#is': ActionChip_is$,
         'avatar': _ActionChip_avatar$,
         'label': _ActionChip_label$,
         'labelStyle': _ActionChip_labelStyle$,
@@ -50,6 +52,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ActionChip_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActionChip;
+Function ActionChip_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActionChip;
 Widget? _ActionChip_avatar$(ActionChip target) {
   return target.avatar;
 }

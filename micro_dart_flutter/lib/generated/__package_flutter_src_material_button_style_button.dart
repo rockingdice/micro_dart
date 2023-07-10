@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonStyleButton': m.ClassMirror(
       'ButtonStyleButton',
       {
+        '#as': ButtonStyleButton_as$,
+        '#is': ButtonStyleButton_is$,
         'onPressed': _ButtonStyleButton_onPressed$,
         'onLongPress': _ButtonStyleButton_onLongPress$,
         'onHover': _ButtonStyleButton_onHover$,
@@ -46,6 +48,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ButtonStyleButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonStyleButton;
+Function ButtonStyleButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonStyleButton;
 void Function()? _ButtonStyleButton_onPressed$(ButtonStyleButton target) {
   return target.onPressed;
 }

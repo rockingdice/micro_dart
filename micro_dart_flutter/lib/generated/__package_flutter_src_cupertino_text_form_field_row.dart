@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTextFormFieldRow': m.ClassMirror(
       'CupertinoTextFormFieldRow',
       {
+        '#as': CupertinoTextFormFieldRow_as$,
+        '#is': CupertinoTextFormFieldRow_is$,
         'prefix': _CupertinoTextFormFieldRow_prefix$,
         'padding': _CupertinoTextFormFieldRow_padding$,
         'controller': _CupertinoTextFormFieldRow_controller$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoTextFormFieldRow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTextFormFieldRow;
+Function CupertinoTextFormFieldRow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTextFormFieldRow;
 Widget? _CupertinoTextFormFieldRow_prefix$(CupertinoTextFormFieldRow target) {
   return target.prefix;
 }

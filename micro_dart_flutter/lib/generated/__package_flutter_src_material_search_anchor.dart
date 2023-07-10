@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchAnchor': m.ClassMirror(
       'SearchAnchor',
       {
+        '#as': SearchAnchor_as$,
+        '#is': SearchAnchor_is$,
         'isFullScreen': _SearchAnchor_isFullScreen$,
         'searchController': _SearchAnchor_searchController$,
         'viewBuilder': _SearchAnchor_viewBuilder$,
@@ -58,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchController': m.ClassMirror(
       'SearchController',
       {
+        '#as': SearchController_as$,
+        '#is': SearchController_is$,
         'isOpen': _SearchController_isOpen$,
         'openView': _SearchController_openView$,
         'closeView': _SearchController_closeView$,
@@ -67,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchBar': m.ClassMirror(
       'SearchBar',
       {
+        '#as': SearchBar_as$,
+        '#is': SearchBar_is$,
         'controller': _SearchBar_controller$,
         'focusNode': _SearchBar_focusNode$,
         'hintText': _SearchBar_hintText$,
@@ -91,6 +97,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SearchAnchor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchAnchor;
+Function SearchAnchor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchAnchor;
 bool? _SearchAnchor_isFullScreen$(SearchAnchor target) {
   return target.isFullScreen;
 }
@@ -167,6 +183,16 @@ Function _SearchAnchor_createState$(
   SearchAnchor target,
 ) =>
     target.createState;
+Function SearchController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchController;
+Function SearchController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchController;
 bool _SearchController_isOpen$(SearchController target) {
   return target.isOpen;
 }
@@ -181,6 +207,16 @@ Function _SearchController_closeView$(
   SearchController target,
 ) =>
     target.closeView;
+Function SearchBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchBar;
+Function SearchBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchBar;
 TextEditingController? _SearchBar_controller$(SearchBar target) {
   return target.controller;
 }

@@ -19,8 +19,11 @@ const libraryMirror = m.LibraryMirror(
     'FilledButtonThemeData': m.ClassMirror(
       'FilledButtonThemeData',
       {
+        '#as': FilledButtonThemeData_as$,
+        '#is': FilledButtonThemeData_is$,
         'style': _FilledButtonThemeData_style$,
         'hashCode': _FilledButtonThemeData_hashCode$,
+        '==': _FilledButtonThemeData_eq$$,
         'debugFillProperties': _FilledButtonThemeData_debugFillProperties$,
       },
       {},
@@ -28,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'FilledButtonTheme': m.ClassMirror(
       'FilledButtonTheme',
       {
+        '#as': FilledButtonTheme_as$,
+        '#is': FilledButtonTheme_is$,
         'data': _FilledButtonTheme_data$,
         'wrap': _FilledButtonTheme_wrap$,
         'updateShouldNotify': _FilledButtonTheme_updateShouldNotify$,
@@ -36,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FilledButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FilledButtonThemeData;
+Function FilledButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FilledButtonThemeData;
 ButtonStyle? _FilledButtonThemeData_style$(FilledButtonThemeData target) {
   return target.style;
 }
@@ -46,11 +61,26 @@ int _FilledButtonThemeData_hashCode$(FilledButtonThemeData target) {
 
 Function _FilledButtonThemeData_lerp$(m.Scope scope) =>
     FilledButtonThemeData.lerp;
+Function _FilledButtonThemeData_eq$$(
+  m.Scope scope,
+  FilledButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _FilledButtonThemeData_debugFillProperties$(
   m.Scope scope,
   FilledButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function FilledButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FilledButtonTheme;
+Function FilledButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FilledButtonTheme;
 FilledButtonThemeData _FilledButtonTheme_data$(FilledButtonTheme target) {
   return target.data;
 }

@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckboxThemeData': m.ClassMirror(
       'CheckboxThemeData',
       {
+        '#as': CheckboxThemeData_as$,
+        '#is': CheckboxThemeData_is$,
         'mouseCursor': _CheckboxThemeData_mouseCursor$,
         'fillColor': _CheckboxThemeData_fillColor$,
         'checkColor': _CheckboxThemeData_checkColor$,
@@ -33,6 +35,7 @@ const libraryMirror = m.LibraryMirror(
         'side': _CheckboxThemeData_side$,
         'hashCode': _CheckboxThemeData_hashCode$,
         'copyWith': _CheckboxThemeData_copyWith$,
+        '==': _CheckboxThemeData_eq$$,
         'debugFillProperties': _CheckboxThemeData_debugFillProperties$,
       },
       {},
@@ -40,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckboxTheme': m.ClassMirror(
       'CheckboxTheme',
       {
+        '#as': CheckboxTheme_as$,
+        '#is': CheckboxTheme_is$,
         'data': _CheckboxTheme_data$,
         'updateShouldNotify': _CheckboxTheme_updateShouldNotify$,
       },
@@ -47,6 +52,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CheckboxThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckboxThemeData;
+Function CheckboxThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckboxThemeData;
 MaterialStateProperty<MouseCursor?>? _CheckboxThemeData_mouseCursor$(
     CheckboxThemeData target) {
   return target.mouseCursor;
@@ -98,11 +113,26 @@ Function _CheckboxThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _CheckboxThemeData_lerp$(m.Scope scope) => CheckboxThemeData.lerp;
+Function _CheckboxThemeData_eq$$(
+  m.Scope scope,
+  CheckboxThemeData target,
+) =>
+    (Object other) => target == other;
 Function _CheckboxThemeData_debugFillProperties$(
   m.Scope scope,
   CheckboxThemeData target,
 ) =>
     target.debugFillProperties;
+Function CheckboxTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckboxTheme;
+Function CheckboxTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckboxTheme;
 CheckboxThemeData _CheckboxTheme_data$(CheckboxTheme target) {
   return target.data;
 }

@@ -13,23 +13,40 @@ import 'package:flutter/src/painting/image_stream.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/_network_image_io.dart',
-  {},
+  {
+    'NetworkImage.load': _NetworkImage_load$,
+    'NetworkImage.loadBuffer': _NetworkImage_loadBuffer$,
+    'NetworkImage.loadImage': _NetworkImage_loadImage$,
+  },
   {},
   {
     'NetworkImage': m.ClassMirror(
       'NetworkImage',
       {
+        '#as': NetworkImage_as$,
+        '#is': NetworkImage_is$,
         'url': _NetworkImage_url$,
         'scale': _NetworkImage_scale$,
         'headers': _NetworkImage_headers$,
         'hashCode': _NetworkImage_hashCode$,
         'obtainKey': _NetworkImage_obtainKey$,
+        '==': _NetworkImage_eq$$,
         'toString': _NetworkImage_toString$,
       },
       {},
     )
   },
 );
+Function NetworkImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NetworkImage;
+Function NetworkImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NetworkImage;
 String _NetworkImage_url$(NetworkImage target) {
   return target.url;
 }
@@ -51,6 +68,92 @@ Function _NetworkImage_obtainKey$(
   NetworkImage target,
 ) =>
     target.obtainKey;
+Function _NetworkImage_load$(
+  m.Scope scope,
+  NetworkImage target,
+) =>
+    (
+      NetworkImage key,
+      m.FunctionPointer decode,
+    ) {
+      Future<Codec> decodeProxy(
+        Uint8List decode_buffer, {
+        bool? allowUpscaling,
+        int? cacheHeight,
+        int? cacheWidth,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            decode,
+            [decode_buffer],
+            {
+              'allowUpscaling': allowUpscaling,
+              'cacheHeight': cacheHeight,
+              'cacheWidth': cacheWidth,
+            },
+          );
+      return target.load(
+        key,
+        decodeProxy,
+      );
+    };
+Function _NetworkImage_loadBuffer$(
+  m.Scope scope,
+  NetworkImage target,
+) =>
+    (
+      NetworkImage key,
+      m.FunctionPointer decode,
+    ) {
+      Future<Codec> decodeProxy(
+        ImmutableBuffer decode_buffer, {
+        bool? allowUpscaling,
+        int? cacheHeight,
+        int? cacheWidth,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            decode,
+            [decode_buffer],
+            {
+              'allowUpscaling': allowUpscaling,
+              'cacheHeight': cacheHeight,
+              'cacheWidth': cacheWidth,
+            },
+          );
+      return target.loadBuffer(
+        key,
+        decodeProxy,
+      );
+    };
+Function _NetworkImage_loadImage$(
+  m.Scope scope,
+  NetworkImage target,
+) =>
+    (
+      NetworkImage key,
+      m.FunctionPointer decode,
+    ) {
+      Future<Codec> decodeProxy(
+        ImmutableBuffer decode_buffer, {
+        TargetImageSize Function(int, int)? getTargetSize,
+      }) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            decode,
+            [decode_buffer],
+            {'getTargetSize': getTargetSize},
+          );
+      return target.loadImage(
+        key,
+        decodeProxy,
+      );
+    };
+Function _NetworkImage_eq$$(
+  m.Scope scope,
+  NetworkImage target,
+) =>
+    (Object other) => target == other;
 Function _NetworkImage_toString$(
   m.Scope scope,
   NetworkImage target,

@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpansionPanel': m.ClassMirror(
       'ExpansionPanel',
       {
+        '#as': ExpansionPanel_as$,
+        '#is': ExpansionPanel_is$,
         'headerBuilder': _ExpansionPanel_headerBuilder$,
         'body': _ExpansionPanel_body$,
         'isExpanded': _ExpansionPanel_isExpanded$,
@@ -30,12 +32,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ExpansionPanelRadio': m.ClassMirror(
       'ExpansionPanelRadio',
-      {'value': _ExpansionPanelRadio_value$},
+      {
+        '#as': ExpansionPanelRadio_as$,
+        '#is': ExpansionPanelRadio_is$,
+        'value': _ExpansionPanelRadio_value$,
+      },
       {},
     ),
     'ExpansionPanelList': m.ClassMirror(
       'ExpansionPanelList',
       {
+        '#as': ExpansionPanelList_as$,
+        '#is': ExpansionPanelList_is$,
         'children': _ExpansionPanelList_children$,
         'expansionCallback': _ExpansionPanelList_expansionCallback$,
         'animationDuration': _ExpansionPanelList_animationDuration$,
@@ -50,6 +58,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ExpansionPanel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionPanel;
+Function ExpansionPanel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionPanel;
 Widget Function(BuildContext, bool) _ExpansionPanel_headerBuilder$(
     ExpansionPanel target) {
   return target.headerBuilder;
@@ -71,10 +89,30 @@ Color? _ExpansionPanel_backgroundColor$(ExpansionPanel target) {
   return target.backgroundColor;
 }
 
+Function ExpansionPanelRadio_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionPanelRadio;
+Function ExpansionPanelRadio_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionPanelRadio;
 Object _ExpansionPanelRadio_value$(ExpansionPanelRadio target) {
   return target.value;
 }
 
+Function ExpansionPanelList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionPanelList;
+Function ExpansionPanelList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionPanelList;
 List<ExpansionPanel> _ExpansionPanelList_children$(ExpansionPanelList target) {
   return target.children;
 }

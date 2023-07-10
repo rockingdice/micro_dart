@@ -19,8 +19,11 @@ const libraryMirror = m.LibraryMirror(
     'ElevatedButtonThemeData': m.ClassMirror(
       'ElevatedButtonThemeData',
       {
+        '#as': ElevatedButtonThemeData_as$,
+        '#is': ElevatedButtonThemeData_is$,
         'style': _ElevatedButtonThemeData_style$,
         'hashCode': _ElevatedButtonThemeData_hashCode$,
+        '==': _ElevatedButtonThemeData_eq$$,
         'debugFillProperties': _ElevatedButtonThemeData_debugFillProperties$,
       },
       {},
@@ -28,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'ElevatedButtonTheme': m.ClassMirror(
       'ElevatedButtonTheme',
       {
+        '#as': ElevatedButtonTheme_as$,
+        '#is': ElevatedButtonTheme_is$,
         'data': _ElevatedButtonTheme_data$,
         'wrap': _ElevatedButtonTheme_wrap$,
         'updateShouldNotify': _ElevatedButtonTheme_updateShouldNotify$,
@@ -36,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ElevatedButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElevatedButtonThemeData;
+Function ElevatedButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElevatedButtonThemeData;
 ButtonStyle? _ElevatedButtonThemeData_style$(ElevatedButtonThemeData target) {
   return target.style;
 }
@@ -46,11 +61,26 @@ int _ElevatedButtonThemeData_hashCode$(ElevatedButtonThemeData target) {
 
 Function _ElevatedButtonThemeData_lerp$(m.Scope scope) =>
     ElevatedButtonThemeData.lerp;
+Function _ElevatedButtonThemeData_eq$$(
+  m.Scope scope,
+  ElevatedButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ElevatedButtonThemeData_debugFillProperties$(
   m.Scope scope,
   ElevatedButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function ElevatedButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElevatedButtonTheme;
+Function ElevatedButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElevatedButtonTheme;
 ElevatedButtonThemeData _ElevatedButtonTheme_data$(ElevatedButtonTheme target) {
   return target.data;
 }

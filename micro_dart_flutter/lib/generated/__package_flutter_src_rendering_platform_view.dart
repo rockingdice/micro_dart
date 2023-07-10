@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderAndroidView': m.ClassMirror(
       'RenderAndroidView',
       {
+        '#as': RenderAndroidView_as$,
+        '#is': RenderAndroidView_is$,
         'controller': _RenderAndroidView_controller$,
         'clipBehavior': _RenderAndroidView_clipBehavior$,
         'sizedByParent': _RenderAndroidView_sizedByParent$,
@@ -47,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderUiKitView': m.ClassMirror(
       'RenderUiKitView',
       {
+        '#as': RenderUiKitView_as$,
+        '#is': RenderUiKitView_is$,
         'hitTestBehavior': _RenderUiKitView_hitTestBehavior$,
         'viewController': _RenderUiKitView_viewController$,
         'sizedByParent': _RenderUiKitView_sizedByParent$,
@@ -71,6 +75,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewRenderBox': m.ClassMirror(
       'PlatformViewRenderBox',
       {
+        '#as': PlatformViewRenderBox_as$,
+        '#is': PlatformViewRenderBox_is$,
         'controller': _PlatformViewRenderBox_controller$,
         'sizedByParent': _PlatformViewRenderBox_sizedByParent$,
         'alwaysNeedsCompositing':
@@ -92,6 +98,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderAndroidView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderAndroidView;
+Function RenderAndroidView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderAndroidView;
 AndroidViewController _RenderAndroidView_controller$(RenderAndroidView target) {
   return target.controller;
 }
@@ -151,6 +167,16 @@ Function _RenderAndroidView_describeSemanticsConfiguration$(
   RenderAndroidView target,
 ) =>
     target.describeSemanticsConfiguration;
+Function RenderUiKitView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderUiKitView;
+Function RenderUiKitView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderUiKitView;
 PlatformViewHitTestBehavior _RenderUiKitView_hitTestBehavior$(
     RenderUiKitView target) {
   return target.hitTestBehavior;
@@ -231,6 +257,16 @@ Function _RenderUiKitView_detach$(
   RenderUiKitView target,
 ) =>
     target.detach;
+Function PlatformViewRenderBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewRenderBox;
+Function PlatformViewRenderBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewRenderBox;
 PlatformViewController _PlatformViewRenderBox_controller$(
     PlatformViewRenderBox target) {
   return target.controller;

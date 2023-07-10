@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'GridPaper': m.ClassMirror(
       'GridPaper',
       {
+        '#as': GridPaper_as$,
+        '#is': GridPaper_is$,
         'color': _GridPaper_color$,
         'interval': _GridPaper_interval$,
         'divisions': _GridPaper_divisions$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function GridPaper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GridPaper;
+Function GridPaper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GridPaper;
 Color _GridPaper_color$(GridPaper target) {
   return target.color;
 }

@@ -40,19 +40,46 @@ const libraryMirror = m.LibraryMirror(
     'Navigator.popAndPushNamed': _Navigator_popAndPushNamed$,
     'Navigator.restorablePopAndPushNamed':
         _Navigator_restorablePopAndPushNamed$,
+    'Navigator.pushNamedAndRemoveUntil': _Navigator_pushNamedAndRemoveUntil$,
+    'Navigator.restorablePushNamedAndRemoveUntil':
+        _Navigator_restorablePushNamedAndRemoveUntil$,
     'Navigator.push': _Navigator_push$,
+    'Navigator.restorablePush': _Navigator_restorablePush$,
     'Navigator.pushReplacement': _Navigator_pushReplacement$,
+    'Navigator.restorablePushReplacement':
+        _Navigator_restorablePushReplacement$,
+    'Navigator.pushAndRemoveUntil': _Navigator_pushAndRemoveUntil$,
+    'Navigator.restorablePushAndRemoveUntil':
+        _Navigator_restorablePushAndRemoveUntil$,
     'Navigator.replace': _Navigator_replace$,
+    'Navigator.restorableReplace': _Navigator_restorableReplace$,
     'Navigator.replaceRouteBelow': _Navigator_replaceRouteBelow$,
+    'Navigator.restorableReplaceRouteBelow':
+        _Navigator_restorableReplaceRouteBelow$,
     'Navigator.canPop': _Navigator_canPop$,
     'Navigator.maybePop': _Navigator_maybePop$,
     'Navigator.pop': _Navigator_pop$,
+    'Navigator.popUntil': _Navigator_popUntil$,
     'Navigator.removeRoute': _Navigator_removeRoute$,
     'Navigator.removeRouteBelow': _Navigator_removeRouteBelow$,
     'Navigator.of': _Navigator_of$,
     'Navigator.maybeOf': _Navigator_maybeOf$,
     'Navigator.defaultGenerateInitialRoutes':
         _Navigator_defaultGenerateInitialRoutes$,
+    'NavigatorState.pushNamedAndRemoveUntil':
+        _NavigatorState_pushNamedAndRemoveUntil$,
+    'NavigatorState.restorablePushNamedAndRemoveUntil':
+        _NavigatorState_restorablePushNamedAndRemoveUntil$,
+    'NavigatorState.restorablePush': _NavigatorState_restorablePush$,
+    'NavigatorState.restorablePushReplacement':
+        _NavigatorState_restorablePushReplacement$,
+    'NavigatorState.pushAndRemoveUntil': _NavigatorState_pushAndRemoveUntil$,
+    'NavigatorState.restorablePushAndRemoveUntil':
+        _NavigatorState_restorablePushAndRemoveUntil$,
+    'NavigatorState.restorableReplace': _NavigatorState_restorableReplace$,
+    'NavigatorState.restorableReplaceRouteBelow':
+        _NavigatorState_restorableReplaceRouteBelow$,
+    'NavigatorState.popUntil': _NavigatorState_popUntil$,
     'RoutePopDisposition.pop': _RoutePopDisposition_pop$,
     'RoutePopDisposition.doNotPop': _RoutePopDisposition_doNotPop$,
     'RoutePopDisposition.bubble': _RoutePopDisposition_bubble$,
@@ -63,6 +90,8 @@ const libraryMirror = m.LibraryMirror(
     'Route': m.ClassMirror(
       'Route',
       {
+        '#as': Route_as$,
+        '#is': Route_is$,
         'navigator': _Route_navigator$,
         'settings': _Route_settings$,
         'restorationScopeId': _Route_restorationScopeId$,
@@ -93,6 +122,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteSettings': m.ClassMirror(
       'RouteSettings',
       {
+        '#as': RouteSettings_as$,
+        '#is': RouteSettings_is$,
         'name': _RouteSettings_name$,
         'arguments': _RouteSettings_arguments$,
         'toString': _RouteSettings_toString$,
@@ -102,6 +133,8 @@ const libraryMirror = m.LibraryMirror(
     'Page': m.ClassMirror(
       'Page',
       {
+        '#as': Page_as$,
+        '#is': Page_is$,
         'key': _Page_key$,
         'restorationId': _Page_restorationId$,
         'canUpdate': _Page_canUpdate$,
@@ -113,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigatorObserver': m.ClassMirror(
       'NavigatorObserver',
       {
+        '#as': NavigatorObserver_as$,
+        '#is': NavigatorObserver_is$,
         'navigator': _NavigatorObserver_navigator$,
         'didPush': _NavigatorObserver_didPush$,
         'didPop': _NavigatorObserver_didPop$,
@@ -126,6 +161,8 @@ const libraryMirror = m.LibraryMirror(
     'HeroControllerScope': m.ClassMirror(
       'HeroControllerScope',
       {
+        '#as': HeroControllerScope_as$,
+        '#is': HeroControllerScope_is$,
         'controller': _HeroControllerScope_controller$,
         'updateShouldNotify': _HeroControllerScope_updateShouldNotify$,
       },
@@ -134,6 +171,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteTransitionRecord': m.ClassMirror(
       'RouteTransitionRecord',
       {
+        '#as': RouteTransitionRecord_as$,
+        '#is': RouteTransitionRecord_is$,
         'route': _RouteTransitionRecord_route$,
         'isWaitingForEnteringDecision':
             _RouteTransitionRecord_isWaitingForEnteringDecision$,
@@ -149,17 +188,27 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TransitionDelegate': m.ClassMirror(
       'TransitionDelegate',
-      {'resolve': _TransitionDelegate_resolve$},
+      {
+        '#as': TransitionDelegate_as$,
+        '#is': TransitionDelegate_is$,
+        'resolve': _TransitionDelegate_resolve$,
+      },
       {},
     ),
     'DefaultTransitionDelegate': m.ClassMirror(
       'DefaultTransitionDelegate',
-      {'resolve': _DefaultTransitionDelegate_resolve$},
+      {
+        '#as': DefaultTransitionDelegate_as$,
+        '#is': DefaultTransitionDelegate_is$,
+        'resolve': _DefaultTransitionDelegate_resolve$,
+      },
       {},
     ),
     'Navigator': m.ClassMirror(
       'Navigator',
       {
+        '#as': Navigator_as$,
+        '#is': Navigator_is$,
         'pages': _Navigator_pages$,
         'onPopPage': _Navigator_onPopPage$,
         'transitionDelegate': _Navigator_transitionDelegate$,
@@ -180,6 +229,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigatorState': m.ClassMirror(
       'NavigatorState',
       {
+        '#as': NavigatorState_as$,
+        '#is': NavigatorState_is$,
         'focusNode': _NavigatorState_focusNode$,
         'userGestureInProgressNotifier':
             _NavigatorState_userGestureInProgressNotifier$,
@@ -220,6 +271,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableRouteFuture': m.ClassMirror(
       'RestorableRouteFuture',
       {
+        '#as': RestorableRouteFuture_as$,
+        '#is': RestorableRouteFuture_is$,
         'navigatorFinder': _RestorableRouteFuture_navigatorFinder$,
         'onPresent': _RestorableRouteFuture_onPresent$,
         'onComplete': _RestorableRouteFuture_onComplete$,
@@ -246,6 +299,16 @@ TraversalEdgeBehavior _kDefaultRouteTraversalEdgeBehavior$() {
   return kDefaultRouteTraversalEdgeBehavior;
 }
 
+Function Route_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Route<T>;
+Function Route_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Route<T>;
 NavigatorState? _Route_navigator$<T>(Route<T> target) {
   return target.navigator;
 }
@@ -355,6 +418,16 @@ Function _Route_dispose$<T>(
   Route<T> target,
 ) =>
     target.dispose;
+Function RouteSettings_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteSettings;
+Function RouteSettings_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteSettings;
 String? _RouteSettings_name$(RouteSettings target) {
   return target.name;
 }
@@ -368,6 +441,16 @@ Function _RouteSettings_toString$(
   RouteSettings target,
 ) =>
     target.toString;
+Function Page_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Page<T>;
+Function Page_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Page<T>;
 LocalKey? _Page_key$<T>(Page<T> target) {
   return target.key;
 }
@@ -391,6 +474,16 @@ Function _Page_toString$<T>(
   Page<T> target,
 ) =>
     target.toString;
+Function NavigatorObserver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigatorObserver;
+Function NavigatorObserver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigatorObserver;
 NavigatorState? _NavigatorObserver_navigator$(NavigatorObserver target) {
   return target.navigator;
 }
@@ -425,6 +518,16 @@ Function _NavigatorObserver_didStopUserGesture$(
   NavigatorObserver target,
 ) =>
     target.didStopUserGesture;
+Function HeroControllerScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HeroControllerScope;
+Function HeroControllerScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HeroControllerScope;
 HeroController? _HeroControllerScope_controller$(HeroControllerScope target) {
   return target.controller;
 }
@@ -437,6 +540,16 @@ Function _HeroControllerScope_updateShouldNotify$(
   HeroControllerScope target,
 ) =>
     target.updateShouldNotify;
+Function RouteTransitionRecord_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteTransitionRecord;
+Function RouteTransitionRecord_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteTransitionRecord;
 Route<dynamic> _RouteTransitionRecord_route$(RouteTransitionRecord target) {
   return target.route;
 }
@@ -476,16 +589,46 @@ Function _RouteTransitionRecord_markForRemove$(
   RouteTransitionRecord target,
 ) =>
     target.markForRemove;
+Function TransitionDelegate_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransitionDelegate<T>;
+Function TransitionDelegate_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransitionDelegate<T>;
 Function _TransitionDelegate_resolve$<T>(
   m.Scope scope,
   TransitionDelegate<T> target,
 ) =>
     target.resolve;
+Function DefaultTransitionDelegate_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTransitionDelegate<T>;
+Function DefaultTransitionDelegate_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTransitionDelegate<T>;
 Function _DefaultTransitionDelegate_resolve$<T>(
   m.Scope scope,
   DefaultTransitionDelegate<T> target,
 ) =>
     target.resolve;
+Function Navigator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Navigator;
+Function Navigator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Navigator;
 List<Page<dynamic>> _Navigator_pages$(Navigator target) {
   return target.pages;
 }
@@ -563,19 +706,233 @@ Function _Navigator_popAndPushNamed$<T extends Object?, TO extends Object?>(
 Function _Navigator_restorablePopAndPushNamed$<T extends Object?,
         TO extends Object?>(m.Scope scope) =>
     Navigator.restorablePopAndPushNamed<T, TO>;
+Function _Navigator_pushNamedAndRemoveUntil$(m.Scope scope) =>
+    <T extends Object?>(
+      BuildContext context,
+      String newRouteName,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return Navigator.pushNamedAndRemoveUntil<T>(
+        context,
+        newRouteName,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
+Function _Navigator_restorablePushNamedAndRemoveUntil$(m.Scope scope) =>
+    <T extends Object?>(
+      BuildContext context,
+      String newRouteName,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return Navigator.restorablePushNamedAndRemoveUntil<T>(
+        context,
+        newRouteName,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
 Function _Navigator_push$<T extends Object?>(m.Scope scope) =>
     Navigator.push<T>;
+Function _Navigator_restorablePush$(m.Scope scope) => <T extends Object?>(
+      BuildContext context,
+      m.FunctionPointer routeBuilder, {
+      Object? arguments,
+    }) {
+      Route<T> routeBuilderProxy(
+        BuildContext routeBuilder_context,
+        Object? routeBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            routeBuilder,
+            [
+              routeBuilder_context,
+              routeBuilder_arguments,
+            ],
+            {},
+          );
+      return Navigator.restorablePush<T>(
+        context,
+        routeBuilderProxy,
+        arguments: arguments,
+      );
+    };
 Function _Navigator_pushReplacement$<T extends Object?, TO extends Object?>(
         m.Scope scope) =>
     Navigator.pushReplacement<T, TO>;
+Function _Navigator_restorablePushReplacement$(m.Scope scope) =>
+    <T extends Object?, TO extends Object?>(
+      BuildContext context,
+      m.FunctionPointer routeBuilder, {
+      Object? arguments,
+      TO? result,
+    }) {
+      Route<T> routeBuilderProxy(
+        BuildContext routeBuilder_context,
+        Object? routeBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            routeBuilder,
+            [
+              routeBuilder_context,
+              routeBuilder_arguments,
+            ],
+            {},
+          );
+      return Navigator.restorablePushReplacement<T, TO>(
+        context,
+        routeBuilderProxy,
+        arguments: arguments,
+        result: result,
+      );
+    };
+Function _Navigator_pushAndRemoveUntil$(m.Scope scope) => <T extends Object?>(
+      BuildContext context,
+      Route<T> newRoute,
+      m.FunctionPointer predicate,
+    ) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return Navigator.pushAndRemoveUntil<T>(
+        context,
+        newRoute,
+        predicateProxy,
+      );
+    };
+Function _Navigator_restorablePushAndRemoveUntil$(m.Scope scope) =>
+    <T extends Object?>(
+      BuildContext context,
+      m.FunctionPointer newRouteBuilder,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return Navigator.restorablePushAndRemoveUntil<T>(
+        context,
+        newRouteBuilderProxy,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
 Function _Navigator_replace$<T extends Object?>(m.Scope scope) =>
     Navigator.replace<T>;
+Function _Navigator_restorableReplace$(m.Scope scope) => <T extends Object?>(
+      BuildContext context, {
+      Object? arguments,
+      required m.FunctionPointer newRouteBuilder,
+      required Route<dynamic> oldRoute,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      return Navigator.restorableReplace<T>(
+        context,
+        arguments: arguments,
+        newRouteBuilder: newRouteBuilderProxy,
+        oldRoute: oldRoute,
+      );
+    };
 Function _Navigator_replaceRouteBelow$<T extends Object?>(m.Scope scope) =>
     Navigator.replaceRouteBelow<T>;
+Function _Navigator_restorableReplaceRouteBelow$(m.Scope scope) =>
+    <T extends Object?>(
+      BuildContext context, {
+      required Route<dynamic> anchorRoute,
+      Object? arguments,
+      required m.FunctionPointer newRouteBuilder,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      return Navigator.restorableReplaceRouteBelow<T>(
+        context,
+        anchorRoute: anchorRoute,
+        arguments: arguments,
+        newRouteBuilder: newRouteBuilderProxy,
+      );
+    };
 Function _Navigator_canPop$(m.Scope scope) => Navigator.canPop;
 Function _Navigator_maybePop$<T extends Object?>(m.Scope scope) =>
     Navigator.maybePop<T>;
 Function _Navigator_pop$<T extends Object?>(m.Scope scope) => Navigator.pop<T>;
+Function _Navigator_popUntil$(m.Scope scope) => (
+      BuildContext context,
+      m.FunctionPointer predicate,
+    ) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      Navigator.popUntil(
+        context,
+        predicateProxy,
+      );
+    };
 Function _Navigator_removeRoute$(m.Scope scope) => Navigator.removeRoute;
 Function _Navigator_removeRouteBelow$(m.Scope scope) =>
     Navigator.removeRouteBelow;
@@ -588,6 +945,16 @@ Function _Navigator_createState$(
   Navigator target,
 ) =>
     target.createState;
+Function NavigatorState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigatorState;
+Function NavigatorState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigatorState;
 FocusNode _NavigatorState_focusNode$(NavigatorState target) {
   return target.focusNode;
 }
@@ -683,27 +1050,236 @@ Function _NavigatorState_restorablePopAndPushNamed$<T extends Object?,
   NavigatorState target,
 ) =>
     target.restorablePopAndPushNamed<T, TO>;
+Function _NavigatorState_pushNamedAndRemoveUntil$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>(
+      String newRouteName,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return target.pushNamedAndRemoveUntil<T>(
+        newRouteName,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
+Function _NavigatorState_restorablePushNamedAndRemoveUntil$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>(
+      String newRouteName,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return target.restorablePushNamedAndRemoveUntil<T>(
+        newRouteName,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
 Function _NavigatorState_push$<T extends Object?>(
   m.Scope scope,
   NavigatorState target,
 ) =>
     target.push<T>;
+Function _NavigatorState_restorablePush$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>(
+      m.FunctionPointer routeBuilder, {
+      Object? arguments,
+    }) {
+      Route<T> routeBuilderProxy(
+        BuildContext routeBuilder_context,
+        Object? routeBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            routeBuilder,
+            [
+              routeBuilder_context,
+              routeBuilder_arguments,
+            ],
+            {},
+          );
+      return target.restorablePush<T>(
+        routeBuilderProxy,
+        arguments: arguments,
+      );
+    };
 Function
     _NavigatorState_pushReplacement$<T extends Object?, TO extends Object?>(
   m.Scope scope,
   NavigatorState target,
 ) =>
         target.pushReplacement<T, TO>;
+Function _NavigatorState_restorablePushReplacement$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?, TO extends Object?>(
+      m.FunctionPointer routeBuilder, {
+      Object? arguments,
+      TO? result,
+    }) {
+      Route<T> routeBuilderProxy(
+        BuildContext routeBuilder_context,
+        Object? routeBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            routeBuilder,
+            [
+              routeBuilder_context,
+              routeBuilder_arguments,
+            ],
+            {},
+          );
+      return target.restorablePushReplacement<T, TO>(
+        routeBuilderProxy,
+        arguments: arguments,
+        result: result,
+      );
+    };
+Function _NavigatorState_pushAndRemoveUntil$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>(
+      Route<T> newRoute,
+      m.FunctionPointer predicate,
+    ) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return target.pushAndRemoveUntil<T>(
+        newRoute,
+        predicateProxy,
+      );
+    };
+Function _NavigatorState_restorablePushAndRemoveUntil$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>(
+      m.FunctionPointer newRouteBuilder,
+      m.FunctionPointer predicate, {
+      Object? arguments,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      return target.restorablePushAndRemoveUntil<T>(
+        newRouteBuilderProxy,
+        predicateProxy,
+        arguments: arguments,
+      );
+    };
 Function _NavigatorState_replace$<T extends Object?>(
   m.Scope scope,
   NavigatorState target,
 ) =>
     target.replace<T>;
+Function _NavigatorState_restorableReplace$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>({
+      Object? arguments,
+      required m.FunctionPointer newRouteBuilder,
+      required Route<dynamic> oldRoute,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      return target.restorableReplace<T>(
+        arguments: arguments,
+        newRouteBuilder: newRouteBuilderProxy,
+        oldRoute: oldRoute,
+      );
+    };
 Function _NavigatorState_replaceRouteBelow$<T extends Object?>(
   m.Scope scope,
   NavigatorState target,
 ) =>
     target.replaceRouteBelow<T>;
+Function _NavigatorState_restorableReplaceRouteBelow$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    <T extends Object?>({
+      required Route<dynamic> anchorRoute,
+      Object? arguments,
+      required m.FunctionPointer newRouteBuilder,
+    }) {
+      Route<T> newRouteBuilderProxy(
+        BuildContext newRouteBuilder_context,
+        Object? newRouteBuilder_arguments,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            newRouteBuilder,
+            [
+              newRouteBuilder_context,
+              newRouteBuilder_arguments,
+            ],
+            {},
+          );
+      return target.restorableReplaceRouteBelow<T>(
+        anchorRoute: anchorRoute,
+        arguments: arguments,
+        newRouteBuilder: newRouteBuilderProxy,
+      );
+    };
 Function _NavigatorState_canPop$(
   m.Scope scope,
   NavigatorState target,
@@ -719,6 +1295,20 @@ Function _NavigatorState_pop$<T extends Object?>(
   NavigatorState target,
 ) =>
     target.pop<T>;
+Function _NavigatorState_popUntil$(
+  m.Scope scope,
+  NavigatorState target,
+) =>
+    (m.FunctionPointer predicate) {
+      bool predicateProxy(Route<dynamic> predicate_route) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            predicate,
+            [predicate_route],
+            {},
+          );
+      target.popUntil(predicateProxy);
+    };
 Function _NavigatorState_removeRoute$(
   m.Scope scope,
   NavigatorState target,
@@ -749,6 +1339,16 @@ Function _NavigatorState_build$(
   NavigatorState target,
 ) =>
     target.build;
+Function RestorableRouteFuture_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableRouteFuture<T>;
+Function RestorableRouteFuture_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableRouteFuture<T>;
 NavigatorState Function(BuildContext)
     _RestorableRouteFuture_navigatorFinder$<T>(
         RestorableRouteFuture<T> target) {

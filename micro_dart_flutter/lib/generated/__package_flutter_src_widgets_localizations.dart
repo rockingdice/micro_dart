@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'LocalizationsDelegate': m.ClassMirror(
       'LocalizationsDelegate',
       {
+        '#as': LocalizationsDelegate_as$,
+        '#is': LocalizationsDelegate_is$,
         'type': _LocalizationsDelegate_type$,
         'isSupported': _LocalizationsDelegate_isSupported$,
         'load': _LocalizationsDelegate_load$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'WidgetsLocalizations': m.ClassMirror(
       'WidgetsLocalizations',
       {
+        '#as': WidgetsLocalizations_as$,
+        '#is': WidgetsLocalizations_is$,
         'textDirection': _WidgetsLocalizations_textDirection$,
         'reorderItemToStart': _WidgetsLocalizations_reorderItemToStart$,
         'reorderItemToEnd': _WidgetsLocalizations_reorderItemToEnd$,
@@ -49,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultWidgetsLocalizations': m.ClassMirror(
       'DefaultWidgetsLocalizations',
       {
+        '#as': DefaultWidgetsLocalizations_as$,
+        '#is': DefaultWidgetsLocalizations_is$,
         'reorderItemUp': _DefaultWidgetsLocalizations_reorderItemUp$,
         'reorderItemDown': _DefaultWidgetsLocalizations_reorderItemDown$,
         'reorderItemLeft': _DefaultWidgetsLocalizations_reorderItemLeft$,
@@ -62,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'Localizations': m.ClassMirror(
       'Localizations',
       {
+        '#as': Localizations_as$,
+        '#is': Localizations_is$,
         'locale': _Localizations_locale$,
         'delegates': _Localizations_delegates$,
         'child': _Localizations_child$,
@@ -72,6 +80,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function LocalizationsDelegate_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LocalizationsDelegate<T>;
+Function LocalizationsDelegate_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LocalizationsDelegate<T>;
 Type _LocalizationsDelegate_type$<T>(LocalizationsDelegate<T> target) {
   return target.type;
 }
@@ -96,6 +114,16 @@ Function _LocalizationsDelegate_toString$<T>(
   LocalizationsDelegate<T> target,
 ) =>
     target.toString;
+Function WidgetsLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetsLocalizations;
+Function WidgetsLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetsLocalizations;
 TextDirection _WidgetsLocalizations_textDirection$(
     WidgetsLocalizations target) {
   return target.textDirection;
@@ -126,6 +154,16 @@ String _WidgetsLocalizations_reorderItemRight$(WidgetsLocalizations target) {
 }
 
 Function _WidgetsLocalizations_of$(m.Scope scope) => WidgetsLocalizations.of;
+Function DefaultWidgetsLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultWidgetsLocalizations;
+Function DefaultWidgetsLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultWidgetsLocalizations;
 LocalizationsDelegate<WidgetsLocalizations>
     _DefaultWidgetsLocalizations_delegate$() {
   return DefaultWidgetsLocalizations.delegate;
@@ -168,6 +206,16 @@ TextDirection _DefaultWidgetsLocalizations_textDirection$(
 
 Function _DefaultWidgetsLocalizations_load$(m.Scope scope) =>
     DefaultWidgetsLocalizations.load;
+Function Localizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Localizations;
+Function Localizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Localizations;
 Locale _Localizations_locale$(Localizations target) {
   return target.locale;
 }

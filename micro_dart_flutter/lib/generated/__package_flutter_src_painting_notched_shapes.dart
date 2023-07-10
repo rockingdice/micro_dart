@@ -14,17 +14,27 @@ const libraryMirror = m.LibraryMirror(
   {
     'NotchedShape': m.ClassMirror(
       'NotchedShape',
-      {'getOuterPath': _NotchedShape_getOuterPath$},
+      {
+        '#as': NotchedShape_as$,
+        '#is': NotchedShape_is$,
+        'getOuterPath': _NotchedShape_getOuterPath$,
+      },
       {},
     ),
     'CircularNotchedRectangle': m.ClassMirror(
       'CircularNotchedRectangle',
-      {'getOuterPath': _CircularNotchedRectangle_getOuterPath$},
+      {
+        '#as': CircularNotchedRectangle_as$,
+        '#is': CircularNotchedRectangle_is$,
+        'getOuterPath': _CircularNotchedRectangle_getOuterPath$,
+      },
       {},
     ),
     'AutomaticNotchedShape': m.ClassMirror(
       'AutomaticNotchedShape',
       {
+        '#as': AutomaticNotchedShape_as$,
+        '#is': AutomaticNotchedShape_is$,
         'host': _AutomaticNotchedShape_host$,
         'guest': _AutomaticNotchedShape_guest$,
         'getOuterPath': _AutomaticNotchedShape_getOuterPath$,
@@ -33,16 +43,46 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NotchedShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NotchedShape;
+Function NotchedShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NotchedShape;
 Function _NotchedShape_getOuterPath$(
   m.Scope scope,
   NotchedShape target,
 ) =>
     target.getOuterPath;
+Function CircularNotchedRectangle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CircularNotchedRectangle;
+Function CircularNotchedRectangle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CircularNotchedRectangle;
 Function _CircularNotchedRectangle_getOuterPath$(
   m.Scope scope,
   CircularNotchedRectangle target,
 ) =>
     target.getOuterPath;
+Function AutomaticNotchedShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AutomaticNotchedShape;
+Function AutomaticNotchedShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AutomaticNotchedShape;
 ShapeBorder _AutomaticNotchedShape_host$(AutomaticNotchedShape target) {
   return target.host;
 }

@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'SingleChildScrollView': m.ClassMirror(
       'SingleChildScrollView',
       {
+        '#as': SingleChildScrollView_as$,
+        '#is': SingleChildScrollView_is$,
         'scrollDirection': _SingleChildScrollView_scrollDirection$,
         'reverse': _SingleChildScrollView_reverse$,
         'padding': _SingleChildScrollView_padding$,
@@ -44,6 +46,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SingleChildScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SingleChildScrollView;
+Function SingleChildScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SingleChildScrollView;
 Axis _SingleChildScrollView_scrollDirection$(SingleChildScrollView target) {
   return target.scrollDirection;
 }

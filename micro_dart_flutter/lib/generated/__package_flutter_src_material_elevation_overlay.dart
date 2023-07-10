@@ -20,11 +20,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'ElevationOverlay': m.ClassMirror(
       'ElevationOverlay',
-      {},
+      {
+        '#as': ElevationOverlay_as$,
+        '#is': ElevationOverlay_is$,
+      },
       {},
     )
   },
 );
+Function ElevationOverlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElevationOverlay;
+Function ElevationOverlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElevationOverlay;
 Function _ElevationOverlay_applySurfaceTint$(m.Scope scope) =>
     ElevationOverlay.applySurfaceTint;
 Function _ElevationOverlay_applyOverlay$(m.Scope scope) =>

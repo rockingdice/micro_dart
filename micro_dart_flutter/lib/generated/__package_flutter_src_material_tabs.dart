@@ -36,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'Tab': m.ClassMirror(
       'Tab',
       {
+        '#as': Tab_as$,
+        '#is': Tab_is$,
         'text': _Tab_text$,
         'child': _Tab_child$,
         'icon': _Tab_icon$,
@@ -50,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'TabBar': m.ClassMirror(
       'TabBar',
       {
+        '#as': TabBar_as$,
+        '#is': TabBar_is$,
         'tabs': _TabBar_tabs$,
         'controller': _TabBar_controller$,
         'isScrollable': _TabBar_isScrollable$,
@@ -84,6 +88,8 @@ const libraryMirror = m.LibraryMirror(
     'TabBarView': m.ClassMirror(
       'TabBarView',
       {
+        '#as': TabBarView_as$,
+        '#is': TabBarView_is$,
         'controller': _TabBarView_controller$,
         'children': _TabBarView_children$,
         'physics': _TabBarView_physics$,
@@ -97,6 +103,8 @@ const libraryMirror = m.LibraryMirror(
     'TabPageSelectorIndicator': m.ClassMirror(
       'TabPageSelectorIndicator',
       {
+        '#as': TabPageSelectorIndicator_as$,
+        '#is': TabPageSelectorIndicator_is$,
         'backgroundColor': _TabPageSelectorIndicator_backgroundColor$,
         'borderColor': _TabPageSelectorIndicator_borderColor$,
         'size': _TabPageSelectorIndicator_size$,
@@ -108,6 +116,8 @@ const libraryMirror = m.LibraryMirror(
     'TabPageSelector': m.ClassMirror(
       'TabPageSelector',
       {
+        '#as': TabPageSelector_as$,
+        '#is': TabPageSelector_is$,
         'controller': _TabPageSelector_controller$,
         'indicatorSize': _TabPageSelector_indicatorSize$,
         'color': _TabPageSelector_color$,
@@ -124,6 +134,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Tab_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Tab;
+Function Tab_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Tab;
 String? _Tab_text$(Tab target) {
   return target.text;
 }
@@ -158,6 +178,16 @@ Function _Tab_debugFillProperties$(
   Tab target,
 ) =>
     target.debugFillProperties;
+Function TabBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabBar;
+Function TabBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabBar;
 List<Widget> _TabBar_tabs$(TabBar target) {
   return target.tabs;
 }
@@ -267,6 +297,16 @@ Function _TabBar_createState$(
   TabBar target,
 ) =>
     target.createState;
+Function TabBarView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabBarView;
+Function TabBarView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabBarView;
 TabController? _TabBarView_controller$(TabBarView target) {
   return target.controller;
 }
@@ -296,6 +336,16 @@ Function _TabBarView_createState$(
   TabBarView target,
 ) =>
     target.createState;
+Function TabPageSelectorIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabPageSelectorIndicator;
+Function TabPageSelectorIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabPageSelectorIndicator;
 Color _TabPageSelectorIndicator_backgroundColor$(
     TabPageSelectorIndicator target) {
   return target.backgroundColor;
@@ -319,6 +369,16 @@ Function _TabPageSelectorIndicator_build$(
   TabPageSelectorIndicator target,
 ) =>
     target.build;
+Function TabPageSelector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabPageSelector;
+Function TabPageSelector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabPageSelector;
 TabController? _TabPageSelector_controller$(TabPageSelector target) {
   return target.controller;
 }

@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomSheetThemeData': m.ClassMirror(
       'BottomSheetThemeData',
       {
+        '#as': BottomSheetThemeData_as$,
+        '#is': BottomSheetThemeData_is$,
         'backgroundColor': _BottomSheetThemeData_backgroundColor$,
         'surfaceTintColor': _BottomSheetThemeData_surfaceTintColor$,
         'elevation': _BottomSheetThemeData_elevation$,
@@ -30,12 +32,23 @@ const libraryMirror = m.LibraryMirror(
         'constraints': _BottomSheetThemeData_constraints$,
         'hashCode': _BottomSheetThemeData_hashCode$,
         'copyWith': _BottomSheetThemeData_copyWith$,
+        '==': _BottomSheetThemeData_eq$$,
         'debugFillProperties': _BottomSheetThemeData_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function BottomSheetThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomSheetThemeData;
+Function BottomSheetThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomSheetThemeData;
 Color? _BottomSheetThemeData_backgroundColor$(BottomSheetThemeData target) {
   return target.backgroundColor;
 }
@@ -101,6 +114,11 @@ Function _BottomSheetThemeData_copyWith$(
     target.copyWith;
 Function _BottomSheetThemeData_lerp$(m.Scope scope) =>
     BottomSheetThemeData.lerp;
+Function _BottomSheetThemeData_eq$$(
+  m.Scope scope,
+  BottomSheetThemeData target,
+) =>
+    (Object other) => target == other;
 Function _BottomSheetThemeData_debugFillProperties$(
   m.Scope scope,
   BottomSheetThemeData target,

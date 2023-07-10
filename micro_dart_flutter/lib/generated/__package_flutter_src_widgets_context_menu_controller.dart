@@ -10,12 +10,17 @@ import 'package:flutter/src/widgets/overlay.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/context_menu_controller.dart',
-  {'ContextMenuController.removeAny': _ContextMenuController_removeAny$},
+  {
+    'ContextMenuController.show': _ContextMenuController_show$,
+    'ContextMenuController.removeAny': _ContextMenuController_removeAny$,
+  },
   {},
   {
     'ContextMenuController': m.ClassMirror(
       'ContextMenuController',
       {
+        '#as': ContextMenuController_as$,
+        '#is': ContextMenuController_is$,
         'onRemove': _ContextMenuController_onRemove$,
         'isShown': _ContextMenuController_isShown$,
         'markNeedsBuild': _ContextMenuController_markNeedsBuild$,
@@ -25,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ContextMenuController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContextMenuController;
+Function ContextMenuController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContextMenuController;
 void Function()? _ContextMenuController_onRemove$(
     ContextMenuController target) {
   return target.onRemove;
@@ -34,6 +49,28 @@ bool _ContextMenuController_isShown$(ContextMenuController target) {
   return target.isShown;
 }
 
+Function _ContextMenuController_show$(
+  m.Scope scope,
+  ContextMenuController target,
+) =>
+    ({
+      required BuildContext context,
+      required m.FunctionPointer contextMenuBuilder,
+      Widget? debugRequiredFor,
+    }) {
+      Widget contextMenuBuilderProxy(BuildContext contextMenuBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            contextMenuBuilder,
+            [contextMenuBuilder_context],
+            {},
+          );
+      target.show(
+        context: context,
+        contextMenuBuilder: contextMenuBuilderProxy,
+        debugRequiredFor: debugRequiredFor,
+      );
+    };
 Function _ContextMenuController_removeAny$(m.Scope scope) =>
     ContextMenuController.removeAny;
 Function _ContextMenuController_markNeedsBuild$(

@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialBannerThemeData': m.ClassMirror(
       'MaterialBannerThemeData',
       {
+        '#as': MaterialBannerThemeData_as$,
+        '#is': MaterialBannerThemeData_is$,
         'backgroundColor': _MaterialBannerThemeData_backgroundColor$,
         'surfaceTintColor': _MaterialBannerThemeData_surfaceTintColor$,
         'shadowColor': _MaterialBannerThemeData_shadowColor$,
@@ -29,6 +31,7 @@ const libraryMirror = m.LibraryMirror(
         'leadingPadding': _MaterialBannerThemeData_leadingPadding$,
         'hashCode': _MaterialBannerThemeData_hashCode$,
         'copyWith': _MaterialBannerThemeData_copyWith$,
+        '==': _MaterialBannerThemeData_eq$$,
         'debugFillProperties': _MaterialBannerThemeData_debugFillProperties$,
       },
       {},
@@ -36,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialBannerTheme': m.ClassMirror(
       'MaterialBannerTheme',
       {
+        '#as': MaterialBannerTheme_as$,
+        '#is': MaterialBannerTheme_is$,
         'data': _MaterialBannerTheme_data$,
         'wrap': _MaterialBannerTheme_wrap$,
         'updateShouldNotify': _MaterialBannerTheme_updateShouldNotify$,
@@ -44,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialBannerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialBannerThemeData;
+Function MaterialBannerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialBannerThemeData;
 Color? _MaterialBannerThemeData_backgroundColor$(
     MaterialBannerThemeData target) {
   return target.backgroundColor;
@@ -92,11 +107,26 @@ Function _MaterialBannerThemeData_copyWith$(
     target.copyWith;
 Function _MaterialBannerThemeData_lerp$(m.Scope scope) =>
     MaterialBannerThemeData.lerp;
+Function _MaterialBannerThemeData_eq$$(
+  m.Scope scope,
+  MaterialBannerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _MaterialBannerThemeData_debugFillProperties$(
   m.Scope scope,
   MaterialBannerThemeData target,
 ) =>
     target.debugFillProperties;
+Function MaterialBannerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialBannerTheme;
+Function MaterialBannerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialBannerTheme;
 MaterialBannerThemeData? _MaterialBannerTheme_data$(
     MaterialBannerTheme target) {
   return target.data;

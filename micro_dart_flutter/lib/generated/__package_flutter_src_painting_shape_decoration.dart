@@ -20,12 +20,17 @@ import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/shape_decoration.dart',
-  {'ShapeDecoration.lerp': _ShapeDecoration_lerp$},
+  {
+    'ShapeDecoration.lerp': _ShapeDecoration_lerp$,
+    'ShapeDecoration.createBoxPainter': _ShapeDecoration_createBoxPainter$,
+  },
   {},
   {
     'ShapeDecoration': m.ClassMirror(
       'ShapeDecoration',
       {
+        '#as': ShapeDecoration_as$,
+        '#is': ShapeDecoration_is$,
         'color': _ShapeDecoration_color$,
         'gradient': _ShapeDecoration_gradient$,
         'image': _ShapeDecoration_image$,
@@ -37,6 +42,7 @@ const libraryMirror = m.LibraryMirror(
         'getClipPath': _ShapeDecoration_getClipPath$,
         'lerpFrom': _ShapeDecoration_lerpFrom$,
         'lerpTo': _ShapeDecoration_lerpTo$,
+        '==': _ShapeDecoration_eq$$,
         'debugFillProperties': _ShapeDecoration_debugFillProperties$,
         'hitTest': _ShapeDecoration_hitTest$,
       },
@@ -44,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ShapeDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShapeDecoration;
+Function ShapeDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShapeDecoration;
 Color? _ShapeDecoration_color$(ShapeDecoration target) {
   return target.color;
 }
@@ -92,6 +108,11 @@ Function _ShapeDecoration_lerpTo$(
 ) =>
     target.lerpTo;
 Function _ShapeDecoration_lerp$(m.Scope scope) => ShapeDecoration.lerp;
+Function _ShapeDecoration_eq$$(
+  m.Scope scope,
+  ShapeDecoration target,
+) =>
+    (Object other) => target == other;
 Function _ShapeDecoration_debugFillProperties$(
   m.Scope scope,
   ShapeDecoration target,
@@ -102,3 +123,18 @@ Function _ShapeDecoration_hitTest$(
   ShapeDecoration target,
 ) =>
     target.hitTest;
+Function _ShapeDecoration_createBoxPainter$(
+  m.Scope scope,
+  ShapeDecoration target,
+) =>
+    (m.FunctionPointer? onChanged) {
+      if (onChanged == null) {}
+      return target.createBoxPainter();
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged!,
+            [],
+            {},
+          );
+      return target.createBoxPainter(onChanged == null ? null : onChangedProxy);
+    };

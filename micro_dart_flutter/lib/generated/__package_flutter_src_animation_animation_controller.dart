@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimationController': m.ClassMirror(
       'AnimationController',
       {
+        '#as': AnimationController_as$,
+        '#is': AnimationController_is$,
         'lowerBound': _AnimationController_lowerBound$,
         'upperBound': _AnimationController_upperBound$,
         'debugLabel': _AnimationController_debugLabel$,
@@ -62,6 +64,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AnimationController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimationController;
+Function AnimationController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimationController;
 double _AnimationController_lowerBound$(AnimationController target) {
   return target.lowerBound;
 }

@@ -27,6 +27,7 @@ const libraryMirror = m.LibraryMirror(
     'CustomSemanticsAction.getIdentifier':
         _CustomSemanticsAction_getIdentifier$,
     'CustomSemanticsAction.getAction': _CustomSemanticsAction_getAction$,
+    'SemanticsNode.visitChildren': _SemanticsNode_visitChildren$,
     'DebugSemanticsDumpOrder.inverseHitTest':
         _DebugSemanticsDumpOrder_inverseHitTest$,
     'DebugSemanticsDumpOrder.traversalOrder':
@@ -39,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsTag': m.ClassMirror(
       'SemanticsTag',
       {
+        '#as': SemanticsTag_as$,
+        '#is': SemanticsTag_is$,
         'name': _SemanticsTag_name$,
         'toString': _SemanticsTag_toString$,
       },
@@ -47,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'ChildSemanticsConfigurationsResult': m.ClassMirror(
       'ChildSemanticsConfigurationsResult',
       {
+        '#as': ChildSemanticsConfigurationsResult_as$,
+        '#is': ChildSemanticsConfigurationsResult_is$,
         'mergeUp': _ChildSemanticsConfigurationsResult_mergeUp$,
         'siblingMergeGroups':
             _ChildSemanticsConfigurationsResult_siblingMergeGroups$,
@@ -56,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'ChildSemanticsConfigurationsResultBuilder': m.ClassMirror(
       'ChildSemanticsConfigurationsResultBuilder',
       {
+        '#as': ChildSemanticsConfigurationsResultBuilder_as$,
+        '#is': ChildSemanticsConfigurationsResultBuilder_is$,
         'markAsMergeUp':
             _ChildSemanticsConfigurationsResultBuilder_markAsMergeUp$,
         'markAsSiblingMergeGroup':
@@ -67,10 +74,13 @@ const libraryMirror = m.LibraryMirror(
     'CustomSemanticsAction': m.ClassMirror(
       'CustomSemanticsAction',
       {
+        '#as': CustomSemanticsAction_as$,
+        '#is': CustomSemanticsAction_is$,
         'label': _CustomSemanticsAction_label$,
         'hint': _CustomSemanticsAction_hint$,
         'action': _CustomSemanticsAction_action$,
         'hashCode': _CustomSemanticsAction_hashCode$,
+        '==': _CustomSemanticsAction_eq$$,
         'toString': _CustomSemanticsAction_toString$,
       },
       {},
@@ -78,9 +88,13 @@ const libraryMirror = m.LibraryMirror(
     'AttributedString': m.ClassMirror(
       'AttributedString',
       {
+        '#as': AttributedString_as$,
+        '#is': AttributedString_is$,
         'string': _AttributedString_string$,
         'attributes': _AttributedString_attributes$,
         'hashCode': _AttributedString_hashCode$,
+        '+': _AttributedString_plus$$,
+        '==': _AttributedString_eq$$,
         'toString': _AttributedString_toString$,
       },
       {},
@@ -88,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'AttributedStringProperty': m.ClassMirror(
       'AttributedStringProperty',
       {
+        '#as': AttributedStringProperty_as$,
+        '#is': AttributedStringProperty_is$,
         'showWhenEmpty': _AttributedStringProperty_showWhenEmpty$,
         'isInteresting': _AttributedStringProperty_isInteresting$,
         'valueToString': _AttributedStringProperty_valueToString$,
@@ -97,6 +113,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsData': m.ClassMirror(
       'SemanticsData',
       {
+        '#as': SemanticsData_as$,
+        '#is': SemanticsData_is$,
         'flags': _SemanticsData_flags$,
         'actions': _SemanticsData_actions$,
         'attributedLabel': _SemanticsData_attributedLabel$,
@@ -131,16 +149,20 @@ const libraryMirror = m.LibraryMirror(
         'hasAction': _SemanticsData_hasAction$,
         'toStringShort': _SemanticsData_toStringShort$,
         'debugFillProperties': _SemanticsData_debugFillProperties$,
+        '==': _SemanticsData_eq$$,
       },
       {},
     ),
     'SemanticsHintOverrides': m.ClassMirror(
       'SemanticsHintOverrides',
       {
+        '#as': SemanticsHintOverrides_as$,
+        '#is': SemanticsHintOverrides_is$,
         'onTapHint': _SemanticsHintOverrides_onTapHint$,
         'onLongPressHint': _SemanticsHintOverrides_onLongPressHint$,
         'isNotEmpty': _SemanticsHintOverrides_isNotEmpty$,
         'hashCode': _SemanticsHintOverrides_hashCode$,
+        '==': _SemanticsHintOverrides_eq$$,
         'debugFillProperties': _SemanticsHintOverrides_debugFillProperties$,
       },
       {},
@@ -148,6 +170,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsProperties': m.ClassMirror(
       'SemanticsProperties',
       {
+        '#as': SemanticsProperties_as$,
+        '#is': SemanticsProperties_is$,
         'enabled': _SemanticsProperties_enabled$,
         'checked': _SemanticsProperties_checked$,
         'mixed': _SemanticsProperties_mixed$,
@@ -225,6 +249,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsNode': m.ClassMirror(
       'SemanticsNode',
       {
+        '#as': SemanticsNode_as$,
+        '#is': SemanticsNode_is$,
         'key': _SemanticsNode_key$,
         'parentSemanticsClipRect': _SemanticsNode_parentSemanticsClipRect$,
         'parentPaintClipRect': _SemanticsNode_parentPaintClipRect$,
@@ -298,6 +324,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsOwner': m.ClassMirror(
       'SemanticsOwner',
       {
+        '#as': SemanticsOwner_as$,
+        '#is': SemanticsOwner_is$,
         'onSemanticsUpdate': _SemanticsOwner_onSemanticsUpdate$,
         'rootSemanticsNode': _SemanticsOwner_rootSemanticsNode$,
         'dispose': _SemanticsOwner_dispose$,
@@ -311,6 +339,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsConfiguration': m.ClassMirror(
       'SemanticsConfiguration',
       {
+        '#as': SemanticsConfiguration_as$,
+        '#is': SemanticsConfiguration_is$,
         'explicitChildNodes': _SemanticsConfiguration_explicitChildNodes$,
         'isBlockingSemanticsOfPreviouslyPaintedNodes':
             _SemanticsConfiguration_isBlockingSemanticsOfPreviouslyPaintedNodes$,
@@ -505,6 +535,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsSortKey': m.ClassMirror(
       'SemanticsSortKey',
       {
+        '#as': SemanticsSortKey_as$,
+        '#is': SemanticsSortKey_is$,
         'name': _SemanticsSortKey_name$,
         'compareTo': _SemanticsSortKey_compareTo$,
         'doCompare': _SemanticsSortKey_doCompare$,
@@ -515,6 +547,8 @@ const libraryMirror = m.LibraryMirror(
     'OrdinalSortKey': m.ClassMirror(
       'OrdinalSortKey',
       {
+        '#as': OrdinalSortKey_as$,
+        '#is': OrdinalSortKey_is$,
         'order': _OrdinalSortKey_order$,
         'doCompare': _OrdinalSortKey_doCompare$,
         'debugFillProperties': _OrdinalSortKey_debugFillProperties$,
@@ -528,6 +562,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SemanticsTag_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsTag;
+Function SemanticsTag_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsTag;
 String _SemanticsTag_name$(SemanticsTag target) {
   return target.name;
 }
@@ -537,6 +581,16 @@ Function _SemanticsTag_toString$(
   SemanticsTag target,
 ) =>
     target.toString;
+Function ChildSemanticsConfigurationsResult_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChildSemanticsConfigurationsResult;
+Function ChildSemanticsConfigurationsResult_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChildSemanticsConfigurationsResult;
 List<SemanticsConfiguration> _ChildSemanticsConfigurationsResult_mergeUp$(
     ChildSemanticsConfigurationsResult target) {
   return target.mergeUp;
@@ -548,6 +602,16 @@ List<List<SemanticsConfiguration>>
   return target.siblingMergeGroups;
 }
 
+Function ChildSemanticsConfigurationsResultBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChildSemanticsConfigurationsResultBuilder;
+Function ChildSemanticsConfigurationsResultBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChildSemanticsConfigurationsResultBuilder;
 Function _ChildSemanticsConfigurationsResultBuilder_markAsMergeUp$(
   m.Scope scope,
   ChildSemanticsConfigurationsResultBuilder target,
@@ -563,6 +627,16 @@ Function _ChildSemanticsConfigurationsResultBuilder_build$(
   ChildSemanticsConfigurationsResultBuilder target,
 ) =>
     target.build;
+Function CustomSemanticsAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomSemanticsAction;
+Function CustomSemanticsAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomSemanticsAction;
 String? _CustomSemanticsAction_label$(CustomSemanticsAction target) {
   return target.label;
 }
@@ -579,6 +653,11 @@ int _CustomSemanticsAction_hashCode$(CustomSemanticsAction target) {
   return target.hashCode;
 }
 
+Function _CustomSemanticsAction_eq$$(
+  m.Scope scope,
+  CustomSemanticsAction target,
+) =>
+    (Object other) => target == other;
 Function _CustomSemanticsAction_toString$(
   m.Scope scope,
   CustomSemanticsAction target,
@@ -588,6 +667,16 @@ Function _CustomSemanticsAction_getIdentifier$(m.Scope scope) =>
     CustomSemanticsAction.getIdentifier;
 Function _CustomSemanticsAction_getAction$(m.Scope scope) =>
     CustomSemanticsAction.getAction;
+Function AttributedString_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AttributedString;
+Function AttributedString_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AttributedString;
 String _AttributedString_string$(AttributedString target) {
   return target.string;
 }
@@ -600,11 +689,31 @@ int _AttributedString_hashCode$(AttributedString target) {
   return target.hashCode;
 }
 
+Function _AttributedString_plus$$(
+  m.Scope scope,
+  AttributedString target,
+) =>
+    (AttributedString other) => target + other;
+Function _AttributedString_eq$$(
+  m.Scope scope,
+  AttributedString target,
+) =>
+    (Object other) => target == other;
 Function _AttributedString_toString$(
   m.Scope scope,
   AttributedString target,
 ) =>
     target.toString;
+Function AttributedStringProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AttributedStringProperty;
+Function AttributedStringProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AttributedStringProperty;
 bool _AttributedStringProperty_showWhenEmpty$(AttributedStringProperty target) {
   return target.showWhenEmpty;
 }
@@ -618,6 +727,16 @@ Function _AttributedStringProperty_valueToString$(
   AttributedStringProperty target,
 ) =>
     target.valueToString;
+Function SemanticsData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsData;
+Function SemanticsData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsData;
 int _SemanticsData_flags$(SemanticsData target) {
   return target.flags;
 }
@@ -760,6 +879,21 @@ Function _SemanticsData_debugFillProperties$(
   SemanticsData target,
 ) =>
     target.debugFillProperties;
+Function _SemanticsData_eq$$(
+  m.Scope scope,
+  SemanticsData target,
+) =>
+    (Object other) => target == other;
+Function SemanticsHintOverrides_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsHintOverrides;
+Function SemanticsHintOverrides_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsHintOverrides;
 String? _SemanticsHintOverrides_onTapHint$(SemanticsHintOverrides target) {
   return target.onTapHint;
 }
@@ -777,11 +911,26 @@ int _SemanticsHintOverrides_hashCode$(SemanticsHintOverrides target) {
   return target.hashCode;
 }
 
+Function _SemanticsHintOverrides_eq$$(
+  m.Scope scope,
+  SemanticsHintOverrides target,
+) =>
+    (Object other) => target == other;
 Function _SemanticsHintOverrides_debugFillProperties$(
   m.Scope scope,
   SemanticsHintOverrides target,
 ) =>
     target.debugFillProperties;
+Function SemanticsProperties_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsProperties;
+Function SemanticsProperties_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsProperties;
 bool? _SemanticsProperties_enabled$(SemanticsProperties target) {
   return target.enabled;
 }
@@ -1051,6 +1200,16 @@ Function _SemanticsProperties_toStringShort$(
   SemanticsProperties target,
 ) =>
     target.toStringShort;
+Function SemanticsNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsNode;
+Function SemanticsNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsNode;
 Key? _SemanticsNode_key$(SemanticsNode target) {
   return target.key;
 }
@@ -1281,6 +1440,20 @@ int? _SemanticsNode_currentValueLength$(SemanticsNode target) {
   return target.currentValueLength;
 }
 
+Function _SemanticsNode_visitChildren$(
+  m.Scope scope,
+  SemanticsNode target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(SemanticsNode visitor_node) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_node],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _SemanticsNode_redepthChildren$(
   m.Scope scope,
   SemanticsNode target,
@@ -1351,6 +1524,16 @@ Function _SemanticsNode_debugListChildrenInOrder$(
   SemanticsNode target,
 ) =>
     target.debugListChildrenInOrder;
+Function SemanticsOwner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsOwner;
+Function SemanticsOwner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsOwner;
 void Function(SemanticsUpdate) _SemanticsOwner_onSemanticsUpdate$(
     SemanticsOwner target) {
   return target.onSemanticsUpdate;
@@ -1385,6 +1568,16 @@ Function _SemanticsOwner_toString$(
   SemanticsOwner target,
 ) =>
     target.toString;
+Function SemanticsConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsConfiguration;
+Function SemanticsConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsConfiguration;
 bool _SemanticsConfiguration_explicitChildNodes$(
     SemanticsConfiguration target) {
   return target.explicitChildNodes;
@@ -2443,6 +2636,16 @@ Function _SemanticsConfiguration_copy$(
   SemanticsConfiguration target,
 ) =>
     target.copy;
+Function SemanticsSortKey_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsSortKey;
+Function SemanticsSortKey_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsSortKey;
 String? _SemanticsSortKey_name$(SemanticsSortKey target) {
   return target.name;
 }
@@ -2462,6 +2665,16 @@ Function _SemanticsSortKey_debugFillProperties$(
   SemanticsSortKey target,
 ) =>
     target.debugFillProperties;
+Function OrdinalSortKey_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OrdinalSortKey;
+Function OrdinalSortKey_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OrdinalSortKey;
 double _OrdinalSortKey_order$(OrdinalSortKey target) {
   return target.order;
 }

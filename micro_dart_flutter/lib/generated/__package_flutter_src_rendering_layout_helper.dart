@@ -16,11 +16,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'ChildLayoutHelper': m.ClassMirror(
       'ChildLayoutHelper',
-      {},
+      {
+        '#as': ChildLayoutHelper_as$,
+        '#is': ChildLayoutHelper_is$,
+      },
       {},
     )
   },
 );
+Function ChildLayoutHelper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChildLayoutHelper;
+Function ChildLayoutHelper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChildLayoutHelper;
 Function _ChildLayoutHelper_dryLayoutChild$(m.Scope scope) =>
     ChildLayoutHelper.dryLayoutChild;
 Function _ChildLayoutHelper_layoutChild$(m.Scope scope) =>

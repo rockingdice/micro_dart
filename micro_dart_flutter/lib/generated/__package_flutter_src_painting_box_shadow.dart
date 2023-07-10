@@ -20,17 +20,30 @@ const libraryMirror = m.LibraryMirror(
     'BoxShadow': m.ClassMirror(
       'BoxShadow',
       {
+        '#as': BoxShadow_as$,
+        '#is': BoxShadow_is$,
         'spreadRadius': _BoxShadow_spreadRadius$,
         'blurStyle': _BoxShadow_blurStyle$,
         'hashCode': _BoxShadow_hashCode$,
         'toPaint': _BoxShadow_toPaint$,
         'scale': _BoxShadow_scale$,
+        '==': _BoxShadow_eq$$,
         'toString': _BoxShadow_toString$,
       },
       {},
     )
   },
 );
+Function BoxShadow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxShadow;
+Function BoxShadow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxShadow;
 double _BoxShadow_spreadRadius$(BoxShadow target) {
   return target.spreadRadius;
 }
@@ -55,6 +68,11 @@ Function _BoxShadow_scale$(
     target.scale;
 Function _BoxShadow_lerp$(m.Scope scope) => BoxShadow.lerp;
 Function _BoxShadow_lerpList$(m.Scope scope) => BoxShadow.lerpList;
+Function _BoxShadow_eq$$(
+  m.Scope scope,
+  BoxShadow target,
+) =>
+    (Object other) => target == other;
 Function _BoxShadow_toString$(
   m.Scope scope,
   BoxShadow target,

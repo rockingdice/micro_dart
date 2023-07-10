@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'WillPopScope': m.ClassMirror(
       'WillPopScope',
       {
+        '#as': WillPopScope_as$,
+        '#is': WillPopScope_is$,
         'child': _WillPopScope_child$,
         'onWillPop': _WillPopScope_onWillPop$,
         'createState': _WillPopScope_createState$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function WillPopScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WillPopScope;
+Function WillPopScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WillPopScope;
 Widget _WillPopScope_child$(WillPopScope target) {
   return target.child;
 }

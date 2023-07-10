@@ -18,12 +18,16 @@ const libraryMirror = m.LibraryMirror(
     'materialTextSelectionHandleControls':
         _materialTextSelectionHandleControls$,
     'materialTextSelectionControls': _materialTextSelectionControls$,
+    'MaterialTextSelectionControls.buildHandle':
+        _MaterialTextSelectionControls_buildHandle$,
   },
   {},
   {
     'MaterialTextSelectionControls': m.ClassMirror(
       'MaterialTextSelectionControls',
       {
+        '#as': MaterialTextSelectionControls_as$,
+        '#is': MaterialTextSelectionControls_is$,
         'getHandleSize': _MaterialTextSelectionControls_getHandleSize$,
         'getHandleAnchor': _MaterialTextSelectionControls_getHandleAnchor$,
       },
@@ -39,11 +43,50 @@ TextSelectionControls _materialTextSelectionControls$() {
   return materialTextSelectionControls;
 }
 
+Function MaterialTextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialTextSelectionControls;
+Function MaterialTextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialTextSelectionControls;
 Function _MaterialTextSelectionControls_getHandleSize$(
   m.Scope scope,
   MaterialTextSelectionControls target,
 ) =>
     target.getHandleSize;
+Function _MaterialTextSelectionControls_buildHandle$(
+  m.Scope scope,
+  MaterialTextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _MaterialTextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   MaterialTextSelectionControls target,

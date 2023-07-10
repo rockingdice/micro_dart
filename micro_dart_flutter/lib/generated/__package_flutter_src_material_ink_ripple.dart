@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'InkRipple': m.ClassMirror(
       'InkRipple',
       {
+        '#as': InkRipple_as$,
+        '#is': InkRipple_is$,
         'confirm': _InkRipple_confirm$,
         'cancel': _InkRipple_cancel$,
         'dispose': _InkRipple_dispose$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InkRipple_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkRipple;
+Function InkRipple_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkRipple;
 InteractiveInkFeatureFactory _InkRipple_splashFactory$() {
   return InkRipple.splashFactory;
 }

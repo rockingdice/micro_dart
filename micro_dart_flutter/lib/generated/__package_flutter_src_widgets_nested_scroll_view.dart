@@ -33,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'NestedScrollView': m.ClassMirror(
       'NestedScrollView',
       {
+        '#as': NestedScrollView_as$,
+        '#is': NestedScrollView_is$,
         'controller': _NestedScrollView_controller$,
         'scrollDirection': _NestedScrollView_scrollDirection$,
         'reverse': _NestedScrollView_reverse$,
@@ -51,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'NestedScrollViewState': m.ClassMirror(
       'NestedScrollViewState',
       {
+        '#as': NestedScrollViewState_as$,
+        '#is': NestedScrollViewState_is$,
         'innerController': _NestedScrollViewState_innerController$,
         'outerController': _NestedScrollViewState_outerController$,
         'initState': _NestedScrollViewState_initState$,
@@ -64,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverOverlapAbsorberHandle': m.ClassMirror(
       'SliverOverlapAbsorberHandle',
       {
+        '#as': SliverOverlapAbsorberHandle_as$,
+        '#is': SliverOverlapAbsorberHandle_is$,
         'layoutExtent': _SliverOverlapAbsorberHandle_layoutExtent$,
         'scrollExtent': _SliverOverlapAbsorberHandle_scrollExtent$,
         'toString': _SliverOverlapAbsorberHandle_toString$,
@@ -73,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverOverlapAbsorber': m.ClassMirror(
       'SliverOverlapAbsorber',
       {
+        '#as': SliverOverlapAbsorber_as$,
+        '#is': SliverOverlapAbsorber_is$,
         'handle': _SliverOverlapAbsorber_handle$,
         'createRenderObject': _SliverOverlapAbsorber_createRenderObject$,
         'updateRenderObject': _SliverOverlapAbsorber_updateRenderObject$,
@@ -83,6 +91,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverOverlapAbsorber': m.ClassMirror(
       'RenderSliverOverlapAbsorber',
       {
+        '#as': RenderSliverOverlapAbsorber_as$,
+        '#is': RenderSliverOverlapAbsorber_is$,
         'handle': _RenderSliverOverlapAbsorber_handle$,
         'attach': _RenderSliverOverlapAbsorber_attach$,
         'detach': _RenderSliverOverlapAbsorber_detach$,
@@ -99,6 +109,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverOverlapInjector': m.ClassMirror(
       'SliverOverlapInjector',
       {
+        '#as': SliverOverlapInjector_as$,
+        '#is': SliverOverlapInjector_is$,
         'handle': _SliverOverlapInjector_handle$,
         'createRenderObject': _SliverOverlapInjector_createRenderObject$,
         'updateRenderObject': _SliverOverlapInjector_updateRenderObject$,
@@ -109,6 +121,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverOverlapInjector': m.ClassMirror(
       'RenderSliverOverlapInjector',
       {
+        '#as': RenderSliverOverlapInjector_as$,
+        '#is': RenderSliverOverlapInjector_is$,
         'handle': _RenderSliverOverlapInjector_handle$,
         'attach': _RenderSliverOverlapInjector_attach$,
         'detach': _RenderSliverOverlapInjector_detach$,
@@ -122,6 +136,8 @@ const libraryMirror = m.LibraryMirror(
     'NestedScrollViewViewport': m.ClassMirror(
       'NestedScrollViewViewport',
       {
+        '#as': NestedScrollViewViewport_as$,
+        '#is': NestedScrollViewViewport_is$,
         'handle': _NestedScrollViewViewport_handle$,
         'createRenderObject': _NestedScrollViewViewport_createRenderObject$,
         'updateRenderObject': _NestedScrollViewViewport_updateRenderObject$,
@@ -132,6 +148,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderNestedScrollViewViewport': m.ClassMirror(
       'RenderNestedScrollViewViewport',
       {
+        '#as': RenderNestedScrollViewViewport_as$,
+        '#is': RenderNestedScrollViewViewport_is$,
         'handle': _RenderNestedScrollViewViewport_handle$,
         'markNeedsLayout': _RenderNestedScrollViewViewport_markNeedsLayout$,
         'debugFillProperties':
@@ -141,6 +159,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NestedScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NestedScrollView;
+Function NestedScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NestedScrollView;
 ScrollController? _NestedScrollView_controller$(NestedScrollView target) {
   return target.controller;
 }
@@ -194,6 +222,16 @@ Function _NestedScrollView_createState$(
   NestedScrollView target,
 ) =>
     target.createState;
+Function NestedScrollViewState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NestedScrollViewState;
+Function NestedScrollViewState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NestedScrollViewState;
 ScrollController _NestedScrollViewState_innerController$(
     NestedScrollViewState target) {
   return target.innerController;
@@ -229,6 +267,16 @@ Function _NestedScrollViewState_build$(
   NestedScrollViewState target,
 ) =>
     target.build;
+Function SliverOverlapAbsorberHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverOverlapAbsorberHandle;
+Function SliverOverlapAbsorberHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverOverlapAbsorberHandle;
 double? _SliverOverlapAbsorberHandle_layoutExtent$(
     SliverOverlapAbsorberHandle target) {
   return target.layoutExtent;
@@ -244,6 +292,16 @@ Function _SliverOverlapAbsorberHandle_toString$(
   SliverOverlapAbsorberHandle target,
 ) =>
     target.toString;
+Function SliverOverlapAbsorber_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverOverlapAbsorber;
+Function SliverOverlapAbsorber_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverOverlapAbsorber;
 SliverOverlapAbsorberHandle _SliverOverlapAbsorber_handle$(
     SliverOverlapAbsorber target) {
   return target.handle;
@@ -264,6 +322,16 @@ Function _SliverOverlapAbsorber_debugFillProperties$(
   SliverOverlapAbsorber target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverOverlapAbsorber_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverOverlapAbsorber;
+Function RenderSliverOverlapAbsorber_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverOverlapAbsorber;
 SliverOverlapAbsorberHandle _RenderSliverOverlapAbsorber_handle$(
     RenderSliverOverlapAbsorber target) {
   return target.handle;
@@ -311,6 +379,16 @@ Function _RenderSliverOverlapAbsorber_debugFillProperties$(
   RenderSliverOverlapAbsorber target,
 ) =>
     target.debugFillProperties;
+Function SliverOverlapInjector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverOverlapInjector;
+Function SliverOverlapInjector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverOverlapInjector;
 SliverOverlapAbsorberHandle _SliverOverlapInjector_handle$(
     SliverOverlapInjector target) {
   return target.handle;
@@ -331,6 +409,16 @@ Function _SliverOverlapInjector_debugFillProperties$(
   SliverOverlapInjector target,
 ) =>
     target.debugFillProperties;
+Function RenderSliverOverlapInjector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverOverlapInjector;
+Function RenderSliverOverlapInjector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverOverlapInjector;
 SliverOverlapAbsorberHandle _RenderSliverOverlapInjector_handle$(
     RenderSliverOverlapInjector target) {
   return target.handle;
@@ -368,6 +456,16 @@ Function _RenderSliverOverlapInjector_debugFillProperties$(
   RenderSliverOverlapInjector target,
 ) =>
     target.debugFillProperties;
+Function NestedScrollViewViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NestedScrollViewViewport;
+Function NestedScrollViewViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NestedScrollViewViewport;
 SliverOverlapAbsorberHandle _NestedScrollViewViewport_handle$(
     NestedScrollViewViewport target) {
   return target.handle;
@@ -388,6 +486,16 @@ Function _NestedScrollViewViewport_debugFillProperties$(
   NestedScrollViewViewport target,
 ) =>
     target.debugFillProperties;
+Function RenderNestedScrollViewViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderNestedScrollViewViewport;
+Function RenderNestedScrollViewViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderNestedScrollViewViewport;
 SliverOverlapAbsorberHandle _RenderNestedScrollViewViewport_handle$(
     RenderNestedScrollViewViewport target) {
   return target.handle;

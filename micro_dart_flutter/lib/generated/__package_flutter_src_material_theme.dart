@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'Theme': m.ClassMirror(
       'Theme',
       {
+        '#as': Theme_as$,
+        '#is': Theme_is$,
         'data': _Theme_data$,
         'child': _Theme_child$,
         'build': _Theme_build$,
@@ -29,12 +31,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ThemeDataTween': m.ClassMirror(
       'ThemeDataTween',
-      {'lerp': _ThemeDataTween_lerp$},
+      {
+        '#as': ThemeDataTween_as$,
+        '#is': ThemeDataTween_is$,
+        'lerp': _ThemeDataTween_lerp$,
+      },
       {},
     ),
     'AnimatedTheme': m.ClassMirror(
       'AnimatedTheme',
       {
+        '#as': AnimatedTheme_as$,
+        '#is': AnimatedTheme_is$,
         'data': _AnimatedTheme_data$,
         'child': _AnimatedTheme_child$,
         'createState': _AnimatedTheme_createState$,
@@ -47,6 +55,16 @@ Duration _kThemeAnimationDuration$() {
   return kThemeAnimationDuration;
 }
 
+Function Theme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Theme;
+Function Theme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Theme;
 ThemeData _Theme_data$(Theme target) {
   return target.data;
 }
@@ -66,11 +84,31 @@ Function _Theme_debugFillProperties$(
   Theme target,
 ) =>
     target.debugFillProperties;
+Function ThemeDataTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ThemeDataTween;
+Function ThemeDataTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ThemeDataTween;
 Function _ThemeDataTween_lerp$(
   m.Scope scope,
   ThemeDataTween target,
 ) =>
     target.lerp;
+Function AnimatedTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedTheme;
+Function AnimatedTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedTheme;
 ThemeData _AnimatedTheme_data$(AnimatedTheme target) {
   return target.data;
 }

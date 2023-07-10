@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'StreamBuilderBase': m.ClassMirror(
       'StreamBuilderBase',
       {
+        '#as': StreamBuilderBase_as$,
+        '#is': StreamBuilderBase_is$,
         'stream': _StreamBuilderBase_stream$,
         'initial': _StreamBuilderBase_initial$,
         'afterConnected': _StreamBuilderBase_afterConnected$,
@@ -37,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'AsyncSnapshot': m.ClassMirror(
       'AsyncSnapshot',
       {
+        '#as': AsyncSnapshot_as$,
+        '#is': AsyncSnapshot_is$,
         'connectionState': _AsyncSnapshot_connectionState$,
         'data': _AsyncSnapshot_data$,
         'error': _AsyncSnapshot_error$,
@@ -47,12 +51,15 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _AsyncSnapshot_hashCode$,
         'inState': _AsyncSnapshot_inState$,
         'toString': _AsyncSnapshot_toString$,
+        '==': _AsyncSnapshot_eq$$,
       },
       {},
     ),
     'StreamBuilder': m.ClassMirror(
       'StreamBuilder',
       {
+        '#as': StreamBuilder_as$,
+        '#is': StreamBuilder_is$,
         'builder': _StreamBuilder_builder$,
         'initialData': _StreamBuilder_initialData$,
         'initial': _StreamBuilder_initial$,
@@ -68,6 +75,8 @@ const libraryMirror = m.LibraryMirror(
     'FutureBuilder': m.ClassMirror(
       'FutureBuilder',
       {
+        '#as': FutureBuilder_as$,
+        '#is': FutureBuilder_is$,
         'future': _FutureBuilder_future$,
         'builder': _FutureBuilder_builder$,
         'initialData': _FutureBuilder_initialData$,
@@ -82,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function StreamBuilderBase_as$<T, S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamBuilderBase<T, S>;
+Function StreamBuilderBase_is$<T, S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamBuilderBase<T, S>;
 Stream<T>? _StreamBuilderBase_stream$<T, S>(StreamBuilderBase<T, S> target) {
   return target.stream;
 }
@@ -126,6 +145,16 @@ Function _StreamBuilderBase_createState$<T, S>(
   StreamBuilderBase<T, S> target,
 ) =>
     target.createState;
+Function AsyncSnapshot_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AsyncSnapshot<T>;
+Function AsyncSnapshot_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AsyncSnapshot<T>;
 ConnectionState _AsyncSnapshot_connectionState$<T>(AsyncSnapshot<T> target) {
   return target.connectionState;
 }
@@ -168,6 +197,21 @@ Function _AsyncSnapshot_toString$<T>(
   AsyncSnapshot<T> target,
 ) =>
     target.toString;
+Function _AsyncSnapshot_eq$$<T>(
+  m.Scope scope,
+  AsyncSnapshot<T> target,
+) =>
+    (Object other) => target == other;
+Function StreamBuilder_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamBuilder<T>;
+Function StreamBuilder_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamBuilder<T>;
 Widget Function(BuildContext, AsyncSnapshot<T>) _StreamBuilder_builder$<T>(
     StreamBuilder<T> target) {
   return target.builder;
@@ -212,6 +256,16 @@ Function _StreamBuilder_build$<T>(
   StreamBuilder<T> target,
 ) =>
     target.build;
+Function FutureBuilder_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FutureBuilder<T>;
+Function FutureBuilder_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FutureBuilder<T>;
 Future<T>? _FutureBuilder_future$<T>(FutureBuilder<T> target) {
   return target.future;
 }

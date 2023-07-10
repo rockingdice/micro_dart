@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusTraversalPolicy': m.ClassMirror(
       'FocusTraversalPolicy',
       {
+        '#as': FocusTraversalPolicy_as$,
+        '#is': FocusTraversalPolicy_is$,
         'findFirstFocus': _FocusTraversalPolicy_findFirstFocus$,
         'findLastFocus': _FocusTraversalPolicy_findLastFocus$,
         'findFirstFocusInDirection':
@@ -50,17 +52,27 @@ const libraryMirror = m.LibraryMirror(
     ),
     'WidgetOrderTraversalPolicy': m.ClassMirror(
       'WidgetOrderTraversalPolicy',
-      {'sortDescendants': _WidgetOrderTraversalPolicy_sortDescendants$},
+      {
+        '#as': WidgetOrderTraversalPolicy_as$,
+        '#is': WidgetOrderTraversalPolicy_is$,
+        'sortDescendants': _WidgetOrderTraversalPolicy_sortDescendants$,
+      },
       {},
     ),
     'ReadingOrderTraversalPolicy': m.ClassMirror(
       'ReadingOrderTraversalPolicy',
-      {'sortDescendants': _ReadingOrderTraversalPolicy_sortDescendants$},
+      {
+        '#as': ReadingOrderTraversalPolicy_as$,
+        '#is': ReadingOrderTraversalPolicy_is$,
+        'sortDescendants': _ReadingOrderTraversalPolicy_sortDescendants$,
+      },
       {},
     ),
     'FocusOrder': m.ClassMirror(
       'FocusOrder',
       {
+        '#as': FocusOrder_as$,
+        '#is': FocusOrder_is$,
         'compareTo': _FocusOrder_compareTo$,
         'doCompare': _FocusOrder_doCompare$,
       },
@@ -69,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'NumericFocusOrder': m.ClassMirror(
       'NumericFocusOrder',
       {
+        '#as': NumericFocusOrder_as$,
+        '#is': NumericFocusOrder_is$,
         'order': _NumericFocusOrder_order$,
         'doCompare': _NumericFocusOrder_doCompare$,
         'debugFillProperties': _NumericFocusOrder_debugFillProperties$,
@@ -78,6 +92,8 @@ const libraryMirror = m.LibraryMirror(
     'LexicalFocusOrder': m.ClassMirror(
       'LexicalFocusOrder',
       {
+        '#as': LexicalFocusOrder_as$,
+        '#is': LexicalFocusOrder_is$,
         'order': _LexicalFocusOrder_order$,
         'doCompare': _LexicalFocusOrder_doCompare$,
         'debugFillProperties': _LexicalFocusOrder_debugFillProperties$,
@@ -87,6 +103,8 @@ const libraryMirror = m.LibraryMirror(
     'OrderedTraversalPolicy': m.ClassMirror(
       'OrderedTraversalPolicy',
       {
+        '#as': OrderedTraversalPolicy_as$,
+        '#is': OrderedTraversalPolicy_is$,
         'secondary': _OrderedTraversalPolicy_secondary$,
         'sortDescendants': _OrderedTraversalPolicy_sortDescendants$,
       },
@@ -95,6 +113,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusTraversalOrder': m.ClassMirror(
       'FocusTraversalOrder',
       {
+        '#as': FocusTraversalOrder_as$,
+        '#is': FocusTraversalOrder_is$,
         'order': _FocusTraversalOrder_order$,
         'updateShouldNotify': _FocusTraversalOrder_updateShouldNotify$,
         'debugFillProperties': _FocusTraversalOrder_debugFillProperties$,
@@ -104,6 +124,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusTraversalGroup': m.ClassMirror(
       'FocusTraversalGroup',
       {
+        '#as': FocusTraversalGroup_as$,
+        '#is': FocusTraversalGroup_is$,
         'policy': _FocusTraversalGroup_policy$,
         'descendantsAreFocusable':
             _FocusTraversalGroup_descendantsAreFocusable$,
@@ -117,22 +139,35 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RequestFocusIntent': m.ClassMirror(
       'RequestFocusIntent',
-      {'focusNode': _RequestFocusIntent_focusNode$},
+      {
+        '#as': RequestFocusIntent_as$,
+        '#is': RequestFocusIntent_is$,
+        'focusNode': _RequestFocusIntent_focusNode$,
+      },
       {},
     ),
     'RequestFocusAction': m.ClassMirror(
       'RequestFocusAction',
-      {'invoke': _RequestFocusAction_invoke$},
+      {
+        '#as': RequestFocusAction_as$,
+        '#is': RequestFocusAction_is$,
+        'invoke': _RequestFocusAction_invoke$,
+      },
       {},
     ),
     'NextFocusIntent': m.ClassMirror(
       'NextFocusIntent',
-      {},
+      {
+        '#as': NextFocusIntent_as$,
+        '#is': NextFocusIntent_is$,
+      },
       {},
     ),
     'NextFocusAction': m.ClassMirror(
       'NextFocusAction',
       {
+        '#as': NextFocusAction_as$,
+        '#is': NextFocusAction_is$,
         'invoke': _NextFocusAction_invoke$,
         'toKeyEventResult': _NextFocusAction_toKeyEventResult$,
       },
@@ -140,12 +175,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PreviousFocusIntent': m.ClassMirror(
       'PreviousFocusIntent',
-      {},
+      {
+        '#as': PreviousFocusIntent_as$,
+        '#is': PreviousFocusIntent_is$,
+      },
       {},
     ),
     'PreviousFocusAction': m.ClassMirror(
       'PreviousFocusAction',
       {
+        '#as': PreviousFocusAction_as$,
+        '#is': PreviousFocusAction_is$,
         'invoke': _PreviousFocusAction_invoke$,
         'toKeyEventResult': _PreviousFocusAction_toKeyEventResult$,
       },
@@ -154,6 +194,8 @@ const libraryMirror = m.LibraryMirror(
     'DirectionalFocusIntent': m.ClassMirror(
       'DirectionalFocusIntent',
       {
+        '#as': DirectionalFocusIntent_as$,
+        '#is': DirectionalFocusIntent_is$,
         'direction': _DirectionalFocusIntent_direction$,
         'ignoreTextFields': _DirectionalFocusIntent_ignoreTextFields$,
         'debugFillProperties': _DirectionalFocusIntent_debugFillProperties$,
@@ -162,12 +204,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DirectionalFocusAction': m.ClassMirror(
       'DirectionalFocusAction',
-      {'invoke': _DirectionalFocusAction_invoke$},
+      {
+        '#as': DirectionalFocusAction_as$,
+        '#is': DirectionalFocusAction_is$,
+        'invoke': _DirectionalFocusAction_invoke$,
+      },
       {},
     ),
     'ExcludeFocusTraversal': m.ClassMirror(
       'ExcludeFocusTraversal',
       {
+        '#as': ExcludeFocusTraversal_as$,
+        '#is': ExcludeFocusTraversal_is$,
         'excluding': _ExcludeFocusTraversal_excluding$,
         'child': _ExcludeFocusTraversal_child$,
         'build': _ExcludeFocusTraversal_build$,
@@ -186,6 +234,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FocusTraversalPolicy_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusTraversalPolicy;
+Function FocusTraversalPolicy_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusTraversalPolicy;
 Function _FocusTraversalPolicy_findFirstFocus$(
   m.Scope scope,
   FocusTraversalPolicy target,
@@ -231,16 +289,46 @@ Function _FocusTraversalPolicy_sortDescendants$(
   FocusTraversalPolicy target,
 ) =>
     target.sortDescendants;
+Function WidgetOrderTraversalPolicy_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetOrderTraversalPolicy;
+Function WidgetOrderTraversalPolicy_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetOrderTraversalPolicy;
 Function _WidgetOrderTraversalPolicy_sortDescendants$(
   m.Scope scope,
   WidgetOrderTraversalPolicy target,
 ) =>
     target.sortDescendants;
+Function ReadingOrderTraversalPolicy_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReadingOrderTraversalPolicy;
+Function ReadingOrderTraversalPolicy_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReadingOrderTraversalPolicy;
 Function _ReadingOrderTraversalPolicy_sortDescendants$(
   m.Scope scope,
   ReadingOrderTraversalPolicy target,
 ) =>
     target.sortDescendants;
+Function FocusOrder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusOrder;
+Function FocusOrder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusOrder;
 Function _FocusOrder_compareTo$(
   m.Scope scope,
   FocusOrder target,
@@ -251,6 +339,16 @@ Function _FocusOrder_doCompare$(
   FocusOrder target,
 ) =>
     target.doCompare;
+Function NumericFocusOrder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NumericFocusOrder;
+Function NumericFocusOrder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NumericFocusOrder;
 double _NumericFocusOrder_order$(NumericFocusOrder target) {
   return target.order;
 }
@@ -265,6 +363,16 @@ Function _NumericFocusOrder_debugFillProperties$(
   NumericFocusOrder target,
 ) =>
     target.debugFillProperties;
+Function LexicalFocusOrder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LexicalFocusOrder;
+Function LexicalFocusOrder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LexicalFocusOrder;
 String _LexicalFocusOrder_order$(LexicalFocusOrder target) {
   return target.order;
 }
@@ -279,6 +387,16 @@ Function _LexicalFocusOrder_debugFillProperties$(
   LexicalFocusOrder target,
 ) =>
     target.debugFillProperties;
+Function OrderedTraversalPolicy_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OrderedTraversalPolicy;
+Function OrderedTraversalPolicy_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OrderedTraversalPolicy;
 FocusTraversalPolicy? _OrderedTraversalPolicy_secondary$(
     OrderedTraversalPolicy target) {
   return target.secondary;
@@ -289,6 +407,16 @@ Function _OrderedTraversalPolicy_sortDescendants$(
   OrderedTraversalPolicy target,
 ) =>
     target.sortDescendants;
+Function FocusTraversalOrder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusTraversalOrder;
+Function FocusTraversalOrder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusTraversalOrder;
 FocusOrder _FocusTraversalOrder_order$(FocusTraversalOrder target) {
   return target.order;
 }
@@ -306,6 +434,16 @@ Function _FocusTraversalOrder_debugFillProperties$(
   FocusTraversalOrder target,
 ) =>
     target.debugFillProperties;
+Function FocusTraversalGroup_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusTraversalGroup;
+Function FocusTraversalGroup_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusTraversalGroup;
 FocusTraversalPolicy _FocusTraversalGroup_policy$(FocusTraversalGroup target) {
   return target.policy;
 }
@@ -338,15 +476,55 @@ Function _FocusTraversalGroup_debugFillProperties$(
   FocusTraversalGroup target,
 ) =>
     target.debugFillProperties;
+Function RequestFocusIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RequestFocusIntent;
+Function RequestFocusIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RequestFocusIntent;
 FocusNode _RequestFocusIntent_focusNode$(RequestFocusIntent target) {
   return target.focusNode;
 }
 
+Function RequestFocusAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RequestFocusAction;
+Function RequestFocusAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RequestFocusAction;
 Function _RequestFocusAction_invoke$(
   m.Scope scope,
   RequestFocusAction target,
 ) =>
     target.invoke;
+Function NextFocusIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NextFocusIntent;
+Function NextFocusIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NextFocusIntent;
+Function NextFocusAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NextFocusAction;
+Function NextFocusAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NextFocusAction;
 Function _NextFocusAction_invoke$(
   m.Scope scope,
   NextFocusAction target,
@@ -357,6 +535,26 @@ Function _NextFocusAction_toKeyEventResult$(
   NextFocusAction target,
 ) =>
     target.toKeyEventResult;
+Function PreviousFocusIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PreviousFocusIntent;
+Function PreviousFocusIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PreviousFocusIntent;
+Function PreviousFocusAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PreviousFocusAction;
+Function PreviousFocusAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PreviousFocusAction;
 Function _PreviousFocusAction_invoke$(
   m.Scope scope,
   PreviousFocusAction target,
@@ -367,6 +565,16 @@ Function _PreviousFocusAction_toKeyEventResult$(
   PreviousFocusAction target,
 ) =>
     target.toKeyEventResult;
+Function DirectionalFocusIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DirectionalFocusIntent;
+Function DirectionalFocusIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DirectionalFocusIntent;
 TraversalDirection _DirectionalFocusIntent_direction$(
     DirectionalFocusIntent target) {
   return target.direction;
@@ -381,11 +589,31 @@ Function _DirectionalFocusIntent_debugFillProperties$(
   DirectionalFocusIntent target,
 ) =>
     target.debugFillProperties;
+Function DirectionalFocusAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DirectionalFocusAction;
+Function DirectionalFocusAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DirectionalFocusAction;
 Function _DirectionalFocusAction_invoke$(
   m.Scope scope,
   DirectionalFocusAction target,
 ) =>
     target.invoke;
+Function ExcludeFocusTraversal_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExcludeFocusTraversal;
+Function ExcludeFocusTraversal_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExcludeFocusTraversal;
 bool _ExcludeFocusTraversal_excluding$(ExcludeFocusTraversal target) {
   return target.excluding;
 }

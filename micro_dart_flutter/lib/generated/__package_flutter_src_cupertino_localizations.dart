@@ -36,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoLocalizations': m.ClassMirror(
       'CupertinoLocalizations',
       {
+        '#as': CupertinoLocalizations_as$,
+        '#is': CupertinoLocalizations_is$,
         'datePickerDateOrder': _CupertinoLocalizations_datePickerDateOrder$,
         'datePickerDateTimeOrder':
             _CupertinoLocalizations_datePickerDateTimeOrder$,
@@ -85,6 +87,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultCupertinoLocalizations': m.ClassMirror(
       'DefaultCupertinoLocalizations',
       {
+        '#as': DefaultCupertinoLocalizations_as$,
+        '#is': DefaultCupertinoLocalizations_is$,
         'datePickerDateOrder':
             _DefaultCupertinoLocalizations_datePickerDateOrder$,
         'datePickerDateTimeOrder':
@@ -149,6 +153,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoLocalizations;
+Function CupertinoLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoLocalizations;
 DatePickerDateOrder _CupertinoLocalizations_datePickerDateOrder$(
     CupertinoLocalizations target) {
   return target.datePickerDateOrder;
@@ -303,6 +317,16 @@ Function _CupertinoLocalizations_timerPickerSecondLabel$(
     target.timerPickerSecondLabel;
 Function _CupertinoLocalizations_of$(m.Scope scope) =>
     CupertinoLocalizations.of;
+Function DefaultCupertinoLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultCupertinoLocalizations;
+Function DefaultCupertinoLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultCupertinoLocalizations;
 List<String> _DefaultCupertinoLocalizations_shortWeekdays$() {
   return DefaultCupertinoLocalizations.shortWeekdays;
 }

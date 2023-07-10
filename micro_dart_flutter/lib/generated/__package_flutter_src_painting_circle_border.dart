@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'CircleBorder': m.ClassMirror(
       'CircleBorder',
       {
+        '#as': CircleBorder_as$,
+        '#is': CircleBorder_is$,
         'eccentricity': _CircleBorder_eccentricity$,
         'preferPaintInterior': _CircleBorder_preferPaintInterior$,
         'hashCode': _CircleBorder_hashCode$,
@@ -27,12 +29,23 @@ const libraryMirror = m.LibraryMirror(
         'paintInterior': _CircleBorder_paintInterior$,
         'copyWith': _CircleBorder_copyWith$,
         'paint': _CircleBorder_paint$,
+        '==': _CircleBorder_eq$$,
         'toString': _CircleBorder_toString$,
       },
       {},
     )
   },
 );
+Function CircleBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CircleBorder;
+Function CircleBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CircleBorder;
 double _CircleBorder_eccentricity$(CircleBorder target) {
   return target.eccentricity;
 }
@@ -85,6 +98,11 @@ Function _CircleBorder_paint$(
   CircleBorder target,
 ) =>
     target.paint;
+Function _CircleBorder_eq$$(
+  m.Scope scope,
+  CircleBorder target,
+) =>
+    (Object other) => target == other;
 Function _CircleBorder_toString$(
   m.Scope scope,
   CircleBorder target,

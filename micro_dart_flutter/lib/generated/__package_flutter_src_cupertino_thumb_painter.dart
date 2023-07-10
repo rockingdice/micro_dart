@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoThumbPainter': m.ClassMirror(
       'CupertinoThumbPainter',
       {
+        '#as': CupertinoThumbPainter_as$,
+        '#is': CupertinoThumbPainter_is$,
         'color': _CupertinoThumbPainter_color$,
         'shadows': _CupertinoThumbPainter_shadows$,
         'paint': _CupertinoThumbPainter_paint$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoThumbPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoThumbPainter;
+Function CupertinoThumbPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoThumbPainter;
 Color _CupertinoThumbPainter_color$(CupertinoThumbPainter target) {
   return target.color;
 }

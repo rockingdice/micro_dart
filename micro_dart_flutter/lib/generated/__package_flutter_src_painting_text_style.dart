@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'TextStyle': m.ClassMirror(
       'TextStyle',
       {
+        '#as': TextStyle_as$,
+        '#is': TextStyle_is$,
         'inherit': _TextStyle_inherit$,
         'color': _TextStyle_color$,
         'backgroundColor': _TextStyle_backgroundColor$,
@@ -60,6 +62,7 @@ const libraryMirror = m.LibraryMirror(
         'getTextStyle': _TextStyle_getTextStyle$,
         'getParagraphStyle': _TextStyle_getParagraphStyle$,
         'compareTo': _TextStyle_compareTo$,
+        '==': _TextStyle_eq$$,
         'toStringShort': _TextStyle_toStringShort$,
         'debugFillProperties': _TextStyle_debugFillProperties$,
       },
@@ -67,6 +70,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextStyle;
+Function TextStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextStyle;
 bool _TextStyle_inherit$(TextStyle target) {
   return target.inherit;
 }
@@ -202,6 +215,11 @@ Function _TextStyle_compareTo$(
   TextStyle target,
 ) =>
     target.compareTo;
+Function _TextStyle_eq$$(
+  m.Scope scope,
+  TextStyle target,
+) =>
+    (Object other) => target == other;
 Function _TextStyle_toStringShort$(
   m.Scope scope,
   TextStyle target,

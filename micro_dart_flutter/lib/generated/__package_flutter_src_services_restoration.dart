@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorationManager': m.ClassMirror(
       'RestorationManager',
       {
+        '#as': RestorationManager_as$,
+        '#is': RestorationManager_is$,
         'rootBucket': _RestorationManager_rootBucket$,
         'isReplacing': _RestorationManager_isReplacing$,
         'initChannels': _RestorationManager_initChannels$,
@@ -34,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorationBucket': m.ClassMirror(
       'RestorationBucket',
       {
+        '#as': RestorationBucket_as$,
+        '#is': RestorationBucket_is$,
         'debugOwner': _RestorationBucket_debugOwner$,
         'isReplacing': _RestorationBucket_isReplacing$,
         'restorationId': _RestorationBucket_restorationId$,
@@ -52,6 +56,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RestorationManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorationManager;
+Function RestorationManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorationManager;
 Future<RestorationBucket?> _RestorationManager_rootBucket$(
     RestorationManager target) {
   return target.rootBucket;
@@ -91,6 +105,16 @@ Function _RestorationManager_flushData$(
   RestorationManager target,
 ) =>
     target.flushData;
+Function RestorationBucket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorationBucket;
+Function RestorationBucket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorationBucket;
 Object? _RestorationBucket_debugOwner$(RestorationBucket target) {
   return target.debugOwner;
 }

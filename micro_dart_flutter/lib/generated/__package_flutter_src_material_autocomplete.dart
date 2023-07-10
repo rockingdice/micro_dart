@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'Autocomplete': m.ClassMirror(
       'Autocomplete',
       {
+        '#as': Autocomplete_as$,
+        '#is': Autocomplete_is$,
         'displayStringForOption': _Autocomplete_displayStringForOption$,
         'fieldViewBuilder': _Autocomplete_fieldViewBuilder$,
         'onSelected': _Autocomplete_onSelected$,
@@ -32,6 +34,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Autocomplete_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Autocomplete<T>;
+Function Autocomplete_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Autocomplete<T>;
 String Function(T) _Autocomplete_displayStringForOption$<T extends Object>(
     Autocomplete<T> target) {
   return target.displayStringForOption;

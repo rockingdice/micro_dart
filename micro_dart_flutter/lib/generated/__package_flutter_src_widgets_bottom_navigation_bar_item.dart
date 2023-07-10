@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomNavigationBarItem': m.ClassMirror(
       'BottomNavigationBarItem',
       {
+        '#as': BottomNavigationBarItem_as$,
+        '#is': BottomNavigationBarItem_is$,
         'icon': _BottomNavigationBarItem_icon$,
         'activeIcon': _BottomNavigationBarItem_activeIcon$,
         'label': _BottomNavigationBarItem_label$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function BottomNavigationBarItem_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomNavigationBarItem;
+Function BottomNavigationBarItem_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomNavigationBarItem;
 Widget _BottomNavigationBarItem_icon$(BottomNavigationBarItem target) {
   return target.icon;
 }

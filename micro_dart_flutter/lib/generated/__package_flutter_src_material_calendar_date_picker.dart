@@ -29,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'CalendarDatePicker': m.ClassMirror(
       'CalendarDatePicker',
       {
+        '#as': CalendarDatePicker_as$,
+        '#is': CalendarDatePicker_is$,
         'initialDate': _CalendarDatePicker_initialDate$,
         'firstDate': _CalendarDatePicker_firstDate$,
         'lastDate': _CalendarDatePicker_lastDate$,
@@ -44,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'YearPicker': m.ClassMirror(
       'YearPicker',
       {
+        '#as': YearPicker_as$,
+        '#is': YearPicker_is$,
         'currentDate': _YearPicker_currentDate$,
         'firstDate': _YearPicker_firstDate$,
         'lastDate': _YearPicker_lastDate$,
@@ -57,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CalendarDatePicker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CalendarDatePicker;
+Function CalendarDatePicker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CalendarDatePicker;
 DateTime _CalendarDatePicker_initialDate$(CalendarDatePicker target) {
   return target.initialDate;
 }
@@ -98,6 +112,16 @@ Function _CalendarDatePicker_createState$(
   CalendarDatePicker target,
 ) =>
     target.createState;
+Function YearPicker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as YearPicker;
+Function YearPicker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is YearPicker;
 DateTime _YearPicker_currentDate$(YearPicker target) {
   return target.currentDate;
 }

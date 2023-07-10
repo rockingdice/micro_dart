@@ -14,12 +14,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'PreferredSizeWidget': m.ClassMirror(
       'PreferredSizeWidget',
-      {'preferredSize': _PreferredSizeWidget_preferredSize$},
+      {
+        '#as': PreferredSizeWidget_as$,
+        '#is': PreferredSizeWidget_is$,
+        'preferredSize': _PreferredSizeWidget_preferredSize$,
+      },
       {},
     ),
     'PreferredSize': m.ClassMirror(
       'PreferredSize',
       {
+        '#as': PreferredSize_as$,
+        '#is': PreferredSize_is$,
         'child': _PreferredSize_child$,
         'preferredSize': _PreferredSize_preferredSize$,
         'build': _PreferredSize_build$,
@@ -28,10 +34,30 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PreferredSizeWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PreferredSizeWidget;
+Function PreferredSizeWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PreferredSizeWidget;
 Size _PreferredSizeWidget_preferredSize$(PreferredSizeWidget target) {
   return target.preferredSize;
 }
 
+Function PreferredSize_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PreferredSize;
+Function PreferredSize_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PreferredSize;
 Widget _PreferredSize_child$(PreferredSize target) {
   return target.child;
 }

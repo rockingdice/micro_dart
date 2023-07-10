@@ -9204,6 +9204,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformAdaptiveIcons': m.ClassMirror(
       'PlatformAdaptiveIcons',
       {
+        '#as': PlatformAdaptiveIcons_as$,
+        '#is': PlatformAdaptiveIcons_is$,
         'arrow_back': _PlatformAdaptiveIcons_arrow_back$,
         'arrow_back_outlined': _PlatformAdaptiveIcons_arrow_back_outlined$,
         'arrow_back_rounded': _PlatformAdaptiveIcons_arrow_back_rounded$,
@@ -9230,11 +9232,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Icons': m.ClassMirror(
       'Icons',
-      {},
+      {
+        '#as': Icons_as$,
+        '#is': Icons_is$,
+      },
       {},
     ),
   },
 );
+Function PlatformAdaptiveIcons_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformAdaptiveIcons;
+Function PlatformAdaptiveIcons_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformAdaptiveIcons;
 IconData _PlatformAdaptiveIcons_arrow_back$(PlatformAdaptiveIcons target) {
   return target.arrow_back;
 }
@@ -9324,6 +9339,16 @@ IconData _PlatformAdaptiveIcons_share_sharp$(PlatformAdaptiveIcons target) {
   return target.share_sharp;
 }
 
+Function Icons_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Icons;
+Function Icons_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Icons;
 IconData _Icons_ten_k$() {
   return Icons.ten_k;
 }

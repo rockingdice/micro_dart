@@ -16,12 +16,14 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/multidrag.dart',
-  {},
+  {'MultiDragPointerState.accepted': _MultiDragPointerState_accepted$},
   {},
   {
     'MultiDragPointerState': m.ClassMirror(
       'MultiDragPointerState',
       {
+        '#as': MultiDragPointerState_as$,
+        '#is': MultiDragPointerState_is$,
         'gestureSettings': _MultiDragPointerState_gestureSettings$,
         'initialPosition': _MultiDragPointerState_initialPosition$,
         'kind': _MultiDragPointerState_kind$,
@@ -37,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiDragGestureRecognizer': m.ClassMirror(
       'MultiDragGestureRecognizer',
       {
+        '#as': MultiDragGestureRecognizer_as$,
+        '#is': MultiDragGestureRecognizer_is$,
         'onStart': _MultiDragGestureRecognizer_onStart$,
         'addAllowedPointer': _MultiDragGestureRecognizer_addAllowedPointer$,
         'createNewPointerState':
@@ -50,6 +54,8 @@ const libraryMirror = m.LibraryMirror(
     'ImmediateMultiDragGestureRecognizer': m.ClassMirror(
       'ImmediateMultiDragGestureRecognizer',
       {
+        '#as': ImmediateMultiDragGestureRecognizer_as$,
+        '#is': ImmediateMultiDragGestureRecognizer_is$,
         'debugDescription':
             _ImmediateMultiDragGestureRecognizer_debugDescription$,
         'createNewPointerState':
@@ -60,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'HorizontalMultiDragGestureRecognizer': m.ClassMirror(
       'HorizontalMultiDragGestureRecognizer',
       {
+        '#as': HorizontalMultiDragGestureRecognizer_as$,
+        '#is': HorizontalMultiDragGestureRecognizer_is$,
         'debugDescription':
             _HorizontalMultiDragGestureRecognizer_debugDescription$,
         'createNewPointerState':
@@ -70,6 +78,8 @@ const libraryMirror = m.LibraryMirror(
     'VerticalMultiDragGestureRecognizer': m.ClassMirror(
       'VerticalMultiDragGestureRecognizer',
       {
+        '#as': VerticalMultiDragGestureRecognizer_as$,
+        '#is': VerticalMultiDragGestureRecognizer_is$,
         'debugDescription':
             _VerticalMultiDragGestureRecognizer_debugDescription$,
         'createNewPointerState':
@@ -80,6 +90,8 @@ const libraryMirror = m.LibraryMirror(
     'DelayedMultiDragGestureRecognizer': m.ClassMirror(
       'DelayedMultiDragGestureRecognizer',
       {
+        '#as': DelayedMultiDragGestureRecognizer_as$,
+        '#is': DelayedMultiDragGestureRecognizer_is$,
         'delay': _DelayedMultiDragGestureRecognizer_delay$,
         'debugDescription':
             _DelayedMultiDragGestureRecognizer_debugDescription$,
@@ -90,6 +102,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MultiDragPointerState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiDragPointerState;
+Function MultiDragPointerState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiDragPointerState;
 DeviceGestureSettings? _MultiDragPointerState_gestureSettings$(
     MultiDragPointerState target) {
   return target.gestureSettings;
@@ -117,6 +139,20 @@ Function _MultiDragPointerState_checkForResolutionAfterMove$(
   MultiDragPointerState target,
 ) =>
     target.checkForResolutionAfterMove;
+Function _MultiDragPointerState_accepted$(
+  m.Scope scope,
+  MultiDragPointerState target,
+) =>
+    (m.FunctionPointer starter) {
+      Drag? starterProxy(Offset starter_position) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            starter,
+            [starter_position],
+            {},
+          );
+      target.accepted(starterProxy);
+    };
 Function _MultiDragPointerState_rejected$(
   m.Scope scope,
   MultiDragPointerState target,
@@ -127,6 +163,16 @@ Function _MultiDragPointerState_dispose$(
   MultiDragPointerState target,
 ) =>
     target.dispose;
+Function MultiDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiDragGestureRecognizer;
+Function MultiDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiDragGestureRecognizer;
 Drag? Function(Offset)? _MultiDragGestureRecognizer_onStart$(
     MultiDragGestureRecognizer target) {
   return target.onStart;
@@ -171,6 +217,16 @@ Function _MultiDragGestureRecognizer_dispose$(
   MultiDragGestureRecognizer target,
 ) =>
     target.dispose;
+Function ImmediateMultiDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImmediateMultiDragGestureRecognizer;
+Function ImmediateMultiDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImmediateMultiDragGestureRecognizer;
 String _ImmediateMultiDragGestureRecognizer_debugDescription$(
     ImmediateMultiDragGestureRecognizer target) {
   return target.debugDescription;
@@ -181,6 +237,16 @@ Function _ImmediateMultiDragGestureRecognizer_createNewPointerState$(
   ImmediateMultiDragGestureRecognizer target,
 ) =>
     target.createNewPointerState;
+Function HorizontalMultiDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HorizontalMultiDragGestureRecognizer;
+Function HorizontalMultiDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HorizontalMultiDragGestureRecognizer;
 String _HorizontalMultiDragGestureRecognizer_debugDescription$(
     HorizontalMultiDragGestureRecognizer target) {
   return target.debugDescription;
@@ -191,6 +257,16 @@ Function _HorizontalMultiDragGestureRecognizer_createNewPointerState$(
   HorizontalMultiDragGestureRecognizer target,
 ) =>
     target.createNewPointerState;
+Function VerticalMultiDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VerticalMultiDragGestureRecognizer;
+Function VerticalMultiDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VerticalMultiDragGestureRecognizer;
 String _VerticalMultiDragGestureRecognizer_debugDescription$(
     VerticalMultiDragGestureRecognizer target) {
   return target.debugDescription;
@@ -201,6 +277,16 @@ Function _VerticalMultiDragGestureRecognizer_createNewPointerState$(
   VerticalMultiDragGestureRecognizer target,
 ) =>
     target.createNewPointerState;
+Function DelayedMultiDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DelayedMultiDragGestureRecognizer;
+Function DelayedMultiDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DelayedMultiDragGestureRecognizer;
 Duration _DelayedMultiDragGestureRecognizer_delay$(
     DelayedMultiDragGestureRecognizer target) {
   return target.delay;

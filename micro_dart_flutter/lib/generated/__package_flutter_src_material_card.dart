@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'Card': m.ClassMirror(
       'Card',
       {
+        '#as': Card_as$,
+        '#is': Card_is$,
         'color': _Card_color$,
         'shadowColor': _Card_shadowColor$,
         'surfaceTintColor': _Card_surfaceTintColor$,
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Card_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Card;
+Function Card_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Card;
 Color? _Card_color$(Card target) {
   return target.color;
 }

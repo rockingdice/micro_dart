@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'BeveledRectangleBorder': m.ClassMirror(
       'BeveledRectangleBorder',
       {
+        '#as': BeveledRectangleBorder_as$,
+        '#is': BeveledRectangleBorder_is$,
         'borderRadius': _BeveledRectangleBorder_borderRadius$,
         'hashCode': _BeveledRectangleBorder_hashCode$,
         'scale': _BeveledRectangleBorder_scale$,
@@ -26,12 +28,23 @@ const libraryMirror = m.LibraryMirror(
         'getInnerPath': _BeveledRectangleBorder_getInnerPath$,
         'getOuterPath': _BeveledRectangleBorder_getOuterPath$,
         'paint': _BeveledRectangleBorder_paint$,
+        '==': _BeveledRectangleBorder_eq$$,
         'toString': _BeveledRectangleBorder_toString$,
       },
       {},
     )
   },
 );
+Function BeveledRectangleBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BeveledRectangleBorder;
+Function BeveledRectangleBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BeveledRectangleBorder;
 BorderRadiusGeometry _BeveledRectangleBorder_borderRadius$(
     BeveledRectangleBorder target) {
   return target.borderRadius;
@@ -76,6 +89,11 @@ Function _BeveledRectangleBorder_paint$(
   BeveledRectangleBorder target,
 ) =>
     target.paint;
+Function _BeveledRectangleBorder_eq$$(
+  m.Scope scope,
+  BeveledRectangleBorder target,
+) =>
+    (Object other) => target == other;
 Function _BeveledRectangleBorder_toString$(
   m.Scope scope,
   BeveledRectangleBorder target,

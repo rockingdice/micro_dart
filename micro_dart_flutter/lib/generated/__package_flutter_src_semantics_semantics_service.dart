@@ -18,11 +18,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'SemanticsService': m.ClassMirror(
       'SemanticsService',
-      {},
+      {
+        '#as': SemanticsService_as$,
+        '#is': SemanticsService_is$,
+      },
       {},
     )
   },
 );
+Function SemanticsService_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsService;
+Function SemanticsService_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsService;
 Function _SemanticsService_announce$(m.Scope scope) =>
     SemanticsService.announce;
 Function _SemanticsService_tooltip$(m.Scope scope) => SemanticsService.tooltip;

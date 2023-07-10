@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'StackFrame': m.ClassMirror(
       'StackFrame',
       {
+        '#as': StackFrame_as$,
+        '#is': StackFrame_is$,
         'source': _StackFrame_source$,
         'number': _StackFrame_number$,
         'packageScheme': _StackFrame_packageScheme$,
@@ -32,12 +34,23 @@ const libraryMirror = m.LibraryMirror(
         'method': _StackFrame_method$,
         'isConstructor': _StackFrame_isConstructor$,
         'hashCode': _StackFrame_hashCode$,
+        '==': _StackFrame_eq$$,
         'toString': _StackFrame_toString$,
       },
       {},
     )
   },
 );
+Function StackFrame_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StackFrame;
+Function StackFrame_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StackFrame;
 StackFrame _StackFrame_asynchronousSuspension$() {
   return StackFrame.asynchronousSuspension;
 }
@@ -96,6 +109,11 @@ Function _StackFrame_fromStackString$(m.Scope scope) =>
     StackFrame.fromStackString;
 Function _StackFrame_fromStackTraceLine$(m.Scope scope) =>
     StackFrame.fromStackTraceLine;
+Function _StackFrame_eq$$(
+  m.Scope scope,
+  StackFrame target,
+) =>
+    (Object other) => target == other;
 Function _StackFrame_toString$(
   m.Scope scope,
   StackFrame target,

@@ -14,16 +14,43 @@ const libraryMirror = m.LibraryMirror(
   {
     'SizeChangedLayoutNotification': m.ClassMirror(
       'SizeChangedLayoutNotification',
-      {},
+      {
+        '#as': SizeChangedLayoutNotification_as$,
+        '#is': SizeChangedLayoutNotification_is$,
+      },
       {},
     ),
     'SizeChangedLayoutNotifier': m.ClassMirror(
       'SizeChangedLayoutNotifier',
-      {'createRenderObject': _SizeChangedLayoutNotifier_createRenderObject$},
+      {
+        '#as': SizeChangedLayoutNotifier_as$,
+        '#is': SizeChangedLayoutNotifier_is$,
+        'createRenderObject': _SizeChangedLayoutNotifier_createRenderObject$,
+      },
       {},
     ),
   },
 );
+Function SizeChangedLayoutNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizeChangedLayoutNotification;
+Function SizeChangedLayoutNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizeChangedLayoutNotification;
+Function SizeChangedLayoutNotifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizeChangedLayoutNotifier;
+Function SizeChangedLayoutNotifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizeChangedLayoutNotifier;
 Function _SizeChangedLayoutNotifier_createRenderObject$(
   m.Scope scope,
   SizeChangedLayoutNotifier target,

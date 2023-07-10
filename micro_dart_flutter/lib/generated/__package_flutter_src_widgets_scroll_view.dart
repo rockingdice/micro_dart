@@ -39,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollView': m.ClassMirror(
       'ScrollView',
       {
+        '#as': ScrollView_as$,
+        '#is': ScrollView_is$,
         'scrollDirection': _ScrollView_scrollDirection$,
         'reverse': _ScrollView_reverse$,
         'controller': _ScrollView_controller$,
@@ -65,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'CustomScrollView': m.ClassMirror(
       'CustomScrollView',
       {
+        '#as': CustomScrollView_as$,
+        '#is': CustomScrollView_is$,
         'slivers': _CustomScrollView_slivers$,
         'buildSlivers': _CustomScrollView_buildSlivers$,
       },
@@ -73,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
     'BoxScrollView': m.ClassMirror(
       'BoxScrollView',
       {
+        '#as': BoxScrollView_as$,
+        '#is': BoxScrollView_is$,
         'padding': _BoxScrollView_padding$,
         'buildSlivers': _BoxScrollView_buildSlivers$,
         'buildChildLayout': _BoxScrollView_buildChildLayout$,
@@ -83,6 +89,8 @@ const libraryMirror = m.LibraryMirror(
     'ListView': m.ClassMirror(
       'ListView',
       {
+        '#as': ListView_as$,
+        '#is': ListView_is$,
         'itemExtent': _ListView_itemExtent$,
         'prototypeItem': _ListView_prototypeItem$,
         'childrenDelegate': _ListView_childrenDelegate$,
@@ -94,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'GridView': m.ClassMirror(
       'GridView',
       {
+        '#as': GridView_as$,
+        '#is': GridView_is$,
         'gridDelegate': _GridView_gridDelegate$,
         'childrenDelegate': _GridView_childrenDelegate$,
         'buildChildLayout': _GridView_buildChildLayout$,
@@ -107,6 +117,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollView;
+Function ScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollView;
 Axis _ScrollView_scrollDirection$(ScrollView target) {
   return target.scrollDirection;
 }
@@ -193,6 +213,16 @@ Function _ScrollView_debugFillProperties$(
   ScrollView target,
 ) =>
     target.debugFillProperties;
+Function CustomScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomScrollView;
+Function CustomScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomScrollView;
 List<Widget> _CustomScrollView_slivers$(CustomScrollView target) {
   return target.slivers;
 }
@@ -202,6 +232,16 @@ Function _CustomScrollView_buildSlivers$(
   CustomScrollView target,
 ) =>
     target.buildSlivers;
+Function BoxScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxScrollView;
+Function BoxScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxScrollView;
 EdgeInsetsGeometry? _BoxScrollView_padding$(BoxScrollView target) {
   return target.padding;
 }
@@ -221,6 +261,16 @@ Function _BoxScrollView_debugFillProperties$(
   BoxScrollView target,
 ) =>
     target.debugFillProperties;
+Function ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListView;
+Function ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListView;
 double? _ListView_itemExtent$(ListView target) {
   return target.itemExtent;
 }
@@ -243,6 +293,16 @@ Function _ListView_debugFillProperties$(
   ListView target,
 ) =>
     target.debugFillProperties;
+Function GridView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GridView;
+Function GridView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GridView;
 SliverGridDelegate _GridView_gridDelegate$(GridView target) {
   return target.gridDelegate;
 }

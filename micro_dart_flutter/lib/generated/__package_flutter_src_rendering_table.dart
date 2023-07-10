@@ -13,6 +13,7 @@ import 'package:flutter/src/rendering/table_border.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/table.dart',
   {
+    'RenderTable.visitChildren': _RenderTable_visitChildren$,
     'TableCellVerticalAlignment.top': _TableCellVerticalAlignment_top$,
     'TableCellVerticalAlignment.middle': _TableCellVerticalAlignment_middle$,
     'TableCellVerticalAlignment.bottom': _TableCellVerticalAlignment_bottom$,
@@ -26,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'TableCellParentData': m.ClassMirror(
       'TableCellParentData',
       {
+        '#as': TableCellParentData_as$,
+        '#is': TableCellParentData_is$,
         'verticalAlignment': _TableCellParentData_verticalAlignment$,
         'x': _TableCellParentData_x$,
         'y': _TableCellParentData_y$,
@@ -40,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'TableColumnWidth': m.ClassMirror(
       'TableColumnWidth',
       {
+        '#as': TableColumnWidth_as$,
+        '#is': TableColumnWidth_is$,
         'minIntrinsicWidth': _TableColumnWidth_minIntrinsicWidth$,
         'maxIntrinsicWidth': _TableColumnWidth_maxIntrinsicWidth$,
         'flex': _TableColumnWidth_flex$,
@@ -50,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'IntrinsicColumnWidth': m.ClassMirror(
       'IntrinsicColumnWidth',
       {
+        '#as': IntrinsicColumnWidth_as$,
+        '#is': IntrinsicColumnWidth_is$,
         'minIntrinsicWidth': _IntrinsicColumnWidth_minIntrinsicWidth$,
         'maxIntrinsicWidth': _IntrinsicColumnWidth_maxIntrinsicWidth$,
         'flex': _IntrinsicColumnWidth_flex$,
@@ -60,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'FixedColumnWidth': m.ClassMirror(
       'FixedColumnWidth',
       {
+        '#as': FixedColumnWidth_as$,
+        '#is': FixedColumnWidth_is$,
         'value': _FixedColumnWidth_value$,
         'minIntrinsicWidth': _FixedColumnWidth_minIntrinsicWidth$,
         'maxIntrinsicWidth': _FixedColumnWidth_maxIntrinsicWidth$,
@@ -70,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'FractionColumnWidth': m.ClassMirror(
       'FractionColumnWidth',
       {
+        '#as': FractionColumnWidth_as$,
+        '#is': FractionColumnWidth_is$,
         'value': _FractionColumnWidth_value$,
         'minIntrinsicWidth': _FractionColumnWidth_minIntrinsicWidth$,
         'maxIntrinsicWidth': _FractionColumnWidth_maxIntrinsicWidth$,
@@ -80,6 +91,8 @@ const libraryMirror = m.LibraryMirror(
     'FlexColumnWidth': m.ClassMirror(
       'FlexColumnWidth',
       {
+        '#as': FlexColumnWidth_as$,
+        '#is': FlexColumnWidth_is$,
         'value': _FlexColumnWidth_value$,
         'minIntrinsicWidth': _FlexColumnWidth_minIntrinsicWidth$,
         'maxIntrinsicWidth': _FlexColumnWidth_maxIntrinsicWidth$,
@@ -91,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
     'MaxColumnWidth': m.ClassMirror(
       'MaxColumnWidth',
       {
+        '#as': MaxColumnWidth_as$,
+        '#is': MaxColumnWidth_is$,
         'a': _MaxColumnWidth_a$,
         'b': _MaxColumnWidth_b$,
         'minIntrinsicWidth': _MaxColumnWidth_minIntrinsicWidth$,
@@ -103,6 +118,8 @@ const libraryMirror = m.LibraryMirror(
     'MinColumnWidth': m.ClassMirror(
       'MinColumnWidth',
       {
+        '#as': MinColumnWidth_as$,
+        '#is': MinColumnWidth_is$,
         'a': _MinColumnWidth_a$,
         'b': _MinColumnWidth_b$,
         'minIntrinsicWidth': _MinColumnWidth_minIntrinsicWidth$,
@@ -115,6 +132,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderTable': m.ClassMirror(
       'RenderTable',
       {
+        '#as': RenderTable_as$,
+        '#is': RenderTable_is$,
         'columns': _RenderTable_columns$,
         'rows': _RenderTable_rows$,
         'columnWidths': _RenderTable_columnWidths$,
@@ -169,6 +188,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TableCellParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableCellParentData;
+Function TableCellParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableCellParentData;
 TableCellVerticalAlignment? _TableCellParentData_verticalAlignment$(
     TableCellParentData target) {
   return target.verticalAlignment;
@@ -208,6 +237,16 @@ Function _TableCellParentData_toString$(
   TableCellParentData target,
 ) =>
     target.toString;
+Function TableColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableColumnWidth;
+Function TableColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableColumnWidth;
 Function _TableColumnWidth_minIntrinsicWidth$(
   m.Scope scope,
   TableColumnWidth target,
@@ -228,6 +267,16 @@ Function _TableColumnWidth_toString$(
   TableColumnWidth target,
 ) =>
     target.toString;
+Function IntrinsicColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntrinsicColumnWidth;
+Function IntrinsicColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntrinsicColumnWidth;
 Function _IntrinsicColumnWidth_minIntrinsicWidth$(
   m.Scope scope,
   IntrinsicColumnWidth target,
@@ -248,6 +297,16 @@ Function _IntrinsicColumnWidth_toString$(
   IntrinsicColumnWidth target,
 ) =>
     target.toString;
+Function FixedColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FixedColumnWidth;
+Function FixedColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FixedColumnWidth;
 double _FixedColumnWidth_value$(FixedColumnWidth target) {
   return target.value;
 }
@@ -267,6 +326,16 @@ Function _FixedColumnWidth_toString$(
   FixedColumnWidth target,
 ) =>
     target.toString;
+Function FractionColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FractionColumnWidth;
+Function FractionColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FractionColumnWidth;
 double _FractionColumnWidth_value$(FractionColumnWidth target) {
   return target.value;
 }
@@ -286,6 +355,16 @@ Function _FractionColumnWidth_toString$(
   FractionColumnWidth target,
 ) =>
     target.toString;
+Function FlexColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlexColumnWidth;
+Function FlexColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlexColumnWidth;
 double _FlexColumnWidth_value$(FlexColumnWidth target) {
   return target.value;
 }
@@ -310,6 +389,16 @@ Function _FlexColumnWidth_toString$(
   FlexColumnWidth target,
 ) =>
     target.toString;
+Function MaxColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaxColumnWidth;
+Function MaxColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaxColumnWidth;
 TableColumnWidth _MaxColumnWidth_a$(MaxColumnWidth target) {
   return target.a;
 }
@@ -338,6 +427,16 @@ Function _MaxColumnWidth_toString$(
   MaxColumnWidth target,
 ) =>
     target.toString;
+Function MinColumnWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MinColumnWidth;
+Function MinColumnWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MinColumnWidth;
 TableColumnWidth _MinColumnWidth_a$(MinColumnWidth target) {
   return target.a;
 }
@@ -366,6 +465,16 @@ Function _MinColumnWidth_toString$(
   MinColumnWidth target,
 ) =>
     target.toString;
+Function RenderTable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderTable;
+Function RenderTable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderTable;
 int _RenderTable_columns$(RenderTable target) {
   return target.columns;
 }
@@ -517,6 +626,20 @@ Function _RenderTable_detach$(
   RenderTable target,
 ) =>
     target.detach;
+Function _RenderTable_visitChildren$(
+  m.Scope scope,
+  RenderTable target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _RenderTable_computeMinIntrinsicWidth$(
   m.Scope scope,
   RenderTable target,

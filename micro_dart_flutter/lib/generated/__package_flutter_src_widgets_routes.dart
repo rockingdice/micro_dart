@@ -29,7 +29,12 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/routes.dart',
   {
     'ModalRoute.of': _ModalRoute_of$,
+    'ModalRoute.setState': _ModalRoute_setState$,
     'ModalRoute.withName': _ModalRoute_withName$,
+    'ModalRoute.addScopedWillPopCallback':
+        _ModalRoute_addScopedWillPopCallback$,
+    'ModalRoute.removeScopedWillPopCallback':
+        _ModalRoute_removeScopedWillPopCallback$,
     'showGeneralDialog': _showGeneralDialog$,
   },
   {},
@@ -37,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'OverlayRoute': m.ClassMirror(
       'OverlayRoute',
       {
+        '#as': OverlayRoute_as$,
+        '#is': OverlayRoute_is$,
         'overlayEntries': _OverlayRoute_overlayEntries$,
         'finishedWhenPopped': _OverlayRoute_finishedWhenPopped$,
         'createOverlayEntries': _OverlayRoute_createOverlayEntries$,
@@ -49,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'TransitionRoute': m.ClassMirror(
       'TransitionRoute',
       {
+        '#as': TransitionRoute_as$,
+        '#is': TransitionRoute_is$,
         'willDisposeAnimationController':
             _TransitionRoute_willDisposeAnimationController$,
         'completed': _TransitionRoute_completed$,
@@ -85,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'LocalHistoryEntry': m.ClassMirror(
       'LocalHistoryEntry',
       {
+        '#as': LocalHistoryEntry_as$,
+        '#is': LocalHistoryEntry_is$,
         'onRemove': _LocalHistoryEntry_onRemove$,
         'impliesAppBarDismissal': _LocalHistoryEntry_impliesAppBarDismissal$,
         'remove': _LocalHistoryEntry_remove$,
@@ -94,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'ModalRoute': m.ClassMirror(
       'ModalRoute',
       {
+        '#as': ModalRoute_as$,
+        '#is': ModalRoute_is$,
         'filter': _ModalRoute_filter$,
         'traversalEdgeBehavior': _ModalRoute_traversalEdgeBehavior$,
         'barrierDismissible': _ModalRoute_barrierDismissible$,
@@ -127,6 +140,8 @@ const libraryMirror = m.LibraryMirror(
     'PopupRoute': m.ClassMirror(
       'PopupRoute',
       {
+        '#as': PopupRoute_as$,
+        '#is': PopupRoute_is$,
         'opaque': _PopupRoute_opaque$,
         'maintainState': _PopupRoute_maintainState$,
         'allowSnapshotting': _PopupRoute_allowSnapshotting$,
@@ -136,6 +151,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteObserver': m.ClassMirror(
       'RouteObserver',
       {
+        '#as': RouteObserver_as$,
+        '#is': RouteObserver_is$,
         'debugObservingRoute': _RouteObserver_debugObservingRoute$,
         'subscribe': _RouteObserver_subscribe$,
         'unsubscribe': _RouteObserver_unsubscribe$,
@@ -147,6 +164,8 @@ const libraryMirror = m.LibraryMirror(
     'RouteAware': m.ClassMirror(
       'RouteAware',
       {
+        '#as': RouteAware_as$,
+        '#is': RouteAware_is$,
         'didPopNext': _RouteAware_didPopNext$,
         'didPush': _RouteAware_didPush$,
         'didPop': _RouteAware_didPop$,
@@ -157,6 +176,8 @@ const libraryMirror = m.LibraryMirror(
     'RawDialogRoute': m.ClassMirror(
       'RawDialogRoute',
       {
+        '#as': RawDialogRoute_as$,
+        '#is': RawDialogRoute_is$,
         'anchorPoint': _RawDialogRoute_anchorPoint$,
         'barrierDismissible': _RawDialogRoute_barrierDismissible$,
         'barrierLabel': _RawDialogRoute_barrierLabel$,
@@ -169,6 +190,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function OverlayRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverlayRoute<T>;
+Function OverlayRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverlayRoute<T>;
 List<OverlayEntry> _OverlayRoute_overlayEntries$<T>(OverlayRoute<T> target) {
   return target.overlayEntries;
 }
@@ -197,6 +228,16 @@ Function _OverlayRoute_dispose$<T>(
   OverlayRoute<T> target,
 ) =>
     target.dispose;
+Function TransitionRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransitionRoute<T>;
+Function TransitionRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransitionRoute<T>;
 bool _TransitionRoute_willDisposeAnimationController$<T>(
     TransitionRoute<T> target) {
   return target.willDisposeAnimationController;
@@ -317,6 +358,16 @@ Function _TransitionRoute_toString$<T>(
   TransitionRoute<T> target,
 ) =>
     target.toString;
+Function LocalHistoryEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LocalHistoryEntry;
+Function LocalHistoryEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LocalHistoryEntry;
 void Function()? _LocalHistoryEntry_onRemove$(LocalHistoryEntry target) {
   return target.onRemove;
 }
@@ -330,6 +381,16 @@ Function _LocalHistoryEntry_remove$(
   LocalHistoryEntry target,
 ) =>
     target.remove;
+Function ModalRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ModalRoute<T>;
+Function ModalRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ModalRoute<T>;
 ImageFilter? _ModalRoute_filter$<T>(ModalRoute<T> target) {
   return target.filter;
 }
@@ -399,6 +460,19 @@ bool _ModalRoute_impliesAppBarDismissal$<T>(ModalRoute<T> target) {
 }
 
 Function _ModalRoute_of$<T extends Object?>(m.Scope scope) => ModalRoute.of<T>;
+Function _ModalRoute_setState$<T>(
+  m.Scope scope,
+  ModalRoute<T> target,
+) =>
+    (m.FunctionPointer fn) {
+      void fnProxy() => scope.engine.callFunctionPointer(
+            scope,
+            fn,
+            [],
+            {},
+          );
+      target.setState(fnProxy);
+    };
 Function _ModalRoute_withName$(m.Scope scope) => ModalRoute.withName;
 Function _ModalRoute_buildPage$<T>(
   m.Scope scope,
@@ -430,6 +504,34 @@ Function _ModalRoute_willPop$<T>(
   ModalRoute<T> target,
 ) =>
     target.willPop;
+Function _ModalRoute_addScopedWillPopCallback$<T>(
+  m.Scope scope,
+  ModalRoute<T> target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<bool> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.addScopedWillPopCallback(callbackProxy);
+    };
+Function _ModalRoute_removeScopedWillPopCallback$<T>(
+  m.Scope scope,
+  ModalRoute<T> target,
+) =>
+    (m.FunctionPointer callback) {
+      Future<bool> callbackProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.removeScopedWillPopCallback(callbackProxy);
+    };
 Function _ModalRoute_didChangePrevious$<T>(
   m.Scope scope,
   ModalRoute<T> target,
@@ -460,6 +562,16 @@ Function _ModalRoute_toString$<T>(
   ModalRoute<T> target,
 ) =>
     target.toString;
+Function PopupRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PopupRoute<T>;
+Function PopupRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PopupRoute<T>;
 bool _PopupRoute_opaque$<T>(PopupRoute<T> target) {
   return target.opaque;
 }
@@ -472,6 +584,16 @@ bool _PopupRoute_allowSnapshotting$<T>(PopupRoute<T> target) {
   return target.allowSnapshotting;
 }
 
+Function RouteObserver_as$<R extends Route<dynamic>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteObserver<R>;
+Function RouteObserver_is$<R extends Route<dynamic>>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteObserver<R>;
 Function _RouteObserver_debugObservingRoute$<R extends Route<dynamic>>(
   m.Scope scope,
   RouteObserver<R> target,
@@ -497,6 +619,16 @@ Function _RouteObserver_didPush$<R extends Route<dynamic>>(
   RouteObserver<R> target,
 ) =>
     target.didPush;
+Function RouteAware_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RouteAware;
+Function RouteAware_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RouteAware;
 Function _RouteAware_didPopNext$(
   m.Scope scope,
   RouteAware target,
@@ -517,6 +649,16 @@ Function _RouteAware_didPushNext$(
   RouteAware target,
 ) =>
     target.didPushNext;
+Function RawDialogRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawDialogRoute<T>;
+Function RawDialogRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawDialogRoute<T>;
 Offset? _RawDialogRoute_anchorPoint$<T>(RawDialogRoute<T> target) {
   return target.anchorPoint;
 }
@@ -547,17 +689,17 @@ Function _RawDialogRoute_buildTransitions$<T>(
   RawDialogRoute<T> target,
 ) =>
     target.buildTransitions;
-Function _showGeneralDialog$(m.Scope scope) => <T extends Object?>(
-      BuildContext context,
-      m.FunctionPointer pageBuilder, {
+Function _showGeneralDialog$(m.Scope scope) => <T extends Object?>({
+      Offset? anchorPoint,
+      Color? barrierColor,
       bool? barrierDismissible,
       String? barrierLabel,
-      Color? barrierColor,
-      Duration? transitionDuration,
-      m.FunctionPointer? transitionBuilder,
-      bool? useRootNavigator,
+      required BuildContext context,
+      required m.FunctionPointer pageBuilder,
       RouteSettings? routeSettings,
-      Offset? anchorPoint,
+      m.FunctionPointer? transitionBuilder,
+      Duration? transitionDuration,
+      bool? useRootNavigator,
     }) {
       Widget pageBuilderProxy(
         BuildContext pageBuilder_context,

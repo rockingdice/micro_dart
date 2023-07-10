@@ -77,12 +77,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'CupertinoColors': m.ClassMirror(
       'CupertinoColors',
-      {},
+      {
+        '#as': CupertinoColors_as$,
+        '#is': CupertinoColors_is$,
+      },
       {},
     ),
     'CupertinoDynamicColor': m.ClassMirror(
       'CupertinoDynamicColor',
       {
+        '#as': CupertinoDynamicColor_as$,
+        '#is': CupertinoDynamicColor_is$,
         'color': _CupertinoDynamicColor_color$,
         'darkColor': _CupertinoDynamicColor_darkColor$,
         'highContrastColor': _CupertinoDynamicColor_highContrastColor$,
@@ -96,6 +101,7 @@ const libraryMirror = m.LibraryMirror(
         'value': _CupertinoDynamicColor_value$,
         'hashCode': _CupertinoDynamicColor_hashCode$,
         'resolveFrom': _CupertinoDynamicColor_resolveFrom$,
+        '==': _CupertinoDynamicColor_eq$$,
         'toString': _CupertinoDynamicColor_toString$,
         'debugFillProperties': _CupertinoDynamicColor_debugFillProperties$,
       },
@@ -103,6 +109,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoColors_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoColors;
+Function CupertinoColors_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoColors;
 CupertinoDynamicColor _CupertinoColors_activeBlue$() {
   return CupertinoColors.activeBlue;
 }
@@ -287,6 +303,16 @@ CupertinoDynamicColor _CupertinoColors_link$() {
   return CupertinoColors.link;
 }
 
+Function CupertinoDynamicColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDynamicColor;
+Function CupertinoDynamicColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDynamicColor;
 Color _CupertinoDynamicColor_color$(CupertinoDynamicColor target) {
   return target.color;
 }
@@ -339,6 +365,11 @@ Function _CupertinoDynamicColor_resolveFrom$(
   CupertinoDynamicColor target,
 ) =>
     target.resolveFrom;
+Function _CupertinoDynamicColor_eq$$(
+  m.Scope scope,
+  CupertinoDynamicColor target,
+) =>
+    (Object other) => target == other;
 Function _CupertinoDynamicColor_toString$(
   m.Scope scope,
   CupertinoDynamicColor target,

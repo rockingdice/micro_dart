@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'TextBoundary': m.ClassMirror(
       'TextBoundary',
       {
+        '#as': TextBoundary_as$,
+        '#is': TextBoundary_is$,
         'getLeadingTextBoundaryAt': _TextBoundary_getLeadingTextBoundaryAt$,
         'getTrailingTextBoundaryAt': _TextBoundary_getTrailingTextBoundaryAt$,
         'getTextBoundaryAt': _TextBoundary_getTextBoundaryAt$,
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'CharacterBoundary': m.ClassMirror(
       'CharacterBoundary',
       {
+        '#as': CharacterBoundary_as$,
+        '#is': CharacterBoundary_is$,
         'getLeadingTextBoundaryAt':
             _CharacterBoundary_getLeadingTextBoundaryAt$,
         'getTrailingTextBoundaryAt':
@@ -34,12 +38,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LineBoundary': m.ClassMirror(
       'LineBoundary',
-      {'getTextBoundaryAt': _LineBoundary_getTextBoundaryAt$},
+      {
+        '#as': LineBoundary_as$,
+        '#is': LineBoundary_is$,
+        'getTextBoundaryAt': _LineBoundary_getTextBoundaryAt$,
+      },
       {},
     ),
     'ParagraphBoundary': m.ClassMirror(
       'ParagraphBoundary',
       {
+        '#as': ParagraphBoundary_as$,
+        '#is': ParagraphBoundary_is$,
         'getLeadingTextBoundaryAt':
             _ParagraphBoundary_getLeadingTextBoundaryAt$,
         'getTrailingTextBoundaryAt':
@@ -50,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'DocumentBoundary': m.ClassMirror(
       'DocumentBoundary',
       {
+        '#as': DocumentBoundary_as$,
+        '#is': DocumentBoundary_is$,
         'getLeadingTextBoundaryAt': _DocumentBoundary_getLeadingTextBoundaryAt$,
         'getTrailingTextBoundaryAt':
             _DocumentBoundary_getTrailingTextBoundaryAt$,
@@ -58,6 +70,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextBoundary;
+Function TextBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextBoundary;
 Function _TextBoundary_getLeadingTextBoundaryAt$(
   m.Scope scope,
   TextBoundary target,
@@ -73,6 +95,16 @@ Function _TextBoundary_getTextBoundaryAt$(
   TextBoundary target,
 ) =>
     target.getTextBoundaryAt;
+Function CharacterBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CharacterBoundary;
+Function CharacterBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CharacterBoundary;
 Function _CharacterBoundary_getLeadingTextBoundaryAt$(
   m.Scope scope,
   CharacterBoundary target,
@@ -88,11 +120,31 @@ Function _CharacterBoundary_getTextBoundaryAt$(
   CharacterBoundary target,
 ) =>
     target.getTextBoundaryAt;
+Function LineBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LineBoundary;
+Function LineBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LineBoundary;
 Function _LineBoundary_getTextBoundaryAt$(
   m.Scope scope,
   LineBoundary target,
 ) =>
     target.getTextBoundaryAt;
+Function ParagraphBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParagraphBoundary;
+Function ParagraphBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParagraphBoundary;
 Function _ParagraphBoundary_getLeadingTextBoundaryAt$(
   m.Scope scope,
   ParagraphBoundary target,
@@ -103,6 +155,16 @@ Function _ParagraphBoundary_getTrailingTextBoundaryAt$(
   ParagraphBoundary target,
 ) =>
     target.getTrailingTextBoundaryAt;
+Function DocumentBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DocumentBoundary;
+Function DocumentBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DocumentBoundary;
 Function _DocumentBoundary_getLeadingTextBoundaryAt$(
   m.Scope scope,
   DocumentBoundary target,

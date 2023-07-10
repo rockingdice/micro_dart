@@ -18,11 +18,14 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionThemeData': m.ClassMirror(
       'TextSelectionThemeData',
       {
+        '#as': TextSelectionThemeData_as$,
+        '#is': TextSelectionThemeData_is$,
         'cursorColor': _TextSelectionThemeData_cursorColor$,
         'selectionColor': _TextSelectionThemeData_selectionColor$,
         'selectionHandleColor': _TextSelectionThemeData_selectionHandleColor$,
         'hashCode': _TextSelectionThemeData_hashCode$,
         'copyWith': _TextSelectionThemeData_copyWith$,
+        '==': _TextSelectionThemeData_eq$$,
         'debugFillProperties': _TextSelectionThemeData_debugFillProperties$,
       },
       {},
@@ -30,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionTheme': m.ClassMirror(
       'TextSelectionTheme',
       {
+        '#as': TextSelectionTheme_as$,
+        '#is': TextSelectionTheme_is$,
         'data': _TextSelectionTheme_data$,
         'child': _TextSelectionTheme_child$,
         'wrap': _TextSelectionTheme_wrap$,
@@ -39,6 +44,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextSelectionThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionThemeData;
+Function TextSelectionThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionThemeData;
 Color? _TextSelectionThemeData_cursorColor$(TextSelectionThemeData target) {
   return target.cursorColor;
 }
@@ -63,11 +78,26 @@ Function _TextSelectionThemeData_copyWith$(
     target.copyWith;
 Function _TextSelectionThemeData_lerp$(m.Scope scope) =>
     TextSelectionThemeData.lerp;
+Function _TextSelectionThemeData_eq$$(
+  m.Scope scope,
+  TextSelectionThemeData target,
+) =>
+    (Object other) => target == other;
 Function _TextSelectionThemeData_debugFillProperties$(
   m.Scope scope,
   TextSelectionThemeData target,
 ) =>
     target.debugFillProperties;
+Function TextSelectionTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionTheme;
+Function TextSelectionTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionTheme;
 TextSelectionThemeData _TextSelectionTheme_data$(TextSelectionTheme target) {
   return target.data;
 }

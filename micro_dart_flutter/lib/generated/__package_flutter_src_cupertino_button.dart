@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoButton': m.ClassMirror(
       'CupertinoButton',
       {
+        '#as': CupertinoButton_as$,
+        '#is': CupertinoButton_is$,
         'child': _CupertinoButton_child$,
         'padding': _CupertinoButton_padding$,
         'color': _CupertinoButton_color$,
@@ -34,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoButton;
+Function CupertinoButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoButton;
 Widget _CupertinoButton_child$(CupertinoButton target) {
   return target.child;
 }

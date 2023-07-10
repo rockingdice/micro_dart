@@ -17,52 +17,89 @@ import 'package:flutter/src/widgets/transitions.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/implicit_animations.dart',
-  {},
+  {
+    'ImplicitlyAnimatedWidgetState.forEachTween':
+        _ImplicitlyAnimatedWidgetState_forEachTween$
+  },
   {},
   {
     'BoxConstraintsTween': m.ClassMirror(
       'BoxConstraintsTween',
-      {'lerp': _BoxConstraintsTween_lerp$},
+      {
+        '#as': BoxConstraintsTween_as$,
+        '#is': BoxConstraintsTween_is$,
+        'lerp': _BoxConstraintsTween_lerp$,
+      },
       {},
     ),
     'DecorationTween': m.ClassMirror(
       'DecorationTween',
-      {'lerp': _DecorationTween_lerp$},
+      {
+        '#as': DecorationTween_as$,
+        '#is': DecorationTween_is$,
+        'lerp': _DecorationTween_lerp$,
+      },
       {},
     ),
     'EdgeInsetsTween': m.ClassMirror(
       'EdgeInsetsTween',
-      {'lerp': _EdgeInsetsTween_lerp$},
+      {
+        '#as': EdgeInsetsTween_as$,
+        '#is': EdgeInsetsTween_is$,
+        'lerp': _EdgeInsetsTween_lerp$,
+      },
       {},
     ),
     'EdgeInsetsGeometryTween': m.ClassMirror(
       'EdgeInsetsGeometryTween',
-      {'lerp': _EdgeInsetsGeometryTween_lerp$},
+      {
+        '#as': EdgeInsetsGeometryTween_as$,
+        '#is': EdgeInsetsGeometryTween_is$,
+        'lerp': _EdgeInsetsGeometryTween_lerp$,
+      },
       {},
     ),
     'BorderRadiusTween': m.ClassMirror(
       'BorderRadiusTween',
-      {'lerp': _BorderRadiusTween_lerp$},
+      {
+        '#as': BorderRadiusTween_as$,
+        '#is': BorderRadiusTween_is$,
+        'lerp': _BorderRadiusTween_lerp$,
+      },
       {},
     ),
     'BorderTween': m.ClassMirror(
       'BorderTween',
-      {'lerp': _BorderTween_lerp$},
+      {
+        '#as': BorderTween_as$,
+        '#is': BorderTween_is$,
+        'lerp': _BorderTween_lerp$,
+      },
       {},
     ),
     'Matrix4Tween': m.ClassMirror(
       'Matrix4Tween',
-      {'lerp': _Matrix4Tween_lerp$},
+      {
+        '#as': Matrix4Tween_as$,
+        '#is': Matrix4Tween_is$,
+        'lerp': _Matrix4Tween_lerp$,
+      },
       {},
     ),
     'TextStyleTween': m.ClassMirror(
       'TextStyleTween',
-      {'lerp': _TextStyleTween_lerp$},
+      {
+        '#as': TextStyleTween_as$,
+        '#is': TextStyleTween_is$,
+        'lerp': _TextStyleTween_lerp$,
+      },
       {},
     ),
     'ImplicitlyAnimatedWidget': m.ClassMirror(
       'ImplicitlyAnimatedWidget',
       {
+        '#as': ImplicitlyAnimatedWidget_as$,
+        '#is': ImplicitlyAnimatedWidget_is$,
         'curve': _ImplicitlyAnimatedWidget_curve$,
         'duration': _ImplicitlyAnimatedWidget_duration$,
         'onEnd': _ImplicitlyAnimatedWidget_onEnd$,
@@ -74,6 +111,8 @@ const libraryMirror = m.LibraryMirror(
     'ImplicitlyAnimatedWidgetState': m.ClassMirror(
       'ImplicitlyAnimatedWidgetState',
       {
+        '#as': ImplicitlyAnimatedWidgetState_as$,
+        '#is': ImplicitlyAnimatedWidgetState_is$,
         'controller': _ImplicitlyAnimatedWidgetState_controller$,
         'animation': _ImplicitlyAnimatedWidgetState_animation$,
         'initState': _ImplicitlyAnimatedWidgetState_initState$,
@@ -85,12 +124,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AnimatedWidgetBaseState': m.ClassMirror(
       'AnimatedWidgetBaseState',
-      {'initState': _AnimatedWidgetBaseState_initState$},
+      {
+        '#as': AnimatedWidgetBaseState_as$,
+        '#is': AnimatedWidgetBaseState_is$,
+        'initState': _AnimatedWidgetBaseState_initState$,
+      },
       {},
     ),
     'AnimatedContainer': m.ClassMirror(
       'AnimatedContainer',
       {
+        '#as': AnimatedContainer_as$,
+        '#is': AnimatedContainer_is$,
         'child': _AnimatedContainer_child$,
         'alignment': _AnimatedContainer_alignment$,
         'padding': _AnimatedContainer_padding$,
@@ -109,6 +154,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedPadding': m.ClassMirror(
       'AnimatedPadding',
       {
+        '#as': AnimatedPadding_as$,
+        '#is': AnimatedPadding_is$,
         'padding': _AnimatedPadding_padding$,
         'child': _AnimatedPadding_child$,
         'createState': _AnimatedPadding_createState$,
@@ -119,6 +166,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedAlign': m.ClassMirror(
       'AnimatedAlign',
       {
+        '#as': AnimatedAlign_as$,
+        '#is': AnimatedAlign_is$,
         'alignment': _AnimatedAlign_alignment$,
         'child': _AnimatedAlign_child$,
         'heightFactor': _AnimatedAlign_heightFactor$,
@@ -131,6 +180,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedPositioned': m.ClassMirror(
       'AnimatedPositioned',
       {
+        '#as': AnimatedPositioned_as$,
+        '#is': AnimatedPositioned_is$,
         'child': _AnimatedPositioned_child$,
         'left': _AnimatedPositioned_left$,
         'top': _AnimatedPositioned_top$,
@@ -146,6 +197,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedPositionedDirectional': m.ClassMirror(
       'AnimatedPositionedDirectional',
       {
+        '#as': AnimatedPositionedDirectional_as$,
+        '#is': AnimatedPositionedDirectional_is$,
         'child': _AnimatedPositionedDirectional_child$,
         'start': _AnimatedPositionedDirectional_start$,
         'top': _AnimatedPositionedDirectional_top$,
@@ -162,6 +215,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedScale': m.ClassMirror(
       'AnimatedScale',
       {
+        '#as': AnimatedScale_as$,
+        '#is': AnimatedScale_is$,
         'child': _AnimatedScale_child$,
         'scale': _AnimatedScale_scale$,
         'alignment': _AnimatedScale_alignment$,
@@ -174,6 +229,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedRotation': m.ClassMirror(
       'AnimatedRotation',
       {
+        '#as': AnimatedRotation_as$,
+        '#is': AnimatedRotation_is$,
         'child': _AnimatedRotation_child$,
         'turns': _AnimatedRotation_turns$,
         'alignment': _AnimatedRotation_alignment$,
@@ -186,6 +243,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedSlide': m.ClassMirror(
       'AnimatedSlide',
       {
+        '#as': AnimatedSlide_as$,
+        '#is': AnimatedSlide_is$,
         'child': _AnimatedSlide_child$,
         'offset': _AnimatedSlide_offset$,
         'createState': _AnimatedSlide_createState$,
@@ -196,6 +255,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedOpacity': m.ClassMirror(
       'AnimatedOpacity',
       {
+        '#as': AnimatedOpacity_as$,
+        '#is': AnimatedOpacity_is$,
         'child': _AnimatedOpacity_child$,
         'opacity': _AnimatedOpacity_opacity$,
         'alwaysIncludeSemantics': _AnimatedOpacity_alwaysIncludeSemantics$,
@@ -207,6 +268,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverAnimatedOpacity': m.ClassMirror(
       'SliverAnimatedOpacity',
       {
+        '#as': SliverAnimatedOpacity_as$,
+        '#is': SliverAnimatedOpacity_is$,
         'sliver': _SliverAnimatedOpacity_sliver$,
         'opacity': _SliverAnimatedOpacity_opacity$,
         'alwaysIncludeSemantics':
@@ -219,6 +282,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedDefaultTextStyle': m.ClassMirror(
       'AnimatedDefaultTextStyle',
       {
+        '#as': AnimatedDefaultTextStyle_as$,
+        '#is': AnimatedDefaultTextStyle_is$,
         'child': _AnimatedDefaultTextStyle_child$,
         'style': _AnimatedDefaultTextStyle_style$,
         'textAlign': _AnimatedDefaultTextStyle_textAlign$,
@@ -235,6 +300,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedPhysicalModel': m.ClassMirror(
       'AnimatedPhysicalModel',
       {
+        '#as': AnimatedPhysicalModel_as$,
+        '#is': AnimatedPhysicalModel_is$,
         'child': _AnimatedPhysicalModel_child$,
         'shape': _AnimatedPhysicalModel_shape$,
         'clipBehavior': _AnimatedPhysicalModel_clipBehavior$,
@@ -252,6 +319,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedFractionallySizedBox': m.ClassMirror(
       'AnimatedFractionallySizedBox',
       {
+        '#as': AnimatedFractionallySizedBox_as$,
+        '#is': AnimatedFractionallySizedBox_is$,
         'child': _AnimatedFractionallySizedBox_child$,
         'heightFactor': _AnimatedFractionallySizedBox_heightFactor$,
         'widthFactor': _AnimatedFractionallySizedBox_widthFactor$,
@@ -264,46 +333,136 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BoxConstraintsTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxConstraintsTween;
+Function BoxConstraintsTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxConstraintsTween;
 Function _BoxConstraintsTween_lerp$(
   m.Scope scope,
   BoxConstraintsTween target,
 ) =>
     target.lerp;
+Function DecorationTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DecorationTween;
+Function DecorationTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DecorationTween;
 Function _DecorationTween_lerp$(
   m.Scope scope,
   DecorationTween target,
 ) =>
     target.lerp;
+Function EdgeInsetsTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeInsetsTween;
+Function EdgeInsetsTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeInsetsTween;
 Function _EdgeInsetsTween_lerp$(
   m.Scope scope,
   EdgeInsetsTween target,
 ) =>
     target.lerp;
+Function EdgeInsetsGeometryTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeInsetsGeometryTween;
+Function EdgeInsetsGeometryTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeInsetsGeometryTween;
 Function _EdgeInsetsGeometryTween_lerp$(
   m.Scope scope,
   EdgeInsetsGeometryTween target,
 ) =>
     target.lerp;
+Function BorderRadiusTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BorderRadiusTween;
+Function BorderRadiusTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BorderRadiusTween;
 Function _BorderRadiusTween_lerp$(
   m.Scope scope,
   BorderRadiusTween target,
 ) =>
     target.lerp;
+Function BorderTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BorderTween;
+Function BorderTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BorderTween;
 Function _BorderTween_lerp$(
   m.Scope scope,
   BorderTween target,
 ) =>
     target.lerp;
+Function Matrix4Tween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Matrix4Tween;
+Function Matrix4Tween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Matrix4Tween;
 Function _Matrix4Tween_lerp$(
   m.Scope scope,
   Matrix4Tween target,
 ) =>
     target.lerp;
+Function TextStyleTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextStyleTween;
+Function TextStyleTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextStyleTween;
 Function _TextStyleTween_lerp$(
   m.Scope scope,
   TextStyleTween target,
 ) =>
     target.lerp;
+Function ImplicitlyAnimatedWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImplicitlyAnimatedWidget;
+Function ImplicitlyAnimatedWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImplicitlyAnimatedWidget;
 Curve _ImplicitlyAnimatedWidget_curve$(ImplicitlyAnimatedWidget target) {
   return target.curve;
 }
@@ -327,6 +486,16 @@ Function _ImplicitlyAnimatedWidget_debugFillProperties$(
   ImplicitlyAnimatedWidget target,
 ) =>
     target.debugFillProperties;
+Function ImplicitlyAnimatedWidgetState_as$<T extends ImplicitlyAnimatedWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImplicitlyAnimatedWidgetState<T>;
+Function ImplicitlyAnimatedWidgetState_is$<T extends ImplicitlyAnimatedWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImplicitlyAnimatedWidgetState<T>;
 AnimationController _ImplicitlyAnimatedWidgetState_controller$<
         T extends ImplicitlyAnimatedWidget>(
     ImplicitlyAnimatedWidgetState<T> target) {
@@ -357,18 +526,61 @@ Function
   ImplicitlyAnimatedWidgetState<T> target,
 ) =>
         target.dispose;
+Function _ImplicitlyAnimatedWidgetState_forEachTween$<
+        T extends ImplicitlyAnimatedWidget>(
+  m.Scope scope,
+  ImplicitlyAnimatedWidgetState<T> target,
+) =>
+    (m.FunctionPointer visitor) {
+      Tween<dynamic>? visitorProxy(
+        Tween<dynamic>? visitor_tween,
+        dynamic visitor_targetValue,
+        Tween<dynamic> Function(dynamic) visitor_constructor,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [
+              visitor_tween,
+              visitor_targetValue,
+              visitor_constructor,
+            ],
+            {},
+          );
+      target.forEachTween(visitorProxy);
+    };
 Function _ImplicitlyAnimatedWidgetState_didUpdateTweens$<
         T extends ImplicitlyAnimatedWidget>(
   m.Scope scope,
   ImplicitlyAnimatedWidgetState<T> target,
 ) =>
     target.didUpdateTweens;
+Function AnimatedWidgetBaseState_as$<T extends ImplicitlyAnimatedWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedWidgetBaseState<T>;
+Function AnimatedWidgetBaseState_is$<T extends ImplicitlyAnimatedWidget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedWidgetBaseState<T>;
 Function
     _AnimatedWidgetBaseState_initState$<T extends ImplicitlyAnimatedWidget>(
   m.Scope scope,
   AnimatedWidgetBaseState<T> target,
 ) =>
         target.initState;
+Function AnimatedContainer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedContainer;
+Function AnimatedContainer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedContainer;
 Widget? _AnimatedContainer_child$(AnimatedContainer target) {
   return target.child;
 }
@@ -420,6 +632,16 @@ Function _AnimatedContainer_debugFillProperties$(
   AnimatedContainer target,
 ) =>
     target.debugFillProperties;
+Function AnimatedPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedPadding;
+Function AnimatedPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedPadding;
 EdgeInsetsGeometry _AnimatedPadding_padding$(AnimatedPadding target) {
   return target.padding;
 }
@@ -438,6 +660,16 @@ Function _AnimatedPadding_debugFillProperties$(
   AnimatedPadding target,
 ) =>
     target.debugFillProperties;
+Function AnimatedAlign_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedAlign;
+Function AnimatedAlign_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedAlign;
 AlignmentGeometry _AnimatedAlign_alignment$(AnimatedAlign target) {
   return target.alignment;
 }
@@ -464,6 +696,16 @@ Function _AnimatedAlign_debugFillProperties$(
   AnimatedAlign target,
 ) =>
     target.debugFillProperties;
+Function AnimatedPositioned_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedPositioned;
+Function AnimatedPositioned_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedPositioned;
 Widget _AnimatedPositioned_child$(AnimatedPositioned target) {
   return target.child;
 }
@@ -502,6 +744,16 @@ Function _AnimatedPositioned_debugFillProperties$(
   AnimatedPositioned target,
 ) =>
     target.debugFillProperties;
+Function AnimatedPositionedDirectional_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedPositionedDirectional;
+Function AnimatedPositionedDirectional_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedPositionedDirectional;
 Widget _AnimatedPositionedDirectional_child$(
     AnimatedPositionedDirectional target) {
   return target.child;
@@ -547,6 +799,16 @@ Function _AnimatedPositionedDirectional_debugFillProperties$(
   AnimatedPositionedDirectional target,
 ) =>
     target.debugFillProperties;
+Function AnimatedScale_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedScale;
+Function AnimatedScale_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedScale;
 Widget? _AnimatedScale_child$(AnimatedScale target) {
   return target.child;
 }
@@ -573,6 +835,16 @@ Function _AnimatedScale_debugFillProperties$(
   AnimatedScale target,
 ) =>
     target.debugFillProperties;
+Function AnimatedRotation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedRotation;
+Function AnimatedRotation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedRotation;
 Widget? _AnimatedRotation_child$(AnimatedRotation target) {
   return target.child;
 }
@@ -599,6 +871,16 @@ Function _AnimatedRotation_debugFillProperties$(
   AnimatedRotation target,
 ) =>
     target.debugFillProperties;
+Function AnimatedSlide_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedSlide;
+Function AnimatedSlide_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedSlide;
 Widget? _AnimatedSlide_child$(AnimatedSlide target) {
   return target.child;
 }
@@ -617,6 +899,16 @@ Function _AnimatedSlide_debugFillProperties$(
   AnimatedSlide target,
 ) =>
     target.debugFillProperties;
+Function AnimatedOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedOpacity;
+Function AnimatedOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedOpacity;
 Widget? _AnimatedOpacity_child$(AnimatedOpacity target) {
   return target.child;
 }
@@ -639,6 +931,16 @@ Function _AnimatedOpacity_debugFillProperties$(
   AnimatedOpacity target,
 ) =>
     target.debugFillProperties;
+Function SliverAnimatedOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAnimatedOpacity;
+Function SliverAnimatedOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAnimatedOpacity;
 Widget? _SliverAnimatedOpacity_sliver$(SliverAnimatedOpacity target) {
   return target.sliver;
 }
@@ -662,6 +964,16 @@ Function _SliverAnimatedOpacity_debugFillProperties$(
   SliverAnimatedOpacity target,
 ) =>
     target.debugFillProperties;
+Function AnimatedDefaultTextStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedDefaultTextStyle;
+Function AnimatedDefaultTextStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedDefaultTextStyle;
 Widget _AnimatedDefaultTextStyle_child$(AnimatedDefaultTextStyle target) {
   return target.child;
 }
@@ -708,6 +1020,16 @@ Function _AnimatedDefaultTextStyle_debugFillProperties$(
   AnimatedDefaultTextStyle target,
 ) =>
     target.debugFillProperties;
+Function AnimatedPhysicalModel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedPhysicalModel;
+Function AnimatedPhysicalModel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedPhysicalModel;
 Widget _AnimatedPhysicalModel_child$(AnimatedPhysicalModel target) {
   return target.child;
 }
@@ -755,6 +1077,16 @@ Function _AnimatedPhysicalModel_debugFillProperties$(
   AnimatedPhysicalModel target,
 ) =>
     target.debugFillProperties;
+Function AnimatedFractionallySizedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedFractionallySizedBox;
+Function AnimatedFractionallySizedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedFractionallySizedBox;
 Widget? _AnimatedFractionallySizedBox_child$(
     AnimatedFractionallySizedBox target) {
   return target.child;

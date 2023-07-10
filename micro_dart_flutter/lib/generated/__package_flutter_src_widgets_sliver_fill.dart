@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverFillViewport': m.ClassMirror(
       'SliverFillViewport',
       {
+        '#as': SliverFillViewport_as$,
+        '#is': SliverFillViewport_is$,
         'viewportFraction': _SliverFillViewport_viewportFraction$,
         'padEnds': _SliverFillViewport_padEnds$,
         'delegate': _SliverFillViewport_delegate$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverFillRemaining': m.ClassMirror(
       'SliverFillRemaining',
       {
+        '#as': SliverFillRemaining_as$,
+        '#is': SliverFillRemaining_is$,
         'child': _SliverFillRemaining_child$,
         'hasScrollBody': _SliverFillRemaining_hasScrollBody$,
         'fillOverscroll': _SliverFillRemaining_fillOverscroll$,
@@ -37,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverFillViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverFillViewport;
+Function SliverFillViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverFillViewport;
 double _SliverFillViewport_viewportFraction$(SliverFillViewport target) {
   return target.viewportFraction;
 }
@@ -54,6 +68,16 @@ Function _SliverFillViewport_build$(
   SliverFillViewport target,
 ) =>
     target.build;
+Function SliverFillRemaining_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverFillRemaining;
+Function SliverFillRemaining_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverFillRemaining;
 Widget? _SliverFillRemaining_child$(SliverFillRemaining target) {
   return target.child;
 }

@@ -29,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoDatePicker': m.ClassMirror(
       'CupertinoDatePicker',
       {
+        '#as': CupertinoDatePicker_as$,
+        '#is': CupertinoDatePicker_is$,
         'mode': _CupertinoDatePicker_mode$,
         'initialDateTime': _CupertinoDatePicker_initialDateTime$,
         'minimumDate': _CupertinoDatePicker_minimumDate$,
@@ -48,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTimerPicker': m.ClassMirror(
       'CupertinoTimerPicker',
       {
+        '#as': CupertinoTimerPicker_as$,
+        '#is': CupertinoTimerPicker_is$,
         'mode': _CupertinoTimerPicker_mode$,
         'initialTimerDuration': _CupertinoTimerPicker_initialTimerDuration$,
         'minuteInterval': _CupertinoTimerPicker_minuteInterval$,
@@ -71,6 +75,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoDatePicker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDatePicker;
+Function CupertinoDatePicker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDatePicker;
 CupertinoDatePickerMode _CupertinoDatePicker_mode$(CupertinoDatePicker target) {
   return target.mode;
 }
@@ -126,6 +140,16 @@ Function _CupertinoDatePicker_createState$(
   CupertinoDatePicker target,
 ) =>
     target.createState;
+Function CupertinoTimerPicker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTimerPicker;
+Function CupertinoTimerPicker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTimerPicker;
 CupertinoTimerPickerMode _CupertinoTimerPicker_mode$(
     CupertinoTimerPicker target) {
   return target.mode;

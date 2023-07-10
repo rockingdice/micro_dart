@@ -33,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderErrorBox': m.ClassMirror(
       'RenderErrorBox',
       {
+        '#as': RenderErrorBox_as$,
+        '#is': RenderErrorBox_is$,
         'message': _RenderErrorBox_message$,
         'sizedByParent': _RenderErrorBox_sizedByParent$,
         'computeMaxIntrinsicWidth': _RenderErrorBox_computeMaxIntrinsicWidth$,
@@ -45,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RenderErrorBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderErrorBox;
+Function RenderErrorBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderErrorBox;
 String _RenderErrorBox_message$(RenderErrorBox target) {
   return target.message;
 }

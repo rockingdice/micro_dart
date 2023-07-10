@@ -16,12 +16,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'PageStorageKey': m.ClassMirror(
       'PageStorageKey',
-      {},
+      {
+        '#as': PageStorageKey_as$,
+        '#is': PageStorageKey_is$,
+      },
       {},
     ),
     'PageStorageBucket': m.ClassMirror(
       'PageStorageBucket',
       {
+        '#as': PageStorageBucket_as$,
+        '#is': PageStorageBucket_is$,
         'writeState': _PageStorageBucket_writeState$,
         'readState': _PageStorageBucket_readState$,
       },
@@ -30,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'PageStorage': m.ClassMirror(
       'PageStorage',
       {
+        '#as': PageStorage_as$,
+        '#is': PageStorage_is$,
         'child': _PageStorage_child$,
         'bucket': _PageStorage_bucket$,
         'build': _PageStorage_build$,
@@ -38,6 +45,26 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PageStorageKey_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageStorageKey<T>;
+Function PageStorageKey_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageStorageKey<T>;
+Function PageStorageBucket_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageStorageBucket;
+Function PageStorageBucket_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageStorageBucket;
 Function _PageStorageBucket_writeState$(
   m.Scope scope,
   PageStorageBucket target,
@@ -48,6 +75,16 @@ Function _PageStorageBucket_readState$(
   PageStorageBucket target,
 ) =>
     target.readState;
+Function PageStorage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageStorage;
+Function PageStorage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageStorage;
 Widget _PageStorage_child$(PageStorage target) {
   return target.child;
 }

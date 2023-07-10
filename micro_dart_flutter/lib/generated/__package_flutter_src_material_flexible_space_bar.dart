@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'FlexibleSpaceBar': m.ClassMirror(
       'FlexibleSpaceBar',
       {
+        '#as': FlexibleSpaceBar_as$,
+        '#is': FlexibleSpaceBar_is$,
         'title': _FlexibleSpaceBar_title$,
         'background': _FlexibleSpaceBar_background$,
         'centerTitle': _FlexibleSpaceBar_centerTitle$,
@@ -44,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'FlexibleSpaceBarSettings': m.ClassMirror(
       'FlexibleSpaceBarSettings',
       {
+        '#as': FlexibleSpaceBarSettings_as$,
+        '#is': FlexibleSpaceBarSettings_is$,
         'toolbarOpacity': _FlexibleSpaceBarSettings_toolbarOpacity$,
         'minExtent': _FlexibleSpaceBarSettings_minExtent$,
         'maxExtent': _FlexibleSpaceBarSettings_maxExtent$,
@@ -65,6 +69,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FlexibleSpaceBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlexibleSpaceBar;
+Function FlexibleSpaceBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlexibleSpaceBar;
 Widget? _FlexibleSpaceBar_title$(FlexibleSpaceBar target) {
   return target.title;
 }
@@ -100,6 +114,16 @@ Function _FlexibleSpaceBar_createState$(
   FlexibleSpaceBar target,
 ) =>
     target.createState;
+Function FlexibleSpaceBarSettings_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlexibleSpaceBarSettings;
+Function FlexibleSpaceBarSettings_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlexibleSpaceBarSettings;
 double _FlexibleSpaceBarSettings_toolbarOpacity$(
     FlexibleSpaceBarSettings target) {
   return target.toolbarOpacity;

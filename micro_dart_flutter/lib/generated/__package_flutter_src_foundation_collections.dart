@@ -23,9 +23,9 @@ Function _binarySearch$<T extends Comparable<Object>>(m.Scope scope) =>
     binarySearch<T>;
 Function _mergeSort$(m.Scope scope) => <T>(
       List<T> list, {
-      int? start,
-      int? end,
       m.FunctionPointer? compare,
+      int? end,
+      int? start,
     }) {
       int compareProxy(
         T compare_$p0,

@@ -17,12 +17,19 @@ import 'package:flutter/src/material/theme.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/ink_well.dart',
-  {},
+  {
+    'InteractiveInkFeature.paintInkCircle':
+        _InteractiveInkFeature_paintInkCircle$,
+    'InteractiveInkFeatureFactory.create':
+        _InteractiveInkFeatureFactory_create$,
+  },
   {},
   {
     'InteractiveInkFeature': m.ClassMirror(
       'InteractiveInkFeature',
       {
+        '#as': InteractiveInkFeature_as$,
+        '#is': InteractiveInkFeature_is$,
         'color': _InteractiveInkFeature_color$,
         'customBorder': _InteractiveInkFeature_customBorder$,
         'confirm': _InteractiveInkFeature_confirm$,
@@ -35,12 +42,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'InteractiveInkFeatureFactory': m.ClassMirror(
       'InteractiveInkFeatureFactory',
-      {},
+      {
+        '#as': InteractiveInkFeatureFactory_as$,
+        '#is': InteractiveInkFeatureFactory_is$,
+      },
       {},
     ),
     'InkResponse': m.ClassMirror(
       'InkResponse',
       {
+        '#as': InkResponse_as$,
+        '#is': InkResponse_is$,
         'child': _InkResponse_child$,
         'onTap': _InkResponse_onTap$,
         'onTapDown': _InkResponse_onTapDown$,
@@ -81,11 +93,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'InkWell': m.ClassMirror(
       'InkWell',
-      {},
+      {
+        '#as': InkWell_as$,
+        '#is': InkWell_is$,
+      },
       {},
     ),
   },
 );
+Function InteractiveInkFeature_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InteractiveInkFeature;
+Function InteractiveInkFeature_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InteractiveInkFeature;
 Color _InteractiveInkFeature_color$(InteractiveInkFeature target) {
   return target.color;
 }
@@ -119,6 +144,102 @@ Function _InteractiveInkFeature_cancel$(
   InteractiveInkFeature target,
 ) =>
     target.cancel;
+Function _InteractiveInkFeature_paintInkCircle$(
+  m.Scope scope,
+  InteractiveInkFeature target,
+) =>
+    ({
+      BorderRadius? borderRadius,
+      required Canvas canvas,
+      required Offset center,
+      m.FunctionPointer? clipCallback,
+      ShapeBorder? customBorder,
+      required Paint paint,
+      required double radius,
+      TextDirection? textDirection,
+      required Matrix4 transform,
+    }) {
+      Rect clipCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            clipCallback!,
+            [],
+            {},
+          );
+      target.paintInkCircle(
+        borderRadius: borderRadius == null ? BorderRadius.zero : borderRadius,
+        canvas: canvas,
+        center: center,
+        clipCallback: clipCallback == null ? null : clipCallbackProxy,
+        customBorder: customBorder,
+        paint: paint,
+        radius: radius,
+        textDirection: textDirection,
+        transform: transform,
+      );
+    };
+Function InteractiveInkFeatureFactory_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InteractiveInkFeatureFactory;
+Function InteractiveInkFeatureFactory_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InteractiveInkFeatureFactory;
+Function _InteractiveInkFeatureFactory_create$(
+  m.Scope scope,
+  InteractiveInkFeatureFactory target,
+) =>
+    ({
+      BorderRadius? borderRadius,
+      required Color color,
+      bool? containedInkWell,
+      required MaterialInkController controller,
+      ShapeBorder? customBorder,
+      m.FunctionPointer? onRemoved,
+      required Offset position,
+      double? radius,
+      m.FunctionPointer? rectCallback,
+      required RenderBox referenceBox,
+      required TextDirection textDirection,
+    }) {
+      void onRemovedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onRemoved!,
+            [],
+            {},
+          );
+      Rect rectCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            rectCallback!,
+            [],
+            {},
+          );
+      return target.create(
+        borderRadius: borderRadius,
+        color: color,
+        containedInkWell: containedInkWell == null ? false : containedInkWell,
+        controller: controller,
+        customBorder: customBorder,
+        onRemoved: onRemoved == null ? null : onRemovedProxy,
+        position: position,
+        radius: radius,
+        rectCallback: rectCallback == null ? null : rectCallbackProxy,
+        referenceBox: referenceBox,
+        textDirection: textDirection,
+      );
+    };
+Function InkResponse_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkResponse;
+Function InkResponse_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkResponse;
 Widget? _InkResponse_child$(InkResponse target) {
   return target.child;
 }
@@ -264,3 +385,13 @@ Function _InkResponse_debugCheckContext$(
   InkResponse target,
 ) =>
     target.debugCheckContext;
+Function InkWell_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkWell;
+Function InkWell_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkWell;

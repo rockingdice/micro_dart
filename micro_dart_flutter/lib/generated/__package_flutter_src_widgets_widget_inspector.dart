@@ -46,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'WidgetInspector': m.ClassMirror(
       'WidgetInspector',
       {
+        '#as': WidgetInspector_as$,
+        '#is': WidgetInspector_is$,
         'child': _WidgetInspector_child$,
         'selectButtonBuilder': _WidgetInspector_selectButtonBuilder$,
         'createState': _WidgetInspector_createState$,
@@ -55,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'InspectorSelection': m.ClassMirror(
       'InspectorSelection',
       {
+        '#as': InspectorSelection_as$,
+        '#is': InspectorSelection_is$,
         'candidates': _InspectorSelection_candidates$,
         'index': _InspectorSelection_index$,
         'current': _InspectorSelection_current$,
@@ -71,12 +75,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DevToolsDeepLinkProperty': m.ClassMirror(
       'DevToolsDeepLinkProperty',
-      {},
+      {
+        '#as': DevToolsDeepLinkProperty_as$,
+        '#is': DevToolsDeepLinkProperty_is$,
+      },
       {},
     ),
     'InspectorSerializationDelegate': m.ClassMirror(
       'InspectorSerializationDelegate',
       {
+        '#as': InspectorSerializationDelegate_as$,
+        '#is': InspectorSerializationDelegate_is$,
         'service': _InspectorSerializationDelegate_service$,
         'groupName': _InspectorSerializationDelegate_groupName$,
         'summaryTree': _InspectorSerializationDelegate_summaryTree$,
@@ -104,6 +113,16 @@ dynamic _widgetFactory$() {
   return widgetFactory;
 }
 
+Function WidgetInspector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetInspector;
+Function WidgetInspector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetInspector;
 Widget _WidgetInspector_child$(WidgetInspector target) {
   return target.child;
 }
@@ -118,6 +137,16 @@ Function _WidgetInspector_createState$(
   WidgetInspector target,
 ) =>
     target.createState;
+Function InspectorSelection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InspectorSelection;
+Function InspectorSelection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InspectorSelection;
 List<RenderObject> _InspectorSelection_candidates$(InspectorSelection target) {
   return target.candidates;
 }
@@ -171,6 +200,26 @@ Function _InspectorSelection_clear$(
   InspectorSelection target,
 ) =>
     target.clear;
+Function DevToolsDeepLinkProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DevToolsDeepLinkProperty;
+Function DevToolsDeepLinkProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DevToolsDeepLinkProperty;
+Function InspectorSerializationDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InspectorSerializationDelegate;
+Function InspectorSerializationDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InspectorSerializationDelegate;
 WidgetInspectorService _InspectorSerializationDelegate_service$(
     InspectorSerializationDelegate target) {
   return target.service;

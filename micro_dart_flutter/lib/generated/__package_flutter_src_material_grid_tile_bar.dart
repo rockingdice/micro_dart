@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'GridTileBar': m.ClassMirror(
       'GridTileBar',
       {
+        '#as': GridTileBar_as$,
+        '#is': GridTileBar_is$,
         'backgroundColor': _GridTileBar_backgroundColor$,
         'leading': _GridTileBar_leading$,
         'title': _GridTileBar_title$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function GridTileBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GridTileBar;
+Function GridTileBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GridTileBar;
 Color? _GridTileBar_backgroundColor$(GridTileBar target) {
   return target.backgroundColor;
 }

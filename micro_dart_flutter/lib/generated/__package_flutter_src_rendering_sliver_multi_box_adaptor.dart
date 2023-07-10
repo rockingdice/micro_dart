@@ -11,12 +11,19 @@ import 'package:flutter/src/rendering/sliver.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/sliver_multi_box_adaptor.dart',
-  {},
+  {
+    'RenderSliverMultiBoxAdaptor.visitChildren':
+        _RenderSliverMultiBoxAdaptor_visitChildren$,
+    'RenderSliverMultiBoxAdaptor.visitChildrenForSemantics':
+        _RenderSliverMultiBoxAdaptor_visitChildrenForSemantics$,
+  },
   {},
   {
     'RenderSliverBoxChildManager': m.ClassMirror(
       'RenderSliverBoxChildManager',
       {
+        '#as': RenderSliverBoxChildManager_as$,
+        '#is': RenderSliverBoxChildManager_is$,
         'childCount': _RenderSliverBoxChildManager_childCount$,
         'createChild': _RenderSliverBoxChildManager_createChild$,
         'removeChild': _RenderSliverBoxChildManager_removeChild$,
@@ -34,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverMultiBoxAdaptorParentData': m.ClassMirror(
       'SliverMultiBoxAdaptorParentData',
       {
+        '#as': SliverMultiBoxAdaptorParentData_as$,
+        '#is': SliverMultiBoxAdaptorParentData_is$,
         'index': _SliverMultiBoxAdaptorParentData_index$,
         'keptAlive': _SliverMultiBoxAdaptorParentData_keptAlive$,
         'toString': _SliverMultiBoxAdaptorParentData_toString$,
@@ -43,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverMultiBoxAdaptor': m.ClassMirror(
       'RenderSliverMultiBoxAdaptor',
       {
+        '#as': RenderSliverMultiBoxAdaptor_as$,
+        '#is': RenderSliverMultiBoxAdaptor_is$,
         'childManager': _RenderSliverMultiBoxAdaptor_childManager$,
         'debugChildIntegrityEnabled':
             _RenderSliverMultiBoxAdaptor_debugChildIntegrityEnabled$,
@@ -85,6 +96,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderSliverBoxChildManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverBoxChildManager;
+Function RenderSliverBoxChildManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverBoxChildManager;
 int _RenderSliverBoxChildManager_childCount$(
     RenderSliverBoxChildManager target) {
   return target.childCount;
@@ -130,6 +151,16 @@ Function _RenderSliverBoxChildManager_debugAssertChildListLocked$(
   RenderSliverBoxChildManager target,
 ) =>
     target.debugAssertChildListLocked;
+Function SliverMultiBoxAdaptorParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverMultiBoxAdaptorParentData;
+Function SliverMultiBoxAdaptorParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverMultiBoxAdaptorParentData;
 int? _SliverMultiBoxAdaptorParentData_index$(
     SliverMultiBoxAdaptorParentData target) {
   return target.index;
@@ -152,6 +183,16 @@ Function _SliverMultiBoxAdaptorParentData_toString$(
   SliverMultiBoxAdaptorParentData target,
 ) =>
     target.toString;
+Function RenderSliverMultiBoxAdaptor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverMultiBoxAdaptor;
+Function RenderSliverMultiBoxAdaptor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverMultiBoxAdaptor;
 RenderSliverBoxChildManager _RenderSliverMultiBoxAdaptor_childManager$(
     RenderSliverMultiBoxAdaptor target) {
   return target.childManager;
@@ -214,6 +255,34 @@ Function _RenderSliverMultiBoxAdaptor_redepthChildren$(
   RenderSliverMultiBoxAdaptor target,
 ) =>
     target.redepthChildren;
+Function _RenderSliverMultiBoxAdaptor_visitChildren$(
+  m.Scope scope,
+  RenderSliverMultiBoxAdaptor target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
+Function _RenderSliverMultiBoxAdaptor_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderSliverMultiBoxAdaptor target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderSliverMultiBoxAdaptor_addInitialChild$(
   m.Scope scope,
   RenderSliverMultiBoxAdaptor target,

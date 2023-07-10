@@ -29,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'Dismissible': m.ClassMirror(
       'Dismissible',
       {
+        '#as': Dismissible_as$,
+        '#is': Dismissible_is$,
         'child': _Dismissible_child$,
         'background': _Dismissible_background$,
         'secondaryBackground': _Dismissible_secondaryBackground$,
@@ -50,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'DismissUpdateDetails': m.ClassMirror(
       'DismissUpdateDetails',
       {
+        '#as': DismissUpdateDetails_as$,
+        '#is': DismissUpdateDetails_is$,
         'direction': _DismissUpdateDetails_direction$,
         'reached': _DismissUpdateDetails_reached$,
         'previousReached': _DismissUpdateDetails_previousReached$,
@@ -64,6 +68,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Dismissible_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Dismissible;
+Function Dismissible_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Dismissible;
 Widget _Dismissible_child$(Dismissible target) {
   return target.child;
 }
@@ -128,6 +142,16 @@ Function _Dismissible_createState$(
   Dismissible target,
 ) =>
     target.createState;
+Function DismissUpdateDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DismissUpdateDetails;
+Function DismissUpdateDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DismissUpdateDetails;
 DismissDirection _DismissUpdateDetails_direction$(DismissUpdateDetails target) {
   return target.direction;
 }

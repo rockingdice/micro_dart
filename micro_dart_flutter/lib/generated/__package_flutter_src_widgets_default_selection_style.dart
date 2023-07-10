@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultSelectionStyle': m.ClassMirror(
       'DefaultSelectionStyle',
       {
+        '#as': DefaultSelectionStyle_as$,
+        '#is': DefaultSelectionStyle_is$,
         'cursorColor': _DefaultSelectionStyle_cursorColor$,
         'selectionColor': _DefaultSelectionStyle_selectionColor$,
         'wrap': _DefaultSelectionStyle_wrap$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DefaultSelectionStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultSelectionStyle;
+Function DefaultSelectionStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultSelectionStyle;
 Color _DefaultSelectionStyle_defaultColor$() {
   return DefaultSelectionStyle.defaultColor;
 }

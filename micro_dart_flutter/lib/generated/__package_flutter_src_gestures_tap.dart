@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDownDetails': m.ClassMirror(
       'TapDownDetails',
       {
+        '#as': TapDownDetails_as$,
+        '#is': TapDownDetails_is$,
         'globalPosition': _TapDownDetails_globalPosition$,
         'kind': _TapDownDetails_kind$,
         'localPosition': _TapDownDetails_localPosition$,
@@ -26,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'TapUpDetails': m.ClassMirror(
       'TapUpDetails',
       {
+        '#as': TapUpDetails_as$,
+        '#is': TapUpDetails_is$,
         'globalPosition': _TapUpDetails_globalPosition$,
         'localPosition': _TapUpDetails_localPosition$,
         'kind': _TapUpDetails_kind$,
@@ -35,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'BaseTapGestureRecognizer': m.ClassMirror(
       'BaseTapGestureRecognizer',
       {
+        '#as': BaseTapGestureRecognizer_as$,
+        '#is': BaseTapGestureRecognizer_is$,
         'debugDescription': _BaseTapGestureRecognizer_debugDescription$,
         'handleTapDown': _BaseTapGestureRecognizer_handleTapDown$,
         'handleTapUp': _BaseTapGestureRecognizer_handleTapUp$,
@@ -53,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'TapGestureRecognizer': m.ClassMirror(
       'TapGestureRecognizer',
       {
+        '#as': TapGestureRecognizer_as$,
+        '#is': TapGestureRecognizer_is$,
         'onTapDown': _TapGestureRecognizer_onTapDown$,
         'onTapUp': _TapGestureRecognizer_onTapUp$,
         'onTap': _TapGestureRecognizer_onTap$,
@@ -86,6 +94,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TapDownDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDownDetails;
+Function TapDownDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDownDetails;
 Offset _TapDownDetails_globalPosition$(TapDownDetails target) {
   return target.globalPosition;
 }
@@ -98,6 +116,16 @@ Offset _TapDownDetails_localPosition$(TapDownDetails target) {
   return target.localPosition;
 }
 
+Function TapUpDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapUpDetails;
+Function TapUpDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapUpDetails;
 Offset _TapUpDetails_globalPosition$(TapUpDetails target) {
   return target.globalPosition;
 }
@@ -110,6 +138,16 @@ PointerDeviceKind _TapUpDetails_kind$(TapUpDetails target) {
   return target.kind;
 }
 
+Function BaseTapGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BaseTapGestureRecognizer;
+Function BaseTapGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BaseTapGestureRecognizer;
 String _BaseTapGestureRecognizer_debugDescription$(
     BaseTapGestureRecognizer target) {
   return target.debugDescription;
@@ -170,6 +208,16 @@ Function _BaseTapGestureRecognizer_debugFillProperties$(
   BaseTapGestureRecognizer target,
 ) =>
     target.debugFillProperties;
+Function TapGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapGestureRecognizer;
+Function TapGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapGestureRecognizer;
 void Function(TapDownDetails)? _TapGestureRecognizer_onTapDown$(
     TapGestureRecognizer target) {
   return target.onTapDown;

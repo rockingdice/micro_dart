@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'Title': m.ClassMirror(
       'Title',
       {
+        '#as': Title_as$,
+        '#is': Title_is$,
         'title': _Title_title$,
         'color': _Title_color$,
         'child': _Title_child$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Title_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Title;
+Function Title_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Title;
 String _Title_title$(Title target) {
   return target.title;
 }

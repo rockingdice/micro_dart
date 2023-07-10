@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollContext': m.ClassMirror(
       'ScrollContext',
       {
+        '#as': ScrollContext_as$,
+        '#is': ScrollContext_is$,
         'notificationContext': _ScrollContext_notificationContext$,
         'storageContext': _ScrollContext_storageContext$,
         'vsync': _ScrollContext_vsync$,
@@ -29,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ScrollContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollContext;
+Function ScrollContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollContext;
 BuildContext? _ScrollContext_notificationContext$(ScrollContext target) {
   return target.notificationContext;
 }

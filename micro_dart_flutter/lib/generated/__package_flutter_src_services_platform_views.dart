@@ -14,6 +14,13 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/platform_views.dart',
   {
     'platformViewsRegistry': _platformViewsRegistry$,
+    'PlatformViewsService.initAndroidView':
+        _PlatformViewsService_initAndroidView$,
+    'PlatformViewsService.initSurfaceAndroidView':
+        _PlatformViewsService_initSurfaceAndroidView$,
+    'PlatformViewsService.initExpensiveAndroidView':
+        _PlatformViewsService_initExpensiveAndroidView$,
+    'PlatformViewsService.initUiKitView': _PlatformViewsService_initUiKitView$,
     'AndroidPointerProperties.kToolTypeUnknown':
         _AndroidPointerProperties_kToolTypeUnknown$,
     'AndroidPointerProperties.kToolTypeFinger':
@@ -39,22 +46,35 @@ const libraryMirror = m.LibraryMirror(
         _AndroidViewController_kAndroidLayoutDirectionRtl$,
     'AndroidViewController.pointerAction':
         _AndroidViewController_pointerAction$,
+    'AndroidViewController.addOnPlatformViewCreatedListener':
+        _AndroidViewController_addOnPlatformViewCreatedListener$,
+    'AndroidViewController.removeOnPlatformViewCreatedListener':
+        _AndroidViewController_removeOnPlatformViewCreatedListener$,
   },
   {},
   {
     'PlatformViewsRegistry': m.ClassMirror(
       'PlatformViewsRegistry',
-      {'getNextPlatformViewId': _PlatformViewsRegistry_getNextPlatformViewId$},
+      {
+        '#as': PlatformViewsRegistry_as$,
+        '#is': PlatformViewsRegistry_is$,
+        'getNextPlatformViewId': _PlatformViewsRegistry_getNextPlatformViewId$,
+      },
       {},
     ),
     'PlatformViewsService': m.ClassMirror(
       'PlatformViewsService',
-      {},
+      {
+        '#as': PlatformViewsService_as$,
+        '#is': PlatformViewsService_is$,
+      },
       {},
     ),
     'AndroidPointerProperties': m.ClassMirror(
       'AndroidPointerProperties',
       {
+        '#as': AndroidPointerProperties_as$,
+        '#is': AndroidPointerProperties_is$,
         'id': _AndroidPointerProperties_id$,
         'toolType': _AndroidPointerProperties_toolType$,
         'toString': _AndroidPointerProperties_toString$,
@@ -64,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'AndroidPointerCoords': m.ClassMirror(
       'AndroidPointerCoords',
       {
+        '#as': AndroidPointerCoords_as$,
+        '#is': AndroidPointerCoords_is$,
         'orientation': _AndroidPointerCoords_orientation$,
         'pressure': _AndroidPointerCoords_pressure$,
         'size': _AndroidPointerCoords_size$,
@@ -80,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'AndroidMotionEvent': m.ClassMirror(
       'AndroidMotionEvent',
       {
+        '#as': AndroidMotionEvent_as$,
+        '#is': AndroidMotionEvent_is$,
         'downTime': _AndroidMotionEvent_downTime$,
         'eventTime': _AndroidMotionEvent_eventTime$,
         'action': _AndroidMotionEvent_action$,
@@ -102,6 +126,8 @@ const libraryMirror = m.LibraryMirror(
     'AndroidViewController': m.ClassMirror(
       'AndroidViewController',
       {
+        '#as': AndroidViewController_as$,
+        '#is': AndroidViewController_is$,
         'viewId': _AndroidViewController_viewId$,
         'awaitingCreation': _AndroidViewController_awaitingCreation$,
         'textureId': _AndroidViewController_textureId$,
@@ -124,6 +150,8 @@ const libraryMirror = m.LibraryMirror(
     'SurfaceAndroidViewController': m.ClassMirror(
       'SurfaceAndroidViewController',
       {
+        '#as': SurfaceAndroidViewController_as$,
+        '#is': SurfaceAndroidViewController_is$,
         'textureId': _SurfaceAndroidViewController_textureId$,
         'requiresViewComposition':
             _SurfaceAndroidViewController_requiresViewComposition$,
@@ -134,6 +162,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpensiveAndroidViewController': m.ClassMirror(
       'ExpensiveAndroidViewController',
       {
+        '#as': ExpensiveAndroidViewController_as$,
+        '#is': ExpensiveAndroidViewController_is$,
         'textureId': _ExpensiveAndroidViewController_textureId$,
         'requiresViewComposition':
             _ExpensiveAndroidViewController_requiresViewComposition$,
@@ -144,6 +174,8 @@ const libraryMirror = m.LibraryMirror(
     'TextureAndroidViewController': m.ClassMirror(
       'TextureAndroidViewController',
       {
+        '#as': TextureAndroidViewController_as$,
+        '#is': TextureAndroidViewController_is$,
         'textureId': _TextureAndroidViewController_textureId$,
         'requiresViewComposition':
             _TextureAndroidViewController_requiresViewComposition$,
@@ -154,6 +186,8 @@ const libraryMirror = m.LibraryMirror(
     'UiKitViewController': m.ClassMirror(
       'UiKitViewController',
       {
+        '#as': UiKitViewController_as$,
+        '#is': UiKitViewController_is$,
         'id': _UiKitViewController_id$,
         'setLayoutDirection': _UiKitViewController_setLayoutDirection$,
         'acceptGesture': _UiKitViewController_acceptGesture$,
@@ -165,6 +199,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewController': m.ClassMirror(
       'PlatformViewController',
       {
+        '#as': PlatformViewController_as$,
+        '#is': PlatformViewController_is$,
         'viewId': _PlatformViewController_viewId$,
         'awaitingCreation': _PlatformViewController_awaitingCreation$,
         'dispatchPointerEvent': _PlatformViewController_dispatchPointerEvent$,
@@ -180,11 +216,133 @@ PlatformViewsRegistry _platformViewsRegistry$() {
   return platformViewsRegistry;
 }
 
+Function PlatformViewsRegistry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewsRegistry;
+Function PlatformViewsRegistry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewsRegistry;
 Function _PlatformViewsRegistry_getNextPlatformViewId$(
   m.Scope scope,
   PlatformViewsRegistry target,
 ) =>
     target.getNextPlatformViewId;
+Function PlatformViewsService_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewsService;
+Function PlatformViewsService_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewsService;
+Function _PlatformViewsService_initAndroidView$(m.Scope scope) => ({
+      required dynamic creationParams,
+      MessageCodec<dynamic>? creationParamsCodec,
+      required int id,
+      required TextDirection layoutDirection,
+      m.FunctionPointer? onFocus,
+      required String viewType,
+    }) {
+      void onFocusProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onFocus!,
+            [],
+            {},
+          );
+      return PlatformViewsService.initAndroidView(
+        creationParams: creationParams,
+        creationParamsCodec: creationParamsCodec,
+        id: id,
+        layoutDirection: layoutDirection,
+        onFocus: onFocus == null ? null : onFocusProxy,
+        viewType: viewType,
+      );
+    };
+Function _PlatformViewsService_initSurfaceAndroidView$(m.Scope scope) => ({
+      required dynamic creationParams,
+      MessageCodec<dynamic>? creationParamsCodec,
+      required int id,
+      required TextDirection layoutDirection,
+      m.FunctionPointer? onFocus,
+      required String viewType,
+    }) {
+      void onFocusProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onFocus!,
+            [],
+            {},
+          );
+      return PlatformViewsService.initSurfaceAndroidView(
+        creationParams: creationParams,
+        creationParamsCodec: creationParamsCodec,
+        id: id,
+        layoutDirection: layoutDirection,
+        onFocus: onFocus == null ? null : onFocusProxy,
+        viewType: viewType,
+      );
+    };
+Function _PlatformViewsService_initExpensiveAndroidView$(m.Scope scope) => ({
+      required dynamic creationParams,
+      MessageCodec<dynamic>? creationParamsCodec,
+      required int id,
+      required TextDirection layoutDirection,
+      m.FunctionPointer? onFocus,
+      required String viewType,
+    }) {
+      void onFocusProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onFocus!,
+            [],
+            {},
+          );
+      return PlatformViewsService.initExpensiveAndroidView(
+        creationParams: creationParams,
+        creationParamsCodec: creationParamsCodec,
+        id: id,
+        layoutDirection: layoutDirection,
+        onFocus: onFocus == null ? null : onFocusProxy,
+        viewType: viewType,
+      );
+    };
+Function _PlatformViewsService_initUiKitView$(m.Scope scope) => ({
+      required dynamic creationParams,
+      MessageCodec<dynamic>? creationParamsCodec,
+      required int id,
+      required TextDirection layoutDirection,
+      m.FunctionPointer? onFocus,
+      required String viewType,
+    }) {
+      void onFocusProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onFocus!,
+            [],
+            {},
+          );
+      return PlatformViewsService.initUiKitView(
+        creationParams: creationParams,
+        creationParamsCodec: creationParamsCodec,
+        id: id,
+        layoutDirection: layoutDirection,
+        onFocus: onFocus == null ? null : onFocusProxy,
+        viewType: viewType,
+      );
+    };
+Function AndroidPointerProperties_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidPointerProperties;
+Function AndroidPointerProperties_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidPointerProperties;
 int _AndroidPointerProperties_id$(AndroidPointerProperties target) {
   return target.id;
 }
@@ -218,6 +376,16 @@ Function _AndroidPointerProperties_toString$(
   AndroidPointerProperties target,
 ) =>
     target.toString;
+Function AndroidPointerCoords_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidPointerCoords;
+Function AndroidPointerCoords_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidPointerCoords;
 double _AndroidPointerCoords_orientation$(AndroidPointerCoords target) {
   return target.orientation;
 }
@@ -259,6 +427,16 @@ Function _AndroidPointerCoords_toString$(
   AndroidPointerCoords target,
 ) =>
     target.toString;
+Function AndroidMotionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidMotionEvent;
+Function AndroidMotionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidMotionEvent;
 int _AndroidMotionEvent_downTime$(AndroidMotionEvent target) {
   return target.downTime;
 }
@@ -326,6 +504,16 @@ Function _AndroidMotionEvent_toString$(
   AndroidMotionEvent target,
 ) =>
     target.toString;
+Function AndroidViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidViewController;
+Function AndroidViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidViewController;
 int _AndroidViewController_kActionDown$() {
   return AndroidViewController.kActionDown;
 }
@@ -425,6 +613,32 @@ Function _AndroidViewController_sendMotionEvent$(
   AndroidViewController target,
 ) =>
     target.sendMotionEvent;
+Function _AndroidViewController_addOnPlatformViewCreatedListener$(
+  m.Scope scope,
+  AndroidViewController target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(int listener_id) => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_id],
+            {},
+          );
+      target.addOnPlatformViewCreatedListener(listenerProxy);
+    };
+Function _AndroidViewController_removeOnPlatformViewCreatedListener$(
+  m.Scope scope,
+  AndroidViewController target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(int listener_id) => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_id],
+            {},
+          );
+      target.removeOnPlatformViewCreatedListener(listenerProxy);
+    };
 Function _AndroidViewController_setLayoutDirection$(
   m.Scope scope,
   AndroidViewController target,
@@ -445,6 +659,16 @@ Function _AndroidViewController_dispose$(
   AndroidViewController target,
 ) =>
     target.dispose;
+Function SurfaceAndroidViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SurfaceAndroidViewController;
+Function SurfaceAndroidViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SurfaceAndroidViewController;
 int? _SurfaceAndroidViewController_textureId$(
     SurfaceAndroidViewController target) {
   return target.textureId;
@@ -460,6 +684,16 @@ Function _SurfaceAndroidViewController_setOffset$(
   SurfaceAndroidViewController target,
 ) =>
     target.setOffset;
+Function ExpensiveAndroidViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpensiveAndroidViewController;
+Function ExpensiveAndroidViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpensiveAndroidViewController;
 int? _ExpensiveAndroidViewController_textureId$(
     ExpensiveAndroidViewController target) {
   return target.textureId;
@@ -475,6 +709,16 @@ Function _ExpensiveAndroidViewController_setOffset$(
   ExpensiveAndroidViewController target,
 ) =>
     target.setOffset;
+Function TextureAndroidViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextureAndroidViewController;
+Function TextureAndroidViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextureAndroidViewController;
 int? _TextureAndroidViewController_textureId$(
     TextureAndroidViewController target) {
   return target.textureId;
@@ -490,6 +734,16 @@ Function _TextureAndroidViewController_setOffset$(
   TextureAndroidViewController target,
 ) =>
     target.setOffset;
+Function UiKitViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UiKitViewController;
+Function UiKitViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UiKitViewController;
 int _UiKitViewController_id$(UiKitViewController target) {
   return target.id;
 }
@@ -514,6 +768,16 @@ Function _UiKitViewController_dispose$(
   UiKitViewController target,
 ) =>
     target.dispose;
+Function PlatformViewController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewController;
+Function PlatformViewController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewController;
 int _PlatformViewController_viewId$(PlatformViewController target) {
   return target.viewId;
 }

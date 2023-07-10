@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverPersistentHeaderDelegate': m.ClassMirror(
       'SliverPersistentHeaderDelegate',
       {
+        '#as': SliverPersistentHeaderDelegate_as$,
+        '#is': SliverPersistentHeaderDelegate_is$,
         'minExtent': _SliverPersistentHeaderDelegate_minExtent$,
         'maxExtent': _SliverPersistentHeaderDelegate_maxExtent$,
         'vsync': _SliverPersistentHeaderDelegate_vsync$,
@@ -34,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverPersistentHeader': m.ClassMirror(
       'SliverPersistentHeader',
       {
+        '#as': SliverPersistentHeader_as$,
+        '#is': SliverPersistentHeader_is$,
         'delegate': _SliverPersistentHeader_delegate$,
         'pinned': _SliverPersistentHeader_pinned$,
         'floating': _SliverPersistentHeader_floating$,
@@ -44,6 +48,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverPersistentHeaderDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPersistentHeaderDelegate;
+Function SliverPersistentHeaderDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPersistentHeaderDelegate;
 double _SliverPersistentHeaderDelegate_minExtent$(
     SliverPersistentHeaderDelegate target) {
   return target.minExtent;
@@ -87,6 +101,16 @@ Function _SliverPersistentHeaderDelegate_shouldRebuild$(
   SliverPersistentHeaderDelegate target,
 ) =>
     target.shouldRebuild;
+Function SliverPersistentHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPersistentHeader;
+Function SliverPersistentHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPersistentHeader;
 SliverPersistentHeaderDelegate _SliverPersistentHeader_delegate$(
     SliverPersistentHeader target) {
   return target.delegate;

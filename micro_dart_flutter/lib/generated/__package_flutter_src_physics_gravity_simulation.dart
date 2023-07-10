@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'GravitySimulation': m.ClassMirror(
       'GravitySimulation',
       {
+        '#as': GravitySimulation_as$,
+        '#is': GravitySimulation_is$,
         'x': _GravitySimulation_x$,
         'dx': _GravitySimulation_dx$,
         'isDone': _GravitySimulation_isDone$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function GravitySimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GravitySimulation;
+Function GravitySimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GravitySimulation;
 Function _GravitySimulation_x$(
   m.Scope scope,
   GravitySimulation target,

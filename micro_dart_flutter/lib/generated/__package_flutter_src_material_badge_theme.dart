@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'BadgeThemeData': m.ClassMirror(
       'BadgeThemeData',
       {
+        '#as': BadgeThemeData_as$,
+        '#is': BadgeThemeData_is$,
         'backgroundColor': _BadgeThemeData_backgroundColor$,
         'textColor': _BadgeThemeData_textColor$,
         'smallSize': _BadgeThemeData_smallSize$,
@@ -29,6 +31,7 @@ const libraryMirror = m.LibraryMirror(
         'offset': _BadgeThemeData_offset$,
         'hashCode': _BadgeThemeData_hashCode$,
         'copyWith': _BadgeThemeData_copyWith$,
+        '==': _BadgeThemeData_eq$$,
         'debugFillProperties': _BadgeThemeData_debugFillProperties$,
       },
       {},
@@ -36,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'BadgeTheme': m.ClassMirror(
       'BadgeTheme',
       {
+        '#as': BadgeTheme_as$,
+        '#is': BadgeTheme_is$,
         'data': _BadgeTheme_data$,
         'wrap': _BadgeTheme_wrap$,
         'updateShouldNotify': _BadgeTheme_updateShouldNotify$,
@@ -44,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BadgeThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BadgeThemeData;
+Function BadgeThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BadgeThemeData;
 Color? _BadgeThemeData_backgroundColor$(BadgeThemeData target) {
   return target.backgroundColor;
 }
@@ -86,11 +101,26 @@ Function _BadgeThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _BadgeThemeData_lerp$(m.Scope scope) => BadgeThemeData.lerp;
+Function _BadgeThemeData_eq$$(
+  m.Scope scope,
+  BadgeThemeData target,
+) =>
+    (Object other) => target == other;
 Function _BadgeThemeData_debugFillProperties$(
   m.Scope scope,
   BadgeThemeData target,
 ) =>
     target.debugFillProperties;
+Function BadgeTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BadgeTheme;
+Function BadgeTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BadgeTheme;
 BadgeThemeData _BadgeTheme_data$(BadgeTheme target) {
   return target.data;
 }

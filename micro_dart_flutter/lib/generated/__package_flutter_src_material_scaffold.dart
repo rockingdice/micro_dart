@@ -36,12 +36,15 @@ const libraryMirror = m.LibraryMirror(
     'Scaffold.maybeOf': _Scaffold_maybeOf$,
     'Scaffold.geometryOf': _Scaffold_geometryOf$,
     'Scaffold.hasDrawer': _Scaffold_hasDrawer$,
+    'ScaffoldState.showBottomSheet': _ScaffoldState_showBottomSheet$,
   },
   {},
   {
     'ScaffoldMessenger': m.ClassMirror(
       'ScaffoldMessenger',
       {
+        '#as': ScaffoldMessenger_as$,
+        '#is': ScaffoldMessenger_is$,
         'child': _ScaffoldMessenger_child$,
         'createState': _ScaffoldMessenger_createState$,
       },
@@ -50,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaffoldMessengerState': m.ClassMirror(
       'ScaffoldMessengerState',
       {
+        '#as': ScaffoldMessengerState_as$,
+        '#is': ScaffoldMessengerState_is$,
         'didChangeDependencies': _ScaffoldMessengerState_didChangeDependencies$,
         'showSnackBar': _ScaffoldMessengerState_showSnackBar$,
         'removeCurrentSnackBar': _ScaffoldMessengerState_removeCurrentSnackBar$,
@@ -69,6 +74,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaffoldPrelayoutGeometry': m.ClassMirror(
       'ScaffoldPrelayoutGeometry',
       {
+        '#as': ScaffoldPrelayoutGeometry_as$,
+        '#is': ScaffoldPrelayoutGeometry_is$,
         'floatingActionButtonSize':
             _ScaffoldPrelayoutGeometry_floatingActionButtonSize$,
         'bottomSheetSize': _ScaffoldPrelayoutGeometry_bottomSheetSize$,
@@ -86,6 +93,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaffoldGeometry': m.ClassMirror(
       'ScaffoldGeometry',
       {
+        '#as': ScaffoldGeometry_as$,
+        '#is': ScaffoldGeometry_is$,
         'bottomNavigationBarTop': _ScaffoldGeometry_bottomNavigationBarTop$,
         'floatingActionButtonArea': _ScaffoldGeometry_floatingActionButtonArea$,
         'copyWith': _ScaffoldGeometry_copyWith$,
@@ -95,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
     'Scaffold': m.ClassMirror(
       'Scaffold',
       {
+        '#as': Scaffold_as$,
+        '#is': Scaffold_is$,
         'extendBody': _Scaffold_extendBody$,
         'extendBodyBehindAppBar': _Scaffold_extendBodyBehindAppBar$,
         'appBar': _Scaffold_appBar$,
@@ -127,6 +138,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaffoldState': m.ClassMirror(
       'ScaffoldState',
       {
+        '#as': ScaffoldState_as$,
+        '#is': ScaffoldState_is$,
         'restorationId': _ScaffoldState_restorationId$,
         'hasAppBar': _ScaffoldState_hasAppBar$,
         'hasDrawer': _ScaffoldState_hasDrawer$,
@@ -152,6 +165,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaffoldFeatureController': m.ClassMirror(
       'ScaffoldFeatureController',
       {
+        '#as': ScaffoldFeatureController_as$,
+        '#is': ScaffoldFeatureController_is$,
         'close': _ScaffoldFeatureController_close$,
         'setState': _ScaffoldFeatureController_setState$,
         'closed': _ScaffoldFeatureController_closed$,
@@ -160,11 +175,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PersistentBottomSheetController': m.ClassMirror(
       'PersistentBottomSheetController',
-      {},
+      {
+        '#as': PersistentBottomSheetController_as$,
+        '#is': PersistentBottomSheetController_is$,
+      },
       {},
     ),
   },
 );
+Function ScaffoldMessenger_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldMessenger;
+Function ScaffoldMessenger_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldMessenger;
 Widget _ScaffoldMessenger_child$(ScaffoldMessenger target) {
   return target.child;
 }
@@ -177,6 +205,16 @@ Function _ScaffoldMessenger_createState$(
   ScaffoldMessenger target,
 ) =>
     target.createState;
+Function ScaffoldMessengerState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldMessengerState;
+Function ScaffoldMessengerState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldMessengerState;
 Function _ScaffoldMessengerState_didChangeDependencies$(
   m.Scope scope,
   ScaffoldMessengerState target,
@@ -232,6 +270,16 @@ Function _ScaffoldMessengerState_dispose$(
   ScaffoldMessengerState target,
 ) =>
     target.dispose;
+Function ScaffoldPrelayoutGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldPrelayoutGeometry;
+Function ScaffoldPrelayoutGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldPrelayoutGeometry;
 Size _ScaffoldPrelayoutGeometry_floatingActionButtonSize$(
     ScaffoldPrelayoutGeometry target) {
   return target.floatingActionButtonSize;
@@ -282,6 +330,16 @@ TextDirection _ScaffoldPrelayoutGeometry_textDirection$(
   return target.textDirection;
 }
 
+Function ScaffoldGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldGeometry;
+Function ScaffoldGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldGeometry;
 double? _ScaffoldGeometry_bottomNavigationBarTop$(ScaffoldGeometry target) {
   return target.bottomNavigationBarTop;
 }
@@ -295,6 +353,16 @@ Function _ScaffoldGeometry_copyWith$(
   ScaffoldGeometry target,
 ) =>
     target.copyWith;
+Function Scaffold_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Scaffold;
+Function Scaffold_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Scaffold;
 bool _Scaffold_extendBody$(Scaffold target) {
   return target.extendBody;
 }
@@ -402,6 +470,16 @@ Function _Scaffold_createState$(
   Scaffold target,
 ) =>
     target.createState;
+Function ScaffoldState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldState;
+Function ScaffoldState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldState;
 String? _ScaffoldState_restorationId$(ScaffoldState target) {
   return target.restorationId;
 }
@@ -459,6 +537,38 @@ Function _ScaffoldState_closeEndDrawer$(
   ScaffoldState target,
 ) =>
     target.closeEndDrawer;
+Function _ScaffoldState_showBottomSheet$(
+  m.Scope scope,
+  ScaffoldState target,
+) =>
+    <T>(
+      m.FunctionPointer builder, {
+      Color? backgroundColor,
+      Clip? clipBehavior,
+      BoxConstraints? constraints,
+      double? elevation,
+      bool? enableDrag,
+      ShapeBorder? shape,
+      AnimationController? transitionAnimationController,
+    }) {
+      Widget builderProxy(BuildContext builder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            builder,
+            [builder_context],
+            {},
+          );
+      return target.showBottomSheet<T>(
+        builderProxy,
+        backgroundColor: backgroundColor,
+        clipBehavior: clipBehavior,
+        constraints: constraints,
+        elevation: elevation,
+        enableDrag: enableDrag,
+        shape: shape,
+        transitionAnimationController: transitionAnimationController,
+      );
+    };
 Function _ScaffoldState_initState$(
   m.Scope scope,
   ScaffoldState target,
@@ -489,6 +599,16 @@ Function _ScaffoldState_build$(
   ScaffoldState target,
 ) =>
     target.build;
+Function ScaffoldFeatureController_as$<T extends Widget, U>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaffoldFeatureController<T, U>;
+Function ScaffoldFeatureController_is$<T extends Widget, U>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaffoldFeatureController<T, U>;
 void Function() _ScaffoldFeatureController_close$<T extends Widget, U>(
     ScaffoldFeatureController<T, U> target) {
   return target.close;
@@ -504,3 +624,14 @@ Future<U> _ScaffoldFeatureController_closed$<T extends Widget, U>(
     ScaffoldFeatureController<T, U> target) {
   return target.closed;
 }
+
+Function PersistentBottomSheetController_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PersistentBottomSheetController<T>;
+Function PersistentBottomSheetController_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PersistentBottomSheetController<T>;

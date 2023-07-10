@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'IconButton': m.ClassMirror(
       'IconButton',
       {
+        '#as': IconButton_as$,
+        '#is': IconButton_is$,
         'iconSize': _IconButton_iconSize$,
         'visualDensity': _IconButton_visualDensity$,
         'padding': _IconButton_padding$,
@@ -59,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function IconButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconButton;
+Function IconButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconButton;
 double? _IconButton_iconSize$(IconButton target) {
   return target.iconSize;
 }

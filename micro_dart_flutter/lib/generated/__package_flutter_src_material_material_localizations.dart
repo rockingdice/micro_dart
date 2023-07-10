@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialLocalizations': m.ClassMirror(
       'MaterialLocalizations',
       {
+        '#as': MaterialLocalizations_as$,
+        '#is': MaterialLocalizations_is$,
         'openAppDrawerTooltip': _MaterialLocalizations_openAppDrawerTooltip$,
         'backButtonTooltip': _MaterialLocalizations_backButtonTooltip$,
         'closeButtonTooltip': _MaterialLocalizations_closeButtonTooltip$,
@@ -203,6 +205,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultMaterialLocalizations': m.ClassMirror(
       'DefaultMaterialLocalizations',
       {
+        '#as': DefaultMaterialLocalizations_as$,
+        '#is': DefaultMaterialLocalizations_is$,
         'narrowWeekdays': _DefaultMaterialLocalizations_narrowWeekdays$,
         'firstDayOfWeekIndex':
             _DefaultMaterialLocalizations_firstDayOfWeekIndex$,
@@ -410,6 +414,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialLocalizations;
+Function MaterialLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialLocalizations;
 String _MaterialLocalizations_openAppDrawerTooltip$(
     MaterialLocalizations target) {
   return target.openAppDrawerTooltip;
@@ -1077,6 +1091,16 @@ Function _MaterialLocalizations_remainingTextFieldCharacterCount$(
 ) =>
     target.remainingTextFieldCharacterCount;
 Function _MaterialLocalizations_of$(m.Scope scope) => MaterialLocalizations.of;
+Function DefaultMaterialLocalizations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultMaterialLocalizations;
+Function DefaultMaterialLocalizations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultMaterialLocalizations;
 LocalizationsDelegate<MaterialLocalizations>
     _DefaultMaterialLocalizations_delegate$() {
   return DefaultMaterialLocalizations.delegate;

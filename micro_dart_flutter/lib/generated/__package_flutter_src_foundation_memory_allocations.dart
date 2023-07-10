@@ -13,12 +13,16 @@ const libraryMirror = m.LibraryMirror(
   {
     'kFlutterMemoryAllocationsEnabled': _kFlutterMemoryAllocationsEnabled$,
     'MemoryAllocations.instance': _MemoryAllocations_instance$,
+    'MemoryAllocations.addListener': _MemoryAllocations_addListener$,
+    'MemoryAllocations.removeListener': _MemoryAllocations_removeListener$,
   },
   {},
   {
     'ObjectEvent': m.ClassMirror(
       'ObjectEvent',
       {
+        '#as': ObjectEvent_as$,
+        '#is': ObjectEvent_is$,
         'object': _ObjectEvent_object$,
         'toMap': _ObjectEvent_toMap$,
       },
@@ -27,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'ObjectCreated': m.ClassMirror(
       'ObjectCreated',
       {
+        '#as': ObjectCreated_as$,
+        '#is': ObjectCreated_is$,
         'library': _ObjectCreated_library$,
         'className': _ObjectCreated_className$,
         'toMap': _ObjectCreated_toMap$,
@@ -35,12 +41,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ObjectDisposed': m.ClassMirror(
       'ObjectDisposed',
-      {'toMap': _ObjectDisposed_toMap$},
+      {
+        '#as': ObjectDisposed_as$,
+        '#is': ObjectDisposed_is$,
+        'toMap': _ObjectDisposed_toMap$,
+      },
       {},
     ),
     'MemoryAllocations': m.ClassMirror(
       'MemoryAllocations',
       {
+        '#as': MemoryAllocations_as$,
+        '#is': MemoryAllocations_is$,
         'hasListeners': _MemoryAllocations_hasListeners$,
         'dispatchObjectEvent': _MemoryAllocations_dispatchObjectEvent$,
         'dispatchObjectCreated': _MemoryAllocations_dispatchObjectCreated$,
@@ -54,6 +66,16 @@ bool _kFlutterMemoryAllocationsEnabled$() {
   return kFlutterMemoryAllocationsEnabled;
 }
 
+Function ObjectEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObjectEvent;
+Function ObjectEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObjectEvent;
 Object _ObjectEvent_object$(ObjectEvent target) {
   return target.object;
 }
@@ -63,6 +85,16 @@ Function _ObjectEvent_toMap$(
   ObjectEvent target,
 ) =>
     target.toMap;
+Function ObjectCreated_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObjectCreated;
+Function ObjectCreated_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObjectCreated;
 String _ObjectCreated_library$(ObjectCreated target) {
   return target.library;
 }
@@ -76,11 +108,31 @@ Function _ObjectCreated_toMap$(
   ObjectCreated target,
 ) =>
     target.toMap;
+Function ObjectDisposed_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ObjectDisposed;
+Function ObjectDisposed_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ObjectDisposed;
 Function _ObjectDisposed_toMap$(
   m.Scope scope,
   ObjectDisposed target,
 ) =>
     target.toMap;
+Function MemoryAllocations_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MemoryAllocations;
+Function MemoryAllocations_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MemoryAllocations;
 MemoryAllocations _MemoryAllocations_instance$() {
   return MemoryAllocations.instance;
 }
@@ -89,6 +141,34 @@ bool _MemoryAllocations_hasListeners$(MemoryAllocations target) {
   return target.hasListeners;
 }
 
+Function _MemoryAllocations_addListener$(
+  m.Scope scope,
+  MemoryAllocations target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(ObjectEvent listener_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_$p0],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _MemoryAllocations_removeListener$(
+  m.Scope scope,
+  MemoryAllocations target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(ObjectEvent listener_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_$p0],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _MemoryAllocations_dispatchObjectEvent$(
   m.Scope scope,
   MemoryAllocations target,

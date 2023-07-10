@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchViewThemeData': m.ClassMirror(
       'SearchViewThemeData',
       {
+        '#as': SearchViewThemeData_as$,
+        '#is': SearchViewThemeData_is$,
         'backgroundColor': _SearchViewThemeData_backgroundColor$,
         'elevation': _SearchViewThemeData_elevation$,
         'surfaceTintColor': _SearchViewThemeData_surfaceTintColor$,
@@ -31,6 +33,7 @@ const libraryMirror = m.LibraryMirror(
         'dividerColor': _SearchViewThemeData_dividerColor$,
         'hashCode': _SearchViewThemeData_hashCode$,
         'copyWith': _SearchViewThemeData_copyWith$,
+        '==': _SearchViewThemeData_eq$$,
         'debugFillProperties': _SearchViewThemeData_debugFillProperties$,
       },
       {},
@@ -38,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'SearchViewTheme': m.ClassMirror(
       'SearchViewTheme',
       {
+        '#as': SearchViewTheme_as$,
+        '#is': SearchViewTheme_is$,
         'data': _SearchViewTheme_data$,
         'updateShouldNotify': _SearchViewTheme_updateShouldNotify$,
       },
@@ -45,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SearchViewThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchViewThemeData;
+Function SearchViewThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchViewThemeData;
 Color? _SearchViewThemeData_backgroundColor$(SearchViewThemeData target) {
   return target.backgroundColor;
 }
@@ -91,11 +106,26 @@ Function _SearchViewThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _SearchViewThemeData_lerp$(m.Scope scope) => SearchViewThemeData.lerp;
+Function _SearchViewThemeData_eq$$(
+  m.Scope scope,
+  SearchViewThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SearchViewThemeData_debugFillProperties$(
   m.Scope scope,
   SearchViewThemeData target,
 ) =>
     target.debugFillProperties;
+Function SearchViewTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SearchViewTheme;
+Function SearchViewTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SearchViewTheme;
 SearchViewThemeData _SearchViewTheme_data$(SearchViewTheme target) {
   return target.data;
 }

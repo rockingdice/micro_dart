@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTheme': m.ClassMirror(
       'CupertinoTheme',
       {
+        '#as': CupertinoTheme_as$,
+        '#is': CupertinoTheme_is$,
         'data': _CupertinoTheme_data$,
         'child': _CupertinoTheme_child$,
         'build': _CupertinoTheme_build$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoThemeData': m.ClassMirror(
       'CupertinoThemeData',
       {
+        '#as': CupertinoThemeData_as$,
+        '#is': CupertinoThemeData_is$,
         'primaryColor': _CupertinoThemeData_primaryColor$,
         'primaryContrastingColor': _CupertinoThemeData_primaryContrastingColor$,
         'textTheme': _CupertinoThemeData_textTheme$,
@@ -42,12 +46,15 @@ const libraryMirror = m.LibraryMirror(
         'resolveFrom': _CupertinoThemeData_resolveFrom$,
         'copyWith': _CupertinoThemeData_copyWith$,
         'debugFillProperties': _CupertinoThemeData_debugFillProperties$,
+        '==': _CupertinoThemeData_eq$$,
       },
       {},
     ),
     'NoDefaultCupertinoThemeData': m.ClassMirror(
       'NoDefaultCupertinoThemeData',
       {
+        '#as': NoDefaultCupertinoThemeData_as$,
+        '#is': NoDefaultCupertinoThemeData_is$,
         'brightness': _NoDefaultCupertinoThemeData_brightness$,
         'primaryColor': _NoDefaultCupertinoThemeData_primaryColor$,
         'primaryContrastingColor':
@@ -65,6 +72,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTheme;
+Function CupertinoTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTheme;
 CupertinoThemeData _CupertinoTheme_data$(CupertinoTheme target) {
   return target.data;
 }
@@ -88,6 +105,16 @@ Function _CupertinoTheme_debugFillProperties$(
   CupertinoTheme target,
 ) =>
     target.debugFillProperties;
+Function CupertinoThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoThemeData;
+Function CupertinoThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoThemeData;
 Color _CupertinoThemeData_primaryColor$(CupertinoThemeData target) {
   return target.primaryColor;
 }
@@ -137,6 +164,21 @@ Function _CupertinoThemeData_debugFillProperties$(
   CupertinoThemeData target,
 ) =>
     target.debugFillProperties;
+Function _CupertinoThemeData_eq$$(
+  m.Scope scope,
+  CupertinoThemeData target,
+) =>
+    (Object other) => target == other;
+Function NoDefaultCupertinoThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NoDefaultCupertinoThemeData;
+Function NoDefaultCupertinoThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NoDefaultCupertinoThemeData;
 Brightness? _NoDefaultCupertinoThemeData_brightness$(
     NoDefaultCupertinoThemeData target) {
   return target.brightness;

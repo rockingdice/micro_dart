@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'BouncingScrollSimulation': m.ClassMirror(
       'BouncingScrollSimulation',
       {
+        '#as': BouncingScrollSimulation_as$,
+        '#is': BouncingScrollSimulation_is$,
         'leadingExtent': _BouncingScrollSimulation_leadingExtent$,
         'trailingExtent': _BouncingScrollSimulation_trailingExtent$,
         'spring': _BouncingScrollSimulation_spring$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'ClampingScrollSimulation': m.ClassMirror(
       'ClampingScrollSimulation',
       {
+        '#as': ClampingScrollSimulation_as$,
+        '#is': ClampingScrollSimulation_is$,
         'position': _ClampingScrollSimulation_position$,
         'velocity': _ClampingScrollSimulation_velocity$,
         'friction': _ClampingScrollSimulation_friction$,
@@ -42,6 +46,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BouncingScrollSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BouncingScrollSimulation;
+Function BouncingScrollSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BouncingScrollSimulation;
 double _BouncingScrollSimulation_maxSpringTransferVelocity$() {
   return BouncingScrollSimulation.maxSpringTransferVelocity;
 }
@@ -81,6 +95,16 @@ Function _BouncingScrollSimulation_toString$(
   BouncingScrollSimulation target,
 ) =>
     target.toString;
+Function ClampingScrollSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClampingScrollSimulation;
+Function ClampingScrollSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClampingScrollSimulation;
 double _ClampingScrollSimulation_position$(ClampingScrollSimulation target) {
   return target.position;
 }

@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationDrawer': m.ClassMirror(
       'NavigationDrawer',
       {
+        '#as': NavigationDrawer_as$,
+        '#is': NavigationDrawer_is$,
         'backgroundColor': _NavigationDrawer_backgroundColor$,
         'shadowColor': _NavigationDrawer_shadowColor$,
         'surfaceTintColor': _NavigationDrawer_surfaceTintColor$,
@@ -40,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationDrawerDestination': m.ClassMirror(
       'NavigationDrawerDestination',
       {
+        '#as': NavigationDrawerDestination_as$,
+        '#is': NavigationDrawerDestination_is$,
         'backgroundColor': _NavigationDrawerDestination_backgroundColor$,
         'icon': _NavigationDrawerDestination_icon$,
         'selectedIcon': _NavigationDrawerDestination_selectedIcon$,
@@ -50,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationDrawer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationDrawer;
+Function NavigationDrawer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationDrawer;
 Color? _NavigationDrawer_backgroundColor$(NavigationDrawer target) {
   return target.backgroundColor;
 }
@@ -92,6 +106,16 @@ Function _NavigationDrawer_build$(
   NavigationDrawer target,
 ) =>
     target.build;
+Function NavigationDrawerDestination_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationDrawerDestination;
+Function NavigationDrawerDestination_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationDrawerDestination;
 Color? _NavigationDrawerDestination_backgroundColor$(
     NavigationDrawerDestination target) {
   return target.backgroundColor;

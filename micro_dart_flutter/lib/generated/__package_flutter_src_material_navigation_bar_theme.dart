@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationBarThemeData': m.ClassMirror(
       'NavigationBarThemeData',
       {
+        '#as': NavigationBarThemeData_as$,
+        '#is': NavigationBarThemeData_is$,
         'height': _NavigationBarThemeData_height$,
         'backgroundColor': _NavigationBarThemeData_backgroundColor$,
         'elevation': _NavigationBarThemeData_elevation$,
@@ -34,6 +36,7 @@ const libraryMirror = m.LibraryMirror(
         'labelBehavior': _NavigationBarThemeData_labelBehavior$,
         'hashCode': _NavigationBarThemeData_hashCode$,
         'copyWith': _NavigationBarThemeData_copyWith$,
+        '==': _NavigationBarThemeData_eq$$,
         'debugFillProperties': _NavigationBarThemeData_debugFillProperties$,
       },
       {},
@@ -41,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationBarTheme': m.ClassMirror(
       'NavigationBarTheme',
       {
+        '#as': NavigationBarTheme_as$,
+        '#is': NavigationBarTheme_is$,
         'data': _NavigationBarTheme_data$,
         'wrap': _NavigationBarTheme_wrap$,
         'updateShouldNotify': _NavigationBarTheme_updateShouldNotify$,
@@ -49,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationBarThemeData;
+Function NavigationBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationBarThemeData;
 double? _NavigationBarThemeData_height$(NavigationBarThemeData target) {
   return target.height;
 }
@@ -105,11 +120,26 @@ Function _NavigationBarThemeData_copyWith$(
     target.copyWith;
 Function _NavigationBarThemeData_lerp$(m.Scope scope) =>
     NavigationBarThemeData.lerp;
+Function _NavigationBarThemeData_eq$$(
+  m.Scope scope,
+  NavigationBarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _NavigationBarThemeData_debugFillProperties$(
   m.Scope scope,
   NavigationBarThemeData target,
 ) =>
     target.debugFillProperties;
+Function NavigationBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationBarTheme;
+Function NavigationBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationBarTheme;
 NavigationBarThemeData _NavigationBarTheme_data$(NavigationBarTheme target) {
   return target.data;
 }

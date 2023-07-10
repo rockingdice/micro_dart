@@ -23,15 +23,22 @@ const libraryMirror = m.LibraryMirror(
   {
     'GradientTransform': m.ClassMirror(
       'GradientTransform',
-      {'transform': _GradientTransform_transform$},
+      {
+        '#as': GradientTransform_as$,
+        '#is': GradientTransform_is$,
+        'transform': _GradientTransform_transform$,
+      },
       {},
     ),
     'GradientRotation': m.ClassMirror(
       'GradientRotation',
       {
+        '#as': GradientRotation_as$,
+        '#is': GradientRotation_is$,
         'radians': _GradientRotation_radians$,
         'hashCode': _GradientRotation_hashCode$,
         'transform': _GradientRotation_transform$,
+        '==': _GradientRotation_eq$$,
         'toString': _GradientRotation_toString$,
       },
       {},
@@ -39,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'Gradient': m.ClassMirror(
       'Gradient',
       {
+        '#as': Gradient_as$,
+        '#is': Gradient_is$,
         'colors': _Gradient_colors$,
         'stops': _Gradient_stops$,
         'transform': _Gradient_transform$,
@@ -52,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'LinearGradient': m.ClassMirror(
       'LinearGradient',
       {
+        '#as': LinearGradient_as$,
+        '#is': LinearGradient_is$,
         'begin': _LinearGradient_begin$,
         'end': _LinearGradient_end$,
         'tileMode': _LinearGradient_tileMode$,
@@ -60,6 +71,7 @@ const libraryMirror = m.LibraryMirror(
         'scale': _LinearGradient_scale$,
         'lerpFrom': _LinearGradient_lerpFrom$,
         'lerpTo': _LinearGradient_lerpTo$,
+        '==': _LinearGradient_eq$$,
         'toString': _LinearGradient_toString$,
       },
       {},
@@ -67,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'RadialGradient': m.ClassMirror(
       'RadialGradient',
       {
+        '#as': RadialGradient_as$,
+        '#is': RadialGradient_is$,
         'center': _RadialGradient_center$,
         'radius': _RadialGradient_radius$,
         'tileMode': _RadialGradient_tileMode$,
@@ -77,6 +91,7 @@ const libraryMirror = m.LibraryMirror(
         'scale': _RadialGradient_scale$,
         'lerpFrom': _RadialGradient_lerpFrom$,
         'lerpTo': _RadialGradient_lerpTo$,
+        '==': _RadialGradient_eq$$,
         'toString': _RadialGradient_toString$,
       },
       {},
@@ -84,6 +99,8 @@ const libraryMirror = m.LibraryMirror(
     'SweepGradient': m.ClassMirror(
       'SweepGradient',
       {
+        '#as': SweepGradient_as$,
+        '#is': SweepGradient_is$,
         'center': _SweepGradient_center$,
         'startAngle': _SweepGradient_startAngle$,
         'endAngle': _SweepGradient_endAngle$,
@@ -93,17 +110,38 @@ const libraryMirror = m.LibraryMirror(
         'scale': _SweepGradient_scale$,
         'lerpFrom': _SweepGradient_lerpFrom$,
         'lerpTo': _SweepGradient_lerpTo$,
+        '==': _SweepGradient_eq$$,
         'toString': _SweepGradient_toString$,
       },
       {},
     ),
   },
 );
+Function GradientTransform_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GradientTransform;
+Function GradientTransform_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GradientTransform;
 Function _GradientTransform_transform$(
   m.Scope scope,
   GradientTransform target,
 ) =>
     target.transform;
+Function GradientRotation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GradientRotation;
+Function GradientRotation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GradientRotation;
 double _GradientRotation_radians$(GradientRotation target) {
   return target.radians;
 }
@@ -117,11 +155,26 @@ Function _GradientRotation_transform$(
   GradientRotation target,
 ) =>
     target.transform;
+Function _GradientRotation_eq$$(
+  m.Scope scope,
+  GradientRotation target,
+) =>
+    (Object other) => target == other;
 Function _GradientRotation_toString$(
   m.Scope scope,
   GradientRotation target,
 ) =>
     target.toString;
+Function Gradient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Gradient;
+Function Gradient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Gradient;
 List<Color> _Gradient_colors$(Gradient target) {
   return target.colors;
 }
@@ -155,6 +208,16 @@ Function _Gradient_lerpTo$(
 ) =>
     target.lerpTo;
 Function _Gradient_lerp$(m.Scope scope) => Gradient.lerp;
+Function LinearGradient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LinearGradient;
+Function LinearGradient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LinearGradient;
 AlignmentGeometry _LinearGradient_begin$(LinearGradient target) {
   return target.begin;
 }
@@ -192,11 +255,26 @@ Function _LinearGradient_lerpTo$(
 ) =>
     target.lerpTo;
 Function _LinearGradient_lerp$(m.Scope scope) => LinearGradient.lerp;
+Function _LinearGradient_eq$$(
+  m.Scope scope,
+  LinearGradient target,
+) =>
+    (Object other) => target == other;
 Function _LinearGradient_toString$(
   m.Scope scope,
   LinearGradient target,
 ) =>
     target.toString;
+Function RadialGradient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RadialGradient;
+Function RadialGradient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RadialGradient;
 AlignmentGeometry _RadialGradient_center$(RadialGradient target) {
   return target.center;
 }
@@ -242,11 +320,26 @@ Function _RadialGradient_lerpTo$(
 ) =>
     target.lerpTo;
 Function _RadialGradient_lerp$(m.Scope scope) => RadialGradient.lerp;
+Function _RadialGradient_eq$$(
+  m.Scope scope,
+  RadialGradient target,
+) =>
+    (Object other) => target == other;
 Function _RadialGradient_toString$(
   m.Scope scope,
   RadialGradient target,
 ) =>
     target.toString;
+Function SweepGradient_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SweepGradient;
+Function SweepGradient_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SweepGradient;
 AlignmentGeometry _SweepGradient_center$(SweepGradient target) {
   return target.center;
 }
@@ -288,6 +381,11 @@ Function _SweepGradient_lerpTo$(
 ) =>
     target.lerpTo;
 Function _SweepGradient_lerp$(m.Scope scope) => SweepGradient.lerp;
+Function _SweepGradient_eq$$(
+  m.Scope scope,
+  SweepGradient target,
+) =>
+    (Object other) => target == other;
 Function _SweepGradient_toString$(
   m.Scope scope,
   SweepGradient target,

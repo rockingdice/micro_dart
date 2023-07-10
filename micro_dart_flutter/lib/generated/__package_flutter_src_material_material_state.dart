@@ -11,10 +11,20 @@ import 'package:flutter/src/material/input_border.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/material_state.dart',
   {
+    'MaterialStateColor.resolveWith': _MaterialStateColor_resolveWith$,
     'MaterialStateMouseCursor.clickable': _MaterialStateMouseCursor_clickable$,
     'MaterialStateMouseCursor.textable': _MaterialStateMouseCursor_textable$,
+    'MaterialStateBorderSide.resolveWith':
+        _MaterialStateBorderSide_resolveWith$,
+    'MaterialStateTextStyle.resolveWith': _MaterialStateTextStyle_resolveWith$,
+    'MaterialStateOutlineInputBorder.resolveWith':
+        _MaterialStateOutlineInputBorder_resolveWith$,
+    'MaterialStateUnderlineInputBorder.resolveWith':
+        _MaterialStateUnderlineInputBorder_resolveWith$,
     'MaterialStateProperty.resolveAs': _MaterialStateProperty_resolveAs$,
+    'MaterialStateProperty.resolveWith': _MaterialStateProperty_resolveWith$,
     'MaterialStateProperty.all': _MaterialStateProperty_all$,
+    'MaterialStateProperty.lerp': _MaterialStateProperty_lerp$,
     'MaterialState.hovered': _MaterialState_hovered$,
     'MaterialState.focused': _MaterialState_focused$,
     'MaterialState.pressed': _MaterialState_pressed$,
@@ -29,12 +39,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'MaterialStateColor': m.ClassMirror(
       'MaterialStateColor',
-      {'resolve': _MaterialStateColor_resolve$},
+      {
+        '#as': MaterialStateColor_as$,
+        '#is': MaterialStateColor_is$,
+        'resolve': _MaterialStateColor_resolve$,
+      },
       {},
     ),
     'MaterialStateMouseCursor': m.ClassMirror(
       'MaterialStateMouseCursor',
       {
+        '#as': MaterialStateMouseCursor_as$,
+        '#is': MaterialStateMouseCursor_is$,
         'createSession': _MaterialStateMouseCursor_createSession$,
         'resolve': _MaterialStateMouseCursor_resolve$,
       },
@@ -42,37 +58,63 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MaterialStateBorderSide': m.ClassMirror(
       'MaterialStateBorderSide',
-      {'resolve': _MaterialStateBorderSide_resolve$},
+      {
+        '#as': MaterialStateBorderSide_as$,
+        '#is': MaterialStateBorderSide_is$,
+        'resolve': _MaterialStateBorderSide_resolve$,
+      },
       {},
     ),
     'MaterialStateOutlinedBorder': m.ClassMirror(
       'MaterialStateOutlinedBorder',
-      {'resolve': _MaterialStateOutlinedBorder_resolve$},
+      {
+        '#as': MaterialStateOutlinedBorder_as$,
+        '#is': MaterialStateOutlinedBorder_is$,
+        'resolve': _MaterialStateOutlinedBorder_resolve$,
+      },
       {},
     ),
     'MaterialStateTextStyle': m.ClassMirror(
       'MaterialStateTextStyle',
-      {'resolve': _MaterialStateTextStyle_resolve$},
+      {
+        '#as': MaterialStateTextStyle_as$,
+        '#is': MaterialStateTextStyle_is$,
+        'resolve': _MaterialStateTextStyle_resolve$,
+      },
       {},
     ),
     'MaterialStateOutlineInputBorder': m.ClassMirror(
       'MaterialStateOutlineInputBorder',
-      {'resolve': _MaterialStateOutlineInputBorder_resolve$},
+      {
+        '#as': MaterialStateOutlineInputBorder_as$,
+        '#is': MaterialStateOutlineInputBorder_is$,
+        'resolve': _MaterialStateOutlineInputBorder_resolve$,
+      },
       {},
     ),
     'MaterialStateUnderlineInputBorder': m.ClassMirror(
       'MaterialStateUnderlineInputBorder',
-      {'resolve': _MaterialStateUnderlineInputBorder_resolve$},
+      {
+        '#as': MaterialStateUnderlineInputBorder_as$,
+        '#is': MaterialStateUnderlineInputBorder_is$,
+        'resolve': _MaterialStateUnderlineInputBorder_resolve$,
+      },
       {},
     ),
     'MaterialStateProperty': m.ClassMirror(
       'MaterialStateProperty',
-      {'resolve': _MaterialStateProperty_resolve$},
+      {
+        '#as': MaterialStateProperty_as$,
+        '#is': MaterialStateProperty_is$,
+        'resolve': _MaterialStateProperty_resolve$,
+      },
       {},
     ),
     'MaterialStatePropertyAll': m.ClassMirror(
       'MaterialStatePropertyAll',
       {
+        '#as': MaterialStatePropertyAll_as$,
+        '#is': MaterialStatePropertyAll_is$,
         'value': _MaterialStatePropertyAll_value$,
         'resolve': _MaterialStatePropertyAll_resolve$,
         'toString': _MaterialStatePropertyAll_toString$,
@@ -81,7 +123,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MaterialStatesController': m.ClassMirror(
       'MaterialStatesController',
-      {'update': _MaterialStatesController_update$},
+      {
+        '#as': MaterialStatesController_as$,
+        '#is': MaterialStatesController_is$,
+        'update': _MaterialStatesController_update$,
+      },
       {},
     ),
     'MaterialState': m.ClassMirror(
@@ -91,11 +137,42 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialStateColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateColor;
+Function MaterialStateColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateColor;
+Function _MaterialStateColor_resolveWith$(m.Scope scope) =>
+    (m.FunctionPointer callback) {
+      Color callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateColor.resolveWith(callbackProxy);
+    };
 Function _MaterialStateColor_resolve$(
   m.Scope scope,
   MaterialStateColor target,
 ) =>
     target.resolve;
+Function MaterialStateMouseCursor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateMouseCursor;
+Function MaterialStateMouseCursor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateMouseCursor;
 MaterialStateMouseCursor _MaterialStateMouseCursor_clickable$() {
   return MaterialStateMouseCursor.clickable;
 }
@@ -114,31 +191,135 @@ Function _MaterialStateMouseCursor_resolve$(
   MaterialStateMouseCursor target,
 ) =>
     target.resolve;
+Function MaterialStateBorderSide_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateBorderSide;
+Function MaterialStateBorderSide_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateBorderSide;
 Function _MaterialStateBorderSide_resolve$(
   m.Scope scope,
   MaterialStateBorderSide target,
 ) =>
     target.resolve;
+Function _MaterialStateBorderSide_resolveWith$(m.Scope scope) =>
+    (m.FunctionPointer callback) {
+      BorderSide? callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateBorderSide.resolveWith(callbackProxy);
+    };
+Function MaterialStateOutlinedBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateOutlinedBorder;
+Function MaterialStateOutlinedBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateOutlinedBorder;
 Function _MaterialStateOutlinedBorder_resolve$(
   m.Scope scope,
   MaterialStateOutlinedBorder target,
 ) =>
     target.resolve;
+Function MaterialStateTextStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateTextStyle;
+Function MaterialStateTextStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateTextStyle;
+Function _MaterialStateTextStyle_resolveWith$(m.Scope scope) =>
+    (m.FunctionPointer callback) {
+      TextStyle callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateTextStyle.resolveWith(callbackProxy);
+    };
 Function _MaterialStateTextStyle_resolve$(
   m.Scope scope,
   MaterialStateTextStyle target,
 ) =>
     target.resolve;
+Function MaterialStateOutlineInputBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateOutlineInputBorder;
+Function MaterialStateOutlineInputBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateOutlineInputBorder;
+Function _MaterialStateOutlineInputBorder_resolveWith$(m.Scope scope) =>
+    (m.FunctionPointer callback) {
+      InputBorder callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateOutlineInputBorder.resolveWith(callbackProxy);
+    };
 Function _MaterialStateOutlineInputBorder_resolve$(
   m.Scope scope,
   MaterialStateOutlineInputBorder target,
 ) =>
     target.resolve;
+Function MaterialStateUnderlineInputBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateUnderlineInputBorder;
+Function MaterialStateUnderlineInputBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateUnderlineInputBorder;
+Function _MaterialStateUnderlineInputBorder_resolveWith$(m.Scope scope) =>
+    (m.FunctionPointer callback) {
+      InputBorder callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateUnderlineInputBorder.resolveWith(callbackProxy);
+    };
 Function _MaterialStateUnderlineInputBorder_resolve$(
   m.Scope scope,
   MaterialStateUnderlineInputBorder target,
 ) =>
     target.resolve;
+Function MaterialStateProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStateProperty<T>;
+Function MaterialStateProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStateProperty<T>;
 Function _MaterialStateProperty_resolve$<T>(
   m.Scope scope,
   MaterialStateProperty<T> target,
@@ -146,8 +327,57 @@ Function _MaterialStateProperty_resolve$<T>(
     target.resolve;
 Function _MaterialStateProperty_resolveAs$<T>(m.Scope scope) =>
     MaterialStateProperty.resolveAs<T>;
+Function _MaterialStateProperty_resolveWith$(m.Scope scope) =>
+    <T>(m.FunctionPointer callback) {
+      T callbackProxy(Set<MaterialState> callback_states) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_states],
+            {},
+          );
+      return MaterialStateProperty.resolveWith<T>(callbackProxy);
+    };
 Function _MaterialStateProperty_all$<T>(m.Scope scope) =>
     MaterialStateProperty.all<T>;
+Function _MaterialStateProperty_lerp$(m.Scope scope) => <T>(
+      MaterialStateProperty<T>? a,
+      MaterialStateProperty<T>? b,
+      double t,
+      m.FunctionPointer lerpFunction,
+    ) {
+      T? lerpFunctionProxy(
+        T? lerpFunction_$p0,
+        T? lerpFunction_$p1,
+        double lerpFunction_$p2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            lerpFunction,
+            [
+              lerpFunction_$p0,
+              lerpFunction_$p1,
+              lerpFunction_$p2,
+            ],
+            {},
+          );
+      return MaterialStateProperty.lerp<T>(
+        a,
+        b,
+        t,
+        lerpFunctionProxy,
+      );
+    };
+Function MaterialStatePropertyAll_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStatePropertyAll<T>;
+Function MaterialStatePropertyAll_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStatePropertyAll<T>;
 T _MaterialStatePropertyAll_value$<T>(MaterialStatePropertyAll<T> target) {
   return target.value;
 }
@@ -162,6 +392,16 @@ Function _MaterialStatePropertyAll_toString$<T>(
   MaterialStatePropertyAll<T> target,
 ) =>
     target.toString;
+Function MaterialStatesController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialStatesController;
+Function MaterialStatesController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialStatesController;
 Function _MaterialStatesController_update$(
   m.Scope scope,
   MaterialStatesController target,

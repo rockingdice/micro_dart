@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'FilledButton': m.ClassMirror(
       'FilledButton',
       {
+        '#as': FilledButton_as$,
+        '#is': FilledButton_is$,
         'defaultStyleOf': _FilledButton_defaultStyleOf$,
         'themeStyleOf': _FilledButton_themeStyleOf$,
       },
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FilledButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FilledButton;
+Function FilledButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FilledButton;
 Function _FilledButton_styleFrom$(m.Scope scope) => FilledButton.styleFrom;
 Function _FilledButton_defaultStyleOf$(
   m.Scope scope,

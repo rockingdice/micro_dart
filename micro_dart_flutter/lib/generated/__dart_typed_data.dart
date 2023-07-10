@@ -542,6 +542,8 @@ const libraryMirror = m.LibraryMirror(
     'ByteBuffer': m.ClassMirror(
       'ByteBuffer',
       {
+        '#as': ByteBuffer_as$,
+        '#is': ByteBuffer_is$,
         'lengthInBytes': _ByteBuffer_lengthInBytes$,
         'asUint8List': _ByteBuffer_asUint8List$,
         'asInt8List': _ByteBuffer_asInt8List$,
@@ -564,6 +566,8 @@ const libraryMirror = m.LibraryMirror(
     'TypedData': m.ClassMirror(
       'TypedData',
       {
+        '#as': TypedData_as$,
+        '#is': TypedData_is$,
         'elementSizeInBytes': _TypedData_elementSizeInBytes$,
         'offsetInBytes': _TypedData_offsetInBytes$,
         'lengthInBytes': _TypedData_lengthInBytes$,
@@ -573,12 +577,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Endian': m.ClassMirror(
       'Endian',
-      {},
+      {
+        '#as': Endian_as$,
+        '#is': Endian_is$,
+      },
       {},
     ),
     'ByteData': m.ClassMirror(
       'ByteData',
       {
+        '#as': ByteData_as$,
+        '#is': ByteData_is$,
         'getInt8': _ByteData_getInt8$,
         'setInt8': _ByteData_setInt8$,
         'getUint8': _ByteData_getUint8$,
@@ -604,82 +613,149 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int8List': m.ClassMirror(
       'Int8List',
-      {'sublist': _Int8List_sublist$},
+      {
+        '#as': Int8List_as$,
+        '#is': Int8List_is$,
+        'sublist': _Int8List_sublist$,
+      },
       {},
     ),
     'Uint8List': m.ClassMirror(
       'Uint8List',
-      {'sublist': _Uint8List_sublist$},
+      {
+        '#as': Uint8List_as$,
+        '#is': Uint8List_is$,
+        '+': _Uint8List_plus$$,
+        'sublist': _Uint8List_sublist$,
+      },
       {},
     ),
     'Uint8ClampedList': m.ClassMirror(
       'Uint8ClampedList',
-      {'sublist': _Uint8ClampedList_sublist$},
+      {
+        '#as': Uint8ClampedList_as$,
+        '#is': Uint8ClampedList_is$,
+        'sublist': _Uint8ClampedList_sublist$,
+      },
       {},
     ),
     'Int16List': m.ClassMirror(
       'Int16List',
-      {'sublist': _Int16List_sublist$},
+      {
+        '#as': Int16List_as$,
+        '#is': Int16List_is$,
+        'sublist': _Int16List_sublist$,
+      },
       {},
     ),
     'Uint16List': m.ClassMirror(
       'Uint16List',
-      {'sublist': _Uint16List_sublist$},
+      {
+        '#as': Uint16List_as$,
+        '#is': Uint16List_is$,
+        'sublist': _Uint16List_sublist$,
+      },
       {},
     ),
     'Int32List': m.ClassMirror(
       'Int32List',
-      {'sublist': _Int32List_sublist$},
+      {
+        '#as': Int32List_as$,
+        '#is': Int32List_is$,
+        'sublist': _Int32List_sublist$,
+      },
       {},
     ),
     'Uint32List': m.ClassMirror(
       'Uint32List',
-      {'sublist': _Uint32List_sublist$},
+      {
+        '#as': Uint32List_as$,
+        '#is': Uint32List_is$,
+        'sublist': _Uint32List_sublist$,
+      },
       {},
     ),
     'Int64List': m.ClassMirror(
       'Int64List',
-      {'sublist': _Int64List_sublist$},
+      {
+        '#as': Int64List_as$,
+        '#is': Int64List_is$,
+        'sublist': _Int64List_sublist$,
+      },
       {},
     ),
     'Uint64List': m.ClassMirror(
       'Uint64List',
-      {'sublist': _Uint64List_sublist$},
+      {
+        '#as': Uint64List_as$,
+        '#is': Uint64List_is$,
+        'sublist': _Uint64List_sublist$,
+      },
       {},
     ),
     'Float32List': m.ClassMirror(
       'Float32List',
-      {'sublist': _Float32List_sublist$},
+      {
+        '#as': Float32List_as$,
+        '#is': Float32List_is$,
+        'sublist': _Float32List_sublist$,
+      },
       {},
     ),
     'Float64List': m.ClassMirror(
       'Float64List',
-      {'sublist': _Float64List_sublist$},
+      {
+        '#as': Float64List_as$,
+        '#is': Float64List_is$,
+        'sublist': _Float64List_sublist$,
+      },
       {},
     ),
     'Float32x4List': m.ClassMirror(
       'Float32x4List',
-      {'sublist': _Float32x4List_sublist$},
+      {
+        '#as': Float32x4List_as$,
+        '#is': Float32x4List_is$,
+        '+': _Float32x4List_plus$$,
+        'sublist': _Float32x4List_sublist$,
+      },
       {},
     ),
     'Int32x4List': m.ClassMirror(
       'Int32x4List',
-      {'sublist': _Int32x4List_sublist$},
+      {
+        '#as': Int32x4List_as$,
+        '#is': Int32x4List_is$,
+        '+': _Int32x4List_plus$$,
+        'sublist': _Int32x4List_sublist$,
+      },
       {},
     ),
     'Float64x2List': m.ClassMirror(
       'Float64x2List',
-      {'sublist': _Float64x2List_sublist$},
+      {
+        '#as': Float64x2List_as$,
+        '#is': Float64x2List_is$,
+        '+': _Float64x2List_plus$$,
+        'sublist': _Float64x2List_sublist$,
+      },
       {},
     ),
     'Float32x4': m.ClassMirror(
       'Float32x4',
       {
+        '#as': Float32x4_as$,
+        '#is': Float32x4_is$,
         'x': _Float32x4_x$,
         'y': _Float32x4_y$,
         'z': _Float32x4_z$,
         'w': _Float32x4_w$,
         'signMask': _Float32x4_signMask$,
+        '+': _Float32x4_plus$$,
+        'unary-': _Float32x4_unary_minus$$,
+        '-': _Float32x4_minus$$,
+        '*': _Float32x4_times$$,
+        '/': _Float32x4_over$$,
         'lessThan': _Float32x4_lessThan$,
         'lessThanOrEqual': _Float32x4_lessThanOrEqual$,
         'greaterThan': _Float32x4_greaterThan$,
@@ -706,6 +782,8 @@ const libraryMirror = m.LibraryMirror(
     'Int32x4': m.ClassMirror(
       'Int32x4',
       {
+        '#as': Int32x4_as$,
+        '#is': Int32x4_is$,
         'x': _Int32x4_x$,
         'y': _Int32x4_y$,
         'z': _Int32x4_z$,
@@ -715,6 +793,11 @@ const libraryMirror = m.LibraryMirror(
         'flagY': _Int32x4_flagY$,
         'flagZ': _Int32x4_flagZ$,
         'flagW': _Int32x4_flagW$,
+        '|': _Int32x4_bit_or$$,
+        '&': _Int32x4_bit_and$$,
+        '^': _Int32x4_bit_xor$$,
+        '+': _Int32x4_plus$$,
+        '-': _Int32x4_minus$$,
         'shuffle': _Int32x4_shuffle$,
         'shuffleMix': _Int32x4_shuffleMix$,
         'withX': _Int32x4_withX$,
@@ -732,9 +815,16 @@ const libraryMirror = m.LibraryMirror(
     'Float64x2': m.ClassMirror(
       'Float64x2',
       {
+        '#as': Float64x2_as$,
+        '#is': Float64x2_is$,
         'x': _Float64x2_x$,
         'y': _Float64x2_y$,
         'signMask': _Float64x2_signMask$,
+        '+': _Float64x2_plus$$,
+        'unary-': _Float64x2_unary_minus$$,
+        '-': _Float64x2_minus$$,
+        '*': _Float64x2_times$$,
+        '/': _Float64x2_over$$,
         'scale': _Float64x2_scale$,
         'abs': _Float64x2_abs$,
         'clamp': _Float64x2_clamp$,
@@ -748,86 +838,144 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableByteBufferView': m.ClassMirror(
       'UnmodifiableByteBufferView',
-      {},
+      {
+        '#as': UnmodifiableByteBufferView_as$,
+        '#is': UnmodifiableByteBufferView_is$,
+      },
       {},
     ),
     'UnmodifiableByteDataView': m.ClassMirror(
       'UnmodifiableByteDataView',
-      {},
+      {
+        '#as': UnmodifiableByteDataView_as$,
+        '#is': UnmodifiableByteDataView_is$,
+      },
       {},
     ),
     'UnmodifiableUint8ListView': m.ClassMirror(
       'UnmodifiableUint8ListView',
-      {},
+      {
+        '#as': UnmodifiableUint8ListView_as$,
+        '#is': UnmodifiableUint8ListView_is$,
+      },
       {},
     ),
     'UnmodifiableInt8ListView': m.ClassMirror(
       'UnmodifiableInt8ListView',
-      {},
+      {
+        '#as': UnmodifiableInt8ListView_as$,
+        '#is': UnmodifiableInt8ListView_is$,
+      },
       {},
     ),
     'UnmodifiableUint8ClampedListView': m.ClassMirror(
       'UnmodifiableUint8ClampedListView',
-      {},
+      {
+        '#as': UnmodifiableUint8ClampedListView_as$,
+        '#is': UnmodifiableUint8ClampedListView_is$,
+      },
       {},
     ),
     'UnmodifiableUint16ListView': m.ClassMirror(
       'UnmodifiableUint16ListView',
-      {},
+      {
+        '#as': UnmodifiableUint16ListView_as$,
+        '#is': UnmodifiableUint16ListView_is$,
+      },
       {},
     ),
     'UnmodifiableInt16ListView': m.ClassMirror(
       'UnmodifiableInt16ListView',
-      {},
+      {
+        '#as': UnmodifiableInt16ListView_as$,
+        '#is': UnmodifiableInt16ListView_is$,
+      },
       {},
     ),
     'UnmodifiableUint32ListView': m.ClassMirror(
       'UnmodifiableUint32ListView',
-      {},
+      {
+        '#as': UnmodifiableUint32ListView_as$,
+        '#is': UnmodifiableUint32ListView_is$,
+      },
       {},
     ),
     'UnmodifiableInt32ListView': m.ClassMirror(
       'UnmodifiableInt32ListView',
-      {},
+      {
+        '#as': UnmodifiableInt32ListView_as$,
+        '#is': UnmodifiableInt32ListView_is$,
+      },
       {},
     ),
     'UnmodifiableUint64ListView': m.ClassMirror(
       'UnmodifiableUint64ListView',
-      {},
+      {
+        '#as': UnmodifiableUint64ListView_as$,
+        '#is': UnmodifiableUint64ListView_is$,
+      },
       {},
     ),
     'UnmodifiableInt64ListView': m.ClassMirror(
       'UnmodifiableInt64ListView',
-      {},
+      {
+        '#as': UnmodifiableInt64ListView_as$,
+        '#is': UnmodifiableInt64ListView_is$,
+      },
       {},
     ),
     'UnmodifiableInt32x4ListView': m.ClassMirror(
       'UnmodifiableInt32x4ListView',
-      {},
+      {
+        '#as': UnmodifiableInt32x4ListView_as$,
+        '#is': UnmodifiableInt32x4ListView_is$,
+      },
       {},
     ),
     'UnmodifiableFloat32x4ListView': m.ClassMirror(
       'UnmodifiableFloat32x4ListView',
-      {},
+      {
+        '#as': UnmodifiableFloat32x4ListView_as$,
+        '#is': UnmodifiableFloat32x4ListView_is$,
+      },
       {},
     ),
     'UnmodifiableFloat64x2ListView': m.ClassMirror(
       'UnmodifiableFloat64x2ListView',
-      {},
+      {
+        '#as': UnmodifiableFloat64x2ListView_as$,
+        '#is': UnmodifiableFloat64x2ListView_is$,
+      },
       {},
     ),
     'UnmodifiableFloat32ListView': m.ClassMirror(
       'UnmodifiableFloat32ListView',
-      {},
+      {
+        '#as': UnmodifiableFloat32ListView_as$,
+        '#is': UnmodifiableFloat32ListView_is$,
+      },
       {},
     ),
     'UnmodifiableFloat64ListView': m.ClassMirror(
       'UnmodifiableFloat64ListView',
-      {},
+      {
+        '#as': UnmodifiableFloat64ListView_as$,
+        '#is': UnmodifiableFloat64ListView_is$,
+      },
       {},
     ),
   },
 );
+Function ByteBuffer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ByteBuffer;
+Function ByteBuffer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ByteBuffer;
 int _ByteBuffer_lengthInBytes$(ByteBuffer target) {
   return target.lengthInBytes;
 }
@@ -907,6 +1055,16 @@ Function _ByteBuffer_asByteData$(
   ByteBuffer target,
 ) =>
     target.asByteData;
+Function TypedData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TypedData;
+Function TypedData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TypedData;
 int _TypedData_elementSizeInBytes$(TypedData target) {
   return target.elementSizeInBytes;
 }
@@ -923,6 +1081,16 @@ ByteBuffer _TypedData_buffer$(TypedData target) {
   return target.buffer;
 }
 
+Function Endian_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Endian;
+Function Endian_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Endian;
 Endian _Endian_big$() {
   return Endian.big;
 }
@@ -935,6 +1103,16 @@ Endian _Endian_host$() {
   return Endian.host;
 }
 
+Function ByteData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ByteData;
+Function ByteData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ByteData;
 Function _ByteData_getInt8$(
   m.Scope scope,
   ByteData target,
@@ -1035,6 +1213,16 @@ Function _ByteData_setFloat64$(
   ByteData target,
 ) =>
     target.setFloat64;
+Function Int8List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int8List;
+Function Int8List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int8List;
 int _Int8List_bytesPerElement$() {
   return Int8List.bytesPerElement;
 }
@@ -1044,15 +1232,40 @@ Function _Int8List_sublist$(
   Int8List target,
 ) =>
     target.sublist;
+Function Uint8List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint8List;
+Function Uint8List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint8List;
 int _Uint8List_bytesPerElement$() {
   return Uint8List.bytesPerElement;
 }
 
+Function _Uint8List_plus$$(
+  m.Scope scope,
+  Uint8List target,
+) =>
+    (List<int> other) => target + other;
 Function _Uint8List_sublist$(
   m.Scope scope,
   Uint8List target,
 ) =>
     target.sublist;
+Function Uint8ClampedList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint8ClampedList;
+Function Uint8ClampedList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint8ClampedList;
 int _Uint8ClampedList_bytesPerElement$() {
   return Uint8ClampedList.bytesPerElement;
 }
@@ -1062,6 +1275,16 @@ Function _Uint8ClampedList_sublist$(
   Uint8ClampedList target,
 ) =>
     target.sublist;
+Function Int16List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int16List;
+Function Int16List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int16List;
 int _Int16List_bytesPerElement$() {
   return Int16List.bytesPerElement;
 }
@@ -1071,6 +1294,16 @@ Function _Int16List_sublist$(
   Int16List target,
 ) =>
     target.sublist;
+Function Uint16List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint16List;
+Function Uint16List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint16List;
 int _Uint16List_bytesPerElement$() {
   return Uint16List.bytesPerElement;
 }
@@ -1080,6 +1313,16 @@ Function _Uint16List_sublist$(
   Uint16List target,
 ) =>
     target.sublist;
+Function Int32List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int32List;
+Function Int32List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int32List;
 int _Int32List_bytesPerElement$() {
   return Int32List.bytesPerElement;
 }
@@ -1089,6 +1332,16 @@ Function _Int32List_sublist$(
   Int32List target,
 ) =>
     target.sublist;
+Function Uint32List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint32List;
+Function Uint32List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint32List;
 int _Uint32List_bytesPerElement$() {
   return Uint32List.bytesPerElement;
 }
@@ -1098,6 +1351,16 @@ Function _Uint32List_sublist$(
   Uint32List target,
 ) =>
     target.sublist;
+Function Int64List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int64List;
+Function Int64List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int64List;
 int _Int64List_bytesPerElement$() {
   return Int64List.bytesPerElement;
 }
@@ -1107,6 +1370,16 @@ Function _Int64List_sublist$(
   Int64List target,
 ) =>
     target.sublist;
+Function Uint64List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Uint64List;
+Function Uint64List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Uint64List;
 int _Uint64List_bytesPerElement$() {
   return Uint64List.bytesPerElement;
 }
@@ -1116,6 +1389,16 @@ Function _Uint64List_sublist$(
   Uint64List target,
 ) =>
     target.sublist;
+Function Float32List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float32List;
+Function Float32List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float32List;
 int _Float32List_bytesPerElement$() {
   return Float32List.bytesPerElement;
 }
@@ -1125,6 +1408,16 @@ Function _Float32List_sublist$(
   Float32List target,
 ) =>
     target.sublist;
+Function Float64List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float64List;
+Function Float64List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float64List;
 int _Float64List_bytesPerElement$() {
   return Float64List.bytesPerElement;
 }
@@ -1134,33 +1427,88 @@ Function _Float64List_sublist$(
   Float64List target,
 ) =>
     target.sublist;
+Function Float32x4List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float32x4List;
+Function Float32x4List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float32x4List;
 int _Float32x4List_bytesPerElement$() {
   return Float32x4List.bytesPerElement;
 }
 
+Function _Float32x4List_plus$$(
+  m.Scope scope,
+  Float32x4List target,
+) =>
+    (List<Float32x4> other) => target + other;
 Function _Float32x4List_sublist$(
   m.Scope scope,
   Float32x4List target,
 ) =>
     target.sublist;
+Function Int32x4List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int32x4List;
+Function Int32x4List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int32x4List;
 int _Int32x4List_bytesPerElement$() {
   return Int32x4List.bytesPerElement;
 }
 
+Function _Int32x4List_plus$$(
+  m.Scope scope,
+  Int32x4List target,
+) =>
+    (List<Int32x4> other) => target + other;
 Function _Int32x4List_sublist$(
   m.Scope scope,
   Int32x4List target,
 ) =>
     target.sublist;
+Function Float64x2List_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float64x2List;
+Function Float64x2List_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float64x2List;
 int _Float64x2List_bytesPerElement$() {
   return Float64x2List.bytesPerElement;
 }
 
+Function _Float64x2List_plus$$(
+  m.Scope scope,
+  Float64x2List target,
+) =>
+    (List<Float64x2> other) => target + other;
 Function _Float64x2List_sublist$(
   m.Scope scope,
   Float64x2List target,
 ) =>
     target.sublist;
+Function Float32x4_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float32x4;
+Function Float32x4_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float32x4;
 int _Float32x4_xxxx$() {
   return Float32x4.xxxx;
 }
@@ -2205,6 +2553,31 @@ int _Float32x4_signMask$(Float32x4 target) {
   return target.signMask;
 }
 
+Function _Float32x4_plus$$(
+  m.Scope scope,
+  Float32x4 target,
+) =>
+    (Float32x4 other) => target + other;
+Function _Float32x4_unary_minus$$(
+  m.Scope scope,
+  Float32x4 target,
+) =>
+    () => -target;
+Function _Float32x4_minus$$(
+  m.Scope scope,
+  Float32x4 target,
+) =>
+    (Float32x4 other) => target - other;
+Function _Float32x4_times$$(
+  m.Scope scope,
+  Float32x4 target,
+) =>
+    (Float32x4 other) => target * other;
+Function _Float32x4_over$$(
+  m.Scope scope,
+  Float32x4 target,
+) =>
+    (Float32x4 other) => target / other;
 Function _Float32x4_lessThan$(
   m.Scope scope,
   Float32x4 target,
@@ -2305,6 +2678,16 @@ Function _Float32x4_reciprocalSqrt$(
   Float32x4 target,
 ) =>
     target.reciprocalSqrt;
+Function Int32x4_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Int32x4;
+Function Int32x4_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Int32x4;
 int _Int32x4_xxxx$() {
   return Int32x4.xxxx;
 }
@@ -3365,6 +3748,31 @@ bool _Int32x4_flagW$(Int32x4 target) {
   return target.flagW;
 }
 
+Function _Int32x4_bit_or$$(
+  m.Scope scope,
+  Int32x4 target,
+) =>
+    (Int32x4 other) => target | other;
+Function _Int32x4_bit_and$$(
+  m.Scope scope,
+  Int32x4 target,
+) =>
+    (Int32x4 other) => target & other;
+Function _Int32x4_bit_xor$$(
+  m.Scope scope,
+  Int32x4 target,
+) =>
+    (Int32x4 other) => target ^ other;
+Function _Int32x4_plus$$(
+  m.Scope scope,
+  Int32x4 target,
+) =>
+    (Int32x4 other) => target + other;
+Function _Int32x4_minus$$(
+  m.Scope scope,
+  Int32x4 target,
+) =>
+    (Int32x4 other) => target - other;
 Function _Int32x4_shuffle$(
   m.Scope scope,
   Int32x4 target,
@@ -3420,6 +3828,16 @@ Function _Int32x4_select$(
   Int32x4 target,
 ) =>
     target.select;
+Function Float64x2_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Float64x2;
+Function Float64x2_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Float64x2;
 double _Float64x2_x$(Float64x2 target) {
   return target.x;
 }
@@ -3432,6 +3850,31 @@ int _Float64x2_signMask$(Float64x2 target) {
   return target.signMask;
 }
 
+Function _Float64x2_plus$$(
+  m.Scope scope,
+  Float64x2 target,
+) =>
+    (Float64x2 other) => target + other;
+Function _Float64x2_unary_minus$$(
+  m.Scope scope,
+  Float64x2 target,
+) =>
+    () => -target;
+Function _Float64x2_minus$$(
+  m.Scope scope,
+  Float64x2 target,
+) =>
+    (Float64x2 other) => target - other;
+Function _Float64x2_times$$(
+  m.Scope scope,
+  Float64x2 target,
+) =>
+    (Float64x2 other) => target * other;
+Function _Float64x2_over$$(
+  m.Scope scope,
+  Float64x2 target,
+) =>
+    (Float64x2 other) => target / other;
 Function _Float64x2_scale$(
   m.Scope scope,
   Float64x2 target,
@@ -3472,3 +3915,163 @@ Function _Float64x2_sqrt$(
   Float64x2 target,
 ) =>
     target.sqrt;
+Function UnmodifiableByteBufferView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableByteBufferView;
+Function UnmodifiableByteBufferView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableByteBufferView;
+Function UnmodifiableByteDataView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableByteDataView;
+Function UnmodifiableByteDataView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableByteDataView;
+Function UnmodifiableUint8ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableUint8ListView;
+Function UnmodifiableUint8ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableUint8ListView;
+Function UnmodifiableInt8ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableInt8ListView;
+Function UnmodifiableInt8ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableInt8ListView;
+Function UnmodifiableUint8ClampedListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableUint8ClampedListView;
+Function UnmodifiableUint8ClampedListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableUint8ClampedListView;
+Function UnmodifiableUint16ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableUint16ListView;
+Function UnmodifiableUint16ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableUint16ListView;
+Function UnmodifiableInt16ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableInt16ListView;
+Function UnmodifiableInt16ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableInt16ListView;
+Function UnmodifiableUint32ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableUint32ListView;
+Function UnmodifiableUint32ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableUint32ListView;
+Function UnmodifiableInt32ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableInt32ListView;
+Function UnmodifiableInt32ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableInt32ListView;
+Function UnmodifiableUint64ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableUint64ListView;
+Function UnmodifiableUint64ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableUint64ListView;
+Function UnmodifiableInt64ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableInt64ListView;
+Function UnmodifiableInt64ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableInt64ListView;
+Function UnmodifiableInt32x4ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableInt32x4ListView;
+Function UnmodifiableInt32x4ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableInt32x4ListView;
+Function UnmodifiableFloat32x4ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableFloat32x4ListView;
+Function UnmodifiableFloat32x4ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableFloat32x4ListView;
+Function UnmodifiableFloat64x2ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableFloat64x2ListView;
+Function UnmodifiableFloat64x2ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableFloat64x2ListView;
+Function UnmodifiableFloat32ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableFloat32ListView;
+Function UnmodifiableFloat32ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableFloat32ListView;
+Function UnmodifiableFloat64ListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmodifiableFloat64ListView;
+Function UnmodifiableFloat64ListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmodifiableFloat64ListView;

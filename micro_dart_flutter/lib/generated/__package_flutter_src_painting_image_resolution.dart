@@ -17,18 +17,31 @@ const libraryMirror = m.LibraryMirror(
     'AssetImage': m.ClassMirror(
       'AssetImage',
       {
+        '#as': AssetImage_as$,
+        '#is': AssetImage_is$,
         'assetName': _AssetImage_assetName$,
         'bundle': _AssetImage_bundle$,
         'package': _AssetImage_package$,
         'keyName': _AssetImage_keyName$,
         'hashCode': _AssetImage_hashCode$,
         'obtainKey': _AssetImage_obtainKey$,
+        '==': _AssetImage_eq$$,
         'toString': _AssetImage_toString$,
       },
       {},
     )
   },
 );
+Function AssetImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AssetImage;
+Function AssetImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AssetImage;
 String _AssetImage_assetName$(AssetImage target) {
   return target.assetName;
 }
@@ -54,6 +67,11 @@ Function _AssetImage_obtainKey$(
   AssetImage target,
 ) =>
     target.obtainKey;
+Function _AssetImage_eq$$(
+  m.Scope scope,
+  AssetImage target,
+) =>
+    (Object other) => target == other;
 Function _AssetImage_toString$(
   m.Scope scope,
   AssetImage target,

@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'InputDatePickerFormField': m.ClassMirror(
       'InputDatePickerFormField',
       {
+        '#as': InputDatePickerFormField_as$,
+        '#is': InputDatePickerFormField_is$,
         'initialDate': _InputDatePickerFormField_initialDate$,
         'firstDate': _InputDatePickerFormField_firstDate$,
         'lastDate': _InputDatePickerFormField_lastDate$,
@@ -38,6 +40,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InputDatePickerFormField_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputDatePickerFormField;
+Function InputDatePickerFormField_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputDatePickerFormField;
 DateTime? _InputDatePickerFormField_initialDate$(
     InputDatePickerFormField target) {
   return target.initialDate;

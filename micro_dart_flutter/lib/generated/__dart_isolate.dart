@@ -13,15 +13,20 @@ const libraryMirror = m.LibraryMirror(
     'Isolate.beforeNextEvent': _Isolate_beforeNextEvent$,
     'Isolate.current': _Isolate_current$,
     'Isolate.packageConfig': _Isolate_packageConfig$,
+    'Isolate.run': _Isolate_run$,
     'Isolate.resolvePackageUri': _Isolate_resolvePackageUri$,
+    'Isolate.spawn': _Isolate_spawn$,
     'Isolate.spawnUri': _Isolate_spawnUri$,
     'Isolate.exit': _Isolate_exit$,
+    'ReceivePort.listen': _ReceivePort_listen$,
   },
   {},
   {
     'IsolateSpawnException': m.ClassMirror(
       'IsolateSpawnException',
       {
+        '#as': IsolateSpawnException_as$,
+        '#is': IsolateSpawnException_is$,
         'message': _IsolateSpawnException_message$,
         'toString': _IsolateSpawnException_toString$,
       },
@@ -30,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'Isolate': m.ClassMirror(
       'Isolate',
       {
+        '#as': Isolate_as$,
+        '#is': Isolate_is$,
         'controlPort': _Isolate_controlPort$,
         'pauseCapability': _Isolate_pauseCapability$,
         'terminateCapability': _Isolate_terminateCapability$,
@@ -50,14 +57,19 @@ const libraryMirror = m.LibraryMirror(
     'SendPort': m.ClassMirror(
       'SendPort',
       {
+        '#as': SendPort_as$,
+        '#is': SendPort_is$,
         'hashCode': _SendPort_hashCode$,
         'send': _SendPort_send$,
+        '==': _SendPort_eq$$,
       },
       {},
     ),
     'ReceivePort': m.ClassMirror(
       'ReceivePort',
       {
+        '#as': ReceivePort_as$,
+        '#is': ReceivePort_is$,
         'sendPort': _ReceivePort_sendPort$,
         'close': _ReceivePort_close$,
       },
@@ -66,6 +78,8 @@ const libraryMirror = m.LibraryMirror(
     'RawReceivePort': m.ClassMirror(
       'RawReceivePort',
       {
+        '#as': RawReceivePort_as$,
+        '#is': RawReceivePort_is$,
         'sendPort': _RawReceivePort_sendPort$,
         'close': _RawReceivePort_close$,
       },
@@ -74,6 +88,8 @@ const libraryMirror = m.LibraryMirror(
     'RemoteError': m.ClassMirror(
       'RemoteError',
       {
+        '#as': RemoteError_as$,
+        '#is': RemoteError_is$,
         'stackTrace': _RemoteError_stackTrace$,
         'toString': _RemoteError_toString$,
       },
@@ -81,16 +97,33 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TransferableTypedData': m.ClassMirror(
       'TransferableTypedData',
-      {'materialize': _TransferableTypedData_materialize$},
+      {
+        '#as': TransferableTypedData_as$,
+        '#is': TransferableTypedData_is$,
+        'materialize': _TransferableTypedData_materialize$,
+      },
       {},
     ),
     'Capability': m.ClassMirror(
       'Capability',
-      {},
+      {
+        '#as': Capability_as$,
+        '#is': Capability_is$,
+      },
       {},
     ),
   },
 );
+Function IsolateSpawnException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IsolateSpawnException;
+Function IsolateSpawnException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IsolateSpawnException;
 String _IsolateSpawnException_message$(IsolateSpawnException target) {
   return target.message;
 }
@@ -100,6 +133,16 @@ Function _IsolateSpawnException_toString$(
   IsolateSpawnException target,
 ) =>
     target.toString;
+Function Isolate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Isolate;
+Function Isolate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Isolate;
 int _Isolate_immediate$() {
   return Isolate.immediate;
 }
@@ -136,8 +179,50 @@ Stream<dynamic> _Isolate_errors$(Isolate target) {
   return target.errors;
 }
 
+Function _Isolate_run$(m.Scope scope) => <R>(
+      m.FunctionPointer computation, {
+      String? debugName,
+    }) {
+      FutureOr<R> computationProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            computation,
+            [],
+            {},
+          );
+      return Isolate.run<R>(
+        computationProxy,
+        debugName: debugName,
+      );
+    };
 Function _Isolate_resolvePackageUri$(m.Scope scope) =>
     Isolate.resolvePackageUri;
+Function _Isolate_spawn$(m.Scope scope) => <T>(
+      m.FunctionPointer entryPoint,
+      T message, {
+      String? debugName,
+      bool? errorsAreFatal,
+      SendPort? onError,
+      SendPort? onExit,
+      bool? paused,
+    }) {
+      void entryPointProxy(T entryPoint_message) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            entryPoint,
+            [entryPoint_message],
+            {},
+          );
+      return Isolate.spawn<T>(
+        entryPointProxy,
+        message,
+        debugName: debugName,
+        errorsAreFatal: errorsAreFatal == null ? true : errorsAreFatal,
+        onError: onError,
+        onExit: onExit,
+        paused: paused == null ? false : paused,
+      );
+    };
 Function _Isolate_spawnUri$(m.Scope scope) => Isolate.spawnUri;
 Function _Isolate_pause$(
   m.Scope scope,
@@ -185,6 +270,16 @@ Function _Isolate_removeErrorListener$(
 ) =>
     target.removeErrorListener;
 Function _Isolate_exit$(m.Scope scope) => Isolate.exit;
+Function SendPort_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SendPort;
+Function SendPort_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SendPort;
 int _SendPort_hashCode$(SendPort target) {
   return target.hashCode;
 }
@@ -194,15 +289,70 @@ Function _SendPort_send$(
   SendPort target,
 ) =>
     target.send;
+Function _SendPort_eq$$(
+  m.Scope scope,
+  SendPort target,
+) =>
+    (Object other) => target == other;
+Function ReceivePort_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReceivePort;
+Function ReceivePort_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReceivePort;
 SendPort _ReceivePort_sendPort$(ReceivePort target) {
   return target.sendPort;
 }
 
+Function _ReceivePort_listen$(
+  m.Scope scope,
+  ReceivePort target,
+) =>
+    (
+      m.FunctionPointer? onData, {
+      bool? cancelOnError,
+      m.FunctionPointer? onDone,
+      Function? onError,
+    }) {
+      void onDataProxy(dynamic onData_message) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onData!,
+            [onData_message],
+            {},
+          );
+      void onDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onDone!,
+            [],
+            {},
+          );
+      return target.listen(
+        onData == null ? null : onDataProxy,
+        cancelOnError: cancelOnError,
+        onDone: onDone == null ? null : onDoneProxy,
+        onError: onError,
+      );
+    };
 Function _ReceivePort_close$(
   m.Scope scope,
   ReceivePort target,
 ) =>
     target.close;
+Function RawReceivePort_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawReceivePort;
+Function RawReceivePort_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawReceivePort;
 void _RawReceivePort_handler_set$(
   RawReceivePort target,
   Function? other,
@@ -219,6 +369,16 @@ Function _RawReceivePort_close$(
   RawReceivePort target,
 ) =>
     target.close;
+Function RemoteError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RemoteError;
+Function RemoteError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RemoteError;
 StackTrace _RemoteError_stackTrace$(RemoteError target) {
   return target.stackTrace;
 }
@@ -228,8 +388,28 @@ Function _RemoteError_toString$(
   RemoteError target,
 ) =>
     target.toString;
+Function TransferableTypedData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TransferableTypedData;
+Function TransferableTypedData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TransferableTypedData;
 Function _TransferableTypedData_materialize$(
   m.Scope scope,
   TransferableTypedData target,
 ) =>
     target.materialize;
+Function Capability_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Capability;
+Function Capability_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Capability;

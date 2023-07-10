@@ -72,6 +72,8 @@ const libraryMirror = m.LibraryMirror(
     'MediaQueryData': m.ClassMirror(
       'MediaQueryData',
       {
+        '#as': MediaQueryData_as$,
+        '#is': MediaQueryData_is$,
         'size': _MediaQueryData_size$,
         'devicePixelRatio': _MediaQueryData_devicePixelRatio$,
         'textScaleFactor': _MediaQueryData_textScaleFactor$,
@@ -96,6 +98,7 @@ const libraryMirror = m.LibraryMirror(
         'removeViewInsets': _MediaQueryData_removeViewInsets$,
         'removeViewPadding': _MediaQueryData_removeViewPadding$,
         'removeDisplayFeatures': _MediaQueryData_removeDisplayFeatures$,
+        '==': _MediaQueryData_eq$$,
         'toString': _MediaQueryData_toString$,
       },
       {},
@@ -103,6 +106,8 @@ const libraryMirror = m.LibraryMirror(
     'MediaQuery': m.ClassMirror(
       'MediaQuery',
       {
+        '#as': MediaQuery_as$,
+        '#is': MediaQuery_is$,
         'data': _MediaQuery_data$,
         'updateShouldNotify': _MediaQuery_updateShouldNotify$,
         'debugFillProperties': _MediaQuery_debugFillProperties$,
@@ -122,6 +127,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MediaQueryData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MediaQueryData;
+Function MediaQueryData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MediaQueryData;
 Size _MediaQueryData_size$(MediaQueryData target) {
   return target.size;
 }
@@ -223,11 +238,26 @@ Function _MediaQueryData_removeDisplayFeatures$(
   MediaQueryData target,
 ) =>
     target.removeDisplayFeatures;
+Function _MediaQueryData_eq$$(
+  m.Scope scope,
+  MediaQueryData target,
+) =>
+    (Object other) => target == other;
 Function _MediaQueryData_toString$(
   m.Scope scope,
   MediaQueryData target,
 ) =>
     target.toString;
+Function MediaQuery_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MediaQuery;
+Function MediaQuery_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MediaQuery;
 MediaQueryData _MediaQuery_data$(MediaQuery target) {
   return target.data;
 }

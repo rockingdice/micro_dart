@@ -15,16 +15,34 @@ const libraryMirror = m.LibraryMirror(
   {
     'InheritedTheme': m.ClassMirror(
       'InheritedTheme',
-      {'wrap': _InheritedTheme_wrap$},
+      {
+        '#as': InheritedTheme_as$,
+        '#is': InheritedTheme_is$,
+        'wrap': _InheritedTheme_wrap$,
+      },
       {},
     ),
     'CapturedThemes': m.ClassMirror(
       'CapturedThemes',
-      {'wrap': _CapturedThemes_wrap$},
+      {
+        '#as': CapturedThemes_as$,
+        '#is': CapturedThemes_is$,
+        'wrap': _CapturedThemes_wrap$,
+      },
       {},
     ),
   },
 );
+Function InheritedTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedTheme;
+Function InheritedTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedTheme;
 Function _InheritedTheme_wrap$(
   m.Scope scope,
   InheritedTheme target,
@@ -33,6 +51,16 @@ Function _InheritedTheme_wrap$(
 Function _InheritedTheme_captureAll$(m.Scope scope) =>
     InheritedTheme.captureAll;
 Function _InheritedTheme_capture$(m.Scope scope) => InheritedTheme.capture;
+Function CapturedThemes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CapturedThemes;
+Function CapturedThemes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CapturedThemes;
 Function _CapturedThemes_wrap$(
   m.Scope scope,
   CapturedThemes target,

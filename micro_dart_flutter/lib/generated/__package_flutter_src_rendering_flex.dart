@@ -39,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'FlexParentData': m.ClassMirror(
       'FlexParentData',
       {
+        '#as': FlexParentData_as$,
+        '#is': FlexParentData_is$,
         'flex': _FlexParentData_flex$,
         'fit': _FlexParentData_fit$,
         'toString': _FlexParentData_toString$,
@@ -51,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderFlex': m.ClassMirror(
       'RenderFlex',
       {
+        '#as': RenderFlex_as$,
+        '#is': RenderFlex_is$,
         'direction': _RenderFlex_direction$,
         'mainAxisAlignment': _RenderFlex_mainAxisAlignment$,
         'mainAxisSize': _RenderFlex_mainAxisSize$,
@@ -109,6 +113,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FlexParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlexParentData;
+Function FlexParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlexParentData;
 int? _FlexParentData_flex$(FlexParentData target) {
   return target.flex;
 }
@@ -136,6 +150,16 @@ Function _FlexParentData_toString$(
   FlexParentData target,
 ) =>
     target.toString;
+Function RenderFlex_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderFlex;
+Function RenderFlex_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderFlex;
 Axis _RenderFlex_direction$(RenderFlex target) {
   return target.direction;
 }

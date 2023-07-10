@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridGeometry': m.ClassMirror(
       'SliverGridGeometry',
       {
+        '#as': SliverGridGeometry_as$,
+        '#is': SliverGridGeometry_is$,
         'scrollOffset': _SliverGridGeometry_scrollOffset$,
         'crossAxisOffset': _SliverGridGeometry_crossAxisOffset$,
         'mainAxisExtent': _SliverGridGeometry_mainAxisExtent$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridLayout': m.ClassMirror(
       'SliverGridLayout',
       {
+        '#as': SliverGridLayout_as$,
+        '#is': SliverGridLayout_is$,
         'getMinChildIndexForScrollOffset':
             _SliverGridLayout_getMinChildIndexForScrollOffset$,
         'getMaxChildIndexForScrollOffset':
@@ -43,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridRegularTileLayout': m.ClassMirror(
       'SliverGridRegularTileLayout',
       {
+        '#as': SliverGridRegularTileLayout_as$,
+        '#is': SliverGridRegularTileLayout_is$,
         'crossAxisCount': _SliverGridRegularTileLayout_crossAxisCount$,
         'mainAxisStride': _SliverGridRegularTileLayout_mainAxisStride$,
         'crossAxisStride': _SliverGridRegularTileLayout_crossAxisStride$,
@@ -65,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridDelegate': m.ClassMirror(
       'SliverGridDelegate',
       {
+        '#as': SliverGridDelegate_as$,
+        '#is': SliverGridDelegate_is$,
         'getLayout': _SliverGridDelegate_getLayout$,
         'shouldRelayout': _SliverGridDelegate_shouldRelayout$,
       },
@@ -73,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridDelegateWithFixedCrossAxisCount': m.ClassMirror(
       'SliverGridDelegateWithFixedCrossAxisCount',
       {
+        '#as': SliverGridDelegateWithFixedCrossAxisCount_as$,
+        '#is': SliverGridDelegateWithFixedCrossAxisCount_is$,
         'crossAxisCount':
             _SliverGridDelegateWithFixedCrossAxisCount_crossAxisCount$,
         'mainAxisSpacing':
@@ -92,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridDelegateWithMaxCrossAxisExtent': m.ClassMirror(
       'SliverGridDelegateWithMaxCrossAxisExtent',
       {
+        '#as': SliverGridDelegateWithMaxCrossAxisExtent_as$,
+        '#is': SliverGridDelegateWithMaxCrossAxisExtent_is$,
         'maxCrossAxisExtent':
             _SliverGridDelegateWithMaxCrossAxisExtent_maxCrossAxisExtent$,
         'mainAxisSpacing':
@@ -111,6 +123,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGridParentData': m.ClassMirror(
       'SliverGridParentData',
       {
+        '#as': SliverGridParentData_as$,
+        '#is': SliverGridParentData_is$,
         'crossAxisOffset': _SliverGridParentData_crossAxisOffset$,
         'toString': _SliverGridParentData_toString$,
       },
@@ -119,6 +133,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverGrid': m.ClassMirror(
       'RenderSliverGrid',
       {
+        '#as': RenderSliverGrid_as$,
+        '#is': RenderSliverGrid_is$,
         'gridDelegate': _RenderSliverGrid_gridDelegate$,
         'setupParentData': _RenderSliverGrid_setupParentData$,
         'childCrossAxisPosition': _RenderSliverGrid_childCrossAxisPosition$,
@@ -128,6 +144,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverGridGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridGeometry;
+Function SliverGridGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridGeometry;
 double _SliverGridGeometry_scrollOffset$(SliverGridGeometry target) {
   return target.scrollOffset;
 }
@@ -158,6 +184,16 @@ Function _SliverGridGeometry_toString$(
   SliverGridGeometry target,
 ) =>
     target.toString;
+Function SliverGridLayout_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridLayout;
+Function SliverGridLayout_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridLayout;
 Function _SliverGridLayout_getMinChildIndexForScrollOffset$(
   m.Scope scope,
   SliverGridLayout target,
@@ -178,6 +214,16 @@ Function _SliverGridLayout_computeMaxScrollOffset$(
   SliverGridLayout target,
 ) =>
     target.computeMaxScrollOffset;
+Function SliverGridRegularTileLayout_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridRegularTileLayout;
+Function SliverGridRegularTileLayout_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridRegularTileLayout;
 int _SliverGridRegularTileLayout_crossAxisCount$(
     SliverGridRegularTileLayout target) {
   return target.crossAxisCount;
@@ -228,6 +274,16 @@ Function _SliverGridRegularTileLayout_computeMaxScrollOffset$(
   SliverGridRegularTileLayout target,
 ) =>
     target.computeMaxScrollOffset;
+Function SliverGridDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridDelegate;
+Function SliverGridDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridDelegate;
 Function _SliverGridDelegate_getLayout$(
   m.Scope scope,
   SliverGridDelegate target,
@@ -238,6 +294,16 @@ Function _SliverGridDelegate_shouldRelayout$(
   SliverGridDelegate target,
 ) =>
     target.shouldRelayout;
+Function SliverGridDelegateWithFixedCrossAxisCount_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridDelegateWithFixedCrossAxisCount;
+Function SliverGridDelegateWithFixedCrossAxisCount_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridDelegateWithFixedCrossAxisCount;
 int _SliverGridDelegateWithFixedCrossAxisCount_crossAxisCount$(
     SliverGridDelegateWithFixedCrossAxisCount target) {
   return target.crossAxisCount;
@@ -273,6 +339,16 @@ Function _SliverGridDelegateWithFixedCrossAxisCount_shouldRelayout$(
   SliverGridDelegateWithFixedCrossAxisCount target,
 ) =>
     target.shouldRelayout;
+Function SliverGridDelegateWithMaxCrossAxisExtent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridDelegateWithMaxCrossAxisExtent;
+Function SliverGridDelegateWithMaxCrossAxisExtent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridDelegateWithMaxCrossAxisExtent;
 double _SliverGridDelegateWithMaxCrossAxisExtent_maxCrossAxisExtent$(
     SliverGridDelegateWithMaxCrossAxisExtent target) {
   return target.maxCrossAxisExtent;
@@ -308,6 +384,16 @@ Function _SliverGridDelegateWithMaxCrossAxisExtent_shouldRelayout$(
   SliverGridDelegateWithMaxCrossAxisExtent target,
 ) =>
     target.shouldRelayout;
+Function SliverGridParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGridParentData;
+Function SliverGridParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGridParentData;
 double? _SliverGridParentData_crossAxisOffset$(SliverGridParentData target) {
   return target.crossAxisOffset;
 }
@@ -324,6 +410,16 @@ Function _SliverGridParentData_toString$(
   SliverGridParentData target,
 ) =>
     target.toString;
+Function RenderSliverGrid_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverGrid;
+Function RenderSliverGrid_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverGrid;
 SliverGridDelegate _RenderSliverGrid_gridDelegate$(RenderSliverGrid target) {
   return target.gridDelegate;
 }

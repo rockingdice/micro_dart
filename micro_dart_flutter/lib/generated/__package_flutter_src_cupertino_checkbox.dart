@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoCheckbox': m.ClassMirror(
       'CupertinoCheckbox',
       {
+        '#as': CupertinoCheckbox_as$,
+        '#is': CupertinoCheckbox_is$,
         'value': _CupertinoCheckbox_value$,
         'onChanged': _CupertinoCheckbox_onChanged$,
         'activeColor': _CupertinoCheckbox_activeColor$,
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoCheckbox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoCheckbox;
+Function CupertinoCheckbox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoCheckbox;
 bool? _CupertinoCheckbox_value$(CupertinoCheckbox target) {
   return target.value;
 }

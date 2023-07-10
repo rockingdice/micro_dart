@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'DropdownMenuEntry': m.ClassMirror(
       'DropdownMenuEntry',
       {
+        '#as': DropdownMenuEntry_as$,
+        '#is': DropdownMenuEntry_is$,
         'value': _DropdownMenuEntry_value$,
         'label': _DropdownMenuEntry_label$,
         'leadingIcon': _DropdownMenuEntry_leadingIcon$,
@@ -40,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'DropdownMenu': m.ClassMirror(
       'DropdownMenu',
       {
+        '#as': DropdownMenu_as$,
+        '#is': DropdownMenu_is$,
         'enabled': _DropdownMenu_enabled$,
         'width': _DropdownMenu_width$,
         'menuHeight': _DropdownMenu_menuHeight$,
@@ -66,6 +70,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DropdownMenuEntry_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownMenuEntry<T>;
+Function DropdownMenuEntry_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownMenuEntry<T>;
 T _DropdownMenuEntry_value$<T>(DropdownMenuEntry<T> target) {
   return target.value;
 }
@@ -90,6 +104,16 @@ ButtonStyle? _DropdownMenuEntry_style$<T>(DropdownMenuEntry<T> target) {
   return target.style;
 }
 
+Function DropdownMenu_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownMenu<T>;
+Function DropdownMenu_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownMenu<T>;
 bool _DropdownMenu_enabled$<T>(DropdownMenu<T> target) {
   return target.enabled;
 }

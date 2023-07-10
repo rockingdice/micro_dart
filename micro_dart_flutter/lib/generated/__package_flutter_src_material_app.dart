@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialApp': m.ClassMirror(
       'MaterialApp',
       {
+        '#as': MaterialApp_as$,
+        '#is': MaterialApp_is$,
         'navigatorKey': _MaterialApp_navigatorKey$,
         'scaffoldMessengerKey': _MaterialApp_scaffoldMessengerKey$,
         'home': _MaterialApp_home$,
@@ -85,6 +87,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialScrollBehavior': m.ClassMirror(
       'MaterialScrollBehavior',
       {
+        '#as': MaterialScrollBehavior_as$,
+        '#is': MaterialScrollBehavior_is$,
         'getPlatform': _MaterialScrollBehavior_getPlatform$,
         'buildScrollbar': _MaterialScrollBehavior_buildScrollbar$,
         'buildOverscrollIndicator':
@@ -99,6 +103,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialApp_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialApp;
+Function MaterialApp_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialApp;
 GlobalKey<NavigatorState>? _MaterialApp_navigatorKey$(MaterialApp target) {
   return target.navigatorKey;
 }
@@ -282,6 +296,16 @@ Function _MaterialApp_createState$(
     target.createState;
 Function _MaterialApp_createMaterialHeroController$(m.Scope scope) =>
     MaterialApp.createMaterialHeroController;
+Function MaterialScrollBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialScrollBehavior;
+Function MaterialScrollBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialScrollBehavior;
 Function _MaterialScrollBehavior_getPlatform$(
   m.Scope scope,
   MaterialScrollBehavior target,

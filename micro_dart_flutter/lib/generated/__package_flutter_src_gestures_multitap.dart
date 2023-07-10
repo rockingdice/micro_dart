@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'DoubleTapGestureRecognizer': m.ClassMirror(
       'DoubleTapGestureRecognizer',
       {
+        '#as': DoubleTapGestureRecognizer_as$,
+        '#is': DoubleTapGestureRecognizer_is$,
         'onDoubleTapDown': _DoubleTapGestureRecognizer_onDoubleTapDown$,
         'onDoubleTap': _DoubleTapGestureRecognizer_onDoubleTap$,
         'onDoubleTapCancel': _DoubleTapGestureRecognizer_onDoubleTapCancel$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiTapGestureRecognizer': m.ClassMirror(
       'MultiTapGestureRecognizer',
       {
+        '#as': MultiTapGestureRecognizer_as$,
+        '#is': MultiTapGestureRecognizer_is$,
         'onTapDown': _MultiTapGestureRecognizer_onTapDown$,
         'onTapUp': _MultiTapGestureRecognizer_onTapUp$,
         'onTap': _MultiTapGestureRecognizer_onTap$,
@@ -63,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'SerialTapDownDetails': m.ClassMirror(
       'SerialTapDownDetails',
       {
+        '#as': SerialTapDownDetails_as$,
+        '#is': SerialTapDownDetails_is$,
         'globalPosition': _SerialTapDownDetails_globalPosition$,
         'localPosition': _SerialTapDownDetails_localPosition$,
         'kind': _SerialTapDownDetails_kind$,
@@ -73,12 +79,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SerialTapCancelDetails': m.ClassMirror(
       'SerialTapCancelDetails',
-      {'count': _SerialTapCancelDetails_count$},
+      {
+        '#as': SerialTapCancelDetails_as$,
+        '#is': SerialTapCancelDetails_is$,
+        'count': _SerialTapCancelDetails_count$,
+      },
       {},
     ),
     'SerialTapUpDetails': m.ClassMirror(
       'SerialTapUpDetails',
       {
+        '#as': SerialTapUpDetails_as$,
+        '#is': SerialTapUpDetails_is$,
         'globalPosition': _SerialTapUpDetails_globalPosition$,
         'localPosition': _SerialTapUpDetails_localPosition$,
         'kind': _SerialTapUpDetails_kind$,
@@ -89,6 +101,8 @@ const libraryMirror = m.LibraryMirror(
     'SerialTapGestureRecognizer': m.ClassMirror(
       'SerialTapGestureRecognizer',
       {
+        '#as': SerialTapGestureRecognizer_as$,
+        '#is': SerialTapGestureRecognizer_is$,
         'onSerialTapDown': _SerialTapGestureRecognizer_onSerialTapDown$,
         'onSerialTapCancel': _SerialTapGestureRecognizer_onSerialTapCancel$,
         'onSerialTapUp': _SerialTapGestureRecognizer_onSerialTapUp$,
@@ -108,6 +122,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DoubleTapGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoubleTapGestureRecognizer;
+Function DoubleTapGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoubleTapGestureRecognizer;
 void Function(TapDownDetails)? _DoubleTapGestureRecognizer_onDoubleTapDown$(
     DoubleTapGestureRecognizer target) {
   return target.onDoubleTapDown;
@@ -195,6 +219,16 @@ Function _DoubleTapGestureRecognizer_dispose$(
   DoubleTapGestureRecognizer target,
 ) =>
     target.dispose;
+Function MultiTapGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiTapGestureRecognizer;
+Function MultiTapGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiTapGestureRecognizer;
 void Function(int, TapDownDetails)? _MultiTapGestureRecognizer_onTapDown$(
     MultiTapGestureRecognizer target) {
   return target.onTapDown;
@@ -345,6 +379,16 @@ Function _MultiTapGestureRecognizer_dispose$(
   MultiTapGestureRecognizer target,
 ) =>
     target.dispose;
+Function SerialTapDownDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SerialTapDownDetails;
+Function SerialTapDownDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SerialTapDownDetails;
 Offset _SerialTapDownDetails_globalPosition$(SerialTapDownDetails target) {
   return target.globalPosition;
 }
@@ -365,10 +409,30 @@ int _SerialTapDownDetails_count$(SerialTapDownDetails target) {
   return target.count;
 }
 
+Function SerialTapCancelDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SerialTapCancelDetails;
+Function SerialTapCancelDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SerialTapCancelDetails;
 int _SerialTapCancelDetails_count$(SerialTapCancelDetails target) {
   return target.count;
 }
 
+Function SerialTapUpDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SerialTapUpDetails;
+Function SerialTapUpDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SerialTapUpDetails;
 Offset _SerialTapUpDetails_globalPosition$(SerialTapUpDetails target) {
   return target.globalPosition;
 }
@@ -385,6 +449,16 @@ int _SerialTapUpDetails_count$(SerialTapUpDetails target) {
   return target.count;
 }
 
+Function SerialTapGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SerialTapGestureRecognizer;
+Function SerialTapGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SerialTapGestureRecognizer;
 void Function(SerialTapDownDetails)?
     _SerialTapGestureRecognizer_onSerialTapDown$(
         SerialTapGestureRecognizer target) {

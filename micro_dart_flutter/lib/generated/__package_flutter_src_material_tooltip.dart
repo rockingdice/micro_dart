@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'Tooltip': m.ClassMirror(
       'Tooltip',
       {
+        '#as': Tooltip_as$,
+        '#is': Tooltip_is$,
         'message': _Tooltip_message$,
         'richMessage': _Tooltip_richMessage$,
         'height': _Tooltip_height$,
@@ -48,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'TooltipState': m.ClassMirror(
       'TooltipState',
       {
+        '#as': TooltipState_as$,
+        '#is': TooltipState_is$,
         'initState': _TooltipState_initState$,
         'didChangeDependencies': _TooltipState_didChangeDependencies$,
         'ensureTooltipVisible': _TooltipState_ensureTooltipVisible$,
@@ -59,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Tooltip_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Tooltip;
+Function Tooltip_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Tooltip;
 String? _Tooltip_message$(Tooltip target) {
   return target.message;
 }
@@ -139,6 +153,16 @@ Function _Tooltip_debugFillProperties$(
   Tooltip target,
 ) =>
     target.debugFillProperties;
+Function TooltipState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TooltipState;
+Function TooltipState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TooltipState;
 Function _TooltipState_initState$(
   m.Scope scope,
   TooltipState target,

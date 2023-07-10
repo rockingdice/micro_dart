@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoContextMenuAction': m.ClassMirror(
       'CupertinoContextMenuAction',
       {
+        '#as': CupertinoContextMenuAction_as$,
+        '#is': CupertinoContextMenuAction_is$,
         'child': _CupertinoContextMenuAction_child$,
         'isDefaultAction': _CupertinoContextMenuAction_isDefaultAction$,
         'isDestructiveAction': _CupertinoContextMenuAction_isDestructiveAction$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoContextMenuAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoContextMenuAction;
+Function CupertinoContextMenuAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoContextMenuAction;
 Widget _CupertinoContextMenuAction_child$(CupertinoContextMenuAction target) {
   return target.child;
 }

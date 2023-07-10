@@ -32,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollableDetails': m.ClassMirror(
       'ScrollableDetails',
       {
+        '#as': ScrollableDetails_as$,
+        '#is': ScrollableDetails_is$,
         'direction': _ScrollableDetails_direction$,
         'controller': _ScrollableDetails_controller$,
         'physics': _ScrollableDetails_physics$,
@@ -39,12 +41,15 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _ScrollableDetails_hashCode$,
         'copyWith': _ScrollableDetails_copyWith$,
         'toString': _ScrollableDetails_toString$,
+        '==': _ScrollableDetails_eq$$,
       },
       {},
     ),
     'EdgeDraggingAutoScroller': m.ClassMirror(
       'EdgeDraggingAutoScroller',
       {
+        '#as': EdgeDraggingAutoScroller_as$,
+        '#is': EdgeDraggingAutoScroller_is$,
         'scrollable': _EdgeDraggingAutoScroller_scrollable$,
         'onScrollViewScrolled': _EdgeDraggingAutoScroller_onScrollViewScrolled$,
         'velocityScalar': _EdgeDraggingAutoScroller_velocityScalar$,
@@ -58,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollIncrementDetails': m.ClassMirror(
       'ScrollIncrementDetails',
       {
+        '#as': ScrollIncrementDetails_as$,
+        '#is': ScrollIncrementDetails_is$,
         'type': _ScrollIncrementDetails_type$,
         'metrics': _ScrollIncrementDetails_metrics$,
       },
@@ -66,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollIntent': m.ClassMirror(
       'ScrollIntent',
       {
+        '#as': ScrollIntent_as$,
+        '#is': ScrollIntent_is$,
         'direction': _ScrollIntent_direction$,
         'type': _ScrollIntent_type$,
       },
@@ -74,6 +83,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollAction': m.ClassMirror(
       'ScrollAction',
       {
+        '#as': ScrollAction_as$,
+        '#is': ScrollAction_is$,
         'isEnabled': _ScrollAction_isEnabled$,
         'invoke': _ScrollAction_invoke$,
       },
@@ -86,6 +97,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollableDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollableDetails;
+Function ScrollableDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollableDetails;
 AxisDirection _ScrollableDetails_direction$(ScrollableDetails target) {
   return target.direction;
 }
@@ -116,6 +137,21 @@ Function _ScrollableDetails_toString$(
   ScrollableDetails target,
 ) =>
     target.toString;
+Function _ScrollableDetails_eq$$(
+  m.Scope scope,
+  ScrollableDetails target,
+) =>
+    (Object other) => target == other;
+Function EdgeDraggingAutoScroller_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EdgeDraggingAutoScroller;
+Function EdgeDraggingAutoScroller_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EdgeDraggingAutoScroller;
 ScrollableState _EdgeDraggingAutoScroller_scrollable$(
     EdgeDraggingAutoScroller target) {
   return target.scrollable;
@@ -145,6 +181,16 @@ Function _EdgeDraggingAutoScroller_stopAutoScroll$(
   EdgeDraggingAutoScroller target,
 ) =>
     target.stopAutoScroll;
+Function ScrollIncrementDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollIncrementDetails;
+Function ScrollIncrementDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollIncrementDetails;
 ScrollIncrementType _ScrollIncrementDetails_type$(
     ScrollIncrementDetails target) {
   return target.type;
@@ -154,6 +200,16 @@ ScrollMetrics _ScrollIncrementDetails_metrics$(ScrollIncrementDetails target) {
   return target.metrics;
 }
 
+Function ScrollIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollIntent;
+Function ScrollIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollIntent;
 AxisDirection _ScrollIntent_direction$(ScrollIntent target) {
   return target.direction;
 }
@@ -162,6 +218,16 @@ ScrollIncrementType _ScrollIntent_type$(ScrollIntent target) {
   return target.type;
 }
 
+Function ScrollAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollAction;
+Function ScrollAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollAction;
 Function _ScrollAction_isEnabled$(
   m.Scope scope,
   ScrollAction target,

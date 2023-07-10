@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'InkSplash': m.ClassMirror(
       'InkSplash',
       {
+        '#as': InkSplash_as$,
+        '#is': InkSplash_is$,
         'confirm': _InkSplash_confirm$,
         'cancel': _InkSplash_cancel$,
         'dispose': _InkSplash_dispose$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InkSplash_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkSplash;
+Function InkSplash_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkSplash;
 InteractiveInkFeatureFactory _InkSplash_splashFactory$() {
   return InkSplash.splashFactory;
 }

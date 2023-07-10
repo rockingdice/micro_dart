@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckboxListTile': m.ClassMirror(
       'CheckboxListTile',
       {
+        '#as': CheckboxListTile_as$,
+        '#is': CheckboxListTile_is$,
         'value': _CheckboxListTile_value$,
         'onChanged': _CheckboxListTile_onChanged$,
         'mouseCursor': _CheckboxListTile_mouseCursor$,
@@ -57,6 +59,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CheckboxListTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckboxListTile;
+Function CheckboxListTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckboxListTile;
 bool? _CheckboxListTile_value$(CheckboxListTile target) {
   return target.value;
 }

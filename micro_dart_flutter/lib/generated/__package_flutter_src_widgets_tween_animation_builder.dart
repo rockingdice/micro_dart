@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'TweenAnimationBuilder': m.ClassMirror(
       'TweenAnimationBuilder',
       {
+        '#as': TweenAnimationBuilder_as$,
+        '#is': TweenAnimationBuilder_is$,
         'tween': _TweenAnimationBuilder_tween$,
         'builder': _TweenAnimationBuilder_builder$,
         'child': _TweenAnimationBuilder_child$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TweenAnimationBuilder_as$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TweenAnimationBuilder<T>;
+Function TweenAnimationBuilder_is$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TweenAnimationBuilder<T>;
 Tween<T> _TweenAnimationBuilder_tween$<T extends Object?>(
     TweenAnimationBuilder<T> target) {
   return target.tween;

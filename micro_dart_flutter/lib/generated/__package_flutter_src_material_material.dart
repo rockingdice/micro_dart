@@ -29,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialInkController': m.ClassMirror(
       'MaterialInkController',
       {
+        '#as': MaterialInkController_as$,
+        '#is': MaterialInkController_is$,
         'color': _MaterialInkController_color$,
         'vsync': _MaterialInkController_vsync$,
         'addInkFeature': _MaterialInkController_addInkFeature$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'Material': m.ClassMirror(
       'Material',
       {
+        '#as': Material_as$,
+        '#is': Material_is$,
         'child': _Material_child$,
         'type': _Material_type$,
         'elevation': _Material_elevation$,
@@ -59,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
     'InkFeature': m.ClassMirror(
       'InkFeature',
       {
+        '#as': InkFeature_as$,
+        '#is': InkFeature_is$,
         'referenceBox': _InkFeature_referenceBox$,
         'onRemoved': _InkFeature_onRemoved$,
         'controller': _InkFeature_controller$,
@@ -70,7 +76,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ShapeBorderTween': m.ClassMirror(
       'ShapeBorderTween',
-      {'lerp': _ShapeBorderTween_lerp$},
+      {
+        '#as': ShapeBorderTween_as$,
+        '#is': ShapeBorderTween_is$,
+        'lerp': _ShapeBorderTween_lerp$,
+      },
       {},
     ),
     'MaterialType': m.ClassMirror(
@@ -84,6 +94,16 @@ Map<MaterialType, BorderRadius?> _kMaterialEdges$() {
   return kMaterialEdges;
 }
 
+Function MaterialInkController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialInkController;
+Function MaterialInkController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialInkController;
 Color? _MaterialInkController_color$(MaterialInkController target) {
   return target.color;
 }
@@ -102,6 +122,16 @@ Function _MaterialInkController_markNeedsPaint$(
   MaterialInkController target,
 ) =>
     target.markNeedsPaint;
+Function Material_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Material;
+Function Material_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Material;
 Widget? _Material_child$(Material target) {
   return target.child;
 }
@@ -166,6 +196,16 @@ Function _Material_debugFillProperties$(
   Material target,
 ) =>
     target.debugFillProperties;
+Function InkFeature_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkFeature;
+Function InkFeature_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkFeature;
 RenderBox _InkFeature_referenceBox$(InkFeature target) {
   return target.referenceBox;
 }
@@ -193,6 +233,16 @@ Function _InkFeature_toString$(
   InkFeature target,
 ) =>
     target.toString;
+Function ShapeBorderTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShapeBorderTween;
+Function ShapeBorderTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShapeBorderTween;
 Function _ShapeBorderTween_lerp$(
   m.Scope scope,
   ShapeBorderTween target,

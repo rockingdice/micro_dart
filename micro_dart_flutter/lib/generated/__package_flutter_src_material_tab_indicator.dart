@@ -8,12 +8,17 @@ import 'package:flutter/src/material/colors.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/tab_indicator.dart',
-  {},
+  {
+    'UnderlineTabIndicator.createBoxPainter':
+        _UnderlineTabIndicator_createBoxPainter$
+  },
   {},
   {
     'UnderlineTabIndicator': m.ClassMirror(
       'UnderlineTabIndicator',
       {
+        '#as': UnderlineTabIndicator_as$,
+        '#is': UnderlineTabIndicator_is$,
         'borderRadius': _UnderlineTabIndicator_borderRadius$,
         'borderSide': _UnderlineTabIndicator_borderSide$,
         'insets': _UnderlineTabIndicator_insets$,
@@ -25,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function UnderlineTabIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnderlineTabIndicator;
+Function UnderlineTabIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnderlineTabIndicator;
 BorderRadius? _UnderlineTabIndicator_borderRadius$(
     UnderlineTabIndicator target) {
   return target.borderRadius;
@@ -49,6 +64,21 @@ Function _UnderlineTabIndicator_lerpTo$(
   UnderlineTabIndicator target,
 ) =>
     target.lerpTo;
+Function _UnderlineTabIndicator_createBoxPainter$(
+  m.Scope scope,
+  UnderlineTabIndicator target,
+) =>
+    (m.FunctionPointer? onChanged) {
+      if (onChanged == null) {}
+      return target.createBoxPainter();
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged!,
+            [],
+            {},
+          );
+      return target.createBoxPainter(onChanged == null ? null : onChangedProxy);
+    };
 Function _UnderlineTabIndicator_getClipPath$(
   m.Scope scope,
   UnderlineTabIndicator target,

@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'TickerMode': m.ClassMirror(
       'TickerMode',
       {
+        '#as': TickerMode_as$,
+        '#is': TickerMode_is$,
         'enabled': _TickerMode_enabled$,
         'child': _TickerMode_child$,
         'createState': _TickerMode_createState$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TickerMode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TickerMode;
+Function TickerMode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TickerMode;
 bool _TickerMode_enabled$(TickerMode target) {
   return target.enabled;
 }

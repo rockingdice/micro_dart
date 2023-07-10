@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'AnnotatedRegion': m.ClassMirror(
       'AnnotatedRegion',
       {
+        '#as': AnnotatedRegion_as$,
+        '#is': AnnotatedRegion_is$,
         'value': _AnnotatedRegion_value$,
         'sized': _AnnotatedRegion_sized$,
         'createRenderObject': _AnnotatedRegion_createRenderObject$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function AnnotatedRegion_as$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnnotatedRegion<T>;
+Function AnnotatedRegion_is$<T extends Object>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnnotatedRegion<T>;
 T _AnnotatedRegion_value$<T extends Object>(AnnotatedRegion<T> target) {
   return target.value;
 }

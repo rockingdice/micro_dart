@@ -15,11 +15,25 @@ const libraryMirror = m.LibraryMirror(
   {
     'RenderSliverList': m.ClassMirror(
       'RenderSliverList',
-      {'performLayout': _RenderSliverList_performLayout$},
+      {
+        '#as': RenderSliverList_as$,
+        '#is': RenderSliverList_is$,
+        'performLayout': _RenderSliverList_performLayout$,
+      },
       {},
     )
   },
 );
+Function RenderSliverList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverList;
+Function RenderSliverList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverList;
 Function _RenderSliverList_performLayout$(
   m.Scope scope,
   RenderSliverList target,

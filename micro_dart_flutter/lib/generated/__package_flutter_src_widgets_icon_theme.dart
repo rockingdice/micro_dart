@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'IconTheme': m.ClassMirror(
       'IconTheme',
       {
+        '#as': IconTheme_as$,
+        '#is': IconTheme_is$,
         'data': _IconTheme_data$,
         'updateShouldNotify': _IconTheme_updateShouldNotify$,
         'wrap': _IconTheme_wrap$,
@@ -29,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function IconTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconTheme;
+Function IconTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconTheme;
 IconThemeData _IconTheme_data$(IconTheme target) {
   return target.data;
 }

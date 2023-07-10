@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'RadioThemeData': m.ClassMirror(
       'RadioThemeData',
       {
+        '#as': RadioThemeData_as$,
+        '#is': RadioThemeData_is$,
         'mouseCursor': _RadioThemeData_mouseCursor$,
         'fillColor': _RadioThemeData_fillColor$,
         'overlayColor': _RadioThemeData_overlayColor$,
@@ -30,6 +32,7 @@ const libraryMirror = m.LibraryMirror(
         'visualDensity': _RadioThemeData_visualDensity$,
         'hashCode': _RadioThemeData_hashCode$,
         'copyWith': _RadioThemeData_copyWith$,
+        '==': _RadioThemeData_eq$$,
         'debugFillProperties': _RadioThemeData_debugFillProperties$,
       },
       {},
@@ -37,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'RadioTheme': m.ClassMirror(
       'RadioTheme',
       {
+        '#as': RadioTheme_as$,
+        '#is': RadioTheme_is$,
         'data': _RadioTheme_data$,
         'updateShouldNotify': _RadioTheme_updateShouldNotify$,
       },
@@ -44,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RadioThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RadioThemeData;
+Function RadioThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RadioThemeData;
 MaterialStateProperty<MouseCursor?>? _RadioThemeData_mouseCursor$(
     RadioThemeData target) {
   return target.mouseCursor;
@@ -82,11 +97,26 @@ Function _RadioThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _RadioThemeData_lerp$(m.Scope scope) => RadioThemeData.lerp;
+Function _RadioThemeData_eq$$(
+  m.Scope scope,
+  RadioThemeData target,
+) =>
+    (Object other) => target == other;
 Function _RadioThemeData_debugFillProperties$(
   m.Scope scope,
   RadioThemeData target,
 ) =>
     target.debugFillProperties;
+Function RadioTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RadioTheme;
+Function RadioTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RadioTheme;
 RadioThemeData _RadioTheme_data$(RadioTheme target) {
   return target.data;
 }

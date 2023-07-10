@@ -18,32 +18,42 @@ const libraryMirror = m.LibraryMirror(
     'SuggestionSpan': m.ClassMirror(
       'SuggestionSpan',
       {
+        '#as': SuggestionSpan_as$,
+        '#is': SuggestionSpan_is$,
         'range': _SuggestionSpan_range$,
         'suggestions': _SuggestionSpan_suggestions$,
         'hashCode': _SuggestionSpan_hashCode$,
+        '==': _SuggestionSpan_eq$$,
       },
       {},
     ),
     'SpellCheckResults': m.ClassMirror(
       'SpellCheckResults',
       {
+        '#as': SpellCheckResults_as$,
+        '#is': SpellCheckResults_is$,
         'spellCheckedText': _SpellCheckResults_spellCheckedText$,
         'suggestionSpans': _SpellCheckResults_suggestionSpans$,
         'hashCode': _SpellCheckResults_hashCode$,
+        '==': _SpellCheckResults_eq$$,
       },
       {},
     ),
     'SpellCheckService': m.ClassMirror(
       'SpellCheckService',
       {
+        '#as': SpellCheckService_as$,
+        '#is': SpellCheckService_is$,
         'fetchSpellCheckSuggestions':
-            _SpellCheckService_fetchSpellCheckSuggestions$
+            _SpellCheckService_fetchSpellCheckSuggestions$,
       },
       {},
     ),
     'DefaultSpellCheckService': m.ClassMirror(
       'DefaultSpellCheckService',
       {
+        '#as': DefaultSpellCheckService_as$,
+        '#is': DefaultSpellCheckService_is$,
         'lastSavedResults': _DefaultSpellCheckService_lastSavedResults$,
         'spellCheckChannel': _DefaultSpellCheckService_spellCheckChannel$,
         'fetchSpellCheckSuggestions':
@@ -56,6 +66,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SuggestionSpan_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SuggestionSpan;
+Function SuggestionSpan_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SuggestionSpan;
 TextRange _SuggestionSpan_range$(SuggestionSpan target) {
   return target.range;
 }
@@ -68,6 +88,21 @@ int _SuggestionSpan_hashCode$(SuggestionSpan target) {
   return target.hashCode;
 }
 
+Function _SuggestionSpan_eq$$(
+  m.Scope scope,
+  SuggestionSpan target,
+) =>
+    (Object other) => target == other;
+Function SpellCheckResults_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpellCheckResults;
+Function SpellCheckResults_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpellCheckResults;
 String _SpellCheckResults_spellCheckedText$(SpellCheckResults target) {
   return target.spellCheckedText;
 }
@@ -81,11 +116,36 @@ int _SpellCheckResults_hashCode$(SpellCheckResults target) {
   return target.hashCode;
 }
 
+Function _SpellCheckResults_eq$$(
+  m.Scope scope,
+  SpellCheckResults target,
+) =>
+    (Object other) => target == other;
+Function SpellCheckService_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpellCheckService;
+Function SpellCheckService_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpellCheckService;
 Function _SpellCheckService_fetchSpellCheckSuggestions$(
   m.Scope scope,
   SpellCheckService target,
 ) =>
     target.fetchSpellCheckSuggestions;
+Function DefaultSpellCheckService_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultSpellCheckService;
+Function DefaultSpellCheckService_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultSpellCheckService;
 SpellCheckResults? _DefaultSpellCheckService_lastSavedResults$(
     DefaultSpellCheckService target) {
   return target.lastSavedResults;

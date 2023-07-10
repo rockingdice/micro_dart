@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'UndoHistory': m.ClassMirror(
       'UndoHistory',
       {
+        '#as': UndoHistory_as$,
+        '#is': UndoHistory_is$,
         'value': _UndoHistory_value$,
         'shouldChangeUndoStack': _UndoHistory_shouldChangeUndoStack$,
         'onTriggered': _UndoHistory_onTriggered$,
@@ -32,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'UndoHistoryState': m.ClassMirror(
       'UndoHistoryState',
       {
+        '#as': UndoHistoryState_as$,
+        '#is': UndoHistoryState_is$,
         'canUndo': _UndoHistoryState_canUndo$,
         'canRedo': _UndoHistoryState_canRedo$,
         'undo': _UndoHistoryState_undo$,
@@ -47,16 +51,21 @@ const libraryMirror = m.LibraryMirror(
     'UndoHistoryValue': m.ClassMirror(
       'UndoHistoryValue',
       {
+        '#as': UndoHistoryValue_as$,
+        '#is': UndoHistoryValue_is$,
         'canUndo': _UndoHistoryValue_canUndo$,
         'canRedo': _UndoHistoryValue_canRedo$,
         'hashCode': _UndoHistoryValue_hashCode$,
         'toString': _UndoHistoryValue_toString$,
+        '==': _UndoHistoryValue_eq$$,
       },
       {},
     ),
     'UndoHistoryController': m.ClassMirror(
       'UndoHistoryController',
       {
+        '#as': UndoHistoryController_as$,
+        '#is': UndoHistoryController_is$,
         'onUndo': _UndoHistoryController_onUndo$,
         'onRedo': _UndoHistoryController_onRedo$,
         'undo': _UndoHistoryController_undo$,
@@ -67,6 +76,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function UndoHistory_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UndoHistory<T>;
+Function UndoHistory_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UndoHistory<T>;
 ValueNotifier<T> _UndoHistory_value$<T>(UndoHistory<T> target) {
   return target.value;
 }
@@ -97,6 +116,16 @@ Function _UndoHistory_createState$<T>(
   UndoHistory<T> target,
 ) =>
     target.createState;
+Function UndoHistoryState_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UndoHistoryState<T>;
+Function UndoHistoryState_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UndoHistoryState<T>;
 bool _UndoHistoryState_canUndo$<T>(UndoHistoryState<T> target) {
   return target.canUndo;
 }
@@ -140,6 +169,16 @@ Function _UndoHistoryState_build$<T>(
   UndoHistoryState<T> target,
 ) =>
     target.build;
+Function UndoHistoryValue_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UndoHistoryValue;
+Function UndoHistoryValue_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UndoHistoryValue;
 UndoHistoryValue _UndoHistoryValue_empty$() {
   return UndoHistoryValue.empty;
 }
@@ -161,6 +200,21 @@ Function _UndoHistoryValue_toString$(
   UndoHistoryValue target,
 ) =>
     target.toString;
+Function _UndoHistoryValue_eq$$(
+  m.Scope scope,
+  UndoHistoryValue target,
+) =>
+    (Object other) => target == other;
+Function UndoHistoryController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UndoHistoryController;
+Function UndoHistoryController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UndoHistoryController;
 ChangeNotifier _UndoHistoryController_onUndo$(UndoHistoryController target) {
   return target.onUndo;
 }

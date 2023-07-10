@@ -42,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'Typography': m.ClassMirror(
       'Typography',
       {
+        '#as': Typography_as$,
+        '#is': Typography_is$,
         'black': _Typography_black$,
         'white': _Typography_white$,
         'englishLike': _Typography_englishLike$,
@@ -50,6 +52,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _Typography_hashCode$,
         'geometryThemeFor': _Typography_geometryThemeFor$,
         'copyWith': _Typography_copyWith$,
+        '==': _Typography_eq$$,
         'debugFillProperties': _Typography_debugFillProperties$,
       },
       {},
@@ -61,6 +64,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Typography_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Typography;
+Function Typography_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Typography;
 TextTheme _Typography_black$(Typography target) {
   return target.black;
 }
@@ -172,6 +185,11 @@ Function _Typography_copyWith$(
 ) =>
     target.copyWith;
 Function _Typography_lerp$(m.Scope scope) => Typography.lerp;
+Function _Typography_eq$$(
+  m.Scope scope,
+  Typography target,
+) =>
+    (Object other) => target == other;
 Function _Typography_debugFillProperties$(
   m.Scope scope,
   Typography target,

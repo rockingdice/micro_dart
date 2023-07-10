@@ -13,13 +13,17 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/text_selection_toolbar_text_button.dart',
   {
     'TextSelectionToolbarTextButton.getPadding':
-        _TextSelectionToolbarTextButton_getPadding$
+        _TextSelectionToolbarTextButton_getPadding$,
+    'TextSelectionToolbarTextButton.copyWith':
+        _TextSelectionToolbarTextButton_copyWith$,
   },
   {},
   {
     'TextSelectionToolbarTextButton': m.ClassMirror(
       'TextSelectionToolbarTextButton',
       {
+        '#as': TextSelectionToolbarTextButton_as$,
+        '#is': TextSelectionToolbarTextButton_is$,
         'child': _TextSelectionToolbarTextButton_child$,
         'onPressed': _TextSelectionToolbarTextButton_onPressed$,
         'padding': _TextSelectionToolbarTextButton_padding$,
@@ -30,6 +34,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextSelectionToolbarTextButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionToolbarTextButton;
+Function TextSelectionToolbarTextButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionToolbarTextButton;
 Widget _TextSelectionToolbarTextButton_child$(
     TextSelectionToolbarTextButton target) {
   return target.child;
@@ -52,6 +66,29 @@ AlignmentGeometry? _TextSelectionToolbarTextButton_alignment$(
 
 Function _TextSelectionToolbarTextButton_getPadding$(m.Scope scope) =>
     TextSelectionToolbarTextButton.getPadding;
+Function _TextSelectionToolbarTextButton_copyWith$(
+  m.Scope scope,
+  TextSelectionToolbarTextButton target,
+) =>
+    ({
+      AlignmentGeometry? alignment,
+      Widget? child,
+      m.FunctionPointer? onPressed,
+      EdgeInsets? padding,
+    }) {
+      void onPressedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onPressed!,
+            [],
+            {},
+          );
+      return target.copyWith(
+        alignment: alignment,
+        child: child,
+        onPressed: onPressed == null ? null : onPressedProxy,
+        padding: padding,
+      );
+    };
 Function _TextSelectionToolbarTextButton_build$(
   m.Scope scope,
   TextSelectionToolbarTextButton target,

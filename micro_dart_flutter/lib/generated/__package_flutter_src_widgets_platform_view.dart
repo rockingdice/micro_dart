@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'AndroidView': m.ClassMirror(
       'AndroidView',
       {
+        '#as': AndroidView_as$,
+        '#is': AndroidView_is$,
         'viewType': _AndroidView_viewType$,
         'onPlatformViewCreated': _AndroidView_onPlatformViewCreated$,
         'hitTestBehavior': _AndroidView_hitTestBehavior$,
@@ -37,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'UiKitView': m.ClassMirror(
       'UiKitView',
       {
+        '#as': UiKitView_as$,
+        '#is': UiKitView_is$,
         'viewType': _UiKitView_viewType$,
         'onPlatformViewCreated': _UiKitView_onPlatformViewCreated$,
         'hitTestBehavior': _UiKitView_hitTestBehavior$,
@@ -51,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'HtmlElementView': m.ClassMirror(
       'HtmlElementView',
       {
+        '#as': HtmlElementView_as$,
+        '#is': HtmlElementView_is$,
         'viewType': _HtmlElementView_viewType$,
         'onPlatformViewCreated': _HtmlElementView_onPlatformViewCreated$,
         'build': _HtmlElementView_build$,
@@ -60,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewCreationParams': m.ClassMirror(
       'PlatformViewCreationParams',
       {
+        '#as': PlatformViewCreationParams_as$,
+        '#is': PlatformViewCreationParams_is$,
         'id': _PlatformViewCreationParams_id$,
         'viewType': _PlatformViewCreationParams_viewType$,
         'onPlatformViewCreated':
@@ -71,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewLink': m.ClassMirror(
       'PlatformViewLink',
       {
+        '#as': PlatformViewLink_as$,
+        '#is': PlatformViewLink_is$,
         'viewType': _PlatformViewLink_viewType$,
         'createState': _PlatformViewLink_createState$,
       },
@@ -79,6 +89,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformViewSurface': m.ClassMirror(
       'PlatformViewSurface',
       {
+        '#as': PlatformViewSurface_as$,
+        '#is': PlatformViewSurface_is$,
         'controller': _PlatformViewSurface_controller$,
         'gestureRecognizers': _PlatformViewSurface_gestureRecognizers$,
         'hitTestBehavior': _PlatformViewSurface_hitTestBehavior$,
@@ -90,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'AndroidViewSurface': m.ClassMirror(
       'AndroidViewSurface',
       {
+        '#as': AndroidViewSurface_as$,
+        '#is': AndroidViewSurface_is$,
         'controller': _AndroidViewSurface_controller$,
         'gestureRecognizers': _AndroidViewSurface_gestureRecognizers$,
         'hitTestBehavior': _AndroidViewSurface_hitTestBehavior$,
@@ -99,6 +113,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AndroidView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidView;
+Function AndroidView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidView;
 String _AndroidView_viewType$(AndroidView target) {
   return target.viewType;
 }
@@ -137,6 +161,16 @@ Function _AndroidView_createState$(
   AndroidView target,
 ) =>
     target.createState;
+Function UiKitView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UiKitView;
+Function UiKitView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UiKitView;
 String _UiKitView_viewType$(UiKitView target) {
   return target.viewType;
 }
@@ -171,6 +205,16 @@ Function _UiKitView_createState$(
   UiKitView target,
 ) =>
     target.createState;
+Function HtmlElementView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HtmlElementView;
+Function HtmlElementView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HtmlElementView;
 String _HtmlElementView_viewType$(HtmlElementView target) {
   return target.viewType;
 }
@@ -185,6 +229,16 @@ Function _HtmlElementView_build$(
   HtmlElementView target,
 ) =>
     target.build;
+Function PlatformViewCreationParams_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewCreationParams;
+Function PlatformViewCreationParams_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewCreationParams;
 int _PlatformViewCreationParams_id$(PlatformViewCreationParams target) {
   return target.id;
 }
@@ -204,6 +258,16 @@ void Function(bool) _PlatformViewCreationParams_onFocusChanged$(
   return target.onFocusChanged;
 }
 
+Function PlatformViewLink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewLink;
+Function PlatformViewLink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewLink;
 String _PlatformViewLink_viewType$(PlatformViewLink target) {
   return target.viewType;
 }
@@ -213,6 +277,16 @@ Function _PlatformViewLink_createState$(
   PlatformViewLink target,
 ) =>
     target.createState;
+Function PlatformViewSurface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformViewSurface;
+Function PlatformViewSurface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformViewSurface;
 PlatformViewController _PlatformViewSurface_controller$(
     PlatformViewSurface target) {
   return target.controller;
@@ -238,6 +312,16 @@ Function _PlatformViewSurface_updateRenderObject$(
   PlatformViewSurface target,
 ) =>
     target.updateRenderObject;
+Function AndroidViewSurface_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AndroidViewSurface;
+Function AndroidViewSurface_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AndroidViewSurface;
 AndroidViewController _AndroidViewSurface_controller$(
     AndroidViewSurface target) {
   return target.controller;

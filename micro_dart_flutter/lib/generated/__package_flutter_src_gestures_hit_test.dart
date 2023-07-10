@@ -14,22 +14,36 @@ const libraryMirror = m.LibraryMirror(
   {
     'HitTestable': m.ClassMirror(
       'HitTestable',
-      {'hitTest': _HitTestable_hitTest$},
+      {
+        '#as': HitTestable_as$,
+        '#is': HitTestable_is$,
+        'hitTest': _HitTestable_hitTest$,
+      },
       {},
     ),
     'HitTestDispatcher': m.ClassMirror(
       'HitTestDispatcher',
-      {'dispatchEvent': _HitTestDispatcher_dispatchEvent$},
+      {
+        '#as': HitTestDispatcher_as$,
+        '#is': HitTestDispatcher_is$,
+        'dispatchEvent': _HitTestDispatcher_dispatchEvent$,
+      },
       {},
     ),
     'HitTestTarget': m.ClassMirror(
       'HitTestTarget',
-      {'handleEvent': _HitTestTarget_handleEvent$},
+      {
+        '#as': HitTestTarget_as$,
+        '#is': HitTestTarget_is$,
+        'handleEvent': _HitTestTarget_handleEvent$,
+      },
       {},
     ),
     'HitTestEntry': m.ClassMirror(
       'HitTestEntry',
       {
+        '#as': HitTestEntry_as$,
+        '#is': HitTestEntry_is$,
         'target': _HitTestEntry_target$,
         'transform': _HitTestEntry_transform$,
         'toString': _HitTestEntry_toString$,
@@ -39,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'HitTestResult': m.ClassMirror(
       'HitTestResult',
       {
+        '#as': HitTestResult_as$,
+        '#is': HitTestResult_is$,
         'path': _HitTestResult_path$,
         'add': _HitTestResult_add$,
         'pushTransform': _HitTestResult_pushTransform$,
@@ -50,21 +66,61 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function HitTestable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HitTestable;
+Function HitTestable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HitTestable;
 Function _HitTestable_hitTest$(
   m.Scope scope,
   HitTestable target,
 ) =>
     target.hitTest;
+Function HitTestDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HitTestDispatcher;
+Function HitTestDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HitTestDispatcher;
 Function _HitTestDispatcher_dispatchEvent$(
   m.Scope scope,
   HitTestDispatcher target,
 ) =>
     target.dispatchEvent;
+Function HitTestTarget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HitTestTarget;
+Function HitTestTarget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HitTestTarget;
 Function _HitTestTarget_handleEvent$(
   m.Scope scope,
   HitTestTarget target,
 ) =>
     target.handleEvent;
+Function HitTestEntry_as$<T extends HitTestTarget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HitTestEntry<T>;
+Function HitTestEntry_is$<T extends HitTestTarget>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HitTestEntry<T>;
 T _HitTestEntry_target$<T extends HitTestTarget>(HitTestEntry<T> target) {
   return target.target;
 }
@@ -79,6 +135,16 @@ Function _HitTestEntry_toString$<T extends HitTestTarget>(
   HitTestEntry<T> target,
 ) =>
     target.toString;
+Function HitTestResult_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HitTestResult;
+Function HitTestResult_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HitTestResult;
 Iterable<HitTestEntry<HitTestTarget>> _HitTestResult_path$(
     HitTestResult target) {
   return target.path;

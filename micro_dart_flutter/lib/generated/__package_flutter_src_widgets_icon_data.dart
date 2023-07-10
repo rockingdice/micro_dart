@@ -13,18 +13,25 @@ const libraryMirror = m.LibraryMirror(
     'IconData': m.ClassMirror(
       'IconData',
       {
+        '#as': IconData_as$,
+        '#is': IconData_is$,
         'codePoint': _IconData_codePoint$,
         'fontFamily': _IconData_fontFamily$,
         'fontPackage': _IconData_fontPackage$,
         'matchTextDirection': _IconData_matchTextDirection$,
         'hashCode': _IconData_hashCode$,
+        '==': _IconData_eq$$,
         'toString': _IconData_toString$,
       },
       {},
     ),
     'IconDataProperty': m.ClassMirror(
       'IconDataProperty',
-      {'toJsonMap': _IconDataProperty_toJsonMap$},
+      {
+        '#as': IconDataProperty_as$,
+        '#is': IconDataProperty_is$,
+        'toJsonMap': _IconDataProperty_toJsonMap$,
+      },
       {},
     ),
   },
@@ -33,6 +40,16 @@ Object _staticIconProvider$() {
   return staticIconProvider;
 }
 
+Function IconData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconData;
+Function IconData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconData;
 int _IconData_codePoint$(IconData target) {
   return target.codePoint;
 }
@@ -53,11 +70,26 @@ int _IconData_hashCode$(IconData target) {
   return target.hashCode;
 }
 
+Function _IconData_eq$$(
+  m.Scope scope,
+  IconData target,
+) =>
+    (Object other) => target == other;
 Function _IconData_toString$(
   m.Scope scope,
   IconData target,
 ) =>
     target.toString;
+Function IconDataProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconDataProperty;
+Function IconDataProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconDataProperty;
 Function _IconDataProperty_toJsonMap$(
   m.Scope scope,
   IconDataProperty target,

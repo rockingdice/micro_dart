@@ -17,6 +17,7 @@ import 'package:flutter/src/gestures/team.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/recognizer.dart',
   {
+    'GestureRecognizer.invokeCallback': _GestureRecognizer_invokeCallback$,
     'OffsetPair.zero': _OffsetPair_zero$,
     'DragStartBehavior.down': _DragStartBehavior_down$,
     'DragStartBehavior.start': _DragStartBehavior_start$,
@@ -31,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureRecognizer': m.ClassMirror(
       'GestureRecognizer',
       {
+        '#as': GestureRecognizer_as$,
+        '#is': GestureRecognizer_is$,
         'debugOwner': _GestureRecognizer_debugOwner$,
         'gestureSettings': _GestureRecognizer_gestureSettings$,
         'supportedDevices': _GestureRecognizer_supportedDevices$,
@@ -57,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'OneSequenceGestureRecognizer': m.ClassMirror(
       'OneSequenceGestureRecognizer',
       {
+        '#as': OneSequenceGestureRecognizer_as$,
+        '#is': OneSequenceGestureRecognizer_is$,
         'team': _OneSequenceGestureRecognizer_team$,
         'addAllowedPointer': _OneSequenceGestureRecognizer_addAllowedPointer$,
         'handleNonAllowedPointer':
@@ -81,6 +86,8 @@ const libraryMirror = m.LibraryMirror(
     'PrimaryPointerGestureRecognizer': m.ClassMirror(
       'PrimaryPointerGestureRecognizer',
       {
+        '#as': PrimaryPointerGestureRecognizer_as$,
+        '#is': PrimaryPointerGestureRecognizer_is$,
         'deadline': _PrimaryPointerGestureRecognizer_deadline$,
         'preAcceptSlopTolerance':
             _PrimaryPointerGestureRecognizer_preAcceptSlopTolerance$,
@@ -113,8 +120,12 @@ const libraryMirror = m.LibraryMirror(
     'OffsetPair': m.ClassMirror(
       'OffsetPair',
       {
+        '#as': OffsetPair_as$,
+        '#is': OffsetPair_is$,
         'local': _OffsetPair_local$,
         'global': _OffsetPair_global$,
+        '+': _OffsetPair_plus$$,
+        '-': _OffsetPair_minus$$,
         'toString': _OffsetPair_toString$,
       },
       {},
@@ -131,6 +142,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function GestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureRecognizer;
+Function GestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureRecognizer;
 Object? _GestureRecognizer_debugOwner$(GestureRecognizer target) {
   return target.debugOwner;
 }
@@ -213,11 +234,48 @@ Function _GestureRecognizer_dispose$(
   GestureRecognizer target,
 ) =>
     target.dispose;
+Function _GestureRecognizer_invokeCallback$(
+  m.Scope scope,
+  GestureRecognizer target,
+) =>
+    <T>(
+      String name,
+      m.FunctionPointer callback, {
+      m.FunctionPointer? debugReport,
+    }) {
+      T callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      String debugReportProxy() => scope.engine.callFunctionPointer(
+            scope,
+            debugReport!,
+            [],
+            {},
+          );
+      return target.invokeCallback<T>(
+        name,
+        callbackProxy,
+        debugReport: debugReport == null ? null : debugReportProxy,
+      );
+    };
 Function _GestureRecognizer_debugFillProperties$(
   m.Scope scope,
   GestureRecognizer target,
 ) =>
     target.debugFillProperties;
+Function OneSequenceGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OneSequenceGestureRecognizer;
+Function OneSequenceGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OneSequenceGestureRecognizer;
 GestureArenaTeam? _OneSequenceGestureRecognizer_team$(
     OneSequenceGestureRecognizer target) {
   return target.team;
@@ -290,6 +348,16 @@ Function _OneSequenceGestureRecognizer_stopTrackingIfPointerNoLongerDown$(
   OneSequenceGestureRecognizer target,
 ) =>
     target.stopTrackingIfPointerNoLongerDown;
+Function PrimaryPointerGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PrimaryPointerGestureRecognizer;
+Function PrimaryPointerGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PrimaryPointerGestureRecognizer;
 Duration? _PrimaryPointerGestureRecognizer_deadline$(
     PrimaryPointerGestureRecognizer target) {
   return target.deadline;
@@ -375,6 +443,16 @@ Function _PrimaryPointerGestureRecognizer_debugFillProperties$(
   PrimaryPointerGestureRecognizer target,
 ) =>
     target.debugFillProperties;
+Function OffsetPair_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OffsetPair;
+Function OffsetPair_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OffsetPair;
 OffsetPair _OffsetPair_zero$() {
   return OffsetPair.zero;
 }
@@ -387,6 +465,16 @@ Offset _OffsetPair_global$(OffsetPair target) {
   return target.global;
 }
 
+Function _OffsetPair_plus$$(
+  m.Scope scope,
+  OffsetPair target,
+) =>
+    (OffsetPair other) => target + other;
+Function _OffsetPair_minus$$(
+  m.Scope scope,
+  OffsetPair target,
+) =>
+    (OffsetPair other) => target - other;
 Function _OffsetPair_toString$(
   m.Scope scope,
   OffsetPair target,

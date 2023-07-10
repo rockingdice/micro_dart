@@ -57,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'WidgetsApp': m.ClassMirror(
       'WidgetsApp',
       {
+        '#as': WidgetsApp_as$,
+        '#is': WidgetsApp_is$,
         'navigatorKey': _WidgetsApp_navigatorKey$,
         'onGenerateRoute': _WidgetsApp_onGenerateRoute$,
         'onGenerateInitialRoutes': _WidgetsApp_onGenerateInitialRoutes$,
@@ -101,6 +103,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function WidgetsApp_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetsApp;
+Function WidgetsApp_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetsApp;
 GlobalKey<NavigatorState>? _WidgetsApp_navigatorKey$(WidgetsApp target) {
   return target.navigatorKey;
 }

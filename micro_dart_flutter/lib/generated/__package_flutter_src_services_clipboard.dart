@@ -18,20 +18,47 @@ const libraryMirror = m.LibraryMirror(
   {
     'ClipboardData': m.ClassMirror(
       'ClipboardData',
-      {'text': _ClipboardData_text$},
+      {
+        '#as': ClipboardData_as$,
+        '#is': ClipboardData_is$,
+        'text': _ClipboardData_text$,
+      },
       {},
     ),
     'Clipboard': m.ClassMirror(
       'Clipboard',
-      {},
+      {
+        '#as': Clipboard_as$,
+        '#is': Clipboard_is$,
+      },
       {},
     ),
   },
 );
+Function ClipboardData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipboardData;
+Function ClipboardData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipboardData;
 String? _ClipboardData_text$(ClipboardData target) {
   return target.text;
 }
 
+Function Clipboard_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Clipboard;
+Function Clipboard_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Clipboard;
 String _Clipboard_kTextPlain$() {
   return Clipboard.kTextPlain;
 }

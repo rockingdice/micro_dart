@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollbarThemeData': m.ClassMirror(
       'ScrollbarThemeData',
       {
+        '#as': ScrollbarThemeData_as$,
+        '#is': ScrollbarThemeData_is$,
         'thumbVisibility': _ScrollbarThemeData_thumbVisibility$,
         'thickness': _ScrollbarThemeData_thickness$,
         'trackVisibility': _ScrollbarThemeData_trackVisibility$,
@@ -35,6 +37,7 @@ const libraryMirror = m.LibraryMirror(
         'minThumbLength': _ScrollbarThemeData_minThumbLength$,
         'hashCode': _ScrollbarThemeData_hashCode$,
         'copyWith': _ScrollbarThemeData_copyWith$,
+        '==': _ScrollbarThemeData_eq$$,
         'debugFillProperties': _ScrollbarThemeData_debugFillProperties$,
       },
       {},
@@ -42,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollbarTheme': m.ClassMirror(
       'ScrollbarTheme',
       {
+        '#as': ScrollbarTheme_as$,
+        '#is': ScrollbarTheme_is$,
         'data': _ScrollbarTheme_data$,
         'wrap': _ScrollbarTheme_wrap$,
         'updateShouldNotify': _ScrollbarTheme_updateShouldNotify$,
@@ -50,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollbarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollbarThemeData;
+Function ScrollbarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollbarThemeData;
 MaterialStateProperty<bool?>? _ScrollbarThemeData_thumbVisibility$(
     ScrollbarThemeData target) {
   return target.thumbVisibility;
@@ -118,11 +133,26 @@ Function _ScrollbarThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _ScrollbarThemeData_lerp$(m.Scope scope) => ScrollbarThemeData.lerp;
+Function _ScrollbarThemeData_eq$$(
+  m.Scope scope,
+  ScrollbarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ScrollbarThemeData_debugFillProperties$(
   m.Scope scope,
   ScrollbarThemeData target,
 ) =>
     target.debugFillProperties;
+Function ScrollbarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollbarTheme;
+Function ScrollbarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollbarTheme;
 ScrollbarThemeData _ScrollbarTheme_data$(ScrollbarTheme target) {
   return target.data;
 }

@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderPerformanceOverlay': m.ClassMirror(
       'RenderPerformanceOverlay',
       {
+        '#as': RenderPerformanceOverlay_as$,
+        '#is': RenderPerformanceOverlay_is$,
         'optionsMask': _RenderPerformanceOverlay_optionsMask$,
         'rasterizerThreshold': _RenderPerformanceOverlay_rasterizerThreshold$,
         'checkerboardRasterCacheImages':
@@ -62,6 +64,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderPerformanceOverlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderPerformanceOverlay;
+Function RenderPerformanceOverlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderPerformanceOverlay;
 int _RenderPerformanceOverlay_optionsMask$(RenderPerformanceOverlay target) {
   return target.optionsMask;
 }

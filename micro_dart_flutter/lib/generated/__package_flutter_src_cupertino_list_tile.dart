@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoListTile': m.ClassMirror(
       'CupertinoListTile',
       {
+        '#as': CupertinoListTile_as$,
+        '#is': CupertinoListTile_is$,
         'title': _CupertinoListTile_title$,
         'subtitle': _CupertinoListTile_subtitle$,
         'additionalInfo': _CupertinoListTile_additionalInfo$,
@@ -35,11 +37,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'CupertinoListTileChevron': m.ClassMirror(
       'CupertinoListTileChevron',
-      {'build': _CupertinoListTileChevron_build$},
+      {
+        '#as': CupertinoListTileChevron_as$,
+        '#is': CupertinoListTileChevron_is$,
+        'build': _CupertinoListTileChevron_build$,
+      },
       {},
     ),
   },
 );
+Function CupertinoListTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoListTile;
+Function CupertinoListTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoListTile;
 Widget _CupertinoListTile_title$(CupertinoListTile target) {
   return target.title;
 }
@@ -89,6 +105,16 @@ Function _CupertinoListTile_createState$(
   CupertinoListTile target,
 ) =>
     target.createState;
+Function CupertinoListTileChevron_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoListTileChevron;
+Function CupertinoListTileChevron_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoListTileChevron;
 Function _CupertinoListTileChevron_build$(
   m.Scope scope,
   CupertinoListTileChevron target,

@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialPointArcTween': m.ClassMirror(
       'MaterialPointArcTween',
       {
+        '#as': MaterialPointArcTween_as$,
+        '#is': MaterialPointArcTween_is$,
         'center': _MaterialPointArcTween_center$,
         'radius': _MaterialPointArcTween_radius$,
         'beginAngle': _MaterialPointArcTween_beginAngle$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialRectArcTween': m.ClassMirror(
       'MaterialRectArcTween',
       {
+        '#as': MaterialRectArcTween_as$,
+        '#is': MaterialRectArcTween_is$,
         'beginArc': _MaterialRectArcTween_beginArc$,
         'endArc': _MaterialRectArcTween_endArc$,
         'lerp': _MaterialRectArcTween_lerp$,
@@ -44,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialRectCenterArcTween': m.ClassMirror(
       'MaterialRectCenterArcTween',
       {
+        '#as': MaterialRectCenterArcTween_as$,
+        '#is': MaterialRectCenterArcTween_is$,
         'centerArc': _MaterialRectCenterArcTween_centerArc$,
         'lerp': _MaterialRectCenterArcTween_lerp$,
         'toString': _MaterialRectCenterArcTween_toString$,
@@ -55,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialPointArcTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialPointArcTween;
+Function MaterialPointArcTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialPointArcTween;
 Offset? _MaterialPointArcTween_center$(MaterialPointArcTween target) {
   return target.center;
 }
@@ -95,6 +111,16 @@ Function _MaterialPointArcTween_toString$(
   MaterialPointArcTween target,
 ) =>
     target.toString;
+Function MaterialRectArcTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialRectArcTween;
+Function MaterialRectArcTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialRectArcTween;
 MaterialPointArcTween? _MaterialRectArcTween_beginArc$(
     MaterialRectArcTween target) {
   return target.beginArc;
@@ -129,6 +155,16 @@ Function _MaterialRectArcTween_toString$(
   MaterialRectArcTween target,
 ) =>
     target.toString;
+Function MaterialRectCenterArcTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialRectCenterArcTween;
+Function MaterialRectCenterArcTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialRectCenterArcTween;
 MaterialPointArcTween? _MaterialRectCenterArcTween_centerArc$(
     MaterialRectCenterArcTween target) {
   return target.centerArc;

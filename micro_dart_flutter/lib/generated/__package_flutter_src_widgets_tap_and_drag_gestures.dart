@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDragDownDetails': m.ClassMirror(
       'TapDragDownDetails',
       {
+        '#as': TapDragDownDetails_as$,
+        '#is': TapDragDownDetails_is$,
         'globalPosition': _TapDragDownDetails_globalPosition$,
         'localPosition': _TapDragDownDetails_localPosition$,
         'kind': _TapDragDownDetails_kind$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDragUpDetails': m.ClassMirror(
       'TapDragUpDetails',
       {
+        '#as': TapDragUpDetails_as$,
+        '#is': TapDragUpDetails_is$,
         'globalPosition': _TapDragUpDetails_globalPosition$,
         'localPosition': _TapDragUpDetails_localPosition$,
         'kind': _TapDragUpDetails_kind$,
@@ -43,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDragStartDetails': m.ClassMirror(
       'TapDragStartDetails',
       {
+        '#as': TapDragStartDetails_as$,
+        '#is': TapDragStartDetails_is$,
         'sourceTimeStamp': _TapDragStartDetails_sourceTimeStamp$,
         'globalPosition': _TapDragStartDetails_globalPosition$,
         'localPosition': _TapDragStartDetails_localPosition$,
@@ -56,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDragUpdateDetails': m.ClassMirror(
       'TapDragUpdateDetails',
       {
+        '#as': TapDragUpdateDetails_as$,
+        '#is': TapDragUpdateDetails_is$,
         'sourceTimeStamp': _TapDragUpdateDetails_sourceTimeStamp$,
         'delta': _TapDragUpdateDetails_delta$,
         'primaryDelta': _TapDragUpdateDetails_primaryDelta$,
@@ -73,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'TapDragEndDetails': m.ClassMirror(
       'TapDragEndDetails',
       {
+        '#as': TapDragEndDetails_as$,
+        '#is': TapDragEndDetails_is$,
         'velocity': _TapDragEndDetails_velocity$,
         'primaryVelocity': _TapDragEndDetails_primaryVelocity$,
         'consecutiveTapCount': _TapDragEndDetails_consecutiveTapCount$,
@@ -84,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'BaseTapAndDragGestureRecognizer': m.ClassMirror(
       'BaseTapAndDragGestureRecognizer',
       {
+        '#as': BaseTapAndDragGestureRecognizer_as$,
+        '#is': BaseTapAndDragGestureRecognizer_is$,
         'dragStartBehavior':
             _BaseTapAndDragGestureRecognizer_dragStartBehavior$,
         'dragUpdateThrottleFrequency':
@@ -127,18 +139,34 @@ const libraryMirror = m.LibraryMirror(
     'TapAndHorizontalDragGestureRecognizer': m.ClassMirror(
       'TapAndHorizontalDragGestureRecognizer',
       {
+        '#as': TapAndHorizontalDragGestureRecognizer_as$,
+        '#is': TapAndHorizontalDragGestureRecognizer_is$,
         'debugDescription':
-            _TapAndHorizontalDragGestureRecognizer_debugDescription$
+            _TapAndHorizontalDragGestureRecognizer_debugDescription$,
       },
       {},
     ),
     'TapAndPanGestureRecognizer': m.ClassMirror(
       'TapAndPanGestureRecognizer',
-      {'debugDescription': _TapAndPanGestureRecognizer_debugDescription$},
+      {
+        '#as': TapAndPanGestureRecognizer_as$,
+        '#is': TapAndPanGestureRecognizer_is$,
+        'debugDescription': _TapAndPanGestureRecognizer_debugDescription$,
+      },
       {},
     ),
   },
 );
+Function TapDragDownDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDragDownDetails;
+Function TapDragDownDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDragDownDetails;
 Offset _TapDragDownDetails_globalPosition$(TapDragDownDetails target) {
   return target.globalPosition;
 }
@@ -165,6 +193,16 @@ Function _TapDragDownDetails_debugFillProperties$(
   TapDragDownDetails target,
 ) =>
     target.debugFillProperties;
+Function TapDragUpDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDragUpDetails;
+Function TapDragUpDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDragUpDetails;
 Offset _TapDragUpDetails_globalPosition$(TapDragUpDetails target) {
   return target.globalPosition;
 }
@@ -191,6 +229,16 @@ Function _TapDragUpDetails_debugFillProperties$(
   TapDragUpDetails target,
 ) =>
     target.debugFillProperties;
+Function TapDragStartDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDragStartDetails;
+Function TapDragStartDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDragStartDetails;
 Duration? _TapDragStartDetails_sourceTimeStamp$(TapDragStartDetails target) {
   return target.sourceTimeStamp;
 }
@@ -221,6 +269,16 @@ Function _TapDragStartDetails_debugFillProperties$(
   TapDragStartDetails target,
 ) =>
     target.debugFillProperties;
+Function TapDragUpdateDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDragUpdateDetails;
+Function TapDragUpdateDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDragUpdateDetails;
 Duration? _TapDragUpdateDetails_sourceTimeStamp$(TapDragUpdateDetails target) {
   return target.sourceTimeStamp;
 }
@@ -268,6 +326,16 @@ Function _TapDragUpdateDetails_debugFillProperties$(
   TapDragUpdateDetails target,
 ) =>
     target.debugFillProperties;
+Function TapDragEndDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapDragEndDetails;
+Function TapDragEndDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapDragEndDetails;
 Velocity _TapDragEndDetails_velocity$(TapDragEndDetails target) {
   return target.velocity;
 }
@@ -290,6 +358,16 @@ Function _TapDragEndDetails_debugFillProperties$(
   TapDragEndDetails target,
 ) =>
     target.debugFillProperties;
+Function BaseTapAndDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BaseTapAndDragGestureRecognizer;
+Function BaseTapAndDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BaseTapAndDragGestureRecognizer;
 DragStartBehavior _BaseTapAndDragGestureRecognizer_dragStartBehavior$(
     BaseTapAndDragGestureRecognizer target) {
   return target.dragStartBehavior;
@@ -486,11 +564,31 @@ Function _BaseTapAndDragGestureRecognizer_dispose$(
   BaseTapAndDragGestureRecognizer target,
 ) =>
     target.dispose;
+Function TapAndHorizontalDragGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapAndHorizontalDragGestureRecognizer;
+Function TapAndHorizontalDragGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapAndHorizontalDragGestureRecognizer;
 String _TapAndHorizontalDragGestureRecognizer_debugDescription$(
     TapAndHorizontalDragGestureRecognizer target) {
   return target.debugDescription;
 }
 
+Function TapAndPanGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TapAndPanGestureRecognizer;
+Function TapAndPanGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TapAndPanGestureRecognizer;
 String _TapAndPanGestureRecognizer_debugDescription$(
     TapAndPanGestureRecognizer target) {
   return target.debugDescription;

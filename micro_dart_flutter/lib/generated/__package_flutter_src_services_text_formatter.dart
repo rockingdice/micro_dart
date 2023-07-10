@@ -11,6 +11,7 @@ import 'package:flutter/src/services/text_input.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/text_formatter.dart',
   {
+    'TextInputFormatter.withFunction': _TextInputFormatter_withFunction$,
     'FilteringTextInputFormatter.singleLineFormatter':
         _FilteringTextInputFormatter_singleLineFormatter$,
     'FilteringTextInputFormatter.digitsOnly':
@@ -29,12 +30,18 @@ const libraryMirror = m.LibraryMirror(
   {
     'TextInputFormatter': m.ClassMirror(
       'TextInputFormatter',
-      {'formatEditUpdate': _TextInputFormatter_formatEditUpdate$},
+      {
+        '#as': TextInputFormatter_as$,
+        '#is': TextInputFormatter_is$,
+        'formatEditUpdate': _TextInputFormatter_formatEditUpdate$,
+      },
       {},
     ),
     'FilteringTextInputFormatter': m.ClassMirror(
       'FilteringTextInputFormatter',
       {
+        '#as': FilteringTextInputFormatter_as$,
+        '#is': FilteringTextInputFormatter_is$,
         'filterPattern': _FilteringTextInputFormatter_filterPattern$,
         'allow': _FilteringTextInputFormatter_allow$,
         'replacementString': _FilteringTextInputFormatter_replacementString$,
@@ -45,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'LengthLimitingTextInputFormatter': m.ClassMirror(
       'LengthLimitingTextInputFormatter',
       {
+        '#as': LengthLimitingTextInputFormatter_as$,
+        '#is': LengthLimitingTextInputFormatter_is$,
         'maxLength': _LengthLimitingTextInputFormatter_maxLength$,
         'maxLengthEnforcement':
             _LengthLimitingTextInputFormatter_maxLengthEnforcement$,
@@ -59,11 +68,48 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextInputFormatter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextInputFormatter;
+Function TextInputFormatter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextInputFormatter;
 Function _TextInputFormatter_formatEditUpdate$(
   m.Scope scope,
   TextInputFormatter target,
 ) =>
     target.formatEditUpdate;
+Function _TextInputFormatter_withFunction$(m.Scope scope) =>
+    (m.FunctionPointer formatFunction) {
+      TextEditingValue formatFunctionProxy(
+        TextEditingValue formatFunction_oldValue,
+        TextEditingValue formatFunction_newValue,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            formatFunction,
+            [
+              formatFunction_oldValue,
+              formatFunction_newValue,
+            ],
+            {},
+          );
+      return TextInputFormatter.withFunction(formatFunctionProxy);
+    };
+Function FilteringTextInputFormatter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FilteringTextInputFormatter;
+Function FilteringTextInputFormatter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FilteringTextInputFormatter;
 Pattern _FilteringTextInputFormatter_filterPattern$(
     FilteringTextInputFormatter target) {
   return target.filterPattern;
@@ -91,6 +137,16 @@ Function _FilteringTextInputFormatter_formatEditUpdate$(
   FilteringTextInputFormatter target,
 ) =>
     target.formatEditUpdate;
+Function LengthLimitingTextInputFormatter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LengthLimitingTextInputFormatter;
+Function LengthLimitingTextInputFormatter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LengthLimitingTextInputFormatter;
 int? _LengthLimitingTextInputFormatter_maxLength$(
     LengthLimitingTextInputFormatter target) {
   return target.maxLength;

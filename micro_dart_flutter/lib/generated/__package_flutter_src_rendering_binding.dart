@@ -30,11 +30,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'RenderingFlutterBinding': m.ClassMirror(
       'RenderingFlutterBinding',
-      {},
+      {
+        '#as': RenderingFlutterBinding_as$,
+        '#is': RenderingFlutterBinding_is$,
+      },
       {},
     )
   },
 );
+Function RenderingFlutterBinding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderingFlutterBinding;
+Function RenderingFlutterBinding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderingFlutterBinding;
 Function _RenderingFlutterBinding_ensureInitialized$(m.Scope scope) =>
     RenderingFlutterBinding.ensureInitialized;
 Function _debugDumpRenderTree$(m.Scope scope) => debugDumpRenderTree;

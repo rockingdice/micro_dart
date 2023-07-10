@@ -21,8 +21,11 @@ const libraryMirror = m.LibraryMirror(
     'MenuButtonThemeData': m.ClassMirror(
       'MenuButtonThemeData',
       {
+        '#as': MenuButtonThemeData_as$,
+        '#is': MenuButtonThemeData_is$,
         'style': _MenuButtonThemeData_style$,
         'hashCode': _MenuButtonThemeData_hashCode$,
+        '==': _MenuButtonThemeData_eq$$,
         'debugFillProperties': _MenuButtonThemeData_debugFillProperties$,
       },
       {},
@@ -30,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'MenuButtonTheme': m.ClassMirror(
       'MenuButtonTheme',
       {
+        '#as': MenuButtonTheme_as$,
+        '#is': MenuButtonTheme_is$,
         'data': _MenuButtonTheme_data$,
         'wrap': _MenuButtonTheme_wrap$,
         'updateShouldNotify': _MenuButtonTheme_updateShouldNotify$,
@@ -38,6 +43,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MenuButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuButtonThemeData;
+Function MenuButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuButtonThemeData;
 ButtonStyle? _MenuButtonThemeData_style$(MenuButtonThemeData target) {
   return target.style;
 }
@@ -47,11 +62,26 @@ int _MenuButtonThemeData_hashCode$(MenuButtonThemeData target) {
 }
 
 Function _MenuButtonThemeData_lerp$(m.Scope scope) => MenuButtonThemeData.lerp;
+Function _MenuButtonThemeData_eq$$(
+  m.Scope scope,
+  MenuButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _MenuButtonThemeData_debugFillProperties$(
   m.Scope scope,
   MenuButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function MenuButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuButtonTheme;
+Function MenuButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuButtonTheme;
 MenuButtonThemeData _MenuButtonTheme_data$(MenuButtonTheme target) {
   return target.data;
 }

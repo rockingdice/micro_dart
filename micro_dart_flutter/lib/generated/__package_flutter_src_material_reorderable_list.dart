@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'ReorderableListView': m.ClassMirror(
       'ReorderableListView',
       {
+        '#as': ReorderableListView_as$,
+        '#is': ReorderableListView_is$,
         'itemBuilder': _ReorderableListView_itemBuilder$,
         'itemCount': _ReorderableListView_itemCount$,
         'onReorder': _ReorderableListView_onReorder$,
@@ -53,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ReorderableListView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReorderableListView;
+Function ReorderableListView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReorderableListView;
 Widget Function(BuildContext, int) _ReorderableListView_itemBuilder$(
     ReorderableListView target) {
   return target.itemBuilder;

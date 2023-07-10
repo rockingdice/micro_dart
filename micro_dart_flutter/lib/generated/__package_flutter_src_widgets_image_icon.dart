@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageIcon': m.ClassMirror(
       'ImageIcon',
       {
+        '#as': ImageIcon_as$,
+        '#is': ImageIcon_is$,
         'image': _ImageIcon_image$,
         'size': _ImageIcon_size$,
         'color': _ImageIcon_color$,
@@ -30,6 +32,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ImageIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageIcon;
+Function ImageIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageIcon;
 ImageProvider<Object>? _ImageIcon_image$(ImageIcon target) {
   return target.image;
 }

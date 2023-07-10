@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderRotatedBox': m.ClassMirror(
       'RenderRotatedBox',
       {
+        '#as': RenderRotatedBox_as$,
+        '#is': RenderRotatedBox_is$,
         'quarterTurns': _RenderRotatedBox_quarterTurns$,
         'computeMinIntrinsicWidth': _RenderRotatedBox_computeMinIntrinsicWidth$,
         'computeMaxIntrinsicWidth': _RenderRotatedBox_computeMaxIntrinsicWidth$,
@@ -35,6 +37,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RenderRotatedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderRotatedBox;
+Function RenderRotatedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderRotatedBox;
 int _RenderRotatedBox_quarterTurns$(RenderRotatedBox target) {
   return target.quarterTurns;
 }

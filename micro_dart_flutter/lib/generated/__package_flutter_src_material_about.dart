@@ -40,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'AboutListTile': m.ClassMirror(
       'AboutListTile',
       {
+        '#as': AboutListTile_as$,
+        '#is': AboutListTile_is$,
         'icon': _AboutListTile_icon$,
         'child': _AboutListTile_child$,
         'applicationName': _AboutListTile_applicationName$,
@@ -55,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'AboutDialog': m.ClassMirror(
       'AboutDialog',
       {
+        '#as': AboutDialog_as$,
+        '#is': AboutDialog_is$,
         'applicationName': _AboutDialog_applicationName$,
         'applicationVersion': _AboutDialog_applicationVersion$,
         'applicationIcon': _AboutDialog_applicationIcon$,
@@ -67,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'LicensePage': m.ClassMirror(
       'LicensePage',
       {
+        '#as': LicensePage_as$,
+        '#is': LicensePage_is$,
         'applicationName': _LicensePage_applicationName$,
         'applicationVersion': _LicensePage_applicationVersion$,
         'applicationIcon': _LicensePage_applicationIcon$,
@@ -77,6 +83,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AboutListTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AboutListTile;
+Function AboutListTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AboutListTile;
 Widget? _AboutListTile_icon$(AboutListTile target) {
   return target.icon;
 }
@@ -114,6 +130,16 @@ Function _AboutListTile_build$(
   AboutListTile target,
 ) =>
     target.build;
+Function AboutDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AboutDialog;
+Function AboutDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AboutDialog;
 String? _AboutDialog_applicationName$(AboutDialog target) {
   return target.applicationName;
 }
@@ -139,6 +165,16 @@ Function _AboutDialog_build$(
   AboutDialog target,
 ) =>
     target.build;
+Function LicensePage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LicensePage;
+Function LicensePage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LicensePage;
 String? _LicensePage_applicationName$(LicensePage target) {
   return target.applicationName;
 }

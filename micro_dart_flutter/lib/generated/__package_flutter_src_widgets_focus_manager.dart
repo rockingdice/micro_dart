@@ -19,7 +19,12 @@ const libraryMirror = m.LibraryMirror(
   {
     'debugFocusChanges': _debugFocusChanges$,
     'primaryFocus': _primaryFocus$,
+    'FocusNode.attach': _FocusNode_attach$,
     'FocusManager.instance': _FocusManager_instance$,
+    'FocusManager.addHighlightModeListener':
+        _FocusManager_addHighlightModeListener$,
+    'FocusManager.removeHighlightModeListener':
+        _FocusManager_removeHighlightModeListener$,
     'KeyEventResult.handled': _KeyEventResult_handled$,
     'KeyEventResult.ignored': _KeyEventResult_ignored$,
     'KeyEventResult.skipRemainingHandlers':
@@ -46,6 +51,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusAttachment': m.ClassMirror(
       'FocusAttachment',
       {
+        '#as': FocusAttachment_as$,
+        '#is': FocusAttachment_is$,
         'isAttached': _FocusAttachment_isAttached$,
         'detach': _FocusAttachment_detach$,
         'reparent': _FocusAttachment_reparent$,
@@ -55,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusNode': m.ClassMirror(
       'FocusNode',
       {
+        '#as': FocusNode_as$,
+        '#is': FocusNode_is$,
         'onKey': _FocusNode_onKey$,
         'onKeyEvent': _FocusNode_onKeyEvent$,
         'skipTraversal': _FocusNode_skipTraversal$,
@@ -101,6 +110,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusScopeNode': m.ClassMirror(
       'FocusScopeNode',
       {
+        '#as': FocusScopeNode_as$,
+        '#is': FocusScopeNode_is$,
         'traversalEdgeBehavior': _FocusScopeNode_traversalEdgeBehavior$,
         'nearestScope': _FocusScopeNode_nearestScope$,
         'isFirstFocus': _FocusScopeNode_isFirstFocus$,
@@ -116,6 +127,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusManager': m.ClassMirror(
       'FocusManager',
       {
+        '#as': FocusManager_as$,
+        '#is': FocusManager_is$,
         'rootScope': _FocusManager_rootScope$,
         'highlightStrategy': _FocusManager_highlightStrategy$,
         'highlightMode': _FocusManager_highlightMode$,
@@ -161,6 +174,16 @@ FocusNode? _primaryFocus$() {
   return primaryFocus;
 }
 
+Function FocusAttachment_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusAttachment;
+Function FocusAttachment_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusAttachment;
 bool _FocusAttachment_isAttached$(FocusAttachment target) {
   return target.isAttached;
 }
@@ -175,6 +198,16 @@ Function _FocusAttachment_reparent$(
   FocusAttachment target,
 ) =>
     target.reparent;
+Function FocusNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusNode;
+Function FocusNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusNode;
 KeyEventResult Function(FocusNode, RawKeyEvent)? _FocusNode_onKey$(
     FocusNode target) {
   return target.onKey;
@@ -350,6 +383,47 @@ Function _FocusNode_consumeKeyboardToken$(
   FocusNode target,
 ) =>
     target.consumeKeyboardToken;
+Function _FocusNode_attach$(
+  m.Scope scope,
+  FocusNode target,
+) =>
+    (
+      BuildContext? context, {
+      m.FunctionPointer? onKey,
+      m.FunctionPointer? onKeyEvent,
+    }) {
+      KeyEventResult onKeyProxy(
+        FocusNode onKey_node,
+        RawKeyEvent onKey_event,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onKey!,
+            [
+              onKey_node,
+              onKey_event,
+            ],
+            {},
+          );
+      KeyEventResult onKeyEventProxy(
+        FocusNode onKeyEvent_node,
+        KeyEvent onKeyEvent_event,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onKeyEvent!,
+            [
+              onKeyEvent_node,
+              onKeyEvent_event,
+            ],
+            {},
+          );
+      return target.attach(
+        context,
+        onKey: onKey == null ? null : onKeyProxy,
+        onKeyEvent: onKeyEvent == null ? null : onKeyEventProxy,
+      );
+    };
 Function _FocusNode_dispose$(
   m.Scope scope,
   FocusNode target,
@@ -390,6 +464,16 @@ Function _FocusNode_toStringShort$(
   FocusNode target,
 ) =>
     target.toStringShort;
+Function FocusScopeNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusScopeNode;
+Function FocusScopeNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusScopeNode;
 TraversalEdgeBehavior _FocusScopeNode_traversalEdgeBehavior$(
     FocusScopeNode target) {
   return target.traversalEdgeBehavior;
@@ -438,6 +522,16 @@ Function _FocusScopeNode_debugFillProperties$(
   FocusScopeNode target,
 ) =>
     target.debugFillProperties;
+Function FocusManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusManager;
+Function FocusManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusManager;
 FocusScopeNode _FocusManager_rootScope$(FocusManager target) {
   return target.rootScope;
 }
@@ -475,6 +569,34 @@ Function _FocusManager_dispose$(
   FocusManager target,
 ) =>
     target.dispose;
+Function _FocusManager_addHighlightModeListener$(
+  m.Scope scope,
+  FocusManager target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(FocusHighlightMode listener_value) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_value],
+            {},
+          );
+      target.addHighlightModeListener(listenerProxy);
+    };
+Function _FocusManager_removeHighlightModeListener$(
+  m.Scope scope,
+  FocusManager target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(FocusHighlightMode listener_value) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_value],
+            {},
+          );
+      target.removeHighlightModeListener(listenerProxy);
+    };
 Function _FocusManager_debugDescribeChildren$(
   m.Scope scope,
   FocusManager target,

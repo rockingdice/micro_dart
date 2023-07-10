@@ -8,18 +8,52 @@ import 'dart:ui';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/binary_messenger.dart',
-  {},
+  {'BinaryMessenger.setMessageHandler': _BinaryMessenger_setMessageHandler$},
   {},
   {
     'BinaryMessenger': m.ClassMirror(
       'BinaryMessenger',
-      {'send': _BinaryMessenger_send$},
+      {
+        '#as': BinaryMessenger_as$,
+        '#is': BinaryMessenger_is$,
+        'send': _BinaryMessenger_send$,
+      },
       {},
     )
   },
 );
+Function BinaryMessenger_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BinaryMessenger;
+Function BinaryMessenger_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BinaryMessenger;
 Function _BinaryMessenger_send$(
   m.Scope scope,
   BinaryMessenger target,
 ) =>
     target.send;
+Function _BinaryMessenger_setMessageHandler$(
+  m.Scope scope,
+  BinaryMessenger target,
+) =>
+    (
+      String channel,
+      m.FunctionPointer? handler,
+    ) {
+      Future<ByteData?>? handlerProxy(ByteData? handler_message) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            handler!,
+            [handler_message],
+            {},
+          );
+      target.setMessageHandler(
+        channel,
+        handler == null ? null : handlerProxy,
+      );
+    };

@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'EagerGestureRecognizer': m.ClassMirror(
       'EagerGestureRecognizer',
       {
+        '#as': EagerGestureRecognizer_as$,
+        '#is': EagerGestureRecognizer_is$,
         'debugDescription': _EagerGestureRecognizer_debugDescription$,
         'addAllowedPointer': _EagerGestureRecognizer_addAllowedPointer$,
         'didStopTrackingLastPointer':
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function EagerGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EagerGestureRecognizer;
+Function EagerGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EagerGestureRecognizer;
 String _EagerGestureRecognizer_debugDescription$(
     EagerGestureRecognizer target) {
   return target.debugDescription;

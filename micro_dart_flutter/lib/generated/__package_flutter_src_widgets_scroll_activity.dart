@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollActivityDelegate': m.ClassMirror(
       'ScrollActivityDelegate',
       {
+        '#as': ScrollActivityDelegate_as$,
+        '#is': ScrollActivityDelegate_is$,
         'axisDirection': _ScrollActivityDelegate_axisDirection$,
         'setPixels': _ScrollActivityDelegate_setPixels$,
         'applyUserOffset': _ScrollActivityDelegate_applyUserOffset$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollActivity': m.ClassMirror(
       'ScrollActivity',
       {
+        '#as': ScrollActivity_as$,
+        '#is': ScrollActivity_is$,
         'delegate': _ScrollActivity_delegate$,
         'shouldIgnorePointer': _ScrollActivity_shouldIgnorePointer$,
         'isScrolling': _ScrollActivity_isScrolling$,
@@ -62,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'IdleScrollActivity': m.ClassMirror(
       'IdleScrollActivity',
       {
+        '#as': IdleScrollActivity_as$,
+        '#is': IdleScrollActivity_is$,
         'shouldIgnorePointer': _IdleScrollActivity_shouldIgnorePointer$,
         'isScrolling': _IdleScrollActivity_isScrolling$,
         'velocity': _IdleScrollActivity_velocity$,
@@ -71,12 +77,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ScrollHoldController': m.ClassMirror(
       'ScrollHoldController',
-      {'cancel': _ScrollHoldController_cancel$},
+      {
+        '#as': ScrollHoldController_as$,
+        '#is': ScrollHoldController_is$,
+        'cancel': _ScrollHoldController_cancel$,
+      },
       {},
     ),
     'HoldScrollActivity': m.ClassMirror(
       'HoldScrollActivity',
       {
+        '#as': HoldScrollActivity_as$,
+        '#is': HoldScrollActivity_is$,
         'onHoldCanceled': _HoldScrollActivity_onHoldCanceled$,
         'shouldIgnorePointer': _HoldScrollActivity_shouldIgnorePointer$,
         'isScrolling': _HoldScrollActivity_isScrolling$,
@@ -89,6 +101,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollDragController': m.ClassMirror(
       'ScrollDragController',
       {
+        '#as': ScrollDragController_as$,
+        '#is': ScrollDragController_is$,
         'onDragCanceled': _ScrollDragController_onDragCanceled$,
         'carriedVelocity': _ScrollDragController_carriedVelocity$,
         'motionStartDistanceThreshold':
@@ -107,6 +121,8 @@ const libraryMirror = m.LibraryMirror(
     'DragScrollActivity': m.ClassMirror(
       'DragScrollActivity',
       {
+        '#as': DragScrollActivity_as$,
+        '#is': DragScrollActivity_is$,
         'shouldIgnorePointer': _DragScrollActivity_shouldIgnorePointer$,
         'isScrolling': _DragScrollActivity_isScrolling$,
         'velocity': _DragScrollActivity_velocity$,
@@ -126,6 +142,8 @@ const libraryMirror = m.LibraryMirror(
     'BallisticScrollActivity': m.ClassMirror(
       'BallisticScrollActivity',
       {
+        '#as': BallisticScrollActivity_as$,
+        '#is': BallisticScrollActivity_is$,
         'shouldIgnorePointer': _BallisticScrollActivity_shouldIgnorePointer$,
         'isScrolling': _BallisticScrollActivity_isScrolling$,
         'velocity': _BallisticScrollActivity_velocity$,
@@ -142,6 +160,8 @@ const libraryMirror = m.LibraryMirror(
     'DrivenScrollActivity': m.ClassMirror(
       'DrivenScrollActivity',
       {
+        '#as': DrivenScrollActivity_as$,
+        '#is': DrivenScrollActivity_is$,
         'done': _DrivenScrollActivity_done$,
         'shouldIgnorePointer': _DrivenScrollActivity_shouldIgnorePointer$,
         'isScrolling': _DrivenScrollActivity_isScrolling$,
@@ -155,6 +175,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollActivityDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollActivityDelegate;
+Function ScrollActivityDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollActivityDelegate;
 AxisDirection _ScrollActivityDelegate_axisDirection$(
     ScrollActivityDelegate target) {
   return target.axisDirection;
@@ -180,6 +210,16 @@ Function _ScrollActivityDelegate_goBallistic$(
   ScrollActivityDelegate target,
 ) =>
     target.goBallistic;
+Function ScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollActivity;
+Function ScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollActivity;
 ScrollActivityDelegate _ScrollActivity_delegate$(ScrollActivity target) {
   return target.delegate;
 }
@@ -241,6 +281,16 @@ Function _ScrollActivity_toString$(
   ScrollActivity target,
 ) =>
     target.toString;
+Function IdleScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IdleScrollActivity;
+Function IdleScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IdleScrollActivity;
 bool _IdleScrollActivity_shouldIgnorePointer$(IdleScrollActivity target) {
   return target.shouldIgnorePointer;
 }
@@ -258,11 +308,31 @@ Function _IdleScrollActivity_applyNewDimensions$(
   IdleScrollActivity target,
 ) =>
     target.applyNewDimensions;
+Function ScrollHoldController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollHoldController;
+Function ScrollHoldController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollHoldController;
 Function _ScrollHoldController_cancel$(
   m.Scope scope,
   ScrollHoldController target,
 ) =>
     target.cancel;
+Function HoldScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HoldScrollActivity;
+Function HoldScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HoldScrollActivity;
 void Function()? _HoldScrollActivity_onHoldCanceled$(
     HoldScrollActivity target) {
   return target.onHoldCanceled;
@@ -290,6 +360,16 @@ Function _HoldScrollActivity_dispose$(
   HoldScrollActivity target,
 ) =>
     target.dispose;
+Function ScrollDragController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollDragController;
+Function ScrollDragController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollDragController;
 void Function()? _ScrollDragController_onDragCanceled$(
     ScrollDragController target) {
   return target.onDragCanceled;
@@ -355,6 +435,16 @@ Function _ScrollDragController_toString$(
   ScrollDragController target,
 ) =>
     target.toString;
+Function DragScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DragScrollActivity;
+Function DragScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DragScrollActivity;
 bool _DragScrollActivity_shouldIgnorePointer$(DragScrollActivity target) {
   return target.shouldIgnorePointer;
 }
@@ -397,6 +487,16 @@ Function _DragScrollActivity_toString$(
   DragScrollActivity target,
 ) =>
     target.toString;
+Function BallisticScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BallisticScrollActivity;
+Function BallisticScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BallisticScrollActivity;
 bool _BallisticScrollActivity_shouldIgnorePointer$(
     BallisticScrollActivity target) {
   return target.shouldIgnorePointer;
@@ -440,6 +540,16 @@ Function _BallisticScrollActivity_toString$(
   BallisticScrollActivity target,
 ) =>
     target.toString;
+Function DrivenScrollActivity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrivenScrollActivity;
+Function DrivenScrollActivity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrivenScrollActivity;
 Future<void> _DrivenScrollActivity_done$(DrivenScrollActivity target) {
   return target.done;
 }

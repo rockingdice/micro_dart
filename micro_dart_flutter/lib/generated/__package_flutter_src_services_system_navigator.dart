@@ -20,11 +20,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'SystemNavigator': m.ClassMirror(
       'SystemNavigator',
-      {},
+      {
+        '#as': SystemNavigator_as$,
+        '#is': SystemNavigator_is$,
+      },
       {},
     )
   },
 );
+Function SystemNavigator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemNavigator;
+Function SystemNavigator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemNavigator;
 Function _SystemNavigator_pop$(m.Scope scope) => SystemNavigator.pop;
 Function _SystemNavigator_selectSingleEntryHistory$(m.Scope scope) =>
     SystemNavigator.selectSingleEntryHistory;

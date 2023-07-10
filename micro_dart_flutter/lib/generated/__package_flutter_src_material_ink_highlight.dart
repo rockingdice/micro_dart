@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'InkHighlight': m.ClassMirror(
       'InkHighlight',
       {
+        '#as': InkHighlight_as$,
+        '#is': InkHighlight_is$,
         'active': _InkHighlight_active$,
         'activate': _InkHighlight_activate$,
         'deactivate': _InkHighlight_deactivate$,
@@ -25,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InkHighlight_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkHighlight;
+Function InkHighlight_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkHighlight;
 bool _InkHighlight_active$(InkHighlight target) {
   return target.active;
 }

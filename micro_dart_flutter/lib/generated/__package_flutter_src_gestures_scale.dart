@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaleStartDetails': m.ClassMirror(
       'ScaleStartDetails',
       {
+        '#as': ScaleStartDetails_as$,
+        '#is': ScaleStartDetails_is$,
         'focalPoint': _ScaleStartDetails_focalPoint$,
         'localFocalPoint': _ScaleStartDetails_localFocalPoint$,
         'pointerCount': _ScaleStartDetails_pointerCount$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaleUpdateDetails': m.ClassMirror(
       'ScaleUpdateDetails',
       {
+        '#as': ScaleUpdateDetails_as$,
+        '#is': ScaleUpdateDetails_is$,
         'focalPointDelta': _ScaleUpdateDetails_focalPointDelta$,
         'focalPoint': _ScaleUpdateDetails_focalPoint$,
         'localFocalPoint': _ScaleUpdateDetails_localFocalPoint$,
@@ -46,6 +50,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaleEndDetails': m.ClassMirror(
       'ScaleEndDetails',
       {
+        '#as': ScaleEndDetails_as$,
+        '#is': ScaleEndDetails_is$,
         'velocity': _ScaleEndDetails_velocity$,
         'scaleVelocity': _ScaleEndDetails_scaleVelocity$,
         'pointerCount': _ScaleEndDetails_pointerCount$,
@@ -56,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'ScaleGestureRecognizer': m.ClassMirror(
       'ScaleGestureRecognizer',
       {
+        '#as': ScaleGestureRecognizer_as$,
+        '#is': ScaleGestureRecognizer_is$,
         'dragStartBehavior': _ScaleGestureRecognizer_dragStartBehavior$,
         'onStart': _ScaleGestureRecognizer_onStart$,
         'onUpdate': _ScaleGestureRecognizer_onUpdate$,
@@ -98,6 +106,16 @@ Offset _kDefaultTrackpadScrollToScaleFactor$() {
   return kDefaultTrackpadScrollToScaleFactor;
 }
 
+Function ScaleStartDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaleStartDetails;
+Function ScaleStartDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaleStartDetails;
 Offset _ScaleStartDetails_focalPoint$(ScaleStartDetails target) {
   return target.focalPoint;
 }
@@ -115,6 +133,16 @@ Function _ScaleStartDetails_toString$(
   ScaleStartDetails target,
 ) =>
     target.toString;
+Function ScaleUpdateDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaleUpdateDetails;
+Function ScaleUpdateDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaleUpdateDetails;
 Offset _ScaleUpdateDetails_focalPointDelta$(ScaleUpdateDetails target) {
   return target.focalPointDelta;
 }
@@ -152,6 +180,16 @@ Function _ScaleUpdateDetails_toString$(
   ScaleUpdateDetails target,
 ) =>
     target.toString;
+Function ScaleEndDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaleEndDetails;
+Function ScaleEndDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaleEndDetails;
 Velocity _ScaleEndDetails_velocity$(ScaleEndDetails target) {
   return target.velocity;
 }
@@ -169,6 +207,16 @@ Function _ScaleEndDetails_toString$(
   ScaleEndDetails target,
 ) =>
     target.toString;
+Function ScaleGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScaleGestureRecognizer;
+Function ScaleGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScaleGestureRecognizer;
 DragStartBehavior _ScaleGestureRecognizer_dragStartBehavior$(
     ScaleGestureRecognizer target) {
   return target.dragStartBehavior;

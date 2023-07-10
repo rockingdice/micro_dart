@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyboardListener': m.ClassMirror(
       'RawKeyboardListener',
       {
+        '#as': RawKeyboardListener_as$,
+        '#is': RawKeyboardListener_is$,
         'focusNode': _RawKeyboardListener_focusNode$,
         'autofocus': _RawKeyboardListener_autofocus$,
         'includeSemantics': _RawKeyboardListener_includeSemantics$,
@@ -29,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RawKeyboardListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyboardListener;
+Function RawKeyboardListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyboardListener;
 FocusNode _RawKeyboardListener_focusNode$(RawKeyboardListener target) {
   return target.focusNode;
 }

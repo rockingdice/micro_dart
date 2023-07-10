@@ -25,10 +25,26 @@ const libraryMirror = m.LibraryMirror(
         _PaintingContext_updateLayerProperties$,
     'PaintingContext.debugInstrumentRepaintCompositedChild':
         _PaintingContext_debugInstrumentRepaintCompositedChild$,
+    'PaintingContext.addCompositionCallback':
+        _PaintingContext_addCompositionCallback$,
+    'PaintingContext.pushLayer': _PaintingContext_pushLayer$,
+    'PaintingContext.pushClipRect': _PaintingContext_pushClipRect$,
+    'PaintingContext.pushClipRRect': _PaintingContext_pushClipRRect$,
+    'PaintingContext.pushClipPath': _PaintingContext_pushClipPath$,
+    'PaintingContext.pushColorFilter': _PaintingContext_pushColorFilter$,
+    'PaintingContext.pushTransform': _PaintingContext_pushTransform$,
+    'PaintingContext.pushOpacity': _PaintingContext_pushOpacity$,
+    'Constraints.debugAssertIsValid': _Constraints_debugAssertIsValid$,
+    'PipelineOwner.ensureSemantics': _PipelineOwner_ensureSemantics$,
+    'PipelineOwner.visitChildren': _PipelineOwner_visitChildren$,
     'RenderObject.debugCheckingIntrinsics':
         _RenderObject_debugCheckingIntrinsics$,
     'RenderObject.debugActiveLayout': _RenderObject_debugActiveLayout$,
     'RenderObject.debugActivePaint': _RenderObject_debugActivePaint$,
+    'RenderObject.visitChildren': _RenderObject_visitChildren$,
+    'RenderObject.invokeLayoutCallback': _RenderObject_invokeLayoutCallback$,
+    'RenderObject.visitChildrenForSemantics':
+        _RenderObject_visitChildrenForSemantics$,
   },
   {
     'RenderObject.debugCheckingIntrinsics':
@@ -38,6 +54,8 @@ const libraryMirror = m.LibraryMirror(
     'ParentData': m.ClassMirror(
       'ParentData',
       {
+        '#as': ParentData_as$,
+        '#is': ParentData_is$,
         'detach': _ParentData_detach$,
         'toString': _ParentData_toString$,
       },
@@ -46,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'PaintingContext': m.ClassMirror(
       'PaintingContext',
       {
+        '#as': PaintingContext_as$,
+        '#is': PaintingContext_is$,
         'estimatedBounds': _PaintingContext_estimatedBounds$,
         'canvas': _PaintingContext_canvas$,
         'paintChild': _PaintingContext_paintChild$,
@@ -62,6 +82,8 @@ const libraryMirror = m.LibraryMirror(
     'Constraints': m.ClassMirror(
       'Constraints',
       {
+        '#as': Constraints_as$,
+        '#is': Constraints_is$,
         'isTight': _Constraints_isTight$,
         'isNormalized': _Constraints_isNormalized$,
       },
@@ -70,6 +92,8 @@ const libraryMirror = m.LibraryMirror(
     'PipelineOwner': m.ClassMirror(
       'PipelineOwner',
       {
+        '#as': PipelineOwner_as$,
+        '#is': PipelineOwner_is$,
         'onNeedVisualUpdate': _PipelineOwner_onNeedVisualUpdate$,
         'onSemanticsOwnerCreated': _PipelineOwner_onSemanticsOwnerCreated$,
         'onSemanticsUpdate': _PipelineOwner_onSemanticsUpdate$,
@@ -95,6 +119,8 @@ const libraryMirror = m.LibraryMirror(
     'PipelineManifold': m.ClassMirror(
       'PipelineManifold',
       {
+        '#as': PipelineManifold_as$,
+        '#is': PipelineManifold_is$,
         'semanticsEnabled': _PipelineManifold_semanticsEnabled$,
         'requestVisualUpdate': _PipelineManifold_requestVisualUpdate$,
       },
@@ -103,6 +129,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderObject': m.ClassMirror(
       'RenderObject',
       {
+        '#as': RenderObject_as$,
+        '#is': RenderObject_is$,
         'parentData': _RenderObject_parentData$,
         'debugCreator': _RenderObject_debugCreator$,
         'debugDisposed': _RenderObject_debugDisposed$,
@@ -188,11 +216,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DiagnosticsDebugCreator': m.ClassMirror(
       'DiagnosticsDebugCreator',
-      {},
+      {
+        '#as': DiagnosticsDebugCreator_as$,
+        '#is': DiagnosticsDebugCreator_is$,
+      },
       {},
     ),
   },
 );
+Function ParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParentData;
+Function ParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParentData;
 Function _ParentData_detach$(
   m.Scope scope,
   ParentData target,
@@ -203,6 +244,16 @@ Function _ParentData_toString$(
   ParentData target,
 ) =>
     target.toString;
+Function PaintingContext_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PaintingContext;
+Function PaintingContext_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PaintingContext;
 Rect _PaintingContext_estimatedBounds$(PaintingContext target) {
   return target.estimatedBounds;
 }
@@ -228,6 +279,20 @@ Function _PaintingContext_appendLayer$(
   PaintingContext target,
 ) =>
     target.appendLayer;
+Function _PaintingContext_addCompositionCallback$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy(Layer callback_$p0) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_$p0],
+            {},
+          );
+      return target.addCompositionCallback(callbackProxy);
+    };
 Function _PaintingContext_stopRecordingIfNeeded$(
   m.Scope scope,
   PaintingContext target,
@@ -248,16 +313,254 @@ Function _PaintingContext_addLayer$(
   PaintingContext target,
 ) =>
     target.addLayer;
+Function _PaintingContext_pushLayer$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      ContainerLayer childLayer,
+      m.FunctionPointer painter,
+      Offset offset, {
+      Rect? childPaintBounds,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      target.pushLayer(
+        childLayer,
+        painterProxy,
+        offset,
+        childPaintBounds: childPaintBounds,
+      );
+    };
 Function _PaintingContext_createChildContext$(
   m.Scope scope,
   PaintingContext target,
 ) =>
     target.createChildContext;
+Function _PaintingContext_pushClipRect$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      bool needsCompositing,
+      Offset offset,
+      Rect clipRect,
+      m.FunctionPointer painter, {
+      Clip? clipBehavior,
+      ClipRectLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushClipRect(
+        needsCompositing,
+        offset,
+        clipRect,
+        painterProxy,
+        clipBehavior: clipBehavior == null ? Clip.hardEdge : clipBehavior,
+        oldLayer: oldLayer,
+      );
+    };
+Function _PaintingContext_pushClipRRect$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      bool needsCompositing,
+      Offset offset,
+      Rect bounds,
+      RRect clipRRect,
+      m.FunctionPointer painter, {
+      Clip? clipBehavior,
+      ClipRRectLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushClipRRect(
+        needsCompositing,
+        offset,
+        bounds,
+        clipRRect,
+        painterProxy,
+        clipBehavior: clipBehavior == null ? Clip.antiAlias : clipBehavior,
+        oldLayer: oldLayer,
+      );
+    };
+Function _PaintingContext_pushClipPath$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      bool needsCompositing,
+      Offset offset,
+      Rect bounds,
+      Path clipPath,
+      m.FunctionPointer painter, {
+      Clip? clipBehavior,
+      ClipPathLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushClipPath(
+        needsCompositing,
+        offset,
+        bounds,
+        clipPath,
+        painterProxy,
+        clipBehavior: clipBehavior == null ? Clip.antiAlias : clipBehavior,
+        oldLayer: oldLayer,
+      );
+    };
+Function _PaintingContext_pushColorFilter$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      Offset offset,
+      ColorFilter colorFilter,
+      m.FunctionPointer painter, {
+      ColorFilterLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushColorFilter(
+        offset,
+        colorFilter,
+        painterProxy,
+        oldLayer: oldLayer,
+      );
+    };
+Function _PaintingContext_pushTransform$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      bool needsCompositing,
+      Offset offset,
+      Matrix4 transform,
+      m.FunctionPointer painter, {
+      TransformLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushTransform(
+        needsCompositing,
+        offset,
+        transform,
+        painterProxy,
+        oldLayer: oldLayer,
+      );
+    };
+Function _PaintingContext_pushOpacity$(
+  m.Scope scope,
+  PaintingContext target,
+) =>
+    (
+      Offset offset,
+      int alpha,
+      m.FunctionPointer painter, {
+      OpacityLayer? oldLayer,
+    }) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      return target.pushOpacity(
+        offset,
+        alpha,
+        painterProxy,
+        oldLayer: oldLayer,
+      );
+    };
 Function _PaintingContext_toString$(
   m.Scope scope,
   PaintingContext target,
 ) =>
     target.toString;
+Function Constraints_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Constraints;
+Function Constraints_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Constraints;
 bool _Constraints_isTight$(Constraints target) {
   return target.isTight;
 }
@@ -266,6 +569,38 @@ bool _Constraints_isNormalized$(Constraints target) {
   return target.isNormalized;
 }
 
+Function _Constraints_debugAssertIsValid$(
+  m.Scope scope,
+  Constraints target,
+) =>
+    ({
+      m.FunctionPointer? informationCollector,
+      bool? isAppliedConstraint,
+    }) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      return target.debugAssertIsValid(
+        informationCollector:
+            informationCollector == null ? null : informationCollectorProxy,
+        isAppliedConstraint:
+            isAppliedConstraint == null ? false : isAppliedConstraint,
+      );
+    };
+Function PipelineOwner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PipelineOwner;
+Function PipelineOwner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PipelineOwner;
 void Function()? _PipelineOwner_onNeedVisualUpdate$(PipelineOwner target) {
   return target.onNeedVisualUpdate;
 }
@@ -331,6 +666,20 @@ Function _PipelineOwner_flushPaint$(
   PipelineOwner target,
 ) =>
     target.flushPaint;
+Function _PipelineOwner_ensureSemantics$(
+  m.Scope scope,
+  PipelineOwner target,
+) =>
+    ({m.FunctionPointer? listener}) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener!,
+            [],
+            {},
+          );
+      return target.ensureSemantics(
+          listener: listener == null ? null : listenerProxy);
+    };
 Function _PipelineOwner_flushSemantics$(
   m.Scope scope,
   PipelineOwner target,
@@ -356,6 +705,30 @@ Function _PipelineOwner_dropChild$(
   PipelineOwner target,
 ) =>
     target.dropChild;
+Function _PipelineOwner_visitChildren$(
+  m.Scope scope,
+  PipelineOwner target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(PipelineOwner visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
+Function PipelineManifold_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PipelineManifold;
+Function PipelineManifold_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PipelineManifold;
 bool _PipelineManifold_semanticsEnabled$(PipelineManifold target) {
   return target.semanticsEnabled;
 }
@@ -365,6 +738,16 @@ Function _PipelineManifold_requestVisualUpdate$(
   PipelineManifold target,
 ) =>
     target.requestVisualUpdate;
+Function RenderObject_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderObject;
+Function RenderObject_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderObject;
 ParentData? _RenderObject_parentData$(RenderObject target) {
   return target.parentData;
 }
@@ -519,6 +902,20 @@ Function _RenderObject_dropChild$(
   RenderObject target,
 ) =>
     target.dropChild;
+Function _RenderObject_visitChildren$(
+  m.Scope scope,
+  RenderObject target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _RenderObject_attach$(
   m.Scope scope,
   RenderObject target,
@@ -569,6 +966,20 @@ Function _RenderObject_performLayout$(
   RenderObject target,
 ) =>
     target.performLayout;
+Function _RenderObject_invokeLayoutCallback$(
+  m.Scope scope,
+  RenderObject target,
+) =>
+    <T extends Constraints>(m.FunctionPointer callback) {
+      void callbackProxy(T callback_constraints) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_constraints],
+            {},
+          );
+      target.invokeLayoutCallback<T>(callbackProxy);
+    };
 Function _RenderObject_debugRegisterRepaintBoundaryPaint$(
   m.Scope scope,
   RenderObject target,
@@ -664,6 +1075,20 @@ Function _RenderObject_markNeedsSemanticsUpdate$(
   RenderObject target,
 ) =>
     target.markNeedsSemanticsUpdate;
+Function _RenderObject_visitChildrenForSemantics$(
+  m.Scope scope,
+  RenderObject target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildrenForSemantics(visitorProxy);
+    };
 Function _RenderObject_assembleSemanticsNode$(
   m.Scope scope,
   RenderObject target,
@@ -714,3 +1139,13 @@ Function _RenderObject_describeForError$(
   RenderObject target,
 ) =>
     target.describeForError;
+Function DiagnosticsDebugCreator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsDebugCreator;
+Function DiagnosticsDebugCreator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsDebugCreator;

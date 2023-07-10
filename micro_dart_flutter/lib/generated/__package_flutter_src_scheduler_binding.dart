@@ -37,7 +37,11 @@ const libraryMirror = m.LibraryMirror(
   {
     'PerformanceModeRequestHandle': m.ClassMirror(
       'PerformanceModeRequestHandle',
-      {'dispose': _PerformanceModeRequestHandle_dispose$},
+      {
+        '#as': PerformanceModeRequestHandle_as$,
+        '#is': PerformanceModeRequestHandle_is$,
+        'dispose': _PerformanceModeRequestHandle_dispose$,
+      },
       {},
     ),
     'SchedulerPhase': m.ClassMirror(
@@ -55,6 +59,16 @@ void _timeDilation_set$(double other) {
   timeDilation = other;
 }
 
+Function PerformanceModeRequestHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PerformanceModeRequestHandle;
+Function PerformanceModeRequestHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PerformanceModeRequestHandle;
 Function _PerformanceModeRequestHandle_dispose$(
   m.Scope scope,
   PerformanceModeRequestHandle target,

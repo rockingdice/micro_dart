@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelection': m.ClassMirror(
       'TextSelection',
       {
+        '#as': TextSelection_as$,
+        '#is': TextSelection_is$,
         'baseOffset': _TextSelection_baseOffset$,
         'extentOffset': _TextSelection_extentOffset$,
         'affinity': _TextSelection_affinity$,
@@ -22,6 +24,7 @@ const libraryMirror = m.LibraryMirror(
         'extent': _TextSelection_extent$,
         'hashCode': _TextSelection_hashCode$,
         'toString': _TextSelection_toString$,
+        '==': _TextSelection_eq$$,
         'copyWith': _TextSelection_copyWith$,
         'expandTo': _TextSelection_expandTo$,
         'extendTo': _TextSelection_extendTo$,
@@ -30,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextSelection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelection;
+Function TextSelection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelection;
 int _TextSelection_baseOffset$(TextSelection target) {
   return target.baseOffset;
 }
@@ -63,6 +76,11 @@ Function _TextSelection_toString$(
   TextSelection target,
 ) =>
     target.toString;
+Function _TextSelection_eq$$(
+  m.Scope scope,
+  TextSelection target,
+) =>
+    (Object other) => target == other;
 Function _TextSelection_copyWith$(
   m.Scope scope,
   TextSelection target,

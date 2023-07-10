@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'PolynomialFit': m.ClassMirror(
       'PolynomialFit',
       {
+        '#as': PolynomialFit_as$,
+        '#is': PolynomialFit_is$,
         'coefficients': _PolynomialFit_coefficients$,
         'confidence': _PolynomialFit_confidence$,
         'toString': _PolynomialFit_toString$,
@@ -23,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'LeastSquaresSolver': m.ClassMirror(
       'LeastSquaresSolver',
       {
+        '#as': LeastSquaresSolver_as$,
+        '#is': LeastSquaresSolver_is$,
         'x': _LeastSquaresSolver_x$,
         'y': _LeastSquaresSolver_y$,
         'w': _LeastSquaresSolver_w$,
@@ -32,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PolynomialFit_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PolynomialFit;
+Function PolynomialFit_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PolynomialFit;
 List<double> _PolynomialFit_coefficients$(PolynomialFit target) {
   return target.coefficients;
 }
@@ -52,6 +66,16 @@ Function _PolynomialFit_toString$(
   PolynomialFit target,
 ) =>
     target.toString;
+Function LeastSquaresSolver_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LeastSquaresSolver;
+Function LeastSquaresSolver_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LeastSquaresSolver;
 List<double> _LeastSquaresSolver_x$(LeastSquaresSolver target) {
   return target.x;
 }

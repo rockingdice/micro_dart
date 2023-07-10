@@ -27,14 +27,33 @@ const libraryMirror = m.LibraryMirror(
     'FractionalOffset': m.ClassMirror(
       'FractionalOffset',
       {
+        '#as': FractionalOffset_as$,
+        '#is': FractionalOffset_is$,
         'dx': _FractionalOffset_dx$,
         'dy': _FractionalOffset_dy$,
+        '-': _FractionalOffset_minus$$,
+        '+': _FractionalOffset_plus$$,
+        'unary-': _FractionalOffset_unary_minus$$,
+        '*': _FractionalOffset_times$$,
+        '/': _FractionalOffset_over$$,
+        '~/': _FractionalOffset_division$$,
+        '%': _FractionalOffset_surplus$$,
         'toString': _FractionalOffset_toString$,
       },
       {},
     )
   },
 );
+Function FractionalOffset_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FractionalOffset;
+Function FractionalOffset_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FractionalOffset;
 FractionalOffset _FractionalOffset_topLeft$() {
   return FractionalOffset.topLeft;
 }
@@ -79,6 +98,41 @@ double _FractionalOffset_dy$(FractionalOffset target) {
   return target.dy;
 }
 
+Function _FractionalOffset_minus$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (Alignment other) => target - other;
+Function _FractionalOffset_plus$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (Alignment other) => target + other;
+Function _FractionalOffset_unary_minus$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    () => -target;
+Function _FractionalOffset_times$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (double other) => target * other;
+Function _FractionalOffset_over$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (double other) => target / other;
+Function _FractionalOffset_division$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (double other) => target ~/ other;
+Function _FractionalOffset_surplus$$(
+  m.Scope scope,
+  FractionalOffset target,
+) =>
+    (double other) => target % other;
 Function _FractionalOffset_lerp$(m.Scope scope) => FractionalOffset.lerp;
 Function _FractionalOffset_toString$(
   m.Scope scope,

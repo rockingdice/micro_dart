@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'SamplingClock': m.ClassMirror(
       'SamplingClock',
       {
+        '#as': SamplingClock_as$,
+        '#is': SamplingClock_is$,
         'now': _SamplingClock_now$,
         'stopwatch': _SamplingClock_stopwatch$,
       },
@@ -33,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'FlutterErrorDetailsForPointerEventDispatcher': m.ClassMirror(
       'FlutterErrorDetailsForPointerEventDispatcher',
       {
+        '#as': FlutterErrorDetailsForPointerEventDispatcher_as$,
+        '#is': FlutterErrorDetailsForPointerEventDispatcher_is$,
         'event': _FlutterErrorDetailsForPointerEventDispatcher_event$,
         'hitTestEntry':
             _FlutterErrorDetailsForPointerEventDispatcher_hitTestEntry$,
@@ -41,6 +45,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SamplingClock_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SamplingClock;
+Function SamplingClock_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SamplingClock;
 Function _SamplingClock_now$(
   m.Scope scope,
   SamplingClock target,
@@ -51,6 +65,16 @@ Function _SamplingClock_stopwatch$(
   SamplingClock target,
 ) =>
     target.stopwatch;
+Function FlutterErrorDetailsForPointerEventDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterErrorDetailsForPointerEventDispatcher;
+Function FlutterErrorDetailsForPointerEventDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterErrorDetailsForPointerEventDispatcher;
 PointerEvent? _FlutterErrorDetailsForPointerEventDispatcher_event$(
     FlutterErrorDetailsForPointerEventDispatcher target) {
   return target.event;

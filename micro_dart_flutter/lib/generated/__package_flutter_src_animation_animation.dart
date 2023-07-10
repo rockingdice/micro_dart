@@ -9,6 +9,10 @@ import 'package:flutter/src/animation/tween.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/animation/animation.dart',
   {
+    'Animation.addListener': _Animation_addListener$,
+    'Animation.removeListener': _Animation_removeListener$,
+    'Animation.addStatusListener': _Animation_addStatusListener$,
+    'Animation.removeStatusListener': _Animation_removeStatusListener$,
     'AnimationStatus.dismissed': _AnimationStatus_dismissed$,
     'AnimationStatus.forward': _AnimationStatus_forward$,
     'AnimationStatus.reverse': _AnimationStatus_reverse$,
@@ -20,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'Animation': m.ClassMirror(
       'Animation',
       {
+        '#as': Animation_as$,
+        '#is': Animation_is$,
         'status': _Animation_status$,
         'value': _Animation_value$,
         'isDismissed': _Animation_isDismissed$,
@@ -37,6 +43,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Animation_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Animation<T>;
+Function Animation_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Animation<T>;
 AnimationStatus _Animation_status$<T>(Animation<T> target) {
   return target.status;
 }
@@ -53,6 +69,60 @@ bool _Animation_isCompleted$<T>(Animation<T> target) {
   return target.isCompleted;
 }
 
+Function _Animation_addListener$<T>(
+  m.Scope scope,
+  Animation<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _Animation_removeListener$<T>(
+  m.Scope scope,
+  Animation<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
+Function _Animation_addStatusListener$<T>(
+  m.Scope scope,
+  Animation<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(AnimationStatus listener_status) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_status],
+            {},
+          );
+      target.addStatusListener(listenerProxy);
+    };
+Function _Animation_removeStatusListener$<T>(
+  m.Scope scope,
+  Animation<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(AnimationStatus listener_status) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_status],
+            {},
+          );
+      target.removeStatusListener(listenerProxy);
+    };
 Function _Animation_drive$<T, U>(
   m.Scope scope,
   Animation<T> target,

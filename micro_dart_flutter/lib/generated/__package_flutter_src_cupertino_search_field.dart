@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSearchTextField': m.ClassMirror(
       'CupertinoSearchTextField',
       {
+        '#as': CupertinoSearchTextField_as$,
+        '#is': CupertinoSearchTextField_is$,
         'controller': _CupertinoSearchTextField_controller$,
         'onChanged': _CupertinoSearchTextField_onChanged$,
         'onSubmitted': _CupertinoSearchTextField_onSubmitted$,
@@ -54,6 +56,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoSearchTextField_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSearchTextField;
+Function CupertinoSearchTextField_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSearchTextField;
 TextEditingController? _CupertinoSearchTextField_controller$(
     CupertinoSearchTextField target) {
   return target.controller;

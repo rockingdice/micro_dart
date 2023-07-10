@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPageRoute': m.ClassMirror(
       'CupertinoPageRoute',
       {
+        '#as': CupertinoPageRoute_as$,
+        '#is': CupertinoPageRoute_is$,
         'builder': _CupertinoPageRoute_builder$,
         'title': _CupertinoPageRoute_title$,
         'maintainState': _CupertinoPageRoute_maintainState$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPage': m.ClassMirror(
       'CupertinoPage',
       {
+        '#as': CupertinoPage_as$,
+        '#is': CupertinoPage_is$,
         'child': _CupertinoPage_child$,
         'title': _CupertinoPage_title$,
         'maintainState': _CupertinoPage_maintainState$,
@@ -48,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPageTransition': m.ClassMirror(
       'CupertinoPageTransition',
       {
+        '#as': CupertinoPageTransition_as$,
+        '#is': CupertinoPageTransition_is$,
         'child': _CupertinoPageTransition_child$,
         'build': _CupertinoPageTransition_build$,
       },
@@ -56,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoFullscreenDialogTransition': m.ClassMirror(
       'CupertinoFullscreenDialogTransition',
       {
+        '#as': CupertinoFullscreenDialogTransition_as$,
+        '#is': CupertinoFullscreenDialogTransition_is$,
         'child': _CupertinoFullscreenDialogTransition_child$,
         'build': _CupertinoFullscreenDialogTransition_build$,
       },
@@ -64,6 +72,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoModalPopupRoute': m.ClassMirror(
       'CupertinoModalPopupRoute',
       {
+        '#as': CupertinoModalPopupRoute_as$,
+        '#is': CupertinoModalPopupRoute_is$,
         'builder': _CupertinoModalPopupRoute_builder$,
         'barrierLabel': _CupertinoModalPopupRoute_barrierLabel$,
         'barrierColor': _CupertinoModalPopupRoute_barrierColor$,
@@ -79,7 +89,10 @@ const libraryMirror = m.LibraryMirror(
     ),
     'CupertinoDialogRoute': m.ClassMirror(
       'CupertinoDialogRoute',
-      {},
+      {
+        '#as': CupertinoDialogRoute_as$,
+        '#is': CupertinoDialogRoute_is$,
+      },
       {},
     ),
   },
@@ -88,6 +101,16 @@ Color _kCupertinoModalBarrierColor$() {
   return kCupertinoModalBarrierColor;
 }
 
+Function CupertinoPageRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPageRoute<T>;
+Function CupertinoPageRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPageRoute<T>;
 Widget Function(BuildContext) _CupertinoPageRoute_builder$<T>(
     CupertinoPageRoute<T> target) {
   return target.builder;
@@ -110,6 +133,16 @@ Function _CupertinoPageRoute_buildContent$<T>(
   CupertinoPageRoute<T> target,
 ) =>
     target.buildContent;
+Function CupertinoPage_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPage<T>;
+Function CupertinoPage_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPage<T>;
 Widget _CupertinoPage_child$<T>(CupertinoPage<T> target) {
   return target.child;
 }
@@ -135,6 +168,16 @@ Function _CupertinoPage_createRoute$<T>(
   CupertinoPage<T> target,
 ) =>
     target.createRoute;
+Function CupertinoPageTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPageTransition;
+Function CupertinoPageTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPageTransition;
 Widget _CupertinoPageTransition_child$(CupertinoPageTransition target) {
   return target.child;
 }
@@ -144,6 +187,16 @@ Function _CupertinoPageTransition_build$(
   CupertinoPageTransition target,
 ) =>
     target.build;
+Function CupertinoFullscreenDialogTransition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoFullscreenDialogTransition;
+Function CupertinoFullscreenDialogTransition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoFullscreenDialogTransition;
 Widget _CupertinoFullscreenDialogTransition_child$(
     CupertinoFullscreenDialogTransition target) {
   return target.child;
@@ -154,6 +207,16 @@ Function _CupertinoFullscreenDialogTransition_build$(
   CupertinoFullscreenDialogTransition target,
 ) =>
     target.build;
+Function CupertinoModalPopupRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoModalPopupRoute<T>;
+Function CupertinoModalPopupRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoModalPopupRoute<T>;
 Widget Function(BuildContext) _CupertinoModalPopupRoute_builder$<T>(
     CupertinoModalPopupRoute<T> target) {
   return target.builder;
@@ -204,16 +267,26 @@ Function _CupertinoModalPopupRoute_buildTransitions$<T>(
   CupertinoModalPopupRoute<T> target,
 ) =>
     target.buildTransitions;
-Function _showCupertinoModalPopup$(m.Scope scope) => <T>(
-      BuildContext context,
-      m.FunctionPointer builder, {
-      ImageFilter? filter,
+Function CupertinoDialogRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDialogRoute<T>;
+Function CupertinoDialogRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDialogRoute<T>;
+Function _showCupertinoModalPopup$(m.Scope scope) => <T>({
+      Offset? anchorPoint,
       Color? barrierColor,
       bool? barrierDismissible,
-      bool? useRootNavigator,
-      bool? semanticsDismissible,
+      required m.FunctionPointer builder,
+      required BuildContext context,
+      ImageFilter? filter,
       RouteSettings? routeSettings,
-      Offset? anchorPoint,
+      bool? semanticsDismissible,
+      bool? useRootNavigator,
     }) {
       Widget builderProxy(BuildContext builder_context) =>
           scope.engine.callFunctionPointer(
@@ -237,14 +310,14 @@ Function _showCupertinoModalPopup$(m.Scope scope) => <T>(
         useRootNavigator: useRootNavigator == null ? true : useRootNavigator,
       );
     };
-Function _showCupertinoDialog$(m.Scope scope) => <T>(
-      BuildContext context,
-      m.FunctionPointer builder, {
-      String? barrierLabel,
-      bool? useRootNavigator,
-      bool? barrierDismissible,
-      RouteSettings? routeSettings,
+Function _showCupertinoDialog$(m.Scope scope) => <T>({
       Offset? anchorPoint,
+      bool? barrierDismissible,
+      String? barrierLabel,
+      required m.FunctionPointer builder,
+      required BuildContext context,
+      RouteSettings? routeSettings,
+      bool? useRootNavigator,
     }) {
       Widget builderProxy(BuildContext builder_context) =>
           scope.engine.callFunctionPointer(

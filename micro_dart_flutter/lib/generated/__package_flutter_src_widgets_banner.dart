@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'BannerPainter': m.ClassMirror(
       'BannerPainter',
       {
+        '#as': BannerPainter_as$,
+        '#is': BannerPainter_is$,
         'message': _BannerPainter_message$,
         'textDirection': _BannerPainter_textDirection$,
         'location': _BannerPainter_location$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'Banner': m.ClassMirror(
       'Banner',
       {
+        '#as': Banner_as$,
+        '#is': Banner_is$,
         'child': _Banner_child$,
         'message': _Banner_message$,
         'textDirection': _Banner_textDirection$,
@@ -54,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckedModeBanner': m.ClassMirror(
       'CheckedModeBanner',
       {
+        '#as': CheckedModeBanner_as$,
+        '#is': CheckedModeBanner_is$,
         'child': _CheckedModeBanner_child$,
         'build': _CheckedModeBanner_build$,
         'debugFillProperties': _CheckedModeBanner_debugFillProperties$,
@@ -67,6 +73,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BannerPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BannerPainter;
+Function BannerPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BannerPainter;
 String _BannerPainter_message$(BannerPainter target) {
   return target.message;
 }
@@ -111,6 +127,16 @@ Function _BannerPainter_hitTest$(
   BannerPainter target,
 ) =>
     target.hitTest;
+Function Banner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Banner;
+Function Banner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Banner;
 Widget? _Banner_child$(Banner target) {
   return target.child;
 }
@@ -149,6 +175,16 @@ Function _Banner_debugFillProperties$(
   Banner target,
 ) =>
     target.debugFillProperties;
+Function CheckedModeBanner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckedModeBanner;
+Function CheckedModeBanner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckedModeBanner;
 Widget _CheckedModeBanner_child$(CheckedModeBanner target) {
   return target.child;
 }

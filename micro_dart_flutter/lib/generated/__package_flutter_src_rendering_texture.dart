@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'TextureBox': m.ClassMirror(
       'TextureBox',
       {
+        '#as': TextureBox_as$,
+        '#is': TextureBox_is$,
         'textureId': _TextureBox_textureId$,
         'freeze': _TextureBox_freeze$,
         'filterQuality': _TextureBox_filterQuality$,
@@ -33,6 +35,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextureBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextureBox;
+Function TextureBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextureBox;
 int _TextureBox_textureId$(TextureBox target) {
   return target.textureId;
 }

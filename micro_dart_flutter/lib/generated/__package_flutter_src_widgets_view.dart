@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'View': m.ClassMirror(
       'View',
       {
+        '#as': View_as$,
+        '#is': View_is$,
         'view': _View_view$,
         'child': _View_child$,
         'build': _View_build$,
@@ -27,6 +29,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function View_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as View;
+Function View_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is View;
 FlutterView _View_view$(View target) {
   return target.view;
 }

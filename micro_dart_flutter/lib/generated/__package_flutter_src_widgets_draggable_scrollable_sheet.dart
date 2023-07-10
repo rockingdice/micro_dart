@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'DraggableScrollableController': m.ClassMirror(
       'DraggableScrollableController',
       {
+        '#as': DraggableScrollableController_as$,
+        '#is': DraggableScrollableController_is$,
         'size': _DraggableScrollableController_size$,
         'pixels': _DraggableScrollableController_pixels$,
         'isAttached': _DraggableScrollableController_isAttached$,
@@ -44,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'DraggableScrollableSheet': m.ClassMirror(
       'DraggableScrollableSheet',
       {
+        '#as': DraggableScrollableSheet_as$,
+        '#is': DraggableScrollableSheet_is$,
         'initialChildSize': _DraggableScrollableSheet_initialChildSize$,
         'minChildSize': _DraggableScrollableSheet_minChildSize$,
         'maxChildSize': _DraggableScrollableSheet_maxChildSize$,
@@ -61,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'DraggableScrollableNotification': m.ClassMirror(
       'DraggableScrollableNotification',
       {
+        '#as': DraggableScrollableNotification_as$,
+        '#is': DraggableScrollableNotification_is$,
         'extent': _DraggableScrollableNotification_extent$,
         'minExtent': _DraggableScrollableNotification_minExtent$,
         'maxExtent': _DraggableScrollableNotification_maxExtent$,
@@ -74,6 +80,8 @@ const libraryMirror = m.LibraryMirror(
     'DraggableScrollableActuator': m.ClassMirror(
       'DraggableScrollableActuator',
       {
+        '#as': DraggableScrollableActuator_as$,
+        '#is': DraggableScrollableActuator_is$,
         'child': _DraggableScrollableActuator_child$,
         'build': _DraggableScrollableActuator_build$,
       },
@@ -81,6 +89,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DraggableScrollableController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DraggableScrollableController;
+Function DraggableScrollableController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DraggableScrollableController;
 double _DraggableScrollableController_size$(
     DraggableScrollableController target) {
   return target.size;
@@ -121,6 +139,16 @@ Function _DraggableScrollableController_reset$(
   DraggableScrollableController target,
 ) =>
     target.reset;
+Function DraggableScrollableSheet_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DraggableScrollableSheet;
+Function DraggableScrollableSheet_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DraggableScrollableSheet;
 double _DraggableScrollableSheet_initialChildSize$(
     DraggableScrollableSheet target) {
   return target.initialChildSize;
@@ -169,6 +197,16 @@ Function _DraggableScrollableSheet_createState$(
   DraggableScrollableSheet target,
 ) =>
     target.createState;
+Function DraggableScrollableNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DraggableScrollableNotification;
+Function DraggableScrollableNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DraggableScrollableNotification;
 double _DraggableScrollableNotification_extent$(
     DraggableScrollableNotification target) {
   return target.extent;
@@ -199,6 +237,16 @@ Function _DraggableScrollableNotification_debugFillDescription$(
   DraggableScrollableNotification target,
 ) =>
     target.debugFillDescription;
+Function DraggableScrollableActuator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DraggableScrollableActuator;
+Function DraggableScrollableActuator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DraggableScrollableActuator;
 Widget _DraggableScrollableActuator_child$(DraggableScrollableActuator target) {
   return target.child;
 }

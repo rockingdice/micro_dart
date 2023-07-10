@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoFormSection': m.ClassMirror(
       'CupertinoFormSection',
       {
+        '#as': CupertinoFormSection_as$,
+        '#is': CupertinoFormSection_is$,
         'header': _CupertinoFormSection_header$,
         'footer': _CupertinoFormSection_footer$,
         'margin': _CupertinoFormSection_margin$,
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoFormSection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoFormSection;
+Function CupertinoFormSection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoFormSection;
 Widget? _CupertinoFormSection_header$(CupertinoFormSection target) {
   return target.header;
 }

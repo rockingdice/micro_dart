@@ -32,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonTheme': m.ClassMirror(
       'ButtonTheme',
       {
+        '#as': ButtonTheme_as$,
+        '#is': ButtonTheme_is$,
         'data': _ButtonTheme_data$,
         'wrap': _ButtonTheme_wrap$,
         'updateShouldNotify': _ButtonTheme_updateShouldNotify$,
@@ -41,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonThemeData': m.ClassMirror(
       'ButtonThemeData',
       {
+        '#as': ButtonThemeData_as$,
+        '#is': ButtonThemeData_is$,
         'minWidth': _ButtonThemeData_minWidth$,
         'height': _ButtonThemeData_height$,
         'textTheme': _ButtonThemeData_textTheme$,
@@ -72,6 +76,7 @@ const libraryMirror = m.LibraryMirror(
         'getConstraints': _ButtonThemeData_getConstraints$,
         'getMaterialTapTargetSize': _ButtonThemeData_getMaterialTapTargetSize$,
         'copyWith': _ButtonThemeData_copyWith$,
+        '==': _ButtonThemeData_eq$$,
         'debugFillProperties': _ButtonThemeData_debugFillProperties$,
       },
       {},
@@ -88,6 +93,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonTheme;
+Function ButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonTheme;
 ButtonThemeData _ButtonTheme_data$(ButtonTheme target) {
   return target.data;
 }
@@ -103,6 +118,16 @@ Function _ButtonTheme_updateShouldNotify$(
   ButtonTheme target,
 ) =>
     target.updateShouldNotify;
+Function ButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonThemeData;
+Function ButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonThemeData;
 double _ButtonThemeData_minWidth$(ButtonThemeData target) {
   return target.minWidth;
 }
@@ -249,6 +274,11 @@ Function _ButtonThemeData_copyWith$(
   ButtonThemeData target,
 ) =>
     target.copyWith;
+Function _ButtonThemeData_eq$$(
+  m.Scope scope,
+  ButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ButtonThemeData_debugFillProperties$(
   m.Scope scope,
   ButtonThemeData target,

@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'StarBorder': m.ClassMirror(
       'StarBorder',
       {
+        '#as': StarBorder_as$,
+        '#is': StarBorder_is$,
         'points': _StarBorder_points$,
         'pointRounding': _StarBorder_pointRounding$,
         'valleyRounding': _StarBorder_valleyRounding$,
@@ -35,12 +37,23 @@ const libraryMirror = m.LibraryMirror(
         'getInnerPath': _StarBorder_getInnerPath$,
         'getOuterPath': _StarBorder_getOuterPath$,
         'paint': _StarBorder_paint$,
+        '==': _StarBorder_eq$$,
         'toString': _StarBorder_toString$,
       },
       {},
     )
   },
 );
+Function StarBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StarBorder;
+Function StarBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StarBorder;
 double _StarBorder_points$(StarBorder target) {
   return target.points;
 }
@@ -104,6 +117,11 @@ Function _StarBorder_paint$(
   StarBorder target,
 ) =>
     target.paint;
+Function _StarBorder_eq$$(
+  m.Scope scope,
+  StarBorder target,
+) =>
+    (Object other) => target == other;
 Function _StarBorder_toString$(
   m.Scope scope,
   StarBorder target,

@@ -26,15 +26,18 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/editable.dart',
-  {},
+  {'RenderEditable.visitChildren': _RenderEditable_visitChildren$},
   {},
   {
     'TextSelectionPoint': m.ClassMirror(
       'TextSelectionPoint',
       {
+        '#as': TextSelectionPoint_as$,
+        '#is': TextSelectionPoint_is$,
         'point': _TextSelectionPoint_point$,
         'direction': _TextSelectionPoint_direction$,
         'hashCode': _TextSelectionPoint_hashCode$,
+        '==': _TextSelectionPoint_eq$$,
         'toString': _TextSelectionPoint_toString$,
       },
       {},
@@ -42,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'VerticalCaretMovementRun': m.ClassMirror(
       'VerticalCaretMovementRun',
       {
+        '#as': VerticalCaretMovementRun_as$,
+        '#is': VerticalCaretMovementRun_is$,
         'isValid': _VerticalCaretMovementRun_isValid$,
         'current': _VerticalCaretMovementRun_current$,
         'moveNext': _VerticalCaretMovementRun_moveNext$,
@@ -53,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderEditable': m.ClassMirror(
       'RenderEditable',
       {
+        '#as': RenderEditable_as$,
+        '#is': RenderEditable_is$,
         'onCaretChanged': _RenderEditable_onCaretChanged$,
         'ignorePointer': _RenderEditable_ignorePointer$,
         'textSelectionDelegate': _RenderEditable_textSelectionDelegate$,
@@ -207,6 +214,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderEditablePainter': m.ClassMirror(
       'RenderEditablePainter',
       {
+        '#as': RenderEditablePainter_as$,
+        '#is': RenderEditablePainter_is$,
         'shouldRepaint': _RenderEditablePainter_shouldRepaint$,
         'paint': _RenderEditablePainter_paint$,
       },
@@ -214,6 +223,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextSelectionPoint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionPoint;
+Function TextSelectionPoint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionPoint;
 Offset _TextSelectionPoint_point$(TextSelectionPoint target) {
   return target.point;
 }
@@ -226,11 +245,26 @@ int _TextSelectionPoint_hashCode$(TextSelectionPoint target) {
   return target.hashCode;
 }
 
+Function _TextSelectionPoint_eq$$(
+  m.Scope scope,
+  TextSelectionPoint target,
+) =>
+    (Object other) => target == other;
 Function _TextSelectionPoint_toString$(
   m.Scope scope,
   TextSelectionPoint target,
 ) =>
     target.toString;
+Function VerticalCaretMovementRun_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VerticalCaretMovementRun;
+Function VerticalCaretMovementRun_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VerticalCaretMovementRun;
 bool _VerticalCaretMovementRun_isValid$(VerticalCaretMovementRun target) {
   return target.isValid;
 }
@@ -255,6 +289,16 @@ Function _VerticalCaretMovementRun_moveByOffset$(
   VerticalCaretMovementRun target,
 ) =>
     target.moveByOffset;
+Function RenderEditable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderEditable;
+Function RenderEditable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderEditable;
 void Function(Rect)? _RenderEditable_onCaretChanged$(RenderEditable target) {
   return target.onCaretChanged;
 }
@@ -835,6 +879,20 @@ Function _RenderEditable_redepthChildren$(
   RenderEditable target,
 ) =>
     target.redepthChildren;
+Function _RenderEditable_visitChildren$(
+  m.Scope scope,
+  RenderEditable target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(RenderObject visitor_child) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_child],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _RenderEditable_getEndpointsForSelection$(
   m.Scope scope,
   RenderEditable target,
@@ -990,6 +1048,16 @@ Function _RenderEditable_debugDescribeChildren$(
   RenderEditable target,
 ) =>
     target.debugDescribeChildren;
+Function RenderEditablePainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderEditablePainter;
+Function RenderEditablePainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderEditablePainter;
 Function _RenderEditablePainter_shouldRepaint$(
   m.Scope scope,
   RenderEditablePainter target,

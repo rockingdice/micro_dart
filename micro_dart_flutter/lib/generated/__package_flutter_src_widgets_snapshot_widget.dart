@@ -13,6 +13,7 @@ import 'package:flutter/src/widgets/media_query.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/snapshot_widget.dart',
   {
+    'SnapshotPainter.paint': _SnapshotPainter_paint$,
     'SnapshotMode.permissive': _SnapshotMode_permissive$,
     'SnapshotMode.normal': _SnapshotMode_normal$,
     'SnapshotMode.forced': _SnapshotMode_forced$,
@@ -23,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'SnapshotController': m.ClassMirror(
       'SnapshotController',
       {
+        '#as': SnapshotController_as$,
+        '#is': SnapshotController_is$,
         'allowSnapshotting': _SnapshotController_allowSnapshotting$,
         'clear': _SnapshotController_clear$,
       },
@@ -31,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'SnapshotWidget': m.ClassMirror(
       'SnapshotWidget',
       {
+        '#as': SnapshotWidget_as$,
+        '#is': SnapshotWidget_is$,
         'controller': _SnapshotWidget_controller$,
         'mode': _SnapshotWidget_mode$,
         'autoresize': _SnapshotWidget_autoresize$,
@@ -43,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'SnapshotPainter': m.ClassMirror(
       'SnapshotPainter',
       {
+        '#as': SnapshotPainter_as$,
+        '#is': SnapshotPainter_is$,
         'paintSnapshot': _SnapshotPainter_paintSnapshot$,
         'shouldRepaint': _SnapshotPainter_shouldRepaint$,
       },
@@ -55,6 +62,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SnapshotController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnapshotController;
+Function SnapshotController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnapshotController;
 bool _SnapshotController_allowSnapshotting$(SnapshotController target) {
   return target.allowSnapshotting;
 }
@@ -71,6 +88,16 @@ Function _SnapshotController_clear$(
   SnapshotController target,
 ) =>
     target.clear;
+Function SnapshotWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnapshotWidget;
+Function SnapshotWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnapshotWidget;
 SnapshotController _SnapshotWidget_controller$(SnapshotWidget target) {
   return target.controller;
 }
@@ -97,11 +124,51 @@ Function _SnapshotWidget_updateRenderObject$(
   SnapshotWidget target,
 ) =>
     target.updateRenderObject;
+Function SnapshotPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnapshotPainter;
+Function SnapshotPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnapshotPainter;
 Function _SnapshotPainter_paintSnapshot$(
   m.Scope scope,
   SnapshotPainter target,
 ) =>
     target.paintSnapshot;
+Function _SnapshotPainter_paint$(
+  m.Scope scope,
+  SnapshotPainter target,
+) =>
+    (
+      PaintingContext context,
+      Offset offset,
+      Size size,
+      m.FunctionPointer painter,
+    ) {
+      void painterProxy(
+        PaintingContext painter_context,
+        Offset painter_offset,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            painter,
+            [
+              painter_context,
+              painter_offset,
+            ],
+            {},
+          );
+      target.paint(
+        context,
+        offset,
+        size,
+        painterProxy,
+      );
+    };
 Function _SnapshotPainter_shouldRepaint$(
   m.Scope scope,
   SnapshotPainter target,

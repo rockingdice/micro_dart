@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'HtmlEscapeMode.sqAttribute': _HtmlEscapeMode_sqAttribute$,
     'HtmlEscapeMode.element': _HtmlEscapeMode_element$,
     'json': _json$,
+    'JsonCodec.decode': _JsonCodec_decode$,
+    'JsonCodec.encode': _JsonCodec_encode$,
     'jsonEncode': _jsonEncode$,
     'jsonDecode': _jsonDecode$,
     'latin1': _latin1$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'AsciiCodec': m.ClassMirror(
       'AsciiCodec',
       {
+        '#as': AsciiCodec_as$,
+        '#is': AsciiCodec_is$,
         'name': _AsciiCodec_name$,
         'encoder': _AsciiCodec_encoder$,
         'decoder': _AsciiCodec_decoder$,
@@ -46,17 +50,26 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AsciiEncoder': m.ClassMirror(
       'AsciiEncoder',
-      {},
+      {
+        '#as': AsciiEncoder_as$,
+        '#is': AsciiEncoder_is$,
+      },
       {},
     ),
     'AsciiDecoder': m.ClassMirror(
       'AsciiDecoder',
-      {'startChunkedConversion': _AsciiDecoder_startChunkedConversion$},
+      {
+        '#as': AsciiDecoder_as$,
+        '#is': AsciiDecoder_is$,
+        'startChunkedConversion': _AsciiDecoder_startChunkedConversion$,
+      },
       {},
     ),
     'Base64Codec': m.ClassMirror(
       'Base64Codec',
       {
+        '#as': Base64Codec_as$,
+        '#is': Base64Codec_is$,
         'encoder': _Base64Codec_encoder$,
         'decoder': _Base64Codec_decoder$,
         'decode': _Base64Codec_decode$,
@@ -67,6 +80,8 @@ const libraryMirror = m.LibraryMirror(
     'Base64Encoder': m.ClassMirror(
       'Base64Encoder',
       {
+        '#as': Base64Encoder_as$,
+        '#is': Base64Encoder_is$,
         'convert': _Base64Encoder_convert$,
         'startChunkedConversion': _Base64Encoder_startChunkedConversion$,
       },
@@ -75,6 +90,8 @@ const libraryMirror = m.LibraryMirror(
     'Base64Decoder': m.ClassMirror(
       'Base64Decoder',
       {
+        '#as': Base64Decoder_as$,
+        '#is': Base64Decoder_is$,
         'convert': _Base64Decoder_convert$,
         'startChunkedConversion': _Base64Decoder_startChunkedConversion$,
       },
@@ -82,12 +99,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ByteConversionSink': m.ClassMirror(
       'ByteConversionSink',
-      {'addSlice': _ByteConversionSink_addSlice$},
+      {
+        '#as': ByteConversionSink_as$,
+        '#is': ByteConversionSink_is$,
+        'addSlice': _ByteConversionSink_addSlice$,
+      },
       {},
     ),
     'ChunkedConversionSink': m.ClassMirror(
       'ChunkedConversionSink',
       {
+        '#as': ChunkedConversionSink_as$,
+        '#is': ChunkedConversionSink_is$,
         'add': _ChunkedConversionSink_add$,
         'close': _ChunkedConversionSink_close$,
       },
@@ -96,6 +119,8 @@ const libraryMirror = m.LibraryMirror(
     'Codec': m.ClassMirror(
       'Codec',
       {
+        '#as': Codec_as$,
+        '#is': Codec_is$,
         'encoder': _Codec_encoder$,
         'decoder': _Codec_decoder$,
         'inverted': _Codec_inverted$,
@@ -108,6 +133,8 @@ const libraryMirror = m.LibraryMirror(
     'Converter': m.ClassMirror(
       'Converter',
       {
+        '#as': Converter_as$,
+        '#is': Converter_is$,
         'convert': _Converter_convert$,
         'fuse': _Converter_fuse$,
         'startChunkedConversion': _Converter_startChunkedConversion$,
@@ -119,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'Encoding': m.ClassMirror(
       'Encoding',
       {
+        '#as': Encoding_as$,
+        '#is': Encoding_is$,
         'encoder': _Encoding_encoder$,
         'decoder': _Encoding_decoder$,
         'name': _Encoding_name$,
@@ -129,6 +158,8 @@ const libraryMirror = m.LibraryMirror(
     'HtmlEscapeMode': m.ClassMirror(
       'HtmlEscapeMode',
       {
+        '#as': HtmlEscapeMode_as$,
+        '#is': HtmlEscapeMode_is$,
         'escapeLtGt': _HtmlEscapeMode_escapeLtGt$,
         'escapeQuot': _HtmlEscapeMode_escapeQuot$,
         'escapeApos': _HtmlEscapeMode_escapeApos$,
@@ -140,6 +171,8 @@ const libraryMirror = m.LibraryMirror(
     'HtmlEscape': m.ClassMirror(
       'HtmlEscape',
       {
+        '#as': HtmlEscape_as$,
+        '#is': HtmlEscape_is$,
         'mode': _HtmlEscape_mode$,
         'convert': _HtmlEscape_convert$,
         'startChunkedConversion': _HtmlEscape_startChunkedConversion$,
@@ -149,6 +182,8 @@ const libraryMirror = m.LibraryMirror(
     'JsonUnsupportedObjectError': m.ClassMirror(
       'JsonUnsupportedObjectError',
       {
+        '#as': JsonUnsupportedObjectError_as$,
+        '#is': JsonUnsupportedObjectError_is$,
         'unsupportedObject': _JsonUnsupportedObjectError_unsupportedObject$,
         'cause': _JsonUnsupportedObjectError_cause$,
         'partialResult': _JsonUnsupportedObjectError_partialResult$,
@@ -158,12 +193,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonCyclicError': m.ClassMirror(
       'JsonCyclicError',
-      {'toString': _JsonCyclicError_toString$},
+      {
+        '#as': JsonCyclicError_as$,
+        '#is': JsonCyclicError_is$,
+        'toString': _JsonCyclicError_toString$,
+      },
       {},
     ),
     'JsonCodec': m.ClassMirror(
       'JsonCodec',
       {
+        '#as': JsonCodec_as$,
+        '#is': JsonCodec_is$,
         'encoder': _JsonCodec_encoder$,
         'decoder': _JsonCodec_decoder$,
       },
@@ -172,6 +213,8 @@ const libraryMirror = m.LibraryMirror(
     'JsonEncoder': m.ClassMirror(
       'JsonEncoder',
       {
+        '#as': JsonEncoder_as$,
+        '#is': JsonEncoder_is$,
         'indent': _JsonEncoder_indent$,
         'convert': _JsonEncoder_convert$,
         'startChunkedConversion': _JsonEncoder_startChunkedConversion$,
@@ -183,6 +226,8 @@ const libraryMirror = m.LibraryMirror(
     'JsonUtf8Encoder': m.ClassMirror(
       'JsonUtf8Encoder',
       {
+        '#as': JsonUtf8Encoder_as$,
+        '#is': JsonUtf8Encoder_is$,
         'convert': _JsonUtf8Encoder_convert$,
         'startChunkedConversion': _JsonUtf8Encoder_startChunkedConversion$,
         'bind': _JsonUtf8Encoder_bind$,
@@ -192,6 +237,8 @@ const libraryMirror = m.LibraryMirror(
     'JsonDecoder': m.ClassMirror(
       'JsonDecoder',
       {
+        '#as': JsonDecoder_as$,
+        '#is': JsonDecoder_is$,
         'convert': _JsonDecoder_convert$,
         'startChunkedConversion': _JsonDecoder_startChunkedConversion$,
         'bind': _JsonDecoder_bind$,
@@ -201,6 +248,8 @@ const libraryMirror = m.LibraryMirror(
     'Latin1Codec': m.ClassMirror(
       'Latin1Codec',
       {
+        '#as': Latin1Codec_as$,
+        '#is': Latin1Codec_is$,
         'name': _Latin1Codec_name$,
         'encoder': _Latin1Codec_encoder$,
         'decoder': _Latin1Codec_decoder$,
@@ -211,17 +260,26 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Latin1Encoder': m.ClassMirror(
       'Latin1Encoder',
-      {},
+      {
+        '#as': Latin1Encoder_as$,
+        '#is': Latin1Encoder_is$,
+      },
       {},
     ),
     'Latin1Decoder': m.ClassMirror(
       'Latin1Decoder',
-      {'startChunkedConversion': _Latin1Decoder_startChunkedConversion$},
+      {
+        '#as': Latin1Decoder_as$,
+        '#is': Latin1Decoder_is$,
+        'startChunkedConversion': _Latin1Decoder_startChunkedConversion$,
+      },
       {},
     ),
     'LineSplitter': m.ClassMirror(
       'LineSplitter',
       {
+        '#as': LineSplitter_as$,
+        '#is': LineSplitter_is$,
         'convert': _LineSplitter_convert$,
         'startChunkedConversion': _LineSplitter_startChunkedConversion$,
         'bind': _LineSplitter_bind$,
@@ -231,6 +289,8 @@ const libraryMirror = m.LibraryMirror(
     'StringConversionSink': m.ClassMirror(
       'StringConversionSink',
       {
+        '#as': StringConversionSink_as$,
+        '#is': StringConversionSink_is$,
         'addSlice': _StringConversionSink_addSlice$,
         'add': _StringConversionSink_add$,
         'asUtf8Sink': _StringConversionSink_asUtf8Sink$,
@@ -240,12 +300,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ClosableStringSink': m.ClassMirror(
       'ClosableStringSink',
-      {'close': _ClosableStringSink_close$},
+      {
+        '#as': ClosableStringSink_as$,
+        '#is': ClosableStringSink_is$,
+        'close': _ClosableStringSink_close$,
+      },
       {},
     ),
     'Utf8Codec': m.ClassMirror(
       'Utf8Codec',
       {
+        '#as': Utf8Codec_as$,
+        '#is': Utf8Codec_is$,
         'name': _Utf8Codec_name$,
         'encoder': _Utf8Codec_encoder$,
         'decoder': _Utf8Codec_decoder$,
@@ -256,6 +322,8 @@ const libraryMirror = m.LibraryMirror(
     'Utf8Encoder': m.ClassMirror(
       'Utf8Encoder',
       {
+        '#as': Utf8Encoder_as$,
+        '#is': Utf8Encoder_is$,
         'convert': _Utf8Encoder_convert$,
         'startChunkedConversion': _Utf8Encoder_startChunkedConversion$,
         'bind': _Utf8Encoder_bind$,
@@ -265,6 +333,8 @@ const libraryMirror = m.LibraryMirror(
     'Utf8Decoder': m.ClassMirror(
       'Utf8Decoder',
       {
+        '#as': Utf8Decoder_as$,
+        '#is': Utf8Decoder_is$,
         'convert': _Utf8Decoder_convert$,
         'startChunkedConversion': _Utf8Decoder_startChunkedConversion$,
         'bind': _Utf8Decoder_bind$,
@@ -278,6 +348,16 @@ AsciiCodec _ascii$() {
   return ascii;
 }
 
+Function AsciiCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AsciiCodec;
+Function AsciiCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AsciiCodec;
 String _AsciiCodec_name$(AsciiCodec target) {
   return target.name;
 }
@@ -300,6 +380,26 @@ Function _AsciiCodec_decode$(
   AsciiCodec target,
 ) =>
     target.decode;
+Function AsciiEncoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AsciiEncoder;
+Function AsciiEncoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AsciiEncoder;
+Function AsciiDecoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AsciiDecoder;
+Function AsciiDecoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AsciiDecoder;
 Function _AsciiDecoder_startChunkedConversion$(
   m.Scope scope,
   AsciiDecoder target,
@@ -313,6 +413,16 @@ Base64Codec _base64Url$() {
   return base64Url;
 }
 
+Function Base64Codec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Base64Codec;
+Function Base64Codec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Base64Codec;
 Base64Encoder _Base64Codec_encoder$(Base64Codec target) {
   return target.encoder;
 }
@@ -331,6 +441,16 @@ Function _Base64Codec_normalize$(
   Base64Codec target,
 ) =>
     target.normalize;
+Function Base64Encoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Base64Encoder;
+Function Base64Encoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Base64Encoder;
 Function _Base64Encoder_convert$(
   m.Scope scope,
   Base64Encoder target,
@@ -341,6 +461,16 @@ Function _Base64Encoder_startChunkedConversion$(
   Base64Encoder target,
 ) =>
     target.startChunkedConversion;
+Function Base64Decoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Base64Decoder;
+Function Base64Decoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Base64Decoder;
 Function _Base64Decoder_convert$(
   m.Scope scope,
   Base64Decoder target,
@@ -354,11 +484,31 @@ Function _Base64Decoder_startChunkedConversion$(
 Function _base64Encode$(m.Scope scope) => base64Encode;
 Function _base64UrlEncode$(m.Scope scope) => base64UrlEncode;
 Function _base64Decode$(m.Scope scope) => base64Decode;
+Function ByteConversionSink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ByteConversionSink;
+Function ByteConversionSink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ByteConversionSink;
 Function _ByteConversionSink_addSlice$(
   m.Scope scope,
   ByteConversionSink target,
 ) =>
     target.addSlice;
+Function ChunkedConversionSink_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChunkedConversionSink<T>;
+Function ChunkedConversionSink_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChunkedConversionSink<T>;
 Function _ChunkedConversionSink_add$<T>(
   m.Scope scope,
   ChunkedConversionSink<T> target,
@@ -369,6 +519,16 @@ Function _ChunkedConversionSink_close$<T>(
   ChunkedConversionSink<T> target,
 ) =>
     target.close;
+Function Codec_as$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Codec<S, T>;
+Function Codec_is$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Codec<S, T>;
 Converter<S, T> _Codec_encoder$<S, T>(Codec<S, T> target) {
   return target.encoder;
 }
@@ -396,6 +556,16 @@ Function _Codec_fuse$<S, T, R>(
   Codec<S, T> target,
 ) =>
     target.fuse<R>;
+Function Converter_as$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Converter<S, T>;
+Function Converter_is$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Converter<S, T>;
 Function _Converter_castFrom$<SS, ST, TS, TT>(m.Scope scope) =>
     Converter.castFrom<SS, ST, TS, TT>;
 Function _Converter_convert$<S, T>(
@@ -423,6 +593,16 @@ Function _Converter_cast$<S, T, RS, RT>(
   Converter<S, T> target,
 ) =>
     target.cast<RS, RT>;
+Function Encoding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Encoding;
+Function Encoding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Encoding;
 Converter<String, List<int>> _Encoding_encoder$(Encoding target) {
   return target.encoder;
 }
@@ -445,6 +625,16 @@ HtmlEscape _htmlEscape$() {
   return htmlEscape;
 }
 
+Function HtmlEscapeMode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HtmlEscapeMode;
+Function HtmlEscapeMode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HtmlEscapeMode;
 bool _HtmlEscapeMode_escapeLtGt$(HtmlEscapeMode target) {
   return target.escapeLtGt;
 }
@@ -482,6 +672,16 @@ Function _HtmlEscapeMode_toString$(
   HtmlEscapeMode target,
 ) =>
     target.toString;
+Function HtmlEscape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HtmlEscape;
+Function HtmlEscape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HtmlEscape;
 HtmlEscapeMode _HtmlEscape_mode$(HtmlEscape target) {
   return target.mode;
 }
@@ -500,6 +700,16 @@ JsonCodec _json$() {
   return json;
 }
 
+Function JsonUnsupportedObjectError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonUnsupportedObjectError;
+Function JsonUnsupportedObjectError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonUnsupportedObjectError;
 Object? _JsonUnsupportedObjectError_unsupportedObject$(
     JsonUnsupportedObjectError target) {
   return target.unsupportedObject;
@@ -519,11 +729,31 @@ Function _JsonUnsupportedObjectError_toString$(
   JsonUnsupportedObjectError target,
 ) =>
     target.toString;
+Function JsonCyclicError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonCyclicError;
+Function JsonCyclicError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonCyclicError;
 Function _JsonCyclicError_toString$(
   m.Scope scope,
   JsonCyclicError target,
 ) =>
     target.toString;
+Function JsonCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonCodec;
+Function JsonCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonCodec;
 JsonEncoder _JsonCodec_encoder$(JsonCodec target) {
   return target.encoder;
 }
@@ -532,6 +762,62 @@ JsonDecoder _JsonCodec_decoder$(JsonCodec target) {
   return target.decoder;
 }
 
+Function _JsonCodec_decode$(
+  m.Scope scope,
+  JsonCodec target,
+) =>
+    (
+      String source, {
+      m.FunctionPointer? reviver,
+    }) {
+      Object? reviverProxy(
+        Object? reviver_key,
+        Object? reviver_value,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            reviver!,
+            [
+              reviver_key,
+              reviver_value,
+            ],
+            {},
+          );
+      return target.decode(
+        source,
+        reviver: reviver == null ? null : reviverProxy,
+      );
+    };
+Function _JsonCodec_encode$(
+  m.Scope scope,
+  JsonCodec target,
+) =>
+    (
+      Object? value, {
+      m.FunctionPointer? toEncodable,
+    }) {
+      Object? toEncodableProxy(dynamic toEncodable_object) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            toEncodable!,
+            [toEncodable_object],
+            {},
+          );
+      return target.encode(
+        value,
+        toEncodable: toEncodable == null ? null : toEncodableProxy,
+      );
+    };
+Function JsonEncoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonEncoder;
+Function JsonEncoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonEncoder;
 String? _JsonEncoder_indent$(JsonEncoder target) {
   return target.indent;
 }
@@ -556,6 +842,16 @@ Function _JsonEncoder_fuse$<T>(
   JsonEncoder target,
 ) =>
     target.fuse<T>;
+Function JsonUtf8Encoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonUtf8Encoder;
+Function JsonUtf8Encoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonUtf8Encoder;
 Function _JsonUtf8Encoder_convert$(
   m.Scope scope,
   JsonUtf8Encoder target,
@@ -571,6 +867,16 @@ Function _JsonUtf8Encoder_bind$(
   JsonUtf8Encoder target,
 ) =>
     target.bind;
+Function JsonDecoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JsonDecoder;
+Function JsonDecoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JsonDecoder;
 Function _JsonDecoder_convert$(
   m.Scope scope,
   JsonDecoder target,
@@ -628,6 +934,16 @@ Latin1Codec _latin1$() {
   return latin1;
 }
 
+Function Latin1Codec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Latin1Codec;
+Function Latin1Codec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Latin1Codec;
 String _Latin1Codec_name$(Latin1Codec target) {
   return target.name;
 }
@@ -650,11 +966,41 @@ Function _Latin1Codec_decode$(
   Latin1Codec target,
 ) =>
     target.decode;
+Function Latin1Encoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Latin1Encoder;
+Function Latin1Encoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Latin1Encoder;
+Function Latin1Decoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Latin1Decoder;
+Function Latin1Decoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Latin1Decoder;
 Function _Latin1Decoder_startChunkedConversion$(
   m.Scope scope,
   Latin1Decoder target,
 ) =>
     target.startChunkedConversion;
+Function LineSplitter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LineSplitter;
+Function LineSplitter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LineSplitter;
 Function _LineSplitter_split$(m.Scope scope) => LineSplitter.split;
 Function _LineSplitter_convert$(
   m.Scope scope,
@@ -671,6 +1017,16 @@ Function _LineSplitter_bind$(
   LineSplitter target,
 ) =>
     target.bind;
+Function StringConversionSink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringConversionSink;
+Function StringConversionSink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringConversionSink;
 Function _StringConversionSink_addSlice$(
   m.Scope scope,
   StringConversionSink target,
@@ -691,6 +1047,16 @@ Function _StringConversionSink_asStringSink$(
   StringConversionSink target,
 ) =>
     target.asStringSink;
+Function ClosableStringSink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClosableStringSink;
+Function ClosableStringSink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClosableStringSink;
 Function _ClosableStringSink_close$(
   m.Scope scope,
   ClosableStringSink target,
@@ -708,6 +1074,16 @@ Utf8Codec _utf8$() {
   return utf8;
 }
 
+Function Utf8Codec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Utf8Codec;
+Function Utf8Codec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Utf8Codec;
 String _Utf8Codec_name$(Utf8Codec target) {
   return target.name;
 }
@@ -725,6 +1101,16 @@ Function _Utf8Codec_decode$(
   Utf8Codec target,
 ) =>
     target.decode;
+Function Utf8Encoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Utf8Encoder;
+Function Utf8Encoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Utf8Encoder;
 Function _Utf8Encoder_convert$(
   m.Scope scope,
   Utf8Encoder target,
@@ -740,6 +1126,16 @@ Function _Utf8Encoder_bind$(
   Utf8Encoder target,
 ) =>
     target.bind;
+Function Utf8Decoder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Utf8Decoder;
+Function Utf8Decoder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Utf8Decoder;
 Function _Utf8Decoder_convert$(
   m.Scope scope,
   Utf8Decoder target,

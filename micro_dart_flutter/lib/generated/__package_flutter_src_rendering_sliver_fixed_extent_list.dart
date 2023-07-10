@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverFixedExtentBoxAdaptor': m.ClassMirror(
       'RenderSliverFixedExtentBoxAdaptor',
       {
+        '#as': RenderSliverFixedExtentBoxAdaptor_as$,
+        '#is': RenderSliverFixedExtentBoxAdaptor_is$,
         'itemExtent': _RenderSliverFixedExtentBoxAdaptor_itemExtent$,
         'indexToLayoutOffset':
             _RenderSliverFixedExtentBoxAdaptor_indexToLayoutOffset$,
@@ -34,11 +36,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RenderSliverFixedExtentList': m.ClassMirror(
       'RenderSliverFixedExtentList',
-      {'itemExtent': _RenderSliverFixedExtentList_itemExtent$},
+      {
+        '#as': RenderSliverFixedExtentList_as$,
+        '#is': RenderSliverFixedExtentList_is$,
+        'itemExtent': _RenderSliverFixedExtentList_itemExtent$,
+      },
       {'itemExtent': _RenderSliverFixedExtentList_itemExtent_set$},
     ),
   },
 );
+Function RenderSliverFixedExtentBoxAdaptor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFixedExtentBoxAdaptor;
+Function RenderSliverFixedExtentBoxAdaptor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFixedExtentBoxAdaptor;
 double _RenderSliverFixedExtentBoxAdaptor_itemExtent$(
     RenderSliverFixedExtentBoxAdaptor target) {
   return target.itemExtent;
@@ -74,6 +90,16 @@ Function _RenderSliverFixedExtentBoxAdaptor_performLayout$(
   RenderSliverFixedExtentBoxAdaptor target,
 ) =>
     target.performLayout;
+Function RenderSliverFixedExtentList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFixedExtentList;
+Function RenderSliverFixedExtentList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFixedExtentList;
 double _RenderSliverFixedExtentList_itemExtent$(
     RenderSliverFixedExtentList target) {
   return target.itemExtent;

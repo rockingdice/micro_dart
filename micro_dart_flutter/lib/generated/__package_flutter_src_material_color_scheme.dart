@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'ColorScheme': m.ClassMirror(
       'ColorScheme',
       {
+        '#as': ColorScheme_as$,
+        '#is': ColorScheme_is$,
         'brightness': _ColorScheme_brightness$,
         'primary': _ColorScheme_primary$,
         'onPrimary': _ColorScheme_onPrimary$,
@@ -55,12 +57,23 @@ const libraryMirror = m.LibraryMirror(
         'surfaceTint': _ColorScheme_surfaceTint$,
         'hashCode': _ColorScheme_hashCode$,
         'copyWith': _ColorScheme_copyWith$,
+        '==': _ColorScheme_eq$$,
         'debugFillProperties': _ColorScheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function ColorScheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorScheme;
+Function ColorScheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorScheme;
 Brightness _ColorScheme_brightness$(ColorScheme target) {
   return target.brightness;
 }
@@ -195,6 +208,11 @@ Function _ColorScheme_copyWith$(
 ) =>
     target.copyWith;
 Function _ColorScheme_lerp$(m.Scope scope) => ColorScheme.lerp;
+Function _ColorScheme_eq$$(
+  m.Scope scope,
+  ColorScheme target,
+) =>
+    (Object other) => target == other;
 Function _ColorScheme_debugFillProperties$(
   m.Scope scope,
   ColorScheme target,

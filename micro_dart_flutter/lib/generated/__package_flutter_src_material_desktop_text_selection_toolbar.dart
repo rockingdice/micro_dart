@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'DesktopTextSelectionToolbar': m.ClassMirror(
       'DesktopTextSelectionToolbar',
       {
+        '#as': DesktopTextSelectionToolbar_as$,
+        '#is': DesktopTextSelectionToolbar_is$,
         'anchor': _DesktopTextSelectionToolbar_anchor$,
         'children': _DesktopTextSelectionToolbar_children$,
         'build': _DesktopTextSelectionToolbar_build$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DesktopTextSelectionToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DesktopTextSelectionToolbar;
+Function DesktopTextSelectionToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DesktopTextSelectionToolbar;
 Offset _DesktopTextSelectionToolbar_anchor$(
     DesktopTextSelectionToolbar target) {
   return target.anchor;

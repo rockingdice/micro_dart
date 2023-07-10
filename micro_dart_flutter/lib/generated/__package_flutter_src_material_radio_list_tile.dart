@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'RadioListTile': m.ClassMirror(
       'RadioListTile',
       {
+        '#as': RadioListTile_as$,
+        '#is': RadioListTile_is$,
         'value': _RadioListTile_value$,
         'groupValue': _RadioListTile_groupValue$,
         'onChanged': _RadioListTile_onChanged$,
@@ -54,6 +56,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RadioListTile_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RadioListTile<T>;
+Function RadioListTile_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RadioListTile<T>;
 T _RadioListTile_value$<T>(RadioListTile<T> target) {
   return target.value;
 }

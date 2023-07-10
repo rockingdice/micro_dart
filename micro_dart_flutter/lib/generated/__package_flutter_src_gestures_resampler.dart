@@ -8,12 +8,17 @@ import 'package:flutter/src/gestures/events.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/resampler.dart',
-  {},
+  {
+    'PointerEventResampler.sample': _PointerEventResampler_sample$,
+    'PointerEventResampler.stop': _PointerEventResampler_stop$,
+  },
   {},
   {
     'PointerEventResampler': m.ClassMirror(
       'PointerEventResampler',
       {
+        '#as': PointerEventResampler_as$,
+        '#is': PointerEventResampler_is$,
         'hasPendingEvents': _PointerEventResampler_hasPendingEvents$,
         'isTracked': _PointerEventResampler_isTracked$,
         'isDown': _PointerEventResampler_isDown$,
@@ -23,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function PointerEventResampler_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerEventResampler;
+Function PointerEventResampler_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerEventResampler;
 bool _PointerEventResampler_hasPendingEvents$(PointerEventResampler target) {
   return target.hasPendingEvents;
 }
@@ -40,3 +55,39 @@ Function _PointerEventResampler_addEvent$(
   PointerEventResampler target,
 ) =>
     target.addEvent;
+Function _PointerEventResampler_sample$(
+  m.Scope scope,
+  PointerEventResampler target,
+) =>
+    (
+      Duration sampleTime,
+      Duration nextSampleTime,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy(PointerEvent callback_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_event],
+            {},
+          );
+      target.sample(
+        sampleTime,
+        nextSampleTime,
+        callbackProxy,
+      );
+    };
+Function _PointerEventResampler_stop$(
+  m.Scope scope,
+  PointerEventResampler target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy(PointerEvent callback_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_event],
+            {},
+          );
+      target.stop(callbackProxy);
+    };

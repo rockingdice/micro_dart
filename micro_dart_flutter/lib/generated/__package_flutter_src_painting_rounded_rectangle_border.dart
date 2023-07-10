@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'RoundedRectangleBorder': m.ClassMirror(
       'RoundedRectangleBorder',
       {
+        '#as': RoundedRectangleBorder_as$,
+        '#is': RoundedRectangleBorder_is$,
         'borderRadius': _RoundedRectangleBorder_borderRadius$,
         'preferPaintInterior': _RoundedRectangleBorder_preferPaintInterior$,
         'hashCode': _RoundedRectangleBorder_hashCode$,
@@ -29,12 +31,23 @@ const libraryMirror = m.LibraryMirror(
         'getOuterPath': _RoundedRectangleBorder_getOuterPath$,
         'paintInterior': _RoundedRectangleBorder_paintInterior$,
         'paint': _RoundedRectangleBorder_paint$,
+        '==': _RoundedRectangleBorder_eq$$,
         'toString': _RoundedRectangleBorder_toString$,
       },
       {},
     )
   },
 );
+Function RoundedRectangleBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RoundedRectangleBorder;
+Function RoundedRectangleBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RoundedRectangleBorder;
 BorderRadiusGeometry _RoundedRectangleBorder_borderRadius$(
     RoundedRectangleBorder target) {
   return target.borderRadius;
@@ -89,6 +102,11 @@ Function _RoundedRectangleBorder_paint$(
   RoundedRectangleBorder target,
 ) =>
     target.paint;
+Function _RoundedRectangleBorder_eq$$(
+  m.Scope scope,
+  RoundedRectangleBorder target,
+) =>
+    (Object other) => target == other;
 Function _RoundedRectangleBorder_toString$(
   m.Scope scope,
   RoundedRectangleBorder target,

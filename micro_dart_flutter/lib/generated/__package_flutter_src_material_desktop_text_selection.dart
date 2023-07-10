@@ -15,12 +15,16 @@ const libraryMirror = m.LibraryMirror(
   {
     'desktopTextSelectionHandleControls': _desktopTextSelectionHandleControls$,
     'desktopTextSelectionControls': _desktopTextSelectionControls$,
+    'DesktopTextSelectionControls.buildHandle':
+        _DesktopTextSelectionControls_buildHandle$,
   },
   {},
   {
     'DesktopTextSelectionControls': m.ClassMirror(
       'DesktopTextSelectionControls',
       {
+        '#as': DesktopTextSelectionControls_as$,
+        '#is': DesktopTextSelectionControls_is$,
         'getHandleSize': _DesktopTextSelectionControls_getHandleSize$,
         'getHandleAnchor': _DesktopTextSelectionControls_getHandleAnchor$,
       },
@@ -36,11 +40,50 @@ TextSelectionControls _desktopTextSelectionControls$() {
   return desktopTextSelectionControls;
 }
 
+Function DesktopTextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DesktopTextSelectionControls;
+Function DesktopTextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DesktopTextSelectionControls;
 Function _DesktopTextSelectionControls_getHandleSize$(
   m.Scope scope,
   DesktopTextSelectionControls target,
 ) =>
     target.getHandleSize;
+Function _DesktopTextSelectionControls_buildHandle$(
+  m.Scope scope,
+  DesktopTextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textLineHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _DesktopTextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   DesktopTextSelectionControls target,

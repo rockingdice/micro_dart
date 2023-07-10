@@ -36,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'ReorderableList': m.ClassMirror(
       'ReorderableList',
       {
+        '#as': ReorderableList_as$,
+        '#is': ReorderableList_is$,
         'itemBuilder': _ReorderableList_itemBuilder$,
         'itemCount': _ReorderableList_itemCount$,
         'onReorder': _ReorderableList_onReorder$,
@@ -64,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'ReorderableListState': m.ClassMirror(
       'ReorderableListState',
       {
+        '#as': ReorderableListState_as$,
+        '#is': ReorderableListState_is$,
         'startItemDragReorder': _ReorderableListState_startItemDragReorder$,
         'cancelReorder': _ReorderableListState_cancelReorder$,
         'build': _ReorderableListState_build$,
@@ -73,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverReorderableList': m.ClassMirror(
       'SliverReorderableList',
       {
+        '#as': SliverReorderableList_as$,
+        '#is': SliverReorderableList_is$,
         'itemBuilder': _SliverReorderableList_itemBuilder$,
         'findChildIndexCallback':
             _SliverReorderableList_findChildIndexCallback$,
@@ -90,6 +96,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverReorderableListState': m.ClassMirror(
       'SliverReorderableListState',
       {
+        '#as': SliverReorderableListState_as$,
+        '#is': SliverReorderableListState_is$,
         'didChangeDependencies':
             _SliverReorderableListState_didChangeDependencies$,
         'didUpdateWidget': _SliverReorderableListState_didUpdateWidget$,
@@ -104,6 +112,8 @@ const libraryMirror = m.LibraryMirror(
     'ReorderableDragStartListener': m.ClassMirror(
       'ReorderableDragStartListener',
       {
+        '#as': ReorderableDragStartListener_as$,
+        '#is': ReorderableDragStartListener_is$,
         'child': _ReorderableDragStartListener_child$,
         'index': _ReorderableDragStartListener_index$,
         'enabled': _ReorderableDragStartListener_enabled$,
@@ -115,13 +125,25 @@ const libraryMirror = m.LibraryMirror(
     'ReorderableDelayedDragStartListener': m.ClassMirror(
       'ReorderableDelayedDragStartListener',
       {
+        '#as': ReorderableDelayedDragStartListener_as$,
+        '#is': ReorderableDelayedDragStartListener_is$,
         'createRecognizer':
-            _ReorderableDelayedDragStartListener_createRecognizer$
+            _ReorderableDelayedDragStartListener_createRecognizer$,
       },
       {},
     ),
   },
 );
+Function ReorderableList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReorderableList;
+Function ReorderableList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReorderableList;
 Widget Function(BuildContext, int) _ReorderableList_itemBuilder$(
     ReorderableList target) {
   return target.itemBuilder;
@@ -216,6 +238,16 @@ Function _ReorderableList_createState$(
   ReorderableList target,
 ) =>
     target.createState;
+Function ReorderableListState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReorderableListState;
+Function ReorderableListState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReorderableListState;
 Function _ReorderableListState_startItemDragReorder$(
   m.Scope scope,
   ReorderableListState target,
@@ -231,6 +263,16 @@ Function _ReorderableListState_build$(
   ReorderableListState target,
 ) =>
     target.build;
+Function SliverReorderableList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverReorderableList;
+Function SliverReorderableList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverReorderableList;
 Widget Function(BuildContext, int) _SliverReorderableList_itemBuilder$(
     SliverReorderableList target) {
   return target.itemBuilder;
@@ -281,6 +323,16 @@ Function _SliverReorderableList_createState$(
 Function _SliverReorderableList_of$(m.Scope scope) => SliverReorderableList.of;
 Function _SliverReorderableList_maybeOf$(m.Scope scope) =>
     SliverReorderableList.maybeOf;
+Function SliverReorderableListState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverReorderableListState;
+Function SliverReorderableListState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverReorderableListState;
 Function _SliverReorderableListState_didChangeDependencies$(
   m.Scope scope,
   SliverReorderableListState target,
@@ -311,6 +363,16 @@ Function _SliverReorderableListState_build$(
   SliverReorderableListState target,
 ) =>
     target.build;
+Function ReorderableDragStartListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReorderableDragStartListener;
+Function ReorderableDragStartListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReorderableDragStartListener;
 Widget _ReorderableDragStartListener_child$(
     ReorderableDragStartListener target) {
   return target.child;
@@ -335,6 +397,16 @@ Function _ReorderableDragStartListener_createRecognizer$(
   ReorderableDragStartListener target,
 ) =>
     target.createRecognizer;
+Function ReorderableDelayedDragStartListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReorderableDelayedDragStartListener;
+Function ReorderableDelayedDragStartListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReorderableDelayedDragStartListener;
 Function _ReorderableDelayedDragStartListener_createRecognizer$(
   m.Scope scope,
   ReorderableDelayedDragStartListener target,

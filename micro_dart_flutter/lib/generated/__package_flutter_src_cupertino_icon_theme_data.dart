@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoIconThemeData': m.ClassMirror(
       'CupertinoIconThemeData',
       {
+        '#as': CupertinoIconThemeData_as$,
+        '#is': CupertinoIconThemeData_is$,
         'resolve': _CupertinoIconThemeData_resolve$,
         'copyWith': _CupertinoIconThemeData_copyWith$,
         'debugFillProperties': _CupertinoIconThemeData_debugFillProperties$,
@@ -23,6 +25,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoIconThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoIconThemeData;
+Function CupertinoIconThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoIconThemeData;
 Function _CupertinoIconThemeData_resolve$(
   m.Scope scope,
   CupertinoIconThemeData target,

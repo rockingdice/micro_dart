@@ -1,4 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
@@ -62,14 +61,21 @@ class CodeGenMirror extends AbsVisitor {
         ..assignment = cb.refer("m.LibraryMirror").call(posational).code))
       ..body.addAll(proxyGlobalMethods));
 
-    return dartFormatter.format(library.accept(dartEmitter).toString());
-
-    //return library.accept(dartEmitter).toString();
+    try {
+      return dartFormatter.format(library.accept(dartEmitter).toString());
+    } catch (e, s) {
+      print("$e  $s");
+      return library.accept(dartEmitter).toString();
+    }
+    //return dartFormatter.format(library.accept(dartEmitter).toString());
   }
 
   @override
   void visitLibraryElement(LibraryElement element) {
     if (element.name.startsWith("_")) {
+      return;
+    }
+    if (element.isPrivate) {
       return;
     }
     if (overwriteStrategy.ingoreKeys.contains(element.identifier)) {
@@ -181,7 +187,67 @@ class CodeGenMirror extends AbsVisitor {
       return;
     }
     proxyClassList[element.displayName] = ClassItem(element.displayName);
+    final asKey = "${element.key}@#as";
+    final isKey = "${element.key}@#is";
+    if (!overwriteStrategy.ingoreKeys.contains(asKey)) {
+      writeTargetKeywordClassName(element, "#as");
+    }
+    if (!overwriteStrategy.ingoreKeys.contains(isKey)) {
+      writeTargetKeywordClassName(element, "#is");
+    }
+
     element.visitChildren(this);
+  }
+
+  void writeTargetKeywordClassName(ClassElement classElement, String keyeword) {
+    var type = classElement.thisType;
+    var classItem = proxyClassList[classElement.name];
+    if (classItem == null) {
+      throw Exception("not found classItem ${classElement.name}");
+    }
+    var proxyName =
+        "${classElement.name}_${binaryOperatorList[keyeword]![0]}\$";
+    var method = cb.Method(((p0) {
+      p0.name = proxyName;
+      p0.returns = cb.refer("Function");
+
+      List<TypeParameterElement> typeParams = [];
+
+      typeParams.addAll(classElement.typeParameters);
+
+      p0.types.addAll(typeParams.map<cb.TypeReference>((e) => cb.TypeReference(
+            (p0) {
+              p0.symbol = e.name;
+              if (e.bound != null) {
+                p0.bound = cb.refer(e.bound.toString());
+              }
+            },
+          )));
+
+      p0.lambda = true;
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "scope";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "target";
+          p0.type = cb.refer("dynamic");
+        },
+      ));
+
+      p0.body = cb.Method(
+        (p0) {
+          p0.lambda = true;
+          p0.body = cb.Code(
+              "target ${binaryOperatorList[keyeword]![0]} ${dartTypeToClassName(type)}");
+        },
+      ).closure.code;
+    }));
+    proxyGlobalMethods.add(method);
+    classItem.proxyGetterList[keyeword] = cb.refer(proxyName).expression;
   }
 
   void addParameter(ParameterElement element, List<cb.Parameter> list,
@@ -189,7 +255,7 @@ class CodeGenMirror extends AbsVisitor {
       {String? pre}) {
     list.add(cb.Parameter(
       (p0) {
-        p0.named = element.isNamed || element.isOptionalNamed;
+        p0.named = element.isNamed;
         var name = element.name;
         if (name.isEmpty) {
           name = "\$p$index";
@@ -200,9 +266,27 @@ class CodeGenMirror extends AbsVisitor {
         p0.name = name;
         var typeString = dartTypeToClassName(element.type,
             toFunctionPointer: toFunctionPointer);
-        if (element.hasDefaultValue && !typeString.endsWith("?")) {
-          typeString = "$typeString?";
+
+        if (typeString == "void") {
+          typeString = "dynamic";
         }
+
+        if (toFunctionPointer) {
+          if (element.hasDefaultValue && !typeString.endsWith("?")) {
+            typeString = "$typeString?";
+          } else if (element.isRequiredNamed ||
+              (element.isNamed && !typeString.endsWith("?"))) {
+            p0.required = true;
+            p0.named = true;
+          }
+        } else {
+          if (element.hasDefaultValue && !typeString.endsWith("?")) {
+            typeString = "$typeString?";
+          } else if ((element.isNamed && !typeString.endsWith("?"))) {
+            typeString = "$typeString?";
+          }
+        }
+
         p0.type = cb.refer(typeString);
       },
     ));
@@ -213,13 +297,15 @@ class CodeGenMirror extends AbsVisitor {
     List<cb.Parameter> requiredParameters = [];
     List<cb.Parameter> optionalParameters = [];
 
-    for (int i = 0; i < functionElement.parameters.length; i++) {
-      if (functionElement.parameters[i].isOptional) {
-        addParameter(
-            functionElement.parameters[i], optionalParameters, i, true);
+    var type = functionElement.type;
+
+    for (int i = 0; i < type.parameters.length; i++) {
+      var element = type.parameters[i];
+
+      if (type.parameters[i].isNamed) {
+        addParameter(element, optionalParameters, i, true);
       } else {
-        addParameter(
-            functionElement.parameters[i], requiredParameters, i, true);
+        addParameter(element, requiredParameters, i, true);
       }
     }
     var classElement = functionElement.enclosingElement;
@@ -253,23 +339,24 @@ class CodeGenMirror extends AbsVisitor {
       }
 
       p0.lambda = true;
-      p0.body = cb.Method(
-        (p0) {
-          p0.types.addAll(functionElement.typeParameters
+      var method = cb.Method(
+        (p1) {
+          p1.types.addAll(functionElement.typeParameters
               .map<cb.TypeReference>((e) => cb.TypeReference(
-                    (p0) {
-                      p0.symbol = e.name;
+                    (p2) {
+                      p2.symbol = e.name;
                       if (e.bound != null) {
-                        p0.bound = cb.refer(e.bound.toString());
+                        p2.bound = cb.refer(e.bound.toString());
                       }
                     },
                   )));
 
-          p0.requiredParameters.addAll(requiredParameters);
-          p0.optionalParameters.addAll(optionalParameters);
-          p0.body = functionBody(functionElement);
+          p1.requiredParameters.addAll(requiredParameters);
+          p1.optionalParameters.addAll(optionalParameters);
+          p1.body = functionBody(functionElement);
         },
       ).genericClosure.code;
+      p0.body = method; //cb.Code(method.accept(dartEmitter).toString());
     }));
 
     callback(method);
@@ -458,7 +545,7 @@ class CodeGenMirror extends AbsVisitor {
     List<cb.Parameter> optionalParameters = [];
     String pre = parameterElement.name;
     for (int i = 0; i < type.parameters.length; i++) {
-      if (type.parameters[i].isOptional) {
+      if (type.parameters[i].isNamed) {
         addParameter(type.parameters[i], optionalParameters, i, false,
             pre: pre);
       } else {
@@ -470,8 +557,8 @@ class CodeGenMirror extends AbsVisitor {
       p0.name = proxyName;
       p0.modifier = isAsync ? cb.MethodModifier.async : null;
       p0.returns = cb.refer(dartTypeToClassName(type.returnType));
-      p0.types.addAll(parameterElement.typeParameters
-          .map<cb.TypeReference>((e) => cb.TypeReference(
+      p0.types.addAll(
+          type.typeFormals.map<cb.TypeReference>((e) => cb.TypeReference(
                 (p0) {
                   p0.symbol = e.name;
                   if (e.bound != null) {
@@ -594,6 +681,263 @@ class CodeGenMirror extends AbsVisitor {
         cb.refer(element.proxyName!).expression;
   }
 
+  void writeSpecialMethodElement(MethodElement element) {
+    var name = "target.${element.name}";
+    var classElement = element.enclosingElement as InterfaceElement;
+    var type = classElement.thisType;
+    var classItem = proxyClassList[element.enclosingElement.displayName];
+    if (classItem == null) {
+      throw Exception(
+          "not found classItem ${element.enclosingElement.displayName}");
+    }
+
+    var method = cb.Method(((p0) {
+      p0.name = element.proxyName;
+      p0.returns = cb.refer("Function");
+
+      List<TypeParameterElement> typeParams = [];
+
+      if (element.isStatic) {
+        typeParams.addAll(element.typeParameters);
+      } else {
+        typeParams.addAll(classElement.typeParameters);
+        for (var type in element.typeParameters) {
+          var list = typeParams.where((element) => element.name == type.name);
+          if (list.isEmpty) {
+            typeParams.add(type);
+          }
+        }
+      }
+
+      p0.types.addAll(typeParams.map<cb.TypeReference>((e) => cb.TypeReference(
+            (p0) {
+              p0.symbol = e.name;
+              if (e.bound != null) {
+                p0.bound = cb.refer(e.bound.toString());
+              }
+            },
+          )));
+
+      p0.lambda = true;
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "scope";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "target";
+          p0.type = cb.refer(dartTypeToClassName(type));
+        },
+      ));
+
+      p0.body = cb.Method(
+        (p0) {
+          p0.requiredParameters.add(cb.Parameter(
+            (p0) {
+              p0.name = "index";
+              p0.type = cb.refer(dartTypeToClassName(element.parameters[0].type,
+                  toFunctionPointer: false));
+            },
+          ));
+
+          if (element.name == "[]=") {
+            p0.requiredParameters.add(cb.Parameter(
+              (p0) {
+                p0.name = "other";
+                p0.type = cb.refer(dartTypeToClassName(
+                    element.parameters[1].type,
+                    toFunctionPointer: false));
+              },
+            ));
+          }
+
+          p0.lambda = true;
+          if (element.name == "[]") {
+            p0.body = cb.Code("target[index]");
+          } else if (element.name == "[]=") {
+            p0.body = cb.Code("target[index]=other");
+          }
+        },
+      ).closure.code;
+
+      cb.TypeReference(
+        (p0) {
+          p0.symbol = name;
+          p0.types.addAll(element.typeParameters
+              .map<cb.TypeReference>((e) => cb.TypeReference(
+                    (p0) {
+                      p0.symbol = e.name;
+                    },
+                  )));
+        },
+      ).code;
+    }));
+    proxyGlobalMethods.add(method);
+    classItem.proxyGetterList[element.name] =
+        cb.refer(element.proxyName!).expression;
+  }
+
+  void writeUnaryMethodElement(MethodElement element) {
+    var name = "target.${element.name}";
+    var classElement = element.enclosingElement as InterfaceElement;
+    var type = classElement.thisType;
+    var classItem = proxyClassList[element.enclosingElement.displayName];
+    if (classItem == null) {
+      throw Exception(
+          "not found classItem ${element.enclosingElement.displayName}");
+    }
+
+    var method = cb.Method(((p0) {
+      p0.name = element.proxyName;
+      p0.returns = cb.refer("Function");
+
+      List<TypeParameterElement> typeParams = [];
+
+      if (element.isStatic) {
+        typeParams.addAll(element.typeParameters);
+      } else {
+        typeParams.addAll(classElement.typeParameters);
+        for (var type in element.typeParameters) {
+          var list = typeParams.where((element) => element.name == type.name);
+          if (list.isEmpty) {
+            typeParams.add(type);
+          }
+        }
+      }
+
+      p0.types.addAll(typeParams.map<cb.TypeReference>((e) => cb.TypeReference(
+            (p0) {
+              p0.symbol = e.name;
+              if (e.bound != null) {
+                p0.bound = cb.refer(e.bound.toString());
+              }
+            },
+          )));
+
+      p0.lambda = true;
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "scope";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "target";
+          p0.type = cb.refer(dartTypeToClassName(type));
+        },
+      ));
+
+      p0.body = cb.Method(
+        (p0) {
+          p0.lambda = true;
+          p0.body = cb.Code(" ${unaryOperatorList[element.name]![0]} target");
+        },
+      ).closure.code;
+
+      cb.TypeReference(
+        (p0) {
+          p0.symbol = name;
+          p0.types.addAll(element.typeParameters
+              .map<cb.TypeReference>((e) => cb.TypeReference(
+                    (p0) {
+                      p0.symbol = e.name;
+                    },
+                  )));
+        },
+      ).code;
+    }));
+    proxyGlobalMethods.add(method);
+    classItem.proxyGetterList[element.name] =
+        cb.refer(element.proxyName!).expression;
+  }
+
+  void writeBinaryMethodElement(MethodElement element) {
+    var name = "target.${element.name}";
+    var classElement = element.enclosingElement as InterfaceElement;
+    var type = classElement.thisType;
+    var classItem = proxyClassList[element.enclosingElement.displayName];
+    if (classItem == null) {
+      throw Exception(
+          "not found classItem ${element.enclosingElement.displayName}");
+    }
+
+    var method = cb.Method(((p0) {
+      p0.name = element.proxyName;
+      p0.returns = cb.refer("Function");
+
+      List<TypeParameterElement> typeParams = [];
+
+      if (element.isStatic) {
+        typeParams.addAll(element.typeParameters);
+      } else {
+        typeParams.addAll(classElement.typeParameters);
+        for (var type in element.typeParameters) {
+          var list = typeParams.where((element) => element.name == type.name);
+          if (list.isEmpty) {
+            typeParams.add(type);
+          }
+        }
+      }
+
+      p0.types.addAll(typeParams.map<cb.TypeReference>((e) => cb.TypeReference(
+            (p0) {
+              p0.symbol = e.name;
+              if (e.bound != null) {
+                p0.bound = cb.refer(e.bound.toString());
+              }
+            },
+          )));
+
+      p0.lambda = true;
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "scope";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "target";
+          p0.type = cb.refer(dartTypeToClassName(type));
+        },
+      ));
+
+      p0.body = cb.Method(
+        (p0) {
+          p0.requiredParameters.add(cb.Parameter(
+            (p0) {
+              p0.name = "other";
+              p0.type = cb.refer(dartTypeToClassName(element.parameters[0].type,
+                  toFunctionPointer: false));
+            },
+          ));
+
+          p0.lambda = true;
+          p0.body =
+              cb.Code("target ${binaryOperatorList[element.name]![0]} other");
+        },
+      ).closure.code;
+
+      cb.TypeReference(
+        (p0) {
+          p0.symbol = name;
+          p0.types.addAll(element.typeParameters
+              .map<cb.TypeReference>((e) => cb.TypeReference(
+                    (p0) {
+                      p0.symbol = e.name;
+                    },
+                  )));
+        },
+      ).code;
+    }));
+    proxyGlobalMethods.add(method);
+    classItem.proxyGetterList[element.name] =
+        cb.refer(element.proxyName!).expression;
+  }
+
   @override
   void visitMethodElement(MethodElement element) {
     if (element.name.startsWith("_")) {
@@ -607,22 +951,23 @@ class CodeGenMirror extends AbsVisitor {
     }
     var name = element.name;
     if (binaryOperatorList.containsKey(name)) {
-      name = binaryOperatorList[name]!;
+      writeBinaryMethodElement(element);
       return;
     } else if (unaryOperatorList.containsKey(name)) {
-      name = unaryOperatorList[name]!;
+      writeUnaryMethodElement(element);
       return;
-    } else if (specialOperatorList.contains(name)) {
-      if (name == "[]") {
-      } else if (name == "[]=") {}
+    } else if (specialOperatorList.containsKey(name)) {
+      writeSpecialMethodElement(element);
+
       return;
     }
     if (hasFunctionTypeParams(element.type)) {
-      // functionElementWithFunctionType(element, true, (cb.Method method) {
-      //   proxyGlobalMethods.add(method);
-      //   var name = element.getNameWithClass();
-      //   proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
-      // });
+      functionElementWithFunctionType(element, element.isStatic,
+          (cb.Method method) {
+        proxyGlobalMethods.add(method);
+        var name = element.getNameWithClass();
+        proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
+      });
       return;
     }
     var classElement = element.enclosingElement as InterfaceElement;

@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'SwitchListTile': m.ClassMirror(
       'SwitchListTile',
       {
+        '#as': SwitchListTile_as$,
+        '#is': SwitchListTile_is$,
         'value': _SwitchListTile_value$,
         'onChanged': _SwitchListTile_onChanged$,
         'activeColor': _SwitchListTile_activeColor$,
@@ -64,6 +66,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SwitchListTile_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SwitchListTile;
+Function SwitchListTile_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SwitchListTile;
 bool _SwitchListTile_value$(SwitchListTile target) {
   return target.value;
 }

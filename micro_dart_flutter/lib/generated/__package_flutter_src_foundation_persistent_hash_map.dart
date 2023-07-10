@@ -11,13 +11,33 @@ const libraryMirror = m.LibraryMirror(
   {
     'PersistentHashMap': m.ClassMirror(
       'PersistentHashMap',
-      {'put': _PersistentHashMap_put$},
+      {
+        '#as': PersistentHashMap_as$,
+        '#is': PersistentHashMap_is$,
+        'put': _PersistentHashMap_put$,
+        '[]': _PersistentHashMap_$index$$,
+      },
       {},
     )
   },
 );
+Function PersistentHashMap_as$<K extends Object, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PersistentHashMap<K, V>;
+Function PersistentHashMap_is$<K extends Object, V>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PersistentHashMap<K, V>;
 Function _PersistentHashMap_put$<K extends Object, V>(
   m.Scope scope,
   PersistentHashMap<K, V> target,
 ) =>
     target.put;
+Function _PersistentHashMap_$index$$<K extends Object, V>(
+  m.Scope scope,
+  PersistentHashMap<K, V> target,
+) =>
+    (K index) => target[index];

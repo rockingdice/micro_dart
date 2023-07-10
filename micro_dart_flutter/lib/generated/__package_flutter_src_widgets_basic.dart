@@ -48,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'Directionality': m.ClassMirror(
       'Directionality',
       {
+        '#as': Directionality_as$,
+        '#is': Directionality_is$,
         'textDirection': _Directionality_textDirection$,
         'updateShouldNotify': _Directionality_updateShouldNotify$,
         'debugFillProperties': _Directionality_debugFillProperties$,
@@ -57,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'Opacity': m.ClassMirror(
       'Opacity',
       {
+        '#as': Opacity_as$,
+        '#is': Opacity_is$,
         'opacity': _Opacity_opacity$,
         'alwaysIncludeSemantics': _Opacity_alwaysIncludeSemantics$,
         'createRenderObject': _Opacity_createRenderObject$,
@@ -68,6 +72,8 @@ const libraryMirror = m.LibraryMirror(
     'ShaderMask': m.ClassMirror(
       'ShaderMask',
       {
+        '#as': ShaderMask_as$,
+        '#is': ShaderMask_is$,
         'shaderCallback': _ShaderMask_shaderCallback$,
         'blendMode': _ShaderMask_blendMode$,
         'createRenderObject': _ShaderMask_createRenderObject$,
@@ -78,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'BackdropFilter': m.ClassMirror(
       'BackdropFilter',
       {
+        '#as': BackdropFilter_as$,
+        '#is': BackdropFilter_is$,
         'filter': _BackdropFilter_filter$,
         'blendMode': _BackdropFilter_blendMode$,
         'createRenderObject': _BackdropFilter_createRenderObject$,
@@ -88,6 +96,8 @@ const libraryMirror = m.LibraryMirror(
     'CustomPaint': m.ClassMirror(
       'CustomPaint',
       {
+        '#as': CustomPaint_as$,
+        '#is': CustomPaint_is$,
         'painter': _CustomPaint_painter$,
         'foregroundPainter': _CustomPaint_foregroundPainter$,
         'size': _CustomPaint_size$,
@@ -102,6 +112,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipRect': m.ClassMirror(
       'ClipRect',
       {
+        '#as': ClipRect_as$,
+        '#is': ClipRect_is$,
         'clipper': _ClipRect_clipper$,
         'clipBehavior': _ClipRect_clipBehavior$,
         'createRenderObject': _ClipRect_createRenderObject$,
@@ -114,6 +126,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipRRect': m.ClassMirror(
       'ClipRRect',
       {
+        '#as': ClipRRect_as$,
+        '#is': ClipRRect_is$,
         'borderRadius': _ClipRRect_borderRadius$,
         'clipper': _ClipRRect_clipper$,
         'clipBehavior': _ClipRRect_clipBehavior$,
@@ -126,6 +140,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipOval': m.ClassMirror(
       'ClipOval',
       {
+        '#as': ClipOval_as$,
+        '#is': ClipOval_is$,
         'clipper': _ClipOval_clipper$,
         'clipBehavior': _ClipOval_clipBehavior$,
         'createRenderObject': _ClipOval_createRenderObject$,
@@ -138,6 +154,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipPath': m.ClassMirror(
       'ClipPath',
       {
+        '#as': ClipPath_as$,
+        '#is': ClipPath_is$,
         'clipper': _ClipPath_clipper$,
         'clipBehavior': _ClipPath_clipBehavior$,
         'createRenderObject': _ClipPath_createRenderObject$,
@@ -150,6 +168,8 @@ const libraryMirror = m.LibraryMirror(
     'PhysicalModel': m.ClassMirror(
       'PhysicalModel',
       {
+        '#as': PhysicalModel_as$,
+        '#is': PhysicalModel_is$,
         'shape': _PhysicalModel_shape$,
         'clipBehavior': _PhysicalModel_clipBehavior$,
         'borderRadius': _PhysicalModel_borderRadius$,
@@ -165,6 +185,8 @@ const libraryMirror = m.LibraryMirror(
     'PhysicalShape': m.ClassMirror(
       'PhysicalShape',
       {
+        '#as': PhysicalShape_as$,
+        '#is': PhysicalShape_is$,
         'clipper': _PhysicalShape_clipper$,
         'clipBehavior': _PhysicalShape_clipBehavior$,
         'elevation': _PhysicalShape_elevation$,
@@ -179,6 +201,8 @@ const libraryMirror = m.LibraryMirror(
     'Transform': m.ClassMirror(
       'Transform',
       {
+        '#as': Transform_as$,
+        '#is': Transform_is$,
         'transform': _Transform_transform$,
         'origin': _Transform_origin$,
         'alignment': _Transform_alignment$,
@@ -192,6 +216,8 @@ const libraryMirror = m.LibraryMirror(
     'CompositedTransformTarget': m.ClassMirror(
       'CompositedTransformTarget',
       {
+        '#as': CompositedTransformTarget_as$,
+        '#is': CompositedTransformTarget_is$,
         'link': _CompositedTransformTarget_link$,
         'createRenderObject': _CompositedTransformTarget_createRenderObject$,
         'updateRenderObject': _CompositedTransformTarget_updateRenderObject$,
@@ -201,6 +227,8 @@ const libraryMirror = m.LibraryMirror(
     'CompositedTransformFollower': m.ClassMirror(
       'CompositedTransformFollower',
       {
+        '#as': CompositedTransformFollower_as$,
+        '#is': CompositedTransformFollower_is$,
         'link': _CompositedTransformFollower_link$,
         'showWhenUnlinked': _CompositedTransformFollower_showWhenUnlinked$,
         'targetAnchor': _CompositedTransformFollower_targetAnchor$,
@@ -214,6 +242,8 @@ const libraryMirror = m.LibraryMirror(
     'FittedBox': m.ClassMirror(
       'FittedBox',
       {
+        '#as': FittedBox_as$,
+        '#is': FittedBox_is$,
         'fit': _FittedBox_fit$,
         'alignment': _FittedBox_alignment$,
         'clipBehavior': _FittedBox_clipBehavior$,
@@ -226,6 +256,8 @@ const libraryMirror = m.LibraryMirror(
     'FractionalTranslation': m.ClassMirror(
       'FractionalTranslation',
       {
+        '#as': FractionalTranslation_as$,
+        '#is': FractionalTranslation_is$,
         'translation': _FractionalTranslation_translation$,
         'transformHitTests': _FractionalTranslation_transformHitTests$,
         'createRenderObject': _FractionalTranslation_createRenderObject$,
@@ -236,6 +268,8 @@ const libraryMirror = m.LibraryMirror(
     'RotatedBox': m.ClassMirror(
       'RotatedBox',
       {
+        '#as': RotatedBox_as$,
+        '#is': RotatedBox_is$,
         'quarterTurns': _RotatedBox_quarterTurns$,
         'createRenderObject': _RotatedBox_createRenderObject$,
         'updateRenderObject': _RotatedBox_updateRenderObject$,
@@ -245,6 +279,8 @@ const libraryMirror = m.LibraryMirror(
     'Padding': m.ClassMirror(
       'Padding',
       {
+        '#as': Padding_as$,
+        '#is': Padding_is$,
         'padding': _Padding_padding$,
         'createRenderObject': _Padding_createRenderObject$,
         'updateRenderObject': _Padding_updateRenderObject$,
@@ -255,6 +291,8 @@ const libraryMirror = m.LibraryMirror(
     'Align': m.ClassMirror(
       'Align',
       {
+        '#as': Align_as$,
+        '#is': Align_is$,
         'alignment': _Align_alignment$,
         'widthFactor': _Align_widthFactor$,
         'heightFactor': _Align_heightFactor$,
@@ -266,12 +304,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Center': m.ClassMirror(
       'Center',
-      {},
+      {
+        '#as': Center_as$,
+        '#is': Center_is$,
+      },
       {},
     ),
     'CustomSingleChildLayout': m.ClassMirror(
       'CustomSingleChildLayout',
       {
+        '#as': CustomSingleChildLayout_as$,
+        '#is': CustomSingleChildLayout_is$,
         'delegate': _CustomSingleChildLayout_delegate$,
         'createRenderObject': _CustomSingleChildLayout_createRenderObject$,
         'updateRenderObject': _CustomSingleChildLayout_updateRenderObject$,
@@ -281,6 +324,8 @@ const libraryMirror = m.LibraryMirror(
     'LayoutId': m.ClassMirror(
       'LayoutId',
       {
+        '#as': LayoutId_as$,
+        '#is': LayoutId_is$,
         'id': _LayoutId_id$,
         'debugTypicalAncestorWidgetClass':
             _LayoutId_debugTypicalAncestorWidgetClass$,
@@ -292,6 +337,8 @@ const libraryMirror = m.LibraryMirror(
     'CustomMultiChildLayout': m.ClassMirror(
       'CustomMultiChildLayout',
       {
+        '#as': CustomMultiChildLayout_as$,
+        '#is': CustomMultiChildLayout_is$,
         'delegate': _CustomMultiChildLayout_delegate$,
         'createRenderObject': _CustomMultiChildLayout_createRenderObject$,
         'updateRenderObject': _CustomMultiChildLayout_updateRenderObject$,
@@ -301,6 +348,8 @@ const libraryMirror = m.LibraryMirror(
     'SizedBox': m.ClassMirror(
       'SizedBox',
       {
+        '#as': SizedBox_as$,
+        '#is': SizedBox_is$,
         'width': _SizedBox_width$,
         'height': _SizedBox_height$,
         'createRenderObject': _SizedBox_createRenderObject$,
@@ -313,6 +362,8 @@ const libraryMirror = m.LibraryMirror(
     'ConstrainedBox': m.ClassMirror(
       'ConstrainedBox',
       {
+        '#as': ConstrainedBox_as$,
+        '#is': ConstrainedBox_is$,
         'constraints': _ConstrainedBox_constraints$,
         'createRenderObject': _ConstrainedBox_createRenderObject$,
         'updateRenderObject': _ConstrainedBox_updateRenderObject$,
@@ -323,6 +374,8 @@ const libraryMirror = m.LibraryMirror(
     'ConstraintsTransformBox': m.ClassMirror(
       'ConstraintsTransformBox',
       {
+        '#as': ConstraintsTransformBox_as$,
+        '#is': ConstraintsTransformBox_is$,
         'textDirection': _ConstraintsTransformBox_textDirection$,
         'alignment': _ConstraintsTransformBox_alignment$,
         'constraintsTransform': _ConstraintsTransformBox_constraintsTransform$,
@@ -336,6 +389,8 @@ const libraryMirror = m.LibraryMirror(
     'UnconstrainedBox': m.ClassMirror(
       'UnconstrainedBox',
       {
+        '#as': UnconstrainedBox_as$,
+        '#is': UnconstrainedBox_is$,
         'textDirection': _UnconstrainedBox_textDirection$,
         'alignment': _UnconstrainedBox_alignment$,
         'constrainedAxis': _UnconstrainedBox_constrainedAxis$,
@@ -349,6 +404,8 @@ const libraryMirror = m.LibraryMirror(
     'FractionallySizedBox': m.ClassMirror(
       'FractionallySizedBox',
       {
+        '#as': FractionallySizedBox_as$,
+        '#is': FractionallySizedBox_is$,
         'widthFactor': _FractionallySizedBox_widthFactor$,
         'heightFactor': _FractionallySizedBox_heightFactor$,
         'alignment': _FractionallySizedBox_alignment$,
@@ -361,6 +418,8 @@ const libraryMirror = m.LibraryMirror(
     'LimitedBox': m.ClassMirror(
       'LimitedBox',
       {
+        '#as': LimitedBox_as$,
+        '#is': LimitedBox_is$,
         'maxWidth': _LimitedBox_maxWidth$,
         'maxHeight': _LimitedBox_maxHeight$,
         'createRenderObject': _LimitedBox_createRenderObject$,
@@ -372,6 +431,8 @@ const libraryMirror = m.LibraryMirror(
     'OverflowBox': m.ClassMirror(
       'OverflowBox',
       {
+        '#as': OverflowBox_as$,
+        '#is': OverflowBox_is$,
         'alignment': _OverflowBox_alignment$,
         'minWidth': _OverflowBox_minWidth$,
         'maxWidth': _OverflowBox_maxWidth$,
@@ -386,6 +447,8 @@ const libraryMirror = m.LibraryMirror(
     'SizedOverflowBox': m.ClassMirror(
       'SizedOverflowBox',
       {
+        '#as': SizedOverflowBox_as$,
+        '#is': SizedOverflowBox_is$,
         'alignment': _SizedOverflowBox_alignment$,
         'size': _SizedOverflowBox_size$,
         'createRenderObject': _SizedOverflowBox_createRenderObject$,
@@ -397,6 +460,8 @@ const libraryMirror = m.LibraryMirror(
     'Offstage': m.ClassMirror(
       'Offstage',
       {
+        '#as': Offstage_as$,
+        '#is': Offstage_is$,
         'offstage': _Offstage_offstage$,
         'createRenderObject': _Offstage_createRenderObject$,
         'updateRenderObject': _Offstage_updateRenderObject$,
@@ -408,6 +473,8 @@ const libraryMirror = m.LibraryMirror(
     'AspectRatio': m.ClassMirror(
       'AspectRatio',
       {
+        '#as': AspectRatio_as$,
+        '#is': AspectRatio_is$,
         'aspectRatio': _AspectRatio_aspectRatio$,
         'createRenderObject': _AspectRatio_createRenderObject$,
         'updateRenderObject': _AspectRatio_updateRenderObject$,
@@ -418,6 +485,8 @@ const libraryMirror = m.LibraryMirror(
     'IntrinsicWidth': m.ClassMirror(
       'IntrinsicWidth',
       {
+        '#as': IntrinsicWidth_as$,
+        '#is': IntrinsicWidth_is$,
         'stepWidth': _IntrinsicWidth_stepWidth$,
         'stepHeight': _IntrinsicWidth_stepHeight$,
         'createRenderObject': _IntrinsicWidth_createRenderObject$,
@@ -427,12 +496,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IntrinsicHeight': m.ClassMirror(
       'IntrinsicHeight',
-      {'createRenderObject': _IntrinsicHeight_createRenderObject$},
+      {
+        '#as': IntrinsicHeight_as$,
+        '#is': IntrinsicHeight_is$,
+        'createRenderObject': _IntrinsicHeight_createRenderObject$,
+      },
       {},
     ),
     'Baseline': m.ClassMirror(
       'Baseline',
       {
+        '#as': Baseline_as$,
+        '#is': Baseline_is$,
         'baseline': _Baseline_baseline$,
         'baselineType': _Baseline_baselineType$,
         'createRenderObject': _Baseline_createRenderObject$,
@@ -442,12 +517,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SliverToBoxAdapter': m.ClassMirror(
       'SliverToBoxAdapter',
-      {'createRenderObject': _SliverToBoxAdapter_createRenderObject$},
+      {
+        '#as': SliverToBoxAdapter_as$,
+        '#is': SliverToBoxAdapter_is$,
+        'createRenderObject': _SliverToBoxAdapter_createRenderObject$,
+      },
       {},
     ),
     'SliverPadding': m.ClassMirror(
       'SliverPadding',
       {
+        '#as': SliverPadding_as$,
+        '#is': SliverPadding_is$,
         'padding': _SliverPadding_padding$,
         'createRenderObject': _SliverPadding_createRenderObject$,
         'updateRenderObject': _SliverPadding_updateRenderObject$,
@@ -458,6 +539,8 @@ const libraryMirror = m.LibraryMirror(
     'ListBody': m.ClassMirror(
       'ListBody',
       {
+        '#as': ListBody_as$,
+        '#is': ListBody_is$,
         'mainAxis': _ListBody_mainAxis$,
         'reverse': _ListBody_reverse$,
         'createRenderObject': _ListBody_createRenderObject$,
@@ -468,6 +551,8 @@ const libraryMirror = m.LibraryMirror(
     'Stack': m.ClassMirror(
       'Stack',
       {
+        '#as': Stack_as$,
+        '#is': Stack_is$,
         'alignment': _Stack_alignment$,
         'textDirection': _Stack_textDirection$,
         'fit': _Stack_fit$,
@@ -481,6 +566,8 @@ const libraryMirror = m.LibraryMirror(
     'IndexedStack': m.ClassMirror(
       'IndexedStack',
       {
+        '#as': IndexedStack_as$,
+        '#is': IndexedStack_is$,
         'alignment': _IndexedStack_alignment$,
         'textDirection': _IndexedStack_textDirection$,
         'clipBehavior': _IndexedStack_clipBehavior$,
@@ -494,6 +581,8 @@ const libraryMirror = m.LibraryMirror(
     'Positioned': m.ClassMirror(
       'Positioned',
       {
+        '#as': Positioned_as$,
+        '#is': Positioned_is$,
         'left': _Positioned_left$,
         'top': _Positioned_top$,
         'right': _Positioned_right$,
@@ -510,6 +599,8 @@ const libraryMirror = m.LibraryMirror(
     'PositionedDirectional': m.ClassMirror(
       'PositionedDirectional',
       {
+        '#as': PositionedDirectional_as$,
+        '#is': PositionedDirectional_is$,
         'start': _PositionedDirectional_start$,
         'top': _PositionedDirectional_top$,
         'end': _PositionedDirectional_end$,
@@ -524,6 +615,8 @@ const libraryMirror = m.LibraryMirror(
     'Flex': m.ClassMirror(
       'Flex',
       {
+        '#as': Flex_as$,
+        '#is': Flex_is$,
         'direction': _Flex_direction$,
         'mainAxisAlignment': _Flex_mainAxisAlignment$,
         'mainAxisSize': _Flex_mainAxisSize$,
@@ -541,17 +634,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Row': m.ClassMirror(
       'Row',
-      {},
+      {
+        '#as': Row_as$,
+        '#is': Row_is$,
+      },
       {},
     ),
     'Column': m.ClassMirror(
       'Column',
-      {},
+      {
+        '#as': Column_as$,
+        '#is': Column_is$,
+      },
       {},
     ),
     'Flexible': m.ClassMirror(
       'Flexible',
       {
+        '#as': Flexible_as$,
+        '#is': Flexible_is$,
         'flex': _Flexible_flex$,
         'fit': _Flexible_fit$,
         'debugTypicalAncestorWidgetClass':
@@ -563,12 +664,17 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Expanded': m.ClassMirror(
       'Expanded',
-      {},
+      {
+        '#as': Expanded_as$,
+        '#is': Expanded_is$,
+      },
       {},
     ),
     'Wrap': m.ClassMirror(
       'Wrap',
       {
+        '#as': Wrap_as$,
+        '#is': Wrap_is$,
         'direction': _Wrap_direction$,
         'alignment': _Wrap_alignment$,
         'spacing': _Wrap_spacing$,
@@ -587,6 +693,8 @@ const libraryMirror = m.LibraryMirror(
     'Flow': m.ClassMirror(
       'Flow',
       {
+        '#as': Flow_as$,
+        '#is': Flow_is$,
         'delegate': _Flow_delegate$,
         'clipBehavior': _Flow_clipBehavior$,
         'createRenderObject': _Flow_createRenderObject$,
@@ -597,6 +705,8 @@ const libraryMirror = m.LibraryMirror(
     'RichText': m.ClassMirror(
       'RichText',
       {
+        '#as': RichText_as$,
+        '#is': RichText_is$,
         'text': _RichText_text$,
         'textAlign': _RichText_textAlign$,
         'textDirection': _RichText_textDirection$,
@@ -619,6 +729,8 @@ const libraryMirror = m.LibraryMirror(
     'RawImage': m.ClassMirror(
       'RawImage',
       {
+        '#as': RawImage_as$,
+        '#is': RawImage_is$,
         'image': _RawImage_image$,
         'debugImageLabel': _RawImage_debugImageLabel$,
         'width': _RawImage_width$,
@@ -645,6 +757,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultAssetBundle': m.ClassMirror(
       'DefaultAssetBundle',
       {
+        '#as': DefaultAssetBundle_as$,
+        '#is': DefaultAssetBundle_is$,
         'bundle': _DefaultAssetBundle_bundle$,
         'updateShouldNotify': _DefaultAssetBundle_updateShouldNotify$,
       },
@@ -653,6 +767,8 @@ const libraryMirror = m.LibraryMirror(
     'WidgetToRenderBoxAdapter': m.ClassMirror(
       'WidgetToRenderBoxAdapter',
       {
+        '#as': WidgetToRenderBoxAdapter_as$,
+        '#is': WidgetToRenderBoxAdapter_is$,
         'renderBox': _WidgetToRenderBoxAdapter_renderBox$,
         'onBuild': _WidgetToRenderBoxAdapter_onBuild$,
         'onUnmount': _WidgetToRenderBoxAdapter_onUnmount$,
@@ -666,6 +782,8 @@ const libraryMirror = m.LibraryMirror(
     'Listener': m.ClassMirror(
       'Listener',
       {
+        '#as': Listener_as$,
+        '#is': Listener_is$,
         'onPointerDown': _Listener_onPointerDown$,
         'onPointerMove': _Listener_onPointerMove$,
         'onPointerUp': _Listener_onPointerUp$,
@@ -685,6 +803,8 @@ const libraryMirror = m.LibraryMirror(
     'MouseRegion': m.ClassMirror(
       'MouseRegion',
       {
+        '#as': MouseRegion_as$,
+        '#is': MouseRegion_is$,
         'onEnter': _MouseRegion_onEnter$,
         'onHover': _MouseRegion_onHover$,
         'onExit': _MouseRegion_onExit$,
@@ -699,12 +819,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RepaintBoundary': m.ClassMirror(
       'RepaintBoundary',
-      {'createRenderObject': _RepaintBoundary_createRenderObject$},
+      {
+        '#as': RepaintBoundary_as$,
+        '#is': RepaintBoundary_is$,
+        'createRenderObject': _RepaintBoundary_createRenderObject$,
+      },
       {},
     ),
     'IgnorePointer': m.ClassMirror(
       'IgnorePointer',
       {
+        '#as': IgnorePointer_as$,
+        '#is': IgnorePointer_is$,
         'ignoring': _IgnorePointer_ignoring$,
         'ignoringSemantics': _IgnorePointer_ignoringSemantics$,
         'createRenderObject': _IgnorePointer_createRenderObject$,
@@ -716,6 +842,8 @@ const libraryMirror = m.LibraryMirror(
     'AbsorbPointer': m.ClassMirror(
       'AbsorbPointer',
       {
+        '#as': AbsorbPointer_as$,
+        '#is': AbsorbPointer_is$,
         'absorbing': _AbsorbPointer_absorbing$,
         'ignoringSemantics': _AbsorbPointer_ignoringSemantics$,
         'createRenderObject': _AbsorbPointer_createRenderObject$,
@@ -727,6 +855,8 @@ const libraryMirror = m.LibraryMirror(
     'MetaData': m.ClassMirror(
       'MetaData',
       {
+        '#as': MetaData_as$,
+        '#is': MetaData_is$,
         'metaData': _MetaData_metaData$,
         'behavior': _MetaData_behavior$,
         'createRenderObject': _MetaData_createRenderObject$,
@@ -738,6 +868,8 @@ const libraryMirror = m.LibraryMirror(
     'Semantics': m.ClassMirror(
       'Semantics',
       {
+        '#as': Semantics_as$,
+        '#is': Semantics_is$,
         'properties': _Semantics_properties$,
         'container': _Semantics_container$,
         'explicitChildNodes': _Semantics_explicitChildNodes$,
@@ -750,12 +882,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MergeSemantics': m.ClassMirror(
       'MergeSemantics',
-      {'createRenderObject': _MergeSemantics_createRenderObject$},
+      {
+        '#as': MergeSemantics_as$,
+        '#is': MergeSemantics_is$,
+        'createRenderObject': _MergeSemantics_createRenderObject$,
+      },
       {},
     ),
     'BlockSemantics': m.ClassMirror(
       'BlockSemantics',
       {
+        '#as': BlockSemantics_as$,
+        '#is': BlockSemantics_is$,
         'blocking': _BlockSemantics_blocking$,
         'createRenderObject': _BlockSemantics_createRenderObject$,
         'updateRenderObject': _BlockSemantics_updateRenderObject$,
@@ -766,6 +904,8 @@ const libraryMirror = m.LibraryMirror(
     'ExcludeSemantics': m.ClassMirror(
       'ExcludeSemantics',
       {
+        '#as': ExcludeSemantics_as$,
+        '#is': ExcludeSemantics_is$,
         'excluding': _ExcludeSemantics_excluding$,
         'createRenderObject': _ExcludeSemantics_createRenderObject$,
         'updateRenderObject': _ExcludeSemantics_updateRenderObject$,
@@ -776,6 +916,8 @@ const libraryMirror = m.LibraryMirror(
     'IndexedSemantics': m.ClassMirror(
       'IndexedSemantics',
       {
+        '#as': IndexedSemantics_as$,
+        '#is': IndexedSemantics_is$,
         'index': _IndexedSemantics_index$,
         'createRenderObject': _IndexedSemantics_createRenderObject$,
         'updateRenderObject': _IndexedSemantics_updateRenderObject$,
@@ -786,6 +928,8 @@ const libraryMirror = m.LibraryMirror(
     'KeyedSubtree': m.ClassMirror(
       'KeyedSubtree',
       {
+        '#as': KeyedSubtree_as$,
+        '#is': KeyedSubtree_is$,
         'child': _KeyedSubtree_child$,
         'build': _KeyedSubtree_build$,
       },
@@ -794,6 +938,8 @@ const libraryMirror = m.LibraryMirror(
     'Builder': m.ClassMirror(
       'Builder',
       {
+        '#as': Builder_as$,
+        '#is': Builder_is$,
         'builder': _Builder_builder$,
         'build': _Builder_build$,
       },
@@ -802,6 +948,8 @@ const libraryMirror = m.LibraryMirror(
     'StatefulBuilder': m.ClassMirror(
       'StatefulBuilder',
       {
+        '#as': StatefulBuilder_as$,
+        '#is': StatefulBuilder_is$,
         'builder': _StatefulBuilder_builder$,
         'createState': _StatefulBuilder_createState$,
       },
@@ -810,6 +958,8 @@ const libraryMirror = m.LibraryMirror(
     'ColoredBox': m.ClassMirror(
       'ColoredBox',
       {
+        '#as': ColoredBox_as$,
+        '#is': ColoredBox_is$,
         'color': _ColoredBox_color$,
         'createRenderObject': _ColoredBox_createRenderObject$,
         'updateRenderObject': _ColoredBox_updateRenderObject$,
@@ -819,6 +969,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Directionality_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Directionality;
+Function Directionality_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Directionality;
 TextDirection _Directionality_textDirection$(Directionality target) {
   return target.textDirection;
 }
@@ -835,6 +995,16 @@ Function _Directionality_debugFillProperties$(
   Directionality target,
 ) =>
     target.debugFillProperties;
+Function Opacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Opacity;
+Function Opacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Opacity;
 double _Opacity_opacity$(Opacity target) {
   return target.opacity;
 }
@@ -858,6 +1028,16 @@ Function _Opacity_debugFillProperties$(
   Opacity target,
 ) =>
     target.debugFillProperties;
+Function ShaderMask_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShaderMask;
+Function ShaderMask_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShaderMask;
 Shader Function(Rect) _ShaderMask_shaderCallback$(ShaderMask target) {
   return target.shaderCallback;
 }
@@ -876,6 +1056,16 @@ Function _ShaderMask_updateRenderObject$(
   ShaderMask target,
 ) =>
     target.updateRenderObject;
+Function BackdropFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BackdropFilter;
+Function BackdropFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BackdropFilter;
 ImageFilter _BackdropFilter_filter$(BackdropFilter target) {
   return target.filter;
 }
@@ -894,6 +1084,16 @@ Function _BackdropFilter_updateRenderObject$(
   BackdropFilter target,
 ) =>
     target.updateRenderObject;
+Function CustomPaint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomPaint;
+Function CustomPaint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomPaint;
 CustomPainter? _CustomPaint_painter$(CustomPaint target) {
   return target.painter;
 }
@@ -929,6 +1129,16 @@ Function _CustomPaint_didUnmountRenderObject$(
   CustomPaint target,
 ) =>
     target.didUnmountRenderObject;
+Function ClipRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRect;
+Function ClipRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRect;
 CustomClipper<Rect>? _ClipRect_clipper$(ClipRect target) {
   return target.clipper;
 }
@@ -957,6 +1167,16 @@ Function _ClipRect_debugFillProperties$(
   ClipRect target,
 ) =>
     target.debugFillProperties;
+Function ClipRRect_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipRRect;
+Function ClipRRect_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipRRect;
 BorderRadiusGeometry? _ClipRRect_borderRadius$(ClipRRect target) {
   return target.borderRadius;
 }
@@ -984,6 +1204,16 @@ Function _ClipRRect_debugFillProperties$(
   ClipRRect target,
 ) =>
     target.debugFillProperties;
+Function ClipOval_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipOval;
+Function ClipOval_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipOval;
 CustomClipper<Rect>? _ClipOval_clipper$(ClipOval target) {
   return target.clipper;
 }
@@ -1012,6 +1242,16 @@ Function _ClipOval_debugFillProperties$(
   ClipOval target,
 ) =>
     target.debugFillProperties;
+Function ClipPath_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipPath;
+Function ClipPath_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipPath;
 CustomClipper<Path>? _ClipPath_clipper$(ClipPath target) {
   return target.clipper;
 }
@@ -1041,6 +1281,16 @@ Function _ClipPath_debugFillProperties$(
   ClipPath target,
 ) =>
     target.debugFillProperties;
+Function PhysicalModel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PhysicalModel;
+Function PhysicalModel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PhysicalModel;
 BoxShape _PhysicalModel_shape$(PhysicalModel target) {
   return target.shape;
 }
@@ -1080,6 +1330,16 @@ Function _PhysicalModel_debugFillProperties$(
   PhysicalModel target,
 ) =>
     target.debugFillProperties;
+Function PhysicalShape_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PhysicalShape;
+Function PhysicalShape_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PhysicalShape;
 CustomClipper<Path> _PhysicalShape_clipper$(PhysicalShape target) {
   return target.clipper;
 }
@@ -1115,6 +1375,16 @@ Function _PhysicalShape_debugFillProperties$(
   PhysicalShape target,
 ) =>
     target.debugFillProperties;
+Function Transform_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Transform;
+Function Transform_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Transform;
 Matrix4 _Transform_transform$(Transform target) {
   return target.transform;
 }
@@ -1145,6 +1415,16 @@ Function _Transform_updateRenderObject$(
   Transform target,
 ) =>
     target.updateRenderObject;
+Function CompositedTransformTarget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CompositedTransformTarget;
+Function CompositedTransformTarget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CompositedTransformTarget;
 LayerLink _CompositedTransformTarget_link$(CompositedTransformTarget target) {
   return target.link;
 }
@@ -1159,6 +1439,16 @@ Function _CompositedTransformTarget_updateRenderObject$(
   CompositedTransformTarget target,
 ) =>
     target.updateRenderObject;
+Function CompositedTransformFollower_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CompositedTransformFollower;
+Function CompositedTransformFollower_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CompositedTransformFollower;
 LayerLink _CompositedTransformFollower_link$(
     CompositedTransformFollower target) {
   return target.link;
@@ -1194,6 +1484,16 @@ Function _CompositedTransformFollower_updateRenderObject$(
   CompositedTransformFollower target,
 ) =>
     target.updateRenderObject;
+Function FittedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FittedBox;
+Function FittedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FittedBox;
 BoxFit _FittedBox_fit$(FittedBox target) {
   return target.fit;
 }
@@ -1221,6 +1521,16 @@ Function _FittedBox_debugFillProperties$(
   FittedBox target,
 ) =>
     target.debugFillProperties;
+Function FractionalTranslation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FractionalTranslation;
+Function FractionalTranslation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FractionalTranslation;
 Offset _FractionalTranslation_translation$(FractionalTranslation target) {
   return target.translation;
 }
@@ -1239,6 +1549,16 @@ Function _FractionalTranslation_updateRenderObject$(
   FractionalTranslation target,
 ) =>
     target.updateRenderObject;
+Function RotatedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RotatedBox;
+Function RotatedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RotatedBox;
 int _RotatedBox_quarterTurns$(RotatedBox target) {
   return target.quarterTurns;
 }
@@ -1253,6 +1573,16 @@ Function _RotatedBox_updateRenderObject$(
   RotatedBox target,
 ) =>
     target.updateRenderObject;
+Function Padding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Padding;
+Function Padding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Padding;
 EdgeInsetsGeometry _Padding_padding$(Padding target) {
   return target.padding;
 }
@@ -1272,6 +1602,16 @@ Function _Padding_debugFillProperties$(
   Padding target,
 ) =>
     target.debugFillProperties;
+Function Align_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Align;
+Function Align_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Align;
 AlignmentGeometry _Align_alignment$(Align target) {
   return target.alignment;
 }
@@ -1299,6 +1639,26 @@ Function _Align_debugFillProperties$(
   Align target,
 ) =>
     target.debugFillProperties;
+Function Center_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Center;
+Function Center_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Center;
+Function CustomSingleChildLayout_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomSingleChildLayout;
+Function CustomSingleChildLayout_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomSingleChildLayout;
 SingleChildLayoutDelegate _CustomSingleChildLayout_delegate$(
     CustomSingleChildLayout target) {
   return target.delegate;
@@ -1314,6 +1674,16 @@ Function _CustomSingleChildLayout_updateRenderObject$(
   CustomSingleChildLayout target,
 ) =>
     target.updateRenderObject;
+Function LayoutId_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LayoutId;
+Function LayoutId_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LayoutId;
 Object _LayoutId_id$(LayoutId target) {
   return target.id;
 }
@@ -1332,6 +1702,16 @@ Function _LayoutId_debugFillProperties$(
   LayoutId target,
 ) =>
     target.debugFillProperties;
+Function CustomMultiChildLayout_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomMultiChildLayout;
+Function CustomMultiChildLayout_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomMultiChildLayout;
 MultiChildLayoutDelegate _CustomMultiChildLayout_delegate$(
     CustomMultiChildLayout target) {
   return target.delegate;
@@ -1347,6 +1727,16 @@ Function _CustomMultiChildLayout_updateRenderObject$(
   CustomMultiChildLayout target,
 ) =>
     target.updateRenderObject;
+Function SizedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizedBox;
+Function SizedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizedBox;
 double? _SizedBox_width$(SizedBox target) {
   return target.width;
 }
@@ -1375,6 +1765,16 @@ Function _SizedBox_debugFillProperties$(
   SizedBox target,
 ) =>
     target.debugFillProperties;
+Function ConstrainedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConstrainedBox;
+Function ConstrainedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConstrainedBox;
 BoxConstraints _ConstrainedBox_constraints$(ConstrainedBox target) {
   return target.constraints;
 }
@@ -1394,6 +1794,16 @@ Function _ConstrainedBox_debugFillProperties$(
   ConstrainedBox target,
 ) =>
     target.debugFillProperties;
+Function ConstraintsTransformBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConstraintsTransformBox;
+Function ConstraintsTransformBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConstraintsTransformBox;
 TextDirection? _ConstraintsTransformBox_textDirection$(
     ConstraintsTransformBox target) {
   return target.textDirection;
@@ -1443,6 +1853,16 @@ Function _ConstraintsTransformBox_debugFillProperties$(
   ConstraintsTransformBox target,
 ) =>
     target.debugFillProperties;
+Function UnconstrainedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnconstrainedBox;
+Function UnconstrainedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnconstrainedBox;
 TextDirection? _UnconstrainedBox_textDirection$(UnconstrainedBox target) {
   return target.textDirection;
 }
@@ -1473,6 +1893,16 @@ Function _UnconstrainedBox_debugFillProperties$(
   UnconstrainedBox target,
 ) =>
     target.debugFillProperties;
+Function FractionallySizedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FractionallySizedBox;
+Function FractionallySizedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FractionallySizedBox;
 double? _FractionallySizedBox_widthFactor$(FractionallySizedBox target) {
   return target.widthFactor;
 }
@@ -1501,6 +1931,16 @@ Function _FractionallySizedBox_debugFillProperties$(
   FractionallySizedBox target,
 ) =>
     target.debugFillProperties;
+Function LimitedBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LimitedBox;
+Function LimitedBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LimitedBox;
 double _LimitedBox_maxWidth$(LimitedBox target) {
   return target.maxWidth;
 }
@@ -1524,6 +1964,16 @@ Function _LimitedBox_debugFillProperties$(
   LimitedBox target,
 ) =>
     target.debugFillProperties;
+Function OverflowBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverflowBox;
+Function OverflowBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverflowBox;
 AlignmentGeometry _OverflowBox_alignment$(OverflowBox target) {
   return target.alignment;
 }
@@ -1559,6 +2009,16 @@ Function _OverflowBox_debugFillProperties$(
   OverflowBox target,
 ) =>
     target.debugFillProperties;
+Function SizedOverflowBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizedOverflowBox;
+Function SizedOverflowBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizedOverflowBox;
 AlignmentGeometry _SizedOverflowBox_alignment$(SizedOverflowBox target) {
   return target.alignment;
 }
@@ -1582,6 +2042,16 @@ Function _SizedOverflowBox_debugFillProperties$(
   SizedOverflowBox target,
 ) =>
     target.debugFillProperties;
+Function Offstage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Offstage;
+Function Offstage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Offstage;
 bool _Offstage_offstage$(Offstage target) {
   return target.offstage;
 }
@@ -1606,6 +2076,16 @@ Function _Offstage_createElement$(
   Offstage target,
 ) =>
     target.createElement;
+Function AspectRatio_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AspectRatio;
+Function AspectRatio_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AspectRatio;
 double _AspectRatio_aspectRatio$(AspectRatio target) {
   return target.aspectRatio;
 }
@@ -1625,6 +2105,16 @@ Function _AspectRatio_debugFillProperties$(
   AspectRatio target,
 ) =>
     target.debugFillProperties;
+Function IntrinsicWidth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntrinsicWidth;
+Function IntrinsicWidth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntrinsicWidth;
 double? _IntrinsicWidth_stepWidth$(IntrinsicWidth target) {
   return target.stepWidth;
 }
@@ -1643,11 +2133,31 @@ Function _IntrinsicWidth_updateRenderObject$(
   IntrinsicWidth target,
 ) =>
     target.updateRenderObject;
+Function IntrinsicHeight_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntrinsicHeight;
+Function IntrinsicHeight_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntrinsicHeight;
 Function _IntrinsicHeight_createRenderObject$(
   m.Scope scope,
   IntrinsicHeight target,
 ) =>
     target.createRenderObject;
+Function Baseline_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Baseline;
+Function Baseline_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Baseline;
 double _Baseline_baseline$(Baseline target) {
   return target.baseline;
 }
@@ -1666,11 +2176,31 @@ Function _Baseline_updateRenderObject$(
   Baseline target,
 ) =>
     target.updateRenderObject;
+Function SliverToBoxAdapter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverToBoxAdapter;
+Function SliverToBoxAdapter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverToBoxAdapter;
 Function _SliverToBoxAdapter_createRenderObject$(
   m.Scope scope,
   SliverToBoxAdapter target,
 ) =>
     target.createRenderObject;
+Function SliverPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverPadding;
+Function SliverPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverPadding;
 EdgeInsetsGeometry _SliverPadding_padding$(SliverPadding target) {
   return target.padding;
 }
@@ -1690,6 +2220,16 @@ Function _SliverPadding_debugFillProperties$(
   SliverPadding target,
 ) =>
     target.debugFillProperties;
+Function ListBody_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListBody;
+Function ListBody_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListBody;
 Axis _ListBody_mainAxis$(ListBody target) {
   return target.mainAxis;
 }
@@ -1708,6 +2248,16 @@ Function _ListBody_updateRenderObject$(
   ListBody target,
 ) =>
     target.updateRenderObject;
+Function Stack_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stack;
+Function Stack_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stack;
 AlignmentGeometry _Stack_alignment$(Stack target) {
   return target.alignment;
 }
@@ -1739,6 +2289,16 @@ Function _Stack_debugFillProperties$(
   Stack target,
 ) =>
     target.debugFillProperties;
+Function IndexedStack_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IndexedStack;
+Function IndexedStack_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IndexedStack;
 AlignmentGeometry _IndexedStack_alignment$(IndexedStack target) {
   return target.alignment;
 }
@@ -1768,6 +2328,16 @@ Function _IndexedStack_build$(
   IndexedStack target,
 ) =>
     target.build;
+Function Positioned_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Positioned;
+Function Positioned_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Positioned;
 double? _Positioned_left$(Positioned target) {
   return target.left;
 }
@@ -1806,6 +2376,16 @@ Function _Positioned_debugFillProperties$(
   Positioned target,
 ) =>
     target.debugFillProperties;
+Function PositionedDirectional_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PositionedDirectional;
+Function PositionedDirectional_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PositionedDirectional;
 double? _PositionedDirectional_start$(PositionedDirectional target) {
   return target.start;
 }
@@ -1839,6 +2419,16 @@ Function _PositionedDirectional_build$(
   PositionedDirectional target,
 ) =>
     target.build;
+Function Flex_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Flex;
+Function Flex_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Flex;
 Axis _Flex_direction$(Flex target) {
   return target.direction;
 }
@@ -1891,6 +2481,36 @@ Function _Flex_debugFillProperties$(
   Flex target,
 ) =>
     target.debugFillProperties;
+Function Row_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Row;
+Function Row_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Row;
+Function Column_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Column;
+Function Column_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Column;
+Function Flexible_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Flexible;
+Function Flexible_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Flexible;
 int _Flexible_flex$(Flexible target) {
   return target.flex;
 }
@@ -1913,6 +2533,26 @@ Function _Flexible_debugFillProperties$(
   Flexible target,
 ) =>
     target.debugFillProperties;
+Function Expanded_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Expanded;
+Function Expanded_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Expanded;
+Function Wrap_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Wrap;
+Function Wrap_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Wrap;
 Axis _Wrap_direction$(Wrap target) {
   return target.direction;
 }
@@ -1964,6 +2604,16 @@ Function _Wrap_debugFillProperties$(
   Wrap target,
 ) =>
     target.debugFillProperties;
+Function Flow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Flow;
+Function Flow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Flow;
 FlowDelegate _Flow_delegate$(Flow target) {
   return target.delegate;
 }
@@ -1982,6 +2632,16 @@ Function _Flow_updateRenderObject$(
   Flow target,
 ) =>
     target.updateRenderObject;
+Function RichText_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RichText;
+Function RichText_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RichText;
 InlineSpan _RichText_text$(RichText target) {
   return target.text;
 }
@@ -2049,6 +2709,16 @@ Function _RichText_debugFillProperties$(
   RichText target,
 ) =>
     target.debugFillProperties;
+Function RawImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawImage;
+Function RawImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawImage;
 Image? _RawImage_image$(RawImage target) {
   return target.image;
 }
@@ -2133,6 +2803,16 @@ Function _RawImage_debugFillProperties$(
   RawImage target,
 ) =>
     target.debugFillProperties;
+Function DefaultAssetBundle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultAssetBundle;
+Function DefaultAssetBundle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultAssetBundle;
 AssetBundle _DefaultAssetBundle_bundle$(DefaultAssetBundle target) {
   return target.bundle;
 }
@@ -2143,6 +2823,16 @@ Function _DefaultAssetBundle_updateShouldNotify$(
   DefaultAssetBundle target,
 ) =>
     target.updateShouldNotify;
+Function WidgetToRenderBoxAdapter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetToRenderBoxAdapter;
+Function WidgetToRenderBoxAdapter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetToRenderBoxAdapter;
 RenderBox _WidgetToRenderBoxAdapter_renderBox$(
     WidgetToRenderBoxAdapter target) {
   return target.renderBox;
@@ -2173,6 +2863,16 @@ Function _WidgetToRenderBoxAdapter_didUnmountRenderObject$(
   WidgetToRenderBoxAdapter target,
 ) =>
     target.didUnmountRenderObject;
+Function Listener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Listener;
+Function Listener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Listener;
 void Function(PointerDownEvent)? _Listener_onPointerDown$(Listener target) {
   return target.onPointerDown;
 }
@@ -2231,6 +2931,16 @@ Function _Listener_debugFillProperties$(
   Listener target,
 ) =>
     target.debugFillProperties;
+Function MouseRegion_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MouseRegion;
+Function MouseRegion_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MouseRegion;
 void Function(PointerEnterEvent)? _MouseRegion_onEnter$(MouseRegion target) {
   return target.onEnter;
 }
@@ -2270,12 +2980,32 @@ Function _MouseRegion_debugFillProperties$(
   MouseRegion target,
 ) =>
     target.debugFillProperties;
+Function RepaintBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RepaintBoundary;
+Function RepaintBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RepaintBoundary;
 Function _RepaintBoundary_wrapAll$(m.Scope scope) => RepaintBoundary.wrapAll;
 Function _RepaintBoundary_createRenderObject$(
   m.Scope scope,
   RepaintBoundary target,
 ) =>
     target.createRenderObject;
+Function IgnorePointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IgnorePointer;
+Function IgnorePointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IgnorePointer;
 bool _IgnorePointer_ignoring$(IgnorePointer target) {
   return target.ignoring;
 }
@@ -2299,6 +3029,16 @@ Function _IgnorePointer_debugFillProperties$(
   IgnorePointer target,
 ) =>
     target.debugFillProperties;
+Function AbsorbPointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AbsorbPointer;
+Function AbsorbPointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AbsorbPointer;
 bool _AbsorbPointer_absorbing$(AbsorbPointer target) {
   return target.absorbing;
 }
@@ -2322,6 +3062,16 @@ Function _AbsorbPointer_debugFillProperties$(
   AbsorbPointer target,
 ) =>
     target.debugFillProperties;
+Function MetaData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MetaData;
+Function MetaData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MetaData;
 dynamic _MetaData_metaData$(MetaData target) {
   return target.metaData;
 }
@@ -2345,6 +3095,16 @@ Function _MetaData_debugFillProperties$(
   MetaData target,
 ) =>
     target.debugFillProperties;
+Function Semantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Semantics;
+Function Semantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Semantics;
 SemanticsProperties _Semantics_properties$(Semantics target) {
   return target.properties;
 }
@@ -2376,11 +3136,31 @@ Function _Semantics_debugFillProperties$(
   Semantics target,
 ) =>
     target.debugFillProperties;
+Function MergeSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MergeSemantics;
+Function MergeSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MergeSemantics;
 Function _MergeSemantics_createRenderObject$(
   m.Scope scope,
   MergeSemantics target,
 ) =>
     target.createRenderObject;
+Function BlockSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BlockSemantics;
+Function BlockSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BlockSemantics;
 bool _BlockSemantics_blocking$(BlockSemantics target) {
   return target.blocking;
 }
@@ -2400,6 +3180,16 @@ Function _BlockSemantics_debugFillProperties$(
   BlockSemantics target,
 ) =>
     target.debugFillProperties;
+Function ExcludeSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExcludeSemantics;
+Function ExcludeSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExcludeSemantics;
 bool _ExcludeSemantics_excluding$(ExcludeSemantics target) {
   return target.excluding;
 }
@@ -2419,6 +3209,16 @@ Function _ExcludeSemantics_debugFillProperties$(
   ExcludeSemantics target,
 ) =>
     target.debugFillProperties;
+Function IndexedSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IndexedSemantics;
+Function IndexedSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IndexedSemantics;
 int _IndexedSemantics_index$(IndexedSemantics target) {
   return target.index;
 }
@@ -2438,6 +3238,16 @@ Function _IndexedSemantics_debugFillProperties$(
   IndexedSemantics target,
 ) =>
     target.debugFillProperties;
+Function KeyedSubtree_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeyedSubtree;
+Function KeyedSubtree_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeyedSubtree;
 Widget _KeyedSubtree_child$(KeyedSubtree target) {
   return target.child;
 }
@@ -2449,6 +3259,16 @@ Function _KeyedSubtree_build$(
   KeyedSubtree target,
 ) =>
     target.build;
+Function Builder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Builder;
+Function Builder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Builder;
 Widget Function(BuildContext) _Builder_builder$(Builder target) {
   return target.builder;
 }
@@ -2458,6 +3278,16 @@ Function _Builder_build$(
   Builder target,
 ) =>
     target.build;
+Function StatefulBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StatefulBuilder;
+Function StatefulBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StatefulBuilder;
 Widget Function(BuildContext, void Function(void Function()))
     _StatefulBuilder_builder$(StatefulBuilder target) {
   return target.builder;
@@ -2468,6 +3298,16 @@ Function _StatefulBuilder_createState$(
   StatefulBuilder target,
 ) =>
     target.createState;
+Function ColoredBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColoredBox;
+Function ColoredBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColoredBox;
 Color _ColoredBox_color$(ColoredBox target) {
   return target.color;
 }

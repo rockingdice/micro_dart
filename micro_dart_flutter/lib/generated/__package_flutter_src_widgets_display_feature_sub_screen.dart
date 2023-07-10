@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'DisplayFeatureSubScreen': m.ClassMirror(
       'DisplayFeatureSubScreen',
       {
+        '#as': DisplayFeatureSubScreen_as$,
+        '#is': DisplayFeatureSubScreen_is$,
         'anchorPoint': _DisplayFeatureSubScreen_anchorPoint$,
         'child': _DisplayFeatureSubScreen_child$,
         'build': _DisplayFeatureSubScreen_build$,
@@ -31,6 +33,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DisplayFeatureSubScreen_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DisplayFeatureSubScreen;
+Function DisplayFeatureSubScreen_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DisplayFeatureSubScreen;
 Offset? _DisplayFeatureSubScreen_anchorPoint$(DisplayFeatureSubScreen target) {
   return target.anchorPoint;
 }

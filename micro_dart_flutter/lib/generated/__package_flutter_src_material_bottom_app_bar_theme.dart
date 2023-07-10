@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomAppBarTheme': m.ClassMirror(
       'BottomAppBarTheme',
       {
+        '#as': BottomAppBarTheme_as$,
+        '#is': BottomAppBarTheme_is$,
         'color': _BottomAppBarTheme_color$,
         'elevation': _BottomAppBarTheme_elevation$,
         'shape': _BottomAppBarTheme_shape$,
@@ -28,12 +30,23 @@ const libraryMirror = m.LibraryMirror(
         'padding': _BottomAppBarTheme_padding$,
         'hashCode': _BottomAppBarTheme_hashCode$,
         'copyWith': _BottomAppBarTheme_copyWith$,
+        '==': _BottomAppBarTheme_eq$$,
         'debugFillProperties': _BottomAppBarTheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function BottomAppBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomAppBarTheme;
+Function BottomAppBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomAppBarTheme;
 Color? _BottomAppBarTheme_color$(BottomAppBarTheme target) {
   return target.color;
 }
@@ -73,6 +86,11 @@ Function _BottomAppBarTheme_copyWith$(
     target.copyWith;
 Function _BottomAppBarTheme_of$(m.Scope scope) => BottomAppBarTheme.of;
 Function _BottomAppBarTheme_lerp$(m.Scope scope) => BottomAppBarTheme.lerp;
+Function _BottomAppBarTheme_eq$$(
+  m.Scope scope,
+  BottomAppBarTheme target,
+) =>
+    (Object other) => target == other;
 Function _BottomAppBarTheme_debugFillProperties$(
   m.Scope scope,
   BottomAppBarTheme target,

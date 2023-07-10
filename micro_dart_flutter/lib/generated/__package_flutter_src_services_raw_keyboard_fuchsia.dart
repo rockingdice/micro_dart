@@ -43,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataFuchsia': m.ClassMirror(
       'RawKeyEventDataFuchsia',
       {
+        '#as': RawKeyEventDataFuchsia_as$,
+        '#is': RawKeyEventDataFuchsia_is$,
         'hidUsage': _RawKeyEventDataFuchsia_hidUsage$,
         'codePoint': _RawKeyEventDataFuchsia_codePoint$,
         'modifiers': _RawKeyEventDataFuchsia_modifiers$,
@@ -53,11 +55,22 @@ const libraryMirror = m.LibraryMirror(
         'isModifierPressed': _RawKeyEventDataFuchsia_isModifierPressed$,
         'getModifierSide': _RawKeyEventDataFuchsia_getModifierSide$,
         'debugFillProperties': _RawKeyEventDataFuchsia_debugFillProperties$,
+        '==': _RawKeyEventDataFuchsia_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataFuchsia_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataFuchsia;
+Function RawKeyEventDataFuchsia_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataFuchsia;
 int _RawKeyEventDataFuchsia_hidUsage$(RawKeyEventDataFuchsia target) {
   return target.hidUsage;
 }
@@ -159,3 +172,8 @@ Function _RawKeyEventDataFuchsia_debugFillProperties$(
   RawKeyEventDataFuchsia target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataFuchsia_eq$$(
+  m.Scope scope,
+  RawKeyEventDataFuchsia target,
+) =>
+    (Object other) => target == other;

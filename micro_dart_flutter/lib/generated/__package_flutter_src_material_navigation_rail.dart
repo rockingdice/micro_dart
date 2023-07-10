@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationRail': m.ClassMirror(
       'NavigationRail',
       {
+        '#as': NavigationRail_as$,
+        '#is': NavigationRail_is$,
         'backgroundColor': _NavigationRail_backgroundColor$,
         'extended': _NavigationRail_extended$,
         'leading': _NavigationRail_leading$,
@@ -54,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'NavigationRailDestination': m.ClassMirror(
       'NavigationRailDestination',
       {
+        '#as': NavigationRailDestination_as$,
+        '#is': NavigationRailDestination_is$,
         'icon': _NavigationRailDestination_icon$,
         'selectedIcon': _NavigationRailDestination_selectedIcon$,
         'indicatorColor': _NavigationRailDestination_indicatorColor$,
@@ -70,6 +74,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function NavigationRail_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationRail;
+Function NavigationRail_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationRail;
 Color? _NavigationRail_backgroundColor$(NavigationRail target) {
   return target.backgroundColor;
 }
@@ -155,6 +169,16 @@ Function _NavigationRail_createState$(
   NavigationRail target,
 ) =>
     target.createState;
+Function NavigationRailDestination_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NavigationRailDestination;
+Function NavigationRailDestination_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NavigationRailDestination;
 Widget _NavigationRailDestination_icon$(NavigationRailDestination target) {
   return target.icon;
 }

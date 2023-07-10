@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
         _SystemChrome_setApplicationSwitcherDescription$,
     'SystemChrome.setEnabledSystemUIMode':
         _SystemChrome_setEnabledSystemUIMode$,
+    'SystemChrome.setSystemUIChangeCallback':
+        _SystemChrome_setSystemUIChangeCallback$,
     'SystemChrome.restoreSystemUIOverlays':
         _SystemChrome_restoreSystemUIOverlays$,
     'SystemChrome.setSystemUIOverlayStyle':
@@ -45,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'ApplicationSwitcherDescription': m.ClassMirror(
       'ApplicationSwitcherDescription',
       {
+        '#as': ApplicationSwitcherDescription_as$,
+        '#is': ApplicationSwitcherDescription_is$,
         'label': _ApplicationSwitcherDescription_label$,
         'primaryColor': _ApplicationSwitcherDescription_primaryColor$,
       },
@@ -53,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'SystemUiOverlayStyle': m.ClassMirror(
       'SystemUiOverlayStyle',
       {
+        '#as': SystemUiOverlayStyle_as$,
+        '#is': SystemUiOverlayStyle_is$,
         'systemNavigationBarColor':
             _SystemUiOverlayStyle_systemNavigationBarColor$,
         'systemNavigationBarDividerColor':
@@ -70,12 +76,16 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _SystemUiOverlayStyle_hashCode$,
         'toString': _SystemUiOverlayStyle_toString$,
         'copyWith': _SystemUiOverlayStyle_copyWith$,
+        '==': _SystemUiOverlayStyle_eq$$,
       },
       {},
     ),
     'SystemChrome': m.ClassMirror(
       'SystemChrome',
-      {},
+      {
+        '#as': SystemChrome_as$,
+        '#is': SystemChrome_is$,
+      },
       {},
     ),
     'DeviceOrientation': m.ClassMirror(
@@ -95,6 +105,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ApplicationSwitcherDescription_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ApplicationSwitcherDescription;
+Function ApplicationSwitcherDescription_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ApplicationSwitcherDescription;
 String? _ApplicationSwitcherDescription_label$(
     ApplicationSwitcherDescription target) {
   return target.label;
@@ -105,6 +125,16 @@ int? _ApplicationSwitcherDescription_primaryColor$(
   return target.primaryColor;
 }
 
+Function SystemUiOverlayStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemUiOverlayStyle;
+Function SystemUiOverlayStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemUiOverlayStyle;
 Color? _SystemUiOverlayStyle_systemNavigationBarColor$(
     SystemUiOverlayStyle target) {
   return target.systemNavigationBarColor;
@@ -166,6 +196,21 @@ Function _SystemUiOverlayStyle_copyWith$(
   SystemUiOverlayStyle target,
 ) =>
     target.copyWith;
+Function _SystemUiOverlayStyle_eq$$(
+  m.Scope scope,
+  SystemUiOverlayStyle target,
+) =>
+    (Object other) => target == other;
+Function SystemChrome_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemChrome;
+Function SystemChrome_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemChrome;
 SystemUiOverlayStyle? _SystemChrome_latestStyle$() {
   return SystemChrome.latestStyle;
 }
@@ -176,6 +221,19 @@ Function _SystemChrome_setApplicationSwitcherDescription$(m.Scope scope) =>
     SystemChrome.setApplicationSwitcherDescription;
 Function _SystemChrome_setEnabledSystemUIMode$(m.Scope scope) =>
     SystemChrome.setEnabledSystemUIMode;
+Function _SystemChrome_setSystemUIChangeCallback$(m.Scope scope) =>
+    (m.FunctionPointer? callback) {
+      Future<void> callbackProxy(
+              bool callback_systemOverlaysAreVisible) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            callback!,
+            [callback_systemOverlaysAreVisible],
+            {},
+          );
+      return SystemChrome.setSystemUIChangeCallback(
+          callback == null ? null : callbackProxy);
+    };
 Function _SystemChrome_restoreSystemUIOverlays$(m.Scope scope) =>
     SystemChrome.restoreSystemUIOverlays;
 Function _SystemChrome_setSystemUIOverlayStyle$(m.Scope scope) =>

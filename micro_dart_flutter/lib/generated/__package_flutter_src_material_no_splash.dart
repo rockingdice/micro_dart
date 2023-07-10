@@ -15,11 +15,25 @@ const libraryMirror = m.LibraryMirror(
   {
     'NoSplash': m.ClassMirror(
       'NoSplash',
-      {'paintFeature': _NoSplash_paintFeature$},
+      {
+        '#as': NoSplash_as$,
+        '#is': NoSplash_is$,
+        'paintFeature': _NoSplash_paintFeature$,
+      },
       {},
     )
   },
 );
+Function NoSplash_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NoSplash;
+Function NoSplash_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NoSplash;
 InteractiveInkFeatureFactory _NoSplash_splashFactory$() {
   return NoSplash.splashFactory;
 }

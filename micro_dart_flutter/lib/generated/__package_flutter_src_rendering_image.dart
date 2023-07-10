@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderImage': m.ClassMirror(
       'RenderImage',
       {
+        '#as': RenderImage_as$,
+        '#is': RenderImage_is$,
         'debugImageLabel': _RenderImage_debugImageLabel$,
         'image': _RenderImage_image$,
         'width': _RenderImage_width$,
@@ -68,6 +70,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function RenderImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderImage;
+Function RenderImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderImage;
 String? _RenderImage_debugImageLabel$(RenderImage target) {
   return target.debugImageLabel;
 }

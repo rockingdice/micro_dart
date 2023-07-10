@@ -17,7 +17,18 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/platform_menu_bar.dart',
   {
     'PlatformMenu.getDescendants': _PlatformMenu_getDescendants$,
+    'PlatformMenu.toChannelRepresentation':
+        _PlatformMenu_toChannelRepresentation$,
+    'PlatformMenu.serialize': _PlatformMenu_serialize$,
+    'PlatformMenuItemGroup.toChannelRepresentation':
+        _PlatformMenuItemGroup_toChannelRepresentation$,
+    'PlatformMenuItemGroup.serialize': _PlatformMenuItemGroup_serialize$,
+    'PlatformMenuItem.toChannelRepresentation':
+        _PlatformMenuItem_toChannelRepresentation$,
+    'PlatformMenuItem.serialize': _PlatformMenuItem_serialize$,
     'PlatformProvidedMenuItem.hasMenu': _PlatformProvidedMenuItem_hasMenu$,
+    'PlatformProvidedMenuItem.toChannelRepresentation':
+        _PlatformProvidedMenuItem_toChannelRepresentation$,
     'PlatformProvidedMenuItemType.about': _PlatformProvidedMenuItemType_about$,
     'PlatformProvidedMenuItemType.quit': _PlatformProvidedMenuItemType_quit$,
     'PlatformProvidedMenuItemType.servicesSubmenu':
@@ -47,6 +58,8 @@ const libraryMirror = m.LibraryMirror(
     'ShortcutSerialization': m.ClassMirror(
       'ShortcutSerialization',
       {
+        '#as': ShortcutSerialization_as$,
+        '#is': ShortcutSerialization_is$,
         'trigger': _ShortcutSerialization_trigger$,
         'character': _ShortcutSerialization_character$,
         'alt': _ShortcutSerialization_alt$,
@@ -61,6 +74,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenuDelegate': m.ClassMirror(
       'PlatformMenuDelegate',
       {
+        '#as': PlatformMenuDelegate_as$,
+        '#is': PlatformMenuDelegate_is$,
         'setMenus': _PlatformMenuDelegate_setMenus$,
         'clearMenus': _PlatformMenuDelegate_clearMenus$,
         'debugLockDelegate': _PlatformMenuDelegate_debugLockDelegate$,
@@ -71,6 +86,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultPlatformMenuDelegate': m.ClassMirror(
       'DefaultPlatformMenuDelegate',
       {
+        '#as': DefaultPlatformMenuDelegate_as$,
+        '#is': DefaultPlatformMenuDelegate_is$,
         'channel': _DefaultPlatformMenuDelegate_channel$,
         'clearMenus': _DefaultPlatformMenuDelegate_clearMenus$,
         'setMenus': _DefaultPlatformMenuDelegate_setMenus$,
@@ -83,6 +100,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenuBar': m.ClassMirror(
       'PlatformMenuBar',
       {
+        '#as': PlatformMenuBar_as$,
+        '#is': PlatformMenuBar_is$,
         'child': _PlatformMenuBar_child$,
         'body': _PlatformMenuBar_body$,
         'menus': _PlatformMenuBar_menus$,
@@ -94,6 +113,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenu': m.ClassMirror(
       'PlatformMenu',
       {
+        '#as': PlatformMenu_as$,
+        '#is': PlatformMenu_is$,
         'onOpen': _PlatformMenu_onOpen$,
         'onClose': _PlatformMenu_onClose$,
         'menus': _PlatformMenu_menus$,
@@ -106,6 +127,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenuItemGroup': m.ClassMirror(
       'PlatformMenuItemGroup',
       {
+        '#as': PlatformMenuItemGroup_as$,
+        '#is': PlatformMenuItemGroup_is$,
         'members': _PlatformMenuItemGroup_members$,
         'debugFillProperties': _PlatformMenuItemGroup_debugFillProperties$,
       },
@@ -114,6 +137,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenuItem': m.ClassMirror(
       'PlatformMenuItem',
       {
+        '#as': PlatformMenuItem_as$,
+        '#is': PlatformMenuItem_is$,
         'label': _PlatformMenuItem_label$,
         'shortcut': _PlatformMenuItem_shortcut$,
         'onSelected': _PlatformMenuItem_onSelected$,
@@ -130,6 +155,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformProvidedMenuItem': m.ClassMirror(
       'PlatformProvidedMenuItem',
       {
+        '#as': PlatformProvidedMenuItem_as$,
+        '#is': PlatformProvidedMenuItem_is$,
         'type': _PlatformProvidedMenuItem_type$,
         'enabled': _PlatformProvidedMenuItem_enabled$,
         'debugFillProperties': _PlatformProvidedMenuItem_debugFillProperties$,
@@ -143,6 +170,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ShortcutSerialization_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ShortcutSerialization;
+Function ShortcutSerialization_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ShortcutSerialization;
 LogicalKeyboardKey? _ShortcutSerialization_trigger$(
     ShortcutSerialization target) {
   return target.trigger;
@@ -173,6 +210,16 @@ Function _ShortcutSerialization_toChannelRepresentation$(
   ShortcutSerialization target,
 ) =>
     target.toChannelRepresentation;
+Function PlatformMenuDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformMenuDelegate;
+Function PlatformMenuDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformMenuDelegate;
 Function _PlatformMenuDelegate_setMenus$(
   m.Scope scope,
   PlatformMenuDelegate target,
@@ -193,6 +240,16 @@ Function _PlatformMenuDelegate_debugUnlockDelegate$(
   PlatformMenuDelegate target,
 ) =>
     target.debugUnlockDelegate;
+Function DefaultPlatformMenuDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultPlatformMenuDelegate;
+Function DefaultPlatformMenuDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultPlatformMenuDelegate;
 MethodChannel _DefaultPlatformMenuDelegate_channel$(
     DefaultPlatformMenuDelegate target) {
   return target.channel;
@@ -218,6 +275,16 @@ Function _DefaultPlatformMenuDelegate_debugUnlockDelegate$(
   DefaultPlatformMenuDelegate target,
 ) =>
     target.debugUnlockDelegate;
+Function PlatformMenuBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformMenuBar;
+Function PlatformMenuBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformMenuBar;
 Widget? _PlatformMenuBar_child$(PlatformMenuBar target) {
   return target.child;
 }
@@ -240,6 +307,16 @@ Function _PlatformMenuBar_debugDescribeChildren$(
   PlatformMenuBar target,
 ) =>
     target.debugDescribeChildren;
+Function PlatformMenu_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformMenu;
+Function PlatformMenu_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformMenu;
 void Function()? _PlatformMenu_onOpen$(PlatformMenu target) {
   return target.onOpen;
 }
@@ -258,6 +335,44 @@ List<PlatformMenuItem> _PlatformMenu_descendants$(PlatformMenu target) {
 
 Function _PlatformMenu_getDescendants$(m.Scope scope) =>
     PlatformMenu.getDescendants;
+Function _PlatformMenu_toChannelRepresentation$(
+  m.Scope scope,
+  PlatformMenu target,
+) =>
+    (
+      PlatformMenuDelegate delegate, {
+      required m.FunctionPointer getId,
+    }) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return target.toChannelRepresentation(
+        delegate,
+        getId: getIdProxy,
+      );
+    };
+Function _PlatformMenu_serialize$(m.Scope scope) => (
+      PlatformMenu item,
+      PlatformMenuDelegate delegate,
+      m.FunctionPointer getId,
+    ) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return PlatformMenu.serialize(
+        item,
+        delegate,
+        getIdProxy,
+      );
+    };
 Function _PlatformMenu_debugDescribeChildren$(
   m.Scope scope,
   PlatformMenu target,
@@ -268,16 +383,74 @@ Function _PlatformMenu_debugFillProperties$(
   PlatformMenu target,
 ) =>
     target.debugFillProperties;
+Function PlatformMenuItemGroup_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformMenuItemGroup;
+Function PlatformMenuItemGroup_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformMenuItemGroup;
 List<PlatformMenuItem> _PlatformMenuItemGroup_members$(
     PlatformMenuItemGroup target) {
   return target.members;
 }
 
+Function _PlatformMenuItemGroup_toChannelRepresentation$(
+  m.Scope scope,
+  PlatformMenuItemGroup target,
+) =>
+    (
+      PlatformMenuDelegate delegate, {
+      required m.FunctionPointer getId,
+    }) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return target.toChannelRepresentation(
+        delegate,
+        getId: getIdProxy,
+      );
+    };
+Function _PlatformMenuItemGroup_serialize$(m.Scope scope) => (
+      PlatformMenuItem group,
+      PlatformMenuDelegate delegate, {
+      required m.FunctionPointer getId,
+    }) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return PlatformMenuItemGroup.serialize(
+        group,
+        delegate,
+        getId: getIdProxy,
+      );
+    };
 Function _PlatformMenuItemGroup_debugFillProperties$(
   m.Scope scope,
   PlatformMenuItemGroup target,
 ) =>
     target.debugFillProperties;
+Function PlatformMenuItem_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformMenuItem;
+Function PlatformMenuItem_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformMenuItem;
 String _PlatformMenuItem_label$(PlatformMenuItem target) {
   return target.label;
 }
@@ -310,6 +483,44 @@ List<PlatformMenuItem> _PlatformMenuItem_members$(PlatformMenuItem target) {
   return target.members;
 }
 
+Function _PlatformMenuItem_toChannelRepresentation$(
+  m.Scope scope,
+  PlatformMenuItem target,
+) =>
+    (
+      PlatformMenuDelegate delegate, {
+      required m.FunctionPointer getId,
+    }) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return target.toChannelRepresentation(
+        delegate,
+        getId: getIdProxy,
+      );
+    };
+Function _PlatformMenuItem_serialize$(m.Scope scope) => (
+      PlatformMenuItem item,
+      PlatformMenuDelegate delegate,
+      m.FunctionPointer getId,
+    ) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return PlatformMenuItem.serialize(
+        item,
+        delegate,
+        getIdProxy,
+      );
+    };
 Function _PlatformMenuItem_toStringShort$(
   m.Scope scope,
   PlatformMenuItem target,
@@ -320,6 +531,16 @@ Function _PlatformMenuItem_debugFillProperties$(
   PlatformMenuItem target,
 ) =>
     target.debugFillProperties;
+Function PlatformProvidedMenuItem_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformProvidedMenuItem;
+Function PlatformProvidedMenuItem_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformProvidedMenuItem;
 PlatformProvidedMenuItemType _PlatformProvidedMenuItem_type$(
     PlatformProvidedMenuItem target) {
   return target.type;
@@ -331,6 +552,26 @@ bool _PlatformProvidedMenuItem_enabled$(PlatformProvidedMenuItem target) {
 
 Function _PlatformProvidedMenuItem_hasMenu$(m.Scope scope) =>
     PlatformProvidedMenuItem.hasMenu;
+Function _PlatformProvidedMenuItem_toChannelRepresentation$(
+  m.Scope scope,
+  PlatformProvidedMenuItem target,
+) =>
+    (
+      PlatformMenuDelegate delegate, {
+      required m.FunctionPointer getId,
+    }) {
+      int getIdProxy(PlatformMenuItem getId_item) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            getId,
+            [getId_item],
+            {},
+          );
+      return target.toChannelRepresentation(
+        delegate,
+        getId: getIdProxy,
+      );
+    };
 Function _PlatformProvidedMenuItem_debugFillProperties$(
   m.Scope scope,
   PlatformProvidedMenuItem target,

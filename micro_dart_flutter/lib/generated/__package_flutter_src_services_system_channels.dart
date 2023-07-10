@@ -32,11 +32,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'SystemChannels': m.ClassMirror(
       'SystemChannels',
-      {},
+      {
+        '#as': SystemChannels_as$,
+        '#is': SystemChannels_is$,
+      },
       {},
     )
   },
 );
+Function SystemChannels_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SystemChannels;
+Function SystemChannels_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SystemChannels;
 MethodChannel _SystemChannels_navigation$() {
   return SystemChannels.navigation;
 }

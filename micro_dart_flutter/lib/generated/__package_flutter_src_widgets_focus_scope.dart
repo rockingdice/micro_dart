@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'Focus': m.ClassMirror(
       'Focus',
       {
+        '#as': Focus_as$,
+        '#is': Focus_is$,
         'parentNode': _Focus_parentNode$,
         'child': _Focus_child$,
         'focusNode': _Focus_focusNode$,
@@ -43,12 +45,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FocusScope': m.ClassMirror(
       'FocusScope',
-      {'createState': _FocusScope_createState$},
+      {
+        '#as': FocusScope_as$,
+        '#is': FocusScope_is$,
+        'createState': _FocusScope_createState$,
+      },
       {},
     ),
     'ExcludeFocus': m.ClassMirror(
       'ExcludeFocus',
       {
+        '#as': ExcludeFocus_as$,
+        '#is': ExcludeFocus_is$,
         'excluding': _ExcludeFocus_excluding$,
         'child': _ExcludeFocus_child$,
         'build': _ExcludeFocus_build$,
@@ -57,6 +65,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Focus_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Focus;
+Function Focus_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Focus;
 FocusNode? _Focus_parentNode$(Focus target) {
   return target.parentNode;
 }
@@ -122,12 +140,32 @@ Function _Focus_createState$(
   Focus target,
 ) =>
     target.createState;
+Function FocusScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusScope;
+Function FocusScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusScope;
 Function _FocusScope_of$(m.Scope scope) => FocusScope.of;
 Function _FocusScope_createState$(
   m.Scope scope,
   FocusScope target,
 ) =>
     target.createState;
+Function ExcludeFocus_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExcludeFocus;
+Function ExcludeFocus_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExcludeFocus;
 bool _ExcludeFocus_excluding$(ExcludeFocus target) {
   return target.excluding;
 }

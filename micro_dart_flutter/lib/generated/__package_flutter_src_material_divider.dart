@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'Divider': m.ClassMirror(
       'Divider',
       {
+        '#as': Divider_as$,
+        '#is': Divider_is$,
         'height': _Divider_height$,
         'thickness': _Divider_thickness$,
         'indent': _Divider_indent$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'VerticalDivider': m.ClassMirror(
       'VerticalDivider',
       {
+        '#as': VerticalDivider_as$,
+        '#is': VerticalDivider_is$,
         'width': _VerticalDivider_width$,
         'thickness': _VerticalDivider_thickness$,
         'indent': _VerticalDivider_indent$,
@@ -38,6 +42,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Divider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Divider;
+Function Divider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Divider;
 double? _Divider_height$(Divider target) {
   return target.height;
 }
@@ -64,6 +78,16 @@ Function _Divider_build$(
   Divider target,
 ) =>
     target.build;
+Function VerticalDivider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VerticalDivider;
+Function VerticalDivider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VerticalDivider;
 double? _VerticalDivider_width$(VerticalDivider target) {
   return target.width;
 }

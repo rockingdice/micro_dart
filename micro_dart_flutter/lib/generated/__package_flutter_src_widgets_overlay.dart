@@ -16,6 +16,8 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/overlay.dart',
   {
+    'OverlayEntry.addListener': _OverlayEntry_addListener$,
+    'OverlayEntry.removeListener': _OverlayEntry_removeListener$,
     'Overlay.of': _Overlay_of$,
     'Overlay.maybeOf': _Overlay_maybeOf$,
   },
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'OverlayEntry': m.ClassMirror(
       'OverlayEntry',
       {
+        '#as': OverlayEntry_as$,
+        '#is': OverlayEntry_is$,
         'builder': _OverlayEntry_builder$,
         'opaque': _OverlayEntry_opaque$,
         'maintainState': _OverlayEntry_maintainState$,
@@ -41,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'Overlay': m.ClassMirror(
       'Overlay',
       {
+        '#as': Overlay_as$,
+        '#is': Overlay_is$,
         'initialEntries': _Overlay_initialEntries$,
         'clipBehavior': _Overlay_clipBehavior$,
         'createState': _Overlay_createState$,
@@ -50,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'OverlayState': m.ClassMirror(
       'OverlayState',
       {
+        '#as': OverlayState_as$,
+        '#is': OverlayState_is$,
         'initState': _OverlayState_initState$,
         'insert': _OverlayState_insert$,
         'insertAll': _OverlayState_insertAll$,
@@ -63,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'OverlayPortalController': m.ClassMirror(
       'OverlayPortalController',
       {
+        '#as': OverlayPortalController_as$,
+        '#is': OverlayPortalController_is$,
         'isShowing': _OverlayPortalController_isShowing$,
         'show': _OverlayPortalController_show$,
         'hide': _OverlayPortalController_hide$,
@@ -74,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'OverlayPortal': m.ClassMirror(
       'OverlayPortal',
       {
+        '#as': OverlayPortal_as$,
+        '#is': OverlayPortal_is$,
         'controller': _OverlayPortal_controller$,
         'overlayChildBuilder': _OverlayPortal_overlayChildBuilder$,
         'child': _OverlayPortal_child$,
@@ -83,6 +95,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function OverlayEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverlayEntry;
+Function OverlayEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverlayEntry;
 Widget Function(BuildContext) _OverlayEntry_builder$(OverlayEntry target) {
   return target.builder;
 }
@@ -113,6 +135,32 @@ bool _OverlayEntry_mounted$(OverlayEntry target) {
   return target.mounted;
 }
 
+Function _OverlayEntry_addListener$(
+  m.Scope scope,
+  OverlayEntry target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _OverlayEntry_removeListener$(
+  m.Scope scope,
+  OverlayEntry target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _OverlayEntry_remove$(
   m.Scope scope,
   OverlayEntry target,
@@ -133,6 +181,16 @@ Function _OverlayEntry_toString$(
   OverlayEntry target,
 ) =>
     target.toString;
+Function Overlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Overlay;
+Function Overlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Overlay;
 List<OverlayEntry> _Overlay_initialEntries$(Overlay target) {
   return target.initialEntries;
 }
@@ -148,6 +206,16 @@ Function _Overlay_createState$(
   Overlay target,
 ) =>
     target.createState;
+Function OverlayState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverlayState;
+Function OverlayState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverlayState;
 Function _OverlayState_initState$(
   m.Scope scope,
   OverlayState target,
@@ -183,6 +251,16 @@ Function _OverlayState_debugFillProperties$(
   OverlayState target,
 ) =>
     target.debugFillProperties;
+Function OverlayPortalController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverlayPortalController;
+Function OverlayPortalController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverlayPortalController;
 bool _OverlayPortalController_isShowing$(OverlayPortalController target) {
   return target.isShowing;
 }
@@ -207,6 +285,16 @@ Function _OverlayPortalController_toString$(
   OverlayPortalController target,
 ) =>
     target.toString;
+Function OverlayPortal_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverlayPortal;
+Function OverlayPortal_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverlayPortal;
 OverlayPortalController _OverlayPortal_controller$(OverlayPortal target) {
   return target.controller;
 }

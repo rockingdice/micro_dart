@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoUserInterfaceLevel': m.ClassMirror(
       'CupertinoUserInterfaceLevel',
       {
+        '#as': CupertinoUserInterfaceLevel_as$,
+        '#is': CupertinoUserInterfaceLevel_is$,
         'updateShouldNotify': _CupertinoUserInterfaceLevel_updateShouldNotify$,
         'debugFillProperties':
             _CupertinoUserInterfaceLevel_debugFillProperties$,
@@ -37,6 +39,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoUserInterfaceLevel_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoUserInterfaceLevel;
+Function CupertinoUserInterfaceLevel_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoUserInterfaceLevel;
 Function _CupertinoUserInterfaceLevel_updateShouldNotify$(
   m.Scope scope,
   CupertinoUserInterfaceLevel target,

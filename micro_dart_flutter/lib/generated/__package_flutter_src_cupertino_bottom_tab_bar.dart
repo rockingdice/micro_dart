@@ -12,12 +12,14 @@ import 'package:flutter/src/cupertino/theme.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/cupertino/bottom_tab_bar.dart',
-  {},
+  {'CupertinoTabBar.copyWith': _CupertinoTabBar_copyWith$},
   {},
   {
     'CupertinoTabBar': m.ClassMirror(
       'CupertinoTabBar',
       {
+        '#as': CupertinoTabBar_as$,
+        '#is': CupertinoTabBar_is$,
         'items': _CupertinoTabBar_items$,
         'onTap': _CupertinoTabBar_onTap$,
         'currentIndex': _CupertinoTabBar_currentIndex$,
@@ -35,6 +37,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoTabBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTabBar;
+Function CupertinoTabBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTabBar;
 List<BottomNavigationBarItem> _CupertinoTabBar_items$(CupertinoTabBar target) {
   return target.items;
 }
@@ -85,3 +97,38 @@ Function _CupertinoTabBar_build$(
   CupertinoTabBar target,
 ) =>
     target.build;
+Function _CupertinoTabBar_copyWith$(
+  m.Scope scope,
+  CupertinoTabBar target,
+) =>
+    ({
+      Color? activeColor,
+      Color? backgroundColor,
+      Border? border,
+      int? currentIndex,
+      double? height,
+      double? iconSize,
+      Color? inactiveColor,
+      List<BottomNavigationBarItem>? items,
+      Key? key,
+      m.FunctionPointer? onTap,
+    }) {
+      void onTapProxy(int onTap_value) => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [onTap_value],
+            {},
+          );
+      return target.copyWith(
+        activeColor: activeColor,
+        backgroundColor: backgroundColor,
+        border: border,
+        currentIndex: currentIndex,
+        height: height,
+        iconSize: iconSize,
+        inactiveColor: inactiveColor,
+        items: items,
+        key: key,
+        onTap: onTap == null ? null : onTapProxy,
+      );
+    };

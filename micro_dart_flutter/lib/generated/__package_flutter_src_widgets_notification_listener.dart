@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'Notification': m.ClassMirror(
       'Notification',
       {
+        '#as': Notification_as$,
+        '#is': Notification_is$,
         'dispatch': _Notification_dispatch$,
         'toString': _Notification_toString$,
         'debugFillDescription': _Notification_debugFillDescription$,
@@ -23,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'NotificationListener': m.ClassMirror(
       'NotificationListener',
       {
+        '#as': NotificationListener_as$,
+        '#is': NotificationListener_is$,
         'onNotification': _NotificationListener_onNotification$,
         'createElement': _NotificationListener_createElement$,
       },
@@ -30,11 +34,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LayoutChangedNotification': m.ClassMirror(
       'LayoutChangedNotification',
-      {},
+      {
+        '#as': LayoutChangedNotification_as$,
+        '#is': LayoutChangedNotification_is$,
+      },
       {},
     ),
   },
 );
+Function Notification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Notification;
+Function Notification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Notification;
 Function _Notification_dispatch$(
   m.Scope scope,
   Notification target,
@@ -50,6 +67,16 @@ Function _Notification_debugFillDescription$(
   Notification target,
 ) =>
     target.debugFillDescription;
+Function NotificationListener_as$<T extends Notification>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NotificationListener<T>;
+Function NotificationListener_is$<T extends Notification>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NotificationListener<T>;
 bool Function(T)? _NotificationListener_onNotification$<T extends Notification>(
     NotificationListener<T> target) {
   return target.onNotification;
@@ -60,3 +87,13 @@ Function _NotificationListener_createElement$<T extends Notification>(
   NotificationListener<T> target,
 ) =>
     target.createElement;
+Function LayoutChangedNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LayoutChangedNotification;
+Function LayoutChangedNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LayoutChangedNotification;

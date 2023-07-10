@@ -62,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'ParametricCurve': m.ClassMirror(
       'ParametricCurve',
       {
+        '#as': ParametricCurve_as$,
+        '#is': ParametricCurve_is$,
         'transform': _ParametricCurve_transform$,
         'transformInternal': _ParametricCurve_transformInternal$,
         'toString': _ParametricCurve_toString$,
@@ -71,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
     'Curve': m.ClassMirror(
       'Curve',
       {
+        '#as': Curve_as$,
+        '#is': Curve_is$,
         'flipped': _Curve_flipped$,
         'transform': _Curve_transform$,
       },
@@ -79,6 +83,8 @@ const libraryMirror = m.LibraryMirror(
     'SawTooth': m.ClassMirror(
       'SawTooth',
       {
+        '#as': SawTooth_as$,
+        '#is': SawTooth_is$,
         'count': _SawTooth_count$,
         'transformInternal': _SawTooth_transformInternal$,
         'toString': _SawTooth_toString$,
@@ -88,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'Interval': m.ClassMirror(
       'Interval',
       {
+        '#as': Interval_as$,
+        '#is': Interval_is$,
         'begin': _Interval_begin$,
         'end': _Interval_end$,
         'curve': _Interval_curve$,
@@ -99,6 +107,8 @@ const libraryMirror = m.LibraryMirror(
     'Threshold': m.ClassMirror(
       'Threshold',
       {
+        '#as': Threshold_as$,
+        '#is': Threshold_is$,
         'threshold': _Threshold_threshold$,
         'transformInternal': _Threshold_transformInternal$,
       },
@@ -107,6 +117,8 @@ const libraryMirror = m.LibraryMirror(
     'Cubic': m.ClassMirror(
       'Cubic',
       {
+        '#as': Cubic_as$,
+        '#is': Cubic_is$,
         'a': _Cubic_a$,
         'b': _Cubic_b$,
         'c': _Cubic_c$,
@@ -119,6 +131,8 @@ const libraryMirror = m.LibraryMirror(
     'ThreePointCubic': m.ClassMirror(
       'ThreePointCubic',
       {
+        '#as': ThreePointCubic_as$,
+        '#is': ThreePointCubic_is$,
         'a1': _ThreePointCubic_a1$,
         'b1': _ThreePointCubic_b1$,
         'midpoint': _ThreePointCubic_midpoint$,
@@ -132,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'Curve2D': m.ClassMirror(
       'Curve2D',
       {
+        '#as': Curve2D_as$,
+        '#is': Curve2D_is$,
         'samplingSeed': _Curve2D_samplingSeed$,
         'generateSamples': _Curve2D_generateSamples$,
         'findInverse': _Curve2D_findInverse$,
@@ -141,6 +157,8 @@ const libraryMirror = m.LibraryMirror(
     'Curve2DSample': m.ClassMirror(
       'Curve2DSample',
       {
+        '#as': Curve2DSample_as$,
+        '#is': Curve2DSample_is$,
         't': _Curve2DSample_t$,
         'value': _Curve2DSample_value$,
         'toString': _Curve2DSample_toString$,
@@ -150,6 +168,8 @@ const libraryMirror = m.LibraryMirror(
     'CatmullRomSpline': m.ClassMirror(
       'CatmullRomSpline',
       {
+        '#as': CatmullRomSpline_as$,
+        '#is': CatmullRomSpline_is$,
         'samplingSeed': _CatmullRomSpline_samplingSeed$,
         'transformInternal': _CatmullRomSpline_transformInternal$,
       },
@@ -158,6 +178,8 @@ const libraryMirror = m.LibraryMirror(
     'CatmullRomCurve': m.ClassMirror(
       'CatmullRomCurve',
       {
+        '#as': CatmullRomCurve_as$,
+        '#is': CatmullRomCurve_is$,
         'controlPoints': _CatmullRomCurve_controlPoints$,
         'tension': _CatmullRomCurve_tension$,
         'transformInternal': _CatmullRomCurve_transformInternal$,
@@ -167,6 +189,8 @@ const libraryMirror = m.LibraryMirror(
     'FlippedCurve': m.ClassMirror(
       'FlippedCurve',
       {
+        '#as': FlippedCurve_as$,
+        '#is': FlippedCurve_is$,
         'curve': _FlippedCurve_curve$,
         'transformInternal': _FlippedCurve_transformInternal$,
         'toString': _FlippedCurve_toString$,
@@ -176,6 +200,8 @@ const libraryMirror = m.LibraryMirror(
     'ElasticInCurve': m.ClassMirror(
       'ElasticInCurve',
       {
+        '#as': ElasticInCurve_as$,
+        '#is': ElasticInCurve_is$,
         'period': _ElasticInCurve_period$,
         'transformInternal': _ElasticInCurve_transformInternal$,
         'toString': _ElasticInCurve_toString$,
@@ -185,6 +211,8 @@ const libraryMirror = m.LibraryMirror(
     'ElasticOutCurve': m.ClassMirror(
       'ElasticOutCurve',
       {
+        '#as': ElasticOutCurve_as$,
+        '#is': ElasticOutCurve_is$,
         'period': _ElasticOutCurve_period$,
         'transformInternal': _ElasticOutCurve_transformInternal$,
         'toString': _ElasticOutCurve_toString$,
@@ -194,6 +222,8 @@ const libraryMirror = m.LibraryMirror(
     'ElasticInOutCurve': m.ClassMirror(
       'ElasticInOutCurve',
       {
+        '#as': ElasticInOutCurve_as$,
+        '#is': ElasticInOutCurve_is$,
         'period': _ElasticInOutCurve_period$,
         'transformInternal': _ElasticInOutCurve_transformInternal$,
         'toString': _ElasticInOutCurve_toString$,
@@ -202,11 +232,24 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Curves': m.ClassMirror(
       'Curves',
-      {},
+      {
+        '#as': Curves_as$,
+        '#is': Curves_is$,
+      },
       {},
     ),
   },
 );
+Function ParametricCurve_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParametricCurve<T>;
+Function ParametricCurve_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParametricCurve<T>;
 Function _ParametricCurve_transform$<T>(
   m.Scope scope,
   ParametricCurve<T> target,
@@ -222,6 +265,16 @@ Function _ParametricCurve_toString$<T>(
   ParametricCurve<T> target,
 ) =>
     target.toString;
+Function Curve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Curve;
+Function Curve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Curve;
 Curve _Curve_flipped$(Curve target) {
   return target.flipped;
 }
@@ -231,6 +284,16 @@ Function _Curve_transform$(
   Curve target,
 ) =>
     target.transform;
+Function SawTooth_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SawTooth;
+Function SawTooth_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SawTooth;
 int _SawTooth_count$(SawTooth target) {
   return target.count;
 }
@@ -245,6 +308,16 @@ Function _SawTooth_toString$(
   SawTooth target,
 ) =>
     target.toString;
+Function Interval_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Interval;
+Function Interval_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Interval;
 double _Interval_begin$(Interval target) {
   return target.begin;
 }
@@ -267,6 +340,16 @@ Function _Interval_toString$(
   Interval target,
 ) =>
     target.toString;
+Function Threshold_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Threshold;
+Function Threshold_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Threshold;
 double _Threshold_threshold$(Threshold target) {
   return target.threshold;
 }
@@ -276,6 +359,16 @@ Function _Threshold_transformInternal$(
   Threshold target,
 ) =>
     target.transformInternal;
+Function Cubic_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Cubic;
+Function Cubic_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Cubic;
 double _Cubic_a$(Cubic target) {
   return target.a;
 }
@@ -302,6 +395,16 @@ Function _Cubic_toString$(
   Cubic target,
 ) =>
     target.toString;
+Function ThreePointCubic_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ThreePointCubic;
+Function ThreePointCubic_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ThreePointCubic;
 Offset _ThreePointCubic_a1$(ThreePointCubic target) {
   return target.a1;
 }
@@ -332,6 +435,16 @@ Function _ThreePointCubic_toString$(
   ThreePointCubic target,
 ) =>
     target.toString;
+Function Curve2D_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Curve2D;
+Function Curve2D_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Curve2D;
 int _Curve2D_samplingSeed$(Curve2D target) {
   return target.samplingSeed;
 }
@@ -346,6 +459,16 @@ Function _Curve2D_findInverse$(
   Curve2D target,
 ) =>
     target.findInverse;
+Function Curve2DSample_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Curve2DSample;
+Function Curve2DSample_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Curve2DSample;
 double _Curve2DSample_t$(Curve2DSample target) {
   return target.t;
 }
@@ -359,6 +482,16 @@ Function _Curve2DSample_toString$(
   Curve2DSample target,
 ) =>
     target.toString;
+Function CatmullRomSpline_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CatmullRomSpline;
+Function CatmullRomSpline_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CatmullRomSpline;
 int _CatmullRomSpline_samplingSeed$(CatmullRomSpline target) {
   return target.samplingSeed;
 }
@@ -368,6 +501,16 @@ Function _CatmullRomSpline_transformInternal$(
   CatmullRomSpline target,
 ) =>
     target.transformInternal;
+Function CatmullRomCurve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CatmullRomCurve;
+Function CatmullRomCurve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CatmullRomCurve;
 List<Offset> _CatmullRomCurve_controlPoints$(CatmullRomCurve target) {
   return target.controlPoints;
 }
@@ -383,6 +526,16 @@ Function _CatmullRomCurve_transformInternal$(
   CatmullRomCurve target,
 ) =>
     target.transformInternal;
+Function FlippedCurve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlippedCurve;
+Function FlippedCurve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlippedCurve;
 Curve _FlippedCurve_curve$(FlippedCurve target) {
   return target.curve;
 }
@@ -397,6 +550,16 @@ Function _FlippedCurve_toString$(
   FlippedCurve target,
 ) =>
     target.toString;
+Function ElasticInCurve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElasticInCurve;
+Function ElasticInCurve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElasticInCurve;
 double _ElasticInCurve_period$(ElasticInCurve target) {
   return target.period;
 }
@@ -411,6 +574,16 @@ Function _ElasticInCurve_toString$(
   ElasticInCurve target,
 ) =>
     target.toString;
+Function ElasticOutCurve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElasticOutCurve;
+Function ElasticOutCurve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElasticOutCurve;
 double _ElasticOutCurve_period$(ElasticOutCurve target) {
   return target.period;
 }
@@ -425,6 +598,16 @@ Function _ElasticOutCurve_toString$(
   ElasticOutCurve target,
 ) =>
     target.toString;
+Function ElasticInOutCurve_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ElasticInOutCurve;
+Function ElasticInOutCurve_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ElasticInOutCurve;
 double _ElasticInOutCurve_period$(ElasticInOutCurve target) {
   return target.period;
 }
@@ -439,6 +622,16 @@ Function _ElasticInOutCurve_toString$(
   ElasticInOutCurve target,
 ) =>
     target.toString;
+Function Curves_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Curves;
+Function Curves_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Curves;
 Curve _Curves_linear$() {
   return Curves.linear;
 }

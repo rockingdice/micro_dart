@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'SpringDescription': m.ClassMirror(
       'SpringDescription',
       {
+        '#as': SpringDescription_as$,
+        '#is': SpringDescription_is$,
         'mass': _SpringDescription_mass$,
         'stiffness': _SpringDescription_stiffness$,
         'damping': _SpringDescription_damping$,
@@ -31,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'SpringSimulation': m.ClassMirror(
       'SpringSimulation',
       {
+        '#as': SpringSimulation_as$,
+        '#is': SpringSimulation_is$,
         'type': _SpringSimulation_type$,
         'x': _SpringSimulation_x$,
         'dx': _SpringSimulation_dx$,
@@ -41,7 +45,11 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ScrollSpringSimulation': m.ClassMirror(
       'ScrollSpringSimulation',
-      {'x': _ScrollSpringSimulation_x$},
+      {
+        '#as': ScrollSpringSimulation_as$,
+        '#is': ScrollSpringSimulation_is$,
+        'x': _ScrollSpringSimulation_x$,
+      },
       {},
     ),
     'SpringType': m.ClassMirror(
@@ -51,6 +59,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SpringDescription_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpringDescription;
+Function SpringDescription_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpringDescription;
 double _SpringDescription_mass$(SpringDescription target) {
   return target.mass;
 }
@@ -68,6 +86,16 @@ Function _SpringDescription_toString$(
   SpringDescription target,
 ) =>
     target.toString;
+Function SpringSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpringSimulation;
+Function SpringSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpringSimulation;
 SpringType _SpringSimulation_type$(SpringSimulation target) {
   return target.type;
 }
@@ -92,6 +120,16 @@ Function _SpringSimulation_toString$(
   SpringSimulation target,
 ) =>
     target.toString;
+Function ScrollSpringSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollSpringSimulation;
+Function ScrollSpringSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollSpringSimulation;
 Function _ScrollSpringSimulation_x$(
   m.Scope scope,
   ScrollSpringSimulation target,

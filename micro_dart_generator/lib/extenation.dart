@@ -1,5 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 
+import 'namedsystem.dart';
+
 extension ExtElement on Element {
   String getNameWithClass() {
     var element = this;
@@ -59,6 +61,17 @@ String? _getMethodElementProxyName(MethodElement element) {
     className = (element.enclosingElement as ClassElement).displayName;
   }
   var name = element.name;
+  if (binaryOperatorList.containsKey(name)) {
+    name = binaryOperatorList[name]![1];
+  } else if (unaryOperatorList.containsKey(name)) {
+    name = unaryOperatorList[name]![1];
+  } else if (specialOperatorList.containsKey(name)) {
+    if (name == "[]") {
+      name = "\$index\$";
+    } else if (name == "[]=") {
+      name = "\$index_set\$";
+    }
+  }
   if (className.isNotEmpty) {
     name = "${className}_$name";
   }

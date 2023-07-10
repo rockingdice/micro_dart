@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'ContinuousRectangleBorder': m.ClassMirror(
       'ContinuousRectangleBorder',
       {
+        '#as': ContinuousRectangleBorder_as$,
+        '#is': ContinuousRectangleBorder_is$,
         'borderRadius': _ContinuousRectangleBorder_borderRadius$,
         'dimensions': _ContinuousRectangleBorder_dimensions$,
         'hashCode': _ContinuousRectangleBorder_hashCode$,
@@ -28,12 +30,23 @@ const libraryMirror = m.LibraryMirror(
         'getOuterPath': _ContinuousRectangleBorder_getOuterPath$,
         'copyWith': _ContinuousRectangleBorder_copyWith$,
         'paint': _ContinuousRectangleBorder_paint$,
+        '==': _ContinuousRectangleBorder_eq$$,
         'toString': _ContinuousRectangleBorder_toString$,
       },
       {},
     )
   },
 );
+Function ContinuousRectangleBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContinuousRectangleBorder;
+Function ContinuousRectangleBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContinuousRectangleBorder;
 BorderRadiusGeometry _ContinuousRectangleBorder_borderRadius$(
     ContinuousRectangleBorder target) {
   return target.borderRadius;
@@ -83,6 +96,11 @@ Function _ContinuousRectangleBorder_paint$(
   ContinuousRectangleBorder target,
 ) =>
     target.paint;
+Function _ContinuousRectangleBorder_eq$$(
+  m.Scope scope,
+  ContinuousRectangleBorder target,
+) =>
+    (Object other) => target == other;
 Function _ContinuousRectangleBorder_toString$(
   m.Scope scope,
   ContinuousRectangleBorder target,

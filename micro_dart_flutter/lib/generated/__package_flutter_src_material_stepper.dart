@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'ControlsDetails': m.ClassMirror(
       'ControlsDetails',
       {
+        '#as': ControlsDetails_as$,
+        '#is': ControlsDetails_is$,
         'currentStep': _ControlsDetails_currentStep$,
         'stepIndex': _ControlsDetails_stepIndex$,
         'onStepContinue': _ControlsDetails_onStepContinue$,
@@ -46,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'Step': m.ClassMirror(
       'Step',
       {
+        '#as': Step_as$,
+        '#is': Step_is$,
         'title': _Step_title$,
         'subtitle': _Step_subtitle$,
         'content': _Step_content$,
@@ -58,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
     'Stepper': m.ClassMirror(
       'Stepper',
       {
+        '#as': Stepper_as$,
+        '#is': Stepper_is$,
         'steps': _Stepper_steps$,
         'physics': _Stepper_physics$,
         'type': _Stepper_type$,
@@ -85,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ControlsDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ControlsDetails;
+Function ControlsDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ControlsDetails;
 int _ControlsDetails_currentStep$(ControlsDetails target) {
   return target.currentStep;
 }
@@ -105,6 +121,16 @@ bool _ControlsDetails_isActive$(ControlsDetails target) {
   return target.isActive;
 }
 
+Function Step_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Step;
+Function Step_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Step;
 Widget _Step_title$(Step target) {
   return target.title;
 }
@@ -129,6 +155,16 @@ Widget? _Step_label$(Step target) {
   return target.label;
 }
 
+Function Stepper_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stepper;
+Function Stepper_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stepper;
 List<Step> _Stepper_steps$(Stepper target) {
   return target.steps;
 }

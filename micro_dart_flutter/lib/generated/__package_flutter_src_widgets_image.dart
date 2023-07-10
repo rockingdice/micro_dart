@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'Image': m.ClassMirror(
       'Image',
       {
+        '#as': Image_as$,
+        '#is': Image_is$,
         'image': _Image_image$,
         'frameBuilder': _Image_frameBuilder$,
         'loadingBuilder': _Image_loadingBuilder$,
@@ -56,6 +58,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Image_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Image;
+Function Image_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Image;
 ImageProvider<Object> _Image_image$(Image target) {
   return target.image;
 }
@@ -150,8 +162,8 @@ Function _createLocalImageConfiguration$(m.Scope scope) =>
 Function _precacheImage$(m.Scope scope) => (
       ImageProvider<Object> provider,
       BuildContext context, {
-      Size? size,
       m.FunctionPointer? onError,
+      Size? size,
     }) {
       void onErrorProxy(
         Object onError_exception,

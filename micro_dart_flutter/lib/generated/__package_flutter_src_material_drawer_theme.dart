@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'DrawerThemeData': m.ClassMirror(
       'DrawerThemeData',
       {
+        '#as': DrawerThemeData_as$,
+        '#is': DrawerThemeData_is$,
         'backgroundColor': _DrawerThemeData_backgroundColor$,
         'scrimColor': _DrawerThemeData_scrimColor$,
         'elevation': _DrawerThemeData_elevation$,
@@ -30,6 +32,7 @@ const libraryMirror = m.LibraryMirror(
         'width': _DrawerThemeData_width$,
         'hashCode': _DrawerThemeData_hashCode$,
         'copyWith': _DrawerThemeData_copyWith$,
+        '==': _DrawerThemeData_eq$$,
         'debugFillProperties': _DrawerThemeData_debugFillProperties$,
       },
       {},
@@ -37,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'DrawerTheme': m.ClassMirror(
       'DrawerTheme',
       {
+        '#as': DrawerTheme_as$,
+        '#is': DrawerTheme_is$,
         'data': _DrawerTheme_data$,
         'wrap': _DrawerTheme_wrap$,
         'updateShouldNotify': _DrawerTheme_updateShouldNotify$,
@@ -45,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DrawerThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerThemeData;
+Function DrawerThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerThemeData;
 Color? _DrawerThemeData_backgroundColor$(DrawerThemeData target) {
   return target.backgroundColor;
 }
@@ -87,11 +102,26 @@ Function _DrawerThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _DrawerThemeData_lerp$(m.Scope scope) => DrawerThemeData.lerp;
+Function _DrawerThemeData_eq$$(
+  m.Scope scope,
+  DrawerThemeData target,
+) =>
+    (Object other) => target == other;
 Function _DrawerThemeData_debugFillProperties$(
   m.Scope scope,
   DrawerThemeData target,
 ) =>
     target.debugFillProperties;
+Function DrawerTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DrawerTheme;
+Function DrawerTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DrawerTheme;
 DrawerThemeData _DrawerTheme_data$(DrawerTheme target) {
   return target.data;
 }

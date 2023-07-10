@@ -14,17 +14,28 @@ import 'package:flutter/src/widgets/scroll_delegate.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/sliver.dart',
-  {},
+  {
+    'SliverMultiBoxAdaptorElement.visitChildren':
+        _SliverMultiBoxAdaptorElement_visitChildren$,
+    'SliverMultiBoxAdaptorElement.debugVisitOnstageChildren':
+        _SliverMultiBoxAdaptorElement_debugVisitOnstageChildren$,
+  },
   {},
   {
     'SliverWithKeepAliveWidget': m.ClassMirror(
       'SliverWithKeepAliveWidget',
-      {'createRenderObject': _SliverWithKeepAliveWidget_createRenderObject$},
+      {
+        '#as': SliverWithKeepAliveWidget_as$,
+        '#is': SliverWithKeepAliveWidget_is$,
+        'createRenderObject': _SliverWithKeepAliveWidget_createRenderObject$,
+      },
       {},
     ),
     'SliverMultiBoxAdaptorWidget': m.ClassMirror(
       'SliverMultiBoxAdaptorWidget',
       {
+        '#as': SliverMultiBoxAdaptorWidget_as$,
+        '#is': SliverMultiBoxAdaptorWidget_is$,
         'delegate': _SliverMultiBoxAdaptorWidget_delegate$,
         'createElement': _SliverMultiBoxAdaptorWidget_createElement$,
         'createRenderObject': _SliverMultiBoxAdaptorWidget_createRenderObject$,
@@ -38,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverList': m.ClassMirror(
       'SliverList',
       {
+        '#as': SliverList_as$,
+        '#is': SliverList_is$,
         'createElement': _SliverList_createElement$,
         'createRenderObject': _SliverList_createRenderObject$,
       },
@@ -46,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverFixedExtentList': m.ClassMirror(
       'SliverFixedExtentList',
       {
+        '#as': SliverFixedExtentList_as$,
+        '#is': SliverFixedExtentList_is$,
         'itemExtent': _SliverFixedExtentList_itemExtent$,
         'createRenderObject': _SliverFixedExtentList_createRenderObject$,
         'updateRenderObject': _SliverFixedExtentList_updateRenderObject$,
@@ -55,6 +70,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverGrid': m.ClassMirror(
       'SliverGrid',
       {
+        '#as': SliverGrid_as$,
+        '#is': SliverGrid_is$,
         'gridDelegate': _SliverGrid_gridDelegate$,
         'createRenderObject': _SliverGrid_createRenderObject$,
         'updateRenderObject': _SliverGrid_updateRenderObject$,
@@ -65,6 +82,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverMultiBoxAdaptorElement': m.ClassMirror(
       'SliverMultiBoxAdaptorElement',
       {
+        '#as': SliverMultiBoxAdaptorElement_as$,
+        '#is': SliverMultiBoxAdaptorElement_is$,
         'renderObject': _SliverMultiBoxAdaptorElement_renderObject$,
         'estimatedChildCount':
             _SliverMultiBoxAdaptorElement_estimatedChildCount$,
@@ -95,6 +114,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverOpacity': m.ClassMirror(
       'SliverOpacity',
       {
+        '#as': SliverOpacity_as$,
+        '#is': SliverOpacity_is$,
         'opacity': _SliverOpacity_opacity$,
         'alwaysIncludeSemantics': _SliverOpacity_alwaysIncludeSemantics$,
         'createRenderObject': _SliverOpacity_createRenderObject$,
@@ -106,6 +127,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverIgnorePointer': m.ClassMirror(
       'SliverIgnorePointer',
       {
+        '#as': SliverIgnorePointer_as$,
+        '#is': SliverIgnorePointer_is$,
         'ignoring': _SliverIgnorePointer_ignoring$,
         'ignoringSemantics': _SliverIgnorePointer_ignoringSemantics$,
         'createRenderObject': _SliverIgnorePointer_createRenderObject$,
@@ -117,6 +140,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverOffstage': m.ClassMirror(
       'SliverOffstage',
       {
+        '#as': SliverOffstage_as$,
+        '#is': SliverOffstage_is$,
         'offstage': _SliverOffstage_offstage$,
         'createRenderObject': _SliverOffstage_createRenderObject$,
         'updateRenderObject': _SliverOffstage_updateRenderObject$,
@@ -128,6 +153,8 @@ const libraryMirror = m.LibraryMirror(
     'KeepAlive': m.ClassMirror(
       'KeepAlive',
       {
+        '#as': KeepAlive_as$,
+        '#is': KeepAlive_is$,
         'keepAlive': _KeepAlive_keepAlive$,
         'debugTypicalAncestorWidgetClass':
             _KeepAlive_debugTypicalAncestorWidgetClass$,
@@ -139,11 +166,31 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverWithKeepAliveWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverWithKeepAliveWidget;
+Function SliverWithKeepAliveWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverWithKeepAliveWidget;
 Function _SliverWithKeepAliveWidget_createRenderObject$(
   m.Scope scope,
   SliverWithKeepAliveWidget target,
 ) =>
     target.createRenderObject;
+Function SliverMultiBoxAdaptorWidget_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverMultiBoxAdaptorWidget;
+Function SliverMultiBoxAdaptorWidget_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverMultiBoxAdaptorWidget;
 SliverChildDelegate _SliverMultiBoxAdaptorWidget_delegate$(
     SliverMultiBoxAdaptorWidget target) {
   return target.delegate;
@@ -169,6 +216,16 @@ Function _SliverMultiBoxAdaptorWidget_debugFillProperties$(
   SliverMultiBoxAdaptorWidget target,
 ) =>
     target.debugFillProperties;
+Function SliverList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverList;
+Function SliverList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverList;
 Function _SliverList_createElement$(
   m.Scope scope,
   SliverList target,
@@ -179,6 +236,16 @@ Function _SliverList_createRenderObject$(
   SliverList target,
 ) =>
     target.createRenderObject;
+Function SliverFixedExtentList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverFixedExtentList;
+Function SliverFixedExtentList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverFixedExtentList;
 double _SliverFixedExtentList_itemExtent$(SliverFixedExtentList target) {
   return target.itemExtent;
 }
@@ -193,6 +260,16 @@ Function _SliverFixedExtentList_updateRenderObject$(
   SliverFixedExtentList target,
 ) =>
     target.updateRenderObject;
+Function SliverGrid_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverGrid;
+Function SliverGrid_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverGrid;
 SliverGridDelegate _SliverGrid_gridDelegate$(SliverGrid target) {
   return target.gridDelegate;
 }
@@ -212,6 +289,16 @@ Function _SliverGrid_estimateMaxScrollOffset$(
   SliverGrid target,
 ) =>
     target.estimateMaxScrollOffset;
+Function SliverMultiBoxAdaptorElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverMultiBoxAdaptorElement;
+Function SliverMultiBoxAdaptorElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverMultiBoxAdaptorElement;
 RenderSliverMultiBoxAdaptor _SliverMultiBoxAdaptorElement_renderObject$(
     SliverMultiBoxAdaptorElement target) {
   return target.renderObject;
@@ -302,6 +389,44 @@ Function _SliverMultiBoxAdaptorElement_removeRenderObjectChild$(
   SliverMultiBoxAdaptorElement target,
 ) =>
     target.removeRenderObjectChild;
+Function _SliverMultiBoxAdaptorElement_visitChildren$(
+  m.Scope scope,
+  SliverMultiBoxAdaptorElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
+Function _SliverMultiBoxAdaptorElement_debugVisitOnstageChildren$(
+  m.Scope scope,
+  SliverMultiBoxAdaptorElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.debugVisitOnstageChildren(visitorProxy);
+    };
+Function SliverOpacity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverOpacity;
+Function SliverOpacity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverOpacity;
 double _SliverOpacity_opacity$(SliverOpacity target) {
   return target.opacity;
 }
@@ -325,6 +450,16 @@ Function _SliverOpacity_debugFillProperties$(
   SliverOpacity target,
 ) =>
     target.debugFillProperties;
+Function SliverIgnorePointer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverIgnorePointer;
+Function SliverIgnorePointer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverIgnorePointer;
 bool _SliverIgnorePointer_ignoring$(SliverIgnorePointer target) {
   return target.ignoring;
 }
@@ -348,6 +483,16 @@ Function _SliverIgnorePointer_debugFillProperties$(
   SliverIgnorePointer target,
 ) =>
     target.debugFillProperties;
+Function SliverOffstage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverOffstage;
+Function SliverOffstage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverOffstage;
 bool _SliverOffstage_offstage$(SliverOffstage target) {
   return target.offstage;
 }
@@ -372,6 +517,16 @@ Function _SliverOffstage_createElement$(
   SliverOffstage target,
 ) =>
     target.createElement;
+Function KeepAlive_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as KeepAlive;
+Function KeepAlive_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is KeepAlive;
 bool _KeepAlive_keepAlive$(KeepAlive target) {
   return target.keepAlive;
 }

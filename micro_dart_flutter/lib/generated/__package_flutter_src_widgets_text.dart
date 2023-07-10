@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultTextStyle': m.ClassMirror(
       'DefaultTextStyle',
       {
+        '#as': DefaultTextStyle_as$,
+        '#is': DefaultTextStyle_is$,
         'style': _DefaultTextStyle_style$,
         'textAlign': _DefaultTextStyle_textAlign$,
         'softWrap': _DefaultTextStyle_softWrap$,
@@ -41,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultTextHeightBehavior': m.ClassMirror(
       'DefaultTextHeightBehavior',
       {
+        '#as': DefaultTextHeightBehavior_as$,
+        '#is': DefaultTextHeightBehavior_is$,
         'textHeightBehavior': _DefaultTextHeightBehavior_textHeightBehavior$,
         'updateShouldNotify': _DefaultTextHeightBehavior_updateShouldNotify$,
         'wrap': _DefaultTextHeightBehavior_wrap$,
@@ -51,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'Text': m.ClassMirror(
       'Text',
       {
+        '#as': Text_as$,
+        '#is': Text_is$,
         'data': _Text_data$,
         'textSpan': _Text_textSpan$,
         'style': _Text_style$,
@@ -73,6 +79,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DefaultTextStyle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTextStyle;
+Function DefaultTextStyle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTextStyle;
 TextStyle _DefaultTextStyle_style$(DefaultTextStyle target) {
   return target.style;
 }
@@ -119,6 +135,16 @@ Function _DefaultTextStyle_debugFillProperties$(
   DefaultTextStyle target,
 ) =>
     target.debugFillProperties;
+Function DefaultTextHeightBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTextHeightBehavior;
+Function DefaultTextHeightBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTextHeightBehavior;
 TextHeightBehavior _DefaultTextHeightBehavior_textHeightBehavior$(
     DefaultTextHeightBehavior target) {
   return target.textHeightBehavior;
@@ -143,6 +169,16 @@ Function _DefaultTextHeightBehavior_debugFillProperties$(
   DefaultTextHeightBehavior target,
 ) =>
     target.debugFillProperties;
+Function Text_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Text;
+Function Text_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Text;
 String? _Text_data$(Text target) {
   return target.data;
 }

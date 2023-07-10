@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'AdaptiveTextSelectionToolbar': m.ClassMirror(
       'AdaptiveTextSelectionToolbar',
       {
+        '#as': AdaptiveTextSelectionToolbar_as$,
+        '#is': AdaptiveTextSelectionToolbar_is$,
         'buttonItems': _AdaptiveTextSelectionToolbar_buttonItems$,
         'children': _AdaptiveTextSelectionToolbar_children$,
         'anchors': _AdaptiveTextSelectionToolbar_anchors$,
@@ -35,6 +37,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function AdaptiveTextSelectionToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AdaptiveTextSelectionToolbar;
+Function AdaptiveTextSelectionToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AdaptiveTextSelectionToolbar;
 List<ContextMenuButtonItem>? _AdaptiveTextSelectionToolbar_buttonItems$(
     AdaptiveTextSelectionToolbar target) {
   return target.buttonItems;

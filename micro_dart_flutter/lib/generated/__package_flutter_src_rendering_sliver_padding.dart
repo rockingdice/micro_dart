@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverEdgeInsetsPadding': m.ClassMirror(
       'RenderSliverEdgeInsetsPadding',
       {
+        '#as': RenderSliverEdgeInsetsPadding_as$,
+        '#is': RenderSliverEdgeInsetsPadding_is$,
         'resolvedPadding': _RenderSliverEdgeInsetsPadding_resolvedPadding$,
         'beforePadding': _RenderSliverEdgeInsetsPadding_beforePadding$,
         'afterPadding': _RenderSliverEdgeInsetsPadding_afterPadding$,
@@ -40,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverPadding': m.ClassMirror(
       'RenderSliverPadding',
       {
+        '#as': RenderSliverPadding_as$,
+        '#is': RenderSliverPadding_is$,
         'resolvedPadding': _RenderSliverPadding_resolvedPadding$,
         'padding': _RenderSliverPadding_padding$,
         'textDirection': _RenderSliverPadding_textDirection$,
@@ -53,6 +57,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RenderSliverEdgeInsetsPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverEdgeInsetsPadding;
+Function RenderSliverEdgeInsetsPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverEdgeInsetsPadding;
 EdgeInsets? _RenderSliverEdgeInsetsPadding_resolvedPadding$(
     RenderSliverEdgeInsetsPadding target) {
   return target.resolvedPadding;
@@ -123,6 +137,16 @@ Function _RenderSliverEdgeInsetsPadding_debugPaint$(
   RenderSliverEdgeInsetsPadding target,
 ) =>
     target.debugPaint;
+Function RenderSliverPadding_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverPadding;
+Function RenderSliverPadding_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverPadding;
 EdgeInsets? _RenderSliverPadding_resolvedPadding$(RenderSliverPadding target) {
   return target.resolvedPadding;
 }

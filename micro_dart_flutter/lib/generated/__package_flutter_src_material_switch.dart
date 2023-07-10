@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'Switch': m.ClassMirror(
       'Switch',
       {
+        '#as': Switch_as$,
+        '#is': Switch_is$,
         'value': _Switch_value$,
         'onChanged': _Switch_onChanged$,
         'activeColor': _Switch_activeColor$,
@@ -59,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Switch_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Switch;
+Function Switch_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Switch;
 bool _Switch_value$(Switch target) {
   return target.value;
 }

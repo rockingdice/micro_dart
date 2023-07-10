@@ -10,12 +10,17 @@ import 'package:flutter/src/painting/image_provider.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/decoration.dart',
-  {'Decoration.lerp': _Decoration_lerp$},
+  {
+    'Decoration.lerp': _Decoration_lerp$,
+    'Decoration.createBoxPainter': _Decoration_createBoxPainter$,
+  },
   {},
   {
     'Decoration': m.ClassMirror(
       'Decoration',
       {
+        '#as': Decoration_as$,
+        '#is': Decoration_is$,
         'padding': _Decoration_padding$,
         'isComplex': _Decoration_isComplex$,
         'toStringShort': _Decoration_toStringShort$,
@@ -30,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'BoxPainter': m.ClassMirror(
       'BoxPainter',
       {
+        '#as': BoxPainter_as$,
+        '#is': BoxPainter_is$,
         'onChanged': _BoxPainter_onChanged$,
         'paint': _BoxPainter_paint$,
         'dispose': _BoxPainter_dispose$,
@@ -38,6 +45,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Decoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Decoration;
+Function Decoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Decoration;
 EdgeInsetsGeometry _Decoration_padding$(Decoration target) {
   return target.padding;
 }
@@ -72,11 +89,36 @@ Function _Decoration_hitTest$(
   Decoration target,
 ) =>
     target.hitTest;
+Function _Decoration_createBoxPainter$(
+  m.Scope scope,
+  Decoration target,
+) =>
+    (m.FunctionPointer onChanged) {
+      if (onChanged == null) {}
+      return target.createBoxPainter();
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged,
+            [],
+            {},
+          );
+      return target.createBoxPainter(onChangedProxy);
+    };
 Function _Decoration_getClipPath$(
   m.Scope scope,
   Decoration target,
 ) =>
     target.getClipPath;
+Function BoxPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BoxPainter;
+Function BoxPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BoxPainter;
 void Function()? _BoxPainter_onChanged$(BoxPainter target) {
   return target.onChanged;
 }

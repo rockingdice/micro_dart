@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'TimeOfDay': m.ClassMirror(
       'TimeOfDay',
       {
+        '#as': TimeOfDay_as$,
+        '#is': TimeOfDay_is$,
         'hour': _TimeOfDay_hour$,
         'minute': _TimeOfDay_minute$,
         'period': _TimeOfDay_period$,
@@ -43,6 +45,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _TimeOfDay_hashCode$,
         'replacing': _TimeOfDay_replacing$,
         'format': _TimeOfDay_format$,
+        '==': _TimeOfDay_eq$$,
         'toString': _TimeOfDay_toString$,
       },
       {},
@@ -50,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableTimeOfDay': m.ClassMirror(
       'RestorableTimeOfDay',
       {
+        '#as': RestorableTimeOfDay_as$,
+        '#is': RestorableTimeOfDay_is$,
         'createDefaultValue': _RestorableTimeOfDay_createDefaultValue$,
         'didUpdateValue': _RestorableTimeOfDay_didUpdateValue$,
         'fromPrimitives': _RestorableTimeOfDay_fromPrimitives$,
@@ -74,6 +79,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TimeOfDay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimeOfDay;
+Function TimeOfDay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimeOfDay;
 int _TimeOfDay_hoursPerDay$() {
   return TimeOfDay.hoursPerDay;
 }
@@ -120,11 +135,26 @@ Function _TimeOfDay_format$(
   TimeOfDay target,
 ) =>
     target.format;
+Function _TimeOfDay_eq$$(
+  m.Scope scope,
+  TimeOfDay target,
+) =>
+    (Object other) => target == other;
 Function _TimeOfDay_toString$(
   m.Scope scope,
   TimeOfDay target,
 ) =>
     target.toString;
+Function RestorableTimeOfDay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableTimeOfDay;
+Function RestorableTimeOfDay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableTimeOfDay;
 Function _RestorableTimeOfDay_createDefaultValue$(
   m.Scope scope,
   RestorableTimeOfDay target,

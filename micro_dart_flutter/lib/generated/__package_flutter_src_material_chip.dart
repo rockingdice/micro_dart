@@ -31,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'ChipAttributes': m.ClassMirror(
       'ChipAttributes',
       {
+        '#as': ChipAttributes_as$,
+        '#is': ChipAttributes_is$,
         'label': _ChipAttributes_label$,
         'avatar': _ChipAttributes_avatar$,
         'labelStyle': _ChipAttributes_labelStyle$,
@@ -54,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'DeletableChipAttributes': m.ClassMirror(
       'DeletableChipAttributes',
       {
+        '#as': DeletableChipAttributes_as$,
+        '#is': DeletableChipAttributes_is$,
         'deleteIcon': _DeletableChipAttributes_deleteIcon$,
         'onDeleted': _DeletableChipAttributes_onDeleted$,
         'deleteIconColor': _DeletableChipAttributes_deleteIconColor$,
@@ -65,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'CheckmarkableChipAttributes': m.ClassMirror(
       'CheckmarkableChipAttributes',
       {
+        '#as': CheckmarkableChipAttributes_as$,
+        '#is': CheckmarkableChipAttributes_is$,
         'showCheckmark': _CheckmarkableChipAttributes_showCheckmark$,
         'checkmarkColor': _CheckmarkableChipAttributes_checkmarkColor$,
       },
@@ -73,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectableChipAttributes': m.ClassMirror(
       'SelectableChipAttributes',
       {
+        '#as': SelectableChipAttributes_as$,
+        '#is': SelectableChipAttributes_is$,
         'selected': _SelectableChipAttributes_selected$,
         'onSelected': _SelectableChipAttributes_onSelected$,
         'pressElevation': _SelectableChipAttributes_pressElevation$,
@@ -86,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'DisabledChipAttributes': m.ClassMirror(
       'DisabledChipAttributes',
       {
+        '#as': DisabledChipAttributes_as$,
+        '#is': DisabledChipAttributes_is$,
         'isEnabled': _DisabledChipAttributes_isEnabled$,
         'disabledColor': _DisabledChipAttributes_disabledColor$,
       },
@@ -94,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
     'TappableChipAttributes': m.ClassMirror(
       'TappableChipAttributes',
       {
+        '#as': TappableChipAttributes_as$,
+        '#is': TappableChipAttributes_is$,
         'onPressed': _TappableChipAttributes_onPressed$,
         'pressElevation': _TappableChipAttributes_pressElevation$,
         'tooltip': _TappableChipAttributes_tooltip$,
@@ -103,6 +115,8 @@ const libraryMirror = m.LibraryMirror(
     'Chip': m.ClassMirror(
       'Chip',
       {
+        '#as': Chip_as$,
+        '#is': Chip_is$,
         'avatar': _Chip_avatar$,
         'label': _Chip_label$,
         'labelStyle': _Chip_labelStyle$,
@@ -132,6 +146,8 @@ const libraryMirror = m.LibraryMirror(
     'RawChip': m.ClassMirror(
       'RawChip',
       {
+        '#as': RawChip_as$,
+        '#is': RawChip_is$,
         'defaultProperties': _RawChip_defaultProperties$,
         'avatar': _RawChip_avatar$,
         'label': _RawChip_label$,
@@ -174,6 +190,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ChipAttributes;
+Function ChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ChipAttributes;
 Widget _ChipAttributes_label$(ChipAttributes target) {
   return target.label;
 }
@@ -243,6 +269,16 @@ IconThemeData? _ChipAttributes_iconTheme$(ChipAttributes target) {
   return target.iconTheme;
 }
 
+Function DeletableChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DeletableChipAttributes;
+Function DeletableChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DeletableChipAttributes;
 Widget? _DeletableChipAttributes_deleteIcon$(DeletableChipAttributes target) {
   return target.deleteIcon;
 }
@@ -262,6 +298,16 @@ String? _DeletableChipAttributes_deleteButtonTooltipMessage$(
   return target.deleteButtonTooltipMessage;
 }
 
+Function CheckmarkableChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CheckmarkableChipAttributes;
+Function CheckmarkableChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CheckmarkableChipAttributes;
 bool? _CheckmarkableChipAttributes_showCheckmark$(
     CheckmarkableChipAttributes target) {
   return target.showCheckmark;
@@ -272,6 +318,16 @@ Color? _CheckmarkableChipAttributes_checkmarkColor$(
   return target.checkmarkColor;
 }
 
+Function SelectableChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectableChipAttributes;
+Function SelectableChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectableChipAttributes;
 bool _SelectableChipAttributes_selected$(SelectableChipAttributes target) {
   return target.selected;
 }
@@ -305,6 +361,16 @@ ShapeBorder _SelectableChipAttributes_avatarBorder$(
   return target.avatarBorder;
 }
 
+Function DisabledChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DisabledChipAttributes;
+Function DisabledChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DisabledChipAttributes;
 bool _DisabledChipAttributes_isEnabled$(DisabledChipAttributes target) {
   return target.isEnabled;
 }
@@ -313,6 +379,16 @@ Color? _DisabledChipAttributes_disabledColor$(DisabledChipAttributes target) {
   return target.disabledColor;
 }
 
+Function TappableChipAttributes_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TappableChipAttributes;
+Function TappableChipAttributes_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TappableChipAttributes;
 void Function()? _TappableChipAttributes_onPressed$(
     TappableChipAttributes target) {
   return target.onPressed;
@@ -326,6 +402,16 @@ String? _TappableChipAttributes_tooltip$(TappableChipAttributes target) {
   return target.tooltip;
 }
 
+Function Chip_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Chip;
+Function Chip_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Chip;
 Widget? _Chip_avatar$(Chip target) {
   return target.avatar;
 }
@@ -419,6 +505,16 @@ Function _Chip_build$(
   Chip target,
 ) =>
     target.build;
+Function RawChip_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawChip;
+Function RawChip_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawChip;
 ChipThemeData? _RawChip_defaultProperties$(RawChip target) {
   return target.defaultProperties;
 }

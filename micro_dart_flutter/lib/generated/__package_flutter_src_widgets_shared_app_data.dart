@@ -9,12 +9,17 @@ import 'package:flutter/src/widgets/inherited_model.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/shared_app_data.dart',
-  {'SharedAppData.setValue': _SharedAppData_setValue$},
+  {
+    'SharedAppData.getValue': _SharedAppData_getValue$,
+    'SharedAppData.setValue': _SharedAppData_setValue$,
+  },
   {},
   {
     'SharedAppData': m.ClassMirror(
       'SharedAppData',
       {
+        '#as': SharedAppData_as$,
+        '#is': SharedAppData_is$,
         'child': _SharedAppData_child$,
         'createState': _SharedAppData_createState$,
       },
@@ -22,6 +27,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function SharedAppData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SharedAppData;
+Function SharedAppData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SharedAppData;
 Widget _SharedAppData_child$(SharedAppData target) {
   return target.child;
 }
@@ -31,5 +46,22 @@ Function _SharedAppData_createState$(
   SharedAppData target,
 ) =>
     target.createState;
+Function _SharedAppData_getValue$(m.Scope scope) => <K extends Object, V>(
+      BuildContext context,
+      K key,
+      m.FunctionPointer init,
+    ) {
+      V initProxy() => scope.engine.callFunctionPointer(
+            scope,
+            init,
+            [],
+            {},
+          );
+      return SharedAppData.getValue<K, V>(
+        context,
+        key,
+        initProxy,
+      );
+    };
 Function _SharedAppData_setValue$<K extends Object, V>(m.Scope scope) =>
     SharedAppData.setValue<K, V>;

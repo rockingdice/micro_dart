@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureArenaMember': m.ClassMirror(
       'GestureArenaMember',
       {
+        '#as': GestureArenaMember_as$,
+        '#is': GestureArenaMember_is$,
         'acceptGesture': _GestureArenaMember_acceptGesture$,
         'rejectGesture': _GestureArenaMember_rejectGesture$,
       },
@@ -26,12 +28,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'GestureArenaEntry': m.ClassMirror(
       'GestureArenaEntry',
-      {'resolve': _GestureArenaEntry_resolve$},
+      {
+        '#as': GestureArenaEntry_as$,
+        '#is': GestureArenaEntry_is$,
+        'resolve': _GestureArenaEntry_resolve$,
+      },
       {},
     ),
     'GestureArenaManager': m.ClassMirror(
       'GestureArenaManager',
       {
+        '#as': GestureArenaManager_as$,
+        '#is': GestureArenaManager_is$,
         'add': _GestureArenaManager_add$,
         'close': _GestureArenaManager_close$,
         'sweep': _GestureArenaManager_sweep$,
@@ -47,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function GestureArenaMember_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureArenaMember;
+Function GestureArenaMember_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureArenaMember;
 Function _GestureArenaMember_acceptGesture$(
   m.Scope scope,
   GestureArenaMember target,
@@ -57,11 +75,31 @@ Function _GestureArenaMember_rejectGesture$(
   GestureArenaMember target,
 ) =>
     target.rejectGesture;
+Function GestureArenaEntry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureArenaEntry;
+Function GestureArenaEntry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureArenaEntry;
 Function _GestureArenaEntry_resolve$(
   m.Scope scope,
   GestureArenaEntry target,
 ) =>
     target.resolve;
+Function GestureArenaManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureArenaManager;
+Function GestureArenaManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureArenaManager;
 Function _GestureArenaManager_add$(
   m.Scope scope,
   GestureArenaManager target,

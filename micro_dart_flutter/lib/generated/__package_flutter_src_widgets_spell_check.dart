@@ -16,14 +16,17 @@ import 'package:flutter/src/widgets/framework.dart' show immutable;
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/spell_check.dart',
   {
+    'SpellCheckConfiguration.copyWith': _SpellCheckConfiguration_copyWith$,
     'buildTextSpanWithSpellCheckSuggestions':
-        _buildTextSpanWithSpellCheckSuggestions$
+        _buildTextSpanWithSpellCheckSuggestions$,
   },
   {},
   {
     'SpellCheckConfiguration': m.ClassMirror(
       'SpellCheckConfiguration',
       {
+        '#as': SpellCheckConfiguration_as$,
+        '#is': SpellCheckConfiguration_is$,
         'spellCheckService': _SpellCheckConfiguration_spellCheckService$,
         'misspelledSelectionColor':
             _SpellCheckConfiguration_misspelledSelectionColor$,
@@ -33,11 +36,22 @@ const libraryMirror = m.LibraryMirror(
         'spellCheckEnabled': _SpellCheckConfiguration_spellCheckEnabled$,
         'hashCode': _SpellCheckConfiguration_hashCode$,
         'toString': _SpellCheckConfiguration_toString$,
+        '==': _SpellCheckConfiguration_eq$$,
       },
       {},
     )
   },
 );
+Function SpellCheckConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SpellCheckConfiguration;
+Function SpellCheckConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SpellCheckConfiguration;
 SpellCheckService? _SpellCheckConfiguration_spellCheckService$(
     SpellCheckConfiguration target) {
   return target.spellCheckService;
@@ -68,10 +82,48 @@ int _SpellCheckConfiguration_hashCode$(SpellCheckConfiguration target) {
   return target.hashCode;
 }
 
+Function _SpellCheckConfiguration_copyWith$(
+  m.Scope scope,
+  SpellCheckConfiguration target,
+) =>
+    ({
+      Color? misspelledSelectionColor,
+      TextStyle? misspelledTextStyle,
+      SpellCheckService? spellCheckService,
+      m.FunctionPointer? spellCheckSuggestionsToolbarBuilder,
+    }) {
+      Widget spellCheckSuggestionsToolbarBuilderProxy(
+        BuildContext spellCheckSuggestionsToolbarBuilder_context,
+        EditableTextState spellCheckSuggestionsToolbarBuilder_editableTextState,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            spellCheckSuggestionsToolbarBuilder!,
+            [
+              spellCheckSuggestionsToolbarBuilder_context,
+              spellCheckSuggestionsToolbarBuilder_editableTextState,
+            ],
+            {},
+          );
+      return target.copyWith(
+        misspelledSelectionColor: misspelledSelectionColor,
+        misspelledTextStyle: misspelledTextStyle,
+        spellCheckService: spellCheckService,
+        spellCheckSuggestionsToolbarBuilder:
+            spellCheckSuggestionsToolbarBuilder == null
+                ? null
+                : spellCheckSuggestionsToolbarBuilderProxy,
+      );
+    };
 Function _SpellCheckConfiguration_toString$(
   m.Scope scope,
   SpellCheckConfiguration target,
 ) =>
     target.toString;
+Function _SpellCheckConfiguration_eq$$(
+  m.Scope scope,
+  SpellCheckConfiguration target,
+) =>
+    (Object other) => target == other;
 Function _buildTextSpanWithSpellCheckSuggestions$(m.Scope scope) =>
     buildTextSpanWithSpellCheckSuggestions;

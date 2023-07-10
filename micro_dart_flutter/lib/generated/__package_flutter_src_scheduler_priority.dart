@@ -17,11 +17,27 @@ const libraryMirror = m.LibraryMirror(
   {
     'Priority': m.ClassMirror(
       'Priority',
-      {'value': _Priority_value$},
+      {
+        '#as': Priority_as$,
+        '#is': Priority_is$,
+        'value': _Priority_value$,
+        '+': _Priority_plus$$,
+        '-': _Priority_minus$$,
+      },
       {},
     )
   },
 );
+Function Priority_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Priority;
+Function Priority_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Priority;
 Priority _Priority_idle$() {
   return Priority.idle;
 }
@@ -41,3 +57,14 @@ int _Priority_kMaxOffset$() {
 int _Priority_value$(Priority target) {
   return target.value;
 }
+
+Function _Priority_plus$$(
+  m.Scope scope,
+  Priority target,
+) =>
+    (int other) => target + other;
+Function _Priority_minus$$(
+  m.Scope scope,
+  Priority target,
+) =>
+    (int other) => target - other;

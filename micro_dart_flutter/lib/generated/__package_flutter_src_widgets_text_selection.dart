@@ -32,8 +32,20 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/text_selection.dart',
   {
     'emptyTextSelectionControls': _emptyTextSelectionControls$,
+    'TextSelectionControls.buildHandle': _TextSelectionControls_buildHandle$,
+    'EmptyTextSelectionControls.buildHandle':
+        _EmptyTextSelectionControls_buildHandle$,
     'TextSelectionOverlay.fadeDuration': _TextSelectionOverlay_fadeDuration$,
+    'TextSelectionOverlay.showSpellCheckSuggestionsToolbar':
+        _TextSelectionOverlay_showSpellCheckSuggestionsToolbar$,
     'SelectionOverlay.fadeDuration': _SelectionOverlay_fadeDuration$,
+    'SelectionOverlay.showToolbar': _SelectionOverlay_showToolbar$,
+    'SelectionOverlay.showSpellCheckSuggestionsToolbar':
+        _SelectionOverlay_showSpellCheckSuggestionsToolbar$,
+    'ClipboardStatusNotifier.addListener':
+        _ClipboardStatusNotifier_addListener$,
+    'ClipboardStatusNotifier.removeListener':
+        _ClipboardStatusNotifier_removeListener$,
     'ClipboardStatus.pasteable': _ClipboardStatus_pasteable$,
     'ClipboardStatus.unknown': _ClipboardStatus_unknown$,
     'ClipboardStatus.notPasteable': _ClipboardStatus_notPasteable$,
@@ -44,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'ToolbarItemsParentData': m.ClassMirror(
       'ToolbarItemsParentData',
       {
+        '#as': ToolbarItemsParentData_as$,
+        '#is': ToolbarItemsParentData_is$,
         'shouldPaint': _ToolbarItemsParentData_shouldPaint$,
         'toString': _ToolbarItemsParentData_toString$,
       },
@@ -52,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionControls': m.ClassMirror(
       'TextSelectionControls',
       {
+        '#as': TextSelectionControls_as$,
+        '#is': TextSelectionControls_is$,
         'getHandleAnchor': _TextSelectionControls_getHandleAnchor$,
         'getHandleSize': _TextSelectionControls_getHandleSize$,
       },
@@ -60,6 +76,8 @@ const libraryMirror = m.LibraryMirror(
     'EmptyTextSelectionControls': m.ClassMirror(
       'EmptyTextSelectionControls',
       {
+        '#as': EmptyTextSelectionControls_as$,
+        '#is': EmptyTextSelectionControls_is$,
         'getHandleSize': _EmptyTextSelectionControls_getHandleSize$,
         'buildToolbar': _EmptyTextSelectionControls_buildToolbar$,
         'getHandleAnchor': _EmptyTextSelectionControls_getHandleAnchor$,
@@ -69,6 +87,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionOverlay': m.ClassMirror(
       'TextSelectionOverlay',
       {
+        '#as': TextSelectionOverlay_as$,
+        '#is': TextSelectionOverlay_is$,
         'context': _TextSelectionOverlay_context$,
         'renderObject': _TextSelectionOverlay_renderObject$,
         'selectionControls': _TextSelectionOverlay_selectionControls$,
@@ -98,6 +118,8 @@ const libraryMirror = m.LibraryMirror(
     'SelectionOverlay': m.ClassMirror(
       'SelectionOverlay',
       {
+        '#as': SelectionOverlay_as$,
+        '#is': SelectionOverlay_is$,
         'context': _SelectionOverlay_context$,
         'magnifierConfiguration': _SelectionOverlay_magnifierConfiguration$,
         'startHandlesVisible': _SelectionOverlay_startHandlesVisible$,
@@ -145,6 +167,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionGestureDetectorBuilderDelegate': m.ClassMirror(
       'TextSelectionGestureDetectorBuilderDelegate',
       {
+        '#as': TextSelectionGestureDetectorBuilderDelegate_as$,
+        '#is': TextSelectionGestureDetectorBuilderDelegate_is$,
         'editableTextKey':
             _TextSelectionGestureDetectorBuilderDelegate_editableTextKey$,
         'forcePressEnabled':
@@ -157,6 +181,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionGestureDetectorBuilder': m.ClassMirror(
       'TextSelectionGestureDetectorBuilder',
       {
+        '#as': TextSelectionGestureDetectorBuilder_as$,
+        '#is': TextSelectionGestureDetectorBuilder_is$,
         'delegate': _TextSelectionGestureDetectorBuilder_delegate$,
         'shouldShowSelectionToolbar':
             _TextSelectionGestureDetectorBuilder_shouldShowSelectionToolbar$,
@@ -197,6 +223,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionGestureDetector': m.ClassMirror(
       'TextSelectionGestureDetector',
       {
+        '#as': TextSelectionGestureDetector_as$,
+        '#is': TextSelectionGestureDetector_is$,
         'onTapDown': _TextSelectionGestureDetector_onTapDown$,
         'onForcePressStart': _TextSelectionGestureDetector_onForcePressStart$,
         'onForcePressEnd': _TextSelectionGestureDetector_onForcePressEnd$,
@@ -225,6 +253,8 @@ const libraryMirror = m.LibraryMirror(
     'ClipboardStatusNotifier': m.ClassMirror(
       'ClipboardStatusNotifier',
       {
+        '#as': ClipboardStatusNotifier_as$,
+        '#is': ClipboardStatusNotifier_is$,
         'disposed': _ClipboardStatusNotifier_disposed$,
         'update': _ClipboardStatusNotifier_update$,
         'didChangeAppLifecycleState':
@@ -244,6 +274,16 @@ TextSelectionControls _emptyTextSelectionControls$() {
   return emptyTextSelectionControls;
 }
 
+Function ToolbarItemsParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToolbarItemsParentData;
+Function ToolbarItemsParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToolbarItemsParentData;
 bool _ToolbarItemsParentData_shouldPaint$(ToolbarItemsParentData target) {
   return target.shouldPaint;
 }
@@ -260,6 +300,45 @@ Function _ToolbarItemsParentData_toString$(
   ToolbarItemsParentData target,
 ) =>
     target.toString;
+Function TextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionControls;
+Function TextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionControls;
+Function _TextSelectionControls_buildHandle$(
+  m.Scope scope,
+  TextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textLineHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _TextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   TextSelectionControls target,
@@ -270,6 +349,16 @@ Function _TextSelectionControls_getHandleSize$(
   TextSelectionControls target,
 ) =>
     target.getHandleSize;
+Function EmptyTextSelectionControls_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EmptyTextSelectionControls;
+Function EmptyTextSelectionControls_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EmptyTextSelectionControls;
 Function _EmptyTextSelectionControls_getHandleSize$(
   m.Scope scope,
   EmptyTextSelectionControls target,
@@ -280,11 +369,50 @@ Function _EmptyTextSelectionControls_buildToolbar$(
   EmptyTextSelectionControls target,
 ) =>
     target.buildToolbar;
+Function _EmptyTextSelectionControls_buildHandle$(
+  m.Scope scope,
+  EmptyTextSelectionControls target,
+) =>
+    (
+      BuildContext context,
+      TextSelectionHandleType type,
+      double textLineHeight,
+      m.FunctionPointer? onTap,
+    ) {
+      if (onTap == null) {}
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+      );
+      void onTapProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onTap!,
+            [],
+            {},
+          );
+      return target.buildHandle(
+        context,
+        type,
+        textLineHeight,
+        onTap == null ? null : onTapProxy,
+      );
+    };
 Function _EmptyTextSelectionControls_getHandleAnchor$(
   m.Scope scope,
   EmptyTextSelectionControls target,
 ) =>
     target.getHandleAnchor;
+Function TextSelectionOverlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionOverlay;
+Function TextSelectionOverlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionOverlay;
 BuildContext _TextSelectionOverlay_context$(TextSelectionOverlay target) {
   return target.context;
 }
@@ -360,6 +488,22 @@ Function _TextSelectionOverlay_showToolbar$(
   TextSelectionOverlay target,
 ) =>
     target.showToolbar;
+Function _TextSelectionOverlay_showSpellCheckSuggestionsToolbar$(
+  m.Scope scope,
+  TextSelectionOverlay target,
+) =>
+    (m.FunctionPointer spellCheckSuggestionsToolbarBuilder) {
+      Widget spellCheckSuggestionsToolbarBuilderProxy(
+              BuildContext spellCheckSuggestionsToolbarBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            spellCheckSuggestionsToolbarBuilder,
+            [spellCheckSuggestionsToolbarBuilder_context],
+            {},
+          );
+      target.showSpellCheckSuggestionsToolbar(
+          spellCheckSuggestionsToolbarBuilderProxy);
+    };
 Function _TextSelectionOverlay_showMagnifier$(
   m.Scope scope,
   TextSelectionOverlay target,
@@ -400,6 +544,16 @@ Function _TextSelectionOverlay_dispose$(
   TextSelectionOverlay target,
 ) =>
     target.dispose;
+Function SelectionOverlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectionOverlay;
+Function SelectionOverlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectionOverlay;
 BuildContext _SelectionOverlay_context$(SelectionOverlay target) {
   return target.context;
 }
@@ -584,6 +738,47 @@ Function _SelectionOverlay_hideHandles$(
   SelectionOverlay target,
 ) =>
     target.hideHandles;
+Function _SelectionOverlay_showToolbar$(
+  m.Scope scope,
+  SelectionOverlay target,
+) =>
+    ({
+      BuildContext? context,
+      m.FunctionPointer? contextMenuBuilder,
+    }) {
+      Widget contextMenuBuilderProxy(BuildContext contextMenuBuilder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            contextMenuBuilder!,
+            [contextMenuBuilder_context],
+            {},
+          );
+      target.showToolbar(
+        context: context,
+        contextMenuBuilder:
+            contextMenuBuilder == null ? null : contextMenuBuilderProxy,
+      );
+    };
+Function _SelectionOverlay_showSpellCheckSuggestionsToolbar$(
+  m.Scope scope,
+  SelectionOverlay target,
+) =>
+    ({
+      required m.FunctionPointer builder,
+      BuildContext? context,
+    }) {
+      Widget builderProxy(BuildContext builder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            builder,
+            [builder_context],
+            {},
+          );
+      target.showSpellCheckSuggestionsToolbar(
+        builder: builderProxy,
+        context: context,
+      );
+    };
 Function _SelectionOverlay_markNeedsBuild$(
   m.Scope scope,
   SelectionOverlay target,
@@ -609,6 +804,16 @@ Function _SelectionOverlay_updateMagnifier$(
   SelectionOverlay target,
 ) =>
     target.updateMagnifier;
+Function TextSelectionGestureDetectorBuilderDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionGestureDetectorBuilderDelegate;
+Function TextSelectionGestureDetectorBuilderDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionGestureDetectorBuilderDelegate;
 GlobalKey<EditableTextState>
     _TextSelectionGestureDetectorBuilderDelegate_editableTextKey$(
         TextSelectionGestureDetectorBuilderDelegate target) {
@@ -625,6 +830,16 @@ bool _TextSelectionGestureDetectorBuilderDelegate_selectionEnabled$(
   return target.selectionEnabled;
 }
 
+Function TextSelectionGestureDetectorBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionGestureDetectorBuilder;
+Function TextSelectionGestureDetectorBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionGestureDetectorBuilder;
 TextSelectionGestureDetectorBuilderDelegate
     _TextSelectionGestureDetectorBuilder_delegate$(
         TextSelectionGestureDetectorBuilder target) {
@@ -726,6 +941,16 @@ Function _TextSelectionGestureDetectorBuilder_buildGestureDetector$(
   TextSelectionGestureDetectorBuilder target,
 ) =>
     target.buildGestureDetector;
+Function TextSelectionGestureDetector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionGestureDetector;
+Function TextSelectionGestureDetector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionGestureDetector;
 void Function(TapDragDownDetails)? _TextSelectionGestureDetector_onTapDown$(
     TextSelectionGestureDetector target) {
   return target.onTapDown;
@@ -827,6 +1052,16 @@ Function _TextSelectionGestureDetector_createState$(
   TextSelectionGestureDetector target,
 ) =>
     target.createState;
+Function ClipboardStatusNotifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClipboardStatusNotifier;
+Function ClipboardStatusNotifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClipboardStatusNotifier;
 bool _ClipboardStatusNotifier_disposed$(ClipboardStatusNotifier target) {
   return target.disposed;
 }
@@ -836,6 +1071,32 @@ Function _ClipboardStatusNotifier_update$(
   ClipboardStatusNotifier target,
 ) =>
     target.update;
+Function _ClipboardStatusNotifier_addListener$(
+  m.Scope scope,
+  ClipboardStatusNotifier target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _ClipboardStatusNotifier_removeListener$(
+  m.Scope scope,
+  ClipboardStatusNotifier target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _ClipboardStatusNotifier_didChangeAppLifecycleState$(
   m.Scope scope,
   ClipboardStatusNotifier target,

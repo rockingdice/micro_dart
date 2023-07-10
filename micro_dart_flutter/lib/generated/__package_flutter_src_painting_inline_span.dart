@@ -16,6 +16,7 @@ const libraryMirror = m.LibraryMirror(
   {
     'InlineSpanSemanticsInformation.placeholder':
         _InlineSpanSemanticsInformation_placeholder$,
+    'InlineSpan.visitChildren': _InlineSpan_visitChildren$,
     'combineSemanticsInfo': _combineSemanticsInfo$,
   },
   {},
@@ -23,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'Accumulator': m.ClassMirror(
       'Accumulator',
       {
+        '#as': Accumulator_as$,
+        '#is': Accumulator_is$,
         'value': _Accumulator_value$,
         'increment': _Accumulator_increment$,
       },
@@ -31,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'InlineSpanSemanticsInformation': m.ClassMirror(
       'InlineSpanSemanticsInformation',
       {
+        '#as': InlineSpanSemanticsInformation_as$,
+        '#is': InlineSpanSemanticsInformation_is$,
         'text': _InlineSpanSemanticsInformation_text$,
         'semanticsLabel': _InlineSpanSemanticsInformation_semanticsLabel$,
         'recognizer': _InlineSpanSemanticsInformation_recognizer$,
@@ -38,6 +43,7 @@ const libraryMirror = m.LibraryMirror(
         'requiresOwnNode': _InlineSpanSemanticsInformation_requiresOwnNode$,
         'stringAttributes': _InlineSpanSemanticsInformation_stringAttributes$,
         'hashCode': _InlineSpanSemanticsInformation_hashCode$,
+        '==': _InlineSpanSemanticsInformation_eq$$,
         'toString': _InlineSpanSemanticsInformation_toString$,
       },
       {},
@@ -45,6 +51,8 @@ const libraryMirror = m.LibraryMirror(
     'InlineSpan': m.ClassMirror(
       'InlineSpan',
       {
+        '#as': InlineSpan_as$,
+        '#is': InlineSpan_is$,
         'style': _InlineSpan_style$,
         'hashCode': _InlineSpan_hashCode$,
         'build': _InlineSpan_build$,
@@ -58,12 +66,23 @@ const libraryMirror = m.LibraryMirror(
         'codeUnitAtVisitor': _InlineSpan_codeUnitAtVisitor$,
         'debugAssertIsValid': _InlineSpan_debugAssertIsValid$,
         'compareTo': _InlineSpan_compareTo$,
+        '==': _InlineSpan_eq$$,
         'debugFillProperties': _InlineSpan_debugFillProperties$,
       },
       {},
     ),
   },
 );
+Function Accumulator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Accumulator;
+Function Accumulator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Accumulator;
 int _Accumulator_value$(Accumulator target) {
   return target.value;
 }
@@ -73,6 +92,16 @@ Function _Accumulator_increment$(
   Accumulator target,
 ) =>
     target.increment;
+Function InlineSpanSemanticsInformation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InlineSpanSemanticsInformation;
+Function InlineSpanSemanticsInformation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InlineSpanSemanticsInformation;
 InlineSpanSemanticsInformation _InlineSpanSemanticsInformation_placeholder$() {
   return InlineSpanSemanticsInformation.placeholder;
 }
@@ -112,11 +141,26 @@ int _InlineSpanSemanticsInformation_hashCode$(
   return target.hashCode;
 }
 
+Function _InlineSpanSemanticsInformation_eq$$(
+  m.Scope scope,
+  InlineSpanSemanticsInformation target,
+) =>
+    (Object other) => target == other;
 Function _InlineSpanSemanticsInformation_toString$(
   m.Scope scope,
   InlineSpanSemanticsInformation target,
 ) =>
     target.toString;
+Function InlineSpan_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InlineSpan;
+Function InlineSpan_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InlineSpan;
 TextStyle? _InlineSpan_style$(InlineSpan target) {
   return target.style;
 }
@@ -130,6 +174,20 @@ Function _InlineSpan_build$(
   InlineSpan target,
 ) =>
     target.build;
+Function _InlineSpan_visitChildren$(
+  m.Scope scope,
+  InlineSpan target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(InlineSpan visitor_span) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_span],
+            {},
+          );
+      return target.visitChildren(visitorProxy);
+    };
 Function _InlineSpan_getSpanForPosition$(
   m.Scope scope,
   InlineSpan target,
@@ -180,6 +238,11 @@ Function _InlineSpan_compareTo$(
   InlineSpan target,
 ) =>
     target.compareTo;
+Function _InlineSpan_eq$$(
+  m.Scope scope,
+  InlineSpan target,
+) =>
+    (Object other) => target == other;
 Function _InlineSpan_debugFillProperties$(
   m.Scope scope,
   InlineSpan target,

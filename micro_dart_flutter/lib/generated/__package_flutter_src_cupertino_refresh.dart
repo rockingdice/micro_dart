@@ -30,6 +30,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSliverRefreshControl': m.ClassMirror(
       'CupertinoSliverRefreshControl',
       {
+        '#as': CupertinoSliverRefreshControl_as$,
+        '#is': CupertinoSliverRefreshControl_is$,
         'refreshTriggerPullDistance':
             _CupertinoSliverRefreshControl_refreshTriggerPullDistance$,
         'refreshIndicatorExtent':
@@ -47,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoSliverRefreshControl_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSliverRefreshControl;
+Function CupertinoSliverRefreshControl_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSliverRefreshControl;
 double _CupertinoSliverRefreshControl_refreshTriggerPullDistance$(
     CupertinoSliverRefreshControl target) {
   return target.refreshTriggerPullDistance;

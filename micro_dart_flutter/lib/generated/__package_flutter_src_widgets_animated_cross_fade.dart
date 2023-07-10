@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedCrossFade': m.ClassMirror(
       'AnimatedCrossFade',
       {
+        '#as': AnimatedCrossFade_as$,
+        '#is': AnimatedCrossFade_is$,
         'firstChild': _AnimatedCrossFade_firstChild$,
         'secondChild': _AnimatedCrossFade_secondChild$,
         'crossFadeState': _AnimatedCrossFade_crossFadeState$,
@@ -48,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AnimatedCrossFade_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedCrossFade;
+Function AnimatedCrossFade_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedCrossFade;
 Widget _AnimatedCrossFade_firstChild$(AnimatedCrossFade target) {
   return target.firstChild;
 }

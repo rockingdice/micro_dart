@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'TableBorder': m.ClassMirror(
       'TableBorder',
       {
+        '#as': TableBorder_as$,
+        '#is': TableBorder_is$,
         'top': _TableBorder_top$,
         'right': _TableBorder_right$,
         'bottom': _TableBorder_bottom$,
@@ -26,12 +28,23 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _TableBorder_hashCode$,
         'scale': _TableBorder_scale$,
         'paint': _TableBorder_paint$,
+        '==': _TableBorder_eq$$,
         'toString': _TableBorder_toString$,
       },
       {},
     )
   },
 );
+Function TableBorder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TableBorder;
+Function TableBorder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TableBorder;
 BorderSide _TableBorder_top$(TableBorder target) {
   return target.top;
 }
@@ -83,6 +96,11 @@ Function _TableBorder_paint$(
   TableBorder target,
 ) =>
     target.paint;
+Function _TableBorder_eq$$(
+  m.Scope scope,
+  TableBorder target,
+) =>
+    (Object other) => target == other;
 Function _TableBorder_toString$(
   m.Scope scope,
   TableBorder target,

@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsActionEvent': m.ClassMirror(
       'SemanticsActionEvent',
       {
+        '#as': SemanticsActionEvent_as$,
+        '#is': SemanticsActionEvent_is$,
         'type': _SemanticsActionEvent_type$,
         'nodeId': _SemanticsActionEvent_nodeId$,
         'arguments': _SemanticsActionEvent_arguments$,
@@ -25,11 +27,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SemanticsHandle': m.ClassMirror(
       'SemanticsHandle',
-      {'dispose': _SemanticsHandle_dispose$},
+      {
+        '#as': SemanticsHandle_as$,
+        '#is': SemanticsHandle_is$,
+        'dispose': _SemanticsHandle_dispose$,
+      },
       {},
     ),
   },
 );
+Function SemanticsActionEvent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsActionEvent;
+Function SemanticsActionEvent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsActionEvent;
 SemanticsAction _SemanticsActionEvent_type$(SemanticsActionEvent target) {
   return target.type;
 }
@@ -42,6 +58,16 @@ Object? _SemanticsActionEvent_arguments$(SemanticsActionEvent target) {
   return target.arguments;
 }
 
+Function SemanticsHandle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SemanticsHandle;
+Function SemanticsHandle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SemanticsHandle;
 Function _SemanticsHandle_dispose$(
   m.Scope scope,
   SemanticsHandle target,

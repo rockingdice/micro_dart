@@ -34,11 +34,17 @@ const libraryMirror = m.LibraryMirror(
     'Point': m.ClassMirror(
       'Point',
       {
+        '#as': Point_as$,
+        '#is': Point_is$,
         'x': _Point_x$,
         'y': _Point_y$,
         'hashCode': _Point_hashCode$,
         'magnitude': _Point_magnitude$,
         'toString': _Point_toString$,
+        '==': _Point_eq$$,
+        '+': _Point_plus$$,
+        '-': _Point_minus$$,
+        '*': _Point_times$$,
         'distanceTo': _Point_distanceTo$,
         'squaredDistanceTo': _Point_squaredDistanceTo$,
       },
@@ -47,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'Random': m.ClassMirror(
       'Random',
       {
+        '#as': Random_as$,
+        '#is': Random_is$,
         'nextInt': _Random_nextInt$,
         'nextDouble': _Random_nextDouble$,
         'nextBool': _Random_nextBool$,
@@ -56,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'Rectangle': m.ClassMirror(
       'Rectangle',
       {
+        '#as': Rectangle_as$,
+        '#is': Rectangle_is$,
         'left': _Rectangle_left$,
         'top': _Rectangle_top$,
         'width': _Rectangle_width$,
@@ -66,6 +76,8 @@ const libraryMirror = m.LibraryMirror(
     'MutableRectangle': m.ClassMirror(
       'MutableRectangle',
       {
+        '#as': MutableRectangle_as$,
+        '#is': MutableRectangle_is$,
         'left': _MutableRectangle_left$,
         'top': _MutableRectangle_top$,
         'width': _MutableRectangle_width$,
@@ -125,6 +137,16 @@ Function _atan$(m.Scope scope) => atan;
 Function _sqrt$(m.Scope scope) => sqrt;
 Function _exp$(m.Scope scope) => exp;
 Function _log$(m.Scope scope) => log;
+Function Point_as$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Point<T>;
+Function Point_is$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Point<T>;
 T _Point_x$<T extends num>(Point<T> target) {
   return target.x;
 }
@@ -146,6 +168,26 @@ Function _Point_toString$<T extends num>(
   Point<T> target,
 ) =>
     target.toString;
+Function _Point_eq$$<T extends num>(
+  m.Scope scope,
+  Point<T> target,
+) =>
+    (Object other) => target == other;
+Function _Point_plus$$<T extends num>(
+  m.Scope scope,
+  Point<T> target,
+) =>
+    (Point<T> other) => target + other;
+Function _Point_minus$$<T extends num>(
+  m.Scope scope,
+  Point<T> target,
+) =>
+    (Point<T> other) => target - other;
+Function _Point_times$$<T extends num>(
+  m.Scope scope,
+  Point<T> target,
+) =>
+    (num other) => target * other;
 Function _Point_distanceTo$<T extends num>(
   m.Scope scope,
   Point<T> target,
@@ -156,6 +198,16 @@ Function _Point_squaredDistanceTo$<T extends num>(
   Point<T> target,
 ) =>
     target.squaredDistanceTo;
+Function Random_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Random;
+Function Random_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Random;
 Function _Random_nextInt$(
   m.Scope scope,
   Random target,
@@ -171,6 +223,16 @@ Function _Random_nextBool$(
   Random target,
 ) =>
     target.nextBool;
+Function Rectangle_as$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Rectangle<T>;
+Function Rectangle_is$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Rectangle<T>;
 T _Rectangle_left$<T extends num>(Rectangle<T> target) {
   return target.left;
 }
@@ -187,6 +249,16 @@ T _Rectangle_height$<T extends num>(Rectangle<T> target) {
   return target.height;
 }
 
+Function MutableRectangle_as$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MutableRectangle<T>;
+Function MutableRectangle_is$<T extends num>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MutableRectangle<T>;
 T _MutableRectangle_left$<T extends num>(MutableRectangle<T> target) {
   return target.left;
 }

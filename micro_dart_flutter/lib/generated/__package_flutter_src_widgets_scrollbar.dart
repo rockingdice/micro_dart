@@ -38,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollbarPainter': m.ClassMirror(
       'ScrollbarPainter',
       {
+        '#as': ScrollbarPainter_as$,
+        '#is': ScrollbarPainter_is$,
         'fadeoutOpacityAnimation': _ScrollbarPainter_fadeoutOpacityAnimation$,
         'color': _ScrollbarPainter_color$,
         'trackColor': _ScrollbarPainter_trackColor$,
@@ -90,6 +92,8 @@ const libraryMirror = m.LibraryMirror(
     'RawScrollbar': m.ClassMirror(
       'RawScrollbar',
       {
+        '#as': RawScrollbar_as$,
+        '#is': RawScrollbar_is$,
         'child': _RawScrollbar_child$,
         'controller': _RawScrollbar_controller$,
         'thumbVisibility': _RawScrollbar_thumbVisibility$,
@@ -120,6 +124,8 @@ const libraryMirror = m.LibraryMirror(
     'RawScrollbarState': m.ClassMirror(
       'RawScrollbarState',
       {
+        '#as': RawScrollbarState_as$,
+        '#is': RawScrollbarState_is$,
         'scrollbarPainter': _RawScrollbarState_scrollbarPainter$,
         'showScrollbar': _RawScrollbarState_showScrollbar$,
         'enableGestures': _RawScrollbarState_enableGestures$,
@@ -149,6 +155,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollbarPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollbarPainter;
+Function ScrollbarPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollbarPainter;
 Animation<double> _ScrollbarPainter_fadeoutOpacityAnimation$(
     ScrollbarPainter target) {
   return target.fadeoutOpacityAnimation;
@@ -385,6 +401,16 @@ Function _ScrollbarPainter_dispose$(
   ScrollbarPainter target,
 ) =>
     target.dispose;
+Function RawScrollbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawScrollbar;
+Function RawScrollbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawScrollbar;
 Widget _RawScrollbar_child$(RawScrollbar target) {
   return target.child;
 }
@@ -483,6 +509,16 @@ Function _RawScrollbar_createState$(
   RawScrollbar target,
 ) =>
     target.createState;
+Function RawScrollbarState_as$<T extends RawScrollbar>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawScrollbarState<T>;
+Function RawScrollbarState_is$<T extends RawScrollbar>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawScrollbarState<T>;
 ScrollbarPainter _RawScrollbarState_scrollbarPainter$<T extends RawScrollbar>(
     RawScrollbarState<T> target) {
   return target.scrollbarPainter;

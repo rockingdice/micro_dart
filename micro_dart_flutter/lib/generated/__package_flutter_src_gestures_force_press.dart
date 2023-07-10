@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'ForcePressDetails': m.ClassMirror(
       'ForcePressDetails',
       {
+        '#as': ForcePressDetails_as$,
+        '#is': ForcePressDetails_is$,
         'globalPosition': _ForcePressDetails_globalPosition$,
         'localPosition': _ForcePressDetails_localPosition$,
         'pressure': _ForcePressDetails_pressure$,
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'ForcePressGestureRecognizer': m.ClassMirror(
       'ForcePressGestureRecognizer',
       {
+        '#as': ForcePressGestureRecognizer_as$,
+        '#is': ForcePressGestureRecognizer_is$,
         'onStart': _ForcePressGestureRecognizer_onStart$,
         'onUpdate': _ForcePressGestureRecognizer_onUpdate$,
         'onPeak': _ForcePressGestureRecognizer_onPeak$,
@@ -48,6 +52,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ForcePressDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ForcePressDetails;
+Function ForcePressDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ForcePressDetails;
 Offset _ForcePressDetails_globalPosition$(ForcePressDetails target) {
   return target.globalPosition;
 }
@@ -60,6 +74,16 @@ double _ForcePressDetails_pressure$(ForcePressDetails target) {
   return target.pressure;
 }
 
+Function ForcePressGestureRecognizer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ForcePressGestureRecognizer;
+Function ForcePressGestureRecognizer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ForcePressGestureRecognizer;
 void Function(ForcePressDetails)? _ForcePressGestureRecognizer_onStart$(
     ForcePressGestureRecognizer target) {
   return target.onStart;

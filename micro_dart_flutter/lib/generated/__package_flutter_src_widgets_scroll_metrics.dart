@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'FixedScrollMetrics': m.ClassMirror(
       'FixedScrollMetrics',
       {
+        '#as': FixedScrollMetrics_as$,
+        '#is': FixedScrollMetrics_is$,
         'axisDirection': _FixedScrollMetrics_axisDirection$,
         'devicePixelRatio': _FixedScrollMetrics_devicePixelRatio$,
         'minScrollExtent': _FixedScrollMetrics_minScrollExtent$,
@@ -30,6 +32,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FixedScrollMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FixedScrollMetrics;
+Function FixedScrollMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FixedScrollMetrics;
 AxisDirection _FixedScrollMetrics_axisDirection$(FixedScrollMetrics target) {
   return target.axisDirection;
 }

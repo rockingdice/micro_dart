@@ -33,6 +33,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomSheet': m.ClassMirror(
       'BottomSheet',
       {
+        '#as': BottomSheet_as$,
+        '#is': BottomSheet_is$,
         'animationController': _BottomSheet_animationController$,
         'onClosing': _BottomSheet_onClosing$,
         'builder': _BottomSheet_builder$,
@@ -55,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'ModalBottomSheetRoute': m.ClassMirror(
       'ModalBottomSheetRoute',
       {
+        '#as': ModalBottomSheetRoute_as$,
+        '#is': ModalBottomSheetRoute_is$,
         'builder': _ModalBottomSheetRoute_builder$,
         'capturedThemes': _ModalBottomSheetRoute_capturedThemes$,
         'isScrollControlled': _ModalBottomSheetRoute_isScrollControlled$,
@@ -87,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BottomSheet_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomSheet;
+Function BottomSheet_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomSheet;
 AnimationController? _BottomSheet_animationController$(BottomSheet target) {
   return target.animationController;
 }
@@ -155,6 +169,16 @@ Function _BottomSheet_createState$(
     target.createState;
 Function _BottomSheet_createAnimationController$(m.Scope scope) =>
     BottomSheet.createAnimationController;
+Function ModalBottomSheetRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ModalBottomSheetRoute<T>;
+Function ModalBottomSheetRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ModalBottomSheetRoute<T>;
 Widget Function(BuildContext) _ModalBottomSheetRoute_builder$<T>(
     ModalBottomSheetRoute<T> target) {
   return target.builder;
@@ -268,24 +292,24 @@ Function _ModalBottomSheetRoute_buildModalBarrier$<T>(
   ModalBottomSheetRoute<T> target,
 ) =>
     target.buildModalBarrier;
-Function _showModalBottomSheet$(m.Scope scope) => <T>(
-      BuildContext context,
-      m.FunctionPointer builder, {
+Function _showModalBottomSheet$(m.Scope scope) => <T>({
+      Offset? anchorPoint,
       Color? backgroundColor,
-      double? elevation,
-      ShapeBorder? shape,
+      Color? barrierColor,
+      required m.FunctionPointer builder,
       Clip? clipBehavior,
       BoxConstraints? constraints,
-      Color? barrierColor,
-      bool? isScrollControlled,
-      bool? useRootNavigator,
-      bool? isDismissible,
+      required BuildContext context,
+      double? elevation,
       bool? enableDrag,
-      bool? showDragHandle,
-      bool? useSafeArea,
+      bool? isDismissible,
+      bool? isScrollControlled,
       RouteSettings? routeSettings,
+      ShapeBorder? shape,
+      bool? showDragHandle,
       AnimationController? transitionAnimationController,
-      Offset? anchorPoint,
+      bool? useRootNavigator,
+      bool? useSafeArea,
     }) {
       Widget builderProxy(BuildContext builder_context) =>
           scope.engine.callFunctionPointer(
@@ -315,15 +339,15 @@ Function _showModalBottomSheet$(m.Scope scope) => <T>(
         useSafeArea: useSafeArea == null ? false : useSafeArea,
       );
     };
-Function _showBottomSheet$(m.Scope scope) => <T>(
-      BuildContext context,
-      m.FunctionPointer builder, {
+Function _showBottomSheet$(m.Scope scope) => <T>({
       Color? backgroundColor,
-      double? elevation,
-      ShapeBorder? shape,
+      required m.FunctionPointer builder,
       Clip? clipBehavior,
       BoxConstraints? constraints,
+      required BuildContext context,
+      double? elevation,
       bool? enableDrag,
+      ShapeBorder? shape,
       AnimationController? transitionAnimationController,
     }) {
       Widget builderProxy(BuildContext builder_context) =>

@@ -19,12 +19,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'MenuBarThemeData': m.ClassMirror(
       'MenuBarThemeData',
-      {},
+      {
+        '#as': MenuBarThemeData_as$,
+        '#is': MenuBarThemeData_is$,
+      },
       {},
     ),
     'MenuBarTheme': m.ClassMirror(
       'MenuBarTheme',
       {
+        '#as': MenuBarTheme_as$,
+        '#is': MenuBarTheme_is$,
         'data': _MenuBarTheme_data$,
         'wrap': _MenuBarTheme_wrap$,
         'updateShouldNotify': _MenuBarTheme_updateShouldNotify$,
@@ -33,7 +38,27 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MenuBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuBarThemeData;
+Function MenuBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuBarThemeData;
 Function _MenuBarThemeData_lerp$(m.Scope scope) => MenuBarThemeData.lerp;
+Function MenuBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MenuBarTheme;
+Function MenuBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MenuBarTheme;
 MenuBarThemeData _MenuBarTheme_data$(MenuBarTheme target) {
   return target.data;
 }

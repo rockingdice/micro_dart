@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'InheritedNotifier': m.ClassMirror(
       'InheritedNotifier',
       {
+        '#as': InheritedNotifier_as$,
+        '#is': InheritedNotifier_is$,
         'notifier': _InheritedNotifier_notifier$,
         'updateShouldNotify': _InheritedNotifier_updateShouldNotify$,
         'createElement': _InheritedNotifier_createElement$,
@@ -22,6 +24,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InheritedNotifier_as$<T extends Listenable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InheritedNotifier<T>;
+Function InheritedNotifier_is$<T extends Listenable>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InheritedNotifier<T>;
 T? _InheritedNotifier_notifier$<T extends Listenable>(
     InheritedNotifier<T> target) {
   return target.notifier;

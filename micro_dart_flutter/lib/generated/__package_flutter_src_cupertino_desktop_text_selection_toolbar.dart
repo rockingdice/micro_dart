@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoDesktopTextSelectionToolbar': m.ClassMirror(
       'CupertinoDesktopTextSelectionToolbar',
       {
+        '#as': CupertinoDesktopTextSelectionToolbar_as$,
+        '#is': CupertinoDesktopTextSelectionToolbar_is$,
         'anchor': _CupertinoDesktopTextSelectionToolbar_anchor$,
         'children': _CupertinoDesktopTextSelectionToolbar_children$,
         'build': _CupertinoDesktopTextSelectionToolbar_build$,
@@ -22,6 +24,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoDesktopTextSelectionToolbar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoDesktopTextSelectionToolbar;
+Function CupertinoDesktopTextSelectionToolbar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoDesktopTextSelectionToolbar;
 Offset _CupertinoDesktopTextSelectionToolbar_anchor$(
     CupertinoDesktopTextSelectionToolbar target) {
   return target.anchor;

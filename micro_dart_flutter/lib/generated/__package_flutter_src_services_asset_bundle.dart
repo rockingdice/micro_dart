@@ -12,12 +12,27 @@ import 'package:flutter/src/services/binding.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/asset_bundle.dart',
-  {'rootBundle': _rootBundle$},
+  {
+    'rootBundle': _rootBundle$,
+    'AssetBundle.loadStructuredData': _AssetBundle_loadStructuredData$,
+    'AssetBundle.loadStructuredBinaryData':
+        _AssetBundle_loadStructuredBinaryData$,
+    'NetworkAssetBundle.loadStructuredData':
+        _NetworkAssetBundle_loadStructuredData$,
+    'NetworkAssetBundle.loadStructuredBinaryData':
+        _NetworkAssetBundle_loadStructuredBinaryData$,
+    'CachingAssetBundle.loadStructuredData':
+        _CachingAssetBundle_loadStructuredData$,
+    'CachingAssetBundle.loadStructuredBinaryData':
+        _CachingAssetBundle_loadStructuredBinaryData$,
+  },
   {},
   {
     'AssetBundle': m.ClassMirror(
       'AssetBundle',
       {
+        '#as': AssetBundle_as$,
+        '#is': AssetBundle_is$,
         'load': _AssetBundle_load$,
         'loadBuffer': _AssetBundle_loadBuffer$,
         'loadString': _AssetBundle_loadString$,
@@ -30,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'NetworkAssetBundle': m.ClassMirror(
       'NetworkAssetBundle',
       {
+        '#as': NetworkAssetBundle_as$,
+        '#is': NetworkAssetBundle_is$,
         'load': _NetworkAssetBundle_load$,
         'toString': _NetworkAssetBundle_toString$,
       },
@@ -38,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'CachingAssetBundle': m.ClassMirror(
       'CachingAssetBundle',
       {
+        '#as': CachingAssetBundle_as$,
+        '#is': CachingAssetBundle_is$,
         'loadString': _CachingAssetBundle_loadString$,
         'evict': _CachingAssetBundle_evict$,
         'clear': _CachingAssetBundle_clear$,
@@ -48,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'PlatformAssetBundle': m.ClassMirror(
       'PlatformAssetBundle',
       {
+        '#as': PlatformAssetBundle_as$,
+        '#is': PlatformAssetBundle_is$,
         'load': _PlatformAssetBundle_load$,
         'loadBuffer': _PlatformAssetBundle_loadBuffer$,
       },
@@ -59,6 +80,16 @@ AssetBundle _rootBundle$() {
   return rootBundle;
 }
 
+Function AssetBundle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AssetBundle;
+Function AssetBundle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AssetBundle;
 Function _AssetBundle_load$(
   m.Scope scope,
   AssetBundle target,
@@ -74,6 +105,46 @@ Function _AssetBundle_loadString$(
   AssetBundle target,
 ) =>
     target.loadString;
+Function _AssetBundle_loadStructuredData$(
+  m.Scope scope,
+  AssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      Future<T> parserProxy(String parser_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_value],
+            {},
+          );
+      return target.loadStructuredData<T>(
+        key,
+        parserProxy,
+      );
+    };
+Function _AssetBundle_loadStructuredBinaryData$(
+  m.Scope scope,
+  AssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      FutureOr<T> parserProxy(ByteData parser_data) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_data],
+            {},
+          );
+      return target.loadStructuredBinaryData<T>(
+        key,
+        parserProxy,
+      );
+    };
 Function _AssetBundle_evict$(
   m.Scope scope,
   AssetBundle target,
@@ -89,21 +160,121 @@ Function _AssetBundle_toString$(
   AssetBundle target,
 ) =>
     target.toString;
+Function NetworkAssetBundle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NetworkAssetBundle;
+Function NetworkAssetBundle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NetworkAssetBundle;
 Function _NetworkAssetBundle_load$(
   m.Scope scope,
   NetworkAssetBundle target,
 ) =>
     target.load;
+Function _NetworkAssetBundle_loadStructuredData$(
+  m.Scope scope,
+  NetworkAssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      Future<T> parserProxy(String parser_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_value],
+            {},
+          );
+      return target.loadStructuredData<T>(
+        key,
+        parserProxy,
+      );
+    };
+Function _NetworkAssetBundle_loadStructuredBinaryData$(
+  m.Scope scope,
+  NetworkAssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      FutureOr<T> parserProxy(ByteData parser_data) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_data],
+            {},
+          );
+      return target.loadStructuredBinaryData<T>(
+        key,
+        parserProxy,
+      );
+    };
 Function _NetworkAssetBundle_toString$(
   m.Scope scope,
   NetworkAssetBundle target,
 ) =>
     target.toString;
+Function CachingAssetBundle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CachingAssetBundle;
+Function CachingAssetBundle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CachingAssetBundle;
 Function _CachingAssetBundle_loadString$(
   m.Scope scope,
   CachingAssetBundle target,
 ) =>
     target.loadString;
+Function _CachingAssetBundle_loadStructuredData$(
+  m.Scope scope,
+  CachingAssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      Future<T> parserProxy(String parser_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_value],
+            {},
+          );
+      return target.loadStructuredData<T>(
+        key,
+        parserProxy,
+      );
+    };
+Function _CachingAssetBundle_loadStructuredBinaryData$(
+  m.Scope scope,
+  CachingAssetBundle target,
+) =>
+    <T>(
+      String key,
+      m.FunctionPointer parser,
+    ) {
+      FutureOr<T> parserProxy(ByteData parser_data) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            parser,
+            [parser_data],
+            {},
+          );
+      return target.loadStructuredBinaryData<T>(
+        key,
+        parserProxy,
+      );
+    };
 Function _CachingAssetBundle_evict$(
   m.Scope scope,
   CachingAssetBundle target,
@@ -119,6 +290,16 @@ Function _CachingAssetBundle_loadBuffer$(
   CachingAssetBundle target,
 ) =>
     target.loadBuffer;
+Function PlatformAssetBundle_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlatformAssetBundle;
+Function PlatformAssetBundle_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlatformAssetBundle;
 Function _PlatformAssetBundle_load$(
   m.Scope scope,
   PlatformAssetBundle target,

@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'Icon': m.ClassMirror(
       'Icon',
       {
+        '#as': Icon_as$,
+        '#is': Icon_is$,
         'icon': _Icon_icon$,
         'size': _Icon_size$,
         'fill': _Icon_fill$,
@@ -38,6 +40,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Icon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Icon;
+Function Icon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Icon;
 IconData? _Icon_icon$(Icon target) {
   return target.icon;
 }

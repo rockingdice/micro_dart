@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'AppBarTheme': m.ClassMirror(
       'AppBarTheme',
       {
+        '#as': AppBarTheme_as$,
+        '#is': AppBarTheme_is$,
         'backgroundColor': _AppBarTheme_backgroundColor$,
         'foregroundColor': _AppBarTheme_foregroundColor$,
         'elevation': _AppBarTheme_elevation$,
@@ -37,12 +39,23 @@ const libraryMirror = m.LibraryMirror(
         'systemOverlayStyle': _AppBarTheme_systemOverlayStyle$,
         'hashCode': _AppBarTheme_hashCode$,
         'copyWith': _AppBarTheme_copyWith$,
+        '==': _AppBarTheme_eq$$,
         'debugFillProperties': _AppBarTheme_debugFillProperties$,
       },
       {},
     )
   },
 );
+Function AppBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AppBarTheme;
+Function AppBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AppBarTheme;
 Color? _AppBarTheme_backgroundColor$(AppBarTheme target) {
   return target.backgroundColor;
 }
@@ -114,6 +127,11 @@ Function _AppBarTheme_copyWith$(
     target.copyWith;
 Function _AppBarTheme_of$(m.Scope scope) => AppBarTheme.of;
 Function _AppBarTheme_lerp$(m.Scope scope) => AppBarTheme.lerp;
+Function _AppBarTheme_eq$$(
+  m.Scope scope,
+  AppBarTheme target,
+) =>
+    (Object other) => target == other;
 Function _AppBarTheme_debugFillProperties$(
   m.Scope scope,
   AppBarTheme target,

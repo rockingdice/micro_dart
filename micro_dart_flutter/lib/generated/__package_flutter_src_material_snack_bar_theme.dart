@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'SnackBarThemeData': m.ClassMirror(
       'SnackBarThemeData',
       {
+        '#as': SnackBarThemeData_as$,
+        '#is': SnackBarThemeData_is$,
         'backgroundColor': _SnackBarThemeData_backgroundColor$,
         'actionTextColor': _SnackBarThemeData_actionTextColor$,
         'disabledActionTextColor': _SnackBarThemeData_disabledActionTextColor$,
@@ -39,6 +41,7 @@ const libraryMirror = m.LibraryMirror(
             _SnackBarThemeData_disabledActionBackgroundColor$,
         'hashCode': _SnackBarThemeData_hashCode$,
         'copyWith': _SnackBarThemeData_copyWith$,
+        '==': _SnackBarThemeData_eq$$,
         'debugFillProperties': _SnackBarThemeData_debugFillProperties$,
       },
       {},
@@ -50,6 +53,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SnackBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SnackBarThemeData;
+Function SnackBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SnackBarThemeData;
 Color? _SnackBarThemeData_backgroundColor$(SnackBarThemeData target) {
   return target.backgroundColor;
 }
@@ -117,6 +130,11 @@ Function _SnackBarThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _SnackBarThemeData_lerp$(m.Scope scope) => SnackBarThemeData.lerp;
+Function _SnackBarThemeData_eq$$(
+  m.Scope scope,
+  SnackBarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SnackBarThemeData_debugFillProperties$(
   m.Scope scope,
   SnackBarThemeData target,

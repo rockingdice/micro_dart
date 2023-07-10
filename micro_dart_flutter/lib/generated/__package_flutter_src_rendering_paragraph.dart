@@ -34,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'TextParentData': m.ClassMirror(
       'TextParentData',
       {
+        '#as': TextParentData_as$,
+        '#is': TextParentData_is$,
         'scale': _TextParentData_scale$,
         'toString': _TextParentData_toString$,
       },
@@ -42,14 +44,19 @@ const libraryMirror = m.LibraryMirror(
     'PlaceholderSpanIndexSemanticsTag': m.ClassMirror(
       'PlaceholderSpanIndexSemanticsTag',
       {
+        '#as': PlaceholderSpanIndexSemanticsTag_as$,
+        '#is': PlaceholderSpanIndexSemanticsTag_is$,
         'index': _PlaceholderSpanIndexSemanticsTag_index$,
         'hashCode': _PlaceholderSpanIndexSemanticsTag_hashCode$,
+        '==': _PlaceholderSpanIndexSemanticsTag_eq$$,
       },
       {},
     ),
     'RenderParagraph': m.ClassMirror(
       'RenderParagraph',
       {
+        '#as': RenderParagraph_as$,
+        '#is': RenderParagraph_is$,
         'text': _RenderParagraph_text$,
         'selections': _RenderParagraph_selections$,
         'registrar': _RenderParagraph_registrar$,
@@ -113,6 +120,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextParentData;
+Function TextParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextParentData;
 double? _TextParentData_scale$(TextParentData target) {
   return target.scale;
 }
@@ -129,6 +146,16 @@ Function _TextParentData_toString$(
   TextParentData target,
 ) =>
     target.toString;
+Function PlaceholderSpanIndexSemanticsTag_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlaceholderSpanIndexSemanticsTag;
+Function PlaceholderSpanIndexSemanticsTag_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlaceholderSpanIndexSemanticsTag;
 int _PlaceholderSpanIndexSemanticsTag_index$(
     PlaceholderSpanIndexSemanticsTag target) {
   return target.index;
@@ -139,6 +166,21 @@ int _PlaceholderSpanIndexSemanticsTag_hashCode$(
   return target.hashCode;
 }
 
+Function _PlaceholderSpanIndexSemanticsTag_eq$$(
+  m.Scope scope,
+  PlaceholderSpanIndexSemanticsTag target,
+) =>
+    (Object other) => target == other;
+Function RenderParagraph_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderParagraph;
+Function RenderParagraph_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderParagraph;
 InlineSpan _RenderParagraph_text$(RenderParagraph target) {
   return target.text;
 }

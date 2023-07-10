@@ -41,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'TextField': m.ClassMirror(
       'TextField',
       {
+        '#as': TextField_as$,
+        '#is': TextField_is$,
         'magnifierConfiguration': _TextField_magnifierConfiguration$,
         'controller': _TextField_controller$,
         'focusNode': _TextField_focusNode$,
@@ -112,6 +114,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextField_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextField;
+Function TextField_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextField;
 TextMagnifierConfiguration? _TextField_magnifierConfiguration$(
     TextField target) {
   return target.magnifierConfiguration;

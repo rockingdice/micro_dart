@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'FloatingActionButton': m.ClassMirror(
       'FloatingActionButton',
       {
+        '#as': FloatingActionButton_as$,
+        '#is': FloatingActionButton_is$,
         'child': _FloatingActionButton_child$,
         'tooltip': _FloatingActionButton_tooltip$,
         'foregroundColor': _FloatingActionButton_foregroundColor$,
@@ -59,6 +61,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function FloatingActionButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingActionButton;
+Function FloatingActionButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingActionButton;
 Widget? _FloatingActionButton_child$(FloatingActionButton target) {
   return target.child;
 }

@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'Slider': m.ClassMirror(
       'Slider',
       {
+        '#as': Slider_as$,
+        '#is': Slider_is$,
         'value': _Slider_value$,
         'secondaryTrackValue': _Slider_secondaryTrackValue$,
         'onChanged': _Slider_onChanged$,
@@ -53,6 +55,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Slider_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Slider;
+Function Slider_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Slider;
 double _Slider_value$(Slider target) {
   return target.value;
 }

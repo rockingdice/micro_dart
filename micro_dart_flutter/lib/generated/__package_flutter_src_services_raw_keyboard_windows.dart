@@ -43,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataWindows': m.ClassMirror(
       'RawKeyEventDataWindows',
       {
+        '#as': RawKeyEventDataWindows_as$,
+        '#is': RawKeyEventDataWindows_is$,
         'keyCode': _RawKeyEventDataWindows_keyCode$,
         'scanCode': _RawKeyEventDataWindows_scanCode$,
         'characterCodePoint': _RawKeyEventDataWindows_characterCodePoint$,
@@ -55,11 +57,22 @@ const libraryMirror = m.LibraryMirror(
         'getModifierSide': _RawKeyEventDataWindows_getModifierSide$,
         'shouldDispatchEvent': _RawKeyEventDataWindows_shouldDispatchEvent$,
         'debugFillProperties': _RawKeyEventDataWindows_debugFillProperties$,
+        '==': _RawKeyEventDataWindows_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataWindows_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataWindows;
+Function RawKeyEventDataWindows_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataWindows;
 int _RawKeyEventDataWindows_keyCode$(RawKeyEventDataWindows target) {
   return target.keyCode;
 }
@@ -170,3 +183,8 @@ Function _RawKeyEventDataWindows_debugFillProperties$(
   RawKeyEventDataWindows target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataWindows_eq$$(
+  m.Scope scope,
+  RawKeyEventDataWindows target,
+) =>
+    (Object other) => target == other;

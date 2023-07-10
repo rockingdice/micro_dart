@@ -32,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelChildManager': m.ClassMirror(
       'ListWheelChildManager',
       {
+        '#as': ListWheelChildManager_as$,
+        '#is': ListWheelChildManager_is$,
         'childCount': _ListWheelChildManager_childCount$,
         'childExistsAt': _ListWheelChildManager_childExistsAt$,
         'createChild': _ListWheelChildManager_createChild$,
@@ -42,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelParentData': m.ClassMirror(
       'ListWheelParentData',
       {
+        '#as': ListWheelParentData_as$,
+        '#is': ListWheelParentData_is$,
         'index': _ListWheelParentData_index$,
         'transform': _ListWheelParentData_transform$,
       },
@@ -53,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderListWheelViewport': m.ClassMirror(
       'RenderListWheelViewport',
       {
+        '#as': RenderListWheelViewport_as$,
+        '#is': RenderListWheelViewport_is$,
         'childManager': _RenderListWheelViewport_childManager$,
         'offset': _RenderListWheelViewport_offset$,
         'diameterRatio': _RenderListWheelViewport_diameterRatio$,
@@ -112,6 +118,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ListWheelChildManager_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelChildManager;
+Function ListWheelChildManager_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelChildManager;
 int? _ListWheelChildManager_childCount$(ListWheelChildManager target) {
   return target.childCount;
 }
@@ -131,6 +147,16 @@ Function _ListWheelChildManager_removeChild$(
   ListWheelChildManager target,
 ) =>
     target.removeChild;
+Function ListWheelParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelParentData;
+Function ListWheelParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelParentData;
 int? _ListWheelParentData_index$(ListWheelParentData target) {
   return target.index;
 }
@@ -153,6 +179,16 @@ void _ListWheelParentData_transform_set$(
   target.transform = other;
 }
 
+Function RenderListWheelViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderListWheelViewport;
+Function RenderListWheelViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderListWheelViewport;
 double _RenderListWheelViewport_defaultDiameterRatio$() {
   return RenderListWheelViewport.defaultDiameterRatio;
 }

@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTextMagnifier': m.ClassMirror(
       'CupertinoTextMagnifier',
       {
+        '#as': CupertinoTextMagnifier_as$,
+        '#is': CupertinoTextMagnifier_is$,
         'animationCurve': _CupertinoTextMagnifier_animationCurve$,
         'controller': _CupertinoTextMagnifier_controller$,
         'dragResistance': _CupertinoTextMagnifier_dragResistance$,
@@ -32,6 +34,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoMagnifier': m.ClassMirror(
       'CupertinoMagnifier',
       {
+        '#as': CupertinoMagnifier_as$,
+        '#is': CupertinoMagnifier_is$,
         'shadows': _CupertinoMagnifier_shadows$,
         'borderSide': _CupertinoMagnifier_borderSide$,
         'size': _CupertinoMagnifier_size$,
@@ -45,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoTextMagnifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTextMagnifier;
+Function CupertinoTextMagnifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTextMagnifier;
 Curve _CupertinoTextMagnifier_animationCurve$(CupertinoTextMagnifier target) {
   return target.animationCurve;
 }
@@ -78,6 +92,16 @@ Function _CupertinoTextMagnifier_createState$(
   CupertinoTextMagnifier target,
 ) =>
     target.createState;
+Function CupertinoMagnifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoMagnifier;
+Function CupertinoMagnifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoMagnifier;
 List<BoxShadow> _CupertinoMagnifier_shadows$(CupertinoMagnifier target) {
   return target.shadows;
 }

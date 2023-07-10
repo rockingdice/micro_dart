@@ -14,15 +14,28 @@ const libraryMirror = m.LibraryMirror(
     'DeviceGestureSettings': m.ClassMirror(
       'DeviceGestureSettings',
       {
+        '#as': DeviceGestureSettings_as$,
+        '#is': DeviceGestureSettings_is$,
         'touchSlop': _DeviceGestureSettings_touchSlop$,
         'panSlop': _DeviceGestureSettings_panSlop$,
         'hashCode': _DeviceGestureSettings_hashCode$,
+        '==': _DeviceGestureSettings_eq$$,
         'toString': _DeviceGestureSettings_toString$,
       },
       {},
     )
   },
 );
+Function DeviceGestureSettings_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DeviceGestureSettings;
+Function DeviceGestureSettings_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DeviceGestureSettings;
 double? _DeviceGestureSettings_touchSlop$(DeviceGestureSettings target) {
   return target.touchSlop;
 }
@@ -35,6 +48,11 @@ int _DeviceGestureSettings_hashCode$(DeviceGestureSettings target) {
   return target.hashCode;
 }
 
+Function _DeviceGestureSettings_eq$$(
+  m.Scope scope,
+  DeviceGestureSettings target,
+) =>
+    (Object other) => target == other;
 Function _DeviceGestureSettings_toString$(
   m.Scope scope,
   DeviceGestureSettings target,

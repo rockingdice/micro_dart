@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'GlowingOverscrollIndicator': m.ClassMirror(
       'GlowingOverscrollIndicator',
       {
+        '#as': GlowingOverscrollIndicator_as$,
+        '#is': GlowingOverscrollIndicator_is$,
         'showLeading': _GlowingOverscrollIndicator_showLeading$,
         'showTrailing': _GlowingOverscrollIndicator_showTrailing$,
         'axisDirection': _GlowingOverscrollIndicator_axisDirection$,
@@ -41,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'StretchingOverscrollIndicator': m.ClassMirror(
       'StretchingOverscrollIndicator',
       {
+        '#as': StretchingOverscrollIndicator_as$,
+        '#is': StretchingOverscrollIndicator_is$,
         'axisDirection': _StretchingOverscrollIndicator_axisDirection$,
         'notificationPredicate':
             _StretchingOverscrollIndicator_notificationPredicate$,
@@ -56,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'OverscrollIndicatorNotification': m.ClassMirror(
       'OverscrollIndicatorNotification',
       {
+        '#as': OverscrollIndicatorNotification_as$,
+        '#is': OverscrollIndicatorNotification_is$,
         'leading': _OverscrollIndicatorNotification_leading$,
         'paintOffset': _OverscrollIndicatorNotification_paintOffset$,
         'accepted': _OverscrollIndicatorNotification_accepted$,
@@ -71,6 +77,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function GlowingOverscrollIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GlowingOverscrollIndicator;
+Function GlowingOverscrollIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GlowingOverscrollIndicator;
 bool _GlowingOverscrollIndicator_showLeading$(
     GlowingOverscrollIndicator target) {
   return target.showLeading;
@@ -114,6 +130,16 @@ Function _GlowingOverscrollIndicator_debugFillProperties$(
   GlowingOverscrollIndicator target,
 ) =>
     target.debugFillProperties;
+Function StretchingOverscrollIndicator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StretchingOverscrollIndicator;
+Function StretchingOverscrollIndicator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StretchingOverscrollIndicator;
 AxisDirection _StretchingOverscrollIndicator_axisDirection$(
     StretchingOverscrollIndicator target) {
   return target.axisDirection;
@@ -150,6 +176,16 @@ Function _StretchingOverscrollIndicator_debugFillProperties$(
   StretchingOverscrollIndicator target,
 ) =>
     target.debugFillProperties;
+Function OverscrollIndicatorNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverscrollIndicatorNotification;
+Function OverscrollIndicatorNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverscrollIndicatorNotification;
 bool _OverscrollIndicatorNotification_leading$(
     OverscrollIndicatorNotification target) {
   return target.leading;

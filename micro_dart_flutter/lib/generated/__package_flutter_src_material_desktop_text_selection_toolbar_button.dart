@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'DesktopTextSelectionToolbarButton': m.ClassMirror(
       'DesktopTextSelectionToolbarButton',
       {
+        '#as': DesktopTextSelectionToolbarButton_as$,
+        '#is': DesktopTextSelectionToolbarButton_is$,
         'onPressed': _DesktopTextSelectionToolbarButton_onPressed$,
         'child': _DesktopTextSelectionToolbarButton_child$,
         'build': _DesktopTextSelectionToolbarButton_build$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DesktopTextSelectionToolbarButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DesktopTextSelectionToolbarButton;
+Function DesktopTextSelectionToolbarButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DesktopTextSelectionToolbarButton;
 void Function() _DesktopTextSelectionToolbarButton_onPressed$(
     DesktopTextSelectionToolbarButton target) {
   return target.onPressed;

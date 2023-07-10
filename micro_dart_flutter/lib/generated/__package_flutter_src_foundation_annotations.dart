@@ -11,29 +11,71 @@ const libraryMirror = m.LibraryMirror(
   {
     'Category': m.ClassMirror(
       'Category',
-      {'sections': _Category_sections$},
+      {
+        '#as': Category_as$,
+        '#is': Category_is$,
+        'sections': _Category_sections$,
+      },
       {},
     ),
     'DocumentationIcon': m.ClassMirror(
       'DocumentationIcon',
-      {'url': _DocumentationIcon_url$},
+      {
+        '#as': DocumentationIcon_as$,
+        '#is': DocumentationIcon_is$,
+        'url': _DocumentationIcon_url$,
+      },
       {},
     ),
     'Summary': m.ClassMirror(
       'Summary',
-      {'text': _Summary_text$},
+      {
+        '#as': Summary_as$,
+        '#is': Summary_is$,
+        'text': _Summary_text$,
+      },
       {},
     ),
   },
 );
+Function Category_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Category;
+Function Category_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Category;
 List<String> _Category_sections$(Category target) {
   return target.sections;
 }
 
+Function DocumentationIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DocumentationIcon;
+Function DocumentationIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DocumentationIcon;
 String _DocumentationIcon_url$(DocumentationIcon target) {
   return target.url;
 }
 
+Function Summary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Summary;
+Function Summary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Summary;
 String _Summary_text$(Summary target) {
   return target.text;
 }

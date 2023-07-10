@@ -45,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
     'DatePickerDialog': m.ClassMirror(
       'DatePickerDialog',
       {
+        '#as': DatePickerDialog_as$,
+        '#is': DatePickerDialog_is$,
         'initialDate': _DatePickerDialog_initialDate$,
         'firstDate': _DatePickerDialog_firstDate$,
         'lastDate': _DatePickerDialog_lastDate$,
@@ -69,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'DateRangePickerDialog': m.ClassMirror(
       'DateRangePickerDialog',
       {
+        '#as': DateRangePickerDialog_as$,
+        '#is': DateRangePickerDialog_is$,
         'initialDateRange': _DateRangePickerDialog_initialDateRange$,
         'firstDate': _DateRangePickerDialog_firstDate$,
         'lastDate': _DateRangePickerDialog_lastDate$,
@@ -93,6 +97,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DatePickerDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DatePickerDialog;
+Function DatePickerDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DatePickerDialog;
 DateTime _DatePickerDialog_initialDate$(DatePickerDialog target) {
   return target.initialDate;
 }
@@ -169,6 +183,16 @@ Function _DatePickerDialog_createState$(
   DatePickerDialog target,
 ) =>
     target.createState;
+Function DateRangePickerDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DateRangePickerDialog;
+Function DateRangePickerDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DateRangePickerDialog;
 DateTimeRange? _DateRangePickerDialog_initialDateRange$(
     DateRangePickerDialog target) {
   return target.initialDateRange;
@@ -253,30 +277,30 @@ Function _DateRangePickerDialog_createState$(
   DateRangePickerDialog target,
 ) =>
     target.createState;
-Function _showDatePicker$(m.Scope scope) => (
-      BuildContext context,
-      DateTime initialDate,
-      DateTime firstDate,
-      DateTime lastDate, {
-      DateTime? currentDate,
-      DatePickerEntryMode? initialEntryMode,
-      m.FunctionPointer? selectableDayPredicate,
-      String? helpText,
+Function _showDatePicker$(m.Scope scope) => ({
+      Offset? anchorPoint,
+      m.FunctionPointer? builder,
       String? cancelText,
       String? confirmText,
-      Locale? locale,
-      bool? useRootNavigator,
-      RouteSettings? routeSettings,
-      TextDirection? textDirection,
-      m.FunctionPointer? builder,
-      DatePickerMode? initialDatePickerMode,
+      required BuildContext context,
+      DateTime? currentDate,
       String? errorFormatText,
       String? errorInvalidText,
       String? fieldHintText,
       String? fieldLabelText,
+      required DateTime firstDate,
+      String? helpText,
+      required DateTime initialDate,
+      DatePickerMode? initialDatePickerMode,
+      DatePickerEntryMode? initialEntryMode,
       TextInputType? keyboardType,
-      Offset? anchorPoint,
+      required DateTime lastDate,
+      Locale? locale,
       m.FunctionPointer? onDatePickerModeChange,
+      RouteSettings? routeSettings,
+      m.FunctionPointer? selectableDayPredicate,
+      TextDirection? textDirection,
+      bool? useRootNavigator,
     }) {
       Widget builderProxy(
         BuildContext builder_context,
@@ -338,31 +362,31 @@ Function _showDatePicker$(m.Scope scope) => (
         useRootNavigator: useRootNavigator == null ? true : useRootNavigator,
       );
     };
-Function _showDateRangePicker$(m.Scope scope) => (
-      BuildContext context,
-      DateTime firstDate,
-      DateTime lastDate, {
-      DateTimeRange? initialDateRange,
-      DateTime? currentDate,
-      DatePickerEntryMode? initialEntryMode,
-      String? helpText,
+Function _showDateRangePicker$(m.Scope scope) => ({
+      Offset? anchorPoint,
+      m.FunctionPointer? builder,
       String? cancelText,
       String? confirmText,
-      String? saveText,
+      required BuildContext context,
+      DateTime? currentDate,
       String? errorFormatText,
-      String? errorInvalidText,
       String? errorInvalidRangeText,
-      String? fieldStartHintText,
+      String? errorInvalidText,
       String? fieldEndHintText,
-      String? fieldStartLabelText,
       String? fieldEndLabelText,
-      Locale? locale,
-      bool? useRootNavigator,
-      RouteSettings? routeSettings,
-      TextDirection? textDirection,
-      m.FunctionPointer? builder,
-      Offset? anchorPoint,
+      String? fieldStartHintText,
+      String? fieldStartLabelText,
+      required DateTime firstDate,
+      String? helpText,
+      DateTimeRange? initialDateRange,
+      DatePickerEntryMode? initialEntryMode,
       TextInputType? keyboardType,
+      required DateTime lastDate,
+      Locale? locale,
+      RouteSettings? routeSettings,
+      String? saveText,
+      TextDirection? textDirection,
+      bool? useRootNavigator,
     }) {
       Widget builderProxy(
         BuildContext builder_context,

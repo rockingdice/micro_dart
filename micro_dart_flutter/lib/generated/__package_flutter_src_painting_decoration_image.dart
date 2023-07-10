@@ -21,6 +21,7 @@ import 'package:flutter/src/painting/image_stream.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/decoration_image.dart',
   {
+    'DecorationImage.createPainter': _DecorationImage_createPainter$,
     'ImageRepeat.repeat': _ImageRepeat_repeat$,
     'ImageRepeat.repeatX': _ImageRepeat_repeatX$,
     'ImageRepeat.repeatY': _ImageRepeat_repeatY$,
@@ -35,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'DecorationImage': m.ClassMirror(
       'DecorationImage',
       {
+        '#as': DecorationImage_as$,
+        '#is': DecorationImage_is$,
         'image': _DecorationImage_image$,
         'onError': _DecorationImage_onError$,
         'colorFilter': _DecorationImage_colorFilter$,
@@ -49,6 +52,7 @@ const libraryMirror = m.LibraryMirror(
         'invertColors': _DecorationImage_invertColors$,
         'isAntiAlias': _DecorationImage_isAntiAlias$,
         'hashCode': _DecorationImage_hashCode$,
+        '==': _DecorationImage_eq$$,
         'toString': _DecorationImage_toString$,
       },
       {},
@@ -56,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'DecorationImagePainter': m.ClassMirror(
       'DecorationImagePainter',
       {
+        '#as': DecorationImagePainter_as$,
+        '#is': DecorationImagePainter_is$,
         'paint': _DecorationImagePainter_paint$,
         'dispose': _DecorationImagePainter_dispose$,
         'toString': _DecorationImagePainter_toString$,
@@ -65,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageTilingInfo': m.ClassMirror(
       'ImageTilingInfo',
       {
+        '#as': ImageTilingInfo_as$,
+        '#is': ImageTilingInfo_is$,
         'tmx': _ImageTilingInfo_tmx$,
         'tmy': _ImageTilingInfo_tmy$,
         'transform': _ImageTilingInfo_transform$,
@@ -79,6 +87,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DecorationImage_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DecorationImage;
+Function DecorationImage_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DecorationImage;
 ImageProvider<Object> _DecorationImage_image$(DecorationImage target) {
   return target.image;
 }
@@ -136,11 +154,39 @@ int _DecorationImage_hashCode$(DecorationImage target) {
   return target.hashCode;
 }
 
+Function _DecorationImage_createPainter$(
+  m.Scope scope,
+  DecorationImage target,
+) =>
+    (m.FunctionPointer onChanged) {
+      void onChangedProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onChanged,
+            [],
+            {},
+          );
+      return target.createPainter(onChangedProxy);
+    };
+Function _DecorationImage_eq$$(
+  m.Scope scope,
+  DecorationImage target,
+) =>
+    (Object other) => target == other;
 Function _DecorationImage_toString$(
   m.Scope scope,
   DecorationImage target,
 ) =>
     target.toString;
+Function DecorationImagePainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DecorationImagePainter;
+Function DecorationImagePainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DecorationImagePainter;
 Function _DecorationImagePainter_paint$(
   m.Scope scope,
   DecorationImagePainter target,
@@ -156,6 +202,16 @@ Function _DecorationImagePainter_toString$(
   DecorationImagePainter target,
 ) =>
     target.toString;
+Function ImageTilingInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageTilingInfo;
+Function ImageTilingInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageTilingInfo;
 TileMode _ImageTilingInfo_tmx$(ImageTilingInfo target) {
   return target.tmx;
 }

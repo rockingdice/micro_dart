@@ -15,9 +15,15 @@ const libraryMirror = m.LibraryMirror(
     'Velocity': m.ClassMirror(
       'Velocity',
       {
+        '#as': Velocity_as$,
+        '#is': Velocity_is$,
         'pixelsPerSecond': _Velocity_pixelsPerSecond$,
         'hashCode': _Velocity_hashCode$,
+        'unary-': _Velocity_unary_minus$$,
+        '-': _Velocity_minus$$,
+        '+': _Velocity_plus$$,
         'clampMagnitude': _Velocity_clampMagnitude$,
+        '==': _Velocity_eq$$,
         'toString': _Velocity_toString$,
       },
       {},
@@ -25,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'VelocityEstimate': m.ClassMirror(
       'VelocityEstimate',
       {
+        '#as': VelocityEstimate_as$,
+        '#is': VelocityEstimate_is$,
         'pixelsPerSecond': _VelocityEstimate_pixelsPerSecond$,
         'confidence': _VelocityEstimate_confidence$,
         'duration': _VelocityEstimate_duration$,
@@ -36,6 +44,8 @@ const libraryMirror = m.LibraryMirror(
     'VelocityTracker': m.ClassMirror(
       'VelocityTracker',
       {
+        '#as': VelocityTracker_as$,
+        '#is': VelocityTracker_is$,
         'kind': _VelocityTracker_kind$,
         'addPosition': _VelocityTracker_addPosition$,
         'getVelocityEstimate': _VelocityTracker_getVelocityEstimate$,
@@ -46,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'IOSScrollViewFlingVelocityTracker': m.ClassMirror(
       'IOSScrollViewFlingVelocityTracker',
       {
+        '#as': IOSScrollViewFlingVelocityTracker_as$,
+        '#is': IOSScrollViewFlingVelocityTracker_is$,
         'addPosition': _IOSScrollViewFlingVelocityTracker_addPosition$,
         'getVelocityEstimate':
             _IOSScrollViewFlingVelocityTracker_getVelocityEstimate$,
@@ -55,13 +67,25 @@ const libraryMirror = m.LibraryMirror(
     'MacOSScrollViewFlingVelocityTracker': m.ClassMirror(
       'MacOSScrollViewFlingVelocityTracker',
       {
+        '#as': MacOSScrollViewFlingVelocityTracker_as$,
+        '#is': MacOSScrollViewFlingVelocityTracker_is$,
         'getVelocityEstimate':
-            _MacOSScrollViewFlingVelocityTracker_getVelocityEstimate$
+            _MacOSScrollViewFlingVelocityTracker_getVelocityEstimate$,
       },
       {},
     ),
   },
 );
+Function Velocity_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Velocity;
+Function Velocity_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Velocity;
 Velocity _Velocity_zero$() {
   return Velocity.zero;
 }
@@ -74,16 +98,46 @@ int _Velocity_hashCode$(Velocity target) {
   return target.hashCode;
 }
 
+Function _Velocity_unary_minus$$(
+  m.Scope scope,
+  Velocity target,
+) =>
+    () => -target;
+Function _Velocity_minus$$(
+  m.Scope scope,
+  Velocity target,
+) =>
+    (Velocity other) => target - other;
+Function _Velocity_plus$$(
+  m.Scope scope,
+  Velocity target,
+) =>
+    (Velocity other) => target + other;
 Function _Velocity_clampMagnitude$(
   m.Scope scope,
   Velocity target,
 ) =>
     target.clampMagnitude;
+Function _Velocity_eq$$(
+  m.Scope scope,
+  Velocity target,
+) =>
+    (Object other) => target == other;
 Function _Velocity_toString$(
   m.Scope scope,
   Velocity target,
 ) =>
     target.toString;
+Function VelocityEstimate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VelocityEstimate;
+Function VelocityEstimate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VelocityEstimate;
 Offset _VelocityEstimate_pixelsPerSecond$(VelocityEstimate target) {
   return target.pixelsPerSecond;
 }
@@ -105,6 +159,16 @@ Function _VelocityEstimate_toString$(
   VelocityEstimate target,
 ) =>
     target.toString;
+Function VelocityTracker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VelocityTracker;
+Function VelocityTracker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VelocityTracker;
 PointerDeviceKind _VelocityTracker_kind$(VelocityTracker target) {
   return target.kind;
 }
@@ -124,6 +188,16 @@ Function _VelocityTracker_getVelocity$(
   VelocityTracker target,
 ) =>
     target.getVelocity;
+Function IOSScrollViewFlingVelocityTracker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IOSScrollViewFlingVelocityTracker;
+Function IOSScrollViewFlingVelocityTracker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IOSScrollViewFlingVelocityTracker;
 Function _IOSScrollViewFlingVelocityTracker_addPosition$(
   m.Scope scope,
   IOSScrollViewFlingVelocityTracker target,
@@ -134,6 +208,16 @@ Function _IOSScrollViewFlingVelocityTracker_getVelocityEstimate$(
   IOSScrollViewFlingVelocityTracker target,
 ) =>
     target.getVelocityEstimate;
+Function MacOSScrollViewFlingVelocityTracker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MacOSScrollViewFlingVelocityTracker;
+Function MacOSScrollViewFlingVelocityTracker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MacOSScrollViewFlingVelocityTracker;
 Function _MacOSScrollViewFlingVelocityTracker_getVelocityEstimate$(
   m.Scope scope,
   MacOSScrollViewFlingVelocityTracker target,

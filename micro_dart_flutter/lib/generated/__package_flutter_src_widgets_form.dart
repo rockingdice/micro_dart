@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'Form': m.ClassMirror(
       'Form',
       {
+        '#as': Form_as$,
+        '#is': Form_is$,
         'child': _Form_child$,
         'onWillPop': _Form_onWillPop$,
         'onChanged': _Form_onChanged$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'FormState': m.ClassMirror(
       'FormState',
       {
+        '#as': FormState_as$,
+        '#is': FormState_is$,
         'build': _FormState_build$,
         'save': _FormState_save$,
         'reset': _FormState_reset$,
@@ -49,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'FormField': m.ClassMirror(
       'FormField',
       {
+        '#as': FormField_as$,
+        '#is': FormField_is$,
         'onSaved': _FormField_onSaved$,
         'validator': _FormField_validator$,
         'builder': _FormField_builder$,
@@ -63,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'FormFieldState': m.ClassMirror(
       'FormFieldState',
       {
+        '#as': FormFieldState_as$,
+        '#is': FormFieldState_is$,
         'value': _FormFieldState_value$,
         'errorText': _FormFieldState_errorText$,
         'hasError': _FormFieldState_hasError$,
@@ -86,6 +94,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Form_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Form;
+Function Form_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Form;
 Widget _Form_child$(Form target) {
   return target.child;
 }
@@ -109,6 +127,16 @@ Function _Form_createState$(
   Form target,
 ) =>
     target.createState;
+Function FormState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FormState;
+Function FormState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FormState;
 Function _FormState_build$(
   m.Scope scope,
   FormState target,
@@ -129,6 +157,16 @@ Function _FormState_validate$(
   FormState target,
 ) =>
     target.validate;
+Function FormField_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FormField<T>;
+Function FormField_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FormField<T>;
 void Function(T?)? _FormField_onSaved$<T>(FormField<T> target) {
   return target.onSaved;
 }
@@ -162,6 +200,16 @@ Function _FormField_createState$<T>(
   FormField<T> target,
 ) =>
     target.createState;
+Function FormFieldState_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FormFieldState<T>;
+Function FormFieldState_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FormFieldState<T>;
 T? _FormFieldState_value$<T>(FormFieldState<T> target) {
   return target.value;
 }

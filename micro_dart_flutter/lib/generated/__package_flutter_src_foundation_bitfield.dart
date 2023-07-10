@@ -11,7 +11,13 @@ const libraryMirror = m.LibraryMirror(
   {
     'BitField': m.ClassMirror(
       'BitField',
-      {'reset': _BitField_reset$},
+      {
+        '#as': BitField_as$,
+        '#is': BitField_is$,
+        '[]': _BitField_$index$$,
+        '[]=': _BitField_$index_set$$,
+        'reset': _BitField_reset$,
+      },
       {},
     )
   },
@@ -20,6 +26,30 @@ int _kMaxUnsignedSMI$() {
   return kMaxUnsignedSMI;
 }
 
+Function BitField_as$<T extends dynamic>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BitField<T>;
+Function BitField_is$<T extends dynamic>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BitField<T>;
+Function _BitField_$index$$<T extends dynamic>(
+  m.Scope scope,
+  BitField<T> target,
+) =>
+    (T index) => target[index];
+Function _BitField_$index_set$$<T extends dynamic>(
+  m.Scope scope,
+  BitField<T> target,
+) =>
+    (
+      T index,
+      bool other,
+    ) =>
+        target[index] = other;
 Function _BitField_reset$<T extends dynamic>(
   m.Scope scope,
   BitField<T> target,

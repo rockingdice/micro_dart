@@ -26,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonSegment': m.ClassMirror(
       'ButtonSegment',
       {
+        '#as': ButtonSegment_as$,
+        '#is': ButtonSegment_is$,
         'value': _ButtonSegment_value$,
         'icon': _ButtonSegment_icon$,
         'label': _ButtonSegment_label$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'SegmentedButton': m.ClassMirror(
       'SegmentedButton',
       {
+        '#as': SegmentedButton_as$,
+        '#is': SegmentedButton_is$,
         'segments': _SegmentedButton_segments$,
         'selected': _SegmentedButton_selected$,
         'onSelectionChanged': _SegmentedButton_onSelectionChanged$,
@@ -50,6 +54,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ButtonSegment_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonSegment<T>;
+Function ButtonSegment_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonSegment<T>;
 T _ButtonSegment_value$<T>(ButtonSegment<T> target) {
   return target.value;
 }
@@ -66,6 +80,16 @@ bool _ButtonSegment_enabled$<T>(ButtonSegment<T> target) {
   return target.enabled;
 }
 
+Function SegmentedButton_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SegmentedButton<T>;
+Function SegmentedButton_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SegmentedButton<T>;
 List<ButtonSegment<T>> _SegmentedButton_segments$<T>(
     SegmentedButton<T> target) {
   return target.segments;

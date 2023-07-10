@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'ToggleButtons': m.ClassMirror(
       'ToggleButtons',
       {
+        '#as': ToggleButtons_as$,
+        '#is': ToggleButtons_is$,
         'children': _ToggleButtons_children$,
         'isSelected': _ToggleButtons_isSelected$,
         'onPressed': _ToggleButtons_onPressed$,
@@ -56,6 +58,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ToggleButtons_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ToggleButtons;
+Function ToggleButtons_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ToggleButtons;
 List<Widget> _ToggleButtons_children$(ToggleButtons target) {
   return target.children;
 }

@@ -19,8 +19,11 @@ const libraryMirror = m.LibraryMirror(
     'TextButtonThemeData': m.ClassMirror(
       'TextButtonThemeData',
       {
+        '#as': TextButtonThemeData_as$,
+        '#is': TextButtonThemeData_is$,
         'style': _TextButtonThemeData_style$,
         'hashCode': _TextButtonThemeData_hashCode$,
+        '==': _TextButtonThemeData_eq$$,
         'debugFillProperties': _TextButtonThemeData_debugFillProperties$,
       },
       {},
@@ -28,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'TextButtonTheme': m.ClassMirror(
       'TextButtonTheme',
       {
+        '#as': TextButtonTheme_as$,
+        '#is': TextButtonTheme_is$,
         'data': _TextButtonTheme_data$,
         'wrap': _TextButtonTheme_wrap$,
         'updateShouldNotify': _TextButtonTheme_updateShouldNotify$,
@@ -36,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TextButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextButtonThemeData;
+Function TextButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextButtonThemeData;
 ButtonStyle? _TextButtonThemeData_style$(TextButtonThemeData target) {
   return target.style;
 }
@@ -45,11 +60,26 @@ int _TextButtonThemeData_hashCode$(TextButtonThemeData target) {
 }
 
 Function _TextButtonThemeData_lerp$(m.Scope scope) => TextButtonThemeData.lerp;
+Function _TextButtonThemeData_eq$$(
+  m.Scope scope,
+  TextButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _TextButtonThemeData_debugFillProperties$(
   m.Scope scope,
   TextButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function TextButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextButtonTheme;
+Function TextButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextButtonTheme;
 TextButtonThemeData _TextButtonTheme_data$(TextButtonTheme target) {
   return target.data;
 }

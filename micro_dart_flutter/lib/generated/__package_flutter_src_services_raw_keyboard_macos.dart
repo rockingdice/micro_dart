@@ -49,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyEventDataMacOs': m.ClassMirror(
       'RawKeyEventDataMacOs',
       {
+        '#as': RawKeyEventDataMacOs_as$,
+        '#is': RawKeyEventDataMacOs_is$,
         'characters': _RawKeyEventDataMacOs_characters$,
         'charactersIgnoringModifiers':
             _RawKeyEventDataMacOs_charactersIgnoringModifiers$,
@@ -63,11 +65,22 @@ const libraryMirror = m.LibraryMirror(
         'getModifierSide': _RawKeyEventDataMacOs_getModifierSide$,
         'shouldDispatchEvent': _RawKeyEventDataMacOs_shouldDispatchEvent$,
         'debugFillProperties': _RawKeyEventDataMacOs_debugFillProperties$,
+        '==': _RawKeyEventDataMacOs_eq$$,
       },
       {},
     )
   },
 );
+Function RawKeyEventDataMacOs_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawKeyEventDataMacOs;
+Function RawKeyEventDataMacOs_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawKeyEventDataMacOs;
 String _RawKeyEventDataMacOs_characters$(RawKeyEventDataMacOs target) {
   return target.characters;
 }
@@ -195,4 +208,9 @@ Function _RawKeyEventDataMacOs_debugFillProperties$(
   RawKeyEventDataMacOs target,
 ) =>
     target.debugFillProperties;
+Function _RawKeyEventDataMacOs_eq$$(
+  m.Scope scope,
+  RawKeyEventDataMacOs target,
+) =>
+    (Object other) => target == other;
 Function _runeToLowerCase$(m.Scope scope) => runeToLowerCase;

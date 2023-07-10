@@ -13,10 +13,23 @@ const libraryMirror = m.LibraryMirror(
   {
     'PointerEventConverter': m.ClassMirror(
       'PointerEventConverter',
-      {},
+      {
+        '#as': PointerEventConverter_as$,
+        '#is': PointerEventConverter_is$,
+      },
       {},
     )
   },
 );
+Function PointerEventConverter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PointerEventConverter;
+Function PointerEventConverter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PointerEventConverter;
 Function _PointerEventConverter_expand$(m.Scope scope) =>
     PointerEventConverter.expand;

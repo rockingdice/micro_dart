@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'PageRoute': m.ClassMirror(
       'PageRoute',
       {
+        '#as': PageRoute_as$,
+        '#is': PageRoute_is$,
         'fullscreenDialog': _PageRoute_fullscreenDialog$,
         'allowSnapshotting': _PageRoute_allowSnapshotting$,
         'opaque': _PageRoute_opaque$,
@@ -27,6 +29,8 @@ const libraryMirror = m.LibraryMirror(
     'PageRouteBuilder': m.ClassMirror(
       'PageRouteBuilder',
       {
+        '#as': PageRouteBuilder_as$,
+        '#is': PageRouteBuilder_is$,
         'pageBuilder': _PageRouteBuilder_pageBuilder$,
         'transitionsBuilder': _PageRouteBuilder_transitionsBuilder$,
         'transitionDuration': _PageRouteBuilder_transitionDuration$,
@@ -44,6 +48,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PageRoute_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageRoute<T>;
+Function PageRoute_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageRoute<T>;
 bool _PageRoute_fullscreenDialog$<T>(PageRoute<T> target) {
   return target.fullscreenDialog;
 }
@@ -70,6 +84,16 @@ Function _PageRoute_canTransitionFrom$<T>(
   PageRoute<T> target,
 ) =>
     target.canTransitionFrom;
+Function PageRouteBuilder_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageRouteBuilder<T>;
+Function PageRouteBuilder_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageRouteBuilder<T>;
 Widget Function(BuildContext, Animation<double>, Animation<double>)
     _PageRouteBuilder_pageBuilder$<T>(PageRouteBuilder<T> target) {
   return target.pageBuilder;

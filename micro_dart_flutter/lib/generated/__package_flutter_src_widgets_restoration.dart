@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorationScope': m.ClassMirror(
       'RestorationScope',
       {
+        '#as': RestorationScope_as$,
+        '#is': RestorationScope_is$,
         'child': _RestorationScope_child$,
         'restorationId': _RestorationScope_restorationId$,
         'createState': _RestorationScope_createState$,
@@ -29,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'UnmanagedRestorationScope': m.ClassMirror(
       'UnmanagedRestorationScope',
       {
+        '#as': UnmanagedRestorationScope_as$,
+        '#is': UnmanagedRestorationScope_is$,
         'bucket': _UnmanagedRestorationScope_bucket$,
         'updateShouldNotify': _UnmanagedRestorationScope_updateShouldNotify$,
       },
@@ -37,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'RootRestorationScope': m.ClassMirror(
       'RootRestorationScope',
       {
+        '#as': RootRestorationScope_as$,
+        '#is': RootRestorationScope_is$,
         'child': _RootRestorationScope_child$,
         'restorationId': _RootRestorationScope_restorationId$,
         'createState': _RootRestorationScope_createState$,
@@ -46,6 +52,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableProperty': m.ClassMirror(
       'RestorableProperty',
       {
+        '#as': RestorableProperty_as$,
+        '#is': RestorableProperty_is$,
         'enabled': _RestorableProperty_enabled$,
         'state': _RestorableProperty_state$,
         'isRegistered': _RestorableProperty_isRegistered$,
@@ -59,6 +67,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function RestorationScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorationScope;
+Function RestorationScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorationScope;
 Widget _RestorationScope_child$(RestorationScope target) {
   return target.child;
 }
@@ -74,6 +92,16 @@ Function _RestorationScope_createState$(
   RestorationScope target,
 ) =>
     target.createState;
+Function UnmanagedRestorationScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UnmanagedRestorationScope;
+Function UnmanagedRestorationScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UnmanagedRestorationScope;
 RestorationBucket? _UnmanagedRestorationScope_bucket$(
     UnmanagedRestorationScope target) {
   return target.bucket;
@@ -84,6 +112,16 @@ Function _UnmanagedRestorationScope_updateShouldNotify$(
   UnmanagedRestorationScope target,
 ) =>
     target.updateShouldNotify;
+Function RootRestorationScope_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RootRestorationScope;
+Function RootRestorationScope_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RootRestorationScope;
 Widget _RootRestorationScope_child$(RootRestorationScope target) {
   return target.child;
 }
@@ -97,6 +135,16 @@ Function _RootRestorationScope_createState$(
   RootRestorationScope target,
 ) =>
     target.createState;
+Function RestorableProperty_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableProperty<T>;
+Function RestorableProperty_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableProperty<T>;
 bool _RestorableProperty_enabled$<T>(RestorableProperty<T> target) {
   return target.enabled;
 }

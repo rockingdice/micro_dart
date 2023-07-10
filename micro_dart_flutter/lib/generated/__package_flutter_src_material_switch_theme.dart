@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'SwitchThemeData': m.ClassMirror(
       'SwitchThemeData',
       {
+        '#as': SwitchThemeData_as$,
+        '#is': SwitchThemeData_is$,
         'thumbColor': _SwitchThemeData_thumbColor$,
         'trackColor': _SwitchThemeData_trackColor$,
         'trackOutlineColor': _SwitchThemeData_trackOutlineColor$,
@@ -32,6 +34,7 @@ const libraryMirror = m.LibraryMirror(
         'thumbIcon': _SwitchThemeData_thumbIcon$,
         'hashCode': _SwitchThemeData_hashCode$,
         'copyWith': _SwitchThemeData_copyWith$,
+        '==': _SwitchThemeData_eq$$,
         'debugFillProperties': _SwitchThemeData_debugFillProperties$,
       },
       {},
@@ -39,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'SwitchTheme': m.ClassMirror(
       'SwitchTheme',
       {
+        '#as': SwitchTheme_as$,
+        '#is': SwitchTheme_is$,
         'data': _SwitchTheme_data$,
         'updateShouldNotify': _SwitchTheme_updateShouldNotify$,
       },
@@ -46,6 +51,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SwitchThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SwitchThemeData;
+Function SwitchThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SwitchThemeData;
 MaterialStateProperty<Color?>? _SwitchThemeData_thumbColor$(
     SwitchThemeData target) {
   return target.thumbColor;
@@ -95,11 +110,26 @@ Function _SwitchThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _SwitchThemeData_lerp$(m.Scope scope) => SwitchThemeData.lerp;
+Function _SwitchThemeData_eq$$(
+  m.Scope scope,
+  SwitchThemeData target,
+) =>
+    (Object other) => target == other;
 Function _SwitchThemeData_debugFillProperties$(
   m.Scope scope,
   SwitchThemeData target,
 ) =>
     target.debugFillProperties;
+Function SwitchTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SwitchTheme;
+Function SwitchTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SwitchTheme;
 SwitchThemeData _SwitchTheme_data$(SwitchTheme target) {
   return target.data;
 }

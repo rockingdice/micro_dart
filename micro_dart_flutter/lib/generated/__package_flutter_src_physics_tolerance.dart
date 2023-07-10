@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'Tolerance': m.ClassMirror(
       'Tolerance',
       {
+        '#as': Tolerance_as$,
+        '#is': Tolerance_is$,
         'distance': _Tolerance_distance$,
         'time': _Tolerance_time$,
         'velocity': _Tolerance_velocity$,
@@ -22,6 +24,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Tolerance_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Tolerance;
+Function Tolerance_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Tolerance;
 Tolerance _Tolerance_defaultTolerance$() {
   return Tolerance.defaultTolerance;
 }

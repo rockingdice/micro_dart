@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'OutlinedButton': m.ClassMirror(
       'OutlinedButton',
       {
+        '#as': OutlinedButton_as$,
+        '#is': OutlinedButton_is$,
         'defaultStyleOf': _OutlinedButton_defaultStyleOf$,
         'themeStyleOf': _OutlinedButton_themeStyleOf$,
       },
@@ -34,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function OutlinedButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OutlinedButton;
+Function OutlinedButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OutlinedButton;
 Function _OutlinedButton_styleFrom$(m.Scope scope) => OutlinedButton.styleFrom;
 Function _OutlinedButton_defaultStyleOf$(
   m.Scope scope,

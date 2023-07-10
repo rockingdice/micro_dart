@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPicker': m.ClassMirror(
       'CupertinoPicker',
       {
+        '#as': CupertinoPicker_as$,
+        '#is': CupertinoPicker_is$,
         'diameterRatio': _CupertinoPicker_diameterRatio$,
         'backgroundColor': _CupertinoPicker_backgroundColor$,
         'offAxisFraction': _CupertinoPicker_offAxisFraction$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoPickerDefaultSelectionOverlay': m.ClassMirror(
       'CupertinoPickerDefaultSelectionOverlay',
       {
+        '#as': CupertinoPickerDefaultSelectionOverlay_as$,
+        '#is': CupertinoPickerDefaultSelectionOverlay_is$,
         'capStartEdge': _CupertinoPickerDefaultSelectionOverlay_capStartEdge$,
         'capEndEdge': _CupertinoPickerDefaultSelectionOverlay_capEndEdge$,
         'background': _CupertinoPickerDefaultSelectionOverlay_background$,
@@ -45,6 +49,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoPicker_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPicker;
+Function CupertinoPicker_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPicker;
 double _CupertinoPicker_diameterRatio$(CupertinoPicker target) {
   return target.diameterRatio;
 }
@@ -96,6 +110,16 @@ Function _CupertinoPicker_createState$(
   CupertinoPicker target,
 ) =>
     target.createState;
+Function CupertinoPickerDefaultSelectionOverlay_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoPickerDefaultSelectionOverlay;
+Function CupertinoPickerDefaultSelectionOverlay_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoPickerDefaultSelectionOverlay;
 bool _CupertinoPickerDefaultSelectionOverlay_capStartEdge$(
     CupertinoPickerDefaultSelectionOverlay target) {
   return target.capStartEdge;

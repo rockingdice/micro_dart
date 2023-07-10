@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTabView': m.ClassMirror(
       'CupertinoTabView',
       {
+        '#as': CupertinoTabView_as$,
+        '#is': CupertinoTabView_is$,
         'builder': _CupertinoTabView_builder$,
         'navigatorKey': _CupertinoTabView_navigatorKey$,
         'defaultTitle': _CupertinoTabView_defaultTitle$,
@@ -29,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoTabView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTabView;
+Function CupertinoTabView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTabView;
 Widget Function(BuildContext)? _CupertinoTabView_builder$(
     CupertinoTabView target) {
   return target.builder;

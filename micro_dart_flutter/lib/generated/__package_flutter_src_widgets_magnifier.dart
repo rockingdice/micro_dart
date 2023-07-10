@@ -20,6 +20,7 @@ const libraryMirror = m.LibraryMirror(
     'MagnifierInfo.empty': _MagnifierInfo_empty$,
     'TextMagnifierConfiguration.disabled':
         _TextMagnifierConfiguration_disabled$,
+    'MagnifierController.show': _MagnifierController_show$,
     'MagnifierController.shiftWithinBounds':
         _MagnifierController_shiftWithinBounds$,
   },
@@ -28,17 +29,22 @@ const libraryMirror = m.LibraryMirror(
     'MagnifierInfo': m.ClassMirror(
       'MagnifierInfo',
       {
+        '#as': MagnifierInfo_as$,
+        '#is': MagnifierInfo_is$,
         'globalGesturePosition': _MagnifierInfo_globalGesturePosition$,
         'currentLineBoundaries': _MagnifierInfo_currentLineBoundaries$,
         'caretRect': _MagnifierInfo_caretRect$,
         'fieldBounds': _MagnifierInfo_fieldBounds$,
         'hashCode': _MagnifierInfo_hashCode$,
+        '==': _MagnifierInfo_eq$$,
       },
       {},
     ),
     'TextMagnifierConfiguration': m.ClassMirror(
       'TextMagnifierConfiguration',
       {
+        '#as': TextMagnifierConfiguration_as$,
+        '#is': TextMagnifierConfiguration_is$,
         'shouldDisplayHandlesInMagnifier':
             _TextMagnifierConfiguration_shouldDisplayHandlesInMagnifier$,
         'magnifierBuilder': _TextMagnifierConfiguration_magnifierBuilder$,
@@ -48,6 +54,8 @@ const libraryMirror = m.LibraryMirror(
     'MagnifierController': m.ClassMirror(
       'MagnifierController',
       {
+        '#as': MagnifierController_as$,
+        '#is': MagnifierController_is$,
         'animationController': _MagnifierController_animationController$,
         'overlayEntry': _MagnifierController_overlayEntry$,
         'shown': _MagnifierController_shown$,
@@ -59,14 +67,19 @@ const libraryMirror = m.LibraryMirror(
     'MagnifierDecoration': m.ClassMirror(
       'MagnifierDecoration',
       {
+        '#as': MagnifierDecoration_as$,
+        '#is': MagnifierDecoration_is$,
         'opacity': _MagnifierDecoration_opacity$,
         'hashCode': _MagnifierDecoration_hashCode$,
+        '==': _MagnifierDecoration_eq$$,
       },
       {},
     ),
     'RawMagnifier': m.ClassMirror(
       'RawMagnifier',
       {
+        '#as': RawMagnifier_as$,
+        '#is': RawMagnifier_is$,
         'child': _RawMagnifier_child$,
         'decoration': _RawMagnifier_decoration$,
         'focalPointOffset': _RawMagnifier_focalPointOffset$,
@@ -78,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MagnifierInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MagnifierInfo;
+Function MagnifierInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MagnifierInfo;
 MagnifierInfo _MagnifierInfo_empty$() {
   return MagnifierInfo.empty;
 }
@@ -102,6 +125,21 @@ int _MagnifierInfo_hashCode$(MagnifierInfo target) {
   return target.hashCode;
 }
 
+Function _MagnifierInfo_eq$$(
+  m.Scope scope,
+  MagnifierInfo target,
+) =>
+    (Object other) => target == other;
+Function TextMagnifierConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextMagnifierConfiguration;
+Function TextMagnifierConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextMagnifierConfiguration;
 bool _TextMagnifierConfiguration_shouldDisplayHandlesInMagnifier$(
     TextMagnifierConfiguration target) {
   return target.shouldDisplayHandlesInMagnifier;
@@ -118,6 +156,16 @@ Widget? Function(
   return target.magnifierBuilder;
 }
 
+Function MagnifierController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MagnifierController;
+Function MagnifierController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MagnifierController;
 AnimationController? _MagnifierController_animationController$(
     MagnifierController target) {
   return target.animationController;
@@ -138,6 +186,30 @@ bool _MagnifierController_shown$(MagnifierController target) {
   return target.shown;
 }
 
+Function _MagnifierController_show$(
+  m.Scope scope,
+  MagnifierController target,
+) =>
+    ({
+      OverlayEntry? below,
+      required m.FunctionPointer builder,
+      required BuildContext context,
+      Widget? debugRequiredFor,
+    }) {
+      Widget builderProxy(BuildContext builder_context) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            builder,
+            [builder_context],
+            {},
+          );
+      return target.show(
+        below: below,
+        builder: builderProxy,
+        context: context,
+        debugRequiredFor: debugRequiredFor,
+      );
+    };
 Function _MagnifierController_hide$(
   m.Scope scope,
   MagnifierController target,
@@ -150,6 +222,16 @@ Function _MagnifierController_removeFromOverlay$(
     target.removeFromOverlay;
 Function _MagnifierController_shiftWithinBounds$(m.Scope scope) =>
     MagnifierController.shiftWithinBounds;
+Function MagnifierDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MagnifierDecoration;
+Function MagnifierDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MagnifierDecoration;
 double _MagnifierDecoration_opacity$(MagnifierDecoration target) {
   return target.opacity;
 }
@@ -158,6 +240,21 @@ int _MagnifierDecoration_hashCode$(MagnifierDecoration target) {
   return target.hashCode;
 }
 
+Function _MagnifierDecoration_eq$$(
+  m.Scope scope,
+  MagnifierDecoration target,
+) =>
+    (Object other) => target == other;
+Function RawMagnifier_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RawMagnifier;
+Function RawMagnifier_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RawMagnifier;
 Widget? _RawMagnifier_child$(RawMagnifier target) {
   return target.child;
 }

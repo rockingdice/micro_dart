@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'UserAccountsDrawerHeader': m.ClassMirror(
       'UserAccountsDrawerHeader',
       {
+        '#as': UserAccountsDrawerHeader_as$,
+        '#is': UserAccountsDrawerHeader_is$,
         'decoration': _UserAccountsDrawerHeader_decoration$,
         'margin': _UserAccountsDrawerHeader_margin$,
         'currentAccountPicture':
@@ -41,6 +43,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function UserAccountsDrawerHeader_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UserAccountsDrawerHeader;
+Function UserAccountsDrawerHeader_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UserAccountsDrawerHeader;
 Decoration? _UserAccountsDrawerHeader_decoration$(
     UserAccountsDrawerHeader target) {
   return target.decoration;

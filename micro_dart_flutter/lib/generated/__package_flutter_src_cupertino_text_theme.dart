@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTextThemeData': m.ClassMirror(
       'CupertinoTextThemeData',
       {
+        '#as': CupertinoTextThemeData_as$,
+        '#is': CupertinoTextThemeData_is$,
         'textStyle': _CupertinoTextThemeData_textStyle$,
         'actionTextStyle': _CupertinoTextThemeData_actionTextStyle$,
         'tabLabelTextStyle': _CupertinoTextThemeData_tabLabelTextStyle$,
@@ -29,11 +31,22 @@ const libraryMirror = m.LibraryMirror(
         'resolveFrom': _CupertinoTextThemeData_resolveFrom$,
         'copyWith': _CupertinoTextThemeData_copyWith$,
         'debugFillProperties': _CupertinoTextThemeData_debugFillProperties$,
+        '==': _CupertinoTextThemeData_eq$$,
       },
       {},
     )
   },
 );
+Function CupertinoTextThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTextThemeData;
+Function CupertinoTextThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTextThemeData;
 TextStyle _CupertinoTextThemeData_textStyle$(CupertinoTextThemeData target) {
   return target.textStyle;
 }
@@ -92,3 +105,8 @@ Function _CupertinoTextThemeData_debugFillProperties$(
   CupertinoTextThemeData target,
 ) =>
     target.debugFillProperties;
+Function _CupertinoTextThemeData_eq$$(
+  m.Scope scope,
+  CupertinoTextThemeData target,
+) =>
+    (Object other) => target == other;

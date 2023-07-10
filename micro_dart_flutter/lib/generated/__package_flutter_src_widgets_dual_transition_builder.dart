@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'DualTransitionBuilder': m.ClassMirror(
       'DualTransitionBuilder',
       {
+        '#as': DualTransitionBuilder_as$,
+        '#is': DualTransitionBuilder_is$,
         'animation': _DualTransitionBuilder_animation$,
         'forwardBuilder': _DualTransitionBuilder_forwardBuilder$,
         'reverseBuilder': _DualTransitionBuilder_reverseBuilder$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DualTransitionBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DualTransitionBuilder;
+Function DualTransitionBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DualTransitionBuilder;
 Animation<double> _DualTransitionBuilder_animation$(
     DualTransitionBuilder target) {
   return target.animation;

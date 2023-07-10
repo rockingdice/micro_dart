@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonBarThemeData': m.ClassMirror(
       'ButtonBarThemeData',
       {
+        '#as': ButtonBarThemeData_as$,
+        '#is': ButtonBarThemeData_is$,
         'alignment': _ButtonBarThemeData_alignment$,
         'mainAxisSize': _ButtonBarThemeData_mainAxisSize$,
         'buttonTextTheme': _ButtonBarThemeData_buttonTextTheme$,
@@ -31,6 +33,7 @@ const libraryMirror = m.LibraryMirror(
         'overflowDirection': _ButtonBarThemeData_overflowDirection$,
         'hashCode': _ButtonBarThemeData_hashCode$,
         'copyWith': _ButtonBarThemeData_copyWith$,
+        '==': _ButtonBarThemeData_eq$$,
         'debugFillProperties': _ButtonBarThemeData_debugFillProperties$,
       },
       {},
@@ -38,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'ButtonBarTheme': m.ClassMirror(
       'ButtonBarTheme',
       {
+        '#as': ButtonBarTheme_as$,
+        '#is': ButtonBarTheme_is$,
         'data': _ButtonBarTheme_data$,
         'updateShouldNotify': _ButtonBarTheme_updateShouldNotify$,
       },
@@ -45,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ButtonBarThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonBarThemeData;
+Function ButtonBarThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonBarThemeData;
 MainAxisAlignment? _ButtonBarThemeData_alignment$(ButtonBarThemeData target) {
   return target.alignment;
 }
@@ -95,11 +110,26 @@ Function _ButtonBarThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _ButtonBarThemeData_lerp$(m.Scope scope) => ButtonBarThemeData.lerp;
+Function _ButtonBarThemeData_eq$$(
+  m.Scope scope,
+  ButtonBarThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ButtonBarThemeData_debugFillProperties$(
   m.Scope scope,
   ButtonBarThemeData target,
 ) =>
     target.debugFillProperties;
+Function ButtonBarTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonBarTheme;
+Function ButtonBarTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonBarTheme;
 ButtonBarThemeData _ButtonBarTheme_data$(ButtonBarTheme target) {
   return target.data;
 }

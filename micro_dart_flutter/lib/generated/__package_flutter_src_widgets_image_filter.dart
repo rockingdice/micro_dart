@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'ImageFiltered': m.ClassMirror(
       'ImageFiltered',
       {
+        '#as': ImageFiltered_as$,
+        '#is': ImageFiltered_is$,
         'imageFilter': _ImageFiltered_imageFilter$,
         'enabled': _ImageFiltered_enabled$,
         'createRenderObject': _ImageFiltered_createRenderObject$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ImageFiltered_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ImageFiltered;
+Function ImageFiltered_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ImageFiltered;
 ImageFilter _ImageFiltered_imageFilter$(ImageFiltered target) {
   return target.imageFilter;
 }

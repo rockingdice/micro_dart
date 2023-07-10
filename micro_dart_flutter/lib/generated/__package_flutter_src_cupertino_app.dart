@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoApp': m.ClassMirror(
       'CupertinoApp',
       {
+        '#as': CupertinoApp_as$,
+        '#is': CupertinoApp_is$,
         'navigatorKey': _CupertinoApp_navigatorKey$,
         'home': _CupertinoApp_home$,
         'theme': _CupertinoApp_theme$,
@@ -67,6 +69,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoScrollBehavior': m.ClassMirror(
       'CupertinoScrollBehavior',
       {
+        '#as': CupertinoScrollBehavior_as$,
+        '#is': CupertinoScrollBehavior_is$,
         'buildScrollbar': _CupertinoScrollBehavior_buildScrollbar$,
         'buildOverscrollIndicator':
             _CupertinoScrollBehavior_buildOverscrollIndicator$,
@@ -76,6 +80,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoApp_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoApp;
+Function CupertinoApp_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoApp;
 GlobalKey<NavigatorState>? _CupertinoApp_navigatorKey$(CupertinoApp target) {
   return target.navigatorKey;
 }
@@ -227,6 +241,16 @@ Function _CupertinoApp_createState$(
     target.createState;
 Function _CupertinoApp_createCupertinoHeroController$(m.Scope scope) =>
     CupertinoApp.createCupertinoHeroController;
+Function CupertinoScrollBehavior_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoScrollBehavior;
+Function CupertinoScrollBehavior_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoScrollBehavior;
 Function _CupertinoScrollBehavior_buildScrollbar$(
   m.Scope scope,
   CupertinoScrollBehavior target,

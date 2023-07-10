@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollPhysics': m.ClassMirror(
       'ScrollPhysics',
       {
+        '#as': ScrollPhysics_as$,
+        '#is': ScrollPhysics_is$,
         'parent': _ScrollPhysics_parent$,
         'spring': _ScrollPhysics_spring$,
         'minFlingDistance': _ScrollPhysics_minFlingDistance$,
@@ -53,6 +55,8 @@ const libraryMirror = m.LibraryMirror(
     'RangeMaintainingScrollPhysics': m.ClassMirror(
       'RangeMaintainingScrollPhysics',
       {
+        '#as': RangeMaintainingScrollPhysics_as$,
+        '#is': RangeMaintainingScrollPhysics_is$,
         'applyTo': _RangeMaintainingScrollPhysics_applyTo$,
         'adjustPositionForNewDimensions':
             _RangeMaintainingScrollPhysics_adjustPositionForNewDimensions$,
@@ -62,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'BouncingScrollPhysics': m.ClassMirror(
       'BouncingScrollPhysics',
       {
+        '#as': BouncingScrollPhysics_as$,
+        '#is': BouncingScrollPhysics_is$,
         'decelerationRate': _BouncingScrollPhysics_decelerationRate$,
         'minFlingVelocity': _BouncingScrollPhysics_minFlingVelocity$,
         'dragStartDistanceMotionThreshold':
@@ -83,6 +89,8 @@ const libraryMirror = m.LibraryMirror(
     'ClampingScrollPhysics': m.ClassMirror(
       'ClampingScrollPhysics',
       {
+        '#as': ClampingScrollPhysics_as$,
+        '#is': ClampingScrollPhysics_is$,
         'applyTo': _ClampingScrollPhysics_applyTo$,
         'applyBoundaryConditions':
             _ClampingScrollPhysics_applyBoundaryConditions$,
@@ -94,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'AlwaysScrollableScrollPhysics': m.ClassMirror(
       'AlwaysScrollableScrollPhysics',
       {
+        '#as': AlwaysScrollableScrollPhysics_as$,
+        '#is': AlwaysScrollableScrollPhysics_is$,
         'applyTo': _AlwaysScrollableScrollPhysics_applyTo$,
         'shouldAcceptUserOffset':
             _AlwaysScrollableScrollPhysics_shouldAcceptUserOffset$,
@@ -103,6 +113,8 @@ const libraryMirror = m.LibraryMirror(
     'NeverScrollableScrollPhysics': m.ClassMirror(
       'NeverScrollableScrollPhysics',
       {
+        '#as': NeverScrollableScrollPhysics_as$,
+        '#is': NeverScrollableScrollPhysics_is$,
         'allowImplicitScrolling':
             _NeverScrollableScrollPhysics_allowImplicitScrolling$,
         'applyTo': _NeverScrollableScrollPhysics_applyTo$,
@@ -118,6 +130,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollPhysics;
+Function ScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollPhysics;
 ScrollPhysics? _ScrollPhysics_parent$(ScrollPhysics target) {
   return target.parent;
 }
@@ -201,6 +223,16 @@ Function _ScrollPhysics_toString$(
   ScrollPhysics target,
 ) =>
     target.toString;
+Function RangeMaintainingScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RangeMaintainingScrollPhysics;
+Function RangeMaintainingScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RangeMaintainingScrollPhysics;
 Function _RangeMaintainingScrollPhysics_applyTo$(
   m.Scope scope,
   RangeMaintainingScrollPhysics target,
@@ -211,6 +243,16 @@ Function _RangeMaintainingScrollPhysics_adjustPositionForNewDimensions$(
   RangeMaintainingScrollPhysics target,
 ) =>
     target.adjustPositionForNewDimensions;
+Function BouncingScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BouncingScrollPhysics;
+Function BouncingScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BouncingScrollPhysics;
 ScrollDecelerationRate _BouncingScrollPhysics_decelerationRate$(
     BouncingScrollPhysics target) {
   return target.decelerationRate;
@@ -263,6 +305,16 @@ Function _BouncingScrollPhysics_carriedMomentum$(
   BouncingScrollPhysics target,
 ) =>
     target.carriedMomentum;
+Function ClampingScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClampingScrollPhysics;
+Function ClampingScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClampingScrollPhysics;
 Function _ClampingScrollPhysics_applyTo$(
   m.Scope scope,
   ClampingScrollPhysics target,
@@ -278,6 +330,16 @@ Function _ClampingScrollPhysics_createBallisticSimulation$(
   ClampingScrollPhysics target,
 ) =>
     target.createBallisticSimulation;
+Function AlwaysScrollableScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlwaysScrollableScrollPhysics;
+Function AlwaysScrollableScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlwaysScrollableScrollPhysics;
 Function _AlwaysScrollableScrollPhysics_applyTo$(
   m.Scope scope,
   AlwaysScrollableScrollPhysics target,
@@ -288,6 +350,16 @@ Function _AlwaysScrollableScrollPhysics_shouldAcceptUserOffset$(
   AlwaysScrollableScrollPhysics target,
 ) =>
     target.shouldAcceptUserOffset;
+Function NeverScrollableScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NeverScrollableScrollPhysics;
+Function NeverScrollableScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NeverScrollableScrollPhysics;
 bool _NeverScrollableScrollPhysics_allowImplicitScrolling$(
     NeverScrollableScrollPhysics target) {
   return target.allowImplicitScrolling;

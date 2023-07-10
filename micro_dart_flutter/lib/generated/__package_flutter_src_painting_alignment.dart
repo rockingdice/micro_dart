@@ -40,19 +40,36 @@ const libraryMirror = m.LibraryMirror(
     'AlignmentGeometry': m.ClassMirror(
       'AlignmentGeometry',
       {
+        '#as': AlignmentGeometry_as$,
+        '#is': AlignmentGeometry_is$,
         'hashCode': _AlignmentGeometry_hashCode$,
         'add': _AlignmentGeometry_add$,
+        'unary-': _AlignmentGeometry_unary_minus$$,
+        '*': _AlignmentGeometry_times$$,
+        '/': _AlignmentGeometry_over$$,
+        '~/': _AlignmentGeometry_division$$,
+        '%': _AlignmentGeometry_surplus$$,
         'resolve': _AlignmentGeometry_resolve$,
         'toString': _AlignmentGeometry_toString$,
+        '==': _AlignmentGeometry_eq$$,
       },
       {},
     ),
     'Alignment': m.ClassMirror(
       'Alignment',
       {
+        '#as': Alignment_as$,
+        '#is': Alignment_is$,
         'x': _Alignment_x$,
         'y': _Alignment_y$,
         'add': _Alignment_add$,
+        '-': _Alignment_minus$$,
+        '+': _Alignment_plus$$,
+        'unary-': _Alignment_unary_minus$$,
+        '*': _Alignment_times$$,
+        '/': _Alignment_over$$,
+        '~/': _Alignment_division$$,
+        '%': _Alignment_surplus$$,
         'alongOffset': _Alignment_alongOffset$,
         'alongSize': _Alignment_alongSize$,
         'withinRect': _Alignment_withinRect$,
@@ -65,9 +82,18 @@ const libraryMirror = m.LibraryMirror(
     'AlignmentDirectional': m.ClassMirror(
       'AlignmentDirectional',
       {
+        '#as': AlignmentDirectional_as$,
+        '#is': AlignmentDirectional_is$,
         'start': _AlignmentDirectional_start$,
         'y': _AlignmentDirectional_y$,
         'add': _AlignmentDirectional_add$,
+        '-': _AlignmentDirectional_minus$$,
+        '+': _AlignmentDirectional_plus$$,
+        'unary-': _AlignmentDirectional_unary_minus$$,
+        '*': _AlignmentDirectional_times$$,
+        '/': _AlignmentDirectional_over$$,
+        '~/': _AlignmentDirectional_division$$,
+        '%': _AlignmentDirectional_surplus$$,
         'resolve': _AlignmentDirectional_resolve$,
         'toString': _AlignmentDirectional_toString$,
       },
@@ -76,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
     'TextAlignVertical': m.ClassMirror(
       'TextAlignVertical',
       {
+        '#as': TextAlignVertical_as$,
+        '#is': TextAlignVertical_is$,
         'y': _TextAlignVertical_y$,
         'toString': _TextAlignVertical_toString$,
       },
@@ -83,6 +111,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function AlignmentGeometry_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlignmentGeometry;
+Function AlignmentGeometry_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlignmentGeometry;
 int _AlignmentGeometry_hashCode$(AlignmentGeometry target) {
   return target.hashCode;
 }
@@ -92,6 +130,31 @@ Function _AlignmentGeometry_add$(
   AlignmentGeometry target,
 ) =>
     target.add;
+Function _AlignmentGeometry_unary_minus$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    () => -target;
+Function _AlignmentGeometry_times$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    (double other) => target * other;
+Function _AlignmentGeometry_over$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    (double other) => target / other;
+Function _AlignmentGeometry_division$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    (double other) => target ~/ other;
+Function _AlignmentGeometry_surplus$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    (double other) => target % other;
 Function _AlignmentGeometry_lerp$(m.Scope scope) => AlignmentGeometry.lerp;
 Function _AlignmentGeometry_resolve$(
   m.Scope scope,
@@ -103,6 +166,21 @@ Function _AlignmentGeometry_toString$(
   AlignmentGeometry target,
 ) =>
     target.toString;
+Function _AlignmentGeometry_eq$$(
+  m.Scope scope,
+  AlignmentGeometry target,
+) =>
+    (Object other) => target == other;
+Function Alignment_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Alignment;
+Function Alignment_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Alignment;
 double _Alignment_x$(Alignment target) {
   return target.x;
 }
@@ -152,6 +230,41 @@ Function _Alignment_add$(
   Alignment target,
 ) =>
     target.add;
+Function _Alignment_minus$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (Alignment other) => target - other;
+Function _Alignment_plus$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (Alignment other) => target + other;
+Function _Alignment_unary_minus$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    () => -target;
+Function _Alignment_times$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (double other) => target * other;
+Function _Alignment_over$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (double other) => target / other;
+Function _Alignment_division$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (double other) => target ~/ other;
+Function _Alignment_surplus$$(
+  m.Scope scope,
+  Alignment target,
+) =>
+    (double other) => target % other;
 Function _Alignment_alongOffset$(
   m.Scope scope,
   Alignment target,
@@ -183,6 +296,16 @@ Function _Alignment_toString$(
   Alignment target,
 ) =>
     target.toString;
+Function AlignmentDirectional_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AlignmentDirectional;
+Function AlignmentDirectional_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AlignmentDirectional;
 double _AlignmentDirectional_start$(AlignmentDirectional target) {
   return target.start;
 }
@@ -232,6 +355,41 @@ Function _AlignmentDirectional_add$(
   AlignmentDirectional target,
 ) =>
     target.add;
+Function _AlignmentDirectional_minus$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (AlignmentDirectional other) => target - other;
+Function _AlignmentDirectional_plus$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (AlignmentDirectional other) => target + other;
+Function _AlignmentDirectional_unary_minus$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    () => -target;
+Function _AlignmentDirectional_times$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (double other) => target * other;
+Function _AlignmentDirectional_over$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (double other) => target / other;
+Function _AlignmentDirectional_division$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (double other) => target ~/ other;
+Function _AlignmentDirectional_surplus$$(
+  m.Scope scope,
+  AlignmentDirectional target,
+) =>
+    (double other) => target % other;
 Function _AlignmentDirectional_lerp$(m.Scope scope) =>
     AlignmentDirectional.lerp;
 Function _AlignmentDirectional_resolve$(
@@ -244,6 +402,16 @@ Function _AlignmentDirectional_toString$(
   AlignmentDirectional target,
 ) =>
     target.toString;
+Function TextAlignVertical_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextAlignVertical;
+Function TextAlignVertical_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextAlignVertical;
 double _TextAlignVertical_y$(TextAlignVertical target) {
   return target.y;
 }

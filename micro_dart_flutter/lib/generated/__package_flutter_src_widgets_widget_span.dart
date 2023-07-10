@@ -9,18 +9,21 @@ import 'package:flutter/src/widgets/framework.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/widget_span.dart',
-  {},
+  {'WidgetSpan.visitChildren': _WidgetSpan_visitChildren$},
   {},
   {
     'WidgetSpan': m.ClassMirror(
       'WidgetSpan',
       {
+        '#as': WidgetSpan_as$,
+        '#is': WidgetSpan_is$,
         'child': _WidgetSpan_child$,
         'hashCode': _WidgetSpan_hashCode$,
         'build': _WidgetSpan_build$,
         'getSpanForPositionVisitor': _WidgetSpan_getSpanForPositionVisitor$,
         'codeUnitAtVisitor': _WidgetSpan_codeUnitAtVisitor$,
         'compareTo': _WidgetSpan_compareTo$,
+        '==': _WidgetSpan_eq$$,
         'getSpanForPosition': _WidgetSpan_getSpanForPosition$,
         'debugAssertIsValid': _WidgetSpan_debugAssertIsValid$,
       },
@@ -28,6 +31,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function WidgetSpan_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WidgetSpan;
+Function WidgetSpan_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WidgetSpan;
 Widget _WidgetSpan_child$(WidgetSpan target) {
   return target.child;
 }
@@ -41,6 +54,20 @@ Function _WidgetSpan_build$(
   WidgetSpan target,
 ) =>
     target.build;
+Function _WidgetSpan_visitChildren$(
+  m.Scope scope,
+  WidgetSpan target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(InlineSpan visitor_span) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_span],
+            {},
+          );
+      return target.visitChildren(visitorProxy);
+    };
 Function _WidgetSpan_getSpanForPositionVisitor$(
   m.Scope scope,
   WidgetSpan target,
@@ -56,6 +83,11 @@ Function _WidgetSpan_compareTo$(
   WidgetSpan target,
 ) =>
     target.compareTo;
+Function _WidgetSpan_eq$$(
+  m.Scope scope,
+  WidgetSpan target,
+) =>
+    (Object other) => target == other;
 Function _WidgetSpan_getSpanForPosition$(
   m.Scope scope,
   WidgetSpan target,

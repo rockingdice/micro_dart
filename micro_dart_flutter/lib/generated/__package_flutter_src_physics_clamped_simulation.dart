@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'ClampedSimulation': m.ClassMirror(
       'ClampedSimulation',
       {
+        '#as': ClampedSimulation_as$,
+        '#is': ClampedSimulation_is$,
         'simulation': _ClampedSimulation_simulation$,
         'xMin': _ClampedSimulation_xMin$,
         'xMax': _ClampedSimulation_xMax$,
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function ClampedSimulation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ClampedSimulation;
+Function ClampedSimulation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ClampedSimulation;
 Simulation _ClampedSimulation_simulation$(ClampedSimulation target) {
   return target.simulation;
 }

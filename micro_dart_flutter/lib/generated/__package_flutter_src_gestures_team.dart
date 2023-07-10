@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'GestureArenaTeam': m.ClassMirror(
       'GestureArenaTeam',
       {
+        '#as': GestureArenaTeam_as$,
+        '#is': GestureArenaTeam_is$,
         'captain': _GestureArenaTeam_captain$,
         'add': _GestureArenaTeam_add$,
       },
@@ -21,6 +23,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function GestureArenaTeam_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as GestureArenaTeam;
+Function GestureArenaTeam_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is GestureArenaTeam;
 GestureArenaMember? _GestureArenaTeam_captain$(GestureArenaTeam target) {
   return target.captain;
 }

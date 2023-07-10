@@ -29,17 +29,27 @@ const libraryMirror = m.LibraryMirror(
   {
     'AnimatedList': m.ClassMirror(
       'AnimatedList',
-      {'createState': _AnimatedList_createState$},
+      {
+        '#as': AnimatedList_as$,
+        '#is': AnimatedList_is$,
+        'createState': _AnimatedList_createState$,
+      },
       {},
     ),
     'AnimatedListState': m.ClassMirror(
       'AnimatedListState',
-      {'build': _AnimatedListState_build$},
+      {
+        '#as': AnimatedListState_as$,
+        '#is': AnimatedListState_is$,
+        'build': _AnimatedListState_build$,
+      },
       {},
     ),
     'AnimatedGrid': m.ClassMirror(
       'AnimatedGrid',
       {
+        '#as': AnimatedGrid_as$,
+        '#is': AnimatedGrid_is$,
         'gridDelegate': _AnimatedGrid_gridDelegate$,
         'createState': _AnimatedGrid_createState$,
       },
@@ -47,22 +57,36 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AnimatedGridState': m.ClassMirror(
       'AnimatedGridState',
-      {'build': _AnimatedGridState_build$},
+      {
+        '#as': AnimatedGridState_as$,
+        '#is': AnimatedGridState_is$,
+        'build': _AnimatedGridState_build$,
+      },
       {},
     ),
     'SliverAnimatedList': m.ClassMirror(
       'SliverAnimatedList',
-      {'createState': _SliverAnimatedList_createState$},
+      {
+        '#as': SliverAnimatedList_as$,
+        '#is': SliverAnimatedList_is$,
+        'createState': _SliverAnimatedList_createState$,
+      },
       {},
     ),
     'SliverAnimatedListState': m.ClassMirror(
       'SliverAnimatedListState',
-      {'build': _SliverAnimatedListState_build$},
+      {
+        '#as': SliverAnimatedListState_as$,
+        '#is': SliverAnimatedListState_is$,
+        'build': _SliverAnimatedListState_build$,
+      },
       {},
     ),
     'SliverAnimatedGrid': m.ClassMirror(
       'SliverAnimatedGrid',
       {
+        '#as': SliverAnimatedGrid_as$,
+        '#is': SliverAnimatedGrid_is$,
         'gridDelegate': _SliverAnimatedGrid_gridDelegate$,
         'createState': _SliverAnimatedGrid_createState$,
       },
@@ -70,11 +94,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SliverAnimatedGridState': m.ClassMirror(
       'SliverAnimatedGridState',
-      {'build': _SliverAnimatedGridState_build$},
+      {
+        '#as': SliverAnimatedGridState_as$,
+        '#is': SliverAnimatedGridState_is$,
+        'build': _SliverAnimatedGridState_build$,
+      },
       {},
     ),
   },
 );
+Function AnimatedList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedList;
+Function AnimatedList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedList;
 Function _AnimatedList_of$(m.Scope scope) => AnimatedList.of;
 Function _AnimatedList_maybeOf$(m.Scope scope) => AnimatedList.maybeOf;
 Function _AnimatedList_createState$(
@@ -82,11 +120,31 @@ Function _AnimatedList_createState$(
   AnimatedList target,
 ) =>
     target.createState;
+Function AnimatedListState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedListState;
+Function AnimatedListState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedListState;
 Function _AnimatedListState_build$(
   m.Scope scope,
   AnimatedListState target,
 ) =>
     target.build;
+Function AnimatedGrid_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedGrid;
+Function AnimatedGrid_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedGrid;
 SliverGridDelegate _AnimatedGrid_gridDelegate$(AnimatedGrid target) {
   return target.gridDelegate;
 }
@@ -98,11 +156,31 @@ Function _AnimatedGrid_createState$(
   AnimatedGrid target,
 ) =>
     target.createState;
+Function AnimatedGridState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedGridState;
+Function AnimatedGridState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedGridState;
 Function _AnimatedGridState_build$(
   m.Scope scope,
   AnimatedGridState target,
 ) =>
     target.build;
+Function SliverAnimatedList_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAnimatedList;
+Function SliverAnimatedList_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAnimatedList;
 Function _SliverAnimatedList_createState$(
   m.Scope scope,
   SliverAnimatedList target,
@@ -111,11 +189,31 @@ Function _SliverAnimatedList_createState$(
 Function _SliverAnimatedList_of$(m.Scope scope) => SliverAnimatedList.of;
 Function _SliverAnimatedList_maybeOf$(m.Scope scope) =>
     SliverAnimatedList.maybeOf;
+Function SliverAnimatedListState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAnimatedListState;
+Function SliverAnimatedListState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAnimatedListState;
 Function _SliverAnimatedListState_build$(
   m.Scope scope,
   SliverAnimatedListState target,
 ) =>
     target.build;
+Function SliverAnimatedGrid_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAnimatedGrid;
+Function SliverAnimatedGrid_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAnimatedGrid;
 SliverGridDelegate _SliverAnimatedGrid_gridDelegate$(
     SliverAnimatedGrid target) {
   return target.gridDelegate;
@@ -129,6 +227,16 @@ Function _SliverAnimatedGrid_createState$(
 Function _SliverAnimatedGrid_of$(m.Scope scope) => SliverAnimatedGrid.of;
 Function _SliverAnimatedGrid_maybeOf$(m.Scope scope) =>
     SliverAnimatedGrid.maybeOf;
+Function SliverAnimatedGridState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverAnimatedGridState;
+Function SliverAnimatedGridState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverAnimatedGridState;
 Function _SliverAnimatedGridState_build$(
   m.Scope scope,
   SliverAnimatedGridState target,

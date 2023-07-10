@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiChildLayoutParentData': m.ClassMirror(
       'MultiChildLayoutParentData',
       {
+        '#as': MultiChildLayoutParentData_as$,
+        '#is': MultiChildLayoutParentData_is$,
         'id': _MultiChildLayoutParentData_id$,
         'toString': _MultiChildLayoutParentData_toString$,
       },
@@ -23,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiChildLayoutDelegate': m.ClassMirror(
       'MultiChildLayoutDelegate',
       {
+        '#as': MultiChildLayoutDelegate_as$,
+        '#is': MultiChildLayoutDelegate_is$,
         'hasChild': _MultiChildLayoutDelegate_hasChild$,
         'layoutChild': _MultiChildLayoutDelegate_layoutChild$,
         'positionChild': _MultiChildLayoutDelegate_positionChild$,
@@ -36,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderCustomMultiChildLayoutBox': m.ClassMirror(
       'RenderCustomMultiChildLayoutBox',
       {
+        '#as': RenderCustomMultiChildLayoutBox_as$,
+        '#is': RenderCustomMultiChildLayoutBox_is$,
         'delegate': _RenderCustomMultiChildLayoutBox_delegate$,
         'setupParentData': _RenderCustomMultiChildLayoutBox_setupParentData$,
         'attach': _RenderCustomMultiChildLayoutBox_attach$,
@@ -57,6 +63,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MultiChildLayoutParentData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiChildLayoutParentData;
+Function MultiChildLayoutParentData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiChildLayoutParentData;
 Object? _MultiChildLayoutParentData_id$(MultiChildLayoutParentData target) {
   return target.id;
 }
@@ -73,6 +89,16 @@ Function _MultiChildLayoutParentData_toString$(
   MultiChildLayoutParentData target,
 ) =>
     target.toString;
+Function MultiChildLayoutDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiChildLayoutDelegate;
+Function MultiChildLayoutDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiChildLayoutDelegate;
 Function _MultiChildLayoutDelegate_hasChild$(
   m.Scope scope,
   MultiChildLayoutDelegate target,
@@ -108,6 +134,16 @@ Function _MultiChildLayoutDelegate_toString$(
   MultiChildLayoutDelegate target,
 ) =>
     target.toString;
+Function RenderCustomMultiChildLayoutBox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderCustomMultiChildLayoutBox;
+Function RenderCustomMultiChildLayoutBox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderCustomMultiChildLayoutBox;
 MultiChildLayoutDelegate _RenderCustomMultiChildLayoutBox_delegate$(
     RenderCustomMultiChildLayoutBox target) {
   return target.delegate;

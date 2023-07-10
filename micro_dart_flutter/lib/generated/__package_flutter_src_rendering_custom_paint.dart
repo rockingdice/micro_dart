@@ -12,12 +12,17 @@ import 'package:flutter/src/rendering/proxy_box.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/custom_paint.dart',
-  {},
+  {
+    'CustomPainter.addListener': _CustomPainter_addListener$,
+    'CustomPainter.removeListener': _CustomPainter_removeListener$,
+  },
   {},
   {
     'CustomPainter': m.ClassMirror(
       'CustomPainter',
       {
+        '#as': CustomPainter_as$,
+        '#is': CustomPainter_is$,
         'semanticsBuilder': _CustomPainter_semanticsBuilder$,
         'paint': _CustomPainter_paint$,
         'shouldRebuildSemantics': _CustomPainter_shouldRebuildSemantics$,
@@ -30,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'CustomPainterSemantics': m.ClassMirror(
       'CustomPainterSemantics',
       {
+        '#as': CustomPainterSemantics_as$,
+        '#is': CustomPainterSemantics_is$,
         'key': _CustomPainterSemantics_key$,
         'rect': _CustomPainterSemantics_rect$,
         'transform': _CustomPainterSemantics_transform$,
@@ -41,6 +48,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderCustomPaint': m.ClassMirror(
       'RenderCustomPaint',
       {
+        '#as': RenderCustomPaint_as$,
+        '#is': RenderCustomPaint_is$,
         'isComplex': _RenderCustomPaint_isComplex$,
         'willChange': _RenderCustomPaint_willChange$,
         'painter': _RenderCustomPaint_painter$,
@@ -77,11 +86,47 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CustomPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomPainter;
+Function CustomPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomPainter;
 List<CustomPainterSemantics> Function(Size)? _CustomPainter_semanticsBuilder$(
     CustomPainter target) {
   return target.semanticsBuilder;
 }
 
+Function _CustomPainter_addListener$(
+  m.Scope scope,
+  CustomPainter target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.addListener(listenerProxy);
+    };
+Function _CustomPainter_removeListener$(
+  m.Scope scope,
+  CustomPainter target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [],
+            {},
+          );
+      target.removeListener(listenerProxy);
+    };
 Function _CustomPainter_paint$(
   m.Scope scope,
   CustomPainter target,
@@ -107,6 +152,16 @@ Function _CustomPainter_toString$(
   CustomPainter target,
 ) =>
     target.toString;
+Function CustomPainterSemantics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CustomPainterSemantics;
+Function CustomPainterSemantics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CustomPainterSemantics;
 Key? _CustomPainterSemantics_key$(CustomPainterSemantics target) {
   return target.key;
 }
@@ -129,6 +184,16 @@ Set<SemanticsTag>? _CustomPainterSemantics_tags$(
   return target.tags;
 }
 
+Function RenderCustomPaint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderCustomPaint;
+Function RenderCustomPaint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderCustomPaint;
 bool _RenderCustomPaint_isComplex$(RenderCustomPaint target) {
   return target.isComplex;
 }

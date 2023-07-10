@@ -32,6 +32,8 @@ const libraryMirror = m.LibraryMirror(
     'AnimatedIcon': m.ClassMirror(
       'AnimatedIcon',
       {
+        '#as': AnimatedIcon_as$,
+        '#is': AnimatedIcon_is$,
         'progress': _AnimatedIcon_progress$,
         'color': _AnimatedIcon_color$,
         'size': _AnimatedIcon_size$,
@@ -44,16 +46,33 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AnimatedIcons': m.ClassMirror(
       'AnimatedIcons',
-      {},
+      {
+        '#as': AnimatedIcons_as$,
+        '#is': AnimatedIcons_is$,
+      },
       {},
     ),
     'AnimatedIconData': m.ClassMirror(
       'AnimatedIconData',
-      {'matchTextDirection': _AnimatedIconData_matchTextDirection$},
+      {
+        '#as': AnimatedIconData_as$,
+        '#is': AnimatedIconData_is$,
+        'matchTextDirection': _AnimatedIconData_matchTextDirection$,
+      },
       {},
     ),
   },
 );
+Function AnimatedIcon_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedIcon;
+Function AnimatedIcon_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedIcon;
 Animation<double> _AnimatedIcon_progress$(AnimatedIcon target) {
   return target.progress;
 }
@@ -83,6 +102,16 @@ Function _AnimatedIcon_build$(
   AnimatedIcon target,
 ) =>
     target.build;
+Function AnimatedIcons_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedIcons;
+Function AnimatedIcons_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedIcons;
 AnimatedIconData _AnimatedIcons_add_event$() {
   return AnimatedIcons.add_event;
 }
@@ -139,6 +168,16 @@ AnimatedIconData _AnimatedIcons_view_list$() {
   return AnimatedIcons.view_list;
 }
 
+Function AnimatedIconData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AnimatedIconData;
+Function AnimatedIconData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AnimatedIconData;
 bool _AnimatedIconData_matchTextDirection$(AnimatedIconData target) {
   return target.matchTextDirection;
 }

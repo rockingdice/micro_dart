@@ -19,12 +19,14 @@ import 'package:flutter/src/painting/text_painter.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/text_span.dart',
-  {},
+  {'TextSpan.visitChildren': _TextSpan_visitChildren$},
   {},
   {
     'TextSpan': m.ClassMirror(
       'TextSpan',
       {
+        '#as': TextSpan_as$,
+        '#is': TextSpan_is$,
         'text': _TextSpan_text$,
         'children': _TextSpan_children$,
         'recognizer': _TextSpan_recognizer$,
@@ -46,6 +48,7 @@ const libraryMirror = m.LibraryMirror(
         'describeSemantics': _TextSpan_describeSemantics$,
         'debugAssertIsValid': _TextSpan_debugAssertIsValid$,
         'compareTo': _TextSpan_compareTo$,
+        '==': _TextSpan_eq$$,
         'toStringShort': _TextSpan_toStringShort$,
         'debugFillProperties': _TextSpan_debugFillProperties$,
         'debugDescribeChildren': _TextSpan_debugDescribeChildren$,
@@ -54,6 +57,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextSpan_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSpan;
+Function TextSpan_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSpan;
 String? _TextSpan_text$(TextSpan target) {
   return target.text;
 }
@@ -112,6 +125,20 @@ Function _TextSpan_build$(
   TextSpan target,
 ) =>
     target.build;
+Function _TextSpan_visitChildren$(
+  m.Scope scope,
+  TextSpan target,
+) =>
+    (m.FunctionPointer visitor) {
+      bool visitorProxy(InlineSpan visitor_span) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_span],
+            {},
+          );
+      return target.visitChildren(visitorProxy);
+    };
 Function _TextSpan_getSpanForPositionVisitor$(
   m.Scope scope,
   TextSpan target,
@@ -147,6 +174,11 @@ Function _TextSpan_compareTo$(
   TextSpan target,
 ) =>
     target.compareTo;
+Function _TextSpan_eq$$(
+  m.Scope scope,
+  TextSpan target,
+) =>
+    (Object other) => target == other;
 Function _TextSpan_toStringShort$(
   m.Scope scope,
   TextSpan target,

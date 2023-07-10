@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoListSection': m.ClassMirror(
       'CupertinoListSection',
       {
+        '#as': CupertinoListSection_as$,
+        '#is': CupertinoListSection_is$,
         'type': _CupertinoListSection_type$,
         'header': _CupertinoListSection_header$,
         'footer': _CupertinoListSection_footer$,
@@ -43,6 +45,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoListSection_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoListSection;
+Function CupertinoListSection_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoListSection;
 CupertinoListSectionType _CupertinoListSection_type$(
     CupertinoListSection target) {
   return target.type;

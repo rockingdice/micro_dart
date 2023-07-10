@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverFillViewport': m.ClassMirror(
       'RenderSliverFillViewport',
       {
+        '#as': RenderSliverFillViewport_as$,
+        '#is': RenderSliverFillViewport_is$,
         'itemExtent': _RenderSliverFillViewport_itemExtent$,
         'viewportFraction': _RenderSliverFillViewport_viewportFraction$,
       },
@@ -25,22 +27,43 @@ const libraryMirror = m.LibraryMirror(
     'RenderSliverFillRemainingWithScrollable': m.ClassMirror(
       'RenderSliverFillRemainingWithScrollable',
       {
-        'performLayout': _RenderSliverFillRemainingWithScrollable_performLayout$
+        '#as': RenderSliverFillRemainingWithScrollable_as$,
+        '#is': RenderSliverFillRemainingWithScrollable_is$,
+        'performLayout':
+            _RenderSliverFillRemainingWithScrollable_performLayout$,
       },
       {},
     ),
     'RenderSliverFillRemaining': m.ClassMirror(
       'RenderSliverFillRemaining',
-      {'performLayout': _RenderSliverFillRemaining_performLayout$},
+      {
+        '#as': RenderSliverFillRemaining_as$,
+        '#is': RenderSliverFillRemaining_is$,
+        'performLayout': _RenderSliverFillRemaining_performLayout$,
+      },
       {},
     ),
     'RenderSliverFillRemainingAndOverscroll': m.ClassMirror(
       'RenderSliverFillRemainingAndOverscroll',
-      {'performLayout': _RenderSliverFillRemainingAndOverscroll_performLayout$},
+      {
+        '#as': RenderSliverFillRemainingAndOverscroll_as$,
+        '#is': RenderSliverFillRemainingAndOverscroll_is$,
+        'performLayout': _RenderSliverFillRemainingAndOverscroll_performLayout$,
+      },
       {},
     ),
   },
 );
+Function RenderSliverFillViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFillViewport;
+Function RenderSliverFillViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFillViewport;
 double _RenderSliverFillViewport_itemExtent$(RenderSliverFillViewport target) {
   return target.itemExtent;
 }
@@ -57,16 +80,46 @@ void _RenderSliverFillViewport_viewportFraction_set$(
   target.viewportFraction = other;
 }
 
+Function RenderSliverFillRemainingWithScrollable_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFillRemainingWithScrollable;
+Function RenderSliverFillRemainingWithScrollable_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFillRemainingWithScrollable;
 Function _RenderSliverFillRemainingWithScrollable_performLayout$(
   m.Scope scope,
   RenderSliverFillRemainingWithScrollable target,
 ) =>
     target.performLayout;
+Function RenderSliverFillRemaining_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFillRemaining;
+Function RenderSliverFillRemaining_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFillRemaining;
 Function _RenderSliverFillRemaining_performLayout$(
   m.Scope scope,
   RenderSliverFillRemaining target,
 ) =>
     target.performLayout;
+Function RenderSliverFillRemainingAndOverscroll_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RenderSliverFillRemainingAndOverscroll;
+Function RenderSliverFillRemainingAndOverscroll_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RenderSliverFillRemainingAndOverscroll;
 Function _RenderSliverFillRemainingAndOverscroll_performLayout$(
   m.Scope scope,
   RenderSliverFillRemainingAndOverscroll target,

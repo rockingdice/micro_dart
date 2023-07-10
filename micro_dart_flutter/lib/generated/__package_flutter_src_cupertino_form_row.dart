@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoFormRow': m.ClassMirror(
       'CupertinoFormRow',
       {
+        '#as': CupertinoFormRow_as$,
+        '#is': CupertinoFormRow_is$,
         'prefix': _CupertinoFormRow_prefix$,
         'padding': _CupertinoFormRow_padding$,
         'helper': _CupertinoFormRow_helper$,
@@ -26,6 +28,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoFormRow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoFormRow;
+Function CupertinoFormRow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoFormRow;
 Widget? _CupertinoFormRow_prefix$(CupertinoFormRow target) {
   return target.prefix;
 }

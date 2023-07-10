@@ -36,7 +36,10 @@ const libraryMirror = m.LibraryMirror(
     'FloatingLabelAlignment': m.ClassMirror(
       'FloatingLabelAlignment',
       {
+        '#as': FloatingLabelAlignment_as$,
+        '#is': FloatingLabelAlignment_is$,
         'hashCode': _FloatingLabelAlignment_hashCode$,
+        '==': _FloatingLabelAlignment_eq$$,
         'toString': _FloatingLabelAlignment_toString$,
       },
       {},
@@ -44,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'InputDecorator': m.ClassMirror(
       'InputDecorator',
       {
+        '#as': InputDecorator_as$,
+        '#is': InputDecorator_is$,
         'decoration': _InputDecorator_decoration$,
         'baseStyle': _InputDecorator_baseStyle$,
         'textAlign': _InputDecorator_textAlign$,
@@ -61,6 +66,8 @@ const libraryMirror = m.LibraryMirror(
     'InputDecoration': m.ClassMirror(
       'InputDecoration',
       {
+        '#as': InputDecoration_as$,
+        '#is': InputDecoration_is$,
         'icon': _InputDecoration_icon$,
         'iconColor': _InputDecoration_iconColor$,
         'label': _InputDecoration_label$,
@@ -114,6 +121,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _InputDecoration_hashCode$,
         'copyWith': _InputDecoration_copyWith$,
         'applyDefaults': _InputDecoration_applyDefaults$,
+        '==': _InputDecoration_eq$$,
         'toString': _InputDecoration_toString$,
       },
       {},
@@ -121,6 +129,8 @@ const libraryMirror = m.LibraryMirror(
     'InputDecorationTheme': m.ClassMirror(
       'InputDecorationTheme',
       {
+        '#as': InputDecorationTheme_as$,
+        '#is': InputDecorationTheme_is$,
         'labelStyle': _InputDecorationTheme_labelStyle$,
         'floatingLabelStyle': _InputDecorationTheme_floatingLabelStyle$,
         'helperStyle': _InputDecorationTheme_helperStyle$,
@@ -155,6 +165,7 @@ const libraryMirror = m.LibraryMirror(
         'constraints': _InputDecorationTheme_constraints$,
         'hashCode': _InputDecorationTheme_hashCode$,
         'copyWith': _InputDecorationTheme_copyWith$,
+        '==': _InputDecorationTheme_eq$$,
         'debugFillProperties': _InputDecorationTheme_debugFillProperties$,
       },
       {},
@@ -166,6 +177,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function FloatingLabelAlignment_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingLabelAlignment;
+Function FloatingLabelAlignment_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingLabelAlignment;
 FloatingLabelAlignment _FloatingLabelAlignment_start$() {
   return FloatingLabelAlignment.start;
 }
@@ -178,11 +199,26 @@ int _FloatingLabelAlignment_hashCode$(FloatingLabelAlignment target) {
   return target.hashCode;
 }
 
+Function _FloatingLabelAlignment_eq$$(
+  m.Scope scope,
+  FloatingLabelAlignment target,
+) =>
+    (Object other) => target == other;
 Function _FloatingLabelAlignment_toString$(
   m.Scope scope,
   FloatingLabelAlignment target,
 ) =>
     target.toString;
+Function InputDecorator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputDecorator;
+Function InputDecorator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputDecorator;
 InputDecoration _InputDecorator_decoration$(InputDecorator target) {
   return target.decoration;
 }
@@ -231,6 +267,16 @@ Function _InputDecorator_debugFillProperties$(
   InputDecorator target,
 ) =>
     target.debugFillProperties;
+Function InputDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputDecoration;
+Function InputDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputDecoration;
 Widget? _InputDecoration_icon$(InputDecoration target) {
   return target.icon;
 }
@@ -449,11 +495,26 @@ Function _InputDecoration_applyDefaults$(
   InputDecoration target,
 ) =>
     target.applyDefaults;
+Function _InputDecoration_eq$$(
+  m.Scope scope,
+  InputDecoration target,
+) =>
+    (Object other) => target == other;
 Function _InputDecoration_toString$(
   m.Scope scope,
   InputDecoration target,
 ) =>
     target.toString;
+Function InputDecorationTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputDecorationTheme;
+Function InputDecorationTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputDecorationTheme;
 TextStyle? _InputDecorationTheme_labelStyle$(InputDecorationTheme target) {
   return target.labelStyle;
 }
@@ -599,6 +660,11 @@ Function _InputDecorationTheme_copyWith$(
   InputDecorationTheme target,
 ) =>
     target.copyWith;
+Function _InputDecorationTheme_eq$$(
+  m.Scope scope,
+  InputDecorationTheme target,
+) =>
+    (Object other) => target == other;
 Function _InputDecorationTheme_debugFillProperties$(
   m.Scope scope,
   InputDecorationTheme target,

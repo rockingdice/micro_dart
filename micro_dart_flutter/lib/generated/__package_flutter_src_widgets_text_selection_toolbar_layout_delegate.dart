@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionToolbarLayoutDelegate': m.ClassMirror(
       'TextSelectionToolbarLayoutDelegate',
       {
+        '#as': TextSelectionToolbarLayoutDelegate_as$,
+        '#is': TextSelectionToolbarLayoutDelegate_is$,
         'anchorAbove': _TextSelectionToolbarLayoutDelegate_anchorAbove$,
         'anchorBelow': _TextSelectionToolbarLayoutDelegate_anchorBelow$,
         'fitsAbove': _TextSelectionToolbarLayoutDelegate_fitsAbove$,
@@ -30,6 +32,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextSelectionToolbarLayoutDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionToolbarLayoutDelegate;
+Function TextSelectionToolbarLayoutDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionToolbarLayoutDelegate;
 Offset _TextSelectionToolbarLayoutDelegate_anchorAbove$(
     TextSelectionToolbarLayoutDelegate target) {
   return target.anchorAbove;

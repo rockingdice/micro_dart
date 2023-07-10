@@ -27,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'TextButton': m.ClassMirror(
       'TextButton',
       {
+        '#as': TextButton_as$,
+        '#is': TextButton_is$,
         'defaultStyleOf': _TextButton_defaultStyleOf$,
         'themeStyleOf': _TextButton_themeStyleOf$,
       },
@@ -34,6 +36,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextButton;
+Function TextButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextButton;
 Function _TextButton_styleFrom$(m.Scope scope) => TextButton.styleFrom;
 Function _TextButton_defaultStyleOf$(
   m.Scope scope,

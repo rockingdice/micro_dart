@@ -23,12 +23,14 @@ import 'package:flutter/src/widgets/scrollable.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/list_wheel_scroll_view.dart',
-  {},
+  {'ListWheelElement.visitChildren': _ListWheelElement_visitChildren$},
   {},
   {
     'ListWheelChildDelegate': m.ClassMirror(
       'ListWheelChildDelegate',
       {
+        '#as': ListWheelChildDelegate_as$,
+        '#is': ListWheelChildDelegate_is$,
         'estimatedChildCount': _ListWheelChildDelegate_estimatedChildCount$,
         'build': _ListWheelChildDelegate_build$,
         'trueIndexOf': _ListWheelChildDelegate_trueIndexOf$,
@@ -39,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelChildListDelegate': m.ClassMirror(
       'ListWheelChildListDelegate',
       {
+        '#as': ListWheelChildListDelegate_as$,
+        '#is': ListWheelChildListDelegate_is$,
         'children': _ListWheelChildListDelegate_children$,
         'estimatedChildCount': _ListWheelChildListDelegate_estimatedChildCount$,
         'build': _ListWheelChildListDelegate_build$,
@@ -49,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelChildLoopingListDelegate': m.ClassMirror(
       'ListWheelChildLoopingListDelegate',
       {
+        '#as': ListWheelChildLoopingListDelegate_as$,
+        '#is': ListWheelChildLoopingListDelegate_is$,
         'children': _ListWheelChildLoopingListDelegate_children$,
         'estimatedChildCount':
             _ListWheelChildLoopingListDelegate_estimatedChildCount$,
@@ -61,6 +67,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelChildBuilderDelegate': m.ClassMirror(
       'ListWheelChildBuilderDelegate',
       {
+        '#as': ListWheelChildBuilderDelegate_as$,
+        '#is': ListWheelChildBuilderDelegate_is$,
         'builder': _ListWheelChildBuilderDelegate_builder$,
         'childCount': _ListWheelChildBuilderDelegate_childCount$,
         'estimatedChildCount':
@@ -73,6 +81,8 @@ const libraryMirror = m.LibraryMirror(
     'FixedExtentScrollController': m.ClassMirror(
       'FixedExtentScrollController',
       {
+        '#as': FixedExtentScrollController_as$,
+        '#is': FixedExtentScrollController_is$,
         'initialItem': _FixedExtentScrollController_initialItem$,
         'selectedItem': _FixedExtentScrollController_selectedItem$,
         'animateToItem': _FixedExtentScrollController_animateToItem$,
@@ -85,6 +95,8 @@ const libraryMirror = m.LibraryMirror(
     'FixedExtentMetrics': m.ClassMirror(
       'FixedExtentMetrics',
       {
+        '#as': FixedExtentMetrics_as$,
+        '#is': FixedExtentMetrics_is$,
         'itemIndex': _FixedExtentMetrics_itemIndex$,
         'copyWith': _FixedExtentMetrics_copyWith$,
       },
@@ -93,6 +105,8 @@ const libraryMirror = m.LibraryMirror(
     'FixedExtentScrollPhysics': m.ClassMirror(
       'FixedExtentScrollPhysics',
       {
+        '#as': FixedExtentScrollPhysics_as$,
+        '#is': FixedExtentScrollPhysics_is$,
         'applyTo': _FixedExtentScrollPhysics_applyTo$,
         'createBallisticSimulation':
             _FixedExtentScrollPhysics_createBallisticSimulation$,
@@ -102,6 +116,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelScrollView': m.ClassMirror(
       'ListWheelScrollView',
       {
+        '#as': ListWheelScrollView_as$,
+        '#is': ListWheelScrollView_is$,
         'controller': _ListWheelScrollView_controller$,
         'physics': _ListWheelScrollView_physics$,
         'diameterRatio': _ListWheelScrollView_diameterRatio$,
@@ -127,6 +143,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelElement': m.ClassMirror(
       'ListWheelElement',
       {
+        '#as': ListWheelElement_as$,
+        '#is': ListWheelElement_is$,
         'renderObject': _ListWheelElement_renderObject$,
         'childCount': _ListWheelElement_childCount$,
         'update': _ListWheelElement_update$,
@@ -146,6 +164,8 @@ const libraryMirror = m.LibraryMirror(
     'ListWheelViewport': m.ClassMirror(
       'ListWheelViewport',
       {
+        '#as': ListWheelViewport_as$,
+        '#is': ListWheelViewport_is$,
         'diameterRatio': _ListWheelViewport_diameterRatio$,
         'perspective': _ListWheelViewport_perspective$,
         'offAxisFraction': _ListWheelViewport_offAxisFraction$,
@@ -168,6 +188,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ListWheelChildDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelChildDelegate;
+Function ListWheelChildDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelChildDelegate;
 int? _ListWheelChildDelegate_estimatedChildCount$(
     ListWheelChildDelegate target) {
   return target.estimatedChildCount;
@@ -188,6 +218,16 @@ Function _ListWheelChildDelegate_shouldRebuild$(
   ListWheelChildDelegate target,
 ) =>
     target.shouldRebuild;
+Function ListWheelChildListDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelChildListDelegate;
+Function ListWheelChildListDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelChildListDelegate;
 List<Widget> _ListWheelChildListDelegate_children$(
     ListWheelChildListDelegate target) {
   return target.children;
@@ -208,6 +248,16 @@ Function _ListWheelChildListDelegate_shouldRebuild$(
   ListWheelChildListDelegate target,
 ) =>
     target.shouldRebuild;
+Function ListWheelChildLoopingListDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelChildLoopingListDelegate;
+Function ListWheelChildLoopingListDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelChildLoopingListDelegate;
 List<Widget> _ListWheelChildLoopingListDelegate_children$(
     ListWheelChildLoopingListDelegate target) {
   return target.children;
@@ -233,6 +283,16 @@ Function _ListWheelChildLoopingListDelegate_shouldRebuild$(
   ListWheelChildLoopingListDelegate target,
 ) =>
     target.shouldRebuild;
+Function ListWheelChildBuilderDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelChildBuilderDelegate;
+Function ListWheelChildBuilderDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelChildBuilderDelegate;
 Widget? Function(BuildContext, int) _ListWheelChildBuilderDelegate_builder$(
     ListWheelChildBuilderDelegate target) {
   return target.builder;
@@ -258,6 +318,16 @@ Function _ListWheelChildBuilderDelegate_shouldRebuild$(
   ListWheelChildBuilderDelegate target,
 ) =>
     target.shouldRebuild;
+Function FixedExtentScrollController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FixedExtentScrollController;
+Function FixedExtentScrollController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FixedExtentScrollController;
 int _FixedExtentScrollController_initialItem$(
     FixedExtentScrollController target) {
   return target.initialItem;
@@ -283,6 +353,16 @@ Function _FixedExtentScrollController_createScrollPosition$(
   FixedExtentScrollController target,
 ) =>
     target.createScrollPosition;
+Function FixedExtentMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FixedExtentMetrics;
+Function FixedExtentMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FixedExtentMetrics;
 int _FixedExtentMetrics_itemIndex$(FixedExtentMetrics target) {
   return target.itemIndex;
 }
@@ -292,6 +372,16 @@ Function _FixedExtentMetrics_copyWith$(
   FixedExtentMetrics target,
 ) =>
     target.copyWith;
+Function FixedExtentScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FixedExtentScrollPhysics;
+Function FixedExtentScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FixedExtentScrollPhysics;
 Function _FixedExtentScrollPhysics_applyTo$(
   m.Scope scope,
   FixedExtentScrollPhysics target,
@@ -302,6 +392,16 @@ Function _FixedExtentScrollPhysics_createBallisticSimulation$(
   FixedExtentScrollPhysics target,
 ) =>
     target.createBallisticSimulation;
+Function ListWheelScrollView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelScrollView;
+Function ListWheelScrollView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelScrollView;
 ScrollController? _ListWheelScrollView_controller$(ListWheelScrollView target) {
   return target.controller;
 }
@@ -376,6 +476,16 @@ Function _ListWheelScrollView_createState$(
   ListWheelScrollView target,
 ) =>
     target.createState;
+Function ListWheelElement_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelElement;
+Function ListWheelElement_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelElement;
 RenderListWheelViewport _ListWheelElement_renderObject$(
     ListWheelElement target) {
   return target.renderObject;
@@ -435,11 +545,35 @@ Function _ListWheelElement_removeRenderObjectChild$(
   ListWheelElement target,
 ) =>
     target.removeRenderObjectChild;
+Function _ListWheelElement_visitChildren$(
+  m.Scope scope,
+  ListWheelElement target,
+) =>
+    (m.FunctionPointer visitor) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      target.visitChildren(visitorProxy);
+    };
 Function _ListWheelElement_forgetChild$(
   m.Scope scope,
   ListWheelElement target,
 ) =>
     target.forgetChild;
+Function ListWheelViewport_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListWheelViewport;
+Function ListWheelViewport_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListWheelViewport;
 double _ListWheelViewport_diameterRatio$(ListWheelViewport target) {
   return target.diameterRatio;
 }

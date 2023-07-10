@@ -61,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'FloatingActionButtonLocation': m.ClassMirror(
       'FloatingActionButtonLocation',
       {
+        '#as': FloatingActionButtonLocation_as$,
+        '#is': FloatingActionButtonLocation_is$,
         'getOffset': _FloatingActionButtonLocation_getOffset$,
         'toString': _FloatingActionButtonLocation_toString$,
       },
@@ -69,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'StandardFabLocation': m.ClassMirror(
       'StandardFabLocation',
       {
+        '#as': StandardFabLocation_as$,
+        '#is': StandardFabLocation_is$,
         'getOffsetX': _StandardFabLocation_getOffsetX$,
         'getOffsetY': _StandardFabLocation_getOffsetY$,
         'isMini': _StandardFabLocation_isMini$,
@@ -79,6 +83,8 @@ const libraryMirror = m.LibraryMirror(
     'FloatingActionButtonAnimator': m.ClassMirror(
       'FloatingActionButtonAnimator',
       {
+        '#as': FloatingActionButtonAnimator_as$,
+        '#is': FloatingActionButtonAnimator_is$,
         'getOffset': _FloatingActionButtonAnimator_getOffset$,
         'getScaleAnimation': _FloatingActionButtonAnimator_getScaleAnimation$,
         'getRotationAnimation':
@@ -107,6 +113,16 @@ double _kMiniButtonOffsetAdjustment$() {
   return kMiniButtonOffsetAdjustment;
 }
 
+Function FloatingActionButtonLocation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingActionButtonLocation;
+Function FloatingActionButtonLocation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingActionButtonLocation;
 FloatingActionButtonLocation _FloatingActionButtonLocation_startTop$() {
   return FloatingActionButtonLocation.startTop;
 }
@@ -193,6 +209,16 @@ Function _FloatingActionButtonLocation_toString$(
   FloatingActionButtonLocation target,
 ) =>
     target.toString;
+Function StandardFabLocation_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StandardFabLocation;
+Function StandardFabLocation_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StandardFabLocation;
 Function _StandardFabLocation_getOffsetX$(
   m.Scope scope,
   StandardFabLocation target,
@@ -213,6 +239,16 @@ Function _StandardFabLocation_getOffset$(
   StandardFabLocation target,
 ) =>
     target.getOffset;
+Function FloatingActionButtonAnimator_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FloatingActionButtonAnimator;
+Function FloatingActionButtonAnimator_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FloatingActionButtonAnimator;
 FloatingActionButtonAnimator _FloatingActionButtonAnimator_scaling$() {
   return FloatingActionButtonAnimator.scaling;
 }

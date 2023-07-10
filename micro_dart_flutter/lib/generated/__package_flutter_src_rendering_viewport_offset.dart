@@ -20,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
     'ViewportOffset': m.ClassMirror(
       'ViewportOffset',
       {
+        '#as': ViewportOffset_as$,
+        '#is': ViewportOffset_is$,
         'pixels': _ViewportOffset_pixels$,
         'hasPixels': _ViewportOffset_hasPixels$,
         'userScrollDirection': _ViewportOffset_userScrollDirection$,
@@ -42,6 +44,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ViewportOffset_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ViewportOffset;
+Function ViewportOffset_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ViewportOffset;
 double _ViewportOffset_pixels$(ViewportOffset target) {
   return target.pixels;
 }

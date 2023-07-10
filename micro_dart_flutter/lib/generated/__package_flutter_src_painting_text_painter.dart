@@ -45,11 +45,14 @@ const libraryMirror = m.LibraryMirror(
     'PlaceholderDimensions': m.ClassMirror(
       'PlaceholderDimensions',
       {
+        '#as': PlaceholderDimensions_as$,
+        '#is': PlaceholderDimensions_is$,
         'size': _PlaceholderDimensions_size$,
         'alignment': _PlaceholderDimensions_alignment$,
         'baselineOffset': _PlaceholderDimensions_baselineOffset$,
         'baseline': _PlaceholderDimensions_baseline$,
         'hashCode': _PlaceholderDimensions_hashCode$,
+        '==': _PlaceholderDimensions_eq$$,
         'toString': _PlaceholderDimensions_toString$,
       },
       {},
@@ -57,6 +60,8 @@ const libraryMirror = m.LibraryMirror(
     'WordBoundary': m.ClassMirror(
       'WordBoundary',
       {
+        '#as': WordBoundary_as$,
+        '#is': WordBoundary_is$,
         'moveByWordBoundary': _WordBoundary_moveByWordBoundary$,
         'getTextBoundaryAt': _WordBoundary_getTextBoundaryAt$,
       },
@@ -65,6 +70,8 @@ const libraryMirror = m.LibraryMirror(
     'TextPainter': m.ClassMirror(
       'TextPainter',
       {
+        '#as': TextPainter_as$,
+        '#is': TextPainter_is$,
         'text': _TextPainter_text$,
         'plainText': _TextPainter_plainText$,
         'textAlign': _TextPainter_textAlign$,
@@ -129,6 +136,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PlaceholderDimensions_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PlaceholderDimensions;
+Function PlaceholderDimensions_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PlaceholderDimensions;
 PlaceholderDimensions _PlaceholderDimensions_empty$() {
   return PlaceholderDimensions.empty;
 }
@@ -154,11 +171,26 @@ int _PlaceholderDimensions_hashCode$(PlaceholderDimensions target) {
   return target.hashCode;
 }
 
+Function _PlaceholderDimensions_eq$$(
+  m.Scope scope,
+  PlaceholderDimensions target,
+) =>
+    (Object other) => target == other;
 Function _PlaceholderDimensions_toString$(
   m.Scope scope,
   PlaceholderDimensions target,
 ) =>
     target.toString;
+Function WordBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as WordBoundary;
+Function WordBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is WordBoundary;
 TextBoundary _WordBoundary_moveByWordBoundary$(WordBoundary target) {
   return target.moveByWordBoundary;
 }
@@ -168,6 +200,16 @@ Function _WordBoundary_getTextBoundaryAt$(
   WordBoundary target,
 ) =>
     target.getTextBoundaryAt;
+Function TextPainter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextPainter;
+Function TextPainter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextPainter;
 InlineSpan? _TextPainter_text$(TextPainter target) {
   return target.text;
 }

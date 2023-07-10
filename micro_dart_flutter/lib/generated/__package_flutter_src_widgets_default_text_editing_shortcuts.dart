@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultTextEditingShortcuts': m.ClassMirror(
       'DefaultTextEditingShortcuts',
       {
+        '#as': DefaultTextEditingShortcuts_as$,
+        '#is': DefaultTextEditingShortcuts_is$,
         'child': _DefaultTextEditingShortcuts_child$,
         'build': _DefaultTextEditingShortcuts_build$,
       },
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function DefaultTextEditingShortcuts_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTextEditingShortcuts;
+Function DefaultTextEditingShortcuts_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTextEditingShortcuts;
 Widget _DefaultTextEditingShortcuts_child$(DefaultTextEditingShortcuts target) {
   return target.child;
 }

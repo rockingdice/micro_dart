@@ -20,6 +20,9 @@ const libraryMirror = m.LibraryMirror(
         _LookupBoundary_findRootAncestorStateOfType$,
     'LookupBoundary.findAncestorRenderObjectOfType':
         _LookupBoundary_findAncestorRenderObjectOfType$,
+    'LookupBoundary.visitAncestorElements':
+        _LookupBoundary_visitAncestorElements$,
+    'LookupBoundary.visitChildElements': _LookupBoundary_visitChildElements$,
     'LookupBoundary.debugIsHidingAncestorWidgetOfExactType':
         _LookupBoundary_debugIsHidingAncestorWidgetOfExactType$,
     'LookupBoundary.debugIsHidingAncestorStateOfType':
@@ -31,11 +34,25 @@ const libraryMirror = m.LibraryMirror(
   {
     'LookupBoundary': m.ClassMirror(
       'LookupBoundary',
-      {'updateShouldNotify': _LookupBoundary_updateShouldNotify$},
+      {
+        '#as': LookupBoundary_as$,
+        '#is': LookupBoundary_is$,
+        'updateShouldNotify': _LookupBoundary_updateShouldNotify$,
+      },
       {},
     )
   },
 );
+Function LookupBoundary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LookupBoundary;
+Function LookupBoundary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LookupBoundary;
 Function _LookupBoundary_dependOnInheritedWidgetOfExactType$<
         T extends InheritedWidget>(m.Scope scope) =>
     LookupBoundary.dependOnInheritedWidgetOfExactType<T>;
@@ -56,6 +73,38 @@ Function
     _LookupBoundary_findAncestorRenderObjectOfType$<T extends RenderObject>(
             m.Scope scope) =>
         LookupBoundary.findAncestorRenderObjectOfType<T>;
+Function _LookupBoundary_visitAncestorElements$(m.Scope scope) => (
+      BuildContext context,
+      m.FunctionPointer visitor,
+    ) {
+      bool visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      LookupBoundary.visitAncestorElements(
+        context,
+        visitorProxy,
+      );
+    };
+Function _LookupBoundary_visitChildElements$(m.Scope scope) => (
+      BuildContext context,
+      m.FunctionPointer visitor,
+    ) {
+      void visitorProxy(Element visitor_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            visitor,
+            [visitor_element],
+            {},
+          );
+      LookupBoundary.visitChildElements(
+        context,
+        visitorProxy,
+      );
+    };
 Function
     _LookupBoundary_debugIsHidingAncestorWidgetOfExactType$<T extends Widget>(
             m.Scope scope) =>

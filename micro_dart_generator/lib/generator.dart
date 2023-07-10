@@ -290,13 +290,13 @@ class Generator extends Visitor {
     if (binaryOperatorList.containsKey(name)) {
       writeWord("(other)=>");
       writeWord("target");
-      writeWord(binaryOperatorList[name]!);
+      writeWord(binaryOperatorList[name]![0]);
       write("other");
     } else if (unaryOperatorList.containsKey(name)) {
       writeWord("()=>");
-      writeWord(unaryOperatorList[name]!);
+      writeWord(unaryOperatorList[name]![0]);
       writeWord("target");
-    } else if (specialOperatorList.contains(name)) {
+    } else if (specialOperatorList.containsKey(name)) {
       if (name == "[]") {
         writeWord("(index)=>");
         write("target[index]");

@@ -21,11 +21,14 @@ const libraryMirror = m.LibraryMirror(
     'DropdownMenuThemeData': m.ClassMirror(
       'DropdownMenuThemeData',
       {
+        '#as': DropdownMenuThemeData_as$,
+        '#is': DropdownMenuThemeData_is$,
         'textStyle': _DropdownMenuThemeData_textStyle$,
         'inputDecorationTheme': _DropdownMenuThemeData_inputDecorationTheme$,
         'menuStyle': _DropdownMenuThemeData_menuStyle$,
         'hashCode': _DropdownMenuThemeData_hashCode$,
         'copyWith': _DropdownMenuThemeData_copyWith$,
+        '==': _DropdownMenuThemeData_eq$$,
         'debugFillProperties': _DropdownMenuThemeData_debugFillProperties$,
       },
       {},
@@ -33,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'DropdownMenuTheme': m.ClassMirror(
       'DropdownMenuTheme',
       {
+        '#as': DropdownMenuTheme_as$,
+        '#is': DropdownMenuTheme_is$,
         'data': _DropdownMenuTheme_data$,
         'wrap': _DropdownMenuTheme_wrap$,
         'updateShouldNotify': _DropdownMenuTheme_updateShouldNotify$,
@@ -41,6 +46,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function DropdownMenuThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownMenuThemeData;
+Function DropdownMenuThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownMenuThemeData;
 TextStyle? _DropdownMenuThemeData_textStyle$(DropdownMenuThemeData target) {
   return target.textStyle;
 }
@@ -65,11 +80,26 @@ Function _DropdownMenuThemeData_copyWith$(
     target.copyWith;
 Function _DropdownMenuThemeData_lerp$(m.Scope scope) =>
     DropdownMenuThemeData.lerp;
+Function _DropdownMenuThemeData_eq$$(
+  m.Scope scope,
+  DropdownMenuThemeData target,
+) =>
+    (Object other) => target == other;
 Function _DropdownMenuThemeData_debugFillProperties$(
   m.Scope scope,
   DropdownMenuThemeData target,
 ) =>
     target.debugFillProperties;
+Function DropdownMenuTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DropdownMenuTheme;
+Function DropdownMenuTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DropdownMenuTheme;
 DropdownMenuThemeData _DropdownMenuTheme_data$(DropdownMenuTheme target) {
   return target.data;
 }

@@ -19,8 +19,11 @@ const libraryMirror = m.LibraryMirror(
     'IconButtonThemeData': m.ClassMirror(
       'IconButtonThemeData',
       {
+        '#as': IconButtonThemeData_as$,
+        '#is': IconButtonThemeData_is$,
         'style': _IconButtonThemeData_style$,
         'hashCode': _IconButtonThemeData_hashCode$,
+        '==': _IconButtonThemeData_eq$$,
         'debugFillProperties': _IconButtonThemeData_debugFillProperties$,
       },
       {},
@@ -28,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'IconButtonTheme': m.ClassMirror(
       'IconButtonTheme',
       {
+        '#as': IconButtonTheme_as$,
+        '#is': IconButtonTheme_is$,
         'data': _IconButtonTheme_data$,
         'wrap': _IconButtonTheme_wrap$,
         'updateShouldNotify': _IconButtonTheme_updateShouldNotify$,
@@ -36,6 +41,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function IconButtonThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconButtonThemeData;
+Function IconButtonThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconButtonThemeData;
 ButtonStyle? _IconButtonThemeData_style$(IconButtonThemeData target) {
   return target.style;
 }
@@ -45,11 +60,26 @@ int _IconButtonThemeData_hashCode$(IconButtonThemeData target) {
 }
 
 Function _IconButtonThemeData_lerp$(m.Scope scope) => IconButtonThemeData.lerp;
+Function _IconButtonThemeData_eq$$(
+  m.Scope scope,
+  IconButtonThemeData target,
+) =>
+    (Object other) => target == other;
 Function _IconButtonThemeData_debugFillProperties$(
   m.Scope scope,
   IconButtonThemeData target,
 ) =>
     target.debugFillProperties;
+Function IconButtonTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IconButtonTheme;
+Function IconButtonTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IconButtonTheme;
 IconButtonThemeData _IconButtonTheme_data$(IconButtonTheme target) {
   return target.data;
 }

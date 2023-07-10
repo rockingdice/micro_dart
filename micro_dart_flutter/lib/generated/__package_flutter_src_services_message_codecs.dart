@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'BinaryCodec': m.ClassMirror(
       'BinaryCodec',
       {
+        '#as': BinaryCodec_as$,
+        '#is': BinaryCodec_is$,
         'decodeMessage': _BinaryCodec_decodeMessage$,
         'encodeMessage': _BinaryCodec_encodeMessage$,
       },
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'StringCodec': m.ClassMirror(
       'StringCodec',
       {
+        '#as': StringCodec_as$,
+        '#is': StringCodec_is$,
         'decodeMessage': _StringCodec_decodeMessage$,
         'encodeMessage': _StringCodec_encodeMessage$,
       },
@@ -32,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
     'JSONMessageCodec': m.ClassMirror(
       'JSONMessageCodec',
       {
+        '#as': JSONMessageCodec_as$,
+        '#is': JSONMessageCodec_is$,
         'encodeMessage': _JSONMessageCodec_encodeMessage$,
         'decodeMessage': _JSONMessageCodec_decodeMessage$,
       },
@@ -40,6 +46,8 @@ const libraryMirror = m.LibraryMirror(
     'JSONMethodCodec': m.ClassMirror(
       'JSONMethodCodec',
       {
+        '#as': JSONMethodCodec_as$,
+        '#is': JSONMethodCodec_is$,
         'encodeMethodCall': _JSONMethodCodec_encodeMethodCall$,
         'decodeMethodCall': _JSONMethodCodec_decodeMethodCall$,
         'decodeEnvelope': _JSONMethodCodec_decodeEnvelope$,
@@ -51,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'StandardMessageCodec': m.ClassMirror(
       'StandardMessageCodec',
       {
+        '#as': StandardMessageCodec_as$,
+        '#is': StandardMessageCodec_is$,
         'encodeMessage': _StandardMessageCodec_encodeMessage$,
         'decodeMessage': _StandardMessageCodec_decodeMessage$,
         'writeValue': _StandardMessageCodec_writeValue$,
@@ -64,6 +74,8 @@ const libraryMirror = m.LibraryMirror(
     'StandardMethodCodec': m.ClassMirror(
       'StandardMethodCodec',
       {
+        '#as': StandardMethodCodec_as$,
+        '#is': StandardMethodCodec_is$,
         'messageCodec': _StandardMethodCodec_messageCodec$,
         'encodeMethodCall': _StandardMethodCodec_encodeMethodCall$,
         'decodeMethodCall': _StandardMethodCodec_decodeMethodCall$,
@@ -75,6 +87,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BinaryCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BinaryCodec;
+Function BinaryCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BinaryCodec;
 Function _BinaryCodec_decodeMessage$(
   m.Scope scope,
   BinaryCodec target,
@@ -85,6 +107,16 @@ Function _BinaryCodec_encodeMessage$(
   BinaryCodec target,
 ) =>
     target.encodeMessage;
+Function StringCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StringCodec;
+Function StringCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StringCodec;
 Function _StringCodec_decodeMessage$(
   m.Scope scope,
   StringCodec target,
@@ -95,6 +127,16 @@ Function _StringCodec_encodeMessage$(
   StringCodec target,
 ) =>
     target.encodeMessage;
+Function JSONMessageCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JSONMessageCodec;
+Function JSONMessageCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JSONMessageCodec;
 Function _JSONMessageCodec_encodeMessage$(
   m.Scope scope,
   JSONMessageCodec target,
@@ -105,6 +147,16 @@ Function _JSONMessageCodec_decodeMessage$(
   JSONMessageCodec target,
 ) =>
     target.decodeMessage;
+Function JSONMethodCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as JSONMethodCodec;
+Function JSONMethodCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is JSONMethodCodec;
 Function _JSONMethodCodec_encodeMethodCall$(
   m.Scope scope,
   JSONMethodCodec target,
@@ -130,6 +182,16 @@ Function _JSONMethodCodec_encodeErrorEnvelope$(
   JSONMethodCodec target,
 ) =>
     target.encodeErrorEnvelope;
+Function StandardMessageCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StandardMessageCodec;
+Function StandardMessageCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StandardMessageCodec;
 Function _StandardMessageCodec_encodeMessage$(
   m.Scope scope,
   StandardMessageCodec target,
@@ -165,6 +227,16 @@ Function _StandardMessageCodec_readSize$(
   StandardMessageCodec target,
 ) =>
     target.readSize;
+Function StandardMethodCodec_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StandardMethodCodec;
+Function StandardMethodCodec_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StandardMethodCodec;
 StandardMessageCodec _StandardMethodCodec_messageCodec$(
     StandardMethodCodec target) {
   return target.messageCodec;

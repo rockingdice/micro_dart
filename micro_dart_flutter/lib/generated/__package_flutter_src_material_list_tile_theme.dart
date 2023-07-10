@@ -24,6 +24,8 @@ const libraryMirror = m.LibraryMirror(
     'ListTileThemeData': m.ClassMirror(
       'ListTileThemeData',
       {
+        '#as': ListTileThemeData_as$,
+        '#is': ListTileThemeData_is$,
         'dense': _ListTileThemeData_dense$,
         'shape': _ListTileThemeData_shape$,
         'style': _ListTileThemeData_style$,
@@ -46,6 +48,7 @@ const libraryMirror = m.LibraryMirror(
         'titleAlignment': _ListTileThemeData_titleAlignment$,
         'hashCode': _ListTileThemeData_hashCode$,
         'copyWith': _ListTileThemeData_copyWith$,
+        '==': _ListTileThemeData_eq$$,
         'debugFillProperties': _ListTileThemeData_debugFillProperties$,
       },
       {},
@@ -53,6 +56,8 @@ const libraryMirror = m.LibraryMirror(
     'ListTileTheme': m.ClassMirror(
       'ListTileTheme',
       {
+        '#as': ListTileTheme_as$,
+        '#is': ListTileTheme_is$,
         'data': _ListTileTheme_data$,
         'dense': _ListTileTheme_dense$,
         'shape': _ListTileTheme_shape$,
@@ -74,6 +79,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ListTileThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListTileThemeData;
+Function ListTileThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListTileThemeData;
 bool? _ListTileThemeData_dense$(ListTileThemeData target) {
   return target.dense;
 }
@@ -164,11 +179,26 @@ Function _ListTileThemeData_copyWith$(
 ) =>
     target.copyWith;
 Function _ListTileThemeData_lerp$(m.Scope scope) => ListTileThemeData.lerp;
+Function _ListTileThemeData_eq$$(
+  m.Scope scope,
+  ListTileThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ListTileThemeData_debugFillProperties$(
   m.Scope scope,
   ListTileThemeData target,
 ) =>
     target.debugFillProperties;
+Function ListTileTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ListTileTheme;
+Function ListTileTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ListTileTheme;
 ListTileThemeData _ListTileTheme_data$(ListTileTheme target) {
   return target.data;
 }

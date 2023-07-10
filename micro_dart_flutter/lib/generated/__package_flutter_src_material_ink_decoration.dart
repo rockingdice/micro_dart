@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'Ink': m.ClassMirror(
       'Ink',
       {
+        '#as': Ink_as$,
+        '#is': Ink_is$,
         'child': _Ink_child$,
         'padding': _Ink_padding$,
         'decoration': _Ink_decoration$,
@@ -29,6 +31,8 @@ const libraryMirror = m.LibraryMirror(
     'InkDecoration': m.ClassMirror(
       'InkDecoration',
       {
+        '#as': InkDecoration_as$,
+        '#is': InkDecoration_is$,
         'decoration': _InkDecoration_decoration$,
         'isVisible': _InkDecoration_isVisible$,
         'configuration': _InkDecoration_configuration$,
@@ -43,6 +47,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Ink_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Ink;
+Function Ink_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Ink;
 Widget? _Ink_child$(Ink target) {
   return target.child;
 }
@@ -73,6 +87,16 @@ Function _Ink_createState$(
   Ink target,
 ) =>
     target.createState;
+Function InkDecoration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InkDecoration;
+Function InkDecoration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InkDecoration;
 Decoration? _InkDecoration_decoration$(InkDecoration target) {
   return target.decoration;
 }

@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionToolbarAnchors': m.ClassMirror(
       'TextSelectionToolbarAnchors',
       {
+        '#as': TextSelectionToolbarAnchors_as$,
+        '#is': TextSelectionToolbarAnchors_is$,
         'primaryAnchor': _TextSelectionToolbarAnchors_primaryAnchor$,
         'secondaryAnchor': _TextSelectionToolbarAnchors_secondaryAnchor$,
       },
@@ -21,6 +23,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function TextSelectionToolbarAnchors_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextSelectionToolbarAnchors;
+Function TextSelectionToolbarAnchors_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextSelectionToolbarAnchors;
 Offset _TextSelectionToolbarAnchors_primaryAnchor$(
     TextSelectionToolbarAnchors target) {
   return target.primaryAnchor;

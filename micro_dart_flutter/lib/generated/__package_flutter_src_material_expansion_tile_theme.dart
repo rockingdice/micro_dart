@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpansionTileThemeData': m.ClassMirror(
       'ExpansionTileThemeData',
       {
+        '#as': ExpansionTileThemeData_as$,
+        '#is': ExpansionTileThemeData_is$,
         'backgroundColor': _ExpansionTileThemeData_backgroundColor$,
         'collapsedBackgroundColor':
             _ExpansionTileThemeData_collapsedBackgroundColor$,
@@ -33,6 +35,7 @@ const libraryMirror = m.LibraryMirror(
         'clipBehavior': _ExpansionTileThemeData_clipBehavior$,
         'hashCode': _ExpansionTileThemeData_hashCode$,
         'copyWith': _ExpansionTileThemeData_copyWith$,
+        '==': _ExpansionTileThemeData_eq$$,
         'debugFillProperties': _ExpansionTileThemeData_debugFillProperties$,
       },
       {},
@@ -40,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'ExpansionTileTheme': m.ClassMirror(
       'ExpansionTileTheme',
       {
+        '#as': ExpansionTileTheme_as$,
+        '#is': ExpansionTileTheme_is$,
         'data': _ExpansionTileTheme_data$,
         'wrap': _ExpansionTileTheme_wrap$,
         'updateShouldNotify': _ExpansionTileTheme_updateShouldNotify$,
@@ -48,6 +53,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ExpansionTileThemeData_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionTileThemeData;
+Function ExpansionTileThemeData_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionTileThemeData;
 Color? _ExpansionTileThemeData_backgroundColor$(ExpansionTileThemeData target) {
   return target.backgroundColor;
 }
@@ -114,11 +129,26 @@ Function _ExpansionTileThemeData_copyWith$(
     target.copyWith;
 Function _ExpansionTileThemeData_lerp$(m.Scope scope) =>
     ExpansionTileThemeData.lerp;
+Function _ExpansionTileThemeData_eq$$(
+  m.Scope scope,
+  ExpansionTileThemeData target,
+) =>
+    (Object other) => target == other;
 Function _ExpansionTileThemeData_debugFillProperties$(
   m.Scope scope,
   ExpansionTileThemeData target,
 ) =>
     target.debugFillProperties;
+Function ExpansionTileTheme_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ExpansionTileTheme;
+Function ExpansionTileTheme_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ExpansionTileTheme;
 ExpansionTileThemeData _ExpansionTileTheme_data$(ExpansionTileTheme target) {
   return target.data;
 }

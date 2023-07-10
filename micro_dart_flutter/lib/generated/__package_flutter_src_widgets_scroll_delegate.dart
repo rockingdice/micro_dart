@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverChildDelegate': m.ClassMirror(
       'SliverChildDelegate',
       {
+        '#as': SliverChildDelegate_as$,
+        '#is': SliverChildDelegate_is$,
         'estimatedChildCount': _SliverChildDelegate_estimatedChildCount$,
         'build': _SliverChildDelegate_build$,
         'estimateMaxScrollOffset':
@@ -33,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverChildBuilderDelegate': m.ClassMirror(
       'SliverChildBuilderDelegate',
       {
+        '#as': SliverChildBuilderDelegate_as$,
+        '#is': SliverChildBuilderDelegate_is$,
         'builder': _SliverChildBuilderDelegate_builder$,
         'childCount': _SliverChildBuilderDelegate_childCount$,
         'addAutomaticKeepAlives':
@@ -55,6 +59,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverChildListDelegate': m.ClassMirror(
       'SliverChildListDelegate',
       {
+        '#as': SliverChildListDelegate_as$,
+        '#is': SliverChildListDelegate_is$,
         'addAutomaticKeepAlives':
             _SliverChildListDelegate_addAutomaticKeepAlives$,
         'addRepaintBoundaries': _SliverChildListDelegate_addRepaintBoundaries$,
@@ -72,6 +78,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SliverChildDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverChildDelegate;
+Function SliverChildDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverChildDelegate;
 int? _SliverChildDelegate_estimatedChildCount$(SliverChildDelegate target) {
   return target.estimatedChildCount;
 }
@@ -111,6 +127,16 @@ Function _SliverChildDelegate_debugFillDescription$(
   SliverChildDelegate target,
 ) =>
     target.debugFillDescription;
+Function SliverChildBuilderDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverChildBuilderDelegate;
+Function SliverChildBuilderDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverChildBuilderDelegate;
 Widget? Function(BuildContext, int) _SliverChildBuilderDelegate_builder$(
     SliverChildBuilderDelegate target) {
   return target.builder;
@@ -171,6 +197,16 @@ Function _SliverChildBuilderDelegate_shouldRebuild$(
   SliverChildBuilderDelegate target,
 ) =>
     target.shouldRebuild;
+Function SliverChildListDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverChildListDelegate;
+Function SliverChildListDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverChildListDelegate;
 bool _SliverChildListDelegate_addAutomaticKeepAlives$(
     SliverChildListDelegate target) {
   return target.addAutomaticKeepAlives;

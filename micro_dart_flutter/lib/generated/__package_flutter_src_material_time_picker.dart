@@ -47,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
     'TimePickerDialog': m.ClassMirror(
       'TimePickerDialog',
       {
+        '#as': TimePickerDialog_as$,
+        '#is': TimePickerDialog_is$,
         'initialTime': _TimePickerDialog_initialTime$,
         'cancelText': _TimePickerDialog_cancelText$,
         'confirmText': _TimePickerDialog_confirmText$,
@@ -69,6 +71,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TimePickerDialog_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimePickerDialog;
+Function TimePickerDialog_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimePickerDialog;
 TimeOfDay _TimePickerDialog_initialTime$(TimePickerDialog target) {
   return target.initialTime;
 }
@@ -140,22 +152,22 @@ List<TimePickerEntryMode> _TimePickerEntryMode_values$() {
   return TimePickerEntryMode.values;
 }
 
-Function _showTimePicker$(m.Scope scope) => (
-      BuildContext context,
-      TimeOfDay initialTime, {
+Function _showTimePicker$(m.Scope scope) => ({
+      Offset? anchorPoint,
       m.FunctionPointer? builder,
-      bool? useRootNavigator,
-      TimePickerEntryMode? initialEntryMode,
       String? cancelText,
       String? confirmText,
-      String? helpText,
+      required BuildContext context,
       String? errorInvalidText,
+      String? helpText,
       String? hourLabelText,
+      TimePickerEntryMode? initialEntryMode,
+      required TimeOfDay initialTime,
       String? minuteLabelText,
-      RouteSettings? routeSettings,
       m.FunctionPointer? onEntryModeChanged,
-      Offset? anchorPoint,
       Orientation? orientation,
+      RouteSettings? routeSettings,
+      bool? useRootNavigator,
     }) {
       Widget builderProxy(
         BuildContext builder_context,

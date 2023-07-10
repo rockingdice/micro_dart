@@ -1,34 +1,37 @@
 import 'package:code_builder/code_builder.dart' as cb;
 import 'package:dart_style/dart_style.dart';
 
-const Map<String, String> unaryOperatorList = {
-  "unary-": "-",
-  "unary+": "++",
-  "~": "~",
+const Map<String, List<String>> unaryOperatorList = {
+  "unary-": ["-", "unary_minus\$"],
+  "unary+": ["++", "unary_plus\$"],
+  "~": ["~", "bit_non\$"],
 };
-const Map<String, String> binaryOperatorList = {
-  "#as": "as",
-  "#is": "is",
-  "&": "&",
-  "|": "|",
-  "^": "^",
-  "==": "==",
-  "+": "+",
-  "-": "-",
-  "*": "*",
-  "~/": "~/",
-  "<": "<",
-  ">": ">",
-  "<=": "<=",
-  ">=": ">=",
-  "/": "/",
-  "%": "%",
-  "<<": "<<",
-  ">>": ">>",
-  ">>>": ">>>"
+const Map<String, List<String>> binaryOperatorList = {
+  "#as": ["as", "as\$"],
+  "#is": ["is", "is\$"],
+  "&": ["&", "bit_and\$"],
+  "|": ["|", "bit_or\$"],
+  "^": ["^", "bit_xor\$"],
+  "==": ["==", "eq\$"],
+  "+": ["+", "plus\$"],
+  "-": ["-", "minus\$"],
+  "*": ["*", "times\$"],
+  "~/": ["~/", "division\$"],
+  "<": ["<", "low\$"],
+  ">": [">", "more\$"],
+  "<=": ["<=", "low_eq\$"],
+  ">=": [">=", "more_eq\$"],
+  "/": ["/", "over\$"],
+  "%": ["%", "surplus\$"],
+  "<<": ["<<", "left_move\$"],
+  ">>": [">>", "right_move\$"],
+  ">>>": [">>>", "unsign_right_move\$"],
 };
 
-const List<String> specialOperatorList = ["[]", "[]="];
+const Map<String, List<String>> specialOperatorList = {
+  "[]": ["[]", "index\$"],
+  "[]=": ["[]=", "index_set\$"]
+};
 
 abstract class Namer<T> {
   int index = 0;

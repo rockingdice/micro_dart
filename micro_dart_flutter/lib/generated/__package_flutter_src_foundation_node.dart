@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'AbstractNode': m.ClassMirror(
       'AbstractNode',
       {
+        '#as': AbstractNode_as$,
+        '#is': AbstractNode_is$,
         'depth': _AbstractNode_depth$,
         'owner': _AbstractNode_owner$,
         'attached': _AbstractNode_attached$,
@@ -28,6 +30,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function AbstractNode_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AbstractNode;
+Function AbstractNode_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AbstractNode;
 int _AbstractNode_depth$(AbstractNode target) {
   return target.depth;
 }

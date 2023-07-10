@@ -15,6 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'Animatable': m.ClassMirror(
       'Animatable',
       {
+        '#as': Animatable_as$,
+        '#is': Animatable_is$,
         'transform': _Animatable_transform$,
         'evaluate': _Animatable_evaluate$,
         'animate': _Animatable_animate$,
@@ -25,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
     'Tween': m.ClassMirror(
       'Tween',
       {
+        '#as': Tween_as$,
+        '#is': Tween_is$,
         'begin': _Tween_begin$,
         'end': _Tween_end$,
         'lerp': _Tween_lerp$,
@@ -39,6 +43,8 @@ const libraryMirror = m.LibraryMirror(
     'ReverseTween': m.ClassMirror(
       'ReverseTween',
       {
+        '#as': ReverseTween_as$,
+        '#is': ReverseTween_is$,
         'parent': _ReverseTween_parent$,
         'lerp': _ReverseTween_lerp$,
       },
@@ -46,32 +52,54 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ColorTween': m.ClassMirror(
       'ColorTween',
-      {'lerp': _ColorTween_lerp$},
+      {
+        '#as': ColorTween_as$,
+        '#is': ColorTween_is$,
+        'lerp': _ColorTween_lerp$,
+      },
       {},
     ),
     'SizeTween': m.ClassMirror(
       'SizeTween',
-      {'lerp': _SizeTween_lerp$},
+      {
+        '#as': SizeTween_as$,
+        '#is': SizeTween_is$,
+        'lerp': _SizeTween_lerp$,
+      },
       {},
     ),
     'RectTween': m.ClassMirror(
       'RectTween',
-      {'lerp': _RectTween_lerp$},
+      {
+        '#as': RectTween_as$,
+        '#is': RectTween_is$,
+        'lerp': _RectTween_lerp$,
+      },
       {},
     ),
     'IntTween': m.ClassMirror(
       'IntTween',
-      {'lerp': _IntTween_lerp$},
+      {
+        '#as': IntTween_as$,
+        '#is': IntTween_is$,
+        'lerp': _IntTween_lerp$,
+      },
       {},
     ),
     'StepTween': m.ClassMirror(
       'StepTween',
-      {'lerp': _StepTween_lerp$},
+      {
+        '#as': StepTween_as$,
+        '#is': StepTween_is$,
+        'lerp': _StepTween_lerp$,
+      },
       {},
     ),
     'ConstantTween': m.ClassMirror(
       'ConstantTween',
       {
+        '#as': ConstantTween_as$,
+        '#is': ConstantTween_is$,
         'lerp': _ConstantTween_lerp$,
         'toString': _ConstantTween_toString$,
       },
@@ -80,6 +108,8 @@ const libraryMirror = m.LibraryMirror(
     'CurveTween': m.ClassMirror(
       'CurveTween',
       {
+        '#as': CurveTween_as$,
+        '#is': CurveTween_is$,
         'curve': _CurveTween_curve$,
         'transform': _CurveTween_transform$,
         'toString': _CurveTween_toString$,
@@ -88,6 +118,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Animatable_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Animatable<T>;
+Function Animatable_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Animatable<T>;
 Function _Animatable_transform$<T>(
   m.Scope scope,
   Animatable<T> target,
@@ -108,6 +148,16 @@ Function _Animatable_chain$<T>(
   Animatable<T> target,
 ) =>
     target.chain;
+Function Tween_as$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Tween<T>;
+Function Tween_is$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Tween<T>;
 T? _Tween_begin$<T extends Object?>(Tween<T> target) {
   return target.begin;
 }
@@ -145,6 +195,16 @@ Function _Tween_toString$<T extends Object?>(
   Tween<T> target,
 ) =>
     target.toString;
+Function ReverseTween_as$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ReverseTween<T>;
+Function ReverseTween_is$<T extends Object?>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ReverseTween<T>;
 Tween<T> _ReverseTween_parent$<T extends Object?>(ReverseTween<T> target) {
   return target.parent;
 }
@@ -154,31 +214,91 @@ Function _ReverseTween_lerp$<T extends Object?>(
   ReverseTween<T> target,
 ) =>
     target.lerp;
+Function ColorTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorTween;
+Function ColorTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorTween;
 Function _ColorTween_lerp$(
   m.Scope scope,
   ColorTween target,
 ) =>
     target.lerp;
+Function SizeTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SizeTween;
+Function SizeTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SizeTween;
 Function _SizeTween_lerp$(
   m.Scope scope,
   SizeTween target,
 ) =>
     target.lerp;
+Function RectTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RectTween;
+Function RectTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RectTween;
 Function _RectTween_lerp$(
   m.Scope scope,
   RectTween target,
 ) =>
     target.lerp;
+Function IntTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as IntTween;
+Function IntTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is IntTween;
 Function _IntTween_lerp$(
   m.Scope scope,
   IntTween target,
 ) =>
     target.lerp;
+Function StepTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StepTween;
+Function StepTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StepTween;
 Function _StepTween_lerp$(
   m.Scope scope,
   StepTween target,
 ) =>
     target.lerp;
+Function ConstantTween_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConstantTween<T>;
+Function ConstantTween_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConstantTween<T>;
 Function _ConstantTween_lerp$<T>(
   m.Scope scope,
   ConstantTween<T> target,
@@ -189,6 +309,16 @@ Function _ConstantTween_toString$<T>(
   ConstantTween<T> target,
 ) =>
     target.toString;
+Function CurveTween_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CurveTween;
+Function CurveTween_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CurveTween;
 Curve _CurveTween_curve$(CurveTween target) {
   return target.curve;
 }

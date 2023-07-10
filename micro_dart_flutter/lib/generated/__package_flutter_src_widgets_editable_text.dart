@@ -54,6 +54,8 @@ const libraryMirror = m.LibraryMirror(
     'kDefaultContentInsertionMimeTypes': _kDefaultContentInsertionMimeTypes$,
     'EditableText.debugDeterministicCursor':
         _EditableText_debugDeterministicCursor$,
+    'EditableText.getEditableButtonItems':
+        _EditableText_getEditableButtonItems$,
   },
   {
     'EditableText.debugDeterministicCursor':
@@ -63,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
     'TextEditingController': m.ClassMirror(
       'TextEditingController',
       {
+        '#as': TextEditingController_as$,
+        '#is': TextEditingController_is$,
         'text': _TextEditingController_text$,
         'selection': _TextEditingController_selection$,
         'buildTextSpan': _TextEditingController_buildTextSpan$,
@@ -80,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'ContentInsertionConfiguration': m.ClassMirror(
       'ContentInsertionConfiguration',
       {
+        '#as': ContentInsertionConfiguration_as$,
+        '#is': ContentInsertionConfiguration_is$,
         'onContentInserted': _ContentInsertionConfiguration_onContentInserted$,
         'allowedMimeTypes': _ContentInsertionConfiguration_allowedMimeTypes$,
       },
@@ -88,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'EditableText': m.ClassMirror(
       'EditableText',
       {
+        '#as': EditableText_as$,
+        '#is': EditableText_is$,
         'controller': _EditableText_controller$,
         'focusNode': _EditableText_focusNode$,
         'obscuringCharacter': _EditableText_obscuringCharacter$,
@@ -169,6 +177,8 @@ const libraryMirror = m.LibraryMirror(
     'EditableTextState': m.ClassMirror(
       'EditableTextState',
       {
+        '#as': EditableTextState_as$,
+        '#is': EditableTextState_is$,
         'clipboardStatus': _EditableTextState_clipboardStatus$,
         'spellCheckResults': _EditableTextState_spellCheckResults$,
         'renderEditable': _EditableTextState_renderEditable$,
@@ -237,6 +247,16 @@ List<String> _kDefaultContentInsertionMimeTypes$() {
   return kDefaultContentInsertionMimeTypes;
 }
 
+Function TextEditingController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TextEditingController;
+Function TextEditingController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TextEditingController;
 String _TextEditingController_text$(TextEditingController target) {
   return target.text;
 }
@@ -286,6 +306,16 @@ Function _TextEditingController_isSelectionWithinTextBounds$(
   TextEditingController target,
 ) =>
     target.isSelectionWithinTextBounds;
+Function ContentInsertionConfiguration_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContentInsertionConfiguration;
+Function ContentInsertionConfiguration_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContentInsertionConfiguration;
 void Function(KeyboardInsertedContent)
     _ContentInsertionConfiguration_onContentInserted$(
         ContentInsertionConfiguration target) {
@@ -297,6 +327,16 @@ List<String> _ContentInsertionConfiguration_allowedMimeTypes$(
   return target.allowedMimeTypes;
 }
 
+Function EditableText_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EditableText;
+Function EditableText_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EditableText;
 TextEditingController _EditableText_controller$(EditableText target) {
   return target.controller;
 }
@@ -592,6 +632,45 @@ bool _EditableText_selectionEnabled$(EditableText target) {
   return target.selectionEnabled;
 }
 
+Function _EditableText_getEditableButtonItems$(m.Scope scope) => ({
+      required ClipboardStatus? clipboardStatus,
+      required m.FunctionPointer? onCopy,
+      required m.FunctionPointer? onCut,
+      required m.FunctionPointer? onPaste,
+      required m.FunctionPointer? onSelectAll,
+    }) {
+      void onCopyProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onCopy!,
+            [],
+            {},
+          );
+      void onCutProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onCut!,
+            [],
+            {},
+          );
+      void onPasteProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onPaste!,
+            [],
+            {},
+          );
+      void onSelectAllProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onSelectAll!,
+            [],
+            {},
+          );
+      return EditableText.getEditableButtonItems(
+        clipboardStatus: clipboardStatus,
+        onCopy: onCopy == null ? null : onCopyProxy,
+        onCut: onCut == null ? null : onCutProxy,
+        onPaste: onPaste == null ? null : onPasteProxy,
+        onSelectAll: onSelectAll == null ? null : onSelectAllProxy,
+      );
+    };
 Function _EditableText_createState$(
   m.Scope scope,
   EditableText target,
@@ -602,6 +681,16 @@ Function _EditableText_debugFillProperties$(
   EditableText target,
 ) =>
     target.debugFillProperties;
+Function EditableTextState_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EditableTextState;
+Function EditableTextState_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EditableTextState;
 ClipboardStatusNotifier _EditableTextState_clipboardStatus$(
     EditableTextState target) {
   return target.clipboardStatus;

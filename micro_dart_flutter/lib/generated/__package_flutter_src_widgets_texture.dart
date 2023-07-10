@@ -14,6 +14,8 @@ const libraryMirror = m.LibraryMirror(
     'Texture': m.ClassMirror(
       'Texture',
       {
+        '#as': Texture_as$,
+        '#is': Texture_is$,
         'textureId': _Texture_textureId$,
         'freeze': _Texture_freeze$,
         'filterQuality': _Texture_filterQuality$,
@@ -24,6 +26,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Texture_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Texture;
+Function Texture_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Texture;
 int _Texture_textureId$(Texture target) {
   return target.textureId;
 }

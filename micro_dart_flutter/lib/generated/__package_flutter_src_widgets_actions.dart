@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/actions.dart',
   {
     'Intent.doNothing': _Intent_doNothing$,
+    'Action.addActionListener': _Action_addActionListener$,
+    'Action.removeActionListener': _Action_removeActionListener$,
     'Actions.handler': _Actions_handler$,
     'Actions.find': _Actions_find$,
     'Actions.maybeFind': _Actions_maybeFind$,
@@ -30,12 +32,17 @@ const libraryMirror = m.LibraryMirror(
   {
     'Intent': m.ClassMirror(
       'Intent',
-      {},
+      {
+        '#as': Intent_as$,
+        '#is': Intent_is$,
+      },
       {},
     ),
     'Action': m.ClassMirror(
       'Action',
       {
+        '#as': Action_as$,
+        '#is': Action_is$,
         'callingAction': _Action_callingAction$,
         'intentType': _Action_intentType$,
         'isActionEnabled': _Action_isActionEnabled$,
@@ -50,6 +57,8 @@ const libraryMirror = m.LibraryMirror(
     'ActionListener': m.ClassMirror(
       'ActionListener',
       {
+        '#as': ActionListener_as$,
+        '#is': ActionListener_is$,
         'listener': _ActionListener_listener$,
         'action': _ActionListener_action$,
         'child': _ActionListener_child$,
@@ -59,12 +68,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ContextAction': m.ClassMirror(
       'ContextAction',
-      {'invoke': _ContextAction_invoke$},
+      {
+        '#as': ContextAction_as$,
+        '#is': ContextAction_is$,
+        'invoke': _ContextAction_invoke$,
+      },
       {},
     ),
     'CallbackAction': m.ClassMirror(
       'CallbackAction',
       {
+        '#as': CallbackAction_as$,
+        '#is': CallbackAction_is$,
         'onInvoke': _CallbackAction_onInvoke$,
         'invoke': _CallbackAction_invoke$,
       },
@@ -72,12 +87,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ActionDispatcher': m.ClassMirror(
       'ActionDispatcher',
-      {'invokeAction': _ActionDispatcher_invokeAction$},
+      {
+        '#as': ActionDispatcher_as$,
+        '#is': ActionDispatcher_is$,
+        'invokeAction': _ActionDispatcher_invokeAction$,
+      },
       {},
     ),
     'Actions': m.ClassMirror(
       'Actions',
       {
+        '#as': Actions_as$,
+        '#is': Actions_is$,
         'dispatcher': _Actions_dispatcher$,
         'actions': _Actions_actions$,
         'child': _Actions_child$,
@@ -89,6 +110,8 @@ const libraryMirror = m.LibraryMirror(
     'FocusableActionDetector': m.ClassMirror(
       'FocusableActionDetector',
       {
+        '#as': FocusableActionDetector_as$,
+        '#is': FocusableActionDetector_is$,
         'enabled': _FocusableActionDetector_enabled$,
         'focusNode': _FocusableActionDetector_focusNode$,
         'autofocus': _FocusableActionDetector_autofocus$,
@@ -111,27 +134,43 @@ const libraryMirror = m.LibraryMirror(
     ),
     'VoidCallbackIntent': m.ClassMirror(
       'VoidCallbackIntent',
-      {'callback': _VoidCallbackIntent_callback$},
+      {
+        '#as': VoidCallbackIntent_as$,
+        '#is': VoidCallbackIntent_is$,
+        'callback': _VoidCallbackIntent_callback$,
+      },
       {},
     ),
     'VoidCallbackAction': m.ClassMirror(
       'VoidCallbackAction',
-      {'invoke': _VoidCallbackAction_invoke$},
+      {
+        '#as': VoidCallbackAction_as$,
+        '#is': VoidCallbackAction_is$,
+        'invoke': _VoidCallbackAction_invoke$,
+      },
       {},
     ),
     'DoNothingIntent': m.ClassMirror(
       'DoNothingIntent',
-      {},
+      {
+        '#as': DoNothingIntent_as$,
+        '#is': DoNothingIntent_is$,
+      },
       {},
     ),
     'DoNothingAndStopPropagationIntent': m.ClassMirror(
       'DoNothingAndStopPropagationIntent',
-      {},
+      {
+        '#as': DoNothingAndStopPropagationIntent_as$,
+        '#is': DoNothingAndStopPropagationIntent_is$,
+      },
       {},
     ),
     'DoNothingAction': m.ClassMirror(
       'DoNothingAction',
       {
+        '#as': DoNothingAction_as$,
+        '#is': DoNothingAction_is$,
         'consumesKey': _DoNothingAction_consumesKey$,
         'invoke': _DoNothingAction_invoke$,
       },
@@ -139,47 +178,74 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ActivateIntent': m.ClassMirror(
       'ActivateIntent',
-      {},
+      {
+        '#as': ActivateIntent_as$,
+        '#is': ActivateIntent_is$,
+      },
       {},
     ),
     'ButtonActivateIntent': m.ClassMirror(
       'ButtonActivateIntent',
-      {},
+      {
+        '#as': ButtonActivateIntent_as$,
+        '#is': ButtonActivateIntent_is$,
+      },
       {},
     ),
     'ActivateAction': m.ClassMirror(
       'ActivateAction',
-      {},
+      {
+        '#as': ActivateAction_as$,
+        '#is': ActivateAction_is$,
+      },
       {},
     ),
     'SelectIntent': m.ClassMirror(
       'SelectIntent',
-      {},
+      {
+        '#as': SelectIntent_as$,
+        '#is': SelectIntent_is$,
+      },
       {},
     ),
     'SelectAction': m.ClassMirror(
       'SelectAction',
-      {},
+      {
+        '#as': SelectAction_as$,
+        '#is': SelectAction_is$,
+      },
       {},
     ),
     'DismissIntent': m.ClassMirror(
       'DismissIntent',
-      {},
+      {
+        '#as': DismissIntent_as$,
+        '#is': DismissIntent_is$,
+      },
       {},
     ),
     'DismissAction': m.ClassMirror(
       'DismissAction',
-      {},
+      {
+        '#as': DismissAction_as$,
+        '#is': DismissAction_is$,
+      },
       {},
     ),
     'PrioritizedIntents': m.ClassMirror(
       'PrioritizedIntents',
-      {'orderedIntents': _PrioritizedIntents_orderedIntents$},
+      {
+        '#as': PrioritizedIntents_as$,
+        '#is': PrioritizedIntents_is$,
+        'orderedIntents': _PrioritizedIntents_orderedIntents$,
+      },
       {},
     ),
     'PrioritizedAction': m.ClassMirror(
       'PrioritizedAction',
       {
+        '#as': PrioritizedAction_as$,
+        '#is': PrioritizedAction_is$,
         'isEnabled': _PrioritizedAction_isEnabled$,
         'invoke': _PrioritizedAction_invoke$,
       },
@@ -187,10 +253,30 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function Intent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Intent;
+Function Intent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Intent;
 DoNothingIntent _Intent_doNothing$() {
   return Intent.doNothing;
 }
 
+Function Action_as$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Action<T>;
+Function Action_is$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Action<T>;
 Action<T>? _Action_callingAction$<T extends Intent>(Action<T> target) {
   return target.callingAction;
 }
@@ -223,11 +309,49 @@ Function _Action_invoke$<T extends Intent>(
   Action<T> target,
 ) =>
     target.invoke;
+Function _Action_addActionListener$<T extends Intent>(
+  m.Scope scope,
+  Action<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(Action<Intent> listener_action) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_action],
+            {},
+          );
+      target.addActionListener(listenerProxy);
+    };
+Function _Action_removeActionListener$<T extends Intent>(
+  m.Scope scope,
+  Action<T> target,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy(Action<Intent> listener_action) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            listener,
+            [listener_action],
+            {},
+          );
+      target.removeActionListener(listenerProxy);
+    };
 Function _Action_notifyActionListeners$<T extends Intent>(
   m.Scope scope,
   Action<T> target,
 ) =>
     target.notifyActionListeners;
+Function ActionListener_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActionListener;
+Function ActionListener_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActionListener;
 void Function(Action<Intent>) _ActionListener_listener$(ActionListener target) {
   return target.listener;
 }
@@ -245,11 +369,31 @@ Function _ActionListener_createState$(
   ActionListener target,
 ) =>
     target.createState;
+Function ContextAction_as$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ContextAction<T>;
+Function ContextAction_is$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ContextAction<T>;
 Function _ContextAction_invoke$<T extends Intent>(
   m.Scope scope,
   ContextAction<T> target,
 ) =>
     target.invoke;
+Function CallbackAction_as$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CallbackAction<T>;
+Function CallbackAction_is$<T extends Intent>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CallbackAction<T>;
 Object? Function(T) _CallbackAction_onInvoke$<T extends Intent>(
     CallbackAction<T> target) {
   return target.onInvoke;
@@ -260,11 +404,31 @@ Function _CallbackAction_invoke$<T extends Intent>(
   CallbackAction<T> target,
 ) =>
     target.invoke;
+Function ActionDispatcher_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActionDispatcher;
+Function ActionDispatcher_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActionDispatcher;
 Function _ActionDispatcher_invokeAction$(
   m.Scope scope,
   ActionDispatcher target,
 ) =>
     target.invokeAction;
+Function Actions_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Actions;
+Function Actions_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Actions;
 ActionDispatcher? _Actions_dispatcher$(Actions target) {
   return target.dispatcher;
 }
@@ -296,6 +460,16 @@ Function _Actions_debugFillProperties$(
   Actions target,
 ) =>
     target.debugFillProperties;
+Function FocusableActionDetector_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FocusableActionDetector;
+Function FocusableActionDetector_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FocusableActionDetector;
 bool _FocusableActionDetector_enabled$(FocusableActionDetector target) {
   return target.enabled;
 }
@@ -362,15 +536,65 @@ Function _FocusableActionDetector_createState$(
   FocusableActionDetector target,
 ) =>
     target.createState;
+Function VoidCallbackIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VoidCallbackIntent;
+Function VoidCallbackIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VoidCallbackIntent;
 void Function() _VoidCallbackIntent_callback$(VoidCallbackIntent target) {
   return target.callback;
 }
 
+Function VoidCallbackAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as VoidCallbackAction;
+Function VoidCallbackAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is VoidCallbackAction;
 Function _VoidCallbackAction_invoke$(
   m.Scope scope,
   VoidCallbackAction target,
 ) =>
     target.invoke;
+Function DoNothingIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoNothingIntent;
+Function DoNothingIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoNothingIntent;
+Function DoNothingAndStopPropagationIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoNothingAndStopPropagationIntent;
+Function DoNothingAndStopPropagationIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoNothingAndStopPropagationIntent;
+Function DoNothingAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DoNothingAction;
+Function DoNothingAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DoNothingAction;
 Function _DoNothingAction_consumesKey$(
   m.Scope scope,
   DoNothingAction target,
@@ -381,10 +605,100 @@ Function _DoNothingAction_invoke$(
   DoNothingAction target,
 ) =>
     target.invoke;
+Function ActivateIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActivateIntent;
+Function ActivateIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActivateIntent;
+Function ButtonActivateIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ButtonActivateIntent;
+Function ButtonActivateIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ButtonActivateIntent;
+Function ActivateAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ActivateAction;
+Function ActivateAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ActivateAction;
+Function SelectIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectIntent;
+Function SelectIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectIntent;
+Function SelectAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SelectAction;
+Function SelectAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SelectAction;
+Function DismissIntent_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DismissIntent;
+Function DismissIntent_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DismissIntent;
+Function DismissAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DismissAction;
+Function DismissAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DismissAction;
+Function PrioritizedIntents_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PrioritizedIntents;
+Function PrioritizedIntents_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PrioritizedIntents;
 List<Intent> _PrioritizedIntents_orderedIntents$(PrioritizedIntents target) {
   return target.orderedIntents;
 }
 
+Function PrioritizedAction_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PrioritizedAction;
+Function PrioritizedAction_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PrioritizedAction;
 Function _PrioritizedAction_isEnabled$(
   m.Scope scope,
   PrioritizedAction target,

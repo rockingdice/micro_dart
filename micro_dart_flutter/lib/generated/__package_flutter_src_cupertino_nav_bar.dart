@@ -25,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoNavigationBar': m.ClassMirror(
       'CupertinoNavigationBar',
       {
+        '#as': CupertinoNavigationBar_as$,
+        '#is': CupertinoNavigationBar_is$,
         'leading': _CupertinoNavigationBar_leading$,
         'automaticallyImplyLeading':
             _CupertinoNavigationBar_automaticallyImplyLeading$,
@@ -49,6 +51,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSliverNavigationBar': m.ClassMirror(
       'CupertinoSliverNavigationBar',
       {
+        '#as': CupertinoSliverNavigationBar_as$,
+        '#is': CupertinoSliverNavigationBar_is$,
         'largeTitle': _CupertinoSliverNavigationBar_largeTitle$,
         'leading': _CupertinoSliverNavigationBar_leading$,
         'automaticallyImplyLeading':
@@ -75,6 +79,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoNavigationBarBackButton': m.ClassMirror(
       'CupertinoNavigationBarBackButton',
       {
+        '#as': CupertinoNavigationBarBackButton_as$,
+        '#is': CupertinoNavigationBarBackButton_is$,
         'color': _CupertinoNavigationBarBackButton_color$,
         'previousPageTitle':
             _CupertinoNavigationBarBackButton_previousPageTitle$,
@@ -85,6 +91,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoNavigationBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoNavigationBar;
+Function CupertinoNavigationBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoNavigationBar;
 Widget? _CupertinoNavigationBar_leading$(CupertinoNavigationBar target) {
   return target.leading;
 }
@@ -152,6 +168,16 @@ Function _CupertinoNavigationBar_createState$(
   CupertinoNavigationBar target,
 ) =>
     target.createState;
+Function CupertinoSliverNavigationBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSliverNavigationBar;
+Function CupertinoSliverNavigationBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSliverNavigationBar;
 Widget? _CupertinoSliverNavigationBar_largeTitle$(
     CupertinoSliverNavigationBar target) {
   return target.largeTitle;
@@ -237,6 +263,16 @@ Function _CupertinoSliverNavigationBar_createState$(
   CupertinoSliverNavigationBar target,
 ) =>
     target.createState;
+Function CupertinoNavigationBarBackButton_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoNavigationBarBackButton;
+Function CupertinoNavigationBarBackButton_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoNavigationBarBackButton;
 Color? _CupertinoNavigationBarBackButton_color$(
     CupertinoNavigationBarBackButton target) {
   return target.color;

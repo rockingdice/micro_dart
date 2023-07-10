@@ -17,6 +17,7 @@ const libraryMirror = m.LibraryMirror(
         _PartialStackFrame_asynchronousSuspension$,
     'FlutterErrorDetails.propertiesTransformers':
         _FlutterErrorDetails_propertiesTransformers$,
+    'FlutterErrorDetails.copyWith': _FlutterErrorDetails_copyWith$,
     'FlutterError.onError': _FlutterError_onError$,
     'FlutterError.demangleStackTrace': _FlutterError_demangleStackTrace$,
     'FlutterError.presentError': _FlutterError_presentError$,
@@ -37,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'PartialStackFrame': m.ClassMirror(
       'PartialStackFrame',
       {
+        '#as': PartialStackFrame_as$,
+        '#is': PartialStackFrame_is$,
         'package': _PartialStackFrame_package$,
         'className': _PartialStackFrame_className$,
         'method': _PartialStackFrame_method$,
@@ -46,12 +49,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StackFilter': m.ClassMirror(
       'StackFilter',
-      {'filter': _StackFilter_filter$},
+      {
+        '#as': StackFilter_as$,
+        '#is': StackFilter_is$,
+        'filter': _StackFilter_filter$,
+      },
       {},
     ),
     'RepetitiveStackFrameFilter': m.ClassMirror(
       'RepetitiveStackFrameFilter',
       {
+        '#as': RepetitiveStackFrameFilter_as$,
+        '#is': RepetitiveStackFrameFilter_is$,
         'frames': _RepetitiveStackFrameFilter_frames$,
         'replacement': _RepetitiveStackFrameFilter_replacement$,
         'numFrames': _RepetitiveStackFrameFilter_numFrames$,
@@ -61,27 +70,41 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ErrorDescription': m.ClassMirror(
       'ErrorDescription',
-      {},
+      {
+        '#as': ErrorDescription_as$,
+        '#is': ErrorDescription_is$,
+      },
       {},
     ),
     'ErrorSummary': m.ClassMirror(
       'ErrorSummary',
-      {},
+      {
+        '#as': ErrorSummary_as$,
+        '#is': ErrorSummary_is$,
+      },
       {},
     ),
     'ErrorHint': m.ClassMirror(
       'ErrorHint',
-      {},
+      {
+        '#as': ErrorHint_as$,
+        '#is': ErrorHint_is$,
+      },
       {},
     ),
     'ErrorSpacer': m.ClassMirror(
       'ErrorSpacer',
-      {},
+      {
+        '#as': ErrorSpacer_as$,
+        '#is': ErrorSpacer_is$,
+      },
       {},
     ),
     'FlutterErrorDetails': m.ClassMirror(
       'FlutterErrorDetails',
       {
+        '#as': FlutterErrorDetails_as$,
+        '#is': FlutterErrorDetails_is$,
         'exception': _FlutterErrorDetails_exception$,
         'stack': _FlutterErrorDetails_stack$,
         'library': _FlutterErrorDetails_library$,
@@ -101,6 +124,8 @@ const libraryMirror = m.LibraryMirror(
     'FlutterError': m.ClassMirror(
       'FlutterError',
       {
+        '#as': FlutterError_as$,
+        '#is': FlutterError_is$,
         'diagnostics': _FlutterError_diagnostics$,
         'message': _FlutterError_message$,
         'debugFillProperties': _FlutterError_debugFillProperties$,
@@ -111,11 +136,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DiagnosticsStackTrace': m.ClassMirror(
       'DiagnosticsStackTrace',
-      {'allowTruncate': _DiagnosticsStackTrace_allowTruncate$},
+      {
+        '#as': DiagnosticsStackTrace_as$,
+        '#is': DiagnosticsStackTrace_is$,
+        'allowTruncate': _DiagnosticsStackTrace_allowTruncate$,
+      },
       {},
     ),
   },
 );
+Function PartialStackFrame_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PartialStackFrame;
+Function PartialStackFrame_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PartialStackFrame;
 PartialStackFrame _PartialStackFrame_asynchronousSuspension$() {
   return PartialStackFrame.asynchronousSuspension;
 }
@@ -137,11 +176,31 @@ Function _PartialStackFrame_matches$(
   PartialStackFrame target,
 ) =>
     target.matches;
+Function StackFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StackFilter;
+Function StackFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StackFilter;
 Function _StackFilter_filter$(
   m.Scope scope,
   StackFilter target,
 ) =>
     target.filter;
+Function RepetitiveStackFrameFilter_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RepetitiveStackFrameFilter;
+Function RepetitiveStackFrameFilter_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RepetitiveStackFrameFilter;
 List<PartialStackFrame> _RepetitiveStackFrameFilter_frames$(
     RepetitiveStackFrameFilter target) {
   return target.frames;
@@ -161,6 +220,56 @@ Function _RepetitiveStackFrameFilter_filter$(
   RepetitiveStackFrameFilter target,
 ) =>
     target.filter;
+Function ErrorDescription_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ErrorDescription;
+Function ErrorDescription_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ErrorDescription;
+Function ErrorSummary_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ErrorSummary;
+Function ErrorSummary_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ErrorSummary;
+Function ErrorHint_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ErrorHint;
+Function ErrorHint_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ErrorHint;
+Function ErrorSpacer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ErrorSpacer;
+Function ErrorSpacer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ErrorSpacer;
+Function FlutterErrorDetails_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterErrorDetails;
+Function FlutterErrorDetails_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterErrorDetails;
 List<Iterable<DiagnosticsNode> Function(Iterable<DiagnosticsNode>)>
     _FlutterErrorDetails_propertiesTransformers$() {
   return FlutterErrorDetails.propertiesTransformers;
@@ -200,6 +309,44 @@ DiagnosticsNode _FlutterErrorDetails_summary$(FlutterErrorDetails target) {
   return target.summary;
 }
 
+Function _FlutterErrorDetails_copyWith$(
+  m.Scope scope,
+  FlutterErrorDetails target,
+) =>
+    ({
+      DiagnosticsNode? context,
+      Object? exception,
+      m.FunctionPointer? informationCollector,
+      String? library,
+      bool? silent,
+      StackTrace? stack,
+      m.FunctionPointer? stackFilter,
+    }) {
+      Iterable<DiagnosticsNode> informationCollectorProxy() =>
+          scope.engine.callFunctionPointer(
+            scope,
+            informationCollector!,
+            [],
+            {},
+          );
+      Iterable<String> stackFilterProxy(Iterable<String> stackFilter_input) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            stackFilter!,
+            [stackFilter_input],
+            {},
+          );
+      return target.copyWith(
+        context: context,
+        exception: exception,
+        informationCollector:
+            informationCollector == null ? null : informationCollectorProxy,
+        library: library,
+        silent: silent,
+        stack: stack,
+        stackFilter: stackFilter == null ? null : stackFilterProxy,
+      );
+    };
 Function _FlutterErrorDetails_exceptionAsString$(
   m.Scope scope,
   FlutterErrorDetails target,
@@ -225,6 +372,16 @@ Function _FlutterErrorDetails_toDiagnosticsNode$(
   FlutterErrorDetails target,
 ) =>
     target.toDiagnosticsNode;
+Function FlutterError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FlutterError;
+Function FlutterError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FlutterError;
 List<DiagnosticsNode> _FlutterError_diagnostics$(FlutterError target) {
   return target.diagnostics;
 }
@@ -307,6 +464,16 @@ Function _FlutterError_toString$(
 ) =>
     target.toString;
 Function _FlutterError_reportError$(m.Scope scope) => FlutterError.reportError;
+Function DiagnosticsStackTrace_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DiagnosticsStackTrace;
+Function DiagnosticsStackTrace_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DiagnosticsStackTrace;
 bool _DiagnosticsStackTrace_allowTruncate$(DiagnosticsStackTrace target) {
   return target.allowTruncate;
 }

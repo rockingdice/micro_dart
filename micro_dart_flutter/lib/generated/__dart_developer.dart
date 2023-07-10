@@ -41,17 +41,23 @@ const libraryMirror = m.LibraryMirror(
     'Timeline.startSync': _Timeline_startSync$,
     'Timeline.finishSync': _Timeline_finishSync$,
     'Timeline.instantSync': _Timeline_instantSync$,
+    'Timeline.timeSync': _Timeline_timeSync$,
   },
   {},
   {
     'NativeRuntime': m.ClassMirror(
       'NativeRuntime',
-      {},
+      {
+        '#as': NativeRuntime_as$,
+        '#is': NativeRuntime_is$,
+      },
       {},
     ),
     'ServiceExtensionResponse': m.ClassMirror(
       'ServiceExtensionResponse',
       {
+        '#as': ServiceExtensionResponse_as$,
+        '#is': ServiceExtensionResponse_is$,
         'result': _ServiceExtensionResponse_result$,
         'errorCode': _ServiceExtensionResponse_errorCode$,
         'errorDetail': _ServiceExtensionResponse_errorDetail$,
@@ -62,6 +68,8 @@ const libraryMirror = m.LibraryMirror(
     'UserTag': m.ClassMirror(
       'UserTag',
       {
+        '#as': UserTag_as$,
+        '#is': UserTag_is$,
         'label': _UserTag_label$,
         'makeCurrent': _UserTag_makeCurrent$,
       },
@@ -70,6 +78,8 @@ const libraryMirror = m.LibraryMirror(
     'ServiceProtocolInfo': m.ClassMirror(
       'ServiceProtocolInfo',
       {
+        '#as': ServiceProtocolInfo_as$,
+        '#is': ServiceProtocolInfo_is$,
         'majorVersion': _ServiceProtocolInfo_majorVersion$,
         'minorVersion': _ServiceProtocolInfo_minorVersion$,
         'serverUri': _ServiceProtocolInfo_serverUri$,
@@ -80,22 +90,34 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Service': m.ClassMirror(
       'Service',
-      {},
+      {
+        '#as': Service_as$,
+        '#is': Service_is$,
+      },
       {},
     ),
     'Flow': m.ClassMirror(
       'Flow',
-      {'id': _Flow_id$},
+      {
+        '#as': Flow_as$,
+        '#is': Flow_is$,
+        'id': _Flow_id$,
+      },
       {},
     ),
     'Timeline': m.ClassMirror(
       'Timeline',
-      {},
+      {
+        '#as': Timeline_as$,
+        '#is': Timeline_is$,
+      },
       {},
     ),
     'TimelineTask': m.ClassMirror(
       'TimelineTask',
       {
+        '#as': TimelineTask_as$,
+        '#is': TimelineTask_is$,
         'start': _TimelineTask_start$,
         'instant': _TimelineTask_instant$,
         'finish': _TimelineTask_finish$,
@@ -109,6 +131,16 @@ int _reachabilityBarrier$() {
   return reachabilityBarrier;
 }
 
+Function NativeRuntime_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as NativeRuntime;
+Function NativeRuntime_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is NativeRuntime;
 Function _NativeRuntime_writeHeapSnapshotToFile$(m.Scope scope) =>
     NativeRuntime.writeHeapSnapshotToFile;
 Function _debugger$(m.Scope scope) => debugger;
@@ -118,6 +150,16 @@ bool _extensionStreamHasListener$() {
   return extensionStreamHasListener;
 }
 
+Function ServiceExtensionResponse_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ServiceExtensionResponse;
+Function ServiceExtensionResponse_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ServiceExtensionResponse;
 String? _ServiceExtensionResponse_result$(ServiceExtensionResponse target) {
   return target.result;
 }
@@ -175,6 +217,16 @@ Function _registerExtension$(m.Scope scope) => (
       );
     };
 Function _postEvent$(m.Scope scope) => postEvent;
+Function UserTag_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UserTag;
+Function UserTag_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UserTag;
 int _UserTag_maxUserTags$() {
   return UserTag.maxUserTags;
 }
@@ -193,6 +245,16 @@ Function _UserTag_makeCurrent$(
 ) =>
     target.makeCurrent;
 Function _getCurrentTag$(m.Scope scope) => getCurrentTag;
+Function ServiceProtocolInfo_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ServiceProtocolInfo;
+Function ServiceProtocolInfo_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ServiceProtocolInfo;
 int _ServiceProtocolInfo_majorVersion$(ServiceProtocolInfo target) {
   return target.majorVersion;
 }
@@ -214,9 +276,29 @@ Function _ServiceProtocolInfo_toString$(
   ServiceProtocolInfo target,
 ) =>
     target.toString;
+Function Service_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Service;
+Function Service_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Service;
 Function _Service_getInfo$(m.Scope scope) => Service.getInfo;
 Function _Service_controlWebServer$(m.Scope scope) => Service.controlWebServer;
 Function _Service_getIsolateID$(m.Scope scope) => Service.getIsolateID;
+Function Flow_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Flow;
+Function Flow_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Flow;
 int _Flow_id$(Flow target) {
   return target.id;
 }
@@ -224,6 +306,16 @@ int _Flow_id$(Flow target) {
 Function _Flow_begin$(m.Scope scope) => Flow.begin;
 Function _Flow_step$(m.Scope scope) => Flow.step;
 Function _Flow_end$(m.Scope scope) => Flow.end;
+Function Timeline_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Timeline;
+Function Timeline_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Timeline;
 int _Timeline_now$() {
   return Timeline.now;
 }
@@ -231,6 +323,35 @@ int _Timeline_now$() {
 Function _Timeline_startSync$(m.Scope scope) => Timeline.startSync;
 Function _Timeline_finishSync$(m.Scope scope) => Timeline.finishSync;
 Function _Timeline_instantSync$(m.Scope scope) => Timeline.instantSync;
+Function _Timeline_timeSync$(m.Scope scope) => <T>(
+      String name,
+      m.FunctionPointer function, {
+      Map<dynamic, dynamic>? arguments,
+      Flow? flow,
+    }) {
+      T functionProxy() => scope.engine.callFunctionPointer(
+            scope,
+            function,
+            [],
+            {},
+          );
+      return Timeline.timeSync<T>(
+        name,
+        functionProxy,
+        arguments: arguments,
+        flow: flow,
+      );
+    };
+Function TimelineTask_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimelineTask;
+Function TimelineTask_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimelineTask;
 Function _TimelineTask_start$(
   m.Scope scope,
   TimelineTask target,

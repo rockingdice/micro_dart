@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'ConstrainedLayoutBuilder': m.ClassMirror(
       'ConstrainedLayoutBuilder',
       {
+        '#as': ConstrainedLayoutBuilder_as$,
+        '#is': ConstrainedLayoutBuilder_is$,
         'builder': _ConstrainedLayoutBuilder_builder$,
         'createElement': _ConstrainedLayoutBuilder_createElement$,
       },
@@ -23,11 +25,25 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LayoutBuilder': m.ClassMirror(
       'LayoutBuilder',
-      {'createRenderObject': _LayoutBuilder_createRenderObject$},
+      {
+        '#as': LayoutBuilder_as$,
+        '#is': LayoutBuilder_is$,
+        'createRenderObject': _LayoutBuilder_createRenderObject$,
+      },
       {},
     ),
   },
 );
+Function ConstrainedLayoutBuilder_as$<ConstraintType extends Constraints>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ConstrainedLayoutBuilder<ConstraintType>;
+Function ConstrainedLayoutBuilder_is$<ConstraintType extends Constraints>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ConstrainedLayoutBuilder<ConstraintType>;
 Widget Function(BuildContext, ConstraintType)
     _ConstrainedLayoutBuilder_builder$<ConstraintType extends Constraints>(
         ConstrainedLayoutBuilder<ConstraintType> target) {
@@ -40,6 +56,16 @@ Function _ConstrainedLayoutBuilder_createElement$<
   ConstrainedLayoutBuilder<ConstraintType> target,
 ) =>
     target.createElement;
+Function LayoutBuilder_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as LayoutBuilder;
+Function LayoutBuilder_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is LayoutBuilder;
 Function _LayoutBuilder_createRenderObject$(
   m.Scope scope,
   LayoutBuilder target,

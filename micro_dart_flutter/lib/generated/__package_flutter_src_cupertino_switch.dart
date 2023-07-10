@@ -21,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoSwitch': m.ClassMirror(
       'CupertinoSwitch',
       {
+        '#as': CupertinoSwitch_as$,
+        '#is': CupertinoSwitch_is$,
         'value': _CupertinoSwitch_value$,
         'onChanged': _CupertinoSwitch_onChanged$,
         'activeColor': _CupertinoSwitch_activeColor$,
@@ -36,6 +38,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function CupertinoSwitch_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoSwitch;
+Function CupertinoSwitch_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoSwitch;
 bool _CupertinoSwitch_value$(CupertinoSwitch target) {
   return target.value;
 }

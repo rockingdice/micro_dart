@@ -13,7 +13,9 @@
         "dart:nativewrappers",
         "dart:js",
         "dart:js_util",
-        "dart:js_interop"
+        "dart:js_interop",
+        "dart:ffi@VarArgs@#as",
+        "dart:ffi@VarArgs@#is"
     ],
     "libraryIngoreImports":{
         "dart:ui": [
@@ -50,6 +52,7 @@
         "package:flutter/src/rendering/error.dart":[
           "package:flutter/src/rendering/object.dart"
         ]
+        
     },
     "libraryAddImports":{
         "package:flutter/src/widgets/shared_app_data.dart": [
@@ -60,7 +63,8 @@
             
         ],
         "package:flutter/src/widgets/scroll_aware_image_provider.dart": [
-            ["dart:ui",[],[]]
+            ["dart:ui",[],[]],
+            ["dart:typed_data",[],[]]
         ],
         "package:flutter/src/material/autocomplete.dart": [
           ["dart:async",[],[]]
@@ -72,6 +76,7 @@
         "package:flutter/src/widgets/focus_scope.dart":[
           ["package:flutter/widgets.dart",[],[]]
         ]
+        
     },
     "defaultValueCodeOverwrites":{
       "dart:ui@Shadow@":{

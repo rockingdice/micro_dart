@@ -24,6 +24,8 @@ import 'package:flutter/src/widgets/view.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/scroll_position.dart',
   {
+    'ScrollPosition.hold': _ScrollPosition_hold$,
+    'ScrollPosition.drag': _ScrollPosition_drag$,
     'ScrollPositionAlignmentPolicy.explicit':
         _ScrollPositionAlignmentPolicy_explicit$,
     'ScrollPositionAlignmentPolicy.keepVisibleAtEnd':
@@ -38,6 +40,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollPosition': m.ClassMirror(
       'ScrollPosition',
       {
+        '#as': ScrollPosition_as$,
+        '#is': ScrollPosition_is$,
         'physics': _ScrollPosition_physics$,
         'context': _ScrollPosition_context$,
         'keepScrollOffset': _ScrollPosition_keepScrollOffset$,
@@ -90,6 +94,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollMetricsNotification': m.ClassMirror(
       'ScrollMetricsNotification',
       {
+        '#as': ScrollMetricsNotification_as$,
+        '#is': ScrollMetricsNotification_is$,
         'metrics': _ScrollMetricsNotification_metrics$,
         'context': _ScrollMetricsNotification_context$,
         'debugFillDescription':
@@ -104,6 +110,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollPosition_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollPosition;
+Function ScrollPosition_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollPosition;
 ScrollPhysics _ScrollPosition_physics$(ScrollPosition target) {
   return target.physics;
 }
@@ -264,6 +280,38 @@ Function _ScrollPosition_moveTo$(
   ScrollPosition target,
 ) =>
     target.moveTo;
+Function _ScrollPosition_hold$(
+  m.Scope scope,
+  ScrollPosition target,
+) =>
+    (m.FunctionPointer holdCancelCallback) {
+      void holdCancelCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            holdCancelCallback,
+            [],
+            {},
+          );
+      return target.hold(holdCancelCallbackProxy);
+    };
+Function _ScrollPosition_drag$(
+  m.Scope scope,
+  ScrollPosition target,
+) =>
+    (
+      DragStartDetails details,
+      m.FunctionPointer dragCancelCallback,
+    ) {
+      void dragCancelCallbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            dragCancelCallback,
+            [],
+            {},
+          );
+      return target.drag(
+        details,
+        dragCancelCallbackProxy,
+      );
+    };
 Function _ScrollPosition_beginActivity$(
   m.Scope scope,
   ScrollPosition target,
@@ -319,6 +367,16 @@ Function _ScrollPosition_debugFillDescription$(
   ScrollPosition target,
 ) =>
     target.debugFillDescription;
+Function ScrollMetricsNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollMetricsNotification;
+Function ScrollMetricsNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollMetricsNotification;
 ScrollMetrics _ScrollMetricsNotification_metrics$(
     ScrollMetricsNotification target) {
   return target.metrics;

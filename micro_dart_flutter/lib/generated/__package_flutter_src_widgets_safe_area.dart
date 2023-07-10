@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'SafeArea': m.ClassMirror(
       'SafeArea',
       {
+        '#as': SafeArea_as$,
+        '#is': SafeArea_is$,
         'left': _SafeArea_left$,
         'top': _SafeArea_top$,
         'right': _SafeArea_right$,
@@ -33,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'SliverSafeArea': m.ClassMirror(
       'SliverSafeArea',
       {
+        '#as': SliverSafeArea_as$,
+        '#is': SliverSafeArea_is$,
         'left': _SliverSafeArea_left$,
         'top': _SliverSafeArea_top$,
         'right': _SliverSafeArea_right$,
@@ -46,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function SafeArea_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SafeArea;
+Function SafeArea_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SafeArea;
 bool _SafeArea_left$(SafeArea target) {
   return target.left;
 }
@@ -84,6 +98,16 @@ Function _SafeArea_debugFillProperties$(
   SafeArea target,
 ) =>
     target.debugFillProperties;
+Function SliverSafeArea_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SliverSafeArea;
+Function SliverSafeArea_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SliverSafeArea;
 bool _SliverSafeArea_left$(SliverSafeArea target) {
   return target.left;
 }

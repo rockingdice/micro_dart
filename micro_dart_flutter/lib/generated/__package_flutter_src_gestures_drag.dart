@@ -13,6 +13,8 @@ const libraryMirror = m.LibraryMirror(
     'Drag': m.ClassMirror(
       'Drag',
       {
+        '#as': Drag_as$,
+        '#is': Drag_is$,
         'update': _Drag_update$,
         'end': _Drag_end$,
         'cancel': _Drag_cancel$,
@@ -21,6 +23,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Drag_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Drag;
+Function Drag_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Drag;
 Function _Drag_update$(
   m.Scope scope,
   Drag target,

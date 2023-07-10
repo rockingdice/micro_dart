@@ -19,6 +19,8 @@ const libraryMirror = m.LibraryMirror(
     'HSVColor': m.ClassMirror(
       'HSVColor',
       {
+        '#as': HSVColor_as$,
+        '#is': HSVColor_is$,
         'alpha': _HSVColor_alpha$,
         'hue': _HSVColor_hue$,
         'saturation': _HSVColor_saturation$,
@@ -29,6 +31,7 @@ const libraryMirror = m.LibraryMirror(
         'withSaturation': _HSVColor_withSaturation$,
         'withValue': _HSVColor_withValue$,
         'toColor': _HSVColor_toColor$,
+        '==': _HSVColor_eq$$,
         'toString': _HSVColor_toString$,
       },
       {},
@@ -36,6 +39,8 @@ const libraryMirror = m.LibraryMirror(
     'HSLColor': m.ClassMirror(
       'HSLColor',
       {
+        '#as': HSLColor_as$,
+        '#is': HSLColor_is$,
         'alpha': _HSLColor_alpha$,
         'hue': _HSLColor_hue$,
         'saturation': _HSLColor_saturation$,
@@ -46,6 +51,7 @@ const libraryMirror = m.LibraryMirror(
         'withSaturation': _HSLColor_withSaturation$,
         'withLightness': _HSLColor_withLightness$,
         'toColor': _HSLColor_toColor$,
+        '==': _HSLColor_eq$$,
         'toString': _HSLColor_toString$,
       },
       {},
@@ -53,18 +59,36 @@ const libraryMirror = m.LibraryMirror(
     'ColorSwatch': m.ClassMirror(
       'ColorSwatch',
       {
+        '#as': ColorSwatch_as$,
+        '#is': ColorSwatch_is$,
         'hashCode': _ColorSwatch_hashCode$,
+        '[]': _ColorSwatch_$index$$,
+        '==': _ColorSwatch_eq$$,
         'toString': _ColorSwatch_toString$,
       },
       {},
     ),
     'ColorProperty': m.ClassMirror(
       'ColorProperty',
-      {'toJsonMap': _ColorProperty_toJsonMap$},
+      {
+        '#as': ColorProperty_as$,
+        '#is': ColorProperty_is$,
+        'toJsonMap': _ColorProperty_toJsonMap$,
+      },
       {},
     ),
   },
 );
+Function HSVColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HSVColor;
+Function HSVColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HSVColor;
 double _HSVColor_alpha$(HSVColor target) {
   return target.alpha;
 }
@@ -111,11 +135,26 @@ Function _HSVColor_toColor$(
 ) =>
     target.toColor;
 Function _HSVColor_lerp$(m.Scope scope) => HSVColor.lerp;
+Function _HSVColor_eq$$(
+  m.Scope scope,
+  HSVColor target,
+) =>
+    (Object other) => target == other;
 Function _HSVColor_toString$(
   m.Scope scope,
   HSVColor target,
 ) =>
     target.toString;
+Function HSLColor_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as HSLColor;
+Function HSLColor_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is HSLColor;
 double _HSLColor_alpha$(HSLColor target) {
   return target.alpha;
 }
@@ -162,21 +201,56 @@ Function _HSLColor_toColor$(
 ) =>
     target.toColor;
 Function _HSLColor_lerp$(m.Scope scope) => HSLColor.lerp;
+Function _HSLColor_eq$$(
+  m.Scope scope,
+  HSLColor target,
+) =>
+    (Object other) => target == other;
 Function _HSLColor_toString$(
   m.Scope scope,
   HSLColor target,
 ) =>
     target.toString;
+Function ColorSwatch_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorSwatch<T>;
+Function ColorSwatch_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorSwatch<T>;
 int _ColorSwatch_hashCode$<T>(ColorSwatch<T> target) {
   return target.hashCode;
 }
 
+Function _ColorSwatch_$index$$<T>(
+  m.Scope scope,
+  ColorSwatch<T> target,
+) =>
+    (T index) => target[index];
+Function _ColorSwatch_eq$$<T>(
+  m.Scope scope,
+  ColorSwatch<T> target,
+) =>
+    (Object other) => target == other;
 Function _ColorSwatch_toString$<T>(
   m.Scope scope,
   ColorSwatch<T> target,
 ) =>
     target.toString;
 Function _ColorSwatch_lerp$<T>(m.Scope scope) => ColorSwatch.lerp<T>;
+Function ColorProperty_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ColorProperty;
+Function ColorProperty_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ColorProperty;
 Function _ColorProperty_toJsonMap$(
   m.Scope scope,
   ColorProperty target,

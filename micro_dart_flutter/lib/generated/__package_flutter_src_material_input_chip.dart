@@ -23,6 +23,8 @@ const libraryMirror = m.LibraryMirror(
     'InputChip': m.ClassMirror(
       'InputChip',
       {
+        '#as': InputChip_as$,
+        '#is': InputChip_is$,
         'avatar': _InputChip_avatar$,
         'label': _InputChip_label$,
         'labelStyle': _InputChip_labelStyle$,
@@ -63,6 +65,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function InputChip_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as InputChip;
+Function InputChip_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is InputChip;
 Widget? _InputChip_avatar$(InputChip target) {
   return target.avatar;
 }

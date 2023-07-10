@@ -35,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
     'PageController': m.ClassMirror(
       'PageController',
       {
+        '#as': PageController_as$,
+        '#is': PageController_is$,
         'initialPage': _PageController_initialPage$,
         'keepPage': _PageController_keepPage$,
         'viewportFraction': _PageController_viewportFraction$,
@@ -51,6 +53,8 @@ const libraryMirror = m.LibraryMirror(
     'PageMetrics': m.ClassMirror(
       'PageMetrics',
       {
+        '#as': PageMetrics_as$,
+        '#is': PageMetrics_is$,
         'viewportFraction': _PageMetrics_viewportFraction$,
         'page': _PageMetrics_page$,
         'copyWith': _PageMetrics_copyWith$,
@@ -60,6 +64,8 @@ const libraryMirror = m.LibraryMirror(
     'PageScrollPhysics': m.ClassMirror(
       'PageScrollPhysics',
       {
+        '#as': PageScrollPhysics_as$,
+        '#is': PageScrollPhysics_is$,
         'allowImplicitScrolling': _PageScrollPhysics_allowImplicitScrolling$,
         'applyTo': _PageScrollPhysics_applyTo$,
         'createBallisticSimulation':
@@ -70,6 +76,8 @@ const libraryMirror = m.LibraryMirror(
     'PageView': m.ClassMirror(
       'PageView',
       {
+        '#as': PageView_as$,
+        '#is': PageView_is$,
         'allowImplicitScrolling': _PageView_allowImplicitScrolling$,
         'restorationId': _PageView_restorationId$,
         'scrollDirection': _PageView_scrollDirection$,
@@ -89,6 +97,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function PageController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageController;
+Function PageController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageController;
 int _PageController_initialPage$(PageController target) {
   return target.initialPage;
 }
@@ -135,6 +153,16 @@ Function _PageController_attach$(
   PageController target,
 ) =>
     target.attach;
+Function PageMetrics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageMetrics;
+Function PageMetrics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageMetrics;
 double _PageMetrics_viewportFraction$(PageMetrics target) {
   return target.viewportFraction;
 }
@@ -148,6 +176,16 @@ Function _PageMetrics_copyWith$(
   PageMetrics target,
 ) =>
     target.copyWith;
+Function PageScrollPhysics_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageScrollPhysics;
+Function PageScrollPhysics_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageScrollPhysics;
 bool _PageScrollPhysics_allowImplicitScrolling$(PageScrollPhysics target) {
   return target.allowImplicitScrolling;
 }
@@ -162,6 +200,16 @@ Function _PageScrollPhysics_createBallisticSimulation$(
   PageScrollPhysics target,
 ) =>
     target.createBallisticSimulation;
+Function PageView_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as PageView;
+Function PageView_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is PageView;
 bool _PageView_allowImplicitScrolling$(PageView target) {
   return target.allowImplicitScrolling;
 }

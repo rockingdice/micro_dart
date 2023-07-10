@@ -22,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'Checkbox': m.ClassMirror(
       'Checkbox',
       {
+        '#as': Checkbox_as$,
+        '#is': Checkbox_is$,
         'value': _Checkbox_value$,
         'onChanged': _Checkbox_onChanged$,
         'mouseCursor': _Checkbox_mouseCursor$,
@@ -46,6 +48,16 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
+Function Checkbox_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Checkbox;
+Function Checkbox_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Checkbox;
 bool? _Checkbox_value$(Checkbox target) {
   return target.value;
 }

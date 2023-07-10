@@ -19,11 +19,24 @@ const libraryMirror = m.LibraryMirror(
   {
     'BrowserContextMenu': m.ClassMirror(
       'BrowserContextMenu',
-      {},
+      {
+        '#as': BrowserContextMenu_as$,
+        '#is': BrowserContextMenu_is$,
+      },
       {},
     )
   },
 );
+Function BrowserContextMenu_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BrowserContextMenu;
+Function BrowserContextMenu_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BrowserContextMenu;
 bool _BrowserContextMenu_enabled$() {
   return BrowserContextMenu.enabled;
 }

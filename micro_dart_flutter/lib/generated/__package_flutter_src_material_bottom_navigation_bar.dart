@@ -37,6 +37,8 @@ const libraryMirror = m.LibraryMirror(
     'BottomNavigationBar': m.ClassMirror(
       'BottomNavigationBar',
       {
+        '#as': BottomNavigationBar_as$,
+        '#is': BottomNavigationBar_is$,
         'items': _BottomNavigationBar_items$,
         'onTap': _BottomNavigationBar_onTap$,
         'currentIndex': _BottomNavigationBar_currentIndex$,
@@ -75,6 +77,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function BottomNavigationBar_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as BottomNavigationBar;
+Function BottomNavigationBar_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is BottomNavigationBar;
 List<BottomNavigationBarItem> _BottomNavigationBar_items$(
     BottomNavigationBar target) {
   return target.items;

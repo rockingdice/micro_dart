@@ -9,13 +9,73 @@ const libraryMirror = m.LibraryMirror(
   'dart:async',
   {
     'AsyncError.defaultStackTrace': _AsyncError_defaultStackTrace$,
+    'Future.wait': _Future_wait$,
     'Future.any': _Future_any$,
+    'Future.forEach': _Future_forEach$,
+    'Future.doWhile': _Future_doWhile$,
+    'Future.then': _Future_then$,
+    'Future.catchError': _Future_catchError$,
+    'Future.whenComplete': _Future_whenComplete$,
+    'Future.timeout': _Future_timeout$,
     'unawaited': _unawaited$,
     'scheduleMicrotask': _scheduleMicrotask$,
     'Stream.castFrom': _Stream_castFrom$,
+    'Stream.asBroadcastStream': _Stream_asBroadcastStream$,
+    'Stream.listen': _Stream_listen$,
+    'Stream.where': _Stream_where$,
+    'Stream.map': _Stream_map$,
+    'Stream.asyncMap': _Stream_asyncMap$,
+    'Stream.asyncExpand': _Stream_asyncExpand$,
+    'Stream.handleError': _Stream_handleError$,
+    'Stream.expand': _Stream_expand$,
+    'Stream.reduce': _Stream_reduce$,
+    'Stream.fold': _Stream_fold$,
+    'Stream.forEach': _Stream_forEach$,
+    'Stream.every': _Stream_every$,
+    'Stream.any': _Stream_any$,
+    'Stream.takeWhile': _Stream_takeWhile$,
+    'Stream.skipWhile': _Stream_skipWhile$,
+    'Stream.distinct': _Stream_distinct$,
+    'Stream.firstWhere': _Stream_firstWhere$,
+    'Stream.lastWhere': _Stream_lastWhere$,
+    'Stream.singleWhere': _Stream_singleWhere$,
+    'Stream.timeout': _Stream_timeout$,
+    'StreamSubscription.onData': _StreamSubscription_onData$,
+    'StreamSubscription.onDone': _StreamSubscription_onDone$,
+    'StreamView.asBroadcastStream': _StreamView_asBroadcastStream$,
+    'StreamView.listen': _StreamView_listen$,
     'StreamTransformer.castFrom': _StreamTransformer_castFrom$,
+    'Timer.run': _Timer_run$,
+    'ZoneDelegate.run': _ZoneDelegate_run$,
+    'ZoneDelegate.runUnary': _ZoneDelegate_runUnary$,
+    'ZoneDelegate.runBinary': _ZoneDelegate_runBinary$,
+    'ZoneDelegate.registerCallback': _ZoneDelegate_registerCallback$,
+    'ZoneDelegate.registerUnaryCallback': _ZoneDelegate_registerUnaryCallback$,
+    'ZoneDelegate.registerBinaryCallback':
+        _ZoneDelegate_registerBinaryCallback$,
+    'ZoneDelegate.scheduleMicrotask': _ZoneDelegate_scheduleMicrotask$,
+    'ZoneDelegate.createTimer': _ZoneDelegate_createTimer$,
+    'ZoneDelegate.createPeriodicTimer': _ZoneDelegate_createPeriodicTimer$,
     'Zone.root': _Zone_root$,
     'Zone.current': _Zone_current$,
+    'Zone.run': _Zone_run$,
+    'Zone.runUnary': _Zone_runUnary$,
+    'Zone.runBinary': _Zone_runBinary$,
+    'Zone.runGuarded': _Zone_runGuarded$,
+    'Zone.runUnaryGuarded': _Zone_runUnaryGuarded$,
+    'Zone.runBinaryGuarded': _Zone_runBinaryGuarded$,
+    'Zone.registerCallback': _Zone_registerCallback$,
+    'Zone.registerUnaryCallback': _Zone_registerUnaryCallback$,
+    'Zone.registerBinaryCallback': _Zone_registerBinaryCallback$,
+    'Zone.bindCallback': _Zone_bindCallback$,
+    'Zone.bindUnaryCallback': _Zone_bindUnaryCallback$,
+    'Zone.bindBinaryCallback': _Zone_bindBinaryCallback$,
+    'Zone.bindCallbackGuarded': _Zone_bindCallbackGuarded$,
+    'Zone.bindUnaryCallbackGuarded': _Zone_bindUnaryCallbackGuarded$,
+    'Zone.bindBinaryCallbackGuarded': _Zone_bindBinaryCallbackGuarded$,
+    'Zone.scheduleMicrotask': _Zone_scheduleMicrotask$,
+    'Zone.createTimer': _Zone_createTimer$,
+    'Zone.createPeriodicTimer': _Zone_createPeriodicTimer$,
     'runZoned': _runZoned$,
     'runZonedGuarded': _runZonedGuarded$,
   },
@@ -24,6 +84,8 @@ const libraryMirror = m.LibraryMirror(
     'AsyncError': m.ClassMirror(
       'AsyncError',
       {
+        '#as': AsyncError_as$,
+        '#is': AsyncError_is$,
         'error': _AsyncError_error$,
         'stackTrace': _AsyncError_stackTrace$,
         'toString': _AsyncError_toString$,
@@ -32,22 +94,35 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DeferredLoadException': m.ClassMirror(
       'DeferredLoadException',
-      {'toString': _DeferredLoadException_toString$},
+      {
+        '#as': DeferredLoadException_as$,
+        '#is': DeferredLoadException_is$,
+        'toString': _DeferredLoadException_toString$,
+      },
       {},
     ),
     'FutureOr': m.ClassMirror(
       'FutureOr',
-      {},
+      {
+        '#as': FutureOr_as$,
+        '#is': FutureOr_is$,
+      },
       {},
     ),
     'Future': m.ClassMirror(
       'Future',
-      {'asStream': _Future_asStream$},
+      {
+        '#as': Future_as$,
+        '#is': Future_is$,
+        'asStream': _Future_asStream$,
+      },
       {},
     ),
     'TimeoutException': m.ClassMirror(
       'TimeoutException',
       {
+        '#as': TimeoutException_as$,
+        '#is': TimeoutException_is$,
         'message': _TimeoutException_message$,
         'duration': _TimeoutException_duration$,
         'toString': _TimeoutException_toString$,
@@ -57,6 +132,8 @@ const libraryMirror = m.LibraryMirror(
     'Completer': m.ClassMirror(
       'Completer',
       {
+        '#as': Completer_as$,
+        '#is': Completer_is$,
         'future': _Completer_future$,
         'isCompleted': _Completer_isCompleted$,
         'complete': _Completer_complete$,
@@ -67,6 +144,8 @@ const libraryMirror = m.LibraryMirror(
     'ParallelWaitError': m.ClassMirror(
       'ParallelWaitError',
       {
+        '#as': ParallelWaitError_as$,
+        '#is': ParallelWaitError_is$,
         'values': _ParallelWaitError_values$,
         'errors': _ParallelWaitError_errors$,
         'toString': _ParallelWaitError_toString$,
@@ -76,6 +155,8 @@ const libraryMirror = m.LibraryMirror(
     'Stream': m.ClassMirror(
       'Stream',
       {
+        '#as': Stream_as$,
+        '#is': Stream_is$,
         'isBroadcast': _Stream_isBroadcast$,
         'length': _Stream_length$,
         'isEmpty': _Stream_isEmpty$,
@@ -99,6 +180,8 @@ const libraryMirror = m.LibraryMirror(
     'StreamSubscription': m.ClassMirror(
       'StreamSubscription',
       {
+        '#as': StreamSubscription_as$,
+        '#is': StreamSubscription_is$,
         'isPaused': _StreamSubscription_isPaused$,
         'cancel': _StreamSubscription_cancel$,
         'onError': _StreamSubscription_onError$,
@@ -111,6 +194,8 @@ const libraryMirror = m.LibraryMirror(
     'EventSink': m.ClassMirror(
       'EventSink',
       {
+        '#as': EventSink_as$,
+        '#is': EventSink_is$,
         'add': _EventSink_add$,
         'addError': _EventSink_addError$,
         'close': _EventSink_close$,
@@ -119,12 +204,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamView': m.ClassMirror(
       'StreamView',
-      {'isBroadcast': _StreamView_isBroadcast$},
+      {
+        '#as': StreamView_as$,
+        '#is': StreamView_is$,
+        'isBroadcast': _StreamView_isBroadcast$,
+      },
       {},
     ),
     'StreamConsumer': m.ClassMirror(
       'StreamConsumer',
       {
+        '#as': StreamConsumer_as$,
+        '#is': StreamConsumer_is$,
         'addStream': _StreamConsumer_addStream$,
         'close': _StreamConsumer_close$,
       },
@@ -133,6 +224,8 @@ const libraryMirror = m.LibraryMirror(
     'StreamSink': m.ClassMirror(
       'StreamSink',
       {
+        '#as': StreamSink_as$,
+        '#is': StreamSink_is$,
         'done': _StreamSink_done$,
         'close': _StreamSink_close$,
       },
@@ -141,6 +234,8 @@ const libraryMirror = m.LibraryMirror(
     'StreamTransformer': m.ClassMirror(
       'StreamTransformer',
       {
+        '#as': StreamTransformer_as$,
+        '#is': StreamTransformer_is$,
         'bind': _StreamTransformer_bind$,
         'cast': _StreamTransformer_cast$,
       },
@@ -148,12 +243,18 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamTransformerBase': m.ClassMirror(
       'StreamTransformerBase',
-      {'cast': _StreamTransformerBase_cast$},
+      {
+        '#as': StreamTransformerBase_as$,
+        '#is': StreamTransformerBase_is$,
+        'cast': _StreamTransformerBase_cast$,
+      },
       {},
     ),
     'StreamIterator': m.ClassMirror(
       'StreamIterator',
       {
+        '#as': StreamIterator_as$,
+        '#is': StreamIterator_is$,
         'current': _StreamIterator_current$,
         'moveNext': _StreamIterator_moveNext$,
         'cancel': _StreamIterator_cancel$,
@@ -163,6 +264,8 @@ const libraryMirror = m.LibraryMirror(
     'MultiStreamController': m.ClassMirror(
       'MultiStreamController',
       {
+        '#as': MultiStreamController_as$,
+        '#is': MultiStreamController_is$,
         'addSync': _MultiStreamController_addSync$,
         'addErrorSync': _MultiStreamController_addErrorSync$,
         'closeSync': _MultiStreamController_closeSync$,
@@ -172,6 +275,8 @@ const libraryMirror = m.LibraryMirror(
     'StreamController': m.ClassMirror(
       'StreamController',
       {
+        '#as': StreamController_as$,
+        '#is': StreamController_is$,
         'onListen': _StreamController_onListen$,
         'onPause': _StreamController_onPause$,
         'onResume': _StreamController_onResume$,
@@ -197,6 +302,8 @@ const libraryMirror = m.LibraryMirror(
     'SynchronousStreamController': m.ClassMirror(
       'SynchronousStreamController',
       {
+        '#as': SynchronousStreamController_as$,
+        '#is': SynchronousStreamController_is$,
         'add': _SynchronousStreamController_add$,
         'addError': _SynchronousStreamController_addError$,
         'close': _SynchronousStreamController_close$,
@@ -206,6 +313,8 @@ const libraryMirror = m.LibraryMirror(
     'Timer': m.ClassMirror(
       'Timer',
       {
+        '#as': Timer_as$,
+        '#is': Timer_is$,
         'tick': _Timer_tick$,
         'isActive': _Timer_isActive$,
         'cancel': _Timer_cancel$,
@@ -215,6 +324,8 @@ const libraryMirror = m.LibraryMirror(
     'ZoneSpecification': m.ClassMirror(
       'ZoneSpecification',
       {
+        '#as': ZoneSpecification_as$,
+        '#is': ZoneSpecification_is$,
         'handleUncaughtError': _ZoneSpecification_handleUncaughtError$,
         'run': _ZoneSpecification_run$,
         'runUnary': _ZoneSpecification_runUnary$,
@@ -234,6 +345,8 @@ const libraryMirror = m.LibraryMirror(
     'ZoneDelegate': m.ClassMirror(
       'ZoneDelegate',
       {
+        '#as': ZoneDelegate_as$,
+        '#is': ZoneDelegate_is$,
         'handleUncaughtError': _ZoneDelegate_handleUncaughtError$,
         'errorCallback': _ZoneDelegate_errorCallback$,
         'print': _ZoneDelegate_print$,
@@ -244,6 +357,8 @@ const libraryMirror = m.LibraryMirror(
     'Zone': m.ClassMirror(
       'Zone',
       {
+        '#as': Zone_as$,
+        '#is': Zone_is$,
         'parent': _Zone_parent$,
         'errorZone': _Zone_errorZone$,
         'handleUncaughtError': _Zone_handleUncaughtError$,
@@ -251,11 +366,22 @@ const libraryMirror = m.LibraryMirror(
         'fork': _Zone_fork$,
         'errorCallback': _Zone_errorCallback$,
         'print': _Zone_print$,
+        '[]': _Zone_$index$$,
       },
       {},
     ),
   },
 );
+Function AsyncError_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as AsyncError;
+Function AsyncError_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is AsyncError;
 Object _AsyncError_error$(AsyncError target) {
   return target.error;
 }
@@ -271,17 +397,174 @@ Function _AsyncError_toString$(
   AsyncError target,
 ) =>
     target.toString;
+Function DeferredLoadException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DeferredLoadException;
+Function DeferredLoadException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DeferredLoadException;
 Function _DeferredLoadException_toString$(
   m.Scope scope,
   DeferredLoadException target,
 ) =>
     target.toString;
+Function FutureOr_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as FutureOr<T>;
+Function FutureOr_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is FutureOr<T>;
+Function Future_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Future<T>;
+Function Future_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Future<T>;
+Function _Future_wait$(m.Scope scope) => <T>(
+      Iterable<Future<T>> futures, {
+      m.FunctionPointer? cleanUp,
+      bool? eagerError,
+    }) {
+      void cleanUpProxy(T cleanUp_successValue) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            cleanUp!,
+            [cleanUp_successValue],
+            {},
+          );
+      return Future.wait<T>(
+        futures,
+        cleanUp: cleanUp == null ? null : cleanUpProxy,
+        eagerError: eagerError == null ? false : eagerError,
+      );
+    };
 Function _Future_any$<T>(m.Scope scope) => Future.any<T>;
+Function _Future_forEach$(m.Scope scope) => <T>(
+      Iterable<T> elements,
+      m.FunctionPointer action,
+    ) {
+      FutureOr<dynamic> actionProxy(T action_element) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      return Future.forEach<T>(
+        elements,
+        actionProxy,
+      );
+    };
+Function _Future_doWhile$(m.Scope scope) => (m.FunctionPointer action) {
+      FutureOr<bool> actionProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            action,
+            [],
+            {},
+          );
+      return Future.doWhile(actionProxy);
+    };
+Function _Future_then$<T>(
+  m.Scope scope,
+  Future<T> target,
+) =>
+    <R>(
+      m.FunctionPointer onValue, {
+      Function? onError,
+    }) {
+      FutureOr<R> onValueProxy(T onValue_value) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            onValue,
+            [onValue_value],
+            {},
+          );
+      return target.then<R>(
+        onValueProxy,
+        onError: onError,
+      );
+    };
+Function _Future_catchError$<T>(
+  m.Scope scope,
+  Future<T> target,
+) =>
+    (
+      Function onError, {
+      m.FunctionPointer? test,
+    }) {
+      bool testProxy(Object test_error) => scope.engine.callFunctionPointer(
+            scope,
+            test!,
+            [test_error],
+            {},
+          );
+      return target.catchError(
+        onError,
+        test: test == null ? null : testProxy,
+      );
+    };
+Function _Future_whenComplete$<T>(
+  m.Scope scope,
+  Future<T> target,
+) =>
+    (m.FunctionPointer action) {
+      FutureOr<void> actionProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            action,
+            [],
+            {},
+          );
+      return target.whenComplete(actionProxy);
+    };
 Function _Future_asStream$<T>(
   m.Scope scope,
   Future<T> target,
 ) =>
     target.asStream;
+Function _Future_timeout$<T>(
+  m.Scope scope,
+  Future<T> target,
+) =>
+    (
+      Duration timeLimit, {
+      m.FunctionPointer? onTimeout,
+    }) {
+      FutureOr<T> onTimeoutProxy() async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            onTimeout!,
+            [],
+            {},
+          );
+      return target.timeout(
+        timeLimit,
+        onTimeout: onTimeout == null ? null : onTimeoutProxy,
+      );
+    };
+Function TimeoutException_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TimeoutException;
+Function TimeoutException_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TimeoutException;
 String? _TimeoutException_message$(TimeoutException target) {
   return target.message;
 }
@@ -295,6 +578,16 @@ Function _TimeoutException_toString$(
   TimeoutException target,
 ) =>
     target.toString;
+Function Completer_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Completer<T>;
+Function Completer_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Completer<T>;
 Future<T> _Completer_future$<T>(Completer<T> target) {
   return target.future;
 }
@@ -314,6 +607,16 @@ Function _Completer_completeError$<T>(
 ) =>
     target.completeError;
 Function _unawaited$(m.Scope scope) => unawaited;
+Function ParallelWaitError_as$<V, E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ParallelWaitError<V, E>;
+Function ParallelWaitError_is$<V, E>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ParallelWaitError<V, E>;
 V _ParallelWaitError_values$<V, E>(ParallelWaitError<V, E> target) {
   return target.values;
 }
@@ -336,6 +639,16 @@ Function _scheduleMicrotask$(m.Scope scope) => (m.FunctionPointer callback) {
           );
       scheduleMicrotask(callbackProxy);
     };
+Function Stream_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Stream<T>;
+Function Stream_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Stream<T>;
 bool _Stream_isBroadcast$<T>(Stream<T> target) {
   return target.isBroadcast;
 }
@@ -361,6 +674,149 @@ Future<T> _Stream_single$<T>(Stream<T> target) {
 }
 
 Function _Stream_castFrom$<S, T>(m.Scope scope) => Stream.castFrom<S, T>;
+Function _Stream_asBroadcastStream$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    ({
+      m.FunctionPointer? onCancel,
+      m.FunctionPointer? onListen,
+    }) {
+      void onCancelProxy(StreamSubscription<T> onCancel_subscription) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onCancel!,
+            [onCancel_subscription],
+            {},
+          );
+      void onListenProxy(StreamSubscription<T> onListen_subscription) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onListen!,
+            [onListen_subscription],
+            {},
+          );
+      return target.asBroadcastStream(
+        onCancel: onCancel == null ? null : onCancelProxy,
+        onListen: onListen == null ? null : onListenProxy,
+      );
+    };
+Function _Stream_listen$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      m.FunctionPointer? onData, {
+      bool? cancelOnError,
+      m.FunctionPointer? onDone,
+      Function? onError,
+    }) {
+      void onDataProxy(T onData_event) => scope.engine.callFunctionPointer(
+            scope,
+            onData!,
+            [onData_event],
+            {},
+          );
+      void onDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onDone!,
+            [],
+            {},
+          );
+      return target.listen(
+        onData == null ? null : onDataProxy,
+        cancelOnError: cancelOnError,
+        onDone: onDone == null ? null : onDoneProxy,
+        onError: onError,
+      );
+    };
+Function _Stream_where$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(T test_event) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_event],
+            {},
+          );
+      return target.where(testProxy);
+    };
+Function _Stream_map$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    <S>(m.FunctionPointer convert) {
+      S convertProxy(T convert_event) => scope.engine.callFunctionPointer(
+            scope,
+            convert,
+            [convert_event],
+            {},
+          );
+      return target.map<S>(convertProxy);
+    };
+Function _Stream_asyncMap$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    <E>(m.FunctionPointer convert) {
+      FutureOr<E> convertProxy(T convert_event) async =>
+          await scope.engine.callFunctionPointerAsync(
+            scope,
+            convert,
+            [convert_event],
+            {},
+          );
+      return target.asyncMap<E>(convertProxy);
+    };
+Function _Stream_asyncExpand$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    <E>(m.FunctionPointer convert) {
+      Stream<E>? convertProxy(T convert_event) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            convert,
+            [convert_event],
+            {},
+          );
+      return target.asyncExpand<E>(convertProxy);
+    };
+Function _Stream_handleError$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      Function onError, {
+      m.FunctionPointer? test,
+    }) {
+      bool testProxy(dynamic test_error) => scope.engine.callFunctionPointer(
+            scope,
+            test!,
+            [test_error],
+            {},
+          );
+      return target.handleError(
+        onError,
+        test: test == null ? null : testProxy,
+      );
+    };
+Function _Stream_expand$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    <S>(m.FunctionPointer convert) {
+      Iterable<S> convertProxy(T convert_element) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            convert,
+            [convert_element],
+            {},
+          );
+      return target.expand<S>(convertProxy);
+    };
 Function _Stream_pipe$<T>(
   m.Scope scope,
   Stream<T> target,
@@ -371,6 +827,52 @@ Function _Stream_transform$<T, S>(
   Stream<T> target,
 ) =>
     target.transform<S>;
+Function _Stream_reduce$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer combine) {
+      T combineProxy(
+        T combine_previous,
+        T combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previous,
+              combine_element,
+            ],
+            {},
+          );
+      return target.reduce(combineProxy);
+    };
+Function _Stream_fold$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    <S>(
+      S initialValue,
+      m.FunctionPointer combine,
+    ) {
+      S combineProxy(
+        S combine_previous,
+        T combine_element,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            combine,
+            [
+              combine_previous,
+              combine_element,
+            ],
+            {},
+          );
+      return target.fold<S>(
+        initialValue,
+        combineProxy,
+      );
+    };
 Function _Stream_join$<T>(
   m.Scope scope,
   Stream<T> target,
@@ -381,6 +883,45 @@ Function _Stream_contains$<T>(
   Stream<T> target,
 ) =>
     target.contains;
+Function _Stream_forEach$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(T action_element) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_element],
+            {},
+          );
+      return target.forEach(actionProxy);
+    };
+Function _Stream_every$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.every(testProxy);
+    };
+Function _Stream_any$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.any(testProxy);
+    };
 Function _Stream_cast$<T, R>(
   m.Scope scope,
   Stream<T> target,
@@ -406,16 +947,169 @@ Function _Stream_take$<T>(
   Stream<T> target,
 ) =>
     target.take;
+Function _Stream_takeWhile$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.takeWhile(testProxy);
+    };
 Function _Stream_skip$<T>(
   m.Scope scope,
   Stream<T> target,
 ) =>
     target.skip;
+Function _Stream_skipWhile$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      return target.skipWhile(testProxy);
+    };
+Function _Stream_distinct$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (m.FunctionPointer? equals) {
+      if (equals == null) {}
+      return target.distinct();
+      bool equalsProxy(
+        T equals_previous,
+        T equals_next,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            equals!,
+            [
+              equals_previous,
+              equals_next,
+            ],
+            {},
+          );
+      return target.distinct(equals == null ? null : equalsProxy);
+    };
+Function _Stream_firstWhere$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      T orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.firstWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Stream_lastWhere$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      T orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.lastWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Stream_singleWhere$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(T test_element) => scope.engine.callFunctionPointer(
+            scope,
+            test,
+            [test_element],
+            {},
+          );
+      T orElseProxy() => scope.engine.callFunctionPointer(
+            scope,
+            orElse!,
+            [],
+            {},
+          );
+      return target.singleWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
 Function _Stream_elementAt$<T>(
   m.Scope scope,
   Stream<T> target,
 ) =>
     target.elementAt;
+Function _Stream_timeout$<T>(
+  m.Scope scope,
+  Stream<T> target,
+) =>
+    (
+      Duration timeLimit, {
+      m.FunctionPointer? onTimeout,
+    }) {
+      void onTimeoutProxy(EventSink<T> onTimeout_sink) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onTimeout!,
+            [onTimeout_sink],
+            {},
+          );
+      return target.timeout(
+        timeLimit,
+        onTimeout: onTimeout == null ? null : onTimeoutProxy,
+      );
+    };
+Function StreamSubscription_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamSubscription<T>;
+Function StreamSubscription_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamSubscription<T>;
 bool _StreamSubscription_isPaused$<T>(StreamSubscription<T> target) {
   return target.isPaused;
 }
@@ -425,11 +1119,38 @@ Function _StreamSubscription_cancel$<T>(
   StreamSubscription<T> target,
 ) =>
     target.cancel;
+Function _StreamSubscription_onData$<T>(
+  m.Scope scope,
+  StreamSubscription<T> target,
+) =>
+    (m.FunctionPointer? handleData) {
+      void handleDataProxy(T handleData_data) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            handleData!,
+            [handleData_data],
+            {},
+          );
+      target.onData(handleData == null ? null : handleDataProxy);
+    };
 Function _StreamSubscription_onError$<T>(
   m.Scope scope,
   StreamSubscription<T> target,
 ) =>
     target.onError;
+Function _StreamSubscription_onDone$<T>(
+  m.Scope scope,
+  StreamSubscription<T> target,
+) =>
+    (m.FunctionPointer? handleDone) {
+      void handleDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            handleDone!,
+            [],
+            {},
+          );
+      target.onDone(handleDone == null ? null : handleDoneProxy);
+    };
 Function _StreamSubscription_pause$<T>(
   m.Scope scope,
   StreamSubscription<T> target,
@@ -445,6 +1166,16 @@ Function _StreamSubscription_asFuture$<T, E>(
   StreamSubscription<T> target,
 ) =>
     target.asFuture<E>;
+Function EventSink_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as EventSink<T>;
+Function EventSink_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is EventSink<T>;
 Function _EventSink_add$<T>(
   m.Scope scope,
   EventSink<T> target,
@@ -460,10 +1191,86 @@ Function _EventSink_close$<T>(
   EventSink<T> target,
 ) =>
     target.close;
+Function StreamView_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamView<T>;
+Function StreamView_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamView<T>;
 bool _StreamView_isBroadcast$<T>(StreamView<T> target) {
   return target.isBroadcast;
 }
 
+Function _StreamView_asBroadcastStream$<T>(
+  m.Scope scope,
+  StreamView<T> target,
+) =>
+    ({
+      m.FunctionPointer? onCancel,
+      m.FunctionPointer? onListen,
+    }) {
+      void onCancelProxy(StreamSubscription<T> onCancel_subscription) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onCancel!,
+            [onCancel_subscription],
+            {},
+          );
+      void onListenProxy(StreamSubscription<T> onListen_subscription) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            onListen!,
+            [onListen_subscription],
+            {},
+          );
+      return target.asBroadcastStream(
+        onCancel: onCancel == null ? null : onCancelProxy,
+        onListen: onListen == null ? null : onListenProxy,
+      );
+    };
+Function _StreamView_listen$<T>(
+  m.Scope scope,
+  StreamView<T> target,
+) =>
+    (
+      m.FunctionPointer? onData, {
+      bool? cancelOnError,
+      m.FunctionPointer? onDone,
+      Function? onError,
+    }) {
+      void onDataProxy(T onData_value) => scope.engine.callFunctionPointer(
+            scope,
+            onData!,
+            [onData_value],
+            {},
+          );
+      void onDoneProxy() => scope.engine.callFunctionPointer(
+            scope,
+            onDone!,
+            [],
+            {},
+          );
+      return target.listen(
+        onData == null ? null : onDataProxy,
+        cancelOnError: cancelOnError,
+        onDone: onDone == null ? null : onDoneProxy,
+        onError: onError,
+      );
+    };
+Function StreamConsumer_as$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamConsumer<S>;
+Function StreamConsumer_is$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamConsumer<S>;
 Function _StreamConsumer_addStream$<S>(
   m.Scope scope,
   StreamConsumer<S> target,
@@ -474,6 +1281,16 @@ Function _StreamConsumer_close$<S>(
   StreamConsumer<S> target,
 ) =>
     target.close;
+Function StreamSink_as$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamSink<S>;
+Function StreamSink_is$<S>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamSink<S>;
 Future<dynamic> _StreamSink_done$<S>(StreamSink<S> target) {
   return target.done;
 }
@@ -483,6 +1300,16 @@ Function _StreamSink_close$<S>(
   StreamSink<S> target,
 ) =>
     target.close;
+Function StreamTransformer_as$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamTransformer<S, T>;
+Function StreamTransformer_is$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamTransformer<S, T>;
 Function _StreamTransformer_castFrom$<SS, ST, TS, TT>(m.Scope scope) =>
     StreamTransformer.castFrom<SS, ST, TS, TT>;
 Function _StreamTransformer_bind$<S, T>(
@@ -495,11 +1322,31 @@ Function _StreamTransformer_cast$<S, T, RS, RT>(
   StreamTransformer<S, T> target,
 ) =>
     target.cast<RS, RT>;
+Function StreamTransformerBase_as$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamTransformerBase<S, T>;
+Function StreamTransformerBase_is$<S, T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamTransformerBase<S, T>;
 Function _StreamTransformerBase_cast$<S, T, RS, RT>(
   m.Scope scope,
   StreamTransformerBase<S, T> target,
 ) =>
     target.cast<RS, RT>;
+Function StreamIterator_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamIterator<T>;
+Function StreamIterator_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamIterator<T>;
 T _StreamIterator_current$<T>(StreamIterator<T> target) {
   return target.current;
 }
@@ -514,6 +1361,16 @@ Function _StreamIterator_cancel$<T>(
   StreamIterator<T> target,
 ) =>
     target.cancel;
+Function MultiStreamController_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MultiStreamController<T>;
+Function MultiStreamController_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MultiStreamController<T>;
 Function _MultiStreamController_addSync$<T>(
   m.Scope scope,
   MultiStreamController<T> target,
@@ -529,6 +1386,16 @@ Function _MultiStreamController_closeSync$<T>(
   MultiStreamController<T> target,
 ) =>
     target.closeSync;
+Function StreamController_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as StreamController<T>;
+Function StreamController_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is StreamController<T>;
 void Function()? _StreamController_onListen$<T>(StreamController<T> target) {
   return target.onListen;
 }
@@ -643,6 +1510,16 @@ Function _StreamController_addStream$<T>(
   StreamController<T> target,
 ) =>
     target.addStream;
+Function SynchronousStreamController_as$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as SynchronousStreamController<T>;
+Function SynchronousStreamController_is$<T>(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is SynchronousStreamController<T>;
 Function _SynchronousStreamController_add$<T>(
   m.Scope scope,
   SynchronousStreamController<T> target,
@@ -658,6 +1535,16 @@ Function _SynchronousStreamController_close$<T>(
   SynchronousStreamController<T> target,
 ) =>
     target.close;
+Function Timer_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Timer;
+Function Timer_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Timer;
 int _Timer_tick$(Timer target) {
   return target.tick;
 }
@@ -666,11 +1553,30 @@ bool _Timer_isActive$(Timer target) {
   return target.isActive;
 }
 
+Function _Timer_run$(m.Scope scope) => (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      Timer.run(callbackProxy);
+    };
 Function _Timer_cancel$(
   m.Scope scope,
   Timer target,
 ) =>
     target.cancel;
+Function ZoneSpecification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZoneSpecification;
+Function ZoneSpecification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZoneSpecification;
 void Function(Zone, ZoneDelegate, Zone, Object, StackTrace)?
     _ZoneSpecification_handleUncaughtError$(ZoneSpecification target) {
   return target.handleUncaughtError;
@@ -738,16 +1644,221 @@ Zone Function(
   return target.fork;
 }
 
+Function ZoneDelegate_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ZoneDelegate;
+Function ZoneDelegate_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ZoneDelegate;
 Function _ZoneDelegate_handleUncaughtError$(
   m.Scope scope,
   ZoneDelegate target,
 ) =>
     target.handleUncaughtError;
+Function _ZoneDelegate_run$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R>(
+      Zone zone,
+      m.FunctionPointer f,
+    ) {
+      R fProxy() => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [],
+            {},
+          );
+      return target.run<R>(
+        zone,
+        fProxy,
+      );
+    };
+Function _ZoneDelegate_runUnary$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R, T>(
+      Zone zone,
+      m.FunctionPointer f,
+      T arg,
+    ) {
+      R fProxy(T f_arg) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_arg],
+            {},
+          );
+      return target.runUnary<R, T>(
+        zone,
+        fProxy,
+        arg,
+      );
+    };
+Function _ZoneDelegate_runBinary$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R, T1, T2>(
+      Zone zone,
+      m.FunctionPointer f,
+      T1 arg1,
+      T2 arg2,
+    ) {
+      R fProxy(
+        T1 f_arg1,
+        T2 f_arg2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [
+              f_arg1,
+              f_arg2,
+            ],
+            {},
+          );
+      return target.runBinary<R, T1, T2>(
+        zone,
+        fProxy,
+        arg1,
+        arg2,
+      );
+    };
+Function _ZoneDelegate_registerCallback$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R>(
+      Zone zone,
+      m.FunctionPointer f,
+    ) {
+      R fProxy() => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [],
+            {},
+          );
+      return target.registerCallback<R>(
+        zone,
+        fProxy,
+      );
+    };
+Function _ZoneDelegate_registerUnaryCallback$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R, T>(
+      Zone zone,
+      m.FunctionPointer f,
+    ) {
+      R fProxy(T f_arg) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_arg],
+            {},
+          );
+      return target.registerUnaryCallback<R, T>(
+        zone,
+        fProxy,
+      );
+    };
+Function _ZoneDelegate_registerBinaryCallback$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    <R, T1, T2>(
+      Zone zone,
+      m.FunctionPointer f,
+    ) {
+      R fProxy(
+        T1 f_arg1,
+        T2 f_arg2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [
+              f_arg1,
+              f_arg2,
+            ],
+            {},
+          );
+      return target.registerBinaryCallback<R, T1, T2>(
+        zone,
+        fProxy,
+      );
+    };
 Function _ZoneDelegate_errorCallback$(
   m.Scope scope,
   ZoneDelegate target,
 ) =>
     target.errorCallback;
+Function _ZoneDelegate_scheduleMicrotask$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    (
+      Zone zone,
+      m.FunctionPointer f,
+    ) {
+      void fProxy() => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [],
+            {},
+          );
+      target.scheduleMicrotask(
+        zone,
+        fProxy,
+      );
+    };
+Function _ZoneDelegate_createTimer$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    (
+      Zone zone,
+      Duration duration,
+      m.FunctionPointer f,
+    ) {
+      void fProxy() => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [],
+            {},
+          );
+      return target.createTimer(
+        zone,
+        duration,
+        fProxy,
+      );
+    };
+Function _ZoneDelegate_createPeriodicTimer$(
+  m.Scope scope,
+  ZoneDelegate target,
+) =>
+    (
+      Zone zone,
+      Duration period,
+      m.FunctionPointer f,
+    ) {
+      void fProxy(Timer f_timer) => scope.engine.callFunctionPointer(
+            scope,
+            f,
+            [f_timer],
+            {},
+          );
+      return target.createPeriodicTimer(
+        zone,
+        period,
+        fProxy,
+      );
+    };
 Function _ZoneDelegate_print$(
   m.Scope scope,
   ZoneDelegate target,
@@ -758,6 +1869,16 @@ Function _ZoneDelegate_fork$(
   ZoneDelegate target,
 ) =>
     target.fork;
+Function Zone_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as Zone;
+Function Zone_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is Zone;
 Zone _Zone_root$() {
   return Zone.root;
 }
@@ -789,21 +1910,337 @@ Function _Zone_fork$(
   Zone target,
 ) =>
     target.fork;
+Function _Zone_run$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R>(m.FunctionPointer action) {
+      R actionProxy() => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [],
+            {},
+          );
+      return target.run<R>(actionProxy);
+    };
+Function _Zone_runUnary$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T>(
+      m.FunctionPointer action,
+      T argument,
+    ) {
+      R actionProxy(T action_argument) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_argument],
+            {},
+          );
+      return target.runUnary<R, T>(
+        actionProxy,
+        argument,
+      );
+    };
+Function _Zone_runBinary$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T1, T2>(
+      m.FunctionPointer action,
+      T1 argument1,
+      T2 argument2,
+    ) {
+      R actionProxy(
+        T1 action_argument1,
+        T2 action_argument2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [
+              action_argument1,
+              action_argument2,
+            ],
+            {},
+          );
+      return target.runBinary<R, T1, T2>(
+        actionProxy,
+        argument1,
+        argument2,
+      );
+    };
+Function _Zone_runGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy() => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [],
+            {},
+          );
+      target.runGuarded(actionProxy);
+    };
+Function _Zone_runUnaryGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <T>(
+      m.FunctionPointer action,
+      T argument,
+    ) {
+      void actionProxy(T action_argument) => scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [action_argument],
+            {},
+          );
+      target.runUnaryGuarded<T>(
+        actionProxy,
+        argument,
+      );
+    };
+Function _Zone_runBinaryGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <T1, T2>(
+      m.FunctionPointer action,
+      T1 argument1,
+      T2 argument2,
+    ) {
+      void actionProxy(
+        T1 action_argument1,
+        T2 action_argument2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            action,
+            [
+              action_argument1,
+              action_argument2,
+            ],
+            {},
+          );
+      target.runBinaryGuarded<T1, T2>(
+        actionProxy,
+        argument1,
+        argument2,
+      );
+    };
+Function _Zone_registerCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R>(m.FunctionPointer callback) {
+      R callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      return target.registerCallback<R>(callbackProxy);
+    };
+Function _Zone_registerUnaryCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T>(m.FunctionPointer callback) {
+      R callbackProxy(T callback_arg) => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_arg],
+            {},
+          );
+      return target.registerUnaryCallback<R, T>(callbackProxy);
+    };
+Function _Zone_registerBinaryCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T1, T2>(m.FunctionPointer callback) {
+      R callbackProxy(
+        T1 callback_arg1,
+        T2 callback_arg2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [
+              callback_arg1,
+              callback_arg2,
+            ],
+            {},
+          );
+      return target.registerBinaryCallback<R, T1, T2>(callbackProxy);
+    };
+Function _Zone_bindCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R>(m.FunctionPointer callback) {
+      R callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      return target.bindCallback<R>(callbackProxy);
+    };
+Function _Zone_bindUnaryCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T>(m.FunctionPointer callback) {
+      R callbackProxy(T callback_argument) => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_argument],
+            {},
+          );
+      return target.bindUnaryCallback<R, T>(callbackProxy);
+    };
+Function _Zone_bindBinaryCallback$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <R, T1, T2>(m.FunctionPointer callback) {
+      R callbackProxy(
+        T1 callback_argument1,
+        T2 callback_argument2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [
+              callback_argument1,
+              callback_argument2,
+            ],
+            {},
+          );
+      return target.bindBinaryCallback<R, T1, T2>(callbackProxy);
+    };
+Function _Zone_bindCallbackGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      return target.bindCallbackGuarded(callbackProxy);
+    };
+Function _Zone_bindUnaryCallbackGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <T>(m.FunctionPointer callback) {
+      void callbackProxy(T callback_argument) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_argument],
+            {},
+          );
+      return target.bindUnaryCallbackGuarded<T>(callbackProxy);
+    };
+Function _Zone_bindBinaryCallbackGuarded$(
+  m.Scope scope,
+  Zone target,
+) =>
+    <T1, T2>(m.FunctionPointer callback) {
+      void callbackProxy(
+        T1 callback_argument1,
+        T2 callback_argument2,
+      ) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [
+              callback_argument1,
+              callback_argument2,
+            ],
+            {},
+          );
+      return target.bindBinaryCallbackGuarded<T1, T2>(callbackProxy);
+    };
 Function _Zone_errorCallback$(
   m.Scope scope,
   Zone target,
 ) =>
     target.errorCallback;
+Function _Zone_scheduleMicrotask$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (m.FunctionPointer callback) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      target.scheduleMicrotask(callbackProxy);
+    };
+Function _Zone_createTimer$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (
+      Duration duration,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy() => scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [],
+            {},
+          );
+      return target.createTimer(
+        duration,
+        callbackProxy,
+      );
+    };
+Function _Zone_createPeriodicTimer$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (
+      Duration period,
+      m.FunctionPointer callback,
+    ) {
+      void callbackProxy(Timer callback_timer) =>
+          scope.engine.callFunctionPointer(
+            scope,
+            callback,
+            [callback_timer],
+            {},
+          );
+      return target.createPeriodicTimer(
+        period,
+        callbackProxy,
+      );
+    };
 Function _Zone_print$(
   m.Scope scope,
   Zone target,
 ) =>
     target.print;
+Function _Zone_$index$$(
+  m.Scope scope,
+  Zone target,
+) =>
+    (Object? index) => target[index];
 Function _runZoned$(m.Scope scope) => <R>(
       m.FunctionPointer body, {
-      Map<Object?, Object?>? zoneValues,
-      ZoneSpecification? zoneSpecification,
       Function? onError,
+      ZoneSpecification? zoneSpecification,
+      Map<Object?, Object?>? zoneValues,
     }) {
       R bodyProxy() => scope.engine.callFunctionPointer(
             scope,
@@ -821,8 +2258,8 @@ Function _runZoned$(m.Scope scope) => <R>(
 Function _runZonedGuarded$(m.Scope scope) => <R>(
       m.FunctionPointer body,
       m.FunctionPointer onError, {
-      Map<Object?, Object?>? zoneValues,
       ZoneSpecification? zoneSpecification,
+      Map<Object?, Object?>? zoneValues,
     }) {
       R bodyProxy() => scope.engine.callFunctionPointer(
             scope,

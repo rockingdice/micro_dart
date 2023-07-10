@@ -17,6 +17,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollNotification': m.ClassMirror(
       'ScrollNotification',
       {
+        '#as': ScrollNotification_as$,
+        '#is': ScrollNotification_is$,
         'metrics': _ScrollNotification_metrics$,
         'context': _ScrollNotification_context$,
         'debugFillDescription': _ScrollNotification_debugFillDescription$,
@@ -26,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollStartNotification': m.ClassMirror(
       'ScrollStartNotification',
       {
+        '#as': ScrollStartNotification_as$,
+        '#is': ScrollStartNotification_is$,
         'dragDetails': _ScrollStartNotification_dragDetails$,
         'debugFillDescription': _ScrollStartNotification_debugFillDescription$,
       },
@@ -34,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollUpdateNotification': m.ClassMirror(
       'ScrollUpdateNotification',
       {
+        '#as': ScrollUpdateNotification_as$,
+        '#is': ScrollUpdateNotification_is$,
         'dragDetails': _ScrollUpdateNotification_dragDetails$,
         'scrollDelta': _ScrollUpdateNotification_scrollDelta$,
         'debugFillDescription': _ScrollUpdateNotification_debugFillDescription$,
@@ -43,6 +49,8 @@ const libraryMirror = m.LibraryMirror(
     'OverscrollNotification': m.ClassMirror(
       'OverscrollNotification',
       {
+        '#as': OverscrollNotification_as$,
+        '#is': OverscrollNotification_is$,
         'dragDetails': _OverscrollNotification_dragDetails$,
         'overscroll': _OverscrollNotification_overscroll$,
         'velocity': _OverscrollNotification_velocity$,
@@ -53,6 +61,8 @@ const libraryMirror = m.LibraryMirror(
     'ScrollEndNotification': m.ClassMirror(
       'ScrollEndNotification',
       {
+        '#as': ScrollEndNotification_as$,
+        '#is': ScrollEndNotification_is$,
         'dragDetails': _ScrollEndNotification_dragDetails$,
         'debugFillDescription': _ScrollEndNotification_debugFillDescription$,
       },
@@ -61,6 +71,8 @@ const libraryMirror = m.LibraryMirror(
     'UserScrollNotification': m.ClassMirror(
       'UserScrollNotification',
       {
+        '#as': UserScrollNotification_as$,
+        '#is': UserScrollNotification_is$,
         'direction': _UserScrollNotification_direction$,
         'debugFillDescription': _UserScrollNotification_debugFillDescription$,
       },
@@ -68,6 +80,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function ScrollNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollNotification;
+Function ScrollNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollNotification;
 ScrollMetrics _ScrollNotification_metrics$(ScrollNotification target) {
   return target.metrics;
 }
@@ -81,6 +103,16 @@ Function _ScrollNotification_debugFillDescription$(
   ScrollNotification target,
 ) =>
     target.debugFillDescription;
+Function ScrollStartNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollStartNotification;
+Function ScrollStartNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollStartNotification;
 DragStartDetails? _ScrollStartNotification_dragDetails$(
     ScrollStartNotification target) {
   return target.dragDetails;
@@ -91,6 +123,16 @@ Function _ScrollStartNotification_debugFillDescription$(
   ScrollStartNotification target,
 ) =>
     target.debugFillDescription;
+Function ScrollUpdateNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollUpdateNotification;
+Function ScrollUpdateNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollUpdateNotification;
 DragUpdateDetails? _ScrollUpdateNotification_dragDetails$(
     ScrollUpdateNotification target) {
   return target.dragDetails;
@@ -106,6 +148,16 @@ Function _ScrollUpdateNotification_debugFillDescription$(
   ScrollUpdateNotification target,
 ) =>
     target.debugFillDescription;
+Function OverscrollNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as OverscrollNotification;
+Function OverscrollNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is OverscrollNotification;
 DragUpdateDetails? _OverscrollNotification_dragDetails$(
     OverscrollNotification target) {
   return target.dragDetails;
@@ -124,6 +176,16 @@ Function _OverscrollNotification_debugFillDescription$(
   OverscrollNotification target,
 ) =>
     target.debugFillDescription;
+Function ScrollEndNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as ScrollEndNotification;
+Function ScrollEndNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is ScrollEndNotification;
 DragEndDetails? _ScrollEndNotification_dragDetails$(
     ScrollEndNotification target) {
   return target.dragDetails;
@@ -134,6 +196,16 @@ Function _ScrollEndNotification_debugFillDescription$(
   ScrollEndNotification target,
 ) =>
     target.debugFillDescription;
+Function UserScrollNotification_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as UserScrollNotification;
+Function UserScrollNotification_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is UserScrollNotification;
 ScrollDirection _UserScrollNotification_direction$(
     UserScrollNotification target) {
   return target.direction;

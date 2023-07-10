@@ -28,6 +28,8 @@ const libraryMirror = m.LibraryMirror(
     'MaterialBanner': m.ClassMirror(
       'MaterialBanner',
       {
+        '#as': MaterialBanner_as$,
+        '#is': MaterialBanner_is$,
         'content': _MaterialBanner_content$,
         'contentTextStyle': _MaterialBanner_contentTextStyle$,
         'actions': _MaterialBanner_actions$,
@@ -56,6 +58,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function MaterialBanner_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as MaterialBanner;
+Function MaterialBanner_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is MaterialBanner;
 Widget _MaterialBanner_content$(MaterialBanner target) {
   return target.content;
 }

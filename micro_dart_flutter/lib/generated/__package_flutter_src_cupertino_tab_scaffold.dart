@@ -16,6 +16,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTabController': m.ClassMirror(
       'CupertinoTabController',
       {
+        '#as': CupertinoTabController_as$,
+        '#is': CupertinoTabController_is$,
         'index': _CupertinoTabController_index$,
         'dispose': _CupertinoTabController_dispose$,
       },
@@ -24,6 +26,8 @@ const libraryMirror = m.LibraryMirror(
     'CupertinoTabScaffold': m.ClassMirror(
       'CupertinoTabScaffold',
       {
+        '#as': CupertinoTabScaffold_as$,
+        '#is': CupertinoTabScaffold_is$,
         'tabBar': _CupertinoTabScaffold_tabBar$,
         'controller': _CupertinoTabScaffold_controller$,
         'tabBuilder': _CupertinoTabScaffold_tabBuilder$,
@@ -38,6 +42,8 @@ const libraryMirror = m.LibraryMirror(
     'RestorableCupertinoTabController': m.ClassMirror(
       'RestorableCupertinoTabController',
       {
+        '#as': RestorableCupertinoTabController_as$,
+        '#is': RestorableCupertinoTabController_is$,
         'createDefaultValue':
             _RestorableCupertinoTabController_createDefaultValue$,
         'fromPrimitives': _RestorableCupertinoTabController_fromPrimitives$,
@@ -47,6 +53,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function CupertinoTabController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTabController;
+Function CupertinoTabController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTabController;
 int _CupertinoTabController_index$(CupertinoTabController target) {
   return target.index;
 }
@@ -63,6 +79,16 @@ Function _CupertinoTabController_dispose$(
   CupertinoTabController target,
 ) =>
     target.dispose;
+Function CupertinoTabScaffold_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as CupertinoTabScaffold;
+Function CupertinoTabScaffold_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is CupertinoTabScaffold;
 CupertinoTabBar _CupertinoTabScaffold_tabBar$(CupertinoTabScaffold target) {
   return target.tabBar;
 }
@@ -95,6 +121,16 @@ Function _CupertinoTabScaffold_createState$(
   CupertinoTabScaffold target,
 ) =>
     target.createState;
+Function RestorableCupertinoTabController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as RestorableCupertinoTabController;
+Function RestorableCupertinoTabController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is RestorableCupertinoTabController;
 Function _RestorableCupertinoTabController_createDefaultValue$(
   m.Scope scope,
   RestorableCupertinoTabController target,

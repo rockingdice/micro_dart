@@ -18,6 +18,8 @@ const libraryMirror = m.LibraryMirror(
     'TabController': m.ClassMirror(
       'TabController',
       {
+        '#as': TabController_as$,
+        '#is': TabController_is$,
         'length': _TabController_length$,
         'animation': _TabController_animation$,
         'animationDuration': _TabController_animationDuration$,
@@ -36,6 +38,8 @@ const libraryMirror = m.LibraryMirror(
     'DefaultTabController': m.ClassMirror(
       'DefaultTabController',
       {
+        '#as': DefaultTabController_as$,
+        '#is': DefaultTabController_is$,
         'length': _DefaultTabController_length$,
         'initialIndex': _DefaultTabController_initialIndex$,
         'animationDuration': _DefaultTabController_animationDuration$,
@@ -46,6 +50,16 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
+Function TabController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as TabController;
+Function TabController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is TabController;
 int _TabController_length$(TabController target) {
   return target.length;
 }
@@ -98,6 +112,16 @@ Function _TabController_dispose$(
   TabController target,
 ) =>
     target.dispose;
+Function DefaultTabController_as$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target as DefaultTabController;
+Function DefaultTabController_is$(
+  m.Scope scope,
+  dynamic target,
+) =>
+    () => target is DefaultTabController;
 int _DefaultTabController_length$(DefaultTabController target) {
   return target.length;
 }
