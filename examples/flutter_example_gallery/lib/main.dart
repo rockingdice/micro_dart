@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 //import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
-import 'package:micro_dart_flutter/generated/micro_dart.dart' as mdf;
+import 'package:micro_dart_flutter/generated2/micro_dart.dart' as mdf;
 import 'generated/micro_dart.dart' as g;
 
 void main() async {

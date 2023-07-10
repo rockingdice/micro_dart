@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:micro_dart_flutter/generated/micro_dart.dart';
+import 'package:micro_dart_flutter/generated2/micro_dart.dart';
 import 'package:flutter_plugin_2/plugin_2.dart';
 
 void main() async {

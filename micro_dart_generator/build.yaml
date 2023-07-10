@@ -10,3 +10,4 @@ builders:
       generate_for:
         include:
         - lib/main.dart
+        - lib/micro_dart_flutter.dart

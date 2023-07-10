@@ -359,8 +359,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
             return JsonDecoder();
           }
           Object reviverProxy(key, value) {
-            return engine
-                .callFunctionPointer(scope, reviver, [key, value], {});
+            return engine.callFunctionPointer(scope, reviver, [key, value], {});
           }
 
           return JsonDecoder(reviverProxy);
@@ -381,7 +380,7 @@ Map<String, Function> getLibrary(m.MicroDartEngine engine) {
               toEncodable: toEncodable == null ? null : toEncodableProxy);
         },
     'dart:convert@@jsonDecode': (m.Scope scope) => (source, {reviver}) {
-          Object reviverProxy(key, value) {
+          Object reviverProxy(Object? key, Object? value) {
             return engine
                 .callFunctionPointer(scope, reviver!, [key, value], {});
           }

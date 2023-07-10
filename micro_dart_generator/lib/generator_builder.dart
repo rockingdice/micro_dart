@@ -11,9 +11,11 @@ import 'package:build_config/build_config.dart';
 import 'package:build_runner_core/build_runner_core.dart';
 import 'package:path/path.dart';
 
+import 'code_gen_mirror.dart';
 import 'generator.dart';
 import 'namedsystem.dart';
 import 'overwrite_strategy.dart';
+import 'package:code_builder/code_builder.dart' as cb;
 
 class GeneratorBuilder implements Builder {
   BuilderOptions builderOptions;
@@ -65,15 +67,17 @@ class GeneratorBuilder implements Builder {
       if ((isMicroDartFlutter && flutterRegExp.hasMatch(element.identifier)) ||
           (!isMicroDartFlutter &&
               !flutterRegExp.hasMatch(element.identifier))) {
-        var generator = Generator(namedSystem, overwriteStrategy);
+        var generator = CodeGenMirror(namedSystem, overwriteStrategy);
         generator.visitLibraryElement(element);
-        File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}.g.dart")
-            .writeAsStringSync(generator.generate().toString());
+        if (generator.libraryName != null) {
+          File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}")
+              .writeAsStringSync(generator.generate().toString());
+        }
       }
     }
     await buildStep.writeAsString(
         AssetId(inputId.package, '$generatePath/micro_dart.dart'),
-        namedSystem.generate().toString());
+        namedSystem.generate2().toString());
   }
 
   @override

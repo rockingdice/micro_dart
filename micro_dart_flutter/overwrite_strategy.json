@@ -46,20 +46,31 @@
         ],
         "package:flutter/src/foundation/_platform_io.dart": [
             "package:flutter/src/foundation/platform.dart"
+        ],
+        "package:flutter/src/rendering/error.dart":[
+          "package:flutter/src/rendering/object.dart"
         ]
     },
     "libraryAddImports":{
         "package:flutter/src/widgets/shared_app_data.dart": [
-            "package:flutter/widgets.dart"
+            ["package:flutter/widgets.dart",[],[]]
         ],
         "package:flutter/src/widgets/spell_check.dart": [
-            "package:flutter/widgets.dart"
+          ["package:flutter/widgets.dart",[],[]]
+            
         ],
         "package:flutter/src/widgets/scroll_aware_image_provider.dart": [
-            "dart:ui"
+            ["dart:ui",[],[]]
         ],
         "package:flutter/src/material/autocomplete.dart": [
-            "dart:async"
+          ["dart:async",[],[]]
+            
+        ],
+        "package:flutter/src/rendering/error.dart":[
+          ["package:flutter/src/rendering/object.dart",["EdgeInsets","Color"],["TextStyle"]]
+        ],
+        "package:flutter/src/widgets/focus_scope.dart":[
+          ["package:flutter/widgets.dart",[],[]]
         ]
     },
     "defaultValueCodeOverwrites":{

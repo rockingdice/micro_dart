@@ -2,10 +2,12 @@ import 'instance.dart';
 import 'scope.dart';
 import 'type.dart';
 
-mixin InstanceBridge implements Instance {
+abstract mixin class InstanceBridge<T> implements Instance {
   InstanceImpl? $child;
 
   TypeRef get bridgeType;
+
+  T? target;
 
   @override
   late TypeRef type = bridgeType;
