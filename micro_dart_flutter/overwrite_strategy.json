@@ -82,6 +82,12 @@
       "dart:ui@Shadow@":{
         "const Color(_kColorDefault)":"const Color(0xFF000000)"
       },
+      "package:flutter/src/cupertino/activity_indicator.dart@CupertinoActivityIndicator@partiallyRevealed":{
+        "_kDefaultIndicatorRadius":"10.0"
+      },
+      "dart:ui@Gradient@sweep":{
+        "math.pi * 2":"pi * 2"
+      },
       "package:flutter/src/cupertino/activity_indicator.dart@CupertinoActivityIndicator@":{
         "_kDefaultIndicatorRadius":"10.0"
       },

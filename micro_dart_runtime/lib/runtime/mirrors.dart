@@ -11,7 +11,9 @@ class ClassMirror implements Mirror {
   final Map<String, Function> getters;
   @override
   final Map<String, Function> setters;
-  const ClassMirror(this.name, this.getters, this.setters);
+
+  final Map<String, Function> constructors;
+  const ClassMirror(this.name, this.constructors, this.getters, this.setters);
 }
 
 class LibraryMirror implements Mirror {

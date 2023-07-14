@@ -61,8 +61,6 @@ class GeneratorBuilder implements Builder {
           element.identifier.startsWith("package:_")) {
         continue;
       }
-      print(
-          "${element.identifier} $isMicroDartFlutter  ${flutterRegExp.hasMatch(element.identifier)}");
 
       if ((isMicroDartFlutter && flutterRegExp.hasMatch(element.identifier)) ||
           (!isMicroDartFlutter &&

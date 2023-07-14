@@ -23,6 +23,11 @@ const libraryMirror = m.LibraryMirror(
     'BigInt.zero': _BigInt_zero$,
     'BigInt.one': _BigInt_one$,
     'BigInt.two': _BigInt_two$,
+    'BigInt.parse': _BigInt_parse$,
+    'BigInt.tryParse': _BigInt_tryParse$,
+    'bool.parse': _bool_parse$,
+    'bool.tryParse': _bool_tryParse$,
+    'Comparable.compare': _Comparable_compare$,
     'DateTime.monday': _DateTime_monday$,
     'DateTime.tuesday': _DateTime_tuesday$,
     'DateTime.wednesday': _DateTime_wednesday$,
@@ -44,11 +49,15 @@ const libraryMirror = m.LibraryMirror(
     'DateTime.november': _DateTime_november$,
     'DateTime.december': _DateTime_december$,
     'DateTime.monthsPerYear': _DateTime_monthsPerYear$,
+    'DateTime.parse': _DateTime_parse$,
+    'DateTime.tryParse': _DateTime_tryParse$,
     'double.nan': _double_nan$,
     'double.infinity': _double_infinity$,
     'double.negativeInfinity': _double_negativeInfinity$,
     'double.minPositive': _double_minPositive$,
     'double.maxFinite': _double_maxFinite$,
+    'double.parse': _double_parse$,
+    'double.tryParse': _double_tryParse$,
     'Duration.microsecondsPerMillisecond':
         _Duration_microsecondsPerMillisecond$,
     'Duration.millisecondsPerSecond': _Duration_millisecondsPerSecond$,
@@ -66,17 +75,1101 @@ const libraryMirror = m.LibraryMirror(
     'Duration.secondsPerDay': _Duration_secondsPerDay$,
     'Duration.minutesPerDay': _Duration_minutesPerDay$,
     'Duration.zero': _Duration_zero$,
+    'Enum.compareByIndex': _Enum_compareByIndex$,
+    'Enum.compareByName': _Enum_compareByName$,
+    'Error.safeToString': _Error_safeToString$,
+    'Error.throwWithStackTrace': _Error_throwWithStackTrace$,
+    'ArgumentError.checkNotNull': _ArgumentError_checkNotNull$,
+    'RangeError.checkValueInInterval': _RangeError_checkValueInInterval$,
+    'RangeError.checkValidIndex': _RangeError_checkValidIndex$,
+    'RangeError.checkValidRange': _RangeError_checkValidRange$,
+    'RangeError.checkNotNegative': _RangeError_checkNotNegative$,
+    'IndexError.check': _IndexError_check$,
+    'Function.apply': _Function_apply$,
     'identical': _identical$,
     'identityHashCode': _identityHashCode$,
+    'int.parse': _int_parse$,
+    'int.tryParse': _int_tryParse$,
+    'Iterable.castFrom': _Iterable_castFrom$,
+    'Iterable.map': _Iterable_map$,
+    'Iterable.where': _Iterable_where$,
+    'Iterable.expand': _Iterable_expand$,
+    'Iterable.forEach': _Iterable_forEach$,
+    'Iterable.reduce': _Iterable_reduce$,
+    'Iterable.fold': _Iterable_fold$,
+    'Iterable.every': _Iterable_every$,
+    'Iterable.any': _Iterable_any$,
+    'Iterable.takeWhile': _Iterable_takeWhile$,
+    'Iterable.skipWhile': _Iterable_skipWhile$,
+    'Iterable.firstWhere': _Iterable_firstWhere$,
+    'Iterable.lastWhere': _Iterable_lastWhere$,
+    'Iterable.singleWhere': _Iterable_singleWhere$,
+    'Iterable.iterableToShortString': _Iterable_iterableToShortString$,
+    'Iterable.iterableToFullString': _Iterable_iterableToFullString$,
+    'List.castFrom': _List_castFrom$,
+    'List.copyRange': _List_copyRange$,
+    'List.writeIterable': _List_writeIterable$,
+    'List.sort': _List_sort$,
+    'List.indexWhere': _List_indexWhere$,
+    'List.lastIndexWhere': _List_lastIndexWhere$,
+    'List.removeWhere': _List_removeWhere$,
+    'List.retainWhere': _List_retainWhere$,
+    'Map.castFrom': _Map_castFrom$,
+    'Map.map': _Map_map$,
+    'Map.update': _Map_update$,
+    'Map.updateAll': _Map_updateAll$,
+    'Map.removeWhere': _Map_removeWhere$,
+    'Map.putIfAbsent': _Map_putIfAbsent$,
+    'Map.forEach': _Map_forEach$,
+    'num.parse': _num_parse$,
+    'num.tryParse': _num_tryParse$,
+    'Object.hash': _Object_hash$,
+    'Object.hashAll': _Object_hashAll$,
+    'Object.hashAllUnordered': _Object_hashAllUnordered$,
     'print': _print$,
+    'RegExp.escape': _RegExp_escape$,
+    'Set.castFrom': _Set_castFrom$,
+    'Set.removeWhere': _Set_removeWhere$,
+    'Set.retainWhere': _Set_retainWhere$,
     'StackTrace.empty': _StackTrace_empty$,
     'StackTrace.current': _StackTrace_current$,
+    'String.replaceFirstMapped': _String_replaceFirstMapped$,
+    'String.replaceAllMapped': _String_replaceAllMapped$,
+    'String.splitMapJoin': _String_splitMapJoin$,
     'Symbol.unaryMinus': _Symbol_unaryMinus$,
     'Symbol.empty': _Symbol_empty$,
     'Uri.base': _Uri_base$,
+    'Uri.parse': _Uri_parse$,
+    'Uri.tryParse': _Uri_tryParse$,
+    'Uri.encodeComponent': _Uri_encodeComponent$,
+    'Uri.encodeQueryComponent': _Uri_encodeQueryComponent$,
+    'Uri.decodeComponent': _Uri_decodeComponent$,
+    'Uri.decodeQueryComponent': _Uri_decodeQueryComponent$,
+    'Uri.encodeFull': _Uri_encodeFull$,
+    'Uri.decodeFull': _Uri_decodeFull$,
+    'Uri.splitQueryString': _Uri_splitQueryString$,
+    'Uri.parseIPv4Address': _Uri_parseIPv4Address$,
+    'Uri.parseIPv6Address': _Uri_parseIPv6Address$,
+    'UriData.parse': _UriData_parse$,
   },
   {},
-  {},
+  {
+    'Deprecated': m.ClassMirror(
+      'Deprecated',
+      {'': _Deprecated__$},
+      {
+        '#as': Deprecated_as$,
+        '#is': Deprecated_is$,
+        'message': _Deprecated_message$,
+        'toString': _Deprecated_toString$,
+      },
+      {},
+    ),
+    'pragma': m.ClassMirror(
+      'pragma',
+      {'': _pragma__$},
+      {
+        '#as': pragma_as$,
+        '#is': pragma_is$,
+        'name': _pragma_name$,
+        'options': _pragma_options$,
+      },
+      {},
+    ),
+    'BigInt': m.ClassMirror(
+      'BigInt',
+      {'from': _BigInt_from_$},
+      {
+        '#as': BigInt_as$,
+        '#is': BigInt_is$,
+        'bitLength': _BigInt_bitLength$,
+        'sign': _BigInt_sign$,
+        'isEven': _BigInt_isEven$,
+        'isOdd': _BigInt_isOdd$,
+        'isNegative': _BigInt_isNegative$,
+        'isValidInt': _BigInt_isValidInt$,
+        'abs': _BigInt_abs$,
+        'unary-': _BigInt_unary_minus$$,
+        '+': _BigInt_plus$$,
+        '-': _BigInt_minus$$,
+        '*': _BigInt_times$$,
+        '/': _BigInt_over$$,
+        '~/': _BigInt_division$$,
+        '%': _BigInt_surplus$$,
+        'remainder': _BigInt_remainder$,
+        '<<': _BigInt_left_move$$,
+        '>>': _BigInt_right_move$$,
+        '&': _BigInt_bit_and$$,
+        '|': _BigInt_bit_or$$,
+        '^': _BigInt_bit_xor$$,
+        '~': _BigInt_bit_non$$,
+        '<': _BigInt_low$$,
+        '<=': _BigInt_low_eq$$,
+        '>': _BigInt_more$$,
+        '>=': _BigInt_more_eq$$,
+        'compareTo': _BigInt_compareTo$,
+        'pow': _BigInt_pow$,
+        'modPow': _BigInt_modPow$,
+        'modInverse': _BigInt_modInverse$,
+        'gcd': _BigInt_gcd$,
+        'toUnsigned': _BigInt_toUnsigned$,
+        'toSigned': _BigInt_toSigned$,
+        'toInt': _BigInt_toInt$,
+        'toDouble': _BigInt_toDouble$,
+        'toString': _BigInt_toString$,
+        'toRadixString': _BigInt_toRadixString$,
+      },
+      {},
+    ),
+    'bool': m.ClassMirror(
+      'bool',
+      {
+        'fromEnvironment': _bool_fromEnvironment_$,
+        'hasEnvironment': _bool_hasEnvironment_$,
+      },
+      {
+        '#as': bool_as$,
+        '#is': bool_is$,
+        'hashCode': _bool_hashCode$,
+        '&': _bool_bit_and$$,
+        '|': _bool_bit_or$$,
+        '^': _bool_bit_xor$$,
+        'toString': _bool_toString$,
+      },
+      {},
+    ),
+    'Comparable': m.ClassMirror(
+      'Comparable',
+      {},
+      {
+        '#as': Comparable_as$,
+        '#is': Comparable_is$,
+        'compareTo': _Comparable_compareTo$,
+      },
+      {},
+    ),
+    'DateTime': m.ClassMirror(
+      'DateTime',
+      {
+        '': _DateTime__$,
+        'utc': _DateTime_utc_$,
+        'now': _DateTime_now_$,
+        'timestamp': _DateTime_timestamp_$,
+        'fromMillisecondsSinceEpoch': _DateTime_fromMillisecondsSinceEpoch_$,
+        'fromMicrosecondsSinceEpoch': _DateTime_fromMicrosecondsSinceEpoch_$,
+      },
+      {
+        '#as': DateTime_as$,
+        '#is': DateTime_is$,
+        'isUtc': _DateTime_isUtc$,
+        'hashCode': _DateTime_hashCode$,
+        'millisecondsSinceEpoch': _DateTime_millisecondsSinceEpoch$,
+        'microsecondsSinceEpoch': _DateTime_microsecondsSinceEpoch$,
+        'timeZoneName': _DateTime_timeZoneName$,
+        'timeZoneOffset': _DateTime_timeZoneOffset$,
+        'year': _DateTime_year$,
+        'month': _DateTime_month$,
+        'day': _DateTime_day$,
+        'hour': _DateTime_hour$,
+        'minute': _DateTime_minute$,
+        'second': _DateTime_second$,
+        'millisecond': _DateTime_millisecond$,
+        'microsecond': _DateTime_microsecond$,
+        'weekday': _DateTime_weekday$,
+        '==': _DateTime_eq$$,
+        'isBefore': _DateTime_isBefore$,
+        'isAfter': _DateTime_isAfter$,
+        'isAtSameMomentAs': _DateTime_isAtSameMomentAs$,
+        'compareTo': _DateTime_compareTo$,
+        'toLocal': _DateTime_toLocal$,
+        'toUtc': _DateTime_toUtc$,
+        'toString': _DateTime_toString$,
+        'toIso8601String': _DateTime_toIso8601String$,
+        'add': _DateTime_add$,
+        'subtract': _DateTime_subtract$,
+        'difference': _DateTime_difference$,
+      },
+      {},
+    ),
+    'double': m.ClassMirror(
+      'double',
+      {},
+      {
+        '#as': double_as$,
+        '#is': double_is$,
+        'sign': _double_sign$,
+        'remainder': _double_remainder$,
+        '+': _double_plus$$,
+        '-': _double_minus$$,
+        '*': _double_times$$,
+        '%': _double_surplus$$,
+        '/': _double_over$$,
+        '~/': _double_division$$,
+        'unary-': _double_unary_minus$$,
+        'abs': _double_abs$,
+        'round': _double_round$,
+        'floor': _double_floor$,
+        'ceil': _double_ceil$,
+        'truncate': _double_truncate$,
+        'roundToDouble': _double_roundToDouble$,
+        'floorToDouble': _double_floorToDouble$,
+        'ceilToDouble': _double_ceilToDouble$,
+        'truncateToDouble': _double_truncateToDouble$,
+        'toString': _double_toString$,
+      },
+      {},
+    ),
+    'Duration': m.ClassMirror(
+      'Duration',
+      {'': _Duration__$},
+      {
+        '#as': Duration_as$,
+        '#is': Duration_is$,
+        'inDays': _Duration_inDays$,
+        'inHours': _Duration_inHours$,
+        'inMinutes': _Duration_inMinutes$,
+        'inSeconds': _Duration_inSeconds$,
+        'inMilliseconds': _Duration_inMilliseconds$,
+        'inMicroseconds': _Duration_inMicroseconds$,
+        'hashCode': _Duration_hashCode$,
+        'isNegative': _Duration_isNegative$,
+        '+': _Duration_plus$$,
+        '-': _Duration_minus$$,
+        '*': _Duration_times$$,
+        '~/': _Duration_division$$,
+        '<': _Duration_low$$,
+        '>': _Duration_more$$,
+        '<=': _Duration_low_eq$$,
+        '>=': _Duration_more_eq$$,
+        '==': _Duration_eq$$,
+        'compareTo': _Duration_compareTo$,
+        'toString': _Duration_toString$,
+        'abs': _Duration_abs$,
+        'unary-': _Duration_unary_minus$$,
+      },
+      {},
+    ),
+    'Enum': m.ClassMirror(
+      'Enum',
+      {},
+      {
+        '#as': Enum_as$,
+        '#is': Enum_is$,
+        'index': _Enum_index$,
+      },
+      {},
+    ),
+    'Error': m.ClassMirror(
+      'Error',
+      {'': _Error__$},
+      {
+        '#as': Error_as$,
+        '#is': Error_is$,
+        'stackTrace': _Error_stackTrace$,
+      },
+      {},
+    ),
+    'AssertionError': m.ClassMirror(
+      'AssertionError',
+      {'': _AssertionError__$},
+      {
+        '#as': AssertionError_as$,
+        '#is': AssertionError_is$,
+        'message': _AssertionError_message$,
+        'toString': _AssertionError_toString$,
+      },
+      {},
+    ),
+    'TypeError': m.ClassMirror(
+      'TypeError',
+      {'': _TypeError__$},
+      {
+        '#as': TypeError_as$,
+        '#is': TypeError_is$,
+      },
+      {},
+    ),
+    'ArgumentError': m.ClassMirror(
+      'ArgumentError',
+      {
+        '': _ArgumentError__$,
+        'value': _ArgumentError_value_$,
+        'notNull': _ArgumentError_notNull_$,
+      },
+      {
+        '#as': ArgumentError_as$,
+        '#is': ArgumentError_is$,
+        'invalidValue': _ArgumentError_invalidValue$,
+        'name': _ArgumentError_name$,
+        'message': _ArgumentError_message$,
+        'toString': _ArgumentError_toString$,
+      },
+      {},
+    ),
+    'RangeError': m.ClassMirror(
+      'RangeError',
+      {
+        '': _RangeError__$,
+        'value': _RangeError_value_$,
+        'range': _RangeError_range_$,
+        'index': _RangeError_index_$,
+      },
+      {
+        '#as': RangeError_as$,
+        '#is': RangeError_is$,
+        'start': _RangeError_start$,
+        'end': _RangeError_end$,
+        'invalidValue': _RangeError_invalidValue$,
+      },
+      {},
+    ),
+    'IndexError': m.ClassMirror(
+      'IndexError',
+      {'withLength': _IndexError_withLength_$},
+      {
+        '#as': IndexError_as$,
+        '#is': IndexError_is$,
+        'indexable': _IndexError_indexable$,
+        'length': _IndexError_length$,
+        'invalidValue': _IndexError_invalidValue$,
+        'start': _IndexError_start$,
+        'end': _IndexError_end$,
+      },
+      {},
+    ),
+    'NoSuchMethodError': m.ClassMirror(
+      'NoSuchMethodError',
+      {'withInvocation': _NoSuchMethodError_withInvocation_$},
+      {
+        '#as': NoSuchMethodError_as$,
+        '#is': NoSuchMethodError_is$,
+        'toString': _NoSuchMethodError_toString$,
+      },
+      {},
+    ),
+    'UnsupportedError': m.ClassMirror(
+      'UnsupportedError',
+      {'': _UnsupportedError__$},
+      {
+        '#as': UnsupportedError_as$,
+        '#is': UnsupportedError_is$,
+        'message': _UnsupportedError_message$,
+        'toString': _UnsupportedError_toString$,
+      },
+      {},
+    ),
+    'UnimplementedError': m.ClassMirror(
+      'UnimplementedError',
+      {'': _UnimplementedError__$},
+      {
+        '#as': UnimplementedError_as$,
+        '#is': UnimplementedError_is$,
+        'message': _UnimplementedError_message$,
+        'toString': _UnimplementedError_toString$,
+      },
+      {},
+    ),
+    'StateError': m.ClassMirror(
+      'StateError',
+      {'': _StateError__$},
+      {
+        '#as': StateError_as$,
+        '#is': StateError_is$,
+        'message': _StateError_message$,
+        'toString': _StateError_toString$,
+      },
+      {},
+    ),
+    'ConcurrentModificationError': m.ClassMirror(
+      'ConcurrentModificationError',
+      {'': _ConcurrentModificationError__$},
+      {
+        '#as': ConcurrentModificationError_as$,
+        '#is': ConcurrentModificationError_is$,
+        'modifiedObject': _ConcurrentModificationError_modifiedObject$,
+        'toString': _ConcurrentModificationError_toString$,
+      },
+      {},
+    ),
+    'OutOfMemoryError': m.ClassMirror(
+      'OutOfMemoryError',
+      {'': _OutOfMemoryError__$},
+      {
+        '#as': OutOfMemoryError_as$,
+        '#is': OutOfMemoryError_is$,
+        'stackTrace': _OutOfMemoryError_stackTrace$,
+        'toString': _OutOfMemoryError_toString$,
+      },
+      {},
+    ),
+    'StackOverflowError': m.ClassMirror(
+      'StackOverflowError',
+      {'': _StackOverflowError__$},
+      {
+        '#as': StackOverflowError_as$,
+        '#is': StackOverflowError_is$,
+        'stackTrace': _StackOverflowError_stackTrace$,
+        'toString': _StackOverflowError_toString$,
+      },
+      {},
+    ),
+    'Exception': m.ClassMirror(
+      'Exception',
+      {'': _Exception__$},
+      {
+        '#as': Exception_as$,
+        '#is': Exception_is$,
+      },
+      {},
+    ),
+    'FormatException': m.ClassMirror(
+      'FormatException',
+      {'': _FormatException__$},
+      {
+        '#as': FormatException_as$,
+        '#is': FormatException_is$,
+        'message': _FormatException_message$,
+        'source': _FormatException_source$,
+        'offset': _FormatException_offset$,
+        'toString': _FormatException_toString$,
+      },
+      {},
+    ),
+    'Function': m.ClassMirror(
+      'Function',
+      {},
+      {
+        '#as': Function_as$,
+        '#is': Function_is$,
+        'hashCode': _Function_hashCode$,
+        '==': _Function_eq$$,
+      },
+      {},
+    ),
+    'int': m.ClassMirror(
+      'int',
+      {'fromEnvironment': _int_fromEnvironment_$},
+      {
+        '#as': int_as$,
+        '#is': int_is$,
+        'isEven': _int_isEven$,
+        'isOdd': _int_isOdd$,
+        'bitLength': _int_bitLength$,
+        'sign': _int_sign$,
+        '&': _int_bit_and$$,
+        '|': _int_bit_or$$,
+        '^': _int_bit_xor$$,
+        '~': _int_bit_non$$,
+        '<<': _int_left_move$$,
+        '>>': _int_right_move$$,
+        '>>>': _int_unsign_right_move$$,
+        'modPow': _int_modPow$,
+        'modInverse': _int_modInverse$,
+        'gcd': _int_gcd$,
+        'toUnsigned': _int_toUnsigned$,
+        'toSigned': _int_toSigned$,
+        'unary-': _int_unary_minus$$,
+        'abs': _int_abs$,
+        'round': _int_round$,
+        'floor': _int_floor$,
+        'ceil': _int_ceil$,
+        'truncate': _int_truncate$,
+        'roundToDouble': _int_roundToDouble$,
+        'floorToDouble': _int_floorToDouble$,
+        'ceilToDouble': _int_ceilToDouble$,
+        'truncateToDouble': _int_truncateToDouble$,
+        'toString': _int_toString$,
+        'toRadixString': _int_toRadixString$,
+      },
+      {},
+    ),
+    'Invocation': m.ClassMirror(
+      'Invocation',
+      {
+        'method': _Invocation_method_$,
+        'genericMethod': _Invocation_genericMethod_$,
+        'getter': _Invocation_getter_$,
+        'setter': _Invocation_setter_$,
+      },
+      {
+        '#as': Invocation_as$,
+        '#is': Invocation_is$,
+        'memberName': _Invocation_memberName$,
+        'typeArguments': _Invocation_typeArguments$,
+        'positionalArguments': _Invocation_positionalArguments$,
+        'namedArguments': _Invocation_namedArguments$,
+        'isMethod': _Invocation_isMethod$,
+        'isGetter': _Invocation_isGetter$,
+        'isSetter': _Invocation_isSetter$,
+        'isAccessor': _Invocation_isAccessor$,
+      },
+      {},
+    ),
+    'Iterable': m.ClassMirror(
+      'Iterable',
+      {
+        'generate': _Iterable_generate_$,
+        'empty': _Iterable_empty_$,
+      },
+      {
+        '#as': Iterable_as$,
+        '#is': Iterable_is$,
+        'iterator': _Iterable_iterator$,
+        'length': _Iterable_length$,
+        'isEmpty': _Iterable_isEmpty$,
+        'isNotEmpty': _Iterable_isNotEmpty$,
+        'first': _Iterable_first$,
+        'last': _Iterable_last$,
+        'single': _Iterable_single$,
+        'cast': _Iterable_cast$,
+        'followedBy': _Iterable_followedBy$,
+        'whereType': _Iterable_whereType$,
+        'contains': _Iterable_contains$,
+        'join': _Iterable_join$,
+        'toList': _Iterable_toList$,
+        'toSet': _Iterable_toSet$,
+        'take': _Iterable_take$,
+        'skip': _Iterable_skip$,
+        'elementAt': _Iterable_elementAt$,
+        'toString': _Iterable_toString$,
+      },
+      {},
+    ),
+    'Iterator': m.ClassMirror(
+      'Iterator',
+      {},
+      {
+        '#as': Iterator_as$,
+        '#is': Iterator_is$,
+        'current': _Iterator_current$,
+        'moveNext': _Iterator_moveNext$,
+      },
+      {},
+    ),
+    'List': m.ClassMirror(
+      'List',
+      {
+        'filled': _List_filled_$,
+        'empty': _List_empty_$,
+        'from': _List_from_$,
+        'of': _List_of_$,
+        'generate': _List_generate_$,
+        'unmodifiable': _List_unmodifiable_$,
+      },
+      {
+        '#as': List_as$,
+        '#is': List_is$,
+        'length': _List_length$,
+        'reversed': _List_reversed$,
+        'cast': _List_cast$,
+        '[]': _List_$index$$,
+        '[]=': _List_$index_set$$,
+        'add': _List_add$,
+        'addAll': _List_addAll$,
+        'shuffle': _List_shuffle$,
+        'indexOf': _List_indexOf$,
+        'lastIndexOf': _List_lastIndexOf$,
+        'clear': _List_clear$,
+        'insert': _List_insert$,
+        'insertAll': _List_insertAll$,
+        'setAll': _List_setAll$,
+        'remove': _List_remove$,
+        'removeAt': _List_removeAt$,
+        'removeLast': _List_removeLast$,
+        '+': _List_plus$$,
+        'sublist': _List_sublist$,
+        'getRange': _List_getRange$,
+        'setRange': _List_setRange$,
+        'removeRange': _List_removeRange$,
+        'fillRange': _List_fillRange$,
+        'replaceRange': _List_replaceRange$,
+        'asMap': _List_asMap$,
+        '==': _List_eq$$,
+      },
+      {
+        'first': _List_first_set$,
+        'last': _List_last_set$,
+        'length': _List_length_set$,
+      },
+    ),
+    'Map': m.ClassMirror(
+      'Map',
+      {
+        '': _Map__$,
+        'from': _Map_from_$,
+        'of': _Map_of_$,
+        'unmodifiable': _Map_unmodifiable_$,
+        'identity': _Map_identity_$,
+        'fromIterable': _Map_fromIterable_$,
+        'fromIterables': _Map_fromIterables_$,
+        'fromEntries': _Map_fromEntries_$,
+      },
+      {
+        '#as': Map_as$,
+        '#is': Map_is$,
+        'entries': _Map_entries$,
+        'keys': _Map_keys$,
+        'values': _Map_values$,
+        'length': _Map_length$,
+        'isEmpty': _Map_isEmpty$,
+        'isNotEmpty': _Map_isNotEmpty$,
+        'cast': _Map_cast$,
+        'containsValue': _Map_containsValue$,
+        'containsKey': _Map_containsKey$,
+        '[]': _Map_$index$$,
+        '[]=': _Map_$index_set$$,
+        'addEntries': _Map_addEntries$,
+        'addAll': _Map_addAll$,
+        'remove': _Map_remove$,
+        'clear': _Map_clear$,
+      },
+      {},
+    ),
+    'MapEntry': m.ClassMirror(
+      'MapEntry',
+      {'': _MapEntry__$},
+      {
+        '#as': MapEntry_as$,
+        '#is': MapEntry_is$,
+        'key': _MapEntry_key$,
+        'value': _MapEntry_value$,
+        'toString': _MapEntry_toString$,
+      },
+      {},
+    ),
+    'Null': m.ClassMirror(
+      'Null',
+      {},
+      {
+        '#as': Null_as$,
+        '#is': Null_is$,
+        'hashCode': _Null_hashCode$,
+        'toString': _Null_toString$,
+      },
+      {},
+    ),
+    'num': m.ClassMirror(
+      'num',
+      {},
+      {
+        '#as': num_as$,
+        '#is': num_is$,
+        'hashCode': _num_hashCode$,
+        'isNaN': _num_isNaN$,
+        'isNegative': _num_isNegative$,
+        'isInfinite': _num_isInfinite$,
+        'isFinite': _num_isFinite$,
+        'sign': _num_sign$,
+        '==': _num_eq$$,
+        'compareTo': _num_compareTo$,
+        '+': _num_plus$$,
+        '-': _num_minus$$,
+        '*': _num_times$$,
+        '%': _num_surplus$$,
+        '/': _num_over$$,
+        '~/': _num_division$$,
+        'unary-': _num_unary_minus$$,
+        'remainder': _num_remainder$,
+        '<': _num_low$$,
+        '<=': _num_low_eq$$,
+        '>': _num_more$$,
+        '>=': _num_more_eq$$,
+        'abs': _num_abs$,
+        'round': _num_round$,
+        'floor': _num_floor$,
+        'ceil': _num_ceil$,
+        'truncate': _num_truncate$,
+        'roundToDouble': _num_roundToDouble$,
+        'floorToDouble': _num_floorToDouble$,
+        'ceilToDouble': _num_ceilToDouble$,
+        'truncateToDouble': _num_truncateToDouble$,
+        'clamp': _num_clamp$,
+        'toInt': _num_toInt$,
+        'toDouble': _num_toDouble$,
+        'toStringAsFixed': _num_toStringAsFixed$,
+        'toStringAsExponential': _num_toStringAsExponential$,
+        'toStringAsPrecision': _num_toStringAsPrecision$,
+        'toString': _num_toString$,
+      },
+      {},
+    ),
+    'Object': m.ClassMirror(
+      'Object',
+      {'': _Object__$},
+      {
+        '#as': Object_as$,
+        '#is': Object_is$,
+        'hashCode': _Object_hashCode$,
+        'runtimeType': _Object_runtimeType$,
+        '==': _Object_eq$$,
+        'toString': _Object_toString$,
+        'noSuchMethod': _Object_noSuchMethod$,
+      },
+      {},
+    ),
+    'Pattern': m.ClassMirror(
+      'Pattern',
+      {},
+      {
+        '#as': Pattern_as$,
+        '#is': Pattern_is$,
+        'allMatches': _Pattern_allMatches$,
+        'matchAsPrefix': _Pattern_matchAsPrefix$,
+      },
+      {},
+    ),
+    'Match': m.ClassMirror(
+      'Match',
+      {},
+      {
+        '#as': Match_as$,
+        '#is': Match_is$,
+        'start': _Match_start$,
+        'end': _Match_end$,
+        'groupCount': _Match_groupCount$,
+        'input': _Match_input$,
+        'pattern': _Match_pattern$,
+        'group': _Match_group$,
+        '[]': _Match_$index$$,
+        'groups': _Match_groups$,
+      },
+      {},
+    ),
+    'RegExp': m.ClassMirror(
+      'RegExp',
+      {'': _RegExp__$},
+      {
+        '#as': RegExp_as$,
+        '#is': RegExp_is$,
+        'pattern': _RegExp_pattern$,
+        'isMultiLine': _RegExp_isMultiLine$,
+        'isCaseSensitive': _RegExp_isCaseSensitive$,
+        'isUnicode': _RegExp_isUnicode$,
+        'isDotAll': _RegExp_isDotAll$,
+        'firstMatch': _RegExp_firstMatch$,
+        'allMatches': _RegExp_allMatches$,
+        'hasMatch': _RegExp_hasMatch$,
+        'stringMatch': _RegExp_stringMatch$,
+      },
+      {},
+    ),
+    'RegExpMatch': m.ClassMirror(
+      'RegExpMatch',
+      {},
+      {
+        '#as': RegExpMatch_as$,
+        '#is': RegExpMatch_is$,
+        'groupNames': _RegExpMatch_groupNames$,
+        'pattern': _RegExpMatch_pattern$,
+        'namedGroup': _RegExpMatch_namedGroup$,
+      },
+      {},
+    ),
+    'Set': m.ClassMirror(
+      'Set',
+      {
+        '': _Set__$,
+        'identity': _Set_identity_$,
+        'from': _Set_from_$,
+        'of': _Set_of_$,
+        'unmodifiable': _Set_unmodifiable_$,
+      },
+      {
+        '#as': Set_as$,
+        '#is': Set_is$,
+        'iterator': _Set_iterator$,
+        'cast': _Set_cast$,
+        'contains': _Set_contains$,
+        'add': _Set_add$,
+        'addAll': _Set_addAll$,
+        'remove': _Set_remove$,
+        'lookup': _Set_lookup$,
+        'removeAll': _Set_removeAll$,
+        'retainAll': _Set_retainAll$,
+        'containsAll': _Set_containsAll$,
+        'intersection': _Set_intersection$,
+        'union': _Set_union$,
+        'difference': _Set_difference$,
+        'clear': _Set_clear$,
+        'toSet': _Set_toSet$,
+      },
+      {},
+    ),
+    'Sink': m.ClassMirror(
+      'Sink',
+      {},
+      {
+        '#as': Sink_as$,
+        '#is': Sink_is$,
+        'add': _Sink_add$,
+        'close': _Sink_close$,
+      },
+      {},
+    ),
+    'StackTrace': m.ClassMirror(
+      'StackTrace',
+      {'fromString': _StackTrace_fromString_$},
+      {
+        '#as': StackTrace_as$,
+        '#is': StackTrace_is$,
+        'toString': _StackTrace_toString$,
+      },
+      {},
+    ),
+    'Stopwatch': m.ClassMirror(
+      'Stopwatch',
+      {'': _Stopwatch__$},
+      {
+        '#as': Stopwatch_as$,
+        '#is': Stopwatch_is$,
+        'frequency': _Stopwatch_frequency$,
+        'elapsedTicks': _Stopwatch_elapsedTicks$,
+        'elapsed': _Stopwatch_elapsed$,
+        'elapsedMicroseconds': _Stopwatch_elapsedMicroseconds$,
+        'elapsedMilliseconds': _Stopwatch_elapsedMilliseconds$,
+        'isRunning': _Stopwatch_isRunning$,
+        'start': _Stopwatch_start$,
+        'stop': _Stopwatch_stop$,
+        'reset': _Stopwatch_reset$,
+      },
+      {},
+    ),
+    'String': m.ClassMirror(
+      'String',
+      {
+        'fromCharCodes': _String_fromCharCodes_$,
+        'fromCharCode': _String_fromCharCode_$,
+        'fromEnvironment': _String_fromEnvironment_$,
+      },
+      {
+        '#as': String_as$,
+        '#is': String_is$,
+        'length': _String_length$,
+        'hashCode': _String_hashCode$,
+        'isEmpty': _String_isEmpty$,
+        'isNotEmpty': _String_isNotEmpty$,
+        'codeUnits': _String_codeUnits$,
+        'runes': _String_runes$,
+        '[]': _String_$index$$,
+        'codeUnitAt': _String_codeUnitAt$,
+        '==': _String_eq$$,
+        'compareTo': _String_compareTo$,
+        'endsWith': _String_endsWith$,
+        'startsWith': _String_startsWith$,
+        'indexOf': _String_indexOf$,
+        'lastIndexOf': _String_lastIndexOf$,
+        '+': _String_plus$$,
+        'substring': _String_substring$,
+        'trim': _String_trim$,
+        'trimLeft': _String_trimLeft$,
+        'trimRight': _String_trimRight$,
+        '*': _String_times$$,
+        'padLeft': _String_padLeft$,
+        'padRight': _String_padRight$,
+        'contains': _String_contains$,
+        'replaceFirst': _String_replaceFirst$,
+        'replaceAll': _String_replaceAll$,
+        'replaceRange': _String_replaceRange$,
+        'split': _String_split$,
+        'toLowerCase': _String_toLowerCase$,
+        'toUpperCase': _String_toUpperCase$,
+      },
+      {},
+    ),
+    'Runes': m.ClassMirror(
+      'Runes',
+      {'': _Runes__$},
+      {
+        '#as': Runes_as$,
+        '#is': Runes_is$,
+        'string': _Runes_string$,
+        'iterator': _Runes_iterator$,
+        'last': _Runes_last$,
+      },
+      {},
+    ),
+    'RuneIterator': m.ClassMirror(
+      'RuneIterator',
+      {
+        '': _RuneIterator__$,
+        'at': _RuneIterator_at_$,
+      },
+      {
+        '#as': RuneIterator_as$,
+        '#is': RuneIterator_is$,
+        'string': _RuneIterator_string$,
+        'rawIndex': _RuneIterator_rawIndex$,
+        'current': _RuneIterator_current$,
+        'currentSize': _RuneIterator_currentSize$,
+        'currentAsString': _RuneIterator_currentAsString$,
+        'reset': _RuneIterator_reset$,
+        'moveNext': _RuneIterator_moveNext$,
+        'movePrevious': _RuneIterator_movePrevious$,
+      },
+      {'rawIndex': _RuneIterator_rawIndex_set$},
+    ),
+    'StringBuffer': m.ClassMirror(
+      'StringBuffer',
+      {'': _StringBuffer__$},
+      {
+        '#as': StringBuffer_as$,
+        '#is': StringBuffer_is$,
+        'length': _StringBuffer_length$,
+        'isEmpty': _StringBuffer_isEmpty$,
+        'isNotEmpty': _StringBuffer_isNotEmpty$,
+        'write': _StringBuffer_write$,
+        'writeCharCode': _StringBuffer_writeCharCode$,
+        'writeAll': _StringBuffer_writeAll$,
+        'writeln': _StringBuffer_writeln$,
+        'clear': _StringBuffer_clear$,
+        'toString': _StringBuffer_toString$,
+      },
+      {},
+    ),
+    'StringSink': m.ClassMirror(
+      'StringSink',
+      {},
+      {
+        '#as': StringSink_as$,
+        '#is': StringSink_is$,
+        'write': _StringSink_write$,
+        'writeAll': _StringSink_writeAll$,
+        'writeln': _StringSink_writeln$,
+        'writeCharCode': _StringSink_writeCharCode$,
+      },
+      {},
+    ),
+    'Symbol': m.ClassMirror(
+      'Symbol',
+      {'': _Symbol__$},
+      {
+        '#as': Symbol_as$,
+        '#is': Symbol_is$,
+        'hashCode': _Symbol_hashCode$,
+        '==': _Symbol_eq$$,
+      },
+      {},
+    ),
+    'Type': m.ClassMirror(
+      'Type',
+      {},
+      {
+        '#as': Type_as$,
+        '#is': Type_is$,
+        'hashCode': _Type_hashCode$,
+        '==': _Type_eq$$,
+        'toString': _Type_toString$,
+      },
+      {},
+    ),
+    'Uri': m.ClassMirror(
+      'Uri',
+      {
+        '': _Uri__$,
+        'http': _Uri_http_$,
+        'https': _Uri_https_$,
+        'file': _Uri_file_$,
+        'directory': _Uri_directory_$,
+        'dataFromString': _Uri_dataFromString_$,
+        'dataFromBytes': _Uri_dataFromBytes_$,
+      },
+      {
+        '#as': Uri_as$,
+        '#is': Uri_is$,
+        'scheme': _Uri_scheme$,
+        'authority': _Uri_authority$,
+        'userInfo': _Uri_userInfo$,
+        'host': _Uri_host$,
+        'port': _Uri_port$,
+        'path': _Uri_path$,
+        'query': _Uri_query$,
+        'fragment': _Uri_fragment$,
+        'pathSegments': _Uri_pathSegments$,
+        'queryParameters': _Uri_queryParameters$,
+        'queryParametersAll': _Uri_queryParametersAll$,
+        'isAbsolute': _Uri_isAbsolute$,
+        'hasScheme': _Uri_hasScheme$,
+        'hasAuthority': _Uri_hasAuthority$,
+        'hasPort': _Uri_hasPort$,
+        'hasQuery': _Uri_hasQuery$,
+        'hasFragment': _Uri_hasFragment$,
+        'hasEmptyPath': _Uri_hasEmptyPath$,
+        'hasAbsolutePath': _Uri_hasAbsolutePath$,
+        'origin': _Uri_origin$,
+        'data': _Uri_data$,
+        'hashCode': _Uri_hashCode$,
+        'isScheme': _Uri_isScheme$,
+        'toFilePath': _Uri_toFilePath$,
+        '==': _Uri_eq$$,
+        'toString': _Uri_toString$,
+        'replace': _Uri_replace$,
+        'removeFragment': _Uri_removeFragment$,
+        'resolve': _Uri_resolve$,
+        'resolveUri': _Uri_resolveUri$,
+        'normalizePath': _Uri_normalizePath$,
+      },
+      {},
+    ),
+    'UriData': m.ClassMirror(
+      'UriData',
+      {
+        'fromString': _UriData_fromString_$,
+        'fromBytes': _UriData_fromBytes_$,
+        'fromUri': _UriData_fromUri_$,
+      },
+      {
+        '#as': UriData_as$,
+        '#is': UriData_is$,
+        'uri': _UriData_uri$,
+        'mimeType': _UriData_mimeType$,
+        'charset': _UriData_charset$,
+        'isBase64': _UriData_isBase64$,
+        'contentText': _UriData_contentText$,
+        'parameters': _UriData_parameters$,
+        'isMimeType': _UriData_isMimeType$,
+        'isCharset': _UriData_isCharset$,
+        'isEncoding': _UriData_isEncoding$,
+        'contentAsBytes': _UriData_contentAsBytes$,
+        'contentAsString': _UriData_contentAsString$,
+        'toString': _UriData_toString$,
+      },
+      {},
+    ),
+    'Expando': m.ClassMirror(
+      'Expando',
+      {'': _Expando__$},
+      {
+        '#as': Expando_as$,
+        '#is': Expando_is$,
+        'name': _Expando_name$,
+        'toString': _Expando_toString$,
+        '[]': _Expando_$index$$,
+        '[]=': _Expando_$index_set$$,
+      },
+      {},
+    ),
+    'WeakReference': m.ClassMirror(
+      'WeakReference',
+      {'': _WeakReference__$},
+      {
+        '#as': WeakReference_as$,
+        '#is': WeakReference_is$,
+        'target': _WeakReference_target$,
+      },
+      {},
+    ),
+    'Finalizer': m.ClassMirror(
+      'Finalizer',
+      {'': _Finalizer__$},
+      {
+        '#as': Finalizer_as$,
+        '#is': Finalizer_is$,
+        'attach': _Finalizer_attach$,
+        'detach': _Finalizer_detach$,
+      },
+      {},
+    ),
+  },
 );
 Deprecated _deprecated$() {
   return deprecated;
@@ -86,6 +1179,68 @@ Object _override$() {
   return override;
 }
 
+Function Deprecated_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Deprecated;
+Function Deprecated_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Deprecated;
+String _Deprecated_message$(Deprecated target$) {
+  return target$.message;
+}
+
+Function _Deprecated__$(m.Scope scope$) => (String message) {
+      return Deprecated(message);
+    };
+Function _Deprecated_toString$(
+  m.Scope scope$,
+  Deprecated target$,
+) =>
+    target$.toString;
+Function pragma_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as pragma;
+Function pragma_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is pragma;
+String _pragma_name$(pragma target$) {
+  return target$.name;
+}
+
+Object? _pragma_options$(pragma target$) {
+  return target$.options;
+}
+
+Function _pragma__$(m.Scope scope$) => (
+      String name, [
+      Object? options,
+    ]) {
+      if (options == null) {
+        return pragma(name);
+      }
+      return pragma(
+        name,
+        options!,
+      );
+    };
+Function BigInt_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as BigInt;
+Function BigInt_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is BigInt;
 BigInt _BigInt_zero$() {
   return BigInt.zero;
 }
@@ -98,6 +1253,247 @@ BigInt _BigInt_two$() {
   return BigInt.two;
 }
 
+int _BigInt_bitLength$(BigInt target$) {
+  return target$.bitLength;
+}
+
+int _BigInt_sign$(BigInt target$) {
+  return target$.sign;
+}
+
+bool _BigInt_isEven$(BigInt target$) {
+  return target$.isEven;
+}
+
+bool _BigInt_isOdd$(BigInt target$) {
+  return target$.isOdd;
+}
+
+bool _BigInt_isNegative$(BigInt target$) {
+  return target$.isNegative;
+}
+
+bool _BigInt_isValidInt$(BigInt target$) {
+  return target$.isValidInt;
+}
+
+Function _BigInt_from_$(m.Scope scope$) => BigInt.from;
+Function _BigInt_parse$(m.Scope scope$) => BigInt.parse;
+Function _BigInt_tryParse$(m.Scope scope$) => BigInt.tryParse;
+Function _BigInt_abs$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.abs;
+Function _BigInt_unary_minus$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () => -target$;
+Function _BigInt_plus$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ + other$;
+Function _BigInt_minus$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ - other$;
+Function _BigInt_times$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ * other$;
+Function _BigInt_over$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ / other$;
+Function _BigInt_division$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ ~/ other$;
+Function _BigInt_surplus$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ % other$;
+Function _BigInt_remainder$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.remainder;
+Function _BigInt_left_move$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (int other$) => target$ << other$;
+Function _BigInt_right_move$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (int other$) => target$ >> other$;
+Function _BigInt_bit_and$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ & other$;
+Function _BigInt_bit_or$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ | other$;
+Function _BigInt_bit_xor$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ ^ other$;
+Function _BigInt_bit_non$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () => ~target$;
+Function _BigInt_low$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ < other$;
+Function _BigInt_low_eq$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ <= other$;
+Function _BigInt_more$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ > other$;
+Function _BigInt_more_eq$$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    (BigInt other$) => target$ >= other$;
+Function _BigInt_compareTo$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.compareTo;
+Function _BigInt_pow$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.pow;
+Function _BigInt_modPow$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.modPow;
+Function _BigInt_modInverse$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.modInverse;
+Function _BigInt_gcd$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.gcd;
+Function _BigInt_toUnsigned$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toUnsigned;
+Function _BigInt_toSigned$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toSigned;
+Function _BigInt_toInt$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toInt;
+Function _BigInt_toDouble$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toDouble;
+Function _BigInt_toString$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toString;
+Function _BigInt_toRadixString$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    target$.toRadixString;
+Function bool_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as bool;
+Function bool_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is bool;
+int _bool_hashCode$(bool target$) {
+  return target$.hashCode;
+}
+
+Function _bool_fromEnvironment_$(m.Scope scope$) => bool.fromEnvironment;
+Function _bool_hasEnvironment_$(m.Scope scope$) => bool.hasEnvironment;
+Function _bool_parse$(m.Scope scope$) => bool.parse;
+Function _bool_tryParse$(m.Scope scope$) => bool.tryParse;
+Function _bool_bit_and$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ & other$;
+Function _bool_bit_or$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ | other$;
+Function _bool_bit_xor$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ ^ other$;
+Function _bool_toString$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    target$.toString;
+Function Comparable_as$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Comparable<T>;
+Function Comparable_is$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Comparable<T>;
+Function _Comparable_compareTo$<T>(
+  m.Scope scope$,
+  Comparable<T> target$,
+) =>
+    target$.compareTo;
+Function _Comparable_compare$(m.Scope scope$) => Comparable.compare;
+Function DateTime_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as DateTime;
+Function DateTime_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is DateTime;
 int _DateTime_monday$() {
   return DateTime.monday;
 }
@@ -182,6 +1578,238 @@ int _DateTime_monthsPerYear$() {
   return DateTime.monthsPerYear;
 }
 
+bool _DateTime_isUtc$(DateTime target$) {
+  return target$.isUtc;
+}
+
+int _DateTime_hashCode$(DateTime target$) {
+  return target$.hashCode;
+}
+
+int _DateTime_millisecondsSinceEpoch$(DateTime target$) {
+  return target$.millisecondsSinceEpoch;
+}
+
+int _DateTime_microsecondsSinceEpoch$(DateTime target$) {
+  return target$.microsecondsSinceEpoch;
+}
+
+String _DateTime_timeZoneName$(DateTime target$) {
+  return target$.timeZoneName;
+}
+
+Duration _DateTime_timeZoneOffset$(DateTime target$) {
+  return target$.timeZoneOffset;
+}
+
+int _DateTime_year$(DateTime target$) {
+  return target$.year;
+}
+
+int _DateTime_month$(DateTime target$) {
+  return target$.month;
+}
+
+int _DateTime_day$(DateTime target$) {
+  return target$.day;
+}
+
+int _DateTime_hour$(DateTime target$) {
+  return target$.hour;
+}
+
+int _DateTime_minute$(DateTime target$) {
+  return target$.minute;
+}
+
+int _DateTime_second$(DateTime target$) {
+  return target$.second;
+}
+
+int _DateTime_millisecond$(DateTime target$) {
+  return target$.millisecond;
+}
+
+int _DateTime_microsecond$(DateTime target$) {
+  return target$.microsecond;
+}
+
+int _DateTime_weekday$(DateTime target$) {
+  return target$.weekday;
+}
+
+Function _DateTime__$(m.Scope scope$) => (
+      int year, [
+      int? month,
+      int? day,
+      int? hour,
+      int? minute,
+      int? second,
+      int? millisecond,
+      int? microsecond,
+    ]) {
+      if (month == null &&
+          day == null &&
+          hour == null &&
+          minute == null &&
+          second == null &&
+          millisecond == null &&
+          microsecond == null) {
+        return DateTime(year);
+      }
+      if (day == null &&
+          hour == null &&
+          minute == null &&
+          second == null &&
+          millisecond == null &&
+          microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+        );
+      }
+      if (hour == null &&
+          minute == null &&
+          second == null &&
+          millisecond == null &&
+          microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+          day!,
+        );
+      }
+      if (minute == null &&
+          second == null &&
+          millisecond == null &&
+          microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+          day!,
+          hour!,
+        );
+      }
+      if (second == null && millisecond == null && microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+          day!,
+          hour!,
+          minute!,
+        );
+      }
+      if (millisecond == null && microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+          day!,
+          hour!,
+          minute!,
+          second!,
+        );
+      }
+      if (microsecond == null) {
+        return DateTime(
+          year,
+          month!,
+          day!,
+          hour!,
+          minute!,
+          second!,
+          millisecond!,
+        );
+      }
+      return DateTime(
+        year,
+        month!,
+        day!,
+        hour!,
+        minute!,
+        second!,
+        millisecond!,
+        microsecond!,
+      );
+    };
+Function _DateTime_utc_$(m.Scope scope$) => DateTime.utc;
+Function _DateTime_now_$(m.Scope scope$) => DateTime.now;
+Function _DateTime_timestamp_$(m.Scope scope$) => DateTime.timestamp;
+Function _DateTime_fromMillisecondsSinceEpoch_$(m.Scope scope$) =>
+    DateTime.fromMillisecondsSinceEpoch;
+Function _DateTime_fromMicrosecondsSinceEpoch_$(m.Scope scope$) =>
+    DateTime.fromMicrosecondsSinceEpoch;
+Function _DateTime_parse$(m.Scope scope$) => DateTime.parse;
+Function _DateTime_tryParse$(m.Scope scope$) => DateTime.tryParse;
+Function _DateTime_eq$$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _DateTime_isBefore$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.isBefore;
+Function _DateTime_isAfter$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.isAfter;
+Function _DateTime_isAtSameMomentAs$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.isAtSameMomentAs;
+Function _DateTime_compareTo$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.compareTo;
+Function _DateTime_toLocal$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.toLocal;
+Function _DateTime_toUtc$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.toUtc;
+Function _DateTime_toString$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.toString;
+Function _DateTime_toIso8601String$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.toIso8601String;
+Function _DateTime_add$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.add;
+Function _DateTime_subtract$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.subtract;
+Function _DateTime_difference$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    target$.difference;
+Function double_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as double;
+Function double_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is double;
 double _double_nan$() {
   return double.nan;
 }
@@ -202,6 +1830,112 @@ double _double_maxFinite$() {
   return double.maxFinite;
 }
 
+double _double_sign$(double target$) {
+  return target$.sign;
+}
+
+Function _double_remainder$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.remainder;
+Function _double_plus$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ + other$;
+Function _double_minus$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ - other$;
+Function _double_times$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ * other$;
+Function _double_surplus$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ % other$;
+Function _double_over$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ / other$;
+Function _double_division$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    (num other$) => target$ ~/ other$;
+Function _double_unary_minus$$(
+  m.Scope scope$,
+  double target$,
+) =>
+    () => -target$;
+Function _double_abs$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.abs;
+Function _double_round$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.round;
+Function _double_floor$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.floor;
+Function _double_ceil$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.ceil;
+Function _double_truncate$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.truncate;
+Function _double_roundToDouble$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.roundToDouble;
+Function _double_floorToDouble$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.floorToDouble;
+Function _double_ceilToDouble$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.ceilToDouble;
+Function _double_truncateToDouble$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.truncateToDouble;
+Function _double_toString$(
+  m.Scope scope$,
+  double target$,
+) =>
+    target$.toString;
+Function _double_parse$(m.Scope scope$) => double.parse;
+Function _double_tryParse$(m.Scope scope$) => double.tryParse;
+Function Duration_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Duration;
+Function Duration_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Duration;
 int _Duration_microsecondsPerMillisecond$() {
   return Duration.microsecondsPerMillisecond;
 }
@@ -266,9 +2000,2248 @@ Duration _Duration_zero$() {
   return Duration.zero;
 }
 
-Function _identical$(m.Scope scope) => identical;
-Function _identityHashCode$(m.Scope scope) => identityHashCode;
-Function _print$(m.Scope scope) => print;
+int _Duration_inDays$(Duration target$) {
+  return target$.inDays;
+}
+
+int _Duration_inHours$(Duration target$) {
+  return target$.inHours;
+}
+
+int _Duration_inMinutes$(Duration target$) {
+  return target$.inMinutes;
+}
+
+int _Duration_inSeconds$(Duration target$) {
+  return target$.inSeconds;
+}
+
+int _Duration_inMilliseconds$(Duration target$) {
+  return target$.inMilliseconds;
+}
+
+int _Duration_inMicroseconds$(Duration target$) {
+  return target$.inMicroseconds;
+}
+
+int _Duration_hashCode$(Duration target$) {
+  return target$.hashCode;
+}
+
+bool _Duration_isNegative$(Duration target$) {
+  return target$.isNegative;
+}
+
+Function _Duration__$(m.Scope scope$) => ({
+      int? days,
+      int? hours,
+      int? minutes,
+      int? seconds,
+      int? milliseconds,
+      int? microseconds,
+    }) {
+      return Duration(
+        days: days ?? 0,
+        hours: hours ?? 0,
+        microseconds: microseconds ?? 0,
+        milliseconds: milliseconds ?? 0,
+        minutes: minutes ?? 0,
+        seconds: seconds ?? 0,
+      );
+    };
+Function _Duration_plus$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ + other$;
+Function _Duration_minus$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ - other$;
+Function _Duration_times$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (num other$) => target$ * other$;
+Function _Duration_division$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (int other$) => target$ ~/ other$;
+Function _Duration_low$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ < other$;
+Function _Duration_more$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ > other$;
+Function _Duration_low_eq$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ <= other$;
+Function _Duration_more_eq$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Duration other$) => target$ >= other$;
+Function _Duration_eq$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _Duration_compareTo$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    target$.compareTo;
+Function _Duration_toString$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    target$.toString;
+Function _Duration_abs$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    target$.abs;
+Function _Duration_unary_minus$$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () => -target$;
+Function Enum_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Enum;
+Function Enum_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Enum;
+int _Enum_index$(Enum target$) {
+  return target$.index;
+}
+
+Function _Enum_compareByIndex$<T extends Enum>(m.Scope scope$) =>
+    Enum.compareByIndex<T>;
+Function _Enum_compareByName$<T extends Enum>(m.Scope scope$) =>
+    Enum.compareByName<T>;
+Function Error_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Error;
+Function Error_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Error;
+StackTrace? _Error_stackTrace$(Error target$) {
+  return target$.stackTrace;
+}
+
+Function _Error__$(m.Scope scope$) => () {
+      return Error();
+    };
+Function _Error_safeToString$(m.Scope scope$) => Error.safeToString;
+Function _Error_throwWithStackTrace$(m.Scope scope$) =>
+    Error.throwWithStackTrace;
+Function AssertionError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as AssertionError;
+Function AssertionError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is AssertionError;
+Object? _AssertionError_message$(AssertionError target$) {
+  return target$.message;
+}
+
+Function _AssertionError__$(m.Scope scope$) => ([Object? message]) {
+      if (message == null) {
+        return AssertionError();
+      }
+      return AssertionError(message!);
+    };
+Function _AssertionError_toString$(
+  m.Scope scope$,
+  AssertionError target$,
+) =>
+    target$.toString;
+Function TypeError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as TypeError;
+Function TypeError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is TypeError;
+Function _TypeError__$(m.Scope scope$) => () {
+      return TypeError();
+    };
+Function ArgumentError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as ArgumentError;
+Function ArgumentError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is ArgumentError;
+dynamic _ArgumentError_invalidValue$(ArgumentError target$) {
+  return target$.invalidValue;
+}
+
+String? _ArgumentError_name$(ArgumentError target$) {
+  return target$.name;
+}
+
+dynamic _ArgumentError_message$(ArgumentError target$) {
+  return target$.message;
+}
+
+Function _ArgumentError__$(m.Scope scope$) => ([
+      dynamic? message,
+      String? name,
+    ]) {
+      if (message == null && name == null) {
+        return ArgumentError();
+      }
+      if (name == null) {
+        return ArgumentError(message!);
+      }
+      return ArgumentError(
+        message!,
+        name!,
+      );
+    };
+Function _ArgumentError_value_$(m.Scope scope$) => ArgumentError.value;
+Function _ArgumentError_notNull_$(m.Scope scope$) => ArgumentError.notNull;
+Function _ArgumentError_checkNotNull$<T>(m.Scope scope$) =>
+    ArgumentError.checkNotNull<T>;
+Function _ArgumentError_toString$(
+  m.Scope scope$,
+  ArgumentError target$,
+) =>
+    target$.toString;
+Function RangeError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as RangeError;
+Function RangeError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is RangeError;
+num? _RangeError_start$(RangeError target$) {
+  return target$.start;
+}
+
+num? _RangeError_end$(RangeError target$) {
+  return target$.end;
+}
+
+num? _RangeError_invalidValue$(RangeError target$) {
+  return target$.invalidValue;
+}
+
+Function _RangeError__$(m.Scope scope$) => (dynamic message) {
+      return RangeError(message);
+    };
+Function _RangeError_value_$(m.Scope scope$) => RangeError.value;
+Function _RangeError_range_$(m.Scope scope$) => RangeError.range;
+Function _RangeError_index_$(m.Scope scope$) => RangeError.index;
+Function _RangeError_checkValueInInterval$(m.Scope scope$) =>
+    RangeError.checkValueInInterval;
+Function _RangeError_checkValidIndex$(m.Scope scope$) =>
+    RangeError.checkValidIndex;
+Function _RangeError_checkValidRange$(m.Scope scope$) =>
+    RangeError.checkValidRange;
+Function _RangeError_checkNotNegative$(m.Scope scope$) =>
+    RangeError.checkNotNegative;
+Function IndexError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as IndexError;
+Function IndexError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is IndexError;
+Object? _IndexError_indexable$(IndexError target$) {
+  return target$.indexable;
+}
+
+int _IndexError_length$(IndexError target$) {
+  return target$.length;
+}
+
+int _IndexError_invalidValue$(IndexError target$) {
+  return target$.invalidValue;
+}
+
+int _IndexError_start$(IndexError target$) {
+  return target$.start;
+}
+
+int _IndexError_end$(IndexError target$) {
+  return target$.end;
+}
+
+Function _IndexError_withLength_$(m.Scope scope$) => IndexError.withLength;
+Function _IndexError_check$(m.Scope scope$) => IndexError.check;
+Function NoSuchMethodError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as NoSuchMethodError;
+Function NoSuchMethodError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is NoSuchMethodError;
+Function _NoSuchMethodError_withInvocation_$(m.Scope scope$) =>
+    NoSuchMethodError.withInvocation;
+Function _NoSuchMethodError_toString$(
+  m.Scope scope$,
+  NoSuchMethodError target$,
+) =>
+    target$.toString;
+Function UnsupportedError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as UnsupportedError;
+Function UnsupportedError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is UnsupportedError;
+String? _UnsupportedError_message$(UnsupportedError target$) {
+  return target$.message;
+}
+
+Function _UnsupportedError__$(m.Scope scope$) => (String message) {
+      return UnsupportedError(message);
+    };
+Function _UnsupportedError_toString$(
+  m.Scope scope$,
+  UnsupportedError target$,
+) =>
+    target$.toString;
+Function UnimplementedError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as UnimplementedError;
+Function UnimplementedError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is UnimplementedError;
+String? _UnimplementedError_message$(UnimplementedError target$) {
+  return target$.message;
+}
+
+Function _UnimplementedError__$(m.Scope scope$) => ([String? message]) {
+      if (message == null) {
+        return UnimplementedError();
+      }
+      return UnimplementedError(message!);
+    };
+Function _UnimplementedError_toString$(
+  m.Scope scope$,
+  UnimplementedError target$,
+) =>
+    target$.toString;
+Function StateError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as StateError;
+Function StateError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is StateError;
+String _StateError_message$(StateError target$) {
+  return target$.message;
+}
+
+Function _StateError__$(m.Scope scope$) => (String message) {
+      return StateError(message);
+    };
+Function _StateError_toString$(
+  m.Scope scope$,
+  StateError target$,
+) =>
+    target$.toString;
+Function ConcurrentModificationError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as ConcurrentModificationError;
+Function ConcurrentModificationError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is ConcurrentModificationError;
+Object? _ConcurrentModificationError_modifiedObject$(
+    ConcurrentModificationError target$) {
+  return target$.modifiedObject;
+}
+
+Function _ConcurrentModificationError__$(m.Scope scope$) =>
+    ([Object? modifiedObject]) {
+      if (modifiedObject == null) {
+        return ConcurrentModificationError();
+      }
+      return ConcurrentModificationError(modifiedObject!);
+    };
+Function _ConcurrentModificationError_toString$(
+  m.Scope scope$,
+  ConcurrentModificationError target$,
+) =>
+    target$.toString;
+Function OutOfMemoryError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as OutOfMemoryError;
+Function OutOfMemoryError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is OutOfMemoryError;
+StackTrace? _OutOfMemoryError_stackTrace$(OutOfMemoryError target$) {
+  return target$.stackTrace;
+}
+
+Function _OutOfMemoryError__$(m.Scope scope$) => () {
+      return OutOfMemoryError();
+    };
+Function _OutOfMemoryError_toString$(
+  m.Scope scope$,
+  OutOfMemoryError target$,
+) =>
+    target$.toString;
+Function StackOverflowError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as StackOverflowError;
+Function StackOverflowError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is StackOverflowError;
+StackTrace? _StackOverflowError_stackTrace$(StackOverflowError target$) {
+  return target$.stackTrace;
+}
+
+Function _StackOverflowError__$(m.Scope scope$) => () {
+      return StackOverflowError();
+    };
+Function _StackOverflowError_toString$(
+  m.Scope scope$,
+  StackOverflowError target$,
+) =>
+    target$.toString;
+Function Exception_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Exception;
+Function Exception_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Exception;
+Function _Exception__$(m.Scope scope$) => ([dynamic? message]) {
+      if (message == null) {
+        return Exception();
+      }
+      return Exception(message!);
+    };
+Function FormatException_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as FormatException;
+Function FormatException_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is FormatException;
+String _FormatException_message$(FormatException target$) {
+  return target$.message;
+}
+
+dynamic _FormatException_source$(FormatException target$) {
+  return target$.source;
+}
+
+int? _FormatException_offset$(FormatException target$) {
+  return target$.offset;
+}
+
+Function _FormatException__$(m.Scope scope$) => ([
+      String? message,
+      dynamic? source,
+      int? offset,
+    ]) {
+      if (message == null && source == null && offset == null) {
+        return FormatException();
+      }
+      if (source == null && offset == null) {
+        return FormatException(message!);
+      }
+      if (offset == null) {
+        return FormatException(
+          message!,
+          source!,
+        );
+      }
+      return FormatException(
+        message!,
+        source!,
+        offset!,
+      );
+    };
+Function _FormatException_toString$(
+  m.Scope scope$,
+  FormatException target$,
+) =>
+    target$.toString;
+Function Function_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Function;
+Function Function_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Function;
+int _Function_hashCode$(Function target$) {
+  return target$.hashCode;
+}
+
+Function _Function_apply$(m.Scope scope$) => Function.apply;
+Function _Function_eq$$(
+  m.Scope scope$,
+  Function target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _identical$(m.Scope scope$) => identical;
+Function _identityHashCode$(m.Scope scope$) => identityHashCode;
+Function int_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as int;
+Function int_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is int;
+bool _int_isEven$(int target$) {
+  return target$.isEven;
+}
+
+bool _int_isOdd$(int target$) {
+  return target$.isOdd;
+}
+
+int _int_bitLength$(int target$) {
+  return target$.bitLength;
+}
+
+int _int_sign$(int target$) {
+  return target$.sign;
+}
+
+Function _int_fromEnvironment_$(m.Scope scope$) => int.fromEnvironment;
+Function _int_bit_and$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ & other$;
+Function _int_bit_or$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ | other$;
+Function _int_bit_xor$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ ^ other$;
+Function _int_bit_non$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () => ~target$;
+Function _int_left_move$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ << other$;
+Function _int_right_move$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ >> other$;
+Function _int_unsign_right_move$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    (int other$) => target$ >>> other$;
+Function _int_modPow$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.modPow;
+Function _int_modInverse$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.modInverse;
+Function _int_gcd$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.gcd;
+Function _int_toUnsigned$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.toUnsigned;
+Function _int_toSigned$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.toSigned;
+Function _int_unary_minus$$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () => -target$;
+Function _int_abs$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.abs;
+Function _int_round$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.round;
+Function _int_floor$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.floor;
+Function _int_ceil$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.ceil;
+Function _int_truncate$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.truncate;
+Function _int_roundToDouble$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.roundToDouble;
+Function _int_floorToDouble$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.floorToDouble;
+Function _int_ceilToDouble$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.ceilToDouble;
+Function _int_truncateToDouble$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.truncateToDouble;
+Function _int_toString$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.toString;
+Function _int_toRadixString$(
+  m.Scope scope$,
+  int target$,
+) =>
+    target$.toRadixString;
+Function _int_parse$(m.Scope scope$) => int.parse;
+Function _int_tryParse$(m.Scope scope$) => int.tryParse;
+Function Invocation_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Invocation;
+Function Invocation_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Invocation;
+Symbol _Invocation_memberName$(Invocation target$) {
+  return target$.memberName;
+}
+
+List<Type> _Invocation_typeArguments$(Invocation target$) {
+  return target$.typeArguments;
+}
+
+List<dynamic> _Invocation_positionalArguments$(Invocation target$) {
+  return target$.positionalArguments;
+}
+
+Map<Symbol, dynamic> _Invocation_namedArguments$(Invocation target$) {
+  return target$.namedArguments;
+}
+
+bool _Invocation_isMethod$(Invocation target$) {
+  return target$.isMethod;
+}
+
+bool _Invocation_isGetter$(Invocation target$) {
+  return target$.isGetter;
+}
+
+bool _Invocation_isSetter$(Invocation target$) {
+  return target$.isSetter;
+}
+
+bool _Invocation_isAccessor$(Invocation target$) {
+  return target$.isAccessor;
+}
+
+Function _Invocation_method_$(m.Scope scope$) => Invocation.method;
+Function _Invocation_genericMethod_$(m.Scope scope$) =>
+    Invocation.genericMethod;
+Function _Invocation_getter_$(m.Scope scope$) => Invocation.getter;
+Function _Invocation_setter_$(m.Scope scope$) => Invocation.setter;
+Function Iterable_as$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Iterable<E>;
+Function Iterable_is$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Iterable<E>;
+Iterator<E> _Iterable_iterator$<E>(Iterable<E> target$) {
+  return target$.iterator;
+}
+
+int _Iterable_length$<E>(Iterable<E> target$) {
+  return target$.length;
+}
+
+bool _Iterable_isEmpty$<E>(Iterable<E> target$) {
+  return target$.isEmpty;
+}
+
+bool _Iterable_isNotEmpty$<E>(Iterable<E> target$) {
+  return target$.isNotEmpty;
+}
+
+E _Iterable_first$<E>(Iterable<E> target$) {
+  return target$.first;
+}
+
+E _Iterable_last$<E>(Iterable<E> target$) {
+  return target$.last;
+}
+
+E _Iterable_single$<E>(Iterable<E> target$) {
+  return target$.single;
+}
+
+Function _Iterable_generate_$(m.Scope scope$) => (
+      int count, [
+      m.FunctionPointer? generator,
+    ]) {
+      if (generator == null) {
+        return Iterable.generate(count);
+      }
+      dynamic generatorProxy(int index) => scope$.engine.callFunctionPointer(
+            scope$,
+            generator!,
+            [index],
+            {},
+          );
+      return Iterable.generate(
+        count,
+        generator == null ? null : generatorProxy,
+      );
+    };
+Function _Iterable_empty_$(m.Scope scope$) => Iterable.empty;
+Function _Iterable_castFrom$<S, T>(m.Scope scope$) => Iterable.castFrom<S, T>;
+Function _Iterable_cast$<E, R>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.cast<R>;
+Function _Iterable_followedBy$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.followedBy;
+Function _Iterable_map$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer toElement) {
+      dynamic toElementProxy(dynamic e) => scope$.engine.callFunctionPointer(
+            scope$,
+            toElement,
+            [e],
+            {},
+          );
+      return target$.map(toElementProxy);
+    };
+Function _Iterable_where$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      return target$.where(testProxy);
+    };
+Function _Iterable_whereType$<E, T>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.whereType<T>;
+Function _Iterable_expand$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer toElements) {
+      Iterable toElementsProxy(dynamic element) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            toElements,
+            [element],
+            {},
+          );
+      return target$.expand(toElementsProxy);
+    };
+Function _Iterable_contains$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.contains;
+Function _Iterable_forEach$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            action,
+            [element],
+            {},
+          );
+      target$.forEach(actionProxy);
+    };
+Function _Iterable_reduce$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer combine) {
+      dynamic combineProxy(
+        dynamic value,
+        dynamic element,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            combine,
+            [
+              value,
+              element,
+            ],
+            {},
+          );
+      return target$.reduce(combineProxy);
+    };
+Function _Iterable_fold$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (
+      dynamic initialValue,
+      m.FunctionPointer combine,
+    ) {
+      dynamic combineProxy(
+        dynamic previousValue,
+        dynamic element,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            combine,
+            [
+              previousValue,
+              element,
+            ],
+            {},
+          );
+      return target$.fold(
+        initialValue,
+        combineProxy,
+      );
+    };
+Function _Iterable_every$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      return target$.every(testProxy);
+    };
+Function _Iterable_join$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.join;
+Function _Iterable_any$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      return target$.any(testProxy);
+    };
+Function _Iterable_toList$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.toList;
+Function _Iterable_toSet$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.toSet;
+Function _Iterable_take$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.take;
+Function _Iterable_takeWhile$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic value) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [value],
+            {},
+          );
+      return target$.takeWhile(testProxy);
+    };
+Function _Iterable_skip$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.skip;
+Function _Iterable_skipWhile$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic value) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [value],
+            {},
+          );
+      return target$.skipWhile(testProxy);
+    };
+Function _Iterable_firstWhere$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      dynamic orElseProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            orElse!,
+            [],
+            {},
+          );
+      return target$.firstWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Iterable_lastWhere$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      dynamic orElseProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            orElse!,
+            [],
+            {},
+          );
+      return target$.lastWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Iterable_singleWhere$(
+  m.Scope scope$,
+  Iterable target$,
+) =>
+    (
+      m.FunctionPointer test, {
+      m.FunctionPointer? orElse,
+    }) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      dynamic orElseProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            orElse!,
+            [],
+            {},
+          );
+      return target$.singleWhere(
+        testProxy,
+        orElse: orElse == null ? null : orElseProxy,
+      );
+    };
+Function _Iterable_elementAt$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.elementAt;
+Function _Iterable_toString$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    target$.toString;
+Function _Iterable_iterableToShortString$(m.Scope scope$) =>
+    Iterable.iterableToShortString;
+Function _Iterable_iterableToFullString$(m.Scope scope$) =>
+    Iterable.iterableToFullString;
+Function Iterator_as$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Iterator<E>;
+Function Iterator_is$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Iterator<E>;
+E _Iterator_current$<E>(Iterator<E> target$) {
+  return target$.current;
+}
+
+Function _Iterator_moveNext$<E>(
+  m.Scope scope$,
+  Iterator<E> target$,
+) =>
+    target$.moveNext;
+Function List_as$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as List<E>;
+Function List_is$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is List<E>;
+void _List_first_set$<E>(
+  List target$,
+  dynamic other$,
+) {
+  target$.first = other$;
+}
+
+void _List_last_set$<E>(
+  List target$,
+  dynamic other$,
+) {
+  target$.last = other$;
+}
+
+int _List_length$<E>(List<E> target$) {
+  return target$.length;
+}
+
+void _List_length_set$<E>(
+  List target$,
+  int other$,
+) {
+  target$.length = other$;
+}
+
+Iterable<E> _List_reversed$<E>(List<E> target$) {
+  return target$.reversed;
+}
+
+Function _List_filled_$(m.Scope scope$) => List.filled;
+Function _List_empty_$(m.Scope scope$) => List.empty;
+Function _List_from_$(m.Scope scope$) => List.from;
+Function _List_of_$(m.Scope scope$) => List.of;
+Function _List_generate_$(m.Scope scope$) => (
+      int length,
+      m.FunctionPointer generator, {
+      bool? growable,
+    }) {
+      dynamic generatorProxy(int index) => scope$.engine.callFunctionPointer(
+            scope$,
+            generator,
+            [index],
+            {},
+          );
+      return List.generate(
+        length,
+        generatorProxy,
+        growable: growable ?? true,
+      );
+    };
+Function _List_unmodifiable_$(m.Scope scope$) => List.unmodifiable;
+Function _List_castFrom$<S, T>(m.Scope scope$) => List.castFrom<S, T>;
+Function _List_copyRange$<T>(m.Scope scope$) => List.copyRange<T>;
+Function _List_writeIterable$<T>(m.Scope scope$) => List.writeIterable<T>;
+Function _List_cast$<E, R>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.cast<R>;
+Function _List_$index$$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    (int index) => target$[index];
+Function _List_$index_set$$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    (
+      int index,
+      E other,
+    ) =>
+        target$[index] = other;
+Function _List_add$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.add;
+Function _List_addAll$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.addAll;
+Function _List_sort$(
+  m.Scope scope$,
+  List target$,
+) =>
+    ([m.FunctionPointer? compare]) {
+      if (compare == null) {
+        target$.sort();
+      }
+      int compareProxy(
+        dynamic a,
+        dynamic b,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            compare!,
+            [
+              a,
+              b,
+            ],
+            {},
+          );
+      target$.sort(compare == null ? null : compareProxy);
+      return;
+    };
+Function _List_shuffle$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.shuffle;
+Function _List_indexOf$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.indexOf;
+Function _List_indexWhere$(
+  m.Scope scope$,
+  List target$,
+) =>
+    (
+      m.FunctionPointer test, [
+      int? start,
+    ]) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      if (start == null) {
+        return target$.indexWhere(testProxy);
+      }
+      return target$.indexWhere(
+        testProxy,
+        start!,
+      );
+    };
+Function _List_lastIndexWhere$(
+  m.Scope scope$,
+  List target$,
+) =>
+    (
+      m.FunctionPointer test, [
+      int? start,
+    ]) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      if (start == null) {
+        return target$.lastIndexWhere(testProxy);
+      }
+      return target$.lastIndexWhere(
+        testProxy,
+        start!,
+      );
+    };
+Function _List_lastIndexOf$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.lastIndexOf;
+Function _List_clear$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.clear;
+Function _List_insert$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.insert;
+Function _List_insertAll$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.insertAll;
+Function _List_setAll$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.setAll;
+Function _List_remove$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.remove;
+Function _List_removeAt$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.removeAt;
+Function _List_removeLast$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.removeLast;
+Function _List_removeWhere$(
+  m.Scope scope$,
+  List target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      target$.removeWhere(testProxy);
+    };
+Function _List_retainWhere$(
+  m.Scope scope$,
+  List target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      target$.retainWhere(testProxy);
+    };
+Function _List_plus$$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    (List<E> other$) => target$ + other$;
+Function _List_sublist$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.sublist;
+Function _List_getRange$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.getRange;
+Function _List_setRange$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.setRange;
+Function _List_removeRange$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.removeRange;
+Function _List_fillRange$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.fillRange;
+Function _List_replaceRange$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.replaceRange;
+Function _List_asMap$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    target$.asMap;
+Function _List_eq$$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    (Object other$) => target$ == other$;
+Function Map_as$<K, V>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Map<K, V>;
+Function Map_is$<K, V>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Map<K, V>;
+Iterable<MapEntry<K, V>> _Map_entries$<K, V>(Map<K, V> target$) {
+  return target$.entries;
+}
+
+Iterable<K> _Map_keys$<K, V>(Map<K, V> target$) {
+  return target$.keys;
+}
+
+Iterable<V> _Map_values$<K, V>(Map<K, V> target$) {
+  return target$.values;
+}
+
+int _Map_length$<K, V>(Map<K, V> target$) {
+  return target$.length;
+}
+
+bool _Map_isEmpty$<K, V>(Map<K, V> target$) {
+  return target$.isEmpty;
+}
+
+bool _Map_isNotEmpty$<K, V>(Map<K, V> target$) {
+  return target$.isNotEmpty;
+}
+
+Function _Map__$(m.Scope scope$) => () {
+      return Map();
+    };
+Function _Map_from_$(m.Scope scope$) => Map.from;
+Function _Map_of_$(m.Scope scope$) => Map.of;
+Function _Map_unmodifiable_$(m.Scope scope$) => Map.unmodifiable;
+Function _Map_identity_$(m.Scope scope$) => Map.identity;
+Function _Map_fromIterable_$(m.Scope scope$) => (
+      Iterable iterable, {
+      m.FunctionPointer? key,
+      m.FunctionPointer? value,
+    }) {
+      dynamic keyProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            key!,
+            [element],
+            {},
+          );
+      dynamic valueProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            value!,
+            [element],
+            {},
+          );
+      return Map.fromIterable(
+        Iterable.castFrom(iterable),
+        key: key == null ? null : keyProxy,
+        value: value == null ? null : valueProxy,
+      );
+    };
+Function _Map_fromIterables_$(m.Scope scope$) => Map.fromIterables;
+Function _Map_fromEntries_$(m.Scope scope$) => Map.fromEntries;
+Function _Map_castFrom$<K, V, K2, V2>(m.Scope scope$) =>
+    Map.castFrom<K, V, K2, V2>;
+Function _Map_cast$<K, V, RK, RV>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.cast<RK, RV>;
+Function _Map_containsValue$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.containsValue;
+Function _Map_containsKey$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.containsKey;
+Function _Map_$index$$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    (Object? index) => target$[index];
+Function _Map_$index_set$$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    (
+      K index,
+      V other,
+    ) =>
+        target$[index] = other;
+Function _Map_map$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (m.FunctionPointer convert) {
+      MapEntry convertProxy(
+        dynamic key,
+        dynamic value,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            convert,
+            [
+              key,
+              value,
+            ],
+            {},
+          );
+      return target$.map(convertProxy);
+    };
+Function _Map_addEntries$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.addEntries;
+Function _Map_update$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (
+      dynamic key,
+      m.FunctionPointer update, {
+      m.FunctionPointer? ifAbsent,
+    }) {
+      dynamic updateProxy(dynamic value) => scope$.engine.callFunctionPointer(
+            scope$,
+            update,
+            [value],
+            {},
+          );
+      dynamic ifAbsentProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            ifAbsent!,
+            [],
+            {},
+          );
+      return target$.update(
+        key,
+        updateProxy,
+        ifAbsent: ifAbsent == null ? null : ifAbsentProxy,
+      );
+    };
+Function _Map_updateAll$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (m.FunctionPointer update) {
+      dynamic updateProxy(
+        dynamic key,
+        dynamic value,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            update,
+            [
+              key,
+              value,
+            ],
+            {},
+          );
+      target$.updateAll(updateProxy);
+    };
+Function _Map_removeWhere$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(
+        dynamic key,
+        dynamic value,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [
+              key,
+              value,
+            ],
+            {},
+          );
+      target$.removeWhere(testProxy);
+    };
+Function _Map_putIfAbsent$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (
+      dynamic key,
+      m.FunctionPointer ifAbsent,
+    ) {
+      dynamic ifAbsentProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            ifAbsent,
+            [],
+            {},
+          );
+      return target$.putIfAbsent(
+        key,
+        ifAbsentProxy,
+      );
+    };
+Function _Map_addAll$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.addAll;
+Function _Map_remove$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.remove;
+Function _Map_clear$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    target$.clear;
+Function _Map_forEach$(
+  m.Scope scope$,
+  Map target$,
+) =>
+    (m.FunctionPointer action) {
+      void actionProxy(
+        dynamic key,
+        dynamic value,
+      ) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            action,
+            [
+              key,
+              value,
+            ],
+            {},
+          );
+      target$.forEach(actionProxy);
+    };
+Function MapEntry_as$<K, V>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as MapEntry<K, V>;
+Function MapEntry_is$<K, V>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is MapEntry<K, V>;
+K _MapEntry_key$<K, V>(MapEntry<K, V> target$) {
+  return target$.key;
+}
+
+V _MapEntry_value$<K, V>(MapEntry<K, V> target$) {
+  return target$.value;
+}
+
+Function _MapEntry__$(m.Scope scope$) => (
+      dynamic key,
+      dynamic value,
+    ) {
+      return MapEntry(
+        key,
+        value,
+      );
+    };
+Function _MapEntry_toString$<K, V>(
+  m.Scope scope$,
+  MapEntry<K, V> target$,
+) =>
+    target$.toString;
+Function Null_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Null;
+Function Null_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Null;
+int _Null_hashCode$(Null target$) {
+  return target$.hashCode;
+}
+
+Function _Null_toString$(
+  m.Scope scope$,
+  Null target$,
+) =>
+    target$.toString;
+Function num_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as num;
+Function num_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is num;
+int _num_hashCode$(num target$) {
+  return target$.hashCode;
+}
+
+bool _num_isNaN$(num target$) {
+  return target$.isNaN;
+}
+
+bool _num_isNegative$(num target$) {
+  return target$.isNegative;
+}
+
+bool _num_isInfinite$(num target$) {
+  return target$.isInfinite;
+}
+
+bool _num_isFinite$(num target$) {
+  return target$.isFinite;
+}
+
+num _num_sign$(num target$) {
+  return target$.sign;
+}
+
+Function _num_eq$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _num_compareTo$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.compareTo;
+Function _num_plus$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ + other$;
+Function _num_minus$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ - other$;
+Function _num_times$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ * other$;
+Function _num_surplus$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ % other$;
+Function _num_over$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ / other$;
+Function _num_division$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ ~/ other$;
+Function _num_unary_minus$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () => -target$;
+Function _num_remainder$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.remainder;
+Function _num_low$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ < other$;
+Function _num_low_eq$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ <= other$;
+Function _num_more$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ > other$;
+Function _num_more_eq$$(
+  m.Scope scope$,
+  num target$,
+) =>
+    (num other$) => target$ >= other$;
+Function _num_abs$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.abs;
+Function _num_round$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.round;
+Function _num_floor$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.floor;
+Function _num_ceil$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.ceil;
+Function _num_truncate$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.truncate;
+Function _num_roundToDouble$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.roundToDouble;
+Function _num_floorToDouble$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.floorToDouble;
+Function _num_ceilToDouble$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.ceilToDouble;
+Function _num_truncateToDouble$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.truncateToDouble;
+Function _num_clamp$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.clamp;
+Function _num_toInt$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toInt;
+Function _num_toDouble$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toDouble;
+Function _num_toStringAsFixed$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toStringAsFixed;
+Function _num_toStringAsExponential$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toStringAsExponential;
+Function _num_toStringAsPrecision$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toStringAsPrecision;
+Function _num_toString$(
+  m.Scope scope$,
+  num target$,
+) =>
+    target$.toString;
+Function _num_parse$(m.Scope scope$) => (
+      String input, [
+      m.FunctionPointer? onError,
+    ]) {
+      if (onError == null) {
+        return num.parse(input);
+      }
+      num onErrorProxy(String input) => scope$.engine.callFunctionPointer(
+            scope$,
+            onError!,
+            [input],
+            {},
+          );
+      return num.parse(
+        input,
+        onError == null ? null : onErrorProxy,
+      );
+    };
+Function _num_tryParse$(m.Scope scope$) => num.tryParse;
+Function Object_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Object;
+Function Object_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Object;
+int _Object_hashCode$(Object target$) {
+  return target$.hashCode;
+}
+
+Type _Object_runtimeType$(Object target$) {
+  return target$.runtimeType;
+}
+
+Function _Object__$(m.Scope scope$) => () {
+      return Object();
+    };
+Function _Object_eq$$(
+  m.Scope scope$,
+  Object target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _Object_toString$(
+  m.Scope scope$,
+  Object target$,
+) =>
+    target$.toString;
+Function _Object_noSuchMethod$(
+  m.Scope scope$,
+  Object target$,
+) =>
+    target$.noSuchMethod;
+Function _Object_hash$(m.Scope scope$) => Object.hash;
+Function _Object_hashAll$(m.Scope scope$) => Object.hashAll;
+Function _Object_hashAllUnordered$(m.Scope scope$) => Object.hashAllUnordered;
+Function Pattern_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Pattern;
+Function Pattern_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Pattern;
+Function _Pattern_allMatches$(
+  m.Scope scope$,
+  Pattern target$,
+) =>
+    target$.allMatches;
+Function _Pattern_matchAsPrefix$(
+  m.Scope scope$,
+  Pattern target$,
+) =>
+    target$.matchAsPrefix;
+Function Match_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Match;
+Function Match_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Match;
+int _Match_start$(Match target$) {
+  return target$.start;
+}
+
+int _Match_end$(Match target$) {
+  return target$.end;
+}
+
+int _Match_groupCount$(Match target$) {
+  return target$.groupCount;
+}
+
+String _Match_input$(Match target$) {
+  return target$.input;
+}
+
+Pattern _Match_pattern$(Match target$) {
+  return target$.pattern;
+}
+
+Function _Match_group$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    target$.group;
+Function _Match_$index$$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    (int index) => target$[index];
+Function _Match_groups$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    target$.groups;
+Function _print$(m.Scope scope$) => print;
+Function RegExp_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as RegExp;
+Function RegExp_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is RegExp;
+String _RegExp_pattern$(RegExp target$) {
+  return target$.pattern;
+}
+
+bool _RegExp_isMultiLine$(RegExp target$) {
+  return target$.isMultiLine;
+}
+
+bool _RegExp_isCaseSensitive$(RegExp target$) {
+  return target$.isCaseSensitive;
+}
+
+bool _RegExp_isUnicode$(RegExp target$) {
+  return target$.isUnicode;
+}
+
+bool _RegExp_isDotAll$(RegExp target$) {
+  return target$.isDotAll;
+}
+
+Function _RegExp__$(m.Scope scope$) => (
+      String source, {
+      bool? multiLine,
+      bool? caseSensitive,
+      bool? unicode,
+      bool? dotAll,
+    }) {
+      return RegExp(
+        source,
+        caseSensitive: caseSensitive ?? true,
+        dotAll: dotAll ?? false,
+        multiLine: multiLine ?? false,
+        unicode: unicode ?? false,
+      );
+    };
+Function _RegExp_escape$(m.Scope scope$) => RegExp.escape;
+Function _RegExp_firstMatch$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    target$.firstMatch;
+Function _RegExp_allMatches$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    target$.allMatches;
+Function _RegExp_hasMatch$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    target$.hasMatch;
+Function _RegExp_stringMatch$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    target$.stringMatch;
+Function RegExpMatch_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as RegExpMatch;
+Function RegExpMatch_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is RegExpMatch;
+Iterable<String> _RegExpMatch_groupNames$(RegExpMatch target$) {
+  return target$.groupNames;
+}
+
+RegExp _RegExpMatch_pattern$(RegExpMatch target$) {
+  return target$.pattern;
+}
+
+Function _RegExpMatch_namedGroup$(
+  m.Scope scope$,
+  RegExpMatch target$,
+) =>
+    target$.namedGroup;
+Function Set_as$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Set<E>;
+Function Set_is$<E>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Set<E>;
+Iterator<E> _Set_iterator$<E>(Set<E> target$) {
+  return target$.iterator;
+}
+
+Function _Set__$(m.Scope scope$) => () {
+      return Set();
+    };
+Function _Set_identity_$(m.Scope scope$) => Set.identity;
+Function _Set_from_$(m.Scope scope$) => Set.from;
+Function _Set_of_$(m.Scope scope$) => Set.of;
+Function _Set_unmodifiable_$(m.Scope scope$) => Set.unmodifiable;
+Function _Set_castFrom$(m.Scope scope$) => (
+      Set source, {
+      m.FunctionPointer? newSet,
+    }) {
+      Set<R> newSetProxy<R>() => scope$.engine.callFunctionPointer(
+            scope$,
+            newSet!,
+            [],
+            {},
+          );
+      return Set.castFrom(
+        Set.from(source),
+        newSet: newSet == null ? null : newSetProxy,
+      );
+    };
+Function _Set_cast$<E, R>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.cast<R>;
+Function _Set_contains$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.contains;
+Function _Set_add$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.add;
+Function _Set_addAll$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.addAll;
+Function _Set_remove$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.remove;
+Function _Set_lookup$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.lookup;
+Function _Set_removeAll$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.removeAll;
+Function _Set_retainAll$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.retainAll;
+Function _Set_removeWhere$(
+  m.Scope scope$,
+  Set target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      target$.removeWhere(testProxy);
+    };
+Function _Set_retainWhere$(
+  m.Scope scope$,
+  Set target$,
+) =>
+    (m.FunctionPointer test) {
+      bool testProxy(dynamic element) => scope$.engine.callFunctionPointer(
+            scope$,
+            test,
+            [element],
+            {},
+          );
+      target$.retainWhere(testProxy);
+    };
+Function _Set_containsAll$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.containsAll;
+Function _Set_intersection$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.intersection;
+Function _Set_union$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.union;
+Function _Set_difference$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.difference;
+Function _Set_clear$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.clear;
+Function _Set_toSet$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    target$.toSet;
+Function Sink_as$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Sink<T>;
+Function Sink_is$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Sink<T>;
+Function _Sink_add$<T>(
+  m.Scope scope$,
+  Sink<T> target$,
+) =>
+    target$.add;
+Function _Sink_close$<T>(
+  m.Scope scope$,
+  Sink<T> target$,
+) =>
+    target$.close;
+Function StackTrace_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as StackTrace;
+Function StackTrace_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is StackTrace;
 dynamic _StackTrace_empty$() {
   return StackTrace.empty;
 }
@@ -277,6 +4250,468 @@ StackTrace _StackTrace_current$() {
   return StackTrace.current;
 }
 
+Function _StackTrace_fromString_$(m.Scope scope$) => StackTrace.fromString;
+Function _StackTrace_toString$(
+  m.Scope scope$,
+  StackTrace target$,
+) =>
+    target$.toString;
+Function Stopwatch_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Stopwatch;
+Function Stopwatch_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Stopwatch;
+int _Stopwatch_frequency$(Stopwatch target$) {
+  return target$.frequency;
+}
+
+int _Stopwatch_elapsedTicks$(Stopwatch target$) {
+  return target$.elapsedTicks;
+}
+
+Duration _Stopwatch_elapsed$(Stopwatch target$) {
+  return target$.elapsed;
+}
+
+int _Stopwatch_elapsedMicroseconds$(Stopwatch target$) {
+  return target$.elapsedMicroseconds;
+}
+
+int _Stopwatch_elapsedMilliseconds$(Stopwatch target$) {
+  return target$.elapsedMilliseconds;
+}
+
+bool _Stopwatch_isRunning$(Stopwatch target$) {
+  return target$.isRunning;
+}
+
+Function _Stopwatch__$(m.Scope scope$) => () {
+      return Stopwatch();
+    };
+Function _Stopwatch_start$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    target$.start;
+Function _Stopwatch_stop$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    target$.stop;
+Function _Stopwatch_reset$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    target$.reset;
+Function String_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as String;
+Function String_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is String;
+int _String_length$(String target$) {
+  return target$.length;
+}
+
+int _String_hashCode$(String target$) {
+  return target$.hashCode;
+}
+
+bool _String_isEmpty$(String target$) {
+  return target$.isEmpty;
+}
+
+bool _String_isNotEmpty$(String target$) {
+  return target$.isNotEmpty;
+}
+
+List<int> _String_codeUnits$(String target$) {
+  return target$.codeUnits;
+}
+
+Runes _String_runes$(String target$) {
+  return target$.runes;
+}
+
+Function _String_fromCharCodes_$(m.Scope scope$) => String.fromCharCodes;
+Function _String_fromCharCode_$(m.Scope scope$) => String.fromCharCode;
+Function _String_fromEnvironment_$(m.Scope scope$) => String.fromEnvironment;
+Function _String_$index$$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (int index) => target$[index];
+Function _String_codeUnitAt$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.codeUnitAt;
+Function _String_eq$$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _String_compareTo$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.compareTo;
+Function _String_endsWith$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.endsWith;
+Function _String_startsWith$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.startsWith;
+Function _String_indexOf$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.indexOf;
+Function _String_lastIndexOf$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.lastIndexOf;
+Function _String_plus$$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (String other$) => target$ + other$;
+Function _String_substring$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.substring;
+Function _String_trim$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.trim;
+Function _String_trimLeft$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.trimLeft;
+Function _String_trimRight$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.trimRight;
+Function _String_times$$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (int other$) => target$ * other$;
+Function _String_padLeft$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.padLeft;
+Function _String_padRight$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.padRight;
+Function _String_contains$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.contains;
+Function _String_replaceFirst$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.replaceFirst;
+Function _String_replaceFirstMapped$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (
+      Pattern from,
+      m.FunctionPointer replace, [
+      int? startIndex,
+    ]) {
+      String replaceProxy(Match match) => scope$.engine.callFunctionPointer(
+            scope$,
+            replace,
+            [match],
+            {},
+          );
+      if (startIndex == null) {
+        return target$.replaceFirstMapped(
+          from,
+          replaceProxy,
+        );
+      }
+      return target$.replaceFirstMapped(
+        from,
+        replaceProxy,
+        startIndex!,
+      );
+    };
+Function _String_replaceAll$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.replaceAll;
+Function _String_replaceAllMapped$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (
+      Pattern from,
+      m.FunctionPointer replace,
+    ) {
+      String replaceProxy(Match match) => scope$.engine.callFunctionPointer(
+            scope$,
+            replace,
+            [match],
+            {},
+          );
+      return target$.replaceAllMapped(
+        from,
+        replaceProxy,
+      );
+    };
+Function _String_replaceRange$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.replaceRange;
+Function _String_split$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.split;
+Function _String_splitMapJoin$(
+  m.Scope scope$,
+  String target$,
+) =>
+    (
+      Pattern pattern, {
+      m.FunctionPointer? onMatch,
+      m.FunctionPointer? onNonMatch,
+    }) {
+      String onMatchProxy(Match $p0) => scope$.engine.callFunctionPointer(
+            scope$,
+            onMatch!,
+            [$p0],
+            {},
+          );
+      String onNonMatchProxy(String $p0) => scope$.engine.callFunctionPointer(
+            scope$,
+            onNonMatch!,
+            [$p0],
+            {},
+          );
+      return target$.splitMapJoin(
+        pattern,
+        onMatch: onMatch == null ? null : onMatchProxy,
+        onNonMatch: onNonMatch == null ? null : onNonMatchProxy,
+      );
+    };
+Function _String_toLowerCase$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.toLowerCase;
+Function _String_toUpperCase$(
+  m.Scope scope$,
+  String target$,
+) =>
+    target$.toUpperCase;
+Function Runes_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Runes;
+Function Runes_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Runes;
+String _Runes_string$(Runes target$) {
+  return target$.string;
+}
+
+RuneIterator _Runes_iterator$(Runes target$) {
+  return target$.iterator;
+}
+
+int _Runes_last$(Runes target$) {
+  return target$.last;
+}
+
+Function _Runes__$(m.Scope scope$) => (String string) {
+      return Runes(string);
+    };
+Function RuneIterator_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as RuneIterator;
+Function RuneIterator_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is RuneIterator;
+String _RuneIterator_string$(RuneIterator target$) {
+  return target$.string;
+}
+
+int _RuneIterator_rawIndex$(RuneIterator target$) {
+  return target$.rawIndex;
+}
+
+void _RuneIterator_rawIndex_set$(
+  RuneIterator target$,
+  int other$,
+) {
+  target$.rawIndex = other$;
+}
+
+int _RuneIterator_current$(RuneIterator target$) {
+  return target$.current;
+}
+
+int _RuneIterator_currentSize$(RuneIterator target$) {
+  return target$.currentSize;
+}
+
+String _RuneIterator_currentAsString$(RuneIterator target$) {
+  return target$.currentAsString;
+}
+
+Function _RuneIterator__$(m.Scope scope$) => (String string) {
+      return RuneIterator(string);
+    };
+Function _RuneIterator_at_$(m.Scope scope$) => RuneIterator.at;
+Function _RuneIterator_reset$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    target$.reset;
+Function _RuneIterator_moveNext$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    target$.moveNext;
+Function _RuneIterator_movePrevious$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    target$.movePrevious;
+Function StringBuffer_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as StringBuffer;
+Function StringBuffer_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is StringBuffer;
+int _StringBuffer_length$(StringBuffer target$) {
+  return target$.length;
+}
+
+bool _StringBuffer_isEmpty$(StringBuffer target$) {
+  return target$.isEmpty;
+}
+
+bool _StringBuffer_isNotEmpty$(StringBuffer target$) {
+  return target$.isNotEmpty;
+}
+
+Function _StringBuffer__$(m.Scope scope$) => ([Object? content]) {
+      if (content == null) {
+        return StringBuffer();
+      }
+      return StringBuffer(content!);
+    };
+Function _StringBuffer_write$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.write;
+Function _StringBuffer_writeCharCode$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.writeCharCode;
+Function _StringBuffer_writeAll$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.writeAll;
+Function _StringBuffer_writeln$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.writeln;
+Function _StringBuffer_clear$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.clear;
+Function _StringBuffer_toString$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    target$.toString;
+Function StringSink_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as StringSink;
+Function StringSink_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is StringSink;
+Function _StringSink_write$(
+  m.Scope scope$,
+  StringSink target$,
+) =>
+    target$.write;
+Function _StringSink_writeAll$(
+  m.Scope scope$,
+  StringSink target$,
+) =>
+    target$.writeAll;
+Function _StringSink_writeln$(
+  m.Scope scope$,
+  StringSink target$,
+) =>
+    target$.writeln;
+Function _StringSink_writeCharCode$(
+  m.Scope scope$,
+  StringSink target$,
+) =>
+    target$.writeCharCode;
+Function Symbol_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Symbol;
+Function Symbol_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Symbol;
 Symbol _Symbol_unaryMinus$() {
   return Symbol.unaryMinus;
 }
@@ -285,6 +4720,382 @@ Symbol _Symbol_empty$() {
   return Symbol.empty;
 }
 
+int _Symbol_hashCode$(Symbol target$) {
+  return target$.hashCode;
+}
+
+Function _Symbol__$(m.Scope scope$) => (String name) {
+      return Symbol(name);
+    };
+Function _Symbol_eq$$(
+  m.Scope scope$,
+  Symbol target$,
+) =>
+    (Object other$) => target$ == other$;
+Function Type_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Type;
+Function Type_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Type;
+int _Type_hashCode$(Type target$) {
+  return target$.hashCode;
+}
+
+Function _Type_eq$$(
+  m.Scope scope$,
+  Type target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _Type_toString$(
+  m.Scope scope$,
+  Type target$,
+) =>
+    target$.toString;
+Function Uri_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Uri;
+Function Uri_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Uri;
 Uri _Uri_base$() {
   return Uri.base;
 }
+
+String _Uri_scheme$(Uri target$) {
+  return target$.scheme;
+}
+
+String _Uri_authority$(Uri target$) {
+  return target$.authority;
+}
+
+String _Uri_userInfo$(Uri target$) {
+  return target$.userInfo;
+}
+
+String _Uri_host$(Uri target$) {
+  return target$.host;
+}
+
+int _Uri_port$(Uri target$) {
+  return target$.port;
+}
+
+String _Uri_path$(Uri target$) {
+  return target$.path;
+}
+
+String _Uri_query$(Uri target$) {
+  return target$.query;
+}
+
+String _Uri_fragment$(Uri target$) {
+  return target$.fragment;
+}
+
+List<String> _Uri_pathSegments$(Uri target$) {
+  return target$.pathSegments;
+}
+
+Map<String, String> _Uri_queryParameters$(Uri target$) {
+  return target$.queryParameters;
+}
+
+Map<String, List<String>> _Uri_queryParametersAll$(Uri target$) {
+  return target$.queryParametersAll;
+}
+
+bool _Uri_isAbsolute$(Uri target$) {
+  return target$.isAbsolute;
+}
+
+bool _Uri_hasScheme$(Uri target$) {
+  return target$.hasScheme;
+}
+
+bool _Uri_hasAuthority$(Uri target$) {
+  return target$.hasAuthority;
+}
+
+bool _Uri_hasPort$(Uri target$) {
+  return target$.hasPort;
+}
+
+bool _Uri_hasQuery$(Uri target$) {
+  return target$.hasQuery;
+}
+
+bool _Uri_hasFragment$(Uri target$) {
+  return target$.hasFragment;
+}
+
+bool _Uri_hasEmptyPath$(Uri target$) {
+  return target$.hasEmptyPath;
+}
+
+bool _Uri_hasAbsolutePath$(Uri target$) {
+  return target$.hasAbsolutePath;
+}
+
+String _Uri_origin$(Uri target$) {
+  return target$.origin;
+}
+
+UriData? _Uri_data$(Uri target$) {
+  return target$.data;
+}
+
+int _Uri_hashCode$(Uri target$) {
+  return target$.hashCode;
+}
+
+Function _Uri__$(m.Scope scope$) => ({
+      String? scheme,
+      String? userInfo,
+      String? host,
+      int? port,
+      String? path,
+      Iterable? pathSegments,
+      String? query,
+      Map? queryParameters,
+      String? fragment,
+    }) {
+      return Uri(
+        fragment: fragment,
+        host: host,
+        path: path,
+        pathSegments:
+            pathSegments == null ? null : Iterable.castFrom(pathSegments),
+        port: port,
+        query: query,
+        queryParameters:
+            queryParameters == null ? null : Map.from(queryParameters),
+        scheme: scheme,
+        userInfo: userInfo,
+      );
+    };
+Function _Uri_http_$(m.Scope scope$) => Uri.http;
+Function _Uri_https_$(m.Scope scope$) => Uri.https;
+Function _Uri_file_$(m.Scope scope$) => Uri.file;
+Function _Uri_directory_$(m.Scope scope$) => Uri.directory;
+Function _Uri_dataFromString_$(m.Scope scope$) => Uri.dataFromString;
+Function _Uri_dataFromBytes_$(m.Scope scope$) => Uri.dataFromBytes;
+Function _Uri_isScheme$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.isScheme;
+Function _Uri_toFilePath$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.toFilePath;
+Function _Uri_eq$$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    (Object other$) => target$ == other$;
+Function _Uri_toString$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.toString;
+Function _Uri_replace$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.replace;
+Function _Uri_removeFragment$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.removeFragment;
+Function _Uri_resolve$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.resolve;
+Function _Uri_resolveUri$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.resolveUri;
+Function _Uri_normalizePath$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    target$.normalizePath;
+Function _Uri_parse$(m.Scope scope$) => Uri.parse;
+Function _Uri_tryParse$(m.Scope scope$) => Uri.tryParse;
+Function _Uri_encodeComponent$(m.Scope scope$) => Uri.encodeComponent;
+Function _Uri_encodeQueryComponent$(m.Scope scope$) => Uri.encodeQueryComponent;
+Function _Uri_decodeComponent$(m.Scope scope$) => Uri.decodeComponent;
+Function _Uri_decodeQueryComponent$(m.Scope scope$) => Uri.decodeQueryComponent;
+Function _Uri_encodeFull$(m.Scope scope$) => Uri.encodeFull;
+Function _Uri_decodeFull$(m.Scope scope$) => Uri.decodeFull;
+Function _Uri_splitQueryString$(m.Scope scope$) => Uri.splitQueryString;
+Function _Uri_parseIPv4Address$(m.Scope scope$) => Uri.parseIPv4Address;
+Function _Uri_parseIPv6Address$(m.Scope scope$) => Uri.parseIPv6Address;
+Function UriData_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as UriData;
+Function UriData_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is UriData;
+Uri _UriData_uri$(UriData target$) {
+  return target$.uri;
+}
+
+String _UriData_mimeType$(UriData target$) {
+  return target$.mimeType;
+}
+
+String _UriData_charset$(UriData target$) {
+  return target$.charset;
+}
+
+bool _UriData_isBase64$(UriData target$) {
+  return target$.isBase64;
+}
+
+String _UriData_contentText$(UriData target$) {
+  return target$.contentText;
+}
+
+Map<String, String> _UriData_parameters$(UriData target$) {
+  return target$.parameters;
+}
+
+Function _UriData_fromString_$(m.Scope scope$) => UriData.fromString;
+Function _UriData_fromBytes_$(m.Scope scope$) => UriData.fromBytes;
+Function _UriData_fromUri_$(m.Scope scope$) => UriData.fromUri;
+Function _UriData_parse$(m.Scope scope$) => UriData.parse;
+Function _UriData_isMimeType$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.isMimeType;
+Function _UriData_isCharset$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.isCharset;
+Function _UriData_isEncoding$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.isEncoding;
+Function _UriData_contentAsBytes$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.contentAsBytes;
+Function _UriData_contentAsString$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.contentAsString;
+Function _UriData_toString$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    target$.toString;
+Function Expando_as$<T extends Object>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Expando<T>;
+Function Expando_is$<T extends Object>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Expando<T>;
+String? _Expando_name$<T extends Object>(Expando<T> target$) {
+  return target$.name;
+}
+
+Function _Expando__$(m.Scope scope$) => <T extends Object>([String? name]) {
+      if (name == null) {
+        return Expando<T>();
+      }
+      return Expando<T>(name!);
+    };
+Function _Expando_toString$<T extends Object>(
+  m.Scope scope$,
+  Expando<T> target$,
+) =>
+    target$.toString;
+Function _Expando_$index$$<T extends Object>(
+  m.Scope scope$,
+  Expando<T> target$,
+) =>
+    (Object index) => target$[index];
+Function _Expando_$index_set$$<T extends Object>(
+  m.Scope scope$,
+  Expando<T> target$,
+) =>
+    (
+      Object index,
+      T? other,
+    ) =>
+        target$[index] = other;
+Function WeakReference_as$<T extends Object>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as WeakReference<T>;
+Function WeakReference_is$<T extends Object>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is WeakReference<T>;
+T? _WeakReference_target$<T extends Object>(WeakReference<T> target$) {
+  return target$.target;
+}
+
+Function _WeakReference__$(m.Scope scope$) =>
+    <T extends Object>(dynamic target) {
+      return WeakReference<T>(target);
+    };
+Function Finalizer_as$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as Finalizer<T>;
+Function Finalizer_is$<T>(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is Finalizer<T>;
+Function _Finalizer__$(m.Scope scope$) => (m.FunctionPointer callback) {
+      void callbackProxy(dynamic $p0) => scope$.engine.callFunctionPointer(
+            scope$,
+            callback,
+            [$p0],
+            {},
+          );
+      return Finalizer(callbackProxy);
+    };
+Function _Finalizer_attach$<T>(
+  m.Scope scope$,
+  Finalizer<T> target$,
+) =>
+    target$.attach;
+Function _Finalizer_detach$<T>(
+  m.Scope scope$,
+  Finalizer<T> target$,
+) =>
+    target$.detach;

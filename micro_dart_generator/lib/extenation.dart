@@ -5,6 +5,9 @@ import 'namedsystem.dart';
 extension ExtElement on Element {
   String getNameWithClass() {
     var element = this;
+    if (element is ConstructorElement) {
+      return element.displayName;
+    }
     var className = "";
     if (element.enclosingElement is InterfaceElement) {
       className = element.enclosingElement?.displayName ?? "";
@@ -50,9 +53,23 @@ extension ExtElement on Element {
       return _getParameterElementProxyName(thiz);
     } else if (thiz is MethodElement) {
       return _getMethodElementProxyName(thiz);
+    } else if (thiz is ConstructorElement) {
+      return _getConstructorElementProxyName(thiz);
     }
     return null;
   }
+}
+
+String? _getConstructorElementProxyName(ConstructorElement element) {
+  var className = "";
+  if (element.enclosingElement is ClassElement) {
+    className = (element.enclosingElement as ClassElement).displayName;
+  }
+  var name = element.name;
+  if (className.isNotEmpty) {
+    name = "${className}_$name";
+  }
+  return "_${name}_\$";
 }
 
 String? _getMethodElementProxyName(MethodElement element) {
@@ -79,8 +96,8 @@ String? _getMethodElementProxyName(MethodElement element) {
 }
 
 String? _getParameterElementProxyName(ParameterElement thiz) {
-  var functionElement = thiz.enclosingElement as FunctionElement;
-  var functionProxyName = functionElement.proxyName;
+  var functionElement = thiz.enclosingElement;
+  var functionProxyName = functionElement?.proxyName;
   return "${functionProxyName}_${thiz.name}\$";
 }
 
