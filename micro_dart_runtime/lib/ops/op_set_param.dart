@@ -1,24 +1,25 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetParam implements Op {
-  SetParam(MicroDartEngine interpreter) : name = interpreter.readString();
+  SetParam(MicroDartEngine engine) : _name = engine.readString();
 
-  SetParam.make(this.name);
+  SetParam.make(this._name);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opSetParam, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenI32;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetParam, ...Ops.i32b(pool.addOrGet(_name))];
 
   @override
   void run(Scope scope) {
     var value = scope.popFrame();
-    scope.setExistParam(name, value);
+    scope.setExistParam(_name, value);
   }
 
   @override
-  String toString() => "SetParam($name)";
+  String toString() => "SetParam($_name)";
 }

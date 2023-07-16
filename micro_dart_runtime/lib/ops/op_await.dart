@@ -12,7 +12,7 @@ class OpAwait implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opAwait];
+  List<int> bytes(ConstantPool pool) => [Ops.opAwait];
 
   @override
   Future run(Scope scope) async {

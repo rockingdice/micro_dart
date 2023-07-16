@@ -10,7 +10,7 @@ class OpAssert implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opAssert];
+  List<int> bytes(ConstantPool pool) => [Ops.opAssert];
 
   @override
   void run(Scope scope) {

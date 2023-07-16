@@ -9,7 +9,7 @@ class OpPushNull implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opPushNull];
+  List<int> bytes(ConstantPool pool) => [Ops.opPushNull];
 
   // Set value at position to constant
   @override

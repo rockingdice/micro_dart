@@ -2,35 +2,36 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpIs implements Op {
-  OpIs(MicroDartEngine interpreter) : type = interpreter.readString();
+  OpIs(MicroDartEngine engine) : _ref = ClassRef.fromEngine(engine);
 
-  OpIs.make(this.type);
+  OpIs.make(this._ref);
 
-  final String type;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(type);
+  final ClassRef _ref;
 
   @override
-  List<int> get bytes => [Ops.opIs, ...Ops.str(type)];
+  int get opLen => Ops.lenBegin + ClassRef.byteLen;
+
+  @override
+  List<int> bytes(ConstantPool pool) => [Ops.opIs, ..._ref.bytes(pool)];
 
   @override
   void run(Scope scope) {
     var instance = scope.popFrame();
     bool isType = false;
     if (instance is InstanceImpl) {
-      var superType = scope.engine.types[type];
+      var superType = scope.engine.types[_ref];
       if (superType == null) {
-        throw Exception("$type is null");
+        throw Exception("$_ref is null");
       }
       isType = instance.type.isType(superType, scope.engine);
     } else {
-      isType = scope.engine.externalFunctions["$type@#is"]!(instance);
+      isType = scope.engine
+          .callExternalFunction(_ref, "#is", scope, instance, [], {});
     }
 
     scope.pushFrame(isType);
   }
 
   @override
-  String toString() => 'Is($type)';
+  String toString() => 'Is($_ref)';
 }

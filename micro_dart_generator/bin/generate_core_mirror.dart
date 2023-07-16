@@ -13,7 +13,7 @@ void main(List<String> arguments) async {
   var overwriteStrategyPath =
       absolute(Directory(".").absolute.parent.path, "overwrite_strategy.json");
   var runtimeDir = absolute(rootPath, "micro_dart_runtime");
-  final generateDir = Directory(join(runtimeDir, "lib/generated4"));
+  final generateDir = Directory(join(runtimeDir, "lib/generated"));
   final libDir = Directory(join(runtimeDir, 'lib'));
 
   final collection = AnalysisContextCollection(

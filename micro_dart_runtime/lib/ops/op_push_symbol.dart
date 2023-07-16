@@ -8,10 +8,11 @@ class OpPushSymbol implements Op {
   final String _name;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_name);
+  int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opPushSymbol, ...Ops.str(_name)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opPushSymbol, ...Ops.i32b(pool.addOrGet(_name))];
 
   // Set value at position to constant
   @override

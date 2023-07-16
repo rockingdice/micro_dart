@@ -12,7 +12,8 @@ class OpJumpIfTrue implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opJumpIfTrue, ...Ops.i32b(_offset)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opJumpIfTrue, ...Ops.i32b(_offset)];
 
   @override
   void run(Scope scope) {

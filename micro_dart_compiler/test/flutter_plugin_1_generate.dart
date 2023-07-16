@@ -20,9 +20,8 @@ void main() async {
   File("${flutterExamplePath}assets//micro_dart.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
 
-  var engine = createMicroDartEngine(ByteData.sublistView(
-      await File("${flutterExamplePath}assets/micro_dart.data").readAsBytes()));
-
+  var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
+  engine.setExternalFunctions(libraryMirrors);
   if (printOp) {
     engine.debug = true;
     engine.printOpcodes();

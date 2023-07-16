@@ -15,12 +15,13 @@ void main() {
         astToJson(
             "$testCasePath/$fileName", pluginUriRegExp, program.component);
       }
-      var engine = createMicroDartEngine(program.write().buffer.asByteData());
-
       if (printOp) {
-        engine.debug = true;
-        engine.printOpcodes();
+        program.printOpcodes();
       }
+      var engine =
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
+      engine.setExternalFunctions(libraryMirrors);
+      engine.debug = true;
 
       var returnValue =
           engine.callStaticFunction<bool>(pluginUri, "main", [], {});

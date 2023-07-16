@@ -11,7 +11,7 @@ class OpLogical implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI8;
 
   @override
-  List<int> get bytes => [Ops.opLogical, ...Ops.i8b(type)];
+  List<int> bytes(ConstantPool pool) => [Ops.opLogical, ...Ops.i8b(type)];
 
   @override
   void run(Scope scope) {

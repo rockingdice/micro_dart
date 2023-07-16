@@ -1,24 +1,24 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpSetParamFromParent implements Op {
-  OpSetParamFromParent(MicroDartEngine interpreter)
-      : name = interpreter.readString();
+  OpSetParamFromParent(MicroDartEngine engine) : _name = engine.readString();
 
-  OpSetParamFromParent.make(this.name);
+  OpSetParamFromParent.make(this._name);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opSetParamFromParent, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenI32;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetParamFromParent, ...Ops.i32b(pool.addOrGet(_name))];
 
   @override
   void run(Scope scope) {
-    scope.setScopeParam(name, scope.parent?.popFrame());
+    scope.setScopeParam(_name, scope.parent?.popFrame());
   }
 
   @override
-  String toString() => "OpSetParamFromParent($name)";
+  String toString() => "OpSetParamFromParent($_name)";
 }

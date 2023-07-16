@@ -10,7 +10,7 @@ class OpEquals implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opEquals];
+  List<int> bytes(ConstantPool pool) => [Ops.opEquals];
 
   @override
   void run(Scope scope) {

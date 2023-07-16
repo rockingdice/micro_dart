@@ -9,10 +9,10 @@ class OpCallPointerAsync extends OpCallPointer {
       : super.make(argmentLength, name, isAsync);
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallPointerAsync,
         ...Ops.i32b(_argmentLength),
-        ...Ops.str(_name),
+        ...Ops.str(_name, pool),
         ...Ops.i8b(_isAsync ? 1 : 0)
       ];
 
@@ -45,13 +45,13 @@ class OpCallPointer implements Op {
   final bool _isAsync;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenI32 + Ops.lenStr(_name) + Ops.lenI8;
+  int get opLen => Ops.lenBegin + Ops.lenI32 * 2 + Ops.lenI8;
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallPointer,
         ...Ops.i32b(_argmentLength),
-        ...Ops.str(_name),
+        ...Ops.i32b(pool.addOrGet(_name)),
         ...Ops.i8b(_isAsync ? 1 : 0)
       ];
 

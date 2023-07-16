@@ -16,7 +16,7 @@ class OpTryCatchFinally implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32 * 3;
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opTryCatchFinally,
         ...Ops.i32b(_tryOffset),
         ...Ops.i32b(_catchOffset),

@@ -9,7 +9,7 @@ class OpThrow implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opThrow];
+  List<int> bytes(ConstantPool pool) => [Ops.opThrow];
 
   @override
   void run(Scope scope) {

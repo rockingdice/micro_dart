@@ -1,18 +1,18 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpSetObjectProperty implements Op {
-  OpSetObjectProperty(MicroDartEngine interpreter)
-      : _name = interpreter.readString();
+  OpSetObjectProperty(MicroDartEngine engine) : _name = engine.readString();
 
   OpSetObjectProperty.make(this._name);
 
   final String _name;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_name);
+  int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opSetObjectProperty, ...Ops.str(_name)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetObjectProperty, ...Ops.i32b(pool.addOrGet(_name))];
 
   @override
   void run(Scope scope) {

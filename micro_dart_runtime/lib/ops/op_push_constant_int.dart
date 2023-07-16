@@ -11,7 +11,8 @@ class OpPushConstantInt implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opPushConstantInt, ...Ops.i32b(_value)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opPushConstantInt, ...Ops.i32b(_value)];
 
   // Set value at position to constant
   @override

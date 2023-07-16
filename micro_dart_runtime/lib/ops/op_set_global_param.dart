@@ -1,25 +1,25 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpSetGlobalParam implements Op {
-  OpSetGlobalParam(MicroDartEngine interpreter)
-      : name = interpreter.readString();
+  OpSetGlobalParam(MicroDartEngine engine) : _ref = CallRef.fromEngine(engine);
 
-  OpSetGlobalParam.make(this.name);
+  OpSetGlobalParam.make(this._ref);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final CallRef _ref;
 
   @override
-  List<int> get bytes => [Ops.opSetGlobalParam, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + CallRef.byteLen;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetGlobalParam, ..._ref.bytes(pool)];
 
   @override
   void run(Scope scope) {
     var value = scope.frames.removeLast();
-    scope.engine.setGlobalParam(name, value);
+    scope.engine.setGlobalParam(_ref, value);
   }
 
   @override
-  String toString() => "SetGlobalParam($name)";
+  String toString() => "SetGlobalParam($_ref)";
 }

@@ -1,25 +1,26 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpGetParam implements Op {
-  OpGetParam(MicroDartEngine interpreter) : name = interpreter.readString();
+  OpGetParam(MicroDartEngine engine) : _name = engine.readString();
 
-  OpGetParam.make(this.name);
+  OpGetParam.make(this._name);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opGetParam, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenI32;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opGetParam, ...Ops.str(_name, pool)];
 
   @override
   void run(Scope scope) {
-    var o = scope.getParam(name);
+    var o = scope.getParam(_name);
 
     scope.pushFrame(o);
   }
 
   @override
-  String toString() => "GetParam($name)";
+  String toString() => "GetParam($_name)";
 }

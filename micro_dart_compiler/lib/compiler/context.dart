@@ -1,23 +1,22 @@
 import 'package:kernel/ast.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
-
-import 'constant_pool.dart';
+import 'package:micro_dart_runtime/constant_pool.dart';
 import 'ast/ast.dart';
 import 'namer.dart';
 
 class MicroCompilerContext {
   final List<NamedNode> compileDeclarations = [];
 
-  final Map<String, int> compileDeclarationIndexes = <String, int>{};
   final List<int> compileFieldIndexes = [];
   final List<int> compileClassIndexes = [];
 
-  final Map<String, int> rumtimeDeclarationOpIndexes = {};
+  final Map<CallRef, int> compileDeclarationIndexes = <CallRef, int>{};
+  final Map<CallRef, int> rumtimeDeclarationOpIndexes = {};
 
-  final constantPool = ConstantPool<Object>();
+  final constantPool = ConstantPool();
 
-  final Map<String, TypeRef> visibleTypes = {};
+  final Map<ClassRef, CType> visibleTypes = {};
 
   //op操作集合
   final ops = <Op>[];
@@ -38,7 +37,7 @@ class MicroCompilerContext {
 
   MicroCompilerContext(this.component, this.debug);
 
-  int lookupDeclarationIndex(String key, NamedNode node) {
+  int lookupDeclarationIndex(CallRef key, NamedNode node) {
     if (compileDeclarationIndexes.containsKey(key)) {
       return compileDeclarationIndexes[key]!;
     }
@@ -48,58 +47,73 @@ class MicroCompilerContext {
     return index;
   }
 
-  TypeRef lookupType(Class node) {
-    String key = node.getNamedName();
+  CType lookupType(Class node) {
+    var ref = node.getClassRef();
 
-    var type = visibleTypes[key];
+    var type = visibleTypes[ref];
     if (type != null) {
       return type;
     }
     var superClazz = node.superclass;
-    String? superTypeKey;
+    var mixinClazz = node.mixedInClass;
+    ClassRef? superType;
+    ClassRef? mixinType;
     if (superClazz != null) {
-      superTypeKey = superClazz.getNamedName();
+      superType = superClazz.getClassRef();
+    }
+    if (mixinClazz != null) {
+      mixinType = mixinClazz.getClassRef();
     }
     bool isExternal = true;
-    if (compileDeclarationIndexes.containsKey(key)) {
+    if (compileDeclarationIndexes.containsKey(ref)) {
       isExternal = false;
     }
-    type = TypeRef(node.stringLibraryUri, node.name, isExternal,
-        superTypeKey: superTypeKey,
-        isAnonymousMixin: node.isAnonymousMixin,
-        isMixinDeclaration: node.isMixinDeclaration,
-        methods: getClassMethods(node),
-        implementTypes: node.implementedTypes
-            .map<String>((e) => e.classNode.getNamedName())
-            .toList(),
-        mixinTypeKey: node.mixedInClass?.getNamedName());
-    visibleTypes[key] = type;
-    return type;
-  }
 
-  List<String> getClassMethods(Class clazz) {
-    List<String> methods = [];
-    clazz.fields.forEach((field) {
-      String name = field.getNamedName();
-      methods.add(name);
+    List<String> getters = [];
+    List<String> setters = [];
+    List<String> constructors = [];
+    node.fields.forEach((field) {
+      String name = field.name.text;
+      getters.add(name);
+      setters.add(name);
     });
-    clazz.constructors.forEach((constructor) {
-      String name = constructor.getNamedName();
-      methods.add(name);
+    node.constructors.forEach((constructor) {
+      String name = constructor.name.text;
+      constructors.add(name);
     });
-    clazz.redirectingFactories.forEach((redirectingFactory) {
-      String name = redirectingFactory.getNamedName();
-      methods.add(name);
+    node.redirectingFactories.forEach((redirectingFactory) {
+      String name = redirectingFactory.name.text;
+      constructors.add(name);
     });
-    clazz.procedures.forEach((procedure) {
-      if (procedure.isAbstract) {
+    node.procedures.forEach((procedure) {
+      if (procedure.isAbstract || procedure.isStatic) {
         return;
       }
-      String name = procedure.getNamedName();
-      methods.add(name);
+      String name = procedure.name.text;
+      if (procedure.isSetter) {
+        setters.add(name);
+      } else {
+        getters.add(name);
+      }
     });
 
-    return methods;
+    type = CType(
+      ref,
+      superType: superType,
+      mixinType: mixinType,
+      implementTypes: node.implementedTypes
+          .map<ClassRef>((e) => e.classNode.getClassRef())
+          .toList(),
+      getters: getters,
+      setters: setters,
+      constructors: constructors,
+      isExternal: isExternal,
+      isAnonymousMixin: node.isAnonymousMixin,
+      isMixinDeclaration: node.isMixinDeclaration,
+    );
+
+    visibleTypes[ref] = type;
+    return type;
   }
 
   void setupTypes() {
@@ -122,9 +136,9 @@ class MicroCompilerContext {
     return index;
   }
 
-  int callStart(String name) {
+  int callStart(CallRef ref) {
     final position = ops.length;
-    var op = OpCallStart.make(name);
+    var op = OpCallStart.make(ref);
     pushOp(op);
     return position;
   }
@@ -138,13 +152,13 @@ class MicroCompilerContext {
 
   void startCompileNode(NamedNode node) {
     if (debug) {
-      print("start compile: ${node.getNamedName()}");
+      print("start compile: ${node.getCallRef()}");
     }
   }
 
   void endCompileNode(NamedNode node) {
     if (debug) {
-      print("end compile: ${node.getNamedName()}");
+      print("end compile: ${node.getCallRef()}");
     }
   }
 }

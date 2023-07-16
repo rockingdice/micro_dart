@@ -2,78 +2,26 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法
 class OpCallExternal implements Op {
-  OpCallExternal(MicroDartEngine interpreter)
-      : kind = interpreter.readUint8(),
-        isStatic = interpreter.readUint8() == 1 ? true : false,
-        isGetter = interpreter.readUint8() == 1 ? true : false,
-        isSetter = interpreter.readUint8() == 1 ? true : false,
-        hasReturn = interpreter.readUint8() == 1 ? true : false,
-        key = interpreter.readString(),
-        libraryUri = interpreter.readString(),
-        className = interpreter.readString(),
-        name = interpreter.readString(),
-        posationalLength = interpreter.readInt32(),
-        namedList = interpreter.readStringList();
-  final int kind;
-  final bool isStatic;
-  final bool isGetter;
-  final bool isSetter;
-  final bool hasReturn;
+  OpCallExternal(MicroDartEngine engine)
+      : _ref = CallRef.fromEngine(engine),
+        _hasReturn = engine.readUint8() == 1 ? true : false;
 
-  final String key;
-  final String libraryUri;
-  final String className;
-  final String name;
+  final CallRef _ref;
+  final bool _hasReturn;
 
-  final int posationalLength;
-  final List<String> namedList;
-
-  OpCallExternal.make({
-    required this.libraryUri,
-    required this.key,
-    required this.kind,
-    required this.isStatic,
-    required this.isGetter,
-    required this.isSetter,
-    required this.hasReturn,
-    required this.className,
-    required this.name,
-    required this.posationalLength,
-    required this.namedList,
-  });
+  OpCallExternal.make(this._ref, this._hasReturn);
 
   @override
-  int get opLen =>
-      Ops.lenBegin +
-      Ops.lenI8 * 5 +
-      Ops.lenStr(key) +
-      Ops.lenStr(libraryUri) +
-      Ops.lenStr(className) +
-      Ops.lenStr(name) +
-      Ops.lenI32 +
-      Ops.lenStrlist(namedList);
+  int get opLen => Ops.lenBegin + CallRef.byteLen + Ops.lenI8 * 2;
 
   @override
-  List<int> get bytes => [
-        Ops.opCallExternal,
-        ...Ops.i8b(kind),
-        ...Ops.i8b(isStatic ? 1 : 0),
-        ...Ops.i8b(isGetter ? 1 : 0),
-        ...Ops.i8b(isSetter ? 1 : 0),
-        ...Ops.i8b(hasReturn ? 1 : 0),
-        ...Ops.str(key),
-        ...Ops.str(libraryUri),
-        ...Ops.str(className),
-        ...Ops.str(name),
-        ...Ops.i32b(posationalLength),
-        ...Ops.strlist(namedList)
-      ];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opCallExternal, ..._ref.bytes(pool), ...Ops.i8b(_hasReturn ? 1 : 0)];
 
   @override
   void run(Scope scope) {
     final Map<String, dynamic> namedArguments = {};
-    List<dynamic> positionalArguments =
-        List.filled(posationalLength, null, growable: false);
+
     var args = scope.popFrame() as List<dynamic>;
     final int namedLength = args.removeLast() as int;
     for (int i = 0; i < namedLength; i++) {
@@ -81,36 +29,22 @@ class OpCallExternal implements Op {
       var value = args.removeLast();
       namedArguments[key] = value;
     }
-    int pLength = args.removeLast() as int;
-    for (int i = 0; i < pLength; i++) {
+    int posationalLength = args.removeLast() as int;
+    final List<dynamic> positionalArguments =
+        List.filled(posationalLength, null, growable: false);
+    for (int i = 0; i < posationalLength; i++) {
       var value = args.removeLast();
       positionalArguments[i] = value;
     }
-    //print("call external: $key");
-    var function = scope.engine.externalFunctions[key];
+
+    var function = scope.engine.getExternalFunction(_ref);
     if (function == null) {
-      throw Exception("not found external function: $key");
-    }
-    //表示这是构造函数初始化
-    if (kind == 3) {
-      //这里需要修改
-      var instance = Function.apply(
-          function(scope),
-          positionalArguments,
-          namedArguments.map<Symbol, dynamic>(
-              (key, value) => MapEntry(Symbol(key), value)));
-
-      scope.pushFrame(instance);
-      return;
+      throw Exception("not found external function: $_ref");
     }
 
-    if (isStatic) {
-      if (isGetter) {
-        scope.pushFrame(function(scope));
-        return;
-      }
-      if (isSetter) {
-        Function.apply(function(scope), positionalArguments);
+    if (_ref.isStatic) {
+      if (_ref.isSetter) {
+        Function.apply(function, positionalArguments);
         return;
       }
       final instance = Function.apply(
@@ -118,23 +52,19 @@ class OpCallExternal implements Op {
           positionalArguments,
           namedArguments.map<Symbol, dynamic>(
               (key, value) => MapEntry(Symbol(key), value)));
-      if (hasReturn) {
+      if (_hasReturn) {
         scope.pushFrame(instance);
       }
     } else {
       dynamic target = args.removeLast();
 
       if (target is InstanceBridge) {
-        if (target.superGetters[name] != null) {
-          function = target.superGetters[name]!;
+        if (target.superGetters[_ref.name] != null) {
+          function = target.superGetters[_ref.name]!;
         }
       }
 
-      if (isGetter) {
-        scope.pushFrame(function(scope, target));
-        return;
-      }
-      if (isSetter) {
+      if (_ref.isSetter) {
         Function.apply(
             function(scope, target),
             positionalArguments,
@@ -147,13 +77,12 @@ class OpCallExternal implements Op {
           positionalArguments,
           namedArguments.map<Symbol, dynamic>(
               (key, value) => MapEntry(Symbol(key), value)));
-      if (hasReturn) {
+      if (_hasReturn) {
         scope.pushFrame(instance);
       }
     }
   }
 
   @override
-  String toString() =>
-      'CallExternal($kind,$isStatic,$isGetter,$isSetter,$key,$libraryUri,$className,$name,$posationalLength,$namedList)';
+  String toString() => 'CallExternal($_ref,$_hasReturn)';
 }

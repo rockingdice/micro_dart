@@ -54,7 +54,7 @@ void compileStatement(MicroCompilerContext context, Statement node,
 
 void compileTryFinally(MicroCompilerContext context, TryFinally node) {
   final jumpOver = context.pushOp(OpJump.make(-1));
-  int finallyPos = context.callStart("_finally_");
+  int finallyPos = context.callStart(CallRef.name("_finally_"));
   compileStatement(context, node.finalizer, newBlock: false);
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
@@ -64,7 +64,7 @@ void compileTryFinally(MicroCompilerContext context, TryFinally node) {
     compileTryCatch(context, body, finallyOffset: finallyPos);
   } else {
     final jumpOver = context.pushOp(OpJump.make(-1));
-    int tryPos = context.callStart("_try_");
+    int tryPos = context.callStart(CallRef.name("_try_"));
     compileStatement(context, node.body, newBlock: false);
     context.callEnd();
     context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
@@ -75,17 +75,17 @@ void compileTryFinally(MicroCompilerContext context, TryFinally node) {
 void compileTryCatch(MicroCompilerContext context, TryCatch node,
     {int finallyOffset = -1}) {
   final jumpOver = context.pushOp(OpJump.make(-1));
-  int tryPos = context.callStart("_try_");
+  int tryPos = context.callStart(CallRef.name("_try_"));
   compileStatement(context, node.body, newBlock: false);
   context.callEnd();
 
-  int catchPos = context.callStart("_catch_");
+  int catchPos = context.callStart(CallRef.name("_catch_"));
   context.pushOp(OpSetParamFromParent.make("#stackTrace"));
   context.pushOp(OpSetParamFromParent.make("#exception"));
   node.catches.forEach((catchh) {
     context.pushOp(OpGetParam.make("#exception"));
     context.pushOp(OpIs.make(
-        context.lookupType((catchh.guard as InterfaceType).classNode).key));
+        context.lookupType((catchh.guard as InterfaceType).classNode).ref));
     int jumpPos = context.pushOp(OpJumpIfFalse.make(-1));
     if (catchh.exception != null) {
       compileStatement(context, catchh.exception!, newBlock: false);
@@ -253,17 +253,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
   context.pushOp(OpCallExternal.make(
-      className: "dart:core@Iterable",
-      key: "dart:core@Iterable@iterator",
-      isGetter: true,
-      isSetter: false,
-      isStatic: false,
-      hasReturn: true,
-      libraryUri: "dart:core",
-      name: "iterator",
-      kind: DeferredOrOffsetKind.Procedure.index,
-      namedList: [],
-      posationalLength: 0));
+      CallRef("dart:core", "Iterable", "iterator", false, false), true));
 
   context.pushOp(OpSetScopeParam.make("#iterator"));
   int jumpStart = context.ops.length;
@@ -272,36 +262,20 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
-  context.pushOp(OpCallExternal.make(
-      className: "dart:core@Iterator",
-      key: "dart:core@Iterator@moveNext",
-      isGetter: false,
-      isSetter: false,
-      isStatic: false,
-      hasReturn: true,
-      libraryUri: "dart:core",
-      name: "moveNext",
-      kind: DeferredOrOffsetKind.Procedure.index,
-      namedList: [],
-      posationalLength: 0));
+  context.pushOp(
+    OpCallExternal.make(
+        CallRef("dart:core", "Iterator", "moveNext", false, false), true),
+  );
   int rewritePos = context.pushOp(OpJumpIfFalse.make(-1));
   context.pushOp(OpGetParam.make("#iterator"));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
   //调用iterator的current方法
-  context.pushOp(OpCallExternal.make(
-      className: "dart:core@Iterator",
-      key: "dart:core@Iterator@current",
-      isGetter: true,
-      isSetter: false,
-      isStatic: false,
-      hasReturn: true,
-      libraryUri: "dart:core",
-      name: "current",
-      kind: DeferredOrOffsetKind.Procedure.index,
-      namedList: [],
-      posationalLength: 0));
+  context.pushOp(
+    OpCallExternal.make(
+        CallRef("dart:core", "Iterator", "current", false, false), true),
+  );
   context.pushOp(OpSetScopeParam.make(node.variable.name!));
   compileStatement(context, node.body, newBlock: false);
   context.pushOp(OpJump.make(jumpStart));
@@ -365,14 +339,14 @@ void compileAssertBlock(MicroCompilerContext context, AssertBlock node) {
 
 void compileFunctionDeclaration(
     MicroCompilerContext context, FunctionDeclaration node) {
-  var name = node.getNamedName();
+  var ref = node.getCallRef();
   //表示该方法已经编译过了,直接返回
-  if (context.rumtimeDeclarationOpIndexes[name] != null) {
+  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
     return;
   }
 
   int jumpOver = context.pushOp(OpJump.make(-1));
-  compileFunction(context, node.function, name, false, true);
+  compileFunction(context, node.function, ref, false, true);
 
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
 }
@@ -390,13 +364,13 @@ void compileBlock(MicroCompilerContext context, Block node) {
     return;
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int pos = context.callStart("_block_");
+  int pos = context.callStart(CallRef.name("_block_"));
   node.statements.forEach((element) {
     compileStatement(context, element);
   });
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  context.pushOp(OpCall.make(pos, "_block_", false, false));
+  context.pushOp(OpCall.make(pos, CallRef.name("_block_"), false, false));
 }
 
 void compileVariableDeclaration(

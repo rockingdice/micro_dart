@@ -3,14 +3,14 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 class OpCallDynamicAsync extends OpCallDynamic {
   OpCallDynamicAsync(MicroDartEngine engine) : super(engine);
 
-  OpCallDynamicAsync.make(String name, bool isStatic, bool isGetter,
+  OpCallDynamicAsync.make(CallRef ref, bool isStatic, bool isGetter,
       bool isSetter, bool isAsync, bool hasArgs)
-      : super.make(name, isStatic, isGetter, isSetter, isAsync, hasArgs);
+      : super.make(ref, isStatic, isGetter, isSetter, isAsync, hasArgs);
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallDynamicAsync,
-        ...Ops.str(_name),
+        ..._ref.bytes(pool),
         ...Ops.i8b(_isStatic ? 1 : 0),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
@@ -20,12 +20,12 @@ class OpCallDynamicAsync extends OpCallDynamic {
 
   @override
   Future run(Scope scope) {
-    String key = _getKey(scope) ?? _name;
+    var ref = _getKey(scope) ?? _ref;
 
-    if (scope.engine.declarations.containsKey(key)) {
-      int pointer = scope.engine.declarations[key]!;
+    if (scope.engine.declarations.containsKey(ref)) {
+      int pointer = scope.engine.declarations[ref]!;
       return scope.engine
-          .callPointerAsync(scope, _name, _hasArgs, _isAsync, pointer);
+          .callPointerAsync(scope, ref.callName, _hasArgs, _isAsync, pointer);
     } else {
       throw Exception("currently not support external function ");
     }
@@ -33,20 +33,20 @@ class OpCallDynamicAsync extends OpCallDynamic {
 
   @override
   String toString() =>
-      'OpCallDynamicAsync($_name,$_isStatic,$_isGetter,$_isSetter)';
+      'OpCallDynamicAsync($_ref,$_isStatic,$_isGetter,$_isSetter)';
 }
 
 ///调用外部方法
 class OpCallDynamic implements Op {
-  OpCallDynamic(MicroDartEngine interpreter)
-      : _name = interpreter.readString(),
-        _isStatic = interpreter.readUint8() == 1 ? true : false,
-        _isGetter = interpreter.readUint8() == 1 ? true : false,
-        _isSetter = interpreter.readUint8() == 1 ? true : false,
-        _isAsync = interpreter.readUint8() == 1 ? true : false,
-        _hasArgs = interpreter.readUint8() == 1 ? true : false;
+  OpCallDynamic(MicroDartEngine engine)
+      : _ref = CallRef.fromEngine(engine),
+        _isStatic = engine.readUint8() == 1 ? true : false,
+        _isGetter = engine.readUint8() == 1 ? true : false,
+        _isSetter = engine.readUint8() == 1 ? true : false,
+        _isAsync = engine.readUint8() == 1 ? true : false,
+        _hasArgs = engine.readUint8() == 1 ? true : false;
 
-  final String _name;
+  final CallRef _ref;
   final bool _isGetter;
   final bool _isSetter;
   final bool _isStatic;
@@ -54,7 +54,7 @@ class OpCallDynamic implements Op {
   final bool _hasArgs;
 
   OpCallDynamic.make(
-    this._name,
+    this._ref,
     this._isStatic,
     this._isGetter,
     this._isSetter,
@@ -63,12 +63,12 @@ class OpCallDynamic implements Op {
   );
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_name) + Ops.lenI8 * 5;
+  int get opLen => Ops.lenBegin + CallRef.byteLen + Ops.lenI8 * 5;
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallDynamic,
-        ...Ops.str(_name),
+        ..._ref.bytes(pool),
         ...Ops.i8b(_isStatic ? 1 : 0),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
@@ -78,27 +78,27 @@ class OpCallDynamic implements Op {
 
   @override
   void run(Scope scope) {
-    String key = _getKey(scope) ?? _name;
+    var ref = _getKey(scope) ?? _ref;
 
-    if (scope.engine.declarations.containsKey(key)) {
-      int pointer = scope.engine.declarations[key]!;
-      scope.engine.callPointer(scope, _name, _hasArgs, pointer);
+    if (scope.engine.declarations.containsKey(ref)) {
+      int pointer = scope.engine.declarations[ref]!;
+      scope.engine.callPointer(scope, ref.callName, _hasArgs, pointer);
     } else {
-      throw Exception("currently not support external function ");
+      throw Exception("currently not support external function $ref");
     }
   }
 
-  String? _getKey(Scope scope) {
+  CallRef? _getKey(Scope scope) {
     //我们不能确定调用的方法一定就是内部的，因为有时候可能是super的方法,调用的是父类的方法，而父类可能是外部的类
     if (!_isStatic) {
       var args = scope.getFrame() as List<dynamic>;
       var instance = args.first as Instance;
       return scope.engine
-          .getKeyByType(instance.type, _name, isSetter: _isSetter);
+          .getCallRefByType(instance.type, _ref.name, _isSetter, _isStatic);
     }
     return null;
   }
 
   @override
-  String toString() => 'CallDynamic($_name,$_isStatic,$_isGetter,$_isSetter)';
+  String toString() => 'CallDynamic($_ref,$_isStatic,$_isGetter,$_isSetter)';
 }

@@ -2,17 +2,20 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///方法调用的开始指令
 class OpCallStart implements Op {
-  OpCallStart(MicroDartEngine engine) : _callName = engine.readString();
+  OpCallStart(MicroDartEngine engine) : _ref = CallRef.fromEngine(engine);
 
-  OpCallStart.make(this._callName);
+  OpCallStart.make(this._ref);
 
-  final String _callName;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_callName);
+  final CallRef _ref;
 
   @override
-  List<int> get bytes => [Ops.opCallStart, ...Ops.str(_callName)];
+  int get opLen => Ops.lenBegin + CallRef.byteLen;
+
+  @override
+  List<int> bytes(ConstantPool pool) => [
+        Ops.opCallStart,
+        ..._ref.bytes(pool),
+      ];
 
   @override
   void run(Scope scope) {
@@ -20,5 +23,5 @@ class OpCallStart implements Op {
   }
 
   @override
-  String toString() => 'OpCallStart($_callName)';
+  String toString() => 'OpCallStart($_ref)';
 }

@@ -319,8 +319,13 @@ class CodeGenMirror extends AbsVisitor {
     classItem.proxyGetterList[keyeword] = cb.refer(proxyName).expression;
   }
 
-  void addParameter(ParameterElement element, List<cb.Parameter> list,
-      int index, bool toFunctionPointer) {
+  void addParameter(
+      ParameterElement element,
+      List<cb.Parameter> list,
+      int index,
+      bool toFunctionPointer,
+      String? pre,
+      List<TypeParameterElement> typeParameters) {
     list.add(cb.Parameter(
       (p0) {
         p0.named = element.isNamed;
@@ -328,9 +333,11 @@ class CodeGenMirror extends AbsVisitor {
         if (name.isEmpty) {
           name = "\$p$index";
         }
-
+        if (pre != null && element.isPositional) {
+          name = "${pre}_$name\$";
+        }
         p0.name = name;
-        var typeString = dartTypeToClassName2(element.type,
+        var typeString = dartTypeToClassName2(element.type, typeParameters,
             toFunctionPointer: toFunctionPointer);
 
         if (typeString == "void") {
@@ -339,14 +346,12 @@ class CodeGenMirror extends AbsVisitor {
 
         if (element.hasDefaultValue && !typeString.endsWith("?")) {
           typeString = "$typeString?";
-        } else if ((element.isNamed || element.isOptionalPositional) &&
-            !typeString.endsWith("?")) {
+        } else if (element.isOptionalPositional && !typeString.endsWith("?")) {
           typeString = "$typeString?";
-        } else if (toFunctionPointer &&
-            (element.isRequiredNamed ||
-                (element.isNamed && !typeString.endsWith("?")))) {
+        } else if (element.isRequiredNamed) {
           p0.required = true;
-          p0.named = true;
+        } else if (element.isNamed && !typeString.endsWith("?")) {
+          typeString = "$typeString?";
         }
 
         p0.type = cb.refer(typeString);
@@ -359,31 +364,21 @@ class CodeGenMirror extends AbsVisitor {
     List<cb.Parameter> requiredParameters = [];
     List<cb.Parameter> optionalParameters = [];
 
+    var typeParameters = getTypeParameterElementWithoutDynamic(functionElement);
+
     for (int i = 0; i < functionElement.parameters.length; i++) {
       var parameter = functionElement.parameters[i];
       if (parameter.isPositional) {
         if (parameter.isOptionalPositional) {
           addParameter(
-            parameter,
-            optionalParameters,
-            i,
-            true,
-          );
+              parameter, optionalParameters, i, true, null, typeParameters);
         } else {
           addParameter(
-            parameter,
-            requiredParameters,
-            i,
-            true,
-          );
+              parameter, requiredParameters, i, true, null, typeParameters);
         }
       } else if (parameter.isNamed) {
         addParameter(
-          parameter,
-          optionalParameters,
-          i,
-          true,
-        );
+            parameter, optionalParameters, i, true, null, typeParameters);
       }
     }
     var classElement = functionElement.enclosingElement;
@@ -410,8 +405,6 @@ class CodeGenMirror extends AbsVisitor {
       p0.lambda = true;
       var method = cb.Method(
         (p1) {
-          var typeParameters =
-              getTypeParameterElementWithoutDynamic(functionElement);
           p1.types.addAll(
               typeParameters.map<cb.TypeReference>((e) => cb.TypeReference(
                     (p2) {
@@ -547,8 +540,9 @@ class CodeGenMirror extends AbsVisitor {
     }
 
     var posationalList = posational.map<cb.Expression>((e) {
-      var name = tramsformParameterName(functionElement, e, overwriteStrategy);
-      return cb.refer(name).expression;
+      var n = tramsformParameterName(functionElement, e, overwriteStrategy);
+
+      return cb.refer(n).expression;
     }).toList();
 
     var nameMap = Map<String, cb.Expression>.fromIterable(
@@ -619,16 +613,20 @@ class CodeGenMirror extends AbsVisitor {
 
     List<cb.Parameter> requiredParameters = [];
     List<cb.Parameter> optionalParameters = [];
+
     for (int i = 0; i < type.parameters.length; i++) {
       var parameter = type.parameters[i];
       if (parameter.isPositional) {
         if (parameter.isOptionalPositional) {
-          addParameter(parameter, optionalParameters, i, false);
+          addParameter(
+              parameter, optionalParameters, i, false, null, type.typeFormals);
         } else {
-          addParameter(parameter, requiredParameters, i, false);
+          addParameter(
+              parameter, requiredParameters, i, false, name, type.typeFormals);
         }
       } else if (parameter.isNamed) {
-        addParameter(parameter, optionalParameters, i, false);
+        addParameter(
+            parameter, optionalParameters, i, false, null, type.typeFormals);
       }
     }
     var method = cb.Method(((p0) {
@@ -687,7 +685,9 @@ class CodeGenMirror extends AbsVisitor {
         if (name.isEmpty) {
           name = "\$p$i";
         }
-
+        if (!type.parameters[i].isOptionalPositional) {
+          name = "${parameterElement.name}_$name\$";
+        }
         positionalArguments.add(cb.refer(name));
       }
     }
@@ -1227,8 +1227,13 @@ class CodeGenMirror extends AbsVisitor {
 
     for (int i = 0; i < propertyAccessorElement.type.parameters.length; i++) {
       if (propertyAccessorElement.type.parameters[i].isRequired) {
-        addParameter(propertyAccessorElement.type.parameters[i],
-            requiredParameters, i, true);
+        addParameter(
+            propertyAccessorElement.type.parameters[i],
+            requiredParameters,
+            i,
+            true,
+            null,
+            propertyAccessorElement.typeParameters);
       }
     }
     var method = cb.Method(((p0) {
@@ -1347,7 +1352,7 @@ class CodeGenMirror extends AbsVisitor {
     for (int i = 0; i < propertyAccessorElement.type.parameters.length; i++) {
       if (propertyAccessorElement.type.parameters[i].isRequired) {
         addParameter(propertyAccessorElement.type.parameters[i],
-            requiredParameters, i, true);
+            requiredParameters, i, true, null, classElement.typeParameters);
       }
     }
     var method = cb.Method(((p0) {

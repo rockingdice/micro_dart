@@ -41,45 +41,45 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
       if (node.isAbstract) {
         return;
       }
-      String name = node.getNamedName();
-      compilerContext.lookupDeclarationIndex(name, node);
+      var ref = node.getCallRef();
+      compilerContext.lookupDeclarationIndex(ref, node);
     });
 
     //顶部参数索引
     library.fields.forEach((node) {
-      String name = node.getNamedName();
-      int p = compilerContext.lookupDeclarationIndex(name, node);
+      var ref = node.getCallRef();
+      int p = compilerContext.lookupDeclarationIndex(ref, node);
       compilerContext.compileFieldIndexes.add(p);
     });
     //对类进行索引
     library.classes.forEach((clazz) {
-      String className = clazz.getNamedName();
-      int p = compilerContext.lookupDeclarationIndex(className, clazz);
+      var ref = clazz.getCallRef();
+      int p = compilerContext.lookupDeclarationIndex(ref, clazz);
       compilerContext.compileClassIndexes.add(p);
       //对类中的参数进行索引
       clazz.fields.forEach((field) {
-        String name = field.getNamedName();
-        int p = compilerContext.lookupDeclarationIndex(name, field);
+        var ref = field.getCallRef();
+        int p = compilerContext.lookupDeclarationIndex(ref, field);
         compilerContext.compileFieldIndexes.add(p);
       });
       //对类的构造函数进行索引
       clazz.constructors.forEach((constructor) {
-        String name = constructor.getNamedName();
-        compilerContext.lookupDeclarationIndex(name, constructor);
+        var ref = constructor.getCallRef();
+        compilerContext.lookupDeclarationIndex(ref, constructor);
       });
 
       //对类的构造工厂进行索引
       clazz.redirectingFactories.forEach((redirectingFactory) {
-        String name = redirectingFactory.getNamedName();
-        compilerContext.lookupDeclarationIndex(name, redirectingFactory);
+        var ref = redirectingFactory.getCallRef();
+        compilerContext.lookupDeclarationIndex(ref, redirectingFactory);
       });
       //对类中方法进行索引
       clazz.procedures.forEach((procedure) {
         if (procedure.isAbstract) {
           return;
         }
-        String name = procedure.getNamedName();
-        compilerContext.lookupDeclarationIndex(name, procedure);
+        var ref = procedure.getCallRef();
+        compilerContext.lookupDeclarationIndex(ref, procedure);
       });
     });
   });
@@ -90,7 +90,7 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
   return Program(
     rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
     runtimeTypes: compilerContext.visibleTypes,
-    constantPool: compilerContext.constantPool.pool,
+    constantPool: compilerContext.constantPool,
     ops: compilerContext.offsetTracker.apply(),
     component: component,
   );

@@ -2,24 +2,25 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 @Deprecated("Deprecated use OpFillArguements")
 class SetNamedParam implements Op {
-  SetNamedParam(MicroDartEngine interpreter) : name = interpreter.readString();
+  SetNamedParam(MicroDartEngine engine) : _name = engine.readString();
 
-  SetNamedParam.make(this.name);
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  SetNamedParam.make(this._name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opSetNamedParam, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenI32;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetNamedParam, ...Ops.i32b(pool.addOrGet(_name))];
 
   @override
   void run(Scope scope) {
-    if (scope.parent?.hasParam(name) ?? false) {
-      scope.setScopeParam(name, scope.parent?.getParam(name));
+    if (scope.parent?.hasParam(_name) ?? false) {
+      scope.setScopeParam(_name, scope.parent?.getParam(_name));
     }
   }
 
   @override
-  String toString() => "SetNamedParam($name)";
+  String toString() => "SetNamedParam($_name)";
 }

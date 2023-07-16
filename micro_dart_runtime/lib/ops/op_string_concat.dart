@@ -13,7 +13,8 @@ class OpStringConcat implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opStringConcat, ...Ops.i32b(_length)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opStringConcat, ...Ops.i32b(_length)];
 
   @override
   void run(Scope scope) {

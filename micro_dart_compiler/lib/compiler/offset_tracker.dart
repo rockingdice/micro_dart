@@ -18,41 +18,41 @@ class OffsetTracker {
   //  _deferredOffsets[location] = offset;
   // }
 
-  void setCallPointerOffset(
-      int location, String key, bool isStatic, bool isAsync) {
-    _callPointerOffsets[location] = CallPointerOffset(key, isStatic, isAsync);
+  void setCallPointerOffset(int location, CallRef ref, bool isAsync) {
+    _callPointerOffsets[location] = CallPointerOffset(ref, isAsync);
   }
 
   void setBreakOffset(int location, BreakOffset key) {
     _breakPointerOffsets[location] = key;
   }
 
-  void setGlobalParamOffset(int location, String name, String key) {
-    _globalParamOffsets[location] = ParamOffset(key, name);
+  void setGlobalParamOffset(int location, CallRef ref) {
+    _globalParamOffsets[location] = ParamOffset(ref);
   }
 
-  void setObjectParamOffset(int location, String name, String key) {
-    _objectParamOffsets[location] = ParamOffset(key, name);
+  void setObjectParamOffset(int location, CallRef ref) {
+    _objectParamOffsets[location] = ParamOffset(ref);
   }
 
   List<Op> apply() {
     var source = this.context.ops;
 
     _globalParamOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
-      final newOp = OpGetGlobalParam.make(value.name, offset);
+      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final newOp = OpGetGlobalParam.make(value.ref, offset);
       source[index] = newOp;
     });
 
     _objectParamOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
-      final newOp = OpGetObjectProperty.make(value.name, offset);
+      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final newOp = OpGetObjectProperty.make(value.ref.name, offset);
       source[index] = newOp;
     });
 
     _callPointerOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.key]!;
-      final newOp = OpPushPointer.make(offset, value.isStatic, value.isAsync);
+      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final newOp =
+          OpPushPointer.make(offset, value.ref.isStatic, value.isAsync);
       source[index] = newOp;
     });
 
@@ -75,11 +75,10 @@ enum DeferredOrOffsetKind {
 }
 
 class CallPointerOffset {
-  final String key;
-  final bool isStatic;
+  final CallRef ref;
   final bool isAsync;
 
-  const CallPointerOffset(this.key, this.isStatic, this.isAsync);
+  const CallPointerOffset(this.ref, this.isAsync);
 }
 
 class BreakOffset {
@@ -88,8 +87,7 @@ class BreakOffset {
 }
 
 class ParamOffset {
-  final String name;
-  final String key;
+  final CallRef ref;
 
-  const ParamOffset(this.name, this.key);
+  const ParamOffset(this.ref);
 }

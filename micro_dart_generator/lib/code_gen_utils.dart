@@ -224,7 +224,9 @@ String dartTypeToClassName3(DartType type, {bool toFunctionPointer = true}) {
   }
 }
 
-String dartTypeToClassName2(DartType type, {bool toFunctionPointer = true}) {
+String dartTypeToClassName2(
+    DartType type, List<TypeParameterElement> typeParameters,
+    {bool toFunctionPointer = true}) {
   if (type is InterfaceType) {
     if (type.isDartCoreList) {
       var name = "List";
@@ -253,7 +255,7 @@ String dartTypeToClassName2(DartType type, {bool toFunctionPointer = true}) {
     }
 
     var name = type.element.name;
-    if (isGenericClassType(type, [])) {
+    if (isGenericClassType(type, typeParameters)) {
       name = type.element.name;
     } else {
       name = type.getDisplayString(withNullability: false);

@@ -1,51 +1,33 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpReturnField implements Op {
-  OpReturnField(MicroDartEngine interpreter)
-      : _libraryName = interpreter.readString(),
-        _className = interpreter.readString(),
-        _isStatic = interpreter.readUint8() == 1 ? true : false,
-        _name = interpreter.readString();
+  OpReturnField(MicroDartEngine engine) : _ref = CallRef.fromEngine(engine);
 
-  OpReturnField.make(
-      this._libraryName, this._className, this._isStatic, this._name);
+  OpReturnField.make(this._ref);
 
-  final bool _isStatic;
-  final String _name;
-  final String _libraryName;
-  final String _className;
+  final CallRef _ref;
 
   @override
-  int get opLen =>
-      Ops.lenBegin +
-      Ops.lenStr(_libraryName) +
-      Ops.lenStr(_className) +
-      Ops.lenI8 +
-      Ops.lenStr(_name);
+  int get opLen => Ops.lenBegin + CallRef.byteLen;
 
   @override
-  List<int> get bytes => [
-        Ops.opReturnField,
-        ...Ops.str(_libraryName),
-        ...Ops.str(_className),
-        ...Ops.i8b(_isStatic ? 1 : 0),
-        ...Ops.str(_name)
-      ];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opReturnField, ..._ref.bytes(pool)];
 
   @override
   void run(Scope scope) {
     scope.hasReturn = true;
     var value = scope.popFrame();
-    if (_isStatic) {
-      scope.engine.setGlobalParam(_name, value);
+    if (_ref.isStatic) {
+      scope.engine.setGlobalParam(_ref, value);
       scope.returnValue = value;
     } else {
       Instance instance = scope.getParam("#this") as Instance;
-      instance.setParam(scope, _name, value);
+      instance.setParam(scope, _ref.name, value);
       scope.returnValue = value;
     }
   }
 
   @override
-  String toString() => 'ReturnField($_isStatic,$_name)';
+  String toString() => 'ReturnField($_ref)';
 }

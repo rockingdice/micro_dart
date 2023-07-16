@@ -142,8 +142,7 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     var type = node.type;
     //not common;need update
     if (type is InterfaceType) {
-      return context.pushOp(OpPushConstant.make(
-          context.constantPool.addOrGet(type.classNode.getNamedName())));
+      return context.pushOp(OpPushType.make(type.classNode.getClassRef()));
     }
   }
   throw Exception(
@@ -165,7 +164,7 @@ int compileSuperPropertySet(
     bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
     if (isAsync) {
       return context.pushOp(OpCallSuperAsync.make(
-          "${target.stringLibraryUri}@${target.stringClassName}",
+          ClassRef(target.stringLibraryUri, target.stringClassName!),
           target.name.text,
           false,
           true,
@@ -173,7 +172,7 @@ int compileSuperPropertySet(
           1, []));
     } else {
       return context.pushOp(OpCallSuper.make(
-          "${target.stringLibraryUri}@${target.stringClassName}",
+          ClassRef(target.stringLibraryUri, target.stringClassName!),
           target.name.text,
           false,
           true,
@@ -211,14 +210,13 @@ int compileConstructorTearOff(
 }
 
 int compileStaticTearOff(MicroCompilerContext context, StaticTearOff node) {
-  String key = node.target.getNamedName();
-  int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+  var ref = node.target.getCallRef();
+  int opOffset = context.rumtimeDeclarationOpIndexes[ref] ?? -1;
   bool isAsync = (node.target.function.asyncMarker == AsyncMarker.Async);
   int pos = context
       .pushOp(OpPushPointer.make(opOffset, node.target.isStatic, isAsync));
   if (opOffset == -1) {
-    context.offsetTracker
-        .setCallPointerOffset(pos, key, node.target.isStatic, isAsync);
+    context.offsetTracker.setCallPointerOffset(pos, ref, isAsync);
   }
   return pos;
 }
@@ -232,22 +230,23 @@ int compileMapLiteral(MicroCompilerContext context, MapLiteral node) {
   int length = node.entries.length;
   if (node.isConst) {
     var name = context.constantNamer.getName(node);
+    var ref = CallRef.name(name.text).copyOfIsStatic(true);
     if (name.params.containsKey("#location")) {
       int location = name.params["#location"] as int;
-      return context.pushOp(OpGetGlobalParam.make(name.text, location));
+      return context.pushOp(OpGetGlobalParam.make(ref, location));
     }
     int jumpOver = context.pushOp(OpJump.make(-1));
-    int location = context.callStart(name.text);
+    int location = context.callStart(ref);
     name.params["#location"] = location;
     for (int i = length - 1; i >= 0; i--) {
       compileExpression(context, node.entries[i].value);
       compileExpression(context, node.entries[i].key);
     }
     context.pushOp(OpPushMap.make(node.entries.length));
-    context.pushOp(OpReturnField.make("", "", true, name.text));
+    context.pushOp(OpReturnField.make(ref));
     context.callEnd();
     context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   for (int i = length - 1; i >= 0; i--) {
     compileExpression(context, node.entries[i].value);
@@ -261,21 +260,22 @@ int compileSetLiteral(MicroCompilerContext context, SetLiteral node) {
   int length = node.expressions.length;
   if (node.isConst) {
     var name = context.constantNamer.getName(node);
+    var ref = CallRef.name(name.text).copyOfIsStatic(true);
     if (name.params.containsKey("#location")) {
       int location = name.params["#location"] as int;
-      return context.pushOp(OpGetGlobalParam.make(name.text, location));
+      return context.pushOp(OpGetGlobalParam.make(ref, location));
     }
     int jumpOver = context.pushOp(OpJump.make(-1));
-    int location = context.callStart(name.text);
+    int location = context.callStart(ref);
     name.params["#location"] = location;
     for (int i = length - 1; i >= 0; i--) {
       compileExpression(context, node.expressions[i]);
     }
     context.pushOp(OpPushSet.make(node.expressions.length));
-    context.pushOp(OpReturnField.make("", "", true, name.text));
+    context.pushOp(OpReturnField.make(ref));
     context.callEnd();
     context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   for (int i = length - 1; i >= 0; i--) {
     compileExpression(context, node.expressions[i]);
@@ -359,20 +359,13 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
     if (context.compileDeclarations.contains(type.classNode)) {
       // throw Exception(
       //     "Currently IsExpression not support internal type  : ${type.runtimeType.toString()}");
-      return context.pushOp(OpIs.make(type.classNode.getNamedName()));
+      return context.pushOp(OpIs.make(type.classNode.getClassRef()));
     } else {
       return context.pushOp(OpCallExternal.make(
-          className: type.classNode.stringClassName!,
-          key: "${type.classNode.getNamedName()}@#is",
-          isGetter: false,
-          isSetter: false,
-          isStatic: false,
-          hasReturn: true,
-          libraryUri: type.classNode.stringLibraryUri,
-          name: "#is",
-          kind: DeferredOrOffsetKind.Procedure.index,
-          namedList: [],
-          posationalLength: 0));
+        CallRef(type.classNode.stringLibraryUri, type.classNode.name, "#is",
+            false, false),
+        true,
+      ));
     }
   } else {
     throw Exception(
@@ -411,13 +404,14 @@ int compileLet(MicroCompilerContext context, Let node) {
 int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
   if (context.compileDeclarations.contains(node.interfaceTarget)) {
     compileExpression(context, node.receiver);
-    String key = node.interfaceTarget.getNamedName();
-    int opOffset = context.rumtimeDeclarationOpIndexes[key] ?? -1;
+    var ref = node.interfaceTarget.getCallRef();
+    int opOffset = context.rumtimeDeclarationOpIndexes[ref] ?? -1;
     bool isAsync =
         (node.interfaceTarget.function.asyncMarker == AsyncMarker.Async);
-    int pos = context.pushOp(OpPushPointer.make(opOffset, false, isAsync));
+    int pos =
+        context.pushOp(OpPushPointer.make(opOffset, ref.isStatic, isAsync));
     if (opOffset == -1) {
-      context.offsetTracker.setCallPointerOffset(pos, key, false, isAsync);
+      context.offsetTracker.setCallPointerOffset(pos, ref, isAsync);
     }
     return pos;
   } else {
@@ -433,64 +427,57 @@ int compileStringConcatenation(
   return context.pushOp(OpStringConcat.make(node.expressions.length));
 }
 
-int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
-  compileExpression(context, node.receiver);
-  compileExpression(context, node.value);
+// int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
+//   compileExpression(context, node.receiver);
+//   compileExpression(context, node.value);
 
-  int pos = context.pushOp(
-      OpCallDynamic.make(node.name.text, false, false, true, false, true));
+//   int pos = context.pushOp(
+//       OpCallDynamic.make(node.name.text, false, false, true, false, true));
 
-  return pos;
-}
+//   return pos;
+// }
 
-int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
-  compileExpression(context, node.receiver);
+// int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
+//   compileExpression(context, node.receiver);
 
-  int pos = context.pushOp(
-      OpCallDynamic.make(node.name.text, false, true, false, false, true));
+//   int pos = context.pushOp(
+//       OpCallDynamic.make(node.name.text, false, true, false, false, true));
 
-  return pos;
-}
+//   return pos;
+// }
 
-int compileDynamicInvocation(
-    MicroCompilerContext context, DynamicInvocation node) {
-  compileExpression(context, node.receiver);
-  compileArguments(context, node.arguments, false);
+// int compileDynamicInvocation(
+//     MicroCompilerContext context, DynamicInvocation node) {
+//   compileExpression(context, node.receiver);
+//   compileArguments(context, node.arguments, false);
 
-  int pos = context.pushOp(OpCallDynamic.make(
-      node.name.text,
-      false,
-      false,
-      false,
-      false, //is async
-      true));
+//   int pos = context.pushOp(OpCallDynamic.make(
+//       node.name.text,
+//       false,
+//       false,
+//       false,
+//       false, //is async
+//       true));
 
-  return pos;
-}
+//   return pos;
+// }
 
 int compileAsExpression(MicroCompilerContext context, AsExpression node) {
   int pos = compileExpression(context, node.operand);
   final type = node.type;
   if (type is InterfaceType) {
     if (context.compileDeclarations.contains(type.classNode)) {
-      context.pushOp(OpAs.make(type.classNode.getNamedName()));
+      context.pushOp(OpAs.make(type.classNode.getClassRef()));
     } else {
       //这里表示它是一个外部类
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushArgments.make(3));
       return context.pushOp(OpCallExternal.make(
-          className: type.classNode.stringClassName!,
-          key: "${type.classNode.getNamedName()}@#as",
-          isGetter: false,
-          isSetter: false,
-          isStatic: false,
-          hasReturn: true,
-          libraryUri: type.classNode.stringLibraryUri,
-          name: "#as",
-          kind: DeferredOrOffsetKind.Procedure.index,
-          namedList: [],
-          posationalLength: 0));
+        CallRef(type.classNode.stringLibraryUri,
+            type.classNode.stringClassName!, "#as", false, false),
+        true,
+      ));
     }
   } else if (type is FunctionType) {
     print("AsExpression  not support : ${type.runtimeType.toString()}");
@@ -538,7 +525,7 @@ int compileLocalFunctionInvocation(
   var arguments = node.arguments;
   compileArguments(context, arguments, true);
   int p = compileCallLocalFunction(
-      context, arguments, node.localFunction.getNamedName(),
+      context, arguments, node.localFunction.getCallRef(),
       className: node.localFunction.stringClassName ?? "",
       libraryUri: node.localFunction.stringLibraryUri,
       name: node.localFunction.stringName,
@@ -551,8 +538,8 @@ int compileFunctionExpression(
     MicroCompilerContext context, FunctionExpression node) {
   int jumpOver = context.pushOp(OpJump.make(-1));
 
-  int pos = compileFunction(
-      context, node.function, "_FunctionExpression_", false, true);
+  int pos = compileFunction(context, node.function,
+      CallRef.name("_FunctionExpression_").copyOfIsStatic(true), false, true);
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
 
   return context.pushOp(OpPushPointer.make(
@@ -571,7 +558,7 @@ int compileSuperPropertyGet(
     bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
     if (isAsync) {
       return context.pushOp(OpCallSuperAsync.make(
-          "${target.stringLibraryUri}@${target.stringClassName}",
+          ClassRef(target.stringLibraryUri, target.stringClassName!),
           target.name.text,
           true,
           false,
@@ -579,7 +566,7 @@ int compileSuperPropertyGet(
           0, []));
     } else {
       return context.pushOp(OpCallSuper.make(
-          "${target.stringLibraryUri}@${target.stringClassName}",
+          ClassRef(target.stringLibraryUri, target.stringClassName!),
           target.name.text,
           true,
           false,
@@ -618,21 +605,22 @@ int compileListLiteral(MicroCompilerContext context, ListLiteral node) {
 
   if (node.isConst) {
     var name = context.constantNamer.getName(node);
+    var ref = CallRef.name(name.text).copyOfIsStatic(true);
     if (name.params.containsKey("#location")) {
       int location = name.params["#location"] as int;
-      return context.pushOp(OpGetGlobalParam.make(name.text, location));
+      return context.pushOp(OpGetGlobalParam.make(ref, location));
     }
     int jumpOver = context.pushOp(OpJump.make(-1));
-    int location = context.callStart(name.text);
+    int location = context.callStart(ref);
     name.params["#location"] = location;
     for (int i = length - 1; i >= 0; i--) {
       compileExpression(context, node.expressions[i]);
     }
     context.pushOp(OpPushList.make(node.expressions.length));
-    context.pushOp(OpReturnField.make("", "", true, name.text));
+    context.pushOp(OpReturnField.make(ref));
     context.callEnd();
     context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
 
   for (int i = length - 1; i >= 0; i--) {
@@ -683,18 +671,19 @@ int compileConstructorInvocation(
   var arguments = node.arguments;
   if (node.isConst) {
     var name = context.constantNamer.getName(node);
+    var ref = CallRef.name(name.text).copyOfIsStatic(true);
     if (name.params.containsKey("#location")) {
       int location = name.params["#location"] as int;
-      return context.pushOp(OpGetGlobalParam.make(name.text, location));
+      return context.pushOp(OpGetGlobalParam.make(ref, location));
     }
     int jumpOver = context.pushOp(OpJump.make(-1));
-    int location = context.callStart(name.text);
+    int location = context.callStart(ref);
     name.params["#location"] = location;
     compileCallConstructor(context, arguments, target);
-    context.pushOp(OpReturnField.make("", "", true, name.text));
+    context.pushOp(OpReturnField.make(ref));
     context.callEnd();
     context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   } else {
     return compileCallConstructor(context, arguments, target);
   }
@@ -735,13 +724,13 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
     return compileListConstant(context, constant);
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
-      String key = constant.target.getNamedName();
-      int opOffset = context.rumtimeDeclarationOpIndexes[key]!;
+      var ref = constant.target.getCallRef();
+      int opOffset = context.rumtimeDeclarationOpIndexes[ref]!;
       bool isAsync =
           (constant.target.function.asyncMarker == AsyncMarker.Async);
       int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));
       if (opOffset == -1) {
-        context.offsetTracker.setCallPointerOffset(pos, key, true, isAsync);
+        context.offsetTracker.setCallPointerOffset(pos, ref, isAsync);
       }
       return pos;
     } else {
@@ -771,29 +760,31 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
 int compileSymbolConstant(
     MicroCompilerContext context, SymbolConstant constant) {
   var name = context.constantNamer.getName(constant);
+  var ref = CallRef.name(name.text).copyOfIsStatic(true);
   if (name.params.containsKey("#location")) {
     int location = name.params["#location"] as int;
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int location = context.callStart(name.text);
+  int location = context.callStart(ref);
   name.params["#location"] = location;
 
   context.pushOp(OpPushSymbol.make(constant.name));
-  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.pushOp(OpReturnField.make(ref));
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  return context.pushOp(OpGetGlobalParam.make(ref, location));
 }
 
 int compileSetConstant(MicroCompilerContext context, SetConstant constant) {
   var name = context.constantNamer.getName(constant);
+  var ref = CallRef.name(name.text).copyOfIsStatic(true);
   if (name.params.containsKey("#location")) {
     int location = name.params["#location"] as int;
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int location = context.callStart(name.text);
+  int location = context.callStart(ref);
   name.params["#location"] = location;
 
   int length = constant.entries.length;
@@ -801,40 +792,42 @@ int compileSetConstant(MicroCompilerContext context, SetConstant constant) {
     compileConstant(context, constant.entries[i]);
   }
   context.pushOp(OpPushSet.make(constant.entries.length));
-  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.pushOp(OpReturnField.make(ref));
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  return context.pushOp(OpGetGlobalParam.make(ref, location));
 }
 
 int compileListConstant(MicroCompilerContext context, ListConstant constant) {
   var name = context.constantNamer.getName(constant);
+  var ref = CallRef.name(name.text).copyOfIsStatic(true);
   if (name.params.containsKey("#location")) {
     int location = name.params["#location"] as int;
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int location = context.callStart(name.text);
+  int location = context.callStart(ref);
   name.params["#location"] = location;
   int length = constant.entries.length;
   for (int i = length - 1; i >= 0; i--) {
     compileConstant(context, constant.entries[i]);
   }
   context.pushOp(OpPushList.make(constant.entries.length));
-  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.pushOp(OpReturnField.make(ref));
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  return context.pushOp(OpGetGlobalParam.make(ref, location));
 }
 
 int compileMapConstant(MicroCompilerContext context, MapConstant constant) {
   var name = context.constantNamer.getName(constant);
+  var ref = CallRef.name(name.text).copyOfIsStatic(true);
   if (name.params.containsKey("#location")) {
     int location = name.params["#location"] as int;
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int location = context.callStart(name.text);
+  int location = context.callStart(ref);
   name.params["#location"] = location;
 
   int length = constant.entries.length;
@@ -843,10 +836,10 @@ int compileMapConstant(MicroCompilerContext context, MapConstant constant) {
     compileConstant(context, constant.entries[i].key);
   }
   context.pushOp(OpPushMap.make(constant.entries.length));
-  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.pushOp(OpReturnField.make(ref));
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  return context.pushOp(OpGetGlobalParam.make(ref, location));
 }
 
 int compileInstanceConstant(
@@ -854,23 +847,21 @@ int compileInstanceConstant(
   var classNode = constant.classNode;
 
   //这是一个外部类
-
-  if (!context.compileDeclarationIndexes
-      .containsKey(classNode.getNamedName())) {
+  if (!context.compileDeclarationIndexes.containsKey(classNode.getCallRef())) {
     return compileExternalInstanceConstant(context, constant);
   }
 
   var name = context.constantNamer.getName(constant);
+  var ref = CallRef.name(name.text).copyOfIsStatic(true);
 
   if (name.params.containsKey("#location")) {
     int location = name.params["#location"] as int;
-    return context.pushOp(OpGetGlobalParam.make(name.text, location));
+    return context.pushOp(OpGetGlobalParam.make(ref, location));
   }
   int jumpOver = context.pushOp(OpJump.make(-1));
-  int location = context.callStart(name.text);
+  int location = context.callStart(ref);
   name.params["#location"] = location;
-  context.pushOp(OpCreateInstance.make(
-      classNode.stringLibraryUri, classNode.stringClassName!));
+  context.pushOp(OpCreateInstance.make(classNode.getClassRef()));
   context.pushOp(OpSetScopeParam.make("#this"));
   constant.fieldValues.forEach((reference, constant) {
     var filed = reference.asField;
@@ -879,10 +870,10 @@ int compileInstanceConstant(
     context.pushOp(OpSetThisProperty.make(filedName));
   });
   context.pushOp(OpGetParam.make("#this"));
-  context.pushOp(OpReturnField.make("", "", true, name.text));
+  context.pushOp(OpReturnField.make(ref));
   context.callEnd();
   context.rewriteOp(OpJump.make(context.ops.length), jumpOver);
-  return context.pushOp(OpGetGlobalParam.make(name.text, location));
+  return context.pushOp(OpGetGlobalParam.make(ref, location));
 }
 
 int compileExternalInstanceConstant(
@@ -891,7 +882,7 @@ int compileExternalInstanceConstant(
   //     "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
   // return -1;
   throw Exception(
-      "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
+      "currently not support External Instance Constant ${constant.classNode.getClassRef()}");
 }
 
 void getConstantConstructor(InstanceConstant constant) {

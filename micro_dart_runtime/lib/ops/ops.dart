@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../micro_dart_runtime.dart';
+
+export 'op_push_type.dart';
 export 'op_as.dart';
 export 'op_push_constant_double.dart';
 export 'op_push_constant_bool.dart';
@@ -150,6 +152,7 @@ class Ops {
   static const opPushConstantBool = 64;
   static const opPushConstantDouble = 65;
   static const opAs = 66;
+  static const opPushType = 67;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -160,18 +163,30 @@ class Ops {
   static const lenF64 = 8;
 
   static int lenStr(String str) {
-    return lenI32 + utf8.encode(str).length;
-  }
-
-  static List<int> i8b(int i8) {
-    final x = ByteData(1);
-    x.setInt8(0, i8);
-    return [x.getUint8(0)];
+    return lenI32;
   }
 
   static List<int> u8b(int i8) {
     final x = ByteData(1);
     x.setUint8(0, i8);
+    return [x.getUint8(0)];
+  }
+
+  static List<int> u16b(int u16) {
+    final x = ByteData(2);
+    x.setUint16(0, u16);
+    return [x.getUint8(0), x.getUint8(1)];
+  }
+
+  static List<int> u32b(int u32) {
+    final x = ByteData(2);
+    x.setUint32(0, u32);
+    return [x.getUint8(0), x.getUint8(1), x.getUint8(2), x.getUint8(3)];
+  }
+
+  static List<int> i8b(int i8) {
+    final x = ByteData(1);
+    x.setInt8(0, i8);
     return [x.getUint8(0)];
   }
 
@@ -208,32 +223,27 @@ class Ops {
     ];
   }
 
-  static List<int> str(String str) {
-    final u = utf8.encode(str);
-    final x = ByteData(4);
-    x.setInt32(0, u.length);
-    return [...i32b(u.length), ...u];
+  static List<int> str(String str, ConstantPool pool) {
+    return i32b(pool.addOrGet(str));
   }
 
-  static List<int> strlist(List<String> list) {
+  static List<int> strlist(List<String> list, ConstantPool pool) {
     List<int> result = [...i32b(list.length)];
 
     for (var element in list) {
-      result.addAll(str(element));
+      result.addAll(i32b(pool.addOrGet(element)));
     }
     return result;
   }
 
   static int lenStrlist(List<String> list) {
     int len = lenI32;
-    for (var element in list) {
-      len += lenStr(element);
-    }
+    len += lenI32 * list.length;
     return len;
   }
 
-  static List<int> opcodeFrom(Op op) {
-    return op.bytes;
+  static List<int> opcodeFrom(Op op, ConstantPool pool) {
+    return op.bytes(pool);
   }
 }
 
@@ -244,7 +254,7 @@ abstract class Op {
   //操作占用的字节长度
   int get opLen;
   //反序列化成字节
-  List<int> get bytes;
+  List<int> bytes(ConstantPool pool);
 }
 
 typedef OpLoader = Op Function(MicroDartEngine);
@@ -301,8 +311,6 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opSetParamFromParent: (MicroDartEngine engine) =>
       OpSetParamFromParent(engine),
   Ops.opPushArgments: (MicroDartEngine engine) => OpPushArgments(engine),
-  Ops.opGetGlobalParamAsync: (MicroDartEngine engine) =>
-      OpGetGlobalParamAsync(engine),
   Ops.opCallPointerAsync: (MicroDartEngine engine) =>
       OpCallPointerAsync(engine),
   Ops.opGetObjectPropertyAsync: (MicroDartEngine engine) =>
@@ -319,4 +327,5 @@ final Map<int, OpLoader> opLoaders = {
   Ops.opPushConstantDouble: (MicroDartEngine engine) =>
       OpPushConstantDouble(engine),
   Ops.opAs: (MicroDartEngine engine) => OpAs(engine),
+  Ops.opPushType: (MicroDartEngine engine) => OpPushType(engine),
 };

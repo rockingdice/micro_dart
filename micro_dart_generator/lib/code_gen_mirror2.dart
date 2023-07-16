@@ -288,7 +288,7 @@ class CodeGenMirror extends AbsVisitor {
         }
 
         p0.name = name;
-        var typeString = dartTypeToClassName2(element.type,
+        var typeString = dartTypeToClassName2(element.type, [],
             toFunctionPointer: toFunctionPointer);
 
         if (typeString == "void") {

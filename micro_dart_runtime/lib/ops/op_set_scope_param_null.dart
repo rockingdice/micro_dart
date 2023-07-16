@@ -1,24 +1,24 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetScopeParamNull implements Op {
-  SetScopeParamNull(MicroDartEngine interpreter)
-      : name = interpreter.readString();
+  SetScopeParamNull(MicroDartEngine engine) : _name = engine.readString();
 
-  SetScopeParamNull.make(this.name);
+  SetScopeParamNull.make(this._name);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opSetScopeParamNull, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenStr(_name);
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetScopeParamNull, ...Ops.str(_name, pool)];
 
   @override
   void run(Scope scope) {
-    scope.setScopeParam(name, null);
+    scope.setScopeParam(_name, null);
   }
 
   @override
-  String toString() => "SetScopeParamNull($name)";
+  String toString() => "SetScopeParamNull($_name)";
 }

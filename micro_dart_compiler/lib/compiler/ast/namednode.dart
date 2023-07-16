@@ -1,9 +1,18 @@
 part of 'ast.dart';
 
+extension ExtensionClass on Class {
+  ClassRef getClassRef() {
+    String library = (this.parent as Library).importUri.toString();
+    String className = this.name;
+    return ClassRef(library, className);
+  }
+}
+
 extension ExtensionFunctionDeclaration on FunctionDeclaration {
-  String getNamedName() {
-    var parentName = procedure.getNamedName();
-    return "$parentName@${variable.name}";
+  CallRef getCallRef() {
+    var ref = procedure.getCallRef();
+    return CallRef(ref.library, ref.className, "${ref.name}@${variable.name}",
+        ref.isSetter, false);
   }
 
   Procedure get procedure {
@@ -64,45 +73,46 @@ extension ExtensionNamedNode on NamedNode {
     return (this as RedirectingFactory);
   }
 
-  bool get isStatic {
+  bool get nameNodeIsStatic {
     if (isField) {
       return asField.isStatic;
     } else if (isProcedure) {
       return asProcedure.isStatic;
+    } else if (isConstructor) {
+      return true;
+    } else if (isRedirectingFactory) {
+      return true;
+    } else if (isClass) {
+      return true;
     }
     return false;
   }
 
-  String getNamedName() {
+  CallRef getCallRef() {
     if (isClass) {
-      return getClassName();
+      return getClassCallRef();
     } else if (isConstructor) {
-      return getConstructorName();
+      return getConstructorCallRef();
     } else if (isField) {
-      return getFieldName();
+      return getFieldCallRef();
     } else if (isRedirectingFactory) {
-      return getRedirectingFactoryName();
+      return getRedirectingFactoryCallRef();
     } else if (isProcedure) {
-      return getProcedureName();
+      return getProcedureCallRef();
     }
     throw Exception(
         "get namedName error runtimeType:${this.runtimeType.toString()}");
   }
 
-  String getClassName() {
-    String libraryUri = (this.parent as Library).importUri.toString();
-    String className = this.asClass.name;
-    return "$libraryUri@$className";
-  }
-
-  String getConstructorName() {
+  CallRef getConstructorCallRef() {
     var thiz = this.asConstructor;
     String constructorName = thiz.name.text;
     var clazz = (thiz.parent as Class);
     String className = clazz.name;
     String libraryUri = (clazz.parent as Library).importUri.toString();
 
-    return "$libraryUri@$className@$constructorName";
+    return CallRef(
+        libraryUri, className, "$className.$constructorName", false, true);
   }
 
   String get stringLibraryUri {
@@ -168,7 +178,7 @@ extension ExtensionNamedNode on NamedNode {
     throw Exception("not support ${this.runtimeType.toString()}");
   }
 
-  String getFieldName() {
+  CallRef getFieldCallRef() {
     var thiz = this.asField;
     String fieldName = thiz.name.text;
     String libraryUri = "";
@@ -180,19 +190,19 @@ extension ExtensionNamedNode on NamedNode {
       libraryUri = (this.parent as Library).importUri.toString();
     }
 
-    return "$libraryUri@$className@$fieldName";
+    return CallRef(libraryUri, className, fieldName, false, thiz.isStatic);
   }
 
-  String getRedirectingFactoryName() {
+  CallRef getRedirectingFactoryCallRef() {
     var thiz = this.asRedirectingFactory;
     String factoryName = thiz.name.text;
     String className = (this.parent as Class).name;
     String libraryUri = (this.parent!.parent as Library).importUri.toString();
 
-    return "$libraryUri@$className@$factoryName";
+    return CallRef(libraryUri, className, factoryName, false, true);
   }
 
-  String getProcedureName() {
+  CallRef getProcedureCallRef() {
     var thiz = this.asProcedure;
     String procedureName = thiz.name.text;
     String libraryUri = "";
@@ -200,15 +210,23 @@ extension ExtensionNamedNode on NamedNode {
     if (this.parent is Class) {
       className = (this.parent as Class).name;
       libraryUri = (this.parent!.parent as Library).importUri.toString();
+      if (thiz.isStatic) {
+        procedureName = "$className.$procedureName";
+      }
     } else if (this.parent is Library) {
       libraryUri = (this.parent as Library).importUri.toString();
     }
-
     if (thiz.isSetter) {
       procedureName = "$procedureName:set";
     }
 
-    return "$libraryUri@$className@$procedureName";
+    return CallRef(
+        libraryUri, className, procedureName, thiz.isSetter, thiz.isStatic);
+  }
+
+  CallRef getClassCallRef() {
+    var thiz = this.asClass;
+    return CallRef(thiz.stringLibraryUri, thiz.name, "", false, true);
   }
 }
 

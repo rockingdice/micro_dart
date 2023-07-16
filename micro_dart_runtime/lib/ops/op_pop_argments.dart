@@ -17,9 +17,9 @@ class OpPopArgments implements Op {
       Ops.lenBegin + Ops.lenStrlist(_posationalNames) + Ops.lenI8 * 2;
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opPopArgments,
-        ...Ops.strlist(_posationalNames),
+        ...Ops.strlist(_posationalNames, pool),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isStatic ? 1 : 0)
       ];

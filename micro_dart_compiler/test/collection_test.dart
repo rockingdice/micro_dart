@@ -16,8 +16,9 @@ void main() {
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
-      var engine = createMicroDartEngine(program.write().buffer.asByteData());
-
+      var engine =
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
+      engine.setExternalFunctions(libraryMirrors);
       if (printOp) {
         engine.debug = true;
         engine.printOpcodes();
@@ -37,8 +38,9 @@ void main() {
         writeComponentToText(program.component!,
             path: "$testCasePath$fileName.txt");
       }
-      var engine = createMicroDartEngine(program.write().buffer.asByteData());
-
+      var engine =
+          MicroDartEngine.fromData(program.write().buffer.asByteData());
+      engine.setExternalFunctions(libraryMirrors);
       if (printOp) {
         engine.debug = true;
         engine.printOpcodes();
@@ -59,8 +61,8 @@ void main() {
       writeComponentToText(program.component!,
           path: "$testCasePath$fileName.txt");
     }
-    var engine = createMicroDartEngine(program.write().buffer.asByteData());
-
+    var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
+    engine.setExternalFunctions(libraryMirrors);
     if (printOp) {
       engine.debug = true;
       engine.printOpcodes();

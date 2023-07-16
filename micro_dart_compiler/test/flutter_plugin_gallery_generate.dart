@@ -28,7 +28,7 @@ void main() async {
   File("${flutterExampleGalleryPath}assets/micro_dart.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
 
-  var engine = createMicroDartEngine(ByteData.sublistView(
+  var engine = MicroDartEngine.fromData(ByteData.sublistView(
       await File("${flutterExampleGalleryPath}assets/micro_dart.data")
           .readAsBytes()));
 }

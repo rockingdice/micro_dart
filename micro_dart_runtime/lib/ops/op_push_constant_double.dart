@@ -12,7 +12,8 @@ class OpPushConstantDouble implements Op {
   int get opLen => Ops.lenBegin + Ops.lenF64;
 
   @override
-  List<int> get bytes => [Ops.opPushConstantDouble, ...Ops.f64b(_value)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opPushConstantDouble, ...Ops.f64b(_value)];
 
   // Set value at position to constant
   @override

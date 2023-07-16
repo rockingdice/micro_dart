@@ -13,7 +13,8 @@ class OpJumpIfEqual implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opJumpIfEqual, ...Ops.i32b(_offset)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opJumpIfEqual, ...Ops.i32b(_offset)];
 
   @override
   void run(Scope scope) {

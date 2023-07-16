@@ -8,12 +8,12 @@ class Program {
   final Component? component;
 
   /// Global bytecode offsets of the program's top-level declarations.
-  final Map<String, int> rumtimeDeclarationOpIndexes;
+  final Map<CallRef, int> rumtimeDeclarationOpIndexes;
 
   final List<Op> ops;
-  final List<Object> constantPool;
+  final ConstantPool constantPool;
 
-  final Map<String, TypeRef> runtimeTypes;
+  final Map<ClassRef, CType> runtimeTypes;
 
   Program(
       {required this.rumtimeDeclarationOpIndexes,
@@ -25,16 +25,30 @@ class Program {
   Uint8List write() {
     final builder = BytesBuilder(copy: false);
 
-    _writeMetaBlock(builder, rumtimeDeclarationOpIndexes);
-    _writeMetaBlock(builder, constantPool);
+    final opBuilder = BytesBuilder(copy: false);
+
+    for (final op in ops) {
+      opBuilder.add(Ops.opcodeFrom(op, constantPool));
+    }
+
     _writeMetaBlock(
         builder,
         runtimeTypes
-            .map<String, List>((key, value) => MapEntry(key, value.toList())));
+            .map<ClassRef, List>(
+                (key, value) => MapEntry(key, value.toList(constantPool)))
+            .values
+            .toList());
 
-    for (final op in ops) {
-      builder.add(Ops.opcodeFrom(op));
-    }
+    _writeMetaBlock(
+        builder,
+        rumtimeDeclarationOpIndexes.keys
+            .map<List>((e) => e.toList(constantPool))
+            .toList());
+    _writeMetaBlock(builder, rumtimeDeclarationOpIndexes.values.toList());
+
+    _writeMetaBlock(builder, constantPool.pool);
+
+    builder.add(opBuilder.takeBytes());
 
     return builder.takeBytes();
   }
@@ -43,5 +57,15 @@ class Program {
     final encodedBlock = utf8.encode(json.encode(block));
     builder.add(Ops.i32b(encodedBlock.length));
     builder.add(encodedBlock);
+  }
+
+  void printOpcodes() {
+    print("------------start printOpcodes------------");
+    var i = 0;
+    for (final oo in ops) {
+      print('$i: $oo');
+      i++;
+    }
+    print("------------end printOpcodes------------");
   }
 }

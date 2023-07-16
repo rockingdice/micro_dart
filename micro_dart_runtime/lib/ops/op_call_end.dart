@@ -7,7 +7,7 @@ class OpCallEndAsync extends OpCallEnd {
   OpCallEndAsync.make() : super.make();
 
   @override
-  List<int> get bytes => [Ops.opCallEndAsync];
+  List<int> bytes(ConstantPool pool) => [Ops.opCallEndAsync];
 
   @override
   Future run(Scope scope) async {
@@ -27,7 +27,7 @@ class OpCallEnd implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opCallEnd];
+  List<int> bytes(ConstantPool pool) => [Ops.opCallEnd];
 
   @override
   void run(Scope scope) {

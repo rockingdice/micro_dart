@@ -2,14 +2,14 @@ part of 'ast.dart';
 
 int compileConstructor(MicroCompilerContext context, Constructor node) {
   context.startCompileNode(node);
-  var name = node.getNamedName();
+  var ref = node.getCallRef();
 
-  if (context.rumtimeDeclarationOpIndexes[name] != null) {
-    return context.rumtimeDeclarationOpIndexes[name]!;
+  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
+    return context.rumtimeDeclarationOpIndexes[ref]!;
   }
   //开启一个作用域
-  int pos = context.callStart(name);
-  context.rumtimeDeclarationOpIndexes[name] = pos;
+  int pos = context.callStart(ref);
+  context.rumtimeDeclarationOpIndexes[ref] = pos;
   List<String> posationalNames = [];
   //参数初始化
   node.function.positionalParameters.forEach((element) {
@@ -20,8 +20,8 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
     compileVariableDeclaration(context, element);
   });
   context.pushOp(OpPopArgments.make(posationalNames, false, true));
-  context.pushOp(
-      OpCreateInstance.make(node.stringLibraryUri, node.stringClassName!));
+  context.pushOp(OpCreateInstance.make(
+      ClassRef(node.stringLibraryUri, node.stringClassName!)));
   context.pushOp(OpSetScopeParam.make("#this"));
 
   //filed初始化
@@ -85,26 +85,14 @@ void compileAssertInitializer(
 int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
     Constructor constructor) {
   context.lookupType(constructor.enclosingClass);
-  var name = constructor.getNamedName();
+  var ref = constructor.getCallRef();
   //将参数压入当前作用域
   compileArguments(context, arguments, true);
   Op? op;
-  if (context.compileDeclarationIndexes.containsKey(name)) {
-    op = OpCallDynamic.make(name, true, false, false, false, true);
+  if (context.compileDeclarationIndexes.containsKey(ref)) {
+    op = OpCallDynamic.make(ref, true, false, false, false, true);
   } else {
-    op = OpCallExternal.make(
-      className: constructor.stringClassName ?? "",
-      key: name,
-      isGetter: false,
-      isSetter: false,
-      isStatic: true,
-      hasReturn: true,
-      libraryUri: constructor.stringLibraryUri,
-      name: constructor.name.text,
-      kind: DeferredOrOffsetKind.Constructor.index,
-      posationalLength: arguments.positional.length,
-      namedList: arguments.named.map((e) => e.name).toList(),
-    );
+    op = OpCallExternal.make(ref, true);
   }
 
   return context.pushOp(op);

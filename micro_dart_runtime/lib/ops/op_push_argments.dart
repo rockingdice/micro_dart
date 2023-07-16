@@ -12,7 +12,8 @@ class OpPushArgments implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opPushArgments, ...Ops.i32b(_argmentLength)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opPushArgments, ...Ops.i32b(_argmentLength)];
 
   @override
   void run(Scope scope) {

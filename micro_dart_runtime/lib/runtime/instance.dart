@@ -4,8 +4,8 @@ import 'scope.dart';
 import 'type.dart';
 
 abstract class Instance {
-  TypeRef get type;
-  set type(TypeRef type);
+  CType get type;
+  set type(CType type);
 
   dynamic getParam(Scope scope, String name);
   void setParam(Scope scope, String name, dynamic value);
@@ -16,7 +16,7 @@ class InstanceImpl extends Instance {
   final Map<String, dynamic> params = {};
 
   @override
-  TypeRef type;
+  CType type;
 
   MicroDartEngine engine;
 
@@ -46,10 +46,5 @@ class InstanceImpl extends Instance {
   @override
   String toString() {
     return "InstanceImpl($type,$params)";
-  }
-
-  bool same(TypeRef? stype) {
-    return type.libraryName == stype?.libraryName &&
-        type.className == stype?.className;
   }
 }

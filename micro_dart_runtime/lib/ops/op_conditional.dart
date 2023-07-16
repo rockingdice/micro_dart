@@ -10,7 +10,7 @@ class OpConditional implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opConditional];
+  List<int> bytes(ConstantPool pool) => [Ops.opConditional];
 
   @override
   void run(Scope scope) {

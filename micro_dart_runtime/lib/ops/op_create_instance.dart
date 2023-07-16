@@ -2,29 +2,24 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///新建实例
 class OpCreateInstance implements Op {
-  OpCreateInstance(MicroDartEngine interpreter)
-      : _libraryName = interpreter.readString(),
-        _className = interpreter.readString();
+  OpCreateInstance(MicroDartEngine engine) : _ref = ClassRef.fromEngine(engine);
 
-  OpCreateInstance.make(this._libraryName, this._className);
+  OpCreateInstance.make(this._ref);
 
-  final String _libraryName;
-  final String _className;
+  final ClassRef _ref;
 
   @override
-  int get opLen =>
-      Ops.lenBegin + Ops.lenStr(_libraryName) + Ops.lenStr(_className);
+  int get opLen => Ops.lenBegin + ClassRef.byteLen;
 
   @override
-  List<int> get bytes =>
-      [Ops.opCreateInstance, ...Ops.str(_libraryName), ...Ops.str(_className)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opCreateInstance, ..._ref.bytes(pool)];
 
   @override
   void run(Scope scope) {
-    scope.pushFrame(InstanceImpl(
-        scope.engine, scope.engine.getType("$_libraryName@$_className")));
+    scope.pushFrame(InstanceImpl(scope.engine, scope.engine.getType(_ref)));
   }
 
   @override
-  String toString() => 'CreateInstance($_libraryName,$_className)';
+  String toString() => 'CreateInstance($_ref)';
 }

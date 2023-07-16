@@ -1,23 +1,24 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class SetParamNull implements Op {
-  SetParamNull(MicroDartEngine interpreter) : name = interpreter.readString();
+  SetParamNull(MicroDartEngine interpreter) : _name = interpreter.readString();
 
-  SetParamNull.make(this.name);
+  SetParamNull.make(this._name);
 
-  final String name;
-
-  @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(name);
+  final String _name;
 
   @override
-  List<int> get bytes => [Ops.opSetParamNull, ...Ops.str(name)];
+  int get opLen => Ops.lenBegin + Ops.lenI32;
+
+  @override
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetParamNull, ...Ops.i32b(pool.addOrGet(_name))];
 
   @override
   void run(Scope scope) {
-    scope.setExistParam(name, null);
+    scope.setExistParam(_name, null);
   }
 
   @override
-  String toString() => "SetParamNull($name)";
+  String toString() => "SetParamNull($_name)";
 }

@@ -16,3 +16,11 @@ dynamic test1() {
   print("asdfadf");
   return 1;
 }
+
+class A {
+  A.a();
+  A();
+  int? _a;
+
+  set a(int l) {}
+}

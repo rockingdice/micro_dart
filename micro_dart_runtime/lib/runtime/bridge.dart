@@ -5,12 +5,12 @@ import 'type.dart';
 abstract mixin class InstanceBridge<T> implements Instance {
   InstanceImpl? $child;
 
-  TypeRef get bridgeType;
+  CType get bridgeType;
 
   T? target;
 
   @override
-  late TypeRef type = bridgeType;
+  late CType type = bridgeType;
 
   Map<String, Function> get superGetters;
 
@@ -19,9 +19,8 @@ abstract mixin class InstanceBridge<T> implements Instance {
     if ($child != null && type.hasParam(name, scope.engine)) {
       return $child?.getParam(scope, name);
     }
-    var key = scope.engine.getKeyByType(type, name);
     //这里需要考虑是父类属性的问题
-    return scope.engine.externalFunctions[key]!(scope, this);
+    return scope.engine.getParamExternal(type.ref, name, this);
   }
 
   @override
@@ -29,8 +28,7 @@ abstract mixin class InstanceBridge<T> implements Instance {
     if ($child != null && type.hasParam(name, scope.engine)) {
       return $child!.hasParam(scope, name);
     }
-    var key = scope.engine.getKeyByType(type, name);
-    return scope.engine.externalFunctions.containsKey(key);
+    return scope.engine.hasExternalParam(type.ref, name, false);
   }
 
   @override
@@ -39,9 +37,8 @@ abstract mixin class InstanceBridge<T> implements Instance {
       $child?.setParam(scope, name, value);
       return;
     }
-    final key = scope.engine.getKeyByType(type, name, isSetter: true);
-    //这里需要考虑是父类属性的问题
 
-    scope.engine.externalFunctions[key]!(this, value);
+    //这里需要考虑是父类属性的问题
+    scope.engine.setParamExternal(type.ref, name, this, value);
   }
 }

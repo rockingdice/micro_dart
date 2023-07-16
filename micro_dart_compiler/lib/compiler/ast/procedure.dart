@@ -2,20 +2,20 @@ part of 'ast.dart';
 
 int compileProcedure(MicroCompilerContext context, Procedure node) {
   compileDartType(context, node.function.returnType);
-  var name = node.getNamedName();
+  var ref = node.getCallRef();
   //表示该方法已经编译过了,直接返回
-  if (context.rumtimeDeclarationOpIndexes[name] != null) {
-    return context.rumtimeDeclarationOpIndexes[name]!;
+  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
+    return context.rumtimeDeclarationOpIndexes[ref]!;
   }
   return compileFunction(
-      context, node.function, name, node.isGetter, node.isStatic);
+      context, node.function, ref, node.isGetter, node.isStatic);
 }
 
 int compileFunction(MicroCompilerContext context, FunctionNode function,
-    String name, bool isGetter, bool isStatic) {
+    CallRef ref, bool isGetter, bool isStatic) {
   //开启一个作用域
-  int pos = context.callStart(name);
-  context.rumtimeDeclarationOpIndexes[name] = pos;
+  int pos = context.callStart(ref);
+  context.rumtimeDeclarationOpIndexes[ref] = pos;
 
   List<String> posationalNames = [];
 
@@ -41,49 +41,35 @@ int compileFunction(MicroCompilerContext context, FunctionNode function,
 
 int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
     Procedure procedure, bool isStatic) {
-  var name = procedure.getNamedName();
+  var ref = procedure.getCallRef();
 
   compileArguments(context, arguments, isStatic);
 
   Op? op;
 
-  if (context.compileDeclarationIndexes.containsKey(name)) {
+  if (context.compileDeclarationIndexes.containsKey(ref)) {
     bool isAsync = (procedure.function.asyncMarker == AsyncMarker.Async);
 
     //这是一个内部方法
     if (isAsync) {
-      op = OpCallDynamicAsync.make(name, true, false, false, isAsync, true);
+      op = OpCallDynamicAsync.make(ref, true, false, false, isAsync, true);
     } else {
-      op = OpCallDynamic.make(name, true, false, false, isAsync, true);
+      op = OpCallDynamic.make(ref, true, false, false, isAsync, true);
     }
   } else {
-    bool isStatic = procedure.isStatic;
-    int posationalLength = arguments.positional.length;
     bool hasReturn = true;
     if (procedure.function.returnType is VoidType) {
       hasReturn = false;
     }
 
-    op = OpCallExternal.make(
-      className: procedure.stringClassName ?? "",
-      key: name,
-      isGetter: procedure.isGetter,
-      isSetter: procedure.isSetter,
-      isStatic: isStatic,
-      hasReturn: hasReturn,
-      libraryUri: procedure.stringLibraryUri,
-      name: procedure.name.text,
-      kind: DeferredOrOffsetKind.Procedure.index,
-      posationalLength: posationalLength,
-      namedList: arguments.named.map((e) => e.name).toList(),
-    );
+    op = OpCallExternal.make(ref, hasReturn);
   }
 
   return context.pushOp(op);
 }
 
 int compileCallLocalFunction(
-    MicroCompilerContext context, Arguments arguments, String key,
+    MicroCompilerContext context, Arguments arguments, CallRef ref,
     {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
     int posationalLengh = 0,
     List<String> namedList = const [],
@@ -98,5 +84,5 @@ int compileCallLocalFunction(
   compileArguments(context, arguments, isStatic);
 
   return context.pushOp(
-      OpCallDynamic.make(key, isStatic, isGetter, isSetter, isAsync, true));
+      OpCallDynamic.make(ref, isStatic, isGetter, isSetter, isAsync, true));
 }

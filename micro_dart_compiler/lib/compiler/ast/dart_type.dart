@@ -1,6 +1,6 @@
 part of 'ast.dart';
 
-TypeRef? compileDartType(MicroCompilerContext context, DartType dartType) {
+CType? compileDartType(MicroCompilerContext context, DartType dartType) {
   if (dartType is DynamicType) {
     return compileDynamicType(context, dartType);
   } else if (dartType is InvalidType) {
@@ -25,49 +25,47 @@ TypeRef? compileDartType(MicroCompilerContext context, DartType dartType) {
   throw Exception("not support ${dartType.runtimeType.toString()}");
 }
 
-TypeRef? compileDynamicType(
-    MicroCompilerContext context, DynamicType dartType) {
-  return Types.dynamicType;
+CType? compileDynamicType(MicroCompilerContext context, DynamicType dartType) {
+  return null;
 }
 
-TypeRef? compileInvalidType(
-    MicroCompilerContext context, InvalidType dartType) {
-  return Types.invalidType;
+CType? compileInvalidType(MicroCompilerContext context, InvalidType dartType) {
+  return null;
 }
 
-TypeRef? compileVoidType(MicroCompilerContext context, VoidType dartType) {
-  return Types.voidType;
+CType? compileVoidType(MicroCompilerContext context, VoidType dartType) {
+  return null;
 }
 
-TypeRef? compileNeverType(MicroCompilerContext context, NeverType dartType) {
-  return Types.neverType;
+CType? compileNeverType(MicroCompilerContext context, NeverType dartType) {
+  return null;
 }
 
-TypeRef? compileNullType(MicroCompilerContext context, NullType dartType) {
-  return Types.nullType;
+CType? compileNullType(MicroCompilerContext context, NullType dartType) {
+  return null;
 }
 
-TypeRef? compileInterfaceType(
+CType? compileInterfaceType(
     MicroCompilerContext context, InterfaceType dartType) {
   return context.lookupType(dartType.classNode);
 }
 
-TypeRef? compileFunctionType(
+CType? compileFunctionType(
     MicroCompilerContext context, FunctionType dartType) {
   return null;
 }
 
-TypeRef? compileFutureOrType(
+CType? compileFutureOrType(
     MicroCompilerContext context, FutureOrType dartType) {
   return null;
 }
 
-TypeRef? compileExtensionType(
+CType? compileExtensionType(
     MicroCompilerContext context, ExtensionType dartType) {
   return null;
 }
 
-TypeRef? compileTypeParameterType(
+CType? compileTypeParameterType(
     MicroCompilerContext context, TypeParameterType dartType) {
   return null;
 }

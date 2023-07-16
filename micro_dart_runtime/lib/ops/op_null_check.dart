@@ -10,7 +10,7 @@ class OpNullCheck implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI8;
 
   @override
-  List<int> get bytes => [Ops.opNullCheck];
+  List<int> bytes(ConstantPool pool) => [Ops.opNullCheck];
 
   @override
   void run(Scope scope) {

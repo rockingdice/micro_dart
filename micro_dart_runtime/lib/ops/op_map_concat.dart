@@ -12,7 +12,7 @@ class OpMapConcat implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32;
 
   @override
-  List<int> get bytes => [Ops.opMapConcat, ...Ops.i32b(_length)];
+  List<int> bytes(ConstantPool pool) => [Ops.opMapConcat, ...Ops.i32b(_length)];
 
   @override
   void run(Scope scope) {

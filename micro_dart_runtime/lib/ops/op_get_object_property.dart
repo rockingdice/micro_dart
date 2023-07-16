@@ -7,8 +7,11 @@ class OpGetObjectPropertyAsync extends OpGetObjectProperty {
       : super.make(name, location);
 
   @override
-  List<int> get bytes =>
-      [Ops.opGetObjectPropertyAsync, ...Ops.str(_name), ...Ops.i32b(_location)];
+  List<int> bytes(ConstantPool pool) => [
+        Ops.opGetObjectPropertyAsync,
+        ...Ops.str(_name, pool),
+        ...Ops.i32b(_location)
+      ];
 
   @override
   Future run(Scope scope) async {
@@ -41,8 +44,11 @@ class OpGetObjectProperty implements Op {
   int get opLen => Ops.lenBegin + Ops.lenStr(_name);
 
   @override
-  List<int> get bytes =>
-      [Ops.opGetObjectProperty, ...Ops.str(_name), ...Ops.i32b(_location)];
+  List<int> bytes(ConstantPool pool) => [
+        Ops.opGetObjectProperty,
+        ...Ops.str(_name, pool),
+        ...Ops.i32b(_location)
+      ];
 
   @override
   void run(Scope scope) {

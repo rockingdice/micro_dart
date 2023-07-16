@@ -1,57 +1,32 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-class OpGetGlobalParamAsync extends OpGetGlobalParam {
-  OpGetGlobalParamAsync(MicroDartEngine engine) : super(engine);
-
-  OpGetGlobalParamAsync.make(String name, int location)
-      : super.make(name, location);
-
-  @override
-  List<int> get bytes =>
-      [Ops.opGetGlobalParamAsync, ...Ops.str(_name), ...Ops.i32b(_location)];
-
-  @override
-  Future run(Scope scope) async {
-    //有可能出现属性没有初始化的情况,这个时候先执行初始化
-    if (!scope.engine.hasGlobalParam(_name)) {
-      return scope.engine
-          .callPointerAsync(scope, _name, false, false, _location);
-    } else {
-      scope.pushFrame(scope.engine.getGlobalParam(_name));
-    }
-  }
-
-  @override
-  String toString() => "OpGetGlobalParamAsync($_name,$_location)";
-}
-
 class OpGetGlobalParam implements Op {
-  OpGetGlobalParam(MicroDartEngine interpreter)
-      : _name = interpreter.readString(),
-        _location = interpreter.readInt32();
+  OpGetGlobalParam(MicroDartEngine engine)
+      : _ref = CallRef.fromEngine(engine),
+        _location = engine.readInt32();
 
-  OpGetGlobalParam.make(this._name, this._location);
+  OpGetGlobalParam.make(this._ref, this._location);
 
-  final String _name;
+  final CallRef _ref;
   final int _location;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(_name) + Ops.lenI32;
+  int get opLen => Ops.lenBegin + CallRef.byteLen + Ops.lenI32;
 
   @override
-  List<int> get bytes =>
-      [Ops.opGetGlobalParam, ...Ops.str(_name), ...Ops.i32b(_location)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opGetGlobalParam, ..._ref.bytes(pool), ...Ops.i32b(_location)];
 
   @override
   void run(Scope scope) {
     //有可能出现属性没有初始化的情况,这个时候先执行初始化
-    if (!scope.engine.hasGlobalParam(_name)) {
-      scope.engine.callPointer(scope, _name, false, _location);
+    if (!scope.engine.hasGlobalParam(_ref)) {
+      scope.engine.callPointer(scope, _ref.callName, false, _location);
     } else {
-      scope.pushFrame(scope.engine.getGlobalParam(_name));
+      scope.pushFrame(scope.engine.getGlobalParam(_ref));
     }
   }
 
   @override
-  String toString() => "GetGlobalParam($_name,$_location)";
+  String toString() => "GetGlobalParam($_ref,$_location)";
 }

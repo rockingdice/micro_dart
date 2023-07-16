@@ -12,7 +12,8 @@ class OpSetThisProperty implements Op {
   int get opLen => Ops.lenBegin + Ops.lenStr(_name);
 
   @override
-  List<int> get bytes => [Ops.opSetThisProperty, ...Ops.str(_name)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opSetThisProperty, ...Ops.str(_name, pool)];
 
   @override
   void run(Scope scope) {

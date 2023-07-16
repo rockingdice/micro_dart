@@ -12,7 +12,8 @@ class OpPushConstantBool implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI8;
 
   @override
-  List<int> get bytes => [Ops.opPushConstantBool, ...Ops.i8b(_value ? 1 : 0)];
+  List<int> bytes(ConstantPool pool) =>
+      [Ops.opPushConstantBool, ...Ops.i8b(_value ? 1 : 0)];
 
   // Set value at position to constant
   @override

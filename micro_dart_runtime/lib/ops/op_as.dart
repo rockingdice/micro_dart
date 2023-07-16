@@ -2,17 +2,17 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpAs implements Op {
-  OpAs(MicroDartEngine interpreter) : type = interpreter.readString();
+  OpAs(MicroDartEngine engine) : type = ClassRef.fromEngine(engine);
 
   OpAs.make(this.type);
 
-  final String type;
+  final ClassRef type;
 
   @override
-  int get opLen => Ops.lenBegin + Ops.lenStr(type);
+  int get opLen => Ops.lenBegin + ClassRef.byteLen;
 
   @override
-  List<int> get bytes => [Ops.opAs, ...Ops.str(type)];
+  List<int> bytes(ConstantPool pool) => [Ops.opAs, ...type.bytes(pool)];
 
   @override
   void run(Scope scope) {

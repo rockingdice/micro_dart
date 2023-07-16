@@ -1,7 +1,7 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpReturn implements Op {
-  OpReturn(MicroDartEngine interpreter);
+  OpReturn(MicroDartEngine engine);
 
   OpReturn.make();
 
@@ -31,5 +31,5 @@ class OpReturn implements Op {
   String toString() => 'OpReturn()';
 
   @override
-  List<int> get bytes => [Ops.opReturn];
+  List<int> bytes(ConstantPool pool) => [Ops.opReturn];
 }

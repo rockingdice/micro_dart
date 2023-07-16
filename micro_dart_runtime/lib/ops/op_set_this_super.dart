@@ -9,7 +9,7 @@ class OpSetThisSuper implements Op {
   int get opLen => Ops.lenBegin;
 
   @override
-  List<int> get bytes => [Ops.opSetThisSuper];
+  List<int> bytes(ConstantPool pool) => [Ops.opSetThisSuper];
 
   @override
   void run(Scope scope) {

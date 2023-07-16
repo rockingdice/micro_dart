@@ -16,7 +16,7 @@ class OpPushPointer implements Op {
   int get opLen => Ops.lenBegin + Ops.lenI32 + Ops.lenI8 * 2;
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opPushPointer,
         ...Ops.i32b(_value),
         ...Ops.i8b(_isStatic ? 1 : 0),

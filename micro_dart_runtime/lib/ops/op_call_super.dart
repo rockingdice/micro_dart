@@ -5,62 +5,62 @@ class OpCallSuperAsync extends OpCallSuper {
   OpCallSuperAsync(MicroDartEngine engine) : super(engine);
 
   OpCallSuperAsync.make(
-    String key,
+    ClassRef s,
     String name,
     bool isGetter,
     bool isSetter,
     bool isAsync,
     int posationalLength,
     List<String> namedList,
-  ) : super.make(key, name, isGetter, isSetter, isAsync, posationalLength,
-            namedList);
+  ) : super.make(
+            s, name, isGetter, isSetter, isAsync, posationalLength, namedList);
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallSuperAsync,
-        ...Ops.str(_key),
-        ...Ops.str(_name),
+        ..._super.bytes(pool),
+        ...Ops.str(_name, pool),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
         ...Ops.i32b(_posationalLength),
-        ...Ops.strlist(_namedList)
+        ...Ops.strlist(_namedList, pool)
       ];
 
   @override
   Future run(Scope scope) async {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
-    var key = scope.engine
-        .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
+    var ref = scope.engine
+        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, true);
 
-    if (scope.engine.declarations.containsKey(key)) {
+    if (scope.engine.declarations.containsKey(ref)) {
       //表示这是一个内部引用
-      int pointer = scope.engine.declarations[key]!;
+      int pointer = scope.engine.declarations[ref]!;
       return scope.engine
           .callPointerAsync(scope, _name, true, _isAsync, pointer);
     } else {
-      _callExternal(scope, key, _name);
+      _callExternal(scope, ref!);
     }
   }
 
   @override
   String toString() =>
-      'OpCallSuperAsync($_key,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
 }
 
 ///调用外部方法
 class OpCallSuper implements Op {
-  OpCallSuper(MicroDartEngine interpreter)
-      : _key = interpreter.readString(),
-        _name = interpreter.readString(),
-        _isGetter = interpreter.readUint8() == 1 ? true : false,
-        _isSetter = interpreter.readUint8() == 1 ? true : false,
-        _isAsync = interpreter.readUint8() == 1 ? true : false,
-        _posationalLength = interpreter.readInt32(),
-        _namedList = interpreter.readStringList();
+  OpCallSuper(MicroDartEngine engine)
+      : _super = ClassRef.fromEngine(engine),
+        _name = engine.readString(),
+        _isGetter = engine.readUint8() == 1 ? true : false,
+        _isSetter = engine.readUint8() == 1 ? true : false,
+        _isAsync = engine.readUint8() == 1 ? true : false,
+        _posationalLength = engine.readInt32(),
+        _namedList = engine.readStringList();
 
-  final String _key;
+  final ClassRef _super;
   final String _name;
   final int _posationalLength;
   final List<String> _namedList;
@@ -69,7 +69,7 @@ class OpCallSuper implements Op {
   final bool _isAsync;
 
   OpCallSuper.make(
-    this._key,
+    this._super,
     this._name,
     this._isGetter,
     this._isSetter,
@@ -81,42 +81,42 @@ class OpCallSuper implements Op {
   @override
   int get opLen =>
       Ops.lenBegin +
-      Ops.lenStr(_key) +
+      ClassRef.byteLen +
       Ops.lenStr(_name) +
       Ops.lenI8 * 3 +
       Ops.lenI32 +
       Ops.lenStrlist(_namedList);
 
   @override
-  List<int> get bytes => [
+  List<int> bytes(ConstantPool pool) => [
         Ops.opCallSuper,
-        ...Ops.str(_key),
-        ...Ops.str(_name),
+        ..._super.bytes(pool),
+        ...Ops.str(_name, pool),
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
         ...Ops.i32b(_posationalLength),
-        ...Ops.strlist(_namedList)
+        ...Ops.strlist(_namedList, pool)
       ];
 
   @override
   void run(Scope scope) {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
-    var key = scope.engine
-        .getKeyBySuperType(instance.type, _key, _name, isSetter: _isSetter);
+    var ref = scope.engine
+        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, true);
 
-    if (scope.engine.declarations.containsKey(key)) {
+    if (scope.engine.declarations.containsKey(ref)) {
       //表示这是一个内部引用
-      int pointer = scope.engine.declarations[key]!;
+      int pointer = scope.engine.declarations[ref]!;
       scope.engine.callPointer(scope, _name, true, pointer);
     } else {
       //表示这是一个外部调用
-      _callExternal(scope, key, _name);
+      _callExternal(scope, ref!);
     }
   }
 
-  void _callExternal(Scope scope, String? key, String name) {
+  void _callExternal(Scope scope, CallRef ref) {
     //表示这是一个外部调用
     final List<dynamic> positionalArguments =
         List.filled(_posationalLength, null);
@@ -132,9 +132,9 @@ class OpCallSuper implements Op {
 
     late Function function;
     if (target is InstanceBridge) {
-      function = target.superGetters[name]!;
+      function = target.superGetters[ref.name]!;
     } else {
-      function = scope.engine.externalFunctions[key]!;
+      function = scope.engine.getExternalFunction(ref)!;
     }
 
     if (_isGetter) {
@@ -165,5 +165,5 @@ class OpCallSuper implements Op {
 
   @override
   String toString() =>
-      'CallSuper($_key,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'CallSuper($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
 }

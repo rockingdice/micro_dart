@@ -680,7 +680,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
 
     return {
       "xtype": "InstanceConstantReference",
-      "classKey": node.classNode.getNamedName(),
+      "classRef": node.classNode.getClassRef(),
       "fields": node.fieldValues.keys
           .map((key) => key.asField.acceptReference(this))
           .toList(),
