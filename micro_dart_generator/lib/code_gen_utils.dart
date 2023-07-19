@@ -89,7 +89,8 @@ String tramsformParameterName(ExecutableElement functionElement,
   if (isFunctionType(type)) {
     var name = "${element.name}Proxy";
     if (element.hasDefaultValue) {
-      name = "$name ?? ${getDefaultValueCode(overwriteStrategy, element)}";
+      name =
+          "${element.name} == null ? ${getDefaultValueCode(overwriteStrategy, element)} : $name";
     } else if (element.type.nullabilitySuffix == NullabilitySuffix.question &&
         isFunctionType(element.type)) {
       name = "${element.name} == null ? null : $name";

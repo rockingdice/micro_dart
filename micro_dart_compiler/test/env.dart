@@ -25,5 +25,5 @@ final CompilerOptions options = CompilerOptions()
   ..verbose = false
   ..nnbdMode = NnbdMode.Strong;
 
-const bool astToJsonFlag = true;
-const bool printOp = true;
+const bool astToJsonFlag = false;
+const bool printOp = false;

@@ -15,16 +15,24 @@ import 'dart:convert'
 import 'dart:math' show Random;
 import 'dart:typed_data' show Uint8List;
 
+part '../proxy/proxy__dart_core.dart';
+
 const libraryMirror = m.LibraryMirror(
   'dart:core',
   {
     'deprecated': _deprecated$,
     'override': _override$,
+    '_Enum.': __Enum__$,
+    'Deprecated.': _Deprecated__$,
+    'pragma.': _pragma__$,
     'BigInt.zero': _BigInt_zero$,
     'BigInt.one': _BigInt_one$,
     'BigInt.two': _BigInt_two$,
+    'BigInt.from': _BigInt_from_$,
     'BigInt.parse': _BigInt_parse$,
     'BigInt.tryParse': _BigInt_tryParse$,
+    'bool.fromEnvironment': _bool_fromEnvironment_$,
+    'bool.hasEnvironment': _bool_hasEnvironment_$,
     'bool.parse': _bool_parse$,
     'bool.tryParse': _bool_tryParse$,
     'Comparable.compare': _Comparable_compare$,
@@ -49,6 +57,14 @@ const libraryMirror = m.LibraryMirror(
     'DateTime.november': _DateTime_november$,
     'DateTime.december': _DateTime_december$,
     'DateTime.monthsPerYear': _DateTime_monthsPerYear$,
+    'DateTime.': _DateTime__$,
+    'DateTime.utc': _DateTime_utc_$,
+    'DateTime.now': _DateTime_now_$,
+    'DateTime.timestamp': _DateTime_timestamp_$,
+    'DateTime.fromMillisecondsSinceEpoch':
+        _DateTime_fromMillisecondsSinceEpoch_$,
+    'DateTime.fromMicrosecondsSinceEpoch':
+        _DateTime_fromMicrosecondsSinceEpoch_$,
     'DateTime.parse': _DateTime_parse$,
     'DateTime.tryParse': _DateTime_tryParse$,
     'double.nan': _double_nan$,
@@ -75,21 +91,49 @@ const libraryMirror = m.LibraryMirror(
     'Duration.secondsPerDay': _Duration_secondsPerDay$,
     'Duration.minutesPerDay': _Duration_minutesPerDay$,
     'Duration.zero': _Duration_zero$,
+    'Duration.': _Duration__$,
     'Enum.compareByIndex': _Enum_compareByIndex$,
     'Enum.compareByName': _Enum_compareByName$,
+    'Error.': _Error__$,
     'Error.safeToString': _Error_safeToString$,
     'Error.throwWithStackTrace': _Error_throwWithStackTrace$,
+    'AssertionError.': _AssertionError__$,
+    'TypeError.': _TypeError__$,
+    'ArgumentError.': _ArgumentError__$,
+    'ArgumentError.value': _ArgumentError_value_$,
+    'ArgumentError.notNull': _ArgumentError_notNull_$,
     'ArgumentError.checkNotNull': _ArgumentError_checkNotNull$,
+    'RangeError.': _RangeError__$,
+    'RangeError.value': _RangeError_value_$,
+    'RangeError.range': _RangeError_range_$,
+    'RangeError.index': _RangeError_index_$,
     'RangeError.checkValueInInterval': _RangeError_checkValueInInterval$,
     'RangeError.checkValidIndex': _RangeError_checkValidIndex$,
     'RangeError.checkValidRange': _RangeError_checkValidRange$,
     'RangeError.checkNotNegative': _RangeError_checkNotNegative$,
+    'IndexError.withLength': _IndexError_withLength_$,
     'IndexError.check': _IndexError_check$,
+    'NoSuchMethodError.withInvocation': _NoSuchMethodError_withInvocation_$,
+    'UnsupportedError.': _UnsupportedError__$,
+    'UnimplementedError.': _UnimplementedError__$,
+    'StateError.': _StateError__$,
+    'ConcurrentModificationError.': _ConcurrentModificationError__$,
+    'OutOfMemoryError.': _OutOfMemoryError__$,
+    'StackOverflowError.': _StackOverflowError__$,
+    'Exception.': _Exception__$,
+    'FormatException.': _FormatException__$,
     'Function.apply': _Function_apply$,
     'identical': _identical$,
     'identityHashCode': _identityHashCode$,
+    'int.fromEnvironment': _int_fromEnvironment_$,
     'int.parse': _int_parse$,
     'int.tryParse': _int_tryParse$,
+    'Invocation.method': _Invocation_method_$,
+    'Invocation.genericMethod': _Invocation_genericMethod_$,
+    'Invocation.getter': _Invocation_getter_$,
+    'Invocation.setter': _Invocation_setter_$,
+    'Iterable.generate': _Iterable_generate_$,
+    'Iterable.empty': _Iterable_empty_$,
     'Iterable.castFrom': _Iterable_castFrom$,
     'Iterable.map': _Iterable_map$,
     'Iterable.where': _Iterable_where$,
@@ -106,6 +150,12 @@ const libraryMirror = m.LibraryMirror(
     'Iterable.singleWhere': _Iterable_singleWhere$,
     'Iterable.iterableToShortString': _Iterable_iterableToShortString$,
     'Iterable.iterableToFullString': _Iterable_iterableToFullString$,
+    'List.filled': _List_filled_$,
+    'List.empty': _List_empty_$,
+    'List.from': _List_from_$,
+    'List.of': _List_of_$,
+    'List.generate': _List_generate_$,
+    'List.unmodifiable': _List_unmodifiable_$,
     'List.castFrom': _List_castFrom$,
     'List.copyRange': _List_copyRange$,
     'List.writeIterable': _List_writeIterable$,
@@ -114,6 +164,14 @@ const libraryMirror = m.LibraryMirror(
     'List.lastIndexWhere': _List_lastIndexWhere$,
     'List.removeWhere': _List_removeWhere$,
     'List.retainWhere': _List_retainWhere$,
+    'Map.': _Map__$,
+    'Map.from': _Map_from_$,
+    'Map.of': _Map_of_$,
+    'Map.unmodifiable': _Map_unmodifiable_$,
+    'Map.identity': _Map_identity_$,
+    'Map.fromIterable': _Map_fromIterable_$,
+    'Map.fromIterables': _Map_fromIterables_$,
+    'Map.fromEntries': _Map_fromEntries_$,
     'Map.castFrom': _Map_castFrom$,
     'Map.map': _Map_map$,
     'Map.update': _Map_update$,
@@ -121,24 +179,49 @@ const libraryMirror = m.LibraryMirror(
     'Map.removeWhere': _Map_removeWhere$,
     'Map.putIfAbsent': _Map_putIfAbsent$,
     'Map.forEach': _Map_forEach$,
+    'MapEntry.': _MapEntry__$,
     'num.parse': _num_parse$,
     'num.tryParse': _num_tryParse$,
+    'Object.': _Object__$,
     'Object.hash': _Object_hash$,
     'Object.hashAll': _Object_hashAll$,
     'Object.hashAllUnordered': _Object_hashAllUnordered$,
     'print': _print$,
+    'RegExp.': _RegExp__$,
     'RegExp.escape': _RegExp_escape$,
+    'Set.': _Set__$,
+    'Set.identity': _Set_identity_$,
+    'Set.from': _Set_from_$,
+    'Set.of': _Set_of_$,
+    'Set.unmodifiable': _Set_unmodifiable_$,
     'Set.castFrom': _Set_castFrom$,
     'Set.removeWhere': _Set_removeWhere$,
     'Set.retainWhere': _Set_retainWhere$,
     'StackTrace.empty': _StackTrace_empty$,
     'StackTrace.current': _StackTrace_current$,
+    'StackTrace.fromString': _StackTrace_fromString_$,
+    'Stopwatch.': _Stopwatch__$,
+    'String.fromCharCodes': _String_fromCharCodes_$,
+    'String.fromCharCode': _String_fromCharCode_$,
+    'String.fromEnvironment': _String_fromEnvironment_$,
     'String.replaceFirstMapped': _String_replaceFirstMapped$,
     'String.replaceAllMapped': _String_replaceAllMapped$,
     'String.splitMapJoin': _String_splitMapJoin$,
+    'Runes.': _Runes__$,
+    'RuneIterator.': _RuneIterator__$,
+    'RuneIterator.at': _RuneIterator_at_$,
+    'StringBuffer.': _StringBuffer__$,
     'Symbol.unaryMinus': _Symbol_unaryMinus$,
     'Symbol.empty': _Symbol_empty$,
+    'Symbol.': _Symbol__$,
     'Uri.base': _Uri_base$,
+    'Uri.': _Uri__$,
+    'Uri.http': _Uri_http_$,
+    'Uri.https': _Uri_https_$,
+    'Uri.file': _Uri_file_$,
+    'Uri.directory': _Uri_directory_$,
+    'Uri.dataFromString': _Uri_dataFromString_$,
+    'Uri.dataFromBytes': _Uri_dataFromBytes_$,
     'Uri.parse': _Uri_parse$,
     'Uri.tryParse': _Uri_tryParse$,
     'Uri.encodeComponent': _Uri_encodeComponent$,
@@ -150,13 +233,18 @@ const libraryMirror = m.LibraryMirror(
     'Uri.splitQueryString': _Uri_splitQueryString$,
     'Uri.parseIPv4Address': _Uri_parseIPv4Address$,
     'Uri.parseIPv6Address': _Uri_parseIPv6Address$,
+    'UriData.fromString': _UriData_fromString_$,
+    'UriData.fromBytes': _UriData_fromBytes_$,
+    'UriData.fromUri': _UriData_fromUri_$,
     'UriData.parse': _UriData_parse$,
+    'Expando.': _Expando__$,
+    'WeakReference.': _WeakReference__$,
+    'Finalizer.': _Finalizer__$,
   },
   {},
   {
     'Deprecated': m.ClassMirror(
       'Deprecated',
-      {'': _Deprecated__$},
       {
         '#as': Deprecated_as$,
         '#is': Deprecated_is$,
@@ -167,7 +255,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'pragma': m.ClassMirror(
       'pragma',
-      {'': _pragma__$},
       {
         '#as': pragma_as$,
         '#is': pragma_is$,
@@ -178,7 +265,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'BigInt': m.ClassMirror(
       'BigInt',
-      {'from': _BigInt_from_$},
       {
         '#as': BigInt_as$,
         '#is': BigInt_is$,
@@ -224,10 +310,6 @@ const libraryMirror = m.LibraryMirror(
     'bool': m.ClassMirror(
       'bool',
       {
-        'fromEnvironment': _bool_fromEnvironment_$,
-        'hasEnvironment': _bool_hasEnvironment_$,
-      },
-      {
         '#as': bool_as$,
         '#is': bool_is$,
         'hashCode': _bool_hashCode$,
@@ -240,7 +322,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Comparable': m.ClassMirror(
       'Comparable',
-      {},
       {
         '#as': Comparable_as$,
         '#is': Comparable_is$,
@@ -250,14 +331,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DateTime': m.ClassMirror(
       'DateTime',
-      {
-        '': _DateTime__$,
-        'utc': _DateTime_utc_$,
-        'now': _DateTime_now_$,
-        'timestamp': _DateTime_timestamp_$,
-        'fromMillisecondsSinceEpoch': _DateTime_fromMillisecondsSinceEpoch_$,
-        'fromMicrosecondsSinceEpoch': _DateTime_fromMicrosecondsSinceEpoch_$,
-      },
       {
         '#as': DateTime_as$,
         '#is': DateTime_is$,
@@ -293,7 +366,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'double': m.ClassMirror(
       'double',
-      {},
       {
         '#as': double_as$,
         '#is': double_is$,
@@ -321,7 +393,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Duration': m.ClassMirror(
       'Duration',
-      {'': _Duration__$},
       {
         '#as': Duration_as$,
         '#is': Duration_is$,
@@ -351,7 +422,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Enum': m.ClassMirror(
       'Enum',
-      {},
       {
         '#as': Enum_as$,
         '#is': Enum_is$,
@@ -361,7 +431,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Error': m.ClassMirror(
       'Error',
-      {'': _Error__$},
       {
         '#as': Error_as$,
         '#is': Error_is$,
@@ -371,7 +440,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AssertionError': m.ClassMirror(
       'AssertionError',
-      {'': _AssertionError__$},
       {
         '#as': AssertionError_as$,
         '#is': AssertionError_is$,
@@ -382,7 +450,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TypeError': m.ClassMirror(
       'TypeError',
-      {'': _TypeError__$},
       {
         '#as': TypeError_as$,
         '#is': TypeError_is$,
@@ -391,11 +458,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ArgumentError': m.ClassMirror(
       'ArgumentError',
-      {
-        '': _ArgumentError__$,
-        'value': _ArgumentError_value_$,
-        'notNull': _ArgumentError_notNull_$,
-      },
       {
         '#as': ArgumentError_as$,
         '#is': ArgumentError_is$,
@@ -409,12 +471,6 @@ const libraryMirror = m.LibraryMirror(
     'RangeError': m.ClassMirror(
       'RangeError',
       {
-        '': _RangeError__$,
-        'value': _RangeError_value_$,
-        'range': _RangeError_range_$,
-        'index': _RangeError_index_$,
-      },
-      {
         '#as': RangeError_as$,
         '#is': RangeError_is$,
         'start': _RangeError_start$,
@@ -425,7 +481,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IndexError': m.ClassMirror(
       'IndexError',
-      {'withLength': _IndexError_withLength_$},
       {
         '#as': IndexError_as$,
         '#is': IndexError_is$,
@@ -439,7 +494,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NoSuchMethodError': m.ClassMirror(
       'NoSuchMethodError',
-      {'withInvocation': _NoSuchMethodError_withInvocation_$},
       {
         '#as': NoSuchMethodError_as$,
         '#is': NoSuchMethodError_is$,
@@ -449,7 +503,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsupportedError': m.ClassMirror(
       'UnsupportedError',
-      {'': _UnsupportedError__$},
       {
         '#as': UnsupportedError_as$,
         '#is': UnsupportedError_is$,
@@ -460,7 +513,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnimplementedError': m.ClassMirror(
       'UnimplementedError',
-      {'': _UnimplementedError__$},
       {
         '#as': UnimplementedError_as$,
         '#is': UnimplementedError_is$,
@@ -471,7 +523,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StateError': m.ClassMirror(
       'StateError',
-      {'': _StateError__$},
       {
         '#as': StateError_as$,
         '#is': StateError_is$,
@@ -482,7 +533,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ConcurrentModificationError': m.ClassMirror(
       'ConcurrentModificationError',
-      {'': _ConcurrentModificationError__$},
       {
         '#as': ConcurrentModificationError_as$,
         '#is': ConcurrentModificationError_is$,
@@ -493,7 +543,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'OutOfMemoryError': m.ClassMirror(
       'OutOfMemoryError',
-      {'': _OutOfMemoryError__$},
       {
         '#as': OutOfMemoryError_as$,
         '#is': OutOfMemoryError_is$,
@@ -504,7 +553,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StackOverflowError': m.ClassMirror(
       'StackOverflowError',
-      {'': _StackOverflowError__$},
       {
         '#as': StackOverflowError_as$,
         '#is': StackOverflowError_is$,
@@ -515,7 +563,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Exception': m.ClassMirror(
       'Exception',
-      {'': _Exception__$},
       {
         '#as': Exception_as$,
         '#is': Exception_is$,
@@ -524,7 +571,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FormatException': m.ClassMirror(
       'FormatException',
-      {'': _FormatException__$},
       {
         '#as': FormatException_as$,
         '#is': FormatException_is$,
@@ -537,7 +583,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Function': m.ClassMirror(
       'Function',
-      {},
       {
         '#as': Function_as$,
         '#is': Function_is$,
@@ -548,7 +593,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'int': m.ClassMirror(
       'int',
-      {'fromEnvironment': _int_fromEnvironment_$},
       {
         '#as': int_as$,
         '#is': int_is$,
@@ -586,12 +630,6 @@ const libraryMirror = m.LibraryMirror(
     'Invocation': m.ClassMirror(
       'Invocation',
       {
-        'method': _Invocation_method_$,
-        'genericMethod': _Invocation_genericMethod_$,
-        'getter': _Invocation_getter_$,
-        'setter': _Invocation_setter_$,
-      },
-      {
         '#as': Invocation_as$,
         '#is': Invocation_is$,
         'memberName': _Invocation_memberName$,
@@ -607,10 +645,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Iterable': m.ClassMirror(
       'Iterable',
-      {
-        'generate': _Iterable_generate_$,
-        'empty': _Iterable_empty_$,
-      },
       {
         '#as': Iterable_as$,
         '#is': Iterable_is$,
@@ -637,7 +671,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Iterator': m.ClassMirror(
       'Iterator',
-      {},
       {
         '#as': Iterator_as$,
         '#is': Iterator_is$,
@@ -648,14 +681,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'List': m.ClassMirror(
       'List',
-      {
-        'filled': _List_filled_$,
-        'empty': _List_empty_$,
-        'from': _List_from_$,
-        'of': _List_of_$,
-        'generate': _List_generate_$,
-        'unmodifiable': _List_unmodifiable_$,
-      },
       {
         '#as': List_as$,
         '#is': List_is$,
@@ -695,16 +720,6 @@ const libraryMirror = m.LibraryMirror(
     'Map': m.ClassMirror(
       'Map',
       {
-        '': _Map__$,
-        'from': _Map_from_$,
-        'of': _Map_of_$,
-        'unmodifiable': _Map_unmodifiable_$,
-        'identity': _Map_identity_$,
-        'fromIterable': _Map_fromIterable_$,
-        'fromIterables': _Map_fromIterables_$,
-        'fromEntries': _Map_fromEntries_$,
-      },
-      {
         '#as': Map_as$,
         '#is': Map_is$,
         'entries': _Map_entries$,
@@ -727,7 +742,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MapEntry': m.ClassMirror(
       'MapEntry',
-      {'': _MapEntry__$},
       {
         '#as': MapEntry_as$,
         '#is': MapEntry_is$,
@@ -739,7 +753,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Null': m.ClassMirror(
       'Null',
-      {},
       {
         '#as': Null_as$,
         '#is': Null_is$,
@@ -750,7 +763,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'num': m.ClassMirror(
       'num',
-      {},
       {
         '#as': num_as$,
         '#is': num_is$,
@@ -795,7 +807,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Object': m.ClassMirror(
       'Object',
-      {'': _Object__$},
       {
         '#as': Object_as$,
         '#is': Object_is$,
@@ -809,7 +820,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Pattern': m.ClassMirror(
       'Pattern',
-      {},
       {
         '#as': Pattern_as$,
         '#is': Pattern_is$,
@@ -820,7 +830,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Match': m.ClassMirror(
       'Match',
-      {},
       {
         '#as': Match_as$,
         '#is': Match_is$,
@@ -837,7 +846,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RegExp': m.ClassMirror(
       'RegExp',
-      {'': _RegExp__$},
       {
         '#as': RegExp_as$,
         '#is': RegExp_is$,
@@ -855,7 +863,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RegExpMatch': m.ClassMirror(
       'RegExpMatch',
-      {},
       {
         '#as': RegExpMatch_as$,
         '#is': RegExpMatch_is$,
@@ -867,13 +874,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Set': m.ClassMirror(
       'Set',
-      {
-        '': _Set__$,
-        'identity': _Set_identity_$,
-        'from': _Set_from_$,
-        'of': _Set_of_$,
-        'unmodifiable': _Set_unmodifiable_$,
-      },
       {
         '#as': Set_as$,
         '#is': Set_is$,
@@ -897,7 +897,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Sink': m.ClassMirror(
       'Sink',
-      {},
       {
         '#as': Sink_as$,
         '#is': Sink_is$,
@@ -908,7 +907,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StackTrace': m.ClassMirror(
       'StackTrace',
-      {'fromString': _StackTrace_fromString_$},
       {
         '#as': StackTrace_as$,
         '#is': StackTrace_is$,
@@ -918,7 +916,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Stopwatch': m.ClassMirror(
       'Stopwatch',
-      {'': _Stopwatch__$},
       {
         '#as': Stopwatch_as$,
         '#is': Stopwatch_is$,
@@ -936,11 +933,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'String': m.ClassMirror(
       'String',
-      {
-        'fromCharCodes': _String_fromCharCodes_$,
-        'fromCharCode': _String_fromCharCode_$,
-        'fromEnvironment': _String_fromEnvironment_$,
-      },
       {
         '#as': String_as$,
         '#is': String_is$,
@@ -978,7 +970,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Runes': m.ClassMirror(
       'Runes',
-      {'': _Runes__$},
       {
         '#as': Runes_as$,
         '#is': Runes_is$,
@@ -990,10 +981,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RuneIterator': m.ClassMirror(
       'RuneIterator',
-      {
-        '': _RuneIterator__$,
-        'at': _RuneIterator_at_$,
-      },
       {
         '#as': RuneIterator_as$,
         '#is': RuneIterator_is$,
@@ -1010,7 +997,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StringBuffer': m.ClassMirror(
       'StringBuffer',
-      {'': _StringBuffer__$},
       {
         '#as': StringBuffer_as$,
         '#is': StringBuffer_is$,
@@ -1028,7 +1014,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StringSink': m.ClassMirror(
       'StringSink',
-      {},
       {
         '#as': StringSink_as$,
         '#is': StringSink_is$,
@@ -1041,7 +1026,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Symbol': m.ClassMirror(
       'Symbol',
-      {'': _Symbol__$},
       {
         '#as': Symbol_as$,
         '#is': Symbol_is$,
@@ -1052,7 +1036,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Type': m.ClassMirror(
       'Type',
-      {},
       {
         '#as': Type_as$,
         '#is': Type_is$,
@@ -1064,15 +1047,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uri': m.ClassMirror(
       'Uri',
-      {
-        '': _Uri__$,
-        'http': _Uri_http_$,
-        'https': _Uri_https_$,
-        'file': _Uri_file_$,
-        'directory': _Uri_directory_$,
-        'dataFromString': _Uri_dataFromString_$,
-        'dataFromBytes': _Uri_dataFromBytes_$,
-      },
       {
         '#as': Uri_as$,
         '#is': Uri_is$,
@@ -1113,11 +1087,6 @@ const libraryMirror = m.LibraryMirror(
     'UriData': m.ClassMirror(
       'UriData',
       {
-        'fromString': _UriData_fromString_$,
-        'fromBytes': _UriData_fromBytes_$,
-        'fromUri': _UriData_fromUri_$,
-      },
-      {
         '#as': UriData_as$,
         '#is': UriData_is$,
         'uri': _UriData_uri$,
@@ -1137,7 +1106,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Expando': m.ClassMirror(
       'Expando',
-      {'': _Expando__$},
       {
         '#as': Expando_as$,
         '#is': Expando_is$,
@@ -1150,7 +1118,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'WeakReference': m.ClassMirror(
       'WeakReference',
-      {'': _WeakReference__$},
       {
         '#as': WeakReference_as$,
         '#is': WeakReference_is$,
@@ -1160,7 +1127,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Finalizer': m.ClassMirror(
       'Finalizer',
-      {'': _Finalizer__$},
       {
         '#as': Finalizer_as$,
         '#is': Finalizer_is$,
@@ -1194,7 +1160,7 @@ String _Deprecated_message$(Deprecated target$) {
 }
 
 Function _Deprecated__$(m.Scope scope$) => (String message) {
-      return Deprecated(message);
+      return $Deprecated(message);
     };
 Function _Deprecated_toString$(
   m.Scope scope$,

@@ -10,11 +10,22 @@ const libraryMirror = m.LibraryMirror(
   'dart:convert',
   {
     'ascii': _ascii$,
+    'AsciiCodec.': _AsciiCodec__$,
+    'AsciiEncoder.': _AsciiEncoder__$,
+    'AsciiDecoder.': _AsciiDecoder__$,
     'base64': _base64$,
     'base64Url': _base64Url$,
+    'Base64Codec.': _Base64Codec__$,
+    'Base64Codec.urlSafe': _Base64Codec_urlSafe_$,
+    'Base64Encoder.': _Base64Encoder__$,
+    'Base64Encoder.urlSafe': _Base64Encoder_urlSafe_$,
+    'Base64Decoder.': _Base64Decoder__$,
     'base64Encode': _base64Encode$,
     'base64UrlEncode': _base64UrlEncode$,
     'base64Decode': _base64Decode$,
+    'ByteConversionSink.withCallback': _ByteConversionSink_withCallback_$,
+    'ByteConversionSink.from': _ByteConversionSink_from_$,
+    'ChunkedConversionSink.withCallback': _ChunkedConversionSink_withCallback_$,
     'Converter.castFrom': _Converter_castFrom$,
     'Encoding.getByName': _Encoding_getByName$,
     'htmlEscape': _htmlEscape$,
@@ -22,22 +33,43 @@ const libraryMirror = m.LibraryMirror(
     'HtmlEscapeMode.attribute': _HtmlEscapeMode_attribute$,
     'HtmlEscapeMode.sqAttribute': _HtmlEscapeMode_sqAttribute$,
     'HtmlEscapeMode.element': _HtmlEscapeMode_element$,
+    'HtmlEscapeMode.': _HtmlEscapeMode__$,
+    'HtmlEscape.': _HtmlEscape__$,
     'json': _json$,
+    'JsonUnsupportedObjectError.': _JsonUnsupportedObjectError__$,
+    'JsonCyclicError.': _JsonCyclicError__$,
+    'JsonCodec.': _JsonCodec__$,
+    'JsonCodec.withReviver': _JsonCodec_withReviver_$,
     'JsonCodec.decode': _JsonCodec_decode$,
     'JsonCodec.encode': _JsonCodec_encode$,
+    'JsonEncoder.': _JsonEncoder__$,
+    'JsonEncoder.withIndent': _JsonEncoder_withIndent_$,
+    'JsonUtf8Encoder.': _JsonUtf8Encoder__$,
+    'JsonDecoder.': _JsonDecoder__$,
     'jsonEncode': _jsonEncode$,
     'jsonDecode': _jsonDecode$,
     'latin1': _latin1$,
+    'Latin1Codec.': _Latin1Codec__$,
+    'Latin1Encoder.': _Latin1Encoder__$,
+    'Latin1Decoder.': _Latin1Decoder__$,
+    'LineSplitter.': _LineSplitter__$,
     'LineSplitter.split': _LineSplitter_split$,
+    'StringConversionSink.withCallback': _StringConversionSink_withCallback_$,
+    'StringConversionSink.from': _StringConversionSink_from_$,
+    'StringConversionSink.fromStringSink':
+        _StringConversionSink_fromStringSink_$,
+    'ClosableStringSink.fromStringSink': _ClosableStringSink_fromStringSink_$,
     'unicodeReplacementCharacterRune': _unicodeReplacementCharacterRune$,
     'unicodeBomCharacterRune': _unicodeBomCharacterRune$,
     'utf8': _utf8$,
+    'Utf8Codec.': _Utf8Codec__$,
+    'Utf8Encoder.': _Utf8Encoder__$,
+    'Utf8Decoder.': _Utf8Decoder__$,
   },
   {},
   {
     'AsciiCodec': m.ClassMirror(
       'AsciiCodec',
-      {'': _AsciiCodec__$},
       {
         '#as': AsciiCodec_as$,
         '#is': AsciiCodec_is$,
@@ -51,7 +83,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AsciiEncoder': m.ClassMirror(
       'AsciiEncoder',
-      {'': _AsciiEncoder__$},
       {
         '#as': AsciiEncoder_as$,
         '#is': AsciiEncoder_is$,
@@ -60,7 +91,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AsciiDecoder': m.ClassMirror(
       'AsciiDecoder',
-      {'': _AsciiDecoder__$},
       {
         '#as': AsciiDecoder_as$,
         '#is': AsciiDecoder_is$,
@@ -70,10 +100,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Base64Codec': m.ClassMirror(
       'Base64Codec',
-      {
-        '': _Base64Codec__$,
-        'urlSafe': _Base64Codec_urlSafe_$,
-      },
       {
         '#as': Base64Codec_as$,
         '#is': Base64Codec_is$,
@@ -87,10 +113,6 @@ const libraryMirror = m.LibraryMirror(
     'Base64Encoder': m.ClassMirror(
       'Base64Encoder',
       {
-        '': _Base64Encoder__$,
-        'urlSafe': _Base64Encoder_urlSafe_$,
-      },
-      {
         '#as': Base64Encoder_as$,
         '#is': Base64Encoder_is$,
         'convert': _Base64Encoder_convert$,
@@ -100,7 +122,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Base64Decoder': m.ClassMirror(
       'Base64Decoder',
-      {'': _Base64Decoder__$},
       {
         '#as': Base64Decoder_as$,
         '#is': Base64Decoder_is$,
@@ -112,10 +133,6 @@ const libraryMirror = m.LibraryMirror(
     'ByteConversionSink': m.ClassMirror(
       'ByteConversionSink',
       {
-        'withCallback': _ByteConversionSink_withCallback_$,
-        'from': _ByteConversionSink_from_$,
-      },
-      {
         '#as': ByteConversionSink_as$,
         '#is': ByteConversionSink_is$,
         'addSlice': _ByteConversionSink_addSlice$,
@@ -124,7 +141,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ChunkedConversionSink': m.ClassMirror(
       'ChunkedConversionSink',
-      {'withCallback': _ChunkedConversionSink_withCallback_$},
       {
         '#as': ChunkedConversionSink_as$,
         '#is': ChunkedConversionSink_is$,
@@ -135,7 +151,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Codec': m.ClassMirror(
       'Codec',
-      {},
       {
         '#as': Codec_as$,
         '#is': Codec_is$,
@@ -150,7 +165,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Converter': m.ClassMirror(
       'Converter',
-      {},
       {
         '#as': Converter_as$,
         '#is': Converter_is$,
@@ -164,7 +178,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Encoding': m.ClassMirror(
       'Encoding',
-      {},
       {
         '#as': Encoding_as$,
         '#is': Encoding_is$,
@@ -177,7 +190,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'HtmlEscapeMode': m.ClassMirror(
       'HtmlEscapeMode',
-      {'': _HtmlEscapeMode__$},
       {
         '#as': HtmlEscapeMode_as$,
         '#is': HtmlEscapeMode_is$,
@@ -191,7 +203,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'HtmlEscape': m.ClassMirror(
       'HtmlEscape',
-      {'': _HtmlEscape__$},
       {
         '#as': HtmlEscape_as$,
         '#is': HtmlEscape_is$,
@@ -203,7 +214,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonUnsupportedObjectError': m.ClassMirror(
       'JsonUnsupportedObjectError',
-      {'': _JsonUnsupportedObjectError__$},
       {
         '#as': JsonUnsupportedObjectError_as$,
         '#is': JsonUnsupportedObjectError_is$,
@@ -216,7 +226,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonCyclicError': m.ClassMirror(
       'JsonCyclicError',
-      {'': _JsonCyclicError__$},
       {
         '#as': JsonCyclicError_as$,
         '#is': JsonCyclicError_is$,
@@ -227,10 +236,6 @@ const libraryMirror = m.LibraryMirror(
     'JsonCodec': m.ClassMirror(
       'JsonCodec',
       {
-        '': _JsonCodec__$,
-        'withReviver': _JsonCodec_withReviver_$,
-      },
-      {
         '#as': JsonCodec_as$,
         '#is': JsonCodec_is$,
         'encoder': _JsonCodec_encoder$,
@@ -240,10 +245,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonEncoder': m.ClassMirror(
       'JsonEncoder',
-      {
-        '': _JsonEncoder__$,
-        'withIndent': _JsonEncoder_withIndent_$,
-      },
       {
         '#as': JsonEncoder_as$,
         '#is': JsonEncoder_is$,
@@ -257,7 +258,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonUtf8Encoder': m.ClassMirror(
       'JsonUtf8Encoder',
-      {'': _JsonUtf8Encoder__$},
       {
         '#as': JsonUtf8Encoder_as$,
         '#is': JsonUtf8Encoder_is$,
@@ -269,7 +269,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'JsonDecoder': m.ClassMirror(
       'JsonDecoder',
-      {'': _JsonDecoder__$},
       {
         '#as': JsonDecoder_as$,
         '#is': JsonDecoder_is$,
@@ -281,7 +280,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Latin1Codec': m.ClassMirror(
       'Latin1Codec',
-      {'': _Latin1Codec__$},
       {
         '#as': Latin1Codec_as$,
         '#is': Latin1Codec_is$,
@@ -295,7 +293,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Latin1Encoder': m.ClassMirror(
       'Latin1Encoder',
-      {'': _Latin1Encoder__$},
       {
         '#as': Latin1Encoder_as$,
         '#is': Latin1Encoder_is$,
@@ -304,7 +301,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Latin1Decoder': m.ClassMirror(
       'Latin1Decoder',
-      {'': _Latin1Decoder__$},
       {
         '#as': Latin1Decoder_as$,
         '#is': Latin1Decoder_is$,
@@ -314,7 +310,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LineSplitter': m.ClassMirror(
       'LineSplitter',
-      {'': _LineSplitter__$},
       {
         '#as': LineSplitter_as$,
         '#is': LineSplitter_is$,
@@ -327,11 +322,6 @@ const libraryMirror = m.LibraryMirror(
     'StringConversionSink': m.ClassMirror(
       'StringConversionSink',
       {
-        'withCallback': _StringConversionSink_withCallback_$,
-        'from': _StringConversionSink_from_$,
-        'fromStringSink': _StringConversionSink_fromStringSink_$,
-      },
-      {
         '#as': StringConversionSink_as$,
         '#is': StringConversionSink_is$,
         'addSlice': _StringConversionSink_addSlice$,
@@ -343,7 +333,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ClosableStringSink': m.ClassMirror(
       'ClosableStringSink',
-      {'fromStringSink': _ClosableStringSink_fromStringSink_$},
       {
         '#as': ClosableStringSink_as$,
         '#is': ClosableStringSink_is$,
@@ -353,7 +342,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Utf8Codec': m.ClassMirror(
       'Utf8Codec',
-      {'': _Utf8Codec__$},
       {
         '#as': Utf8Codec_as$,
         '#is': Utf8Codec_is$,
@@ -366,7 +354,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Utf8Encoder': m.ClassMirror(
       'Utf8Encoder',
-      {'': _Utf8Encoder__$},
       {
         '#as': Utf8Encoder_as$,
         '#is': Utf8Encoder_is$,
@@ -378,7 +365,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Utf8Decoder': m.ClassMirror(
       'Utf8Decoder',
-      {'': _Utf8Decoder__$},
       {
         '#as': Utf8Decoder_as$,
         '#is': Utf8Decoder_is$,

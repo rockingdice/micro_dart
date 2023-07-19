@@ -8,7 +8,15 @@ import 'dart:collection' show HashMap;
 const libraryMirror = m.LibraryMirror(
   'dart:async',
   {
+    'AsyncError.': _AsyncError__$,
     'AsyncError.defaultStackTrace': _AsyncError_defaultStackTrace$,
+    'DeferredLoadException.': _DeferredLoadException__$,
+    'Future.': _Future__$,
+    'Future.microtask': _Future_microtask_$,
+    'Future.sync': _Future_sync_$,
+    'Future.value': _Future_value_$,
+    'Future.error': _Future_error_$,
+    'Future.delayed': _Future_delayed_$,
     'Future.wait': _Future_wait$,
     'Future.any': _Future_any$,
     'Future.forEach': _Future_forEach$,
@@ -17,8 +25,21 @@ const libraryMirror = m.LibraryMirror(
     'Future.catchError': _Future_catchError$,
     'Future.whenComplete': _Future_whenComplete$,
     'Future.timeout': _Future_timeout$,
+    'TimeoutException.': _TimeoutException__$,
+    'Completer.': _Completer__$,
+    'Completer.sync': _Completer_sync_$,
     'unawaited': _unawaited$,
+    'ParallelWaitError.': _ParallelWaitError__$,
     'scheduleMicrotask': _scheduleMicrotask$,
+    'Stream.empty': _Stream_empty_$,
+    'Stream.value': _Stream_value_$,
+    'Stream.error': _Stream_error_$,
+    'Stream.fromFuture': _Stream_fromFuture_$,
+    'Stream.fromFutures': _Stream_fromFutures_$,
+    'Stream.fromIterable': _Stream_fromIterable_$,
+    'Stream.multi': _Stream_multi_$,
+    'Stream.periodic': _Stream_periodic_$,
+    'Stream.eventTransformed': _Stream_eventTransformed_$,
     'Stream.castFrom': _Stream_castFrom$,
     'Stream.asBroadcastStream': _Stream_asBroadcastStream$,
     'Stream.listen': _Stream_listen$,
@@ -42,10 +63,21 @@ const libraryMirror = m.LibraryMirror(
     'Stream.timeout': _Stream_timeout$,
     'StreamSubscription.onData': _StreamSubscription_onData$,
     'StreamSubscription.onDone': _StreamSubscription_onDone$,
+    'StreamView.': _StreamView__$,
     'StreamView.asBroadcastStream': _StreamView_asBroadcastStream$,
     'StreamView.listen': _StreamView_listen$,
+    'StreamTransformer.': _StreamTransformer__$,
+    'StreamTransformer.fromHandlers': _StreamTransformer_fromHandlers_$,
+    'StreamTransformer.fromBind': _StreamTransformer_fromBind_$,
     'StreamTransformer.castFrom': _StreamTransformer_castFrom$,
+    'StreamIterator.': _StreamIterator__$,
+    'StreamController.': _StreamController__$,
+    'StreamController.broadcast': _StreamController_broadcast_$,
+    'Timer.': _Timer__$,
+    'Timer.periodic': _Timer_periodic_$,
     'Timer.run': _Timer_run$,
+    'ZoneSpecification.': _ZoneSpecification__$,
+    'ZoneSpecification.from': _ZoneSpecification_from_$,
     'ZoneDelegate.run': _ZoneDelegate_run$,
     'ZoneDelegate.runUnary': _ZoneDelegate_runUnary$,
     'ZoneDelegate.runBinary': _ZoneDelegate_runBinary$,
@@ -83,7 +115,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'AsyncError': m.ClassMirror(
       'AsyncError',
-      {'': _AsyncError__$},
       {
         '#as': AsyncError_as$,
         '#is': AsyncError_is$,
@@ -95,7 +126,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DeferredLoadException': m.ClassMirror(
       'DeferredLoadException',
-      {'': _DeferredLoadException__$},
       {
         '#as': DeferredLoadException_as$,
         '#is': DeferredLoadException_is$,
@@ -105,7 +135,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FutureOr': m.ClassMirror(
       'FutureOr',
-      {},
       {
         '#as': FutureOr_as$,
         '#is': FutureOr_is$,
@@ -115,14 +144,6 @@ const libraryMirror = m.LibraryMirror(
     'Future': m.ClassMirror(
       'Future',
       {
-        '': _Future__$,
-        'microtask': _Future_microtask_$,
-        'sync': _Future_sync_$,
-        'value': _Future_value_$,
-        'error': _Future_error_$,
-        'delayed': _Future_delayed_$,
-      },
-      {
         '#as': Future_as$,
         '#is': Future_is$,
         'asStream': _Future_asStream$,
@@ -131,7 +152,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TimeoutException': m.ClassMirror(
       'TimeoutException',
-      {'': _TimeoutException__$},
       {
         '#as': TimeoutException_as$,
         '#is': TimeoutException_is$,
@@ -144,10 +164,6 @@ const libraryMirror = m.LibraryMirror(
     'Completer': m.ClassMirror(
       'Completer',
       {
-        '': _Completer__$,
-        'sync': _Completer_sync_$,
-      },
-      {
         '#as': Completer_as$,
         '#is': Completer_is$,
         'future': _Completer_future$,
@@ -159,7 +175,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ParallelWaitError': m.ClassMirror(
       'ParallelWaitError',
-      {'': _ParallelWaitError__$},
       {
         '#as': ParallelWaitError_as$,
         '#is': ParallelWaitError_is$,
@@ -171,17 +186,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Stream': m.ClassMirror(
       'Stream',
-      {
-        'empty': _Stream_empty_$,
-        'value': _Stream_value_$,
-        'error': _Stream_error_$,
-        'fromFuture': _Stream_fromFuture_$,
-        'fromFutures': _Stream_fromFutures_$,
-        'fromIterable': _Stream_fromIterable_$,
-        'multi': _Stream_multi_$,
-        'periodic': _Stream_periodic_$,
-        'eventTransformed': _Stream_eventTransformed_$,
-      },
       {
         '#as': Stream_as$,
         '#is': Stream_is$,
@@ -207,7 +211,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamSubscription': m.ClassMirror(
       'StreamSubscription',
-      {},
       {
         '#as': StreamSubscription_as$,
         '#is': StreamSubscription_is$,
@@ -222,7 +225,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'EventSink': m.ClassMirror(
       'EventSink',
-      {},
       {
         '#as': EventSink_as$,
         '#is': EventSink_is$,
@@ -234,7 +236,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamView': m.ClassMirror(
       'StreamView',
-      {'': _StreamView__$},
       {
         '#as': StreamView_as$,
         '#is': StreamView_is$,
@@ -244,7 +245,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamConsumer': m.ClassMirror(
       'StreamConsumer',
-      {},
       {
         '#as': StreamConsumer_as$,
         '#is': StreamConsumer_is$,
@@ -255,7 +255,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamSink': m.ClassMirror(
       'StreamSink',
-      {},
       {
         '#as': StreamSink_as$,
         '#is': StreamSink_is$,
@@ -267,11 +266,6 @@ const libraryMirror = m.LibraryMirror(
     'StreamTransformer': m.ClassMirror(
       'StreamTransformer',
       {
-        '': _StreamTransformer__$,
-        'fromHandlers': _StreamTransformer_fromHandlers_$,
-        'fromBind': _StreamTransformer_fromBind_$,
-      },
-      {
         '#as': StreamTransformer_as$,
         '#is': StreamTransformer_is$,
         'bind': _StreamTransformer_bind$,
@@ -281,7 +275,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamTransformerBase': m.ClassMirror(
       'StreamTransformerBase',
-      {},
       {
         '#as': StreamTransformerBase_as$,
         '#is': StreamTransformerBase_is$,
@@ -291,7 +284,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamIterator': m.ClassMirror(
       'StreamIterator',
-      {'': _StreamIterator__$},
       {
         '#as': StreamIterator_as$,
         '#is': StreamIterator_is$,
@@ -303,7 +295,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MultiStreamController': m.ClassMirror(
       'MultiStreamController',
-      {},
       {
         '#as': MultiStreamController_as$,
         '#is': MultiStreamController_is$,
@@ -315,10 +306,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StreamController': m.ClassMirror(
       'StreamController',
-      {
-        '': _StreamController__$,
-        'broadcast': _StreamController_broadcast_$,
-      },
       {
         '#as': StreamController_as$,
         '#is': StreamController_is$,
@@ -346,7 +333,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SynchronousStreamController': m.ClassMirror(
       'SynchronousStreamController',
-      {},
       {
         '#as': SynchronousStreamController_as$,
         '#is': SynchronousStreamController_is$,
@@ -359,10 +345,6 @@ const libraryMirror = m.LibraryMirror(
     'Timer': m.ClassMirror(
       'Timer',
       {
-        '': _Timer__$,
-        'periodic': _Timer_periodic_$,
-      },
-      {
         '#as': Timer_as$,
         '#is': Timer_is$,
         'tick': _Timer_tick$,
@@ -373,10 +355,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZoneSpecification': m.ClassMirror(
       'ZoneSpecification',
-      {
-        '': _ZoneSpecification__$,
-        'from': _ZoneSpecification_from_$,
-      },
       {
         '#as': ZoneSpecification_as$,
         '#is': ZoneSpecification_is$,
@@ -398,7 +376,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZoneDelegate': m.ClassMirror(
       'ZoneDelegate',
-      {},
       {
         '#as': ZoneDelegate_as$,
         '#is': ZoneDelegate_is$,
@@ -411,7 +388,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Zone': m.ClassMirror(
       'Zone',
-      {},
       {
         '#as': Zone_as$,
         '#is': Zone_is$,

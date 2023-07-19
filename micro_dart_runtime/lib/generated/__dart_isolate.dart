@@ -9,22 +9,29 @@ import 'dart:typed_data' show ByteBuffer, TypedData, Uint8List;
 const libraryMirror = m.LibraryMirror(
   'dart:isolate',
   {
+    'IsolateSpawnException.': _IsolateSpawnException__$,
     'Isolate.immediate': _Isolate_immediate$,
     'Isolate.beforeNextEvent': _Isolate_beforeNextEvent$,
     'Isolate.current': _Isolate_current$,
     'Isolate.packageConfig': _Isolate_packageConfig$,
+    'Isolate.': _Isolate__$,
     'Isolate.run': _Isolate_run$,
     'Isolate.resolvePackageUri': _Isolate_resolvePackageUri$,
     'Isolate.spawn': _Isolate_spawn$,
     'Isolate.spawnUri': _Isolate_spawnUri$,
     'Isolate.exit': _Isolate_exit$,
+    'ReceivePort.': _ReceivePort__$,
+    'ReceivePort.fromRawReceivePort': _ReceivePort_fromRawReceivePort_$,
     'ReceivePort.listen': _ReceivePort_listen$,
+    'RawReceivePort.': _RawReceivePort__$,
+    'RemoteError.': _RemoteError__$,
+    'TransferableTypedData.fromList': _TransferableTypedData_fromList_$,
+    'Capability.': _Capability__$,
   },
   {},
   {
     'IsolateSpawnException': m.ClassMirror(
       'IsolateSpawnException',
-      {'': _IsolateSpawnException__$},
       {
         '#as': IsolateSpawnException_as$,
         '#is': IsolateSpawnException_is$,
@@ -35,7 +42,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Isolate': m.ClassMirror(
       'Isolate',
-      {'': _Isolate__$},
       {
         '#as': Isolate_as$,
         '#is': Isolate_is$,
@@ -58,7 +64,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SendPort': m.ClassMirror(
       'SendPort',
-      {},
       {
         '#as': SendPort_as$,
         '#is': SendPort_is$,
@@ -71,10 +76,6 @@ const libraryMirror = m.LibraryMirror(
     'ReceivePort': m.ClassMirror(
       'ReceivePort',
       {
-        '': _ReceivePort__$,
-        'fromRawReceivePort': _ReceivePort_fromRawReceivePort_$,
-      },
-      {
         '#as': ReceivePort_as$,
         '#is': ReceivePort_is$,
         'sendPort': _ReceivePort_sendPort$,
@@ -84,7 +85,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawReceivePort': m.ClassMirror(
       'RawReceivePort',
-      {'': _RawReceivePort__$},
       {
         '#as': RawReceivePort_as$,
         '#is': RawReceivePort_is$,
@@ -95,7 +95,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RemoteError': m.ClassMirror(
       'RemoteError',
-      {'': _RemoteError__$},
       {
         '#as': RemoteError_as$,
         '#is': RemoteError_is$,
@@ -106,7 +105,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TransferableTypedData': m.ClassMirror(
       'TransferableTypedData',
-      {'fromList': _TransferableTypedData_fromList_$},
       {
         '#as': TransferableTypedData_as$,
         '#is': TransferableTypedData_is$,
@@ -116,7 +114,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Capability': m.ClassMirror(
       'Capability',
-      {'': _Capability__$},
       {
         '#as': Capability_as$,
         '#is': Capability_is$,

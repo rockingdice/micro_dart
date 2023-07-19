@@ -129,7 +129,6 @@ class ClassRef {
       return true;
     }
     if (other is ClassRef) {
-      print("${hashCode == other.hashCode}");
       return hashCode == other.hashCode;
     }
     return false;
@@ -253,7 +252,7 @@ class CType {
     return CType(
       ClassRef.fromList(list[0], constants),
       superType: list[1] == null ? null : ClassRef.fromList(list[1], constants),
-      mixinType: list[1] == null ? null : ClassRef.fromList(list[1], constants),
+      mixinType: list[2] == null ? null : ClassRef.fromList(list[2], constants),
       implementTypes: (list[3] as List)
           .map<ClassRef>((e) => ClassRef.fromList(e, constants))
           .toList(),
@@ -279,7 +278,7 @@ class CType {
 
   @override
   String toString() {
-    return "CType($ref)";
+    return "CType($ref,$superType,$mixinType)";
   }
 
   CallRef getCallRef(String name, bool isSetter, bool isStatic) {

@@ -10,20 +10,79 @@ const libraryMirror = m.LibraryMirror(
     'Endian.big': _Endian_big$,
     'Endian.little': _Endian_little$,
     'Endian.host': _Endian_host$,
+    'ByteData.': _ByteData__$,
+    'ByteData.view': _ByteData_view_$,
+    'ByteData.sublistView': _ByteData_sublistView_$,
     'Int8List.bytesPerElement': _Int8List_bytesPerElement$,
+    'Int8List.': _Int8List__$,
+    'Int8List.fromList': _Int8List_fromList_$,
+    'Int8List.view': _Int8List_view_$,
+    'Int8List.sublistView': _Int8List_sublistView_$,
     'Uint8List.bytesPerElement': _Uint8List_bytesPerElement$,
+    'Uint8List.': _Uint8List__$,
+    'Uint8List.fromList': _Uint8List_fromList_$,
+    'Uint8List.view': _Uint8List_view_$,
+    'Uint8List.sublistView': _Uint8List_sublistView_$,
     'Uint8ClampedList.bytesPerElement': _Uint8ClampedList_bytesPerElement$,
+    'Uint8ClampedList.': _Uint8ClampedList__$,
+    'Uint8ClampedList.fromList': _Uint8ClampedList_fromList_$,
+    'Uint8ClampedList.view': _Uint8ClampedList_view_$,
+    'Uint8ClampedList.sublistView': _Uint8ClampedList_sublistView_$,
     'Int16List.bytesPerElement': _Int16List_bytesPerElement$,
+    'Int16List.': _Int16List__$,
+    'Int16List.fromList': _Int16List_fromList_$,
+    'Int16List.view': _Int16List_view_$,
+    'Int16List.sublistView': _Int16List_sublistView_$,
     'Uint16List.bytesPerElement': _Uint16List_bytesPerElement$,
+    'Uint16List.': _Uint16List__$,
+    'Uint16List.fromList': _Uint16List_fromList_$,
+    'Uint16List.view': _Uint16List_view_$,
+    'Uint16List.sublistView': _Uint16List_sublistView_$,
     'Int32List.bytesPerElement': _Int32List_bytesPerElement$,
+    'Int32List.': _Int32List__$,
+    'Int32List.fromList': _Int32List_fromList_$,
+    'Int32List.view': _Int32List_view_$,
+    'Int32List.sublistView': _Int32List_sublistView_$,
     'Uint32List.bytesPerElement': _Uint32List_bytesPerElement$,
+    'Uint32List.': _Uint32List__$,
+    'Uint32List.fromList': _Uint32List_fromList_$,
+    'Uint32List.view': _Uint32List_view_$,
+    'Uint32List.sublistView': _Uint32List_sublistView_$,
     'Int64List.bytesPerElement': _Int64List_bytesPerElement$,
+    'Int64List.': _Int64List__$,
+    'Int64List.fromList': _Int64List_fromList_$,
+    'Int64List.view': _Int64List_view_$,
+    'Int64List.sublistView': _Int64List_sublistView_$,
     'Uint64List.bytesPerElement': _Uint64List_bytesPerElement$,
+    'Uint64List.': _Uint64List__$,
+    'Uint64List.fromList': _Uint64List_fromList_$,
+    'Uint64List.view': _Uint64List_view_$,
+    'Uint64List.sublistView': _Uint64List_sublistView_$,
     'Float32List.bytesPerElement': _Float32List_bytesPerElement$,
+    'Float32List.': _Float32List__$,
+    'Float32List.fromList': _Float32List_fromList_$,
+    'Float32List.view': _Float32List_view_$,
+    'Float32List.sublistView': _Float32List_sublistView_$,
     'Float64List.bytesPerElement': _Float64List_bytesPerElement$,
+    'Float64List.': _Float64List__$,
+    'Float64List.fromList': _Float64List_fromList_$,
+    'Float64List.view': _Float64List_view_$,
+    'Float64List.sublistView': _Float64List_sublistView_$,
     'Float32x4List.bytesPerElement': _Float32x4List_bytesPerElement$,
+    'Float32x4List.': _Float32x4List__$,
+    'Float32x4List.fromList': _Float32x4List_fromList_$,
+    'Float32x4List.view': _Float32x4List_view_$,
+    'Float32x4List.sublistView': _Float32x4List_sublistView_$,
     'Int32x4List.bytesPerElement': _Int32x4List_bytesPerElement$,
+    'Int32x4List.': _Int32x4List__$,
+    'Int32x4List.fromList': _Int32x4List_fromList_$,
+    'Int32x4List.view': _Int32x4List_view_$,
+    'Int32x4List.sublistView': _Int32x4List_sublistView_$,
     'Float64x2List.bytesPerElement': _Float64x2List_bytesPerElement$,
+    'Float64x2List.': _Float64x2List__$,
+    'Float64x2List.fromList': _Float64x2List_fromList_$,
+    'Float64x2List.view': _Float64x2List_view_$,
+    'Float64x2List.sublistView': _Float64x2List_sublistView_$,
     'Float32x4.xxxx': _Float32x4_xxxx$,
     'Float32x4.xxxy': _Float32x4_xxxy$,
     'Float32x4.xxxz': _Float32x4_xxxz$,
@@ -280,6 +339,11 @@ const libraryMirror = m.LibraryMirror(
     'Float32x4.wwwy': _Float32x4_wwwy$,
     'Float32x4.wwwz': _Float32x4_wwwz$,
     'Float32x4.wwww': _Float32x4_wwww$,
+    'Float32x4.': _Float32x4__$,
+    'Float32x4.splat': _Float32x4_splat_$,
+    'Float32x4.zero': _Float32x4_zero_$,
+    'Float32x4.fromInt32x4Bits': _Float32x4_fromInt32x4Bits_$,
+    'Float32x4.fromFloat64x2': _Float32x4_fromFloat64x2_$,
     'Int32x4.xxxx': _Int32x4_xxxx$,
     'Int32x4.xxxy': _Int32x4_xxxy$,
     'Int32x4.xxxz': _Int32x4_xxxz$,
@@ -536,12 +600,34 @@ const libraryMirror = m.LibraryMirror(
     'Int32x4.wwwy': _Int32x4_wwwy$,
     'Int32x4.wwwz': _Int32x4_wwwz$,
     'Int32x4.wwww': _Int32x4_wwww$,
+    'Int32x4.': _Int32x4__$,
+    'Int32x4.bool': _Int32x4_bool_$,
+    'Int32x4.fromFloat32x4Bits': _Int32x4_fromFloat32x4Bits_$,
+    'Float64x2.': _Float64x2__$,
+    'Float64x2.splat': _Float64x2_splat_$,
+    'Float64x2.zero': _Float64x2_zero_$,
+    'Float64x2.fromFloat32x4': _Float64x2_fromFloat32x4_$,
+    'UnmodifiableByteBufferView.': _UnmodifiableByteBufferView__$,
+    'UnmodifiableByteDataView.': _UnmodifiableByteDataView__$,
+    'UnmodifiableUint8ListView.': _UnmodifiableUint8ListView__$,
+    'UnmodifiableInt8ListView.': _UnmodifiableInt8ListView__$,
+    'UnmodifiableUint8ClampedListView.': _UnmodifiableUint8ClampedListView__$,
+    'UnmodifiableUint16ListView.': _UnmodifiableUint16ListView__$,
+    'UnmodifiableInt16ListView.': _UnmodifiableInt16ListView__$,
+    'UnmodifiableUint32ListView.': _UnmodifiableUint32ListView__$,
+    'UnmodifiableInt32ListView.': _UnmodifiableInt32ListView__$,
+    'UnmodifiableUint64ListView.': _UnmodifiableUint64ListView__$,
+    'UnmodifiableInt64ListView.': _UnmodifiableInt64ListView__$,
+    'UnmodifiableInt32x4ListView.': _UnmodifiableInt32x4ListView__$,
+    'UnmodifiableFloat32x4ListView.': _UnmodifiableFloat32x4ListView__$,
+    'UnmodifiableFloat64x2ListView.': _UnmodifiableFloat64x2ListView__$,
+    'UnmodifiableFloat32ListView.': _UnmodifiableFloat32ListView__$,
+    'UnmodifiableFloat64ListView.': _UnmodifiableFloat64ListView__$,
   },
   {},
   {
     'ByteBuffer': m.ClassMirror(
       'ByteBuffer',
-      {},
       {
         '#as': ByteBuffer_as$,
         '#is': ByteBuffer_is$,
@@ -566,7 +652,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TypedData': m.ClassMirror(
       'TypedData',
-      {},
       {
         '#as': TypedData_as$,
         '#is': TypedData_is$,
@@ -579,7 +664,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Endian': m.ClassMirror(
       'Endian',
-      {},
       {
         '#as': Endian_as$,
         '#is': Endian_is$,
@@ -588,11 +672,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ByteData': m.ClassMirror(
       'ByteData',
-      {
-        '': _ByteData__$,
-        'view': _ByteData_view_$,
-        'sublistView': _ByteData_sublistView_$,
-      },
       {
         '#as': ByteData_as$,
         '#is': ByteData_is$,
@@ -622,12 +701,6 @@ const libraryMirror = m.LibraryMirror(
     'Int8List': m.ClassMirror(
       'Int8List',
       {
-        '': _Int8List__$,
-        'fromList': _Int8List_fromList_$,
-        'view': _Int8List_view_$,
-        'sublistView': _Int8List_sublistView_$,
-      },
-      {
         '#as': Int8List_as$,
         '#is': Int8List_is$,
         'sublist': _Int8List_sublist$,
@@ -636,12 +709,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uint8List': m.ClassMirror(
       'Uint8List',
-      {
-        '': _Uint8List__$,
-        'fromList': _Uint8List_fromList_$,
-        'view': _Uint8List_view_$,
-        'sublistView': _Uint8List_sublistView_$,
-      },
       {
         '#as': Uint8List_as$,
         '#is': Uint8List_is$,
@@ -653,12 +720,6 @@ const libraryMirror = m.LibraryMirror(
     'Uint8ClampedList': m.ClassMirror(
       'Uint8ClampedList',
       {
-        '': _Uint8ClampedList__$,
-        'fromList': _Uint8ClampedList_fromList_$,
-        'view': _Uint8ClampedList_view_$,
-        'sublistView': _Uint8ClampedList_sublistView_$,
-      },
-      {
         '#as': Uint8ClampedList_as$,
         '#is': Uint8ClampedList_is$,
         'sublist': _Uint8ClampedList_sublist$,
@@ -667,12 +728,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int16List': m.ClassMirror(
       'Int16List',
-      {
-        '': _Int16List__$,
-        'fromList': _Int16List_fromList_$,
-        'view': _Int16List_view_$,
-        'sublistView': _Int16List_sublistView_$,
-      },
       {
         '#as': Int16List_as$,
         '#is': Int16List_is$,
@@ -683,12 +738,6 @@ const libraryMirror = m.LibraryMirror(
     'Uint16List': m.ClassMirror(
       'Uint16List',
       {
-        '': _Uint16List__$,
-        'fromList': _Uint16List_fromList_$,
-        'view': _Uint16List_view_$,
-        'sublistView': _Uint16List_sublistView_$,
-      },
-      {
         '#as': Uint16List_as$,
         '#is': Uint16List_is$,
         'sublist': _Uint16List_sublist$,
@@ -697,12 +746,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int32List': m.ClassMirror(
       'Int32List',
-      {
-        '': _Int32List__$,
-        'fromList': _Int32List_fromList_$,
-        'view': _Int32List_view_$,
-        'sublistView': _Int32List_sublistView_$,
-      },
       {
         '#as': Int32List_as$,
         '#is': Int32List_is$,
@@ -713,12 +756,6 @@ const libraryMirror = m.LibraryMirror(
     'Uint32List': m.ClassMirror(
       'Uint32List',
       {
-        '': _Uint32List__$,
-        'fromList': _Uint32List_fromList_$,
-        'view': _Uint32List_view_$,
-        'sublistView': _Uint32List_sublistView_$,
-      },
-      {
         '#as': Uint32List_as$,
         '#is': Uint32List_is$,
         'sublist': _Uint32List_sublist$,
@@ -727,12 +764,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int64List': m.ClassMirror(
       'Int64List',
-      {
-        '': _Int64List__$,
-        'fromList': _Int64List_fromList_$,
-        'view': _Int64List_view_$,
-        'sublistView': _Int64List_sublistView_$,
-      },
       {
         '#as': Int64List_as$,
         '#is': Int64List_is$,
@@ -743,12 +774,6 @@ const libraryMirror = m.LibraryMirror(
     'Uint64List': m.ClassMirror(
       'Uint64List',
       {
-        '': _Uint64List__$,
-        'fromList': _Uint64List_fromList_$,
-        'view': _Uint64List_view_$,
-        'sublistView': _Uint64List_sublistView_$,
-      },
-      {
         '#as': Uint64List_as$,
         '#is': Uint64List_is$,
         'sublist': _Uint64List_sublist$,
@@ -757,12 +782,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Float32List': m.ClassMirror(
       'Float32List',
-      {
-        '': _Float32List__$,
-        'fromList': _Float32List_fromList_$,
-        'view': _Float32List_view_$,
-        'sublistView': _Float32List_sublistView_$,
-      },
       {
         '#as': Float32List_as$,
         '#is': Float32List_is$,
@@ -773,12 +792,6 @@ const libraryMirror = m.LibraryMirror(
     'Float64List': m.ClassMirror(
       'Float64List',
       {
-        '': _Float64List__$,
-        'fromList': _Float64List_fromList_$,
-        'view': _Float64List_view_$,
-        'sublistView': _Float64List_sublistView_$,
-      },
-      {
         '#as': Float64List_as$,
         '#is': Float64List_is$,
         'sublist': _Float64List_sublist$,
@@ -787,12 +800,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Float32x4List': m.ClassMirror(
       'Float32x4List',
-      {
-        '': _Float32x4List__$,
-        'fromList': _Float32x4List_fromList_$,
-        'view': _Float32x4List_view_$,
-        'sublistView': _Float32x4List_sublistView_$,
-      },
       {
         '#as': Float32x4List_as$,
         '#is': Float32x4List_is$,
@@ -804,12 +811,6 @@ const libraryMirror = m.LibraryMirror(
     'Int32x4List': m.ClassMirror(
       'Int32x4List',
       {
-        '': _Int32x4List__$,
-        'fromList': _Int32x4List_fromList_$,
-        'view': _Int32x4List_view_$,
-        'sublistView': _Int32x4List_sublistView_$,
-      },
-      {
         '#as': Int32x4List_as$,
         '#is': Int32x4List_is$,
         '+': _Int32x4List_plus$$,
@@ -820,12 +821,6 @@ const libraryMirror = m.LibraryMirror(
     'Float64x2List': m.ClassMirror(
       'Float64x2List',
       {
-        '': _Float64x2List__$,
-        'fromList': _Float64x2List_fromList_$,
-        'view': _Float64x2List_view_$,
-        'sublistView': _Float64x2List_sublistView_$,
-      },
-      {
         '#as': Float64x2List_as$,
         '#is': Float64x2List_is$,
         '+': _Float64x2List_plus$$,
@@ -835,13 +830,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Float32x4': m.ClassMirror(
       'Float32x4',
-      {
-        '': _Float32x4__$,
-        'splat': _Float32x4_splat_$,
-        'zero': _Float32x4_zero_$,
-        'fromInt32x4Bits': _Float32x4_fromInt32x4Bits_$,
-        'fromFloat64x2': _Float32x4_fromFloat64x2_$,
-      },
       {
         '#as': Float32x4_as$,
         '#is': Float32x4_is$,
@@ -881,11 +869,6 @@ const libraryMirror = m.LibraryMirror(
     'Int32x4': m.ClassMirror(
       'Int32x4',
       {
-        '': _Int32x4__$,
-        'bool': _Int32x4_bool_$,
-        'fromFloat32x4Bits': _Int32x4_fromFloat32x4Bits_$,
-      },
-      {
         '#as': Int32x4_as$,
         '#is': Int32x4_is$,
         'x': _Int32x4_x$,
@@ -919,12 +902,6 @@ const libraryMirror = m.LibraryMirror(
     'Float64x2': m.ClassMirror(
       'Float64x2',
       {
-        '': _Float64x2__$,
-        'splat': _Float64x2_splat_$,
-        'zero': _Float64x2_zero_$,
-        'fromFloat32x4': _Float64x2_fromFloat32x4_$,
-      },
-      {
         '#as': Float64x2_as$,
         '#is': Float64x2_is$,
         'x': _Float64x2_x$,
@@ -948,7 +925,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableByteBufferView': m.ClassMirror(
       'UnmodifiableByteBufferView',
-      {'': _UnmodifiableByteBufferView__$},
       {
         '#as': UnmodifiableByteBufferView_as$,
         '#is': UnmodifiableByteBufferView_is$,
@@ -957,7 +933,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableByteDataView': m.ClassMirror(
       'UnmodifiableByteDataView',
-      {'': _UnmodifiableByteDataView__$},
       {
         '#as': UnmodifiableByteDataView_as$,
         '#is': UnmodifiableByteDataView_is$,
@@ -966,7 +941,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableUint8ListView': m.ClassMirror(
       'UnmodifiableUint8ListView',
-      {'': _UnmodifiableUint8ListView__$},
       {
         '#as': UnmodifiableUint8ListView_as$,
         '#is': UnmodifiableUint8ListView_is$,
@@ -975,7 +949,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableInt8ListView': m.ClassMirror(
       'UnmodifiableInt8ListView',
-      {'': _UnmodifiableInt8ListView__$},
       {
         '#as': UnmodifiableInt8ListView_as$,
         '#is': UnmodifiableInt8ListView_is$,
@@ -984,7 +957,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableUint8ClampedListView': m.ClassMirror(
       'UnmodifiableUint8ClampedListView',
-      {'': _UnmodifiableUint8ClampedListView__$},
       {
         '#as': UnmodifiableUint8ClampedListView_as$,
         '#is': UnmodifiableUint8ClampedListView_is$,
@@ -993,7 +965,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableUint16ListView': m.ClassMirror(
       'UnmodifiableUint16ListView',
-      {'': _UnmodifiableUint16ListView__$},
       {
         '#as': UnmodifiableUint16ListView_as$,
         '#is': UnmodifiableUint16ListView_is$,
@@ -1002,7 +973,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableInt16ListView': m.ClassMirror(
       'UnmodifiableInt16ListView',
-      {'': _UnmodifiableInt16ListView__$},
       {
         '#as': UnmodifiableInt16ListView_as$,
         '#is': UnmodifiableInt16ListView_is$,
@@ -1011,7 +981,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableUint32ListView': m.ClassMirror(
       'UnmodifiableUint32ListView',
-      {'': _UnmodifiableUint32ListView__$},
       {
         '#as': UnmodifiableUint32ListView_as$,
         '#is': UnmodifiableUint32ListView_is$,
@@ -1020,7 +989,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableInt32ListView': m.ClassMirror(
       'UnmodifiableInt32ListView',
-      {'': _UnmodifiableInt32ListView__$},
       {
         '#as': UnmodifiableInt32ListView_as$,
         '#is': UnmodifiableInt32ListView_is$,
@@ -1029,7 +997,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableUint64ListView': m.ClassMirror(
       'UnmodifiableUint64ListView',
-      {'': _UnmodifiableUint64ListView__$},
       {
         '#as': UnmodifiableUint64ListView_as$,
         '#is': UnmodifiableUint64ListView_is$,
@@ -1038,7 +1005,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableInt64ListView': m.ClassMirror(
       'UnmodifiableInt64ListView',
-      {'': _UnmodifiableInt64ListView__$},
       {
         '#as': UnmodifiableInt64ListView_as$,
         '#is': UnmodifiableInt64ListView_is$,
@@ -1047,7 +1013,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableInt32x4ListView': m.ClassMirror(
       'UnmodifiableInt32x4ListView',
-      {'': _UnmodifiableInt32x4ListView__$},
       {
         '#as': UnmodifiableInt32x4ListView_as$,
         '#is': UnmodifiableInt32x4ListView_is$,
@@ -1056,7 +1021,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableFloat32x4ListView': m.ClassMirror(
       'UnmodifiableFloat32x4ListView',
-      {'': _UnmodifiableFloat32x4ListView__$},
       {
         '#as': UnmodifiableFloat32x4ListView_as$,
         '#is': UnmodifiableFloat32x4ListView_is$,
@@ -1065,7 +1029,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableFloat64x2ListView': m.ClassMirror(
       'UnmodifiableFloat64x2ListView',
-      {'': _UnmodifiableFloat64x2ListView__$},
       {
         '#as': UnmodifiableFloat64x2ListView_as$,
         '#is': UnmodifiableFloat64x2ListView_is$,
@@ -1074,7 +1037,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableFloat32ListView': m.ClassMirror(
       'UnmodifiableFloat32ListView',
-      {'': _UnmodifiableFloat32ListView__$},
       {
         '#as': UnmodifiableFloat32ListView_as$,
         '#is': UnmodifiableFloat32ListView_is$,
@@ -1083,7 +1045,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableFloat64ListView': m.ClassMirror(
       'UnmodifiableFloat64ListView',
-      {'': _UnmodifiableFloat64ListView__$},
       {
         '#as': UnmodifiableFloat64ListView_as$,
         '#is': UnmodifiableFloat64ListView_is$,

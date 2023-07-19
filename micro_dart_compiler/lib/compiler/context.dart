@@ -1,4 +1,5 @@
 import 'package:kernel/ast.dart';
+import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 import 'package:micro_dart_runtime/constant_pool.dart';

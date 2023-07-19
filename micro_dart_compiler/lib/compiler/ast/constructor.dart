@@ -69,6 +69,14 @@ void compileSuperInitializer(
     MicroCompilerContext context, SuperInitializer initializer) {
   var target = initializer.target;
   var arguments = initializer.arguments;
+  Class clazz = target.enclosingClass;
+  context.lookupType(clazz);
+
+  if (clazz.stringLibraryUri == "dart:core" &&
+      clazz.stringClassName == "Object") {
+    return;
+  }
+
   compileCallConstructor(context, arguments, target);
   context.pushOp(OpSetThisSuper.make());
 }

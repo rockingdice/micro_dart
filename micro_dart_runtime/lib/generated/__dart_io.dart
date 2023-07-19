@@ -16,6 +16,7 @@ const libraryMirror = m.LibraryMirror(
   'dart:io',
   {
     'OSError.noErrorCode': _OSError_noErrorCode$,
+    'OSError.': _OSError__$,
     'zlib': _zlib$,
     'gzip': _gzip$,
     'ZLibOption.minWindowBits': _ZLibOption_minWindowBits$,
@@ -32,8 +33,17 @@ const libraryMirror = m.LibraryMirror(
     'ZLibOption.strategyRle': _ZLibOption_strategyRle$,
     'ZLibOption.strategyFixed': _ZLibOption_strategyFixed$,
     'ZLibOption.strategyDefault': _ZLibOption_strategyDefault$,
+    'ZLibCodec.': _ZLibCodec__$,
+    'GZipCodec.': _GZipCodec__$,
+    'ZLibEncoder.': _ZLibEncoder__$,
+    'ZLibDecoder.': _ZLibDecoder__$,
+    'RawZLibFilter.deflateFilter': _RawZLibFilter_deflateFilter_$,
+    'RawZLibFilter.inflateFilter': _RawZLibFilter_inflateFilter_$,
     'Directory.current': _Directory_current$,
     'Directory.systemTemp': _Directory_systemTemp$,
+    'Directory.': _Directory__$,
+    'Directory.fromRawPath': _Directory_fromRawPath_$,
+    'Directory.fromUri': _Directory_fromUri_$,
     'FileMode.read': _FileMode_read$,
     'FileMode.write': _FileMode_write$,
     'FileMode.append': _FileMode_append$,
@@ -43,6 +53,14 @@ const libraryMirror = m.LibraryMirror(
     'FileLock.exclusive': _FileLock_exclusive$,
     'FileLock.blockingShared': _FileLock_blockingShared$,
     'FileLock.blockingExclusive': _FileLock_blockingExclusive$,
+    'File.': _File__$,
+    'File.fromUri': _File_fromUri_$,
+    'File.fromRawPath': _File_fromRawPath_$,
+    'FileSystemException.': _FileSystemException__$,
+    'PathAccessException.': _PathAccessException__$,
+    'PathExistsException.': _PathExistsException__$,
+    'PathNotFoundException.': _PathNotFoundException__$,
+    'Pipe.createSync': _Pipe_createSync_$,
     'Pipe.create': _Pipe_create$,
     'FileSystemEntityType.file': _FileSystemEntityType_file$,
     'FileSystemEntityType.directory': _FileSystemEntityType_directory$,
@@ -71,6 +89,14 @@ const libraryMirror = m.LibraryMirror(
     'FileSystemEvent.delete': _FileSystemEvent_delete$,
     'FileSystemEvent.move': _FileSystemEvent_move$,
     'FileSystemEvent.all': _FileSystemEvent_all$,
+    'FileSystemCreateEvent.': _FileSystemCreateEvent__$,
+    'FileSystemModifyEvent.': _FileSystemModifyEvent__$,
+    'FileSystemDeleteEvent.': _FileSystemDeleteEvent__$,
+    'FileSystemMoveEvent.': _FileSystemMoveEvent__$,
+    'IOSink.': _IOSink__$,
+    'Link.': _Link__$,
+    'Link.fromRawPath': _Link_fromRawPath_$,
+    'Link.fromUri': _Link_fromUri_$,
     'IOOverrides.current': _IOOverrides_current$,
     'IOOverrides.runZoned': _IOOverrides_runZoned$,
     'IOOverrides.runWithIOOverrides': _IOOverrides_runWithIOOverrides$,
@@ -93,6 +119,7 @@ const libraryMirror = m.LibraryMirror(
     'Platform.executableArguments': _Platform_executableArguments$,
     'Platform.packageConfig': _Platform_packageConfig$,
     'Platform.version': _Platform_version$,
+    'Platform.': _Platform__$,
     'exitCode': _exitCode$,
     'pid': _pid$,
     'ProcessInfo.currentRss': _ProcessInfo_currentRss$,
@@ -106,6 +133,7 @@ const libraryMirror = m.LibraryMirror(
     'Process.run': _Process_run$,
     'Process.runSync': _Process_runSync$,
     'Process.killPid': _Process_killPid$,
+    'ProcessResult.': _ProcessResult__$,
     'ProcessSignal.sighup': _ProcessSignal_sighup$,
     'ProcessSignal.sigint': _ProcessSignal_sigint$,
     'ProcessSignal.sigquit': _ProcessSignal_sigquit$,
@@ -135,6 +163,8 @@ const libraryMirror = m.LibraryMirror(
     'ProcessSignal.sigwinch': _ProcessSignal_sigwinch$,
     'ProcessSignal.sigpoll': _ProcessSignal_sigpoll$,
     'ProcessSignal.sigsys': _ProcessSignal_sigsys$,
+    'SignalException.': _SignalException__$,
+    'ProcessException.': _ProcessException__$,
     'exit': _exit$,
     'sleep': _sleep$,
     'SecureServerSocket.bind': _SecureServerSocket_bind$,
@@ -149,7 +179,11 @@ const libraryMirror = m.LibraryMirror(
     'RawSecureSocket.startConnect': _RawSecureSocket_startConnect$,
     'RawSecureSocket.secure': _RawSecureSocket_secure$,
     'RawSecureSocket.secureServer': _RawSecureSocket_secureServer$,
+    'TlsException.': _TlsException__$,
+    'HandshakeException.': _HandshakeException__$,
+    'CertificateException.': _CertificateException__$,
     'SecurityContext.defaultContext': _SecurityContext_defaultContext$,
+    'SecurityContext.': _SecurityContext__$,
     'InternetAddressType.IPv4': _InternetAddressType_IPv4$,
     'InternetAddressType.IPv6': _InternetAddressType_IPv6$,
     'InternetAddressType.unix': _InternetAddressType_unix$,
@@ -158,6 +192,8 @@ const libraryMirror = m.LibraryMirror(
     'InternetAddress.loopbackIPv6': _InternetAddress_loopbackIPv6$,
     'InternetAddress.anyIPv4': _InternetAddress_anyIPv4$,
     'InternetAddress.anyIPv6': _InternetAddress_anyIPv6$,
+    'InternetAddress.': _InternetAddress__$,
+    'InternetAddress.fromRawAddress': _InternetAddress_fromRawAddress_$,
     'InternetAddress.lookup': _InternetAddress_lookup$,
     'InternetAddress.tryParse': _InternetAddress_tryParse$,
     'NetworkInterface.list': _NetworkInterface_list$,
@@ -176,6 +212,9 @@ const libraryMirror = m.LibraryMirror(
         _RawSocketOption_IPv6MulticastInterface$,
     'RawSocketOption.levelTcp': _RawSocketOption_levelTcp$,
     'RawSocketOption.levelUdp': _RawSocketOption_levelUdp$,
+    'RawSocketOption.': _RawSocketOption__$,
+    'RawSocketOption.fromInt': _RawSocketOption_fromInt_$,
+    'RawSocketOption.fromBool': _RawSocketOption_fromBool_$,
     'RawSocketEvent.read': _RawSocketEvent_read$,
     'RawSocketEvent.write': _RawSocketEvent_write$,
     'RawSocketEvent.readClosed': _RawSocketEvent_readClosed$,
@@ -184,16 +223,33 @@ const libraryMirror = m.LibraryMirror(
     'RawSocket.startConnect': _RawSocket_startConnect$,
     'Socket.connect': _Socket_connect$,
     'Socket.startConnect': _Socket_startConnect$,
+    'Datagram.': _Datagram__$,
+    'ResourceHandle.fromFile': _ResourceHandle_fromFile_$,
+    'ResourceHandle.fromSocket': _ResourceHandle_fromSocket_$,
+    'ResourceHandle.fromRawSocket': _ResourceHandle_fromRawSocket_$,
+    'ResourceHandle.fromRawDatagramSocket':
+        _ResourceHandle_fromRawDatagramSocket_$,
+    'ResourceHandle.fromStdin': _ResourceHandle_fromStdin_$,
+    'ResourceHandle.fromStdout': _ResourceHandle_fromStdout_$,
+    'ResourceHandle.fromReadPipe': _ResourceHandle_fromReadPipe_$,
+    'ResourceHandle.fromWritePipe': _ResourceHandle_fromWritePipe_$,
+    'SocketControlMessage.fromHandles': _SocketControlMessage_fromHandles_$,
+    'SocketMessage.': _SocketMessage__$,
     'RawDatagramSocket.bind': _RawDatagramSocket_bind$,
+    'SocketException.': _SocketException__$,
+    'SocketException.closed': _SocketException_closed_$,
     'stdin': _stdin$,
     'stdout': _stdout$,
     'stderr': _stderr$,
+    'StdoutException.': _StdoutException__$,
+    'StdinException.': _StdinException__$,
     'StdioType.terminal': _StdioType_terminal$,
     'StdioType.pipe': _StdioType_pipe$,
     'StdioType.file': _StdioType_file$,
     'StdioType.other': _StdioType_other$,
     'stdioType': _stdioType$,
     'systemEncoding': _systemEncoding$,
+    'SystemEncoding.': _SystemEncoding__$,
     'RawSynchronousSocket.connectSync': _RawSynchronousSocket_connectSync$,
   },
   {
@@ -204,7 +260,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'IOException': m.ClassMirror(
       'IOException',
-      {},
       {
         '#as': IOException_as$,
         '#is': IOException_is$,
@@ -214,7 +269,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'OSError': m.ClassMirror(
       'OSError',
-      {'': _OSError__$},
       {
         '#as': OSError_as$,
         '#is': OSError_is$,
@@ -226,7 +280,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZLibOption': m.ClassMirror(
       'ZLibOption',
-      {},
       {
         '#as': ZLibOption_as$,
         '#is': ZLibOption_is$,
@@ -235,7 +288,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZLibCodec': m.ClassMirror(
       'ZLibCodec',
-      {'': _ZLibCodec__$},
       {
         '#as': ZLibCodec_as$,
         '#is': ZLibCodec_is$,
@@ -253,7 +305,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'GZipCodec': m.ClassMirror(
       'GZipCodec',
-      {'': _GZipCodec__$},
       {
         '#as': GZipCodec_as$,
         '#is': GZipCodec_is$,
@@ -271,7 +322,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZLibEncoder': m.ClassMirror(
       'ZLibEncoder',
-      {'': _ZLibEncoder__$},
       {
         '#as': ZLibEncoder_as$,
         '#is': ZLibEncoder_is$,
@@ -289,7 +339,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ZLibDecoder': m.ClassMirror(
       'ZLibDecoder',
-      {'': _ZLibDecoder__$},
       {
         '#as': ZLibDecoder_as$,
         '#is': ZLibDecoder_is$,
@@ -304,10 +353,6 @@ const libraryMirror = m.LibraryMirror(
     'RawZLibFilter': m.ClassMirror(
       'RawZLibFilter',
       {
-        'deflateFilter': _RawZLibFilter_deflateFilter_$,
-        'inflateFilter': _RawZLibFilter_inflateFilter_$,
-      },
-      {
         '#as': RawZLibFilter_as$,
         '#is': RawZLibFilter_is$,
         'process': _RawZLibFilter_process$,
@@ -317,11 +362,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Directory': m.ClassMirror(
       'Directory',
-      {
-        '': _Directory__$,
-        'fromRawPath': _Directory_fromRawPath_$,
-        'fromUri': _Directory_fromUri_$,
-      },
       {
         '#as': Directory_as$,
         '#is': Directory_is$,
@@ -344,7 +384,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileMode': m.ClassMirror(
       'FileMode',
-      {},
       {
         '#as': FileMode_as$,
         '#is': FileMode_is$,
@@ -353,7 +392,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileLock': m.ClassMirror(
       'FileLock',
-      {},
       {
         '#as': FileLock_as$,
         '#is': FileLock_is$,
@@ -362,11 +400,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'File': m.ClassMirror(
       'File',
-      {
-        '': _File__$,
-        'fromUri': _File_fromUri_$,
-        'fromRawPath': _File_fromRawPath_$,
-      },
       {
         '#as': File_as$,
         '#is': File_is$,
@@ -407,7 +440,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RandomAccessFile': m.ClassMirror(
       'RandomAccessFile',
-      {},
       {
         '#as': RandomAccessFile_as$,
         '#is': RandomAccessFile_is$,
@@ -446,7 +478,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemException': m.ClassMirror(
       'FileSystemException',
-      {'': _FileSystemException__$},
       {
         '#as': FileSystemException_as$,
         '#is': FileSystemException_is$,
@@ -459,7 +490,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PathAccessException': m.ClassMirror(
       'PathAccessException',
-      {'': _PathAccessException__$},
       {
         '#as': PathAccessException_as$,
         '#is': PathAccessException_is$,
@@ -469,7 +499,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PathExistsException': m.ClassMirror(
       'PathExistsException',
-      {'': _PathExistsException__$},
       {
         '#as': PathExistsException_as$,
         '#is': PathExistsException_is$,
@@ -479,7 +508,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'PathNotFoundException': m.ClassMirror(
       'PathNotFoundException',
-      {'': _PathNotFoundException__$},
       {
         '#as': PathNotFoundException_as$,
         '#is': PathNotFoundException_is$,
@@ -489,7 +517,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ReadPipe': m.ClassMirror(
       'ReadPipe',
-      {},
       {
         '#as': ReadPipe_as$,
         '#is': ReadPipe_is$,
@@ -498,7 +525,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'WritePipe': m.ClassMirror(
       'WritePipe',
-      {},
       {
         '#as': WritePipe_as$,
         '#is': WritePipe_is$,
@@ -507,7 +533,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Pipe': m.ClassMirror(
       'Pipe',
-      {'createSync': _Pipe_createSync_$},
       {
         '#as': Pipe_as$,
         '#is': Pipe_is$,
@@ -518,7 +543,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemEntityType': m.ClassMirror(
       'FileSystemEntityType',
-      {},
       {
         '#as': FileSystemEntityType_as$,
         '#is': FileSystemEntityType_is$,
@@ -528,7 +552,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileStat': m.ClassMirror(
       'FileStat',
-      {},
       {
         '#as': FileStat_as$,
         '#is': FileStat_is$,
@@ -545,7 +568,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemEntity': m.ClassMirror(
       'FileSystemEntity',
-      {},
       {
         '#as': FileSystemEntity_as$,
         '#is': FileSystemEntity_is$,
@@ -570,7 +592,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemEvent': m.ClassMirror(
       'FileSystemEvent',
-      {},
       {
         '#as': FileSystemEvent_as$,
         '#is': FileSystemEvent_is$,
@@ -582,7 +603,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemCreateEvent': m.ClassMirror(
       'FileSystemCreateEvent',
-      {'': _FileSystemCreateEvent__$},
       {
         '#as': FileSystemCreateEvent_as$,
         '#is': FileSystemCreateEvent_is$,
@@ -592,7 +612,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemModifyEvent': m.ClassMirror(
       'FileSystemModifyEvent',
-      {'': _FileSystemModifyEvent__$},
       {
         '#as': FileSystemModifyEvent_as$,
         '#is': FileSystemModifyEvent_is$,
@@ -603,7 +622,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemDeleteEvent': m.ClassMirror(
       'FileSystemDeleteEvent',
-      {'': _FileSystemDeleteEvent__$},
       {
         '#as': FileSystemDeleteEvent_as$,
         '#is': FileSystemDeleteEvent_is$,
@@ -613,7 +631,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'FileSystemMoveEvent': m.ClassMirror(
       'FileSystemMoveEvent',
-      {'': _FileSystemMoveEvent__$},
       {
         '#as': FileSystemMoveEvent_as$,
         '#is': FileSystemMoveEvent_is$,
@@ -624,7 +641,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IOSink': m.ClassMirror(
       'IOSink',
-      {'': _IOSink__$},
       {
         '#as': IOSink_as$,
         '#is': IOSink_is$,
@@ -645,11 +661,6 @@ const libraryMirror = m.LibraryMirror(
     'Link': m.ClassMirror(
       'Link',
       {
-        '': _Link__$,
-        'fromRawPath': _Link_fromRawPath_$,
-        'fromUri': _Link_fromUri_$,
-      },
-      {
         '#as': Link_as$,
         '#is': Link_is$,
         'absolute': _Link_absolute$,
@@ -668,7 +679,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IOOverrides': m.ClassMirror(
       'IOOverrides',
-      {},
       {
         '#as': IOOverrides_as$,
         '#is': IOOverrides_is$,
@@ -697,7 +707,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Platform': m.ClassMirror(
       'Platform',
-      {'': _Platform__$},
       {
         '#as': Platform_as$,
         '#is': Platform_is$,
@@ -706,7 +715,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProcessInfo': m.ClassMirror(
       'ProcessInfo',
-      {},
       {
         '#as': ProcessInfo_as$,
         '#is': ProcessInfo_is$,
@@ -715,7 +723,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProcessStartMode': m.ClassMirror(
       'ProcessStartMode',
-      {},
       {
         '#as': ProcessStartMode_as$,
         '#is': ProcessStartMode_is$,
@@ -725,7 +732,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Process': m.ClassMirror(
       'Process',
-      {},
       {
         '#as': Process_as$,
         '#is': Process_is$,
@@ -740,7 +746,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProcessResult': m.ClassMirror(
       'ProcessResult',
-      {'': _ProcessResult__$},
       {
         '#as': ProcessResult_as$,
         '#is': ProcessResult_is$,
@@ -753,7 +758,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProcessSignal': m.ClassMirror(
       'ProcessSignal',
-      {},
       {
         '#as': ProcessSignal_as$,
         '#is': ProcessSignal_is$,
@@ -766,7 +770,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SignalException': m.ClassMirror(
       'SignalException',
-      {'': _SignalException__$},
       {
         '#as': SignalException_as$,
         '#is': SignalException_is$,
@@ -778,7 +781,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ProcessException': m.ClassMirror(
       'ProcessException',
-      {'': _ProcessException__$},
       {
         '#as': ProcessException_as$,
         '#is': ProcessException_is$,
@@ -792,7 +794,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SecureServerSocket': m.ClassMirror(
       'SecureServerSocket',
-      {},
       {
         '#as': SecureServerSocket_as$,
         '#is': SecureServerSocket_is$,
@@ -804,7 +805,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSecureServerSocket': m.ClassMirror(
       'RawSecureServerSocket',
-      {},
       {
         '#as': RawSecureServerSocket_as$,
         '#is': RawSecureServerSocket_is$,
@@ -821,7 +821,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SecureSocket': m.ClassMirror(
       'SecureSocket',
-      {},
       {
         '#as': SecureSocket_as$,
         '#is': SecureSocket_is$,
@@ -832,7 +831,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSecureSocket': m.ClassMirror(
       'RawSecureSocket',
-      {},
       {
         '#as': RawSecureSocket_as$,
         '#is': RawSecureSocket_is$,
@@ -843,7 +841,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'X509Certificate': m.ClassMirror(
       'X509Certificate',
-      {},
       {
         '#as': X509Certificate_as$,
         '#is': X509Certificate_is$,
@@ -859,7 +856,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TlsException': m.ClassMirror(
       'TlsException',
-      {'': _TlsException__$},
       {
         '#as': TlsException_as$,
         '#is': TlsException_is$,
@@ -872,7 +868,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'HandshakeException': m.ClassMirror(
       'HandshakeException',
-      {'': _HandshakeException__$},
       {
         '#as': HandshakeException_as$,
         '#is': HandshakeException_is$,
@@ -881,7 +876,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'CertificateException': m.ClassMirror(
       'CertificateException',
-      {'': _CertificateException__$},
       {
         '#as': CertificateException_as$,
         '#is': CertificateException_is$,
@@ -890,7 +884,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SecurityContext': m.ClassMirror(
       'SecurityContext',
-      {'': _SecurityContext__$},
       {
         '#as': SecurityContext_as$,
         '#is': SecurityContext_is$,
@@ -915,7 +908,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'InternetAddressType': m.ClassMirror(
       'InternetAddressType',
-      {},
       {
         '#as': InternetAddressType_as$,
         '#is': InternetAddressType_is$,
@@ -926,10 +918,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'InternetAddress': m.ClassMirror(
       'InternetAddress',
-      {
-        '': _InternetAddress__$,
-        'fromRawAddress': _InternetAddress_fromRawAddress_$,
-      },
       {
         '#as': InternetAddress_as$,
         '#is': InternetAddress_is$,
@@ -946,7 +934,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NetworkInterface': m.ClassMirror(
       'NetworkInterface',
-      {},
       {
         '#as': NetworkInterface_as$,
         '#is': NetworkInterface_is$,
@@ -958,7 +945,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawServerSocket': m.ClassMirror(
       'RawServerSocket',
-      {},
       {
         '#as': RawServerSocket_as$,
         '#is': RawServerSocket_is$,
@@ -970,7 +956,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ServerSocket': m.ClassMirror(
       'ServerSocket',
-      {},
       {
         '#as': ServerSocket_as$,
         '#is': ServerSocket_is$,
@@ -982,7 +967,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SocketDirection': m.ClassMirror(
       'SocketDirection',
-      {},
       {
         '#as': SocketDirection_as$,
         '#is': SocketDirection_is$,
@@ -991,7 +975,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SocketOption': m.ClassMirror(
       'SocketOption',
-      {},
       {
         '#as': SocketOption_as$,
         '#is': SocketOption_is$,
@@ -1000,11 +983,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSocketOption': m.ClassMirror(
       'RawSocketOption',
-      {
-        '': _RawSocketOption__$,
-        'fromInt': _RawSocketOption_fromInt_$,
-        'fromBool': _RawSocketOption_fromBool_$,
-      },
       {
         '#as': RawSocketOption_as$,
         '#is': RawSocketOption_is$,
@@ -1016,7 +994,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSocketEvent': m.ClassMirror(
       'RawSocketEvent',
-      {},
       {
         '#as': RawSocketEvent_as$,
         '#is': RawSocketEvent_is$,
@@ -1026,7 +1003,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ConnectionTask': m.ClassMirror(
       'ConnectionTask',
-      {},
       {
         '#as': ConnectionTask_as$,
         '#is': ConnectionTask_is$,
@@ -1037,7 +1013,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSocket': m.ClassMirror(
       'RawSocket',
-      {},
       {
         '#as': RawSocket_as$,
         '#is': RawSocket_is$,
@@ -1065,7 +1040,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Socket': m.ClassMirror(
       'Socket',
-      {},
       {
         '#as': Socket_as$,
         '#is': Socket_is$,
@@ -1084,7 +1058,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Datagram': m.ClassMirror(
       'Datagram',
-      {'': _Datagram__$},
       {
         '#as': Datagram_as$,
         '#is': Datagram_is$,
@@ -1101,16 +1074,6 @@ const libraryMirror = m.LibraryMirror(
     'ResourceHandle': m.ClassMirror(
       'ResourceHandle',
       {
-        'fromFile': _ResourceHandle_fromFile_$,
-        'fromSocket': _ResourceHandle_fromSocket_$,
-        'fromRawSocket': _ResourceHandle_fromRawSocket_$,
-        'fromRawDatagramSocket': _ResourceHandle_fromRawDatagramSocket_$,
-        'fromStdin': _ResourceHandle_fromStdin_$,
-        'fromStdout': _ResourceHandle_fromStdout_$,
-        'fromReadPipe': _ResourceHandle_fromReadPipe_$,
-        'fromWritePipe': _ResourceHandle_fromWritePipe_$,
-      },
-      {
         '#as': ResourceHandle_as$,
         '#is': ResourceHandle_is$,
         'toFile': _ResourceHandle_toFile$,
@@ -1124,7 +1087,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SocketControlMessage': m.ClassMirror(
       'SocketControlMessage',
-      {'fromHandles': _SocketControlMessage_fromHandles_$},
       {
         '#as': SocketControlMessage_as$,
         '#is': SocketControlMessage_is$,
@@ -1137,7 +1099,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SocketMessage': m.ClassMirror(
       'SocketMessage',
-      {'': _SocketMessage__$},
       {
         '#as': SocketMessage_as$,
         '#is': SocketMessage_is$,
@@ -1148,7 +1109,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawDatagramSocket': m.ClassMirror(
       'RawDatagramSocket',
-      {},
       {
         '#as': RawDatagramSocket_as$,
         '#is': RawDatagramSocket_is$,
@@ -1180,10 +1140,6 @@ const libraryMirror = m.LibraryMirror(
     'SocketException': m.ClassMirror(
       'SocketException',
       {
-        '': _SocketException__$,
-        'closed': _SocketException_closed_$,
-      },
-      {
         '#as': SocketException_as$,
         '#is': SocketException_is$,
         'message': _SocketException_message$,
@@ -1196,7 +1152,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Stdin': m.ClassMirror(
       'Stdin',
-      {},
       {
         '#as': Stdin_as$,
         '#is': Stdin_is$,
@@ -1216,7 +1171,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Stdout': m.ClassMirror(
       'Stdout',
-      {},
       {
         '#as': Stdout_as$,
         '#is': Stdout_is$,
@@ -1230,7 +1184,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StdoutException': m.ClassMirror(
       'StdoutException',
-      {'': _StdoutException__$},
       {
         '#as': StdoutException_as$,
         '#is': StdoutException_is$,
@@ -1242,7 +1195,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StdinException': m.ClassMirror(
       'StdinException',
-      {'': _StdinException__$},
       {
         '#as': StdinException_as$,
         '#is': StdinException_is$,
@@ -1254,7 +1206,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'StdioType': m.ClassMirror(
       'StdioType',
-      {},
       {
         '#as': StdioType_as$,
         '#is': StdioType_is$,
@@ -1265,7 +1216,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SystemEncoding': m.ClassMirror(
       'SystemEncoding',
-      {'': _SystemEncoding__$},
       {
         '#as': SystemEncoding_as$,
         '#is': SystemEncoding_is$,
@@ -1279,7 +1229,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'RawSynchronousSocket': m.ClassMirror(
       'RawSynchronousSocket',
-      {},
       {
         '#as': RawSynchronousSocket_as$,
         '#is': RawSynchronousSocket_is$,

@@ -10,13 +10,19 @@ const libraryMirror = m.LibraryMirror(
   'dart:ffi',
   {
     'nullptr': _nullptr$,
+    'Pointer.fromAddress': _Pointer_fromAddress_$,
     'Pointer.fromFunction': _Pointer_fromFunction$,
+    'Array.': _Array__$,
+    'Array.multi': _Array_multi_$,
+    'Dart_CObject.': _Dart_CObject__$,
     'NativeApi.majorVersion': _NativeApi_majorVersion$,
     'NativeApi.minorVersion': _NativeApi_minorVersion$,
     'NativeApi.postCObject': _NativeApi_postCObject$,
     'NativeApi.newNativePort': _NativeApi_newNativePort$,
     'NativeApi.closeNativePort': _NativeApi_closeNativePort$,
     'NativeApi.initializeApiDLData': _NativeApi_initializeApiDLData$,
+    'Native.': _Native__$,
+    'DefaultAsset.': _DefaultAsset__$,
     'sizeOf': _sizeOf$,
     'Abi.androidArm': _Abi_androidArm$,
     'Abi.androidArm64': _Abi_androidArm64$,
@@ -40,13 +46,48 @@ const libraryMirror = m.LibraryMirror(
     'Abi.windowsIA32': _Abi_windowsIA32$,
     'Abi.windowsX64': _Abi_windowsX64$,
     'Abi.values': _Abi_values$,
+    'Abi.current': _Abi_current_$,
+    'AbiSpecificInteger.': _AbiSpecificInteger__$,
+    'AbiSpecificIntegerMapping.': _AbiSpecificIntegerMapping__$,
+    'Int8.': _Int8__$,
+    'Int16.': _Int16__$,
+    'Int32.': _Int32__$,
+    'Int64.': _Int64__$,
+    'Uint8.': _Uint8__$,
+    'Uint16.': _Uint16__$,
+    'Uint32.': _Uint32__$,
+    'Uint64.': _Uint64__$,
+    'Float.': _Float__$,
+    'Double.': _Double__$,
+    'Bool.': _Bool__$,
+    'NativeFinalizer.': _NativeFinalizer__$,
     'unsized': _unsized$,
+    'DartRepresentationOf.': _DartRepresentationOf__$,
+    'Unsized.': _Unsized__$,
+    'Char.': _Char__$,
+    'SignedChar.': _SignedChar__$,
+    'UnsignedChar.': _UnsignedChar__$,
+    'Short.': _Short__$,
+    'UnsignedShort.': _UnsignedShort__$,
+    'Int.': _Int__$,
+    'UnsignedInt.': _UnsignedInt__$,
+    'Long.': _Long__$,
+    'UnsignedLong.': _UnsignedLong__$,
+    'LongLong.': _LongLong__$,
+    'UnsignedLongLong.': _UnsignedLongLong__$,
+    'IntPtr.': _IntPtr__$,
+    'UintPtr.': _UintPtr__$,
+    'Size.': _Size__$,
+    'WChar.': _WChar__$,
+    'DynamicLibrary.process': _DynamicLibrary_process_$,
+    'DynamicLibrary.executable': _DynamicLibrary_executable_$,
+    'DynamicLibrary.open': _DynamicLibrary_open_$,
+    'Packed.': _Packed__$,
   },
   {},
   {
     'Pointer': m.ClassMirror(
       'Pointer',
-      {'fromAddress': _Pointer_fromAddress_$},
       {
         '#as': Pointer_as$,
         '#is': Pointer_is$,
@@ -60,10 +101,6 @@ const libraryMirror = m.LibraryMirror(
     'Array': m.ClassMirror(
       'Array',
       {
-        '': _Array__$,
-        'multi': _Array_multi_$,
-      },
-      {
         '#as': Array_as$,
         '#is': Array_is$,
       },
@@ -71,7 +108,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Dart_CObject': m.ClassMirror(
       'Dart_CObject',
-      {'': _Dart_CObject__$},
       {
         '#as': Dart_CObject_as$,
         '#is': Dart_CObject_is$,
@@ -80,7 +116,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NativeApi': m.ClassMirror(
       'NativeApi',
-      {},
       {
         '#as': NativeApi_as$,
         '#is': NativeApi_is$,
@@ -89,7 +124,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Native': m.ClassMirror(
       'Native',
-      {'': _Native__$},
       {
         '#as': Native_as$,
         '#is': Native_is$,
@@ -101,7 +135,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DefaultAsset': m.ClassMirror(
       'DefaultAsset',
-      {'': _DefaultAsset__$},
       {
         '#as': DefaultAsset_as$,
         '#is': DefaultAsset_is$,
@@ -111,7 +144,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Abi': m.ClassMirror(
       'Abi',
-      {'current': _Abi_current_$},
       {
         '#as': Abi_as$,
         '#is': Abi_is$,
@@ -121,7 +153,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AbiSpecificInteger': m.ClassMirror(
       'AbiSpecificInteger',
-      {'': _AbiSpecificInteger__$},
       {
         '#as': AbiSpecificInteger_as$,
         '#is': AbiSpecificInteger_is$,
@@ -130,7 +161,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'AbiSpecificIntegerMapping': m.ClassMirror(
       'AbiSpecificIntegerMapping',
-      {'': _AbiSpecificIntegerMapping__$},
       {
         '#as': AbiSpecificIntegerMapping_as$,
         '#is': AbiSpecificIntegerMapping_is$,
@@ -140,7 +170,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NativeType': m.ClassMirror(
       'NativeType',
-      {},
       {
         '#as': NativeType_as$,
         '#is': NativeType_is$,
@@ -149,7 +178,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Opaque': m.ClassMirror(
       'Opaque',
-      {},
       {
         '#as': Opaque_as$,
         '#is': Opaque_is$,
@@ -158,7 +186,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int8': m.ClassMirror(
       'Int8',
-      {'': _Int8__$},
       {
         '#as': Int8_as$,
         '#is': Int8_is$,
@@ -167,7 +194,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int16': m.ClassMirror(
       'Int16',
-      {'': _Int16__$},
       {
         '#as': Int16_as$,
         '#is': Int16_is$,
@@ -176,7 +202,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int32': m.ClassMirror(
       'Int32',
-      {'': _Int32__$},
       {
         '#as': Int32_as$,
         '#is': Int32_is$,
@@ -185,7 +210,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int64': m.ClassMirror(
       'Int64',
-      {'': _Int64__$},
       {
         '#as': Int64_as$,
         '#is': Int64_is$,
@@ -194,7 +218,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uint8': m.ClassMirror(
       'Uint8',
-      {'': _Uint8__$},
       {
         '#as': Uint8_as$,
         '#is': Uint8_is$,
@@ -203,7 +226,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uint16': m.ClassMirror(
       'Uint16',
-      {'': _Uint16__$},
       {
         '#as': Uint16_as$,
         '#is': Uint16_is$,
@@ -212,7 +234,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uint32': m.ClassMirror(
       'Uint32',
-      {'': _Uint32__$},
       {
         '#as': Uint32_as$,
         '#is': Uint32_is$,
@@ -221,7 +242,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Uint64': m.ClassMirror(
       'Uint64',
-      {'': _Uint64__$},
       {
         '#as': Uint64_as$,
         '#is': Uint64_is$,
@@ -230,7 +250,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Float': m.ClassMirror(
       'Float',
-      {'': _Float__$},
       {
         '#as': Float_as$,
         '#is': Float_is$,
@@ -239,7 +258,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Double': m.ClassMirror(
       'Double',
-      {'': _Double__$},
       {
         '#as': Double_as$,
         '#is': Double_is$,
@@ -248,7 +266,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Bool': m.ClassMirror(
       'Bool',
-      {'': _Bool__$},
       {
         '#as': Bool_as$,
         '#is': Bool_is$,
@@ -257,7 +274,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Void': m.ClassMirror(
       'Void',
-      {},
       {
         '#as': Void_as$,
         '#is': Void_is$,
@@ -266,7 +282,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Handle': m.ClassMirror(
       'Handle',
-      {},
       {
         '#as': Handle_as$,
         '#is': Handle_is$,
@@ -275,7 +290,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NativeFunction': m.ClassMirror(
       'NativeFunction',
-      {},
       {
         '#as': NativeFunction_as$,
         '#is': NativeFunction_is$,
@@ -286,11 +300,9 @@ const libraryMirror = m.LibraryMirror(
       'VarArgs',
       {},
       {},
-      {},
     ),
     'Finalizable': m.ClassMirror(
       'Finalizable',
-      {},
       {
         '#as': Finalizable_as$,
         '#is': Finalizable_is$,
@@ -299,7 +311,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'NativeFinalizer': m.ClassMirror(
       'NativeFinalizer',
-      {'': _NativeFinalizer__$},
       {
         '#as': NativeFinalizer_as$,
         '#is': NativeFinalizer_is$,
@@ -310,7 +321,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Allocator': m.ClassMirror(
       'Allocator',
-      {},
       {
         '#as': Allocator_as$,
         '#is': Allocator_is$,
@@ -321,7 +331,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DartRepresentationOf': m.ClassMirror(
       'DartRepresentationOf',
-      {'': _DartRepresentationOf__$},
       {
         '#as': DartRepresentationOf_as$,
         '#is': DartRepresentationOf_is$,
@@ -330,7 +339,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Unsized': m.ClassMirror(
       'Unsized',
-      {'': _Unsized__$},
       {
         '#as': Unsized_as$,
         '#is': Unsized_is$,
@@ -339,7 +347,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Char': m.ClassMirror(
       'Char',
-      {'': _Char__$},
       {
         '#as': Char_as$,
         '#is': Char_is$,
@@ -348,7 +355,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SignedChar': m.ClassMirror(
       'SignedChar',
-      {'': _SignedChar__$},
       {
         '#as': SignedChar_as$,
         '#is': SignedChar_is$,
@@ -357,7 +363,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsignedChar': m.ClassMirror(
       'UnsignedChar',
-      {'': _UnsignedChar__$},
       {
         '#as': UnsignedChar_as$,
         '#is': UnsignedChar_is$,
@@ -366,7 +371,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Short': m.ClassMirror(
       'Short',
-      {'': _Short__$},
       {
         '#as': Short_as$,
         '#is': Short_is$,
@@ -375,7 +379,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsignedShort': m.ClassMirror(
       'UnsignedShort',
-      {'': _UnsignedShort__$},
       {
         '#as': UnsignedShort_as$,
         '#is': UnsignedShort_is$,
@@ -384,7 +387,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Int': m.ClassMirror(
       'Int',
-      {'': _Int__$},
       {
         '#as': Int_as$,
         '#is': Int_is$,
@@ -393,7 +395,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsignedInt': m.ClassMirror(
       'UnsignedInt',
-      {'': _UnsignedInt__$},
       {
         '#as': UnsignedInt_as$,
         '#is': UnsignedInt_is$,
@@ -402,7 +403,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Long': m.ClassMirror(
       'Long',
-      {'': _Long__$},
       {
         '#as': Long_as$,
         '#is': Long_is$,
@@ -411,7 +411,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsignedLong': m.ClassMirror(
       'UnsignedLong',
-      {'': _UnsignedLong__$},
       {
         '#as': UnsignedLong_as$,
         '#is': UnsignedLong_is$,
@@ -420,7 +419,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LongLong': m.ClassMirror(
       'LongLong',
-      {'': _LongLong__$},
       {
         '#as': LongLong_as$,
         '#is': LongLong_is$,
@@ -429,7 +427,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnsignedLongLong': m.ClassMirror(
       'UnsignedLongLong',
-      {'': _UnsignedLongLong__$},
       {
         '#as': UnsignedLongLong_as$,
         '#is': UnsignedLongLong_is$,
@@ -438,7 +435,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'IntPtr': m.ClassMirror(
       'IntPtr',
-      {'': _IntPtr__$},
       {
         '#as': IntPtr_as$,
         '#is': IntPtr_is$,
@@ -447,7 +443,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UintPtr': m.ClassMirror(
       'UintPtr',
-      {'': _UintPtr__$},
       {
         '#as': UintPtr_as$,
         '#is': UintPtr_is$,
@@ -456,7 +451,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Size': m.ClassMirror(
       'Size',
-      {'': _Size__$},
       {
         '#as': Size_as$,
         '#is': Size_is$,
@@ -465,7 +459,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'WChar': m.ClassMirror(
       'WChar',
-      {'': _WChar__$},
       {
         '#as': WChar_as$,
         '#is': WChar_is$,
@@ -474,11 +467,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DynamicLibrary': m.ClassMirror(
       'DynamicLibrary',
-      {
-        'process': _DynamicLibrary_process_$,
-        'executable': _DynamicLibrary_executable_$,
-        'open': _DynamicLibrary_open_$,
-      },
       {
         '#as': DynamicLibrary_as$,
         '#is': DynamicLibrary_is$,
@@ -492,7 +480,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Struct': m.ClassMirror(
       'Struct',
-      {},
       {
         '#as': Struct_as$,
         '#is': Struct_is$,
@@ -501,7 +488,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Packed': m.ClassMirror(
       'Packed',
-      {'': _Packed__$},
       {
         '#as': Packed_as$,
         '#is': Packed_is$,
@@ -511,7 +497,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Union': m.ClassMirror(
       'Union',
-      {},
       {
         '#as': Union_as$,
         '#is': Union_is$,

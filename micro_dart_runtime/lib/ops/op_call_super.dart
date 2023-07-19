@@ -49,7 +49,6 @@ class OpCallSuperAsync extends OpCallSuper {
       'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
 }
 
-///调用外部方法
 class OpCallSuper implements Op {
   OpCallSuper(MicroDartEngine engine)
       : _super = ClassRef.fromEngine(engine),
@@ -104,7 +103,12 @@ class OpCallSuper implements Op {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
     var ref = scope.engine
-        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, true);
+        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, false);
+
+    if (ref == null) {
+      throw Exception(
+          "super type not found ${instance.type} $_super $_name $_isSetter");
+    }
 
     if (scope.engine.declarations.containsKey(ref)) {
       //表示这是一个内部引用
@@ -112,11 +116,12 @@ class OpCallSuper implements Op {
       scope.engine.callPointer(scope, _name, true, pointer);
     } else {
       //表示这是一个外部调用
-      _callExternal(scope, ref!);
+      _callExternal(scope, ref);
     }
   }
 
   void _callExternal(Scope scope, CallRef ref) {
+    print("_callExternal $ref");
     //表示这是一个外部调用
     final List<dynamic> positionalArguments =
         List.filled(_posationalLength, null);

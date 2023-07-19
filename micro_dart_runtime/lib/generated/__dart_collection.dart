@@ -8,7 +8,31 @@ import 'dart:math' show Random;
 const libraryMirror = m.LibraryMirror(
   'dart:collection',
   {
+    'UnmodifiableListView.': _UnmodifiableListView__$,
+    'HashMap.': _HashMap__$,
+    'HashMap.identity': _HashMap_identity_$,
+    'HashMap.from': _HashMap_from_$,
+    'HashMap.of': _HashMap_of_$,
+    'HashMap.fromIterable': _HashMap_fromIterable_$,
+    'HashMap.fromIterables': _HashMap_fromIterables_$,
+    'HashMap.fromEntries': _HashMap_fromEntries_$,
+    'HashSet.': _HashSet__$,
+    'HashSet.identity': _HashSet_identity_$,
+    'HashSet.from': _HashSet_from_$,
+    'HashSet.of': _HashSet_of_$,
+    'LinkedHashMap.': _LinkedHashMap__$,
+    'LinkedHashMap.identity': _LinkedHashMap_identity_$,
+    'LinkedHashMap.from': _LinkedHashMap_from_$,
+    'LinkedHashMap.of': _LinkedHashMap_of_$,
+    'LinkedHashMap.fromIterable': _LinkedHashMap_fromIterable_$,
+    'LinkedHashMap.fromIterables': _LinkedHashMap_fromIterables_$,
+    'LinkedHashMap.fromEntries': _LinkedHashMap_fromEntries_$,
+    'LinkedHashSet.': _LinkedHashSet__$,
+    'LinkedHashSet.identity': _LinkedHashSet_identity_$,
+    'LinkedHashSet.from': _LinkedHashSet_from_$,
+    'LinkedHashSet.of': _LinkedHashSet_of_$,
     'LinkedHashSet.forEach': _LinkedHashSet_forEach$,
+    'LinkedList.': _LinkedList__$,
     'LinkedList.forEach': _LinkedList_forEach$,
     'ListBase.forEach': _ListBase_forEach$,
     'ListBase.every': _ListBase_every$,
@@ -36,18 +60,29 @@ const libraryMirror = m.LibraryMirror(
     'MapBase.map': _MapBase_map$,
     'MapBase.removeWhere': _MapBase_removeWhere$,
     'MapBase.mapToString': _MapBase_mapToString$,
+    'MapView.': _MapView__$,
     'MapView.putIfAbsent': _MapView_putIfAbsent$,
     'MapView.forEach': _MapView_forEach$,
     'MapView.map': _MapView_map$,
     'MapView.update': _MapView_update$,
     'MapView.updateAll': _MapView_updateAll$,
     'MapView.removeWhere': _MapView_removeWhere$,
+    'UnmodifiableMapView.': _UnmodifiableMapView__$,
+    'Queue.': _Queue__$,
+    'Queue.from': _Queue_from_$,
+    'Queue.of': _Queue_of_$,
     'Queue.castFrom': _Queue_castFrom$,
     'Queue.removeWhere': _Queue_removeWhere$,
     'Queue.retainWhere': _Queue_retainWhere$,
+    'DoubleLinkedQueue.': _DoubleLinkedQueue__$,
+    'DoubleLinkedQueue.from': _DoubleLinkedQueue_from_$,
+    'DoubleLinkedQueue.of': _DoubleLinkedQueue_of_$,
     'DoubleLinkedQueue.removeWhere': _DoubleLinkedQueue_removeWhere$,
     'DoubleLinkedQueue.retainWhere': _DoubleLinkedQueue_retainWhere$,
     'DoubleLinkedQueue.forEachEntry': _DoubleLinkedQueue_forEachEntry$,
+    'ListQueue.': _ListQueue__$,
+    'ListQueue.from': _ListQueue_from_$,
+    'ListQueue.of': _ListQueue_of_$,
     'ListQueue.forEach': _ListQueue_forEach$,
     'ListQueue.removeWhere': _ListQueue_removeWhere$,
     'ListQueue.retainWhere': _ListQueue_retainWhere$,
@@ -67,16 +102,24 @@ const libraryMirror = m.LibraryMirror(
     'SetBase.lastWhere': _SetBase_lastWhere$,
     'SetBase.singleWhere': _SetBase_singleWhere$,
     'SetBase.setToString': _SetBase_setToString$,
+    'UnmodifiableSetView.': _UnmodifiableSetView__$,
+    'SplayTreeMap.': _SplayTreeMap__$,
+    'SplayTreeMap.from': _SplayTreeMap_from_$,
+    'SplayTreeMap.of': _SplayTreeMap_of_$,
+    'SplayTreeMap.fromIterable': _SplayTreeMap_fromIterable_$,
+    'SplayTreeMap.fromIterables': _SplayTreeMap_fromIterables_$,
     'SplayTreeMap.putIfAbsent': _SplayTreeMap_putIfAbsent$,
     'SplayTreeMap.update': _SplayTreeMap_update$,
     'SplayTreeMap.updateAll': _SplayTreeMap_updateAll$,
     'SplayTreeMap.forEach': _SplayTreeMap_forEach$,
+    'SplayTreeSet.': _SplayTreeSet__$,
+    'SplayTreeSet.from': _SplayTreeSet_from_$,
+    'SplayTreeSet.of': _SplayTreeSet_of_$,
   },
   {},
   {
     'UnmodifiableListView': m.ClassMirror(
       'UnmodifiableListView',
-      {'': _UnmodifiableListView__$},
       {
         '#as': UnmodifiableListView_as$,
         '#is': UnmodifiableListView_is$,
@@ -89,15 +132,6 @@ const libraryMirror = m.LibraryMirror(
     'HashMap': m.ClassMirror(
       'HashMap',
       {
-        '': _HashMap__$,
-        'identity': _HashMap_identity_$,
-        'from': _HashMap_from_$,
-        'of': _HashMap_of_$,
-        'fromIterable': _HashMap_fromIterable_$,
-        'fromIterables': _HashMap_fromIterables_$,
-        'fromEntries': _HashMap_fromEntries_$,
-      },
-      {
         '#as': HashMap_as$,
         '#is': HashMap_is$,
       },
@@ -105,12 +139,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'HashSet': m.ClassMirror(
       'HashSet',
-      {
-        '': _HashSet__$,
-        'identity': _HashSet_identity_$,
-        'from': _HashSet_from_$,
-        'of': _HashSet_of_$,
-      },
       {
         '#as': HashSet_as$,
         '#is': HashSet_is$,
@@ -121,15 +149,6 @@ const libraryMirror = m.LibraryMirror(
     'LinkedHashMap': m.ClassMirror(
       'LinkedHashMap',
       {
-        '': _LinkedHashMap__$,
-        'identity': _LinkedHashMap_identity_$,
-        'from': _LinkedHashMap_from_$,
-        'of': _LinkedHashMap_of_$,
-        'fromIterable': _LinkedHashMap_fromIterable_$,
-        'fromIterables': _LinkedHashMap_fromIterables_$,
-        'fromEntries': _LinkedHashMap_fromEntries_$,
-      },
-      {
         '#as': LinkedHashMap_as$,
         '#is': LinkedHashMap_is$,
       },
@@ -137,12 +156,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LinkedHashSet': m.ClassMirror(
       'LinkedHashSet',
-      {
-        '': _LinkedHashSet__$,
-        'identity': _LinkedHashSet_identity_$,
-        'from': _LinkedHashSet_from_$,
-        'of': _LinkedHashSet_of_$,
-      },
       {
         '#as': LinkedHashSet_as$,
         '#is': LinkedHashSet_is$,
@@ -152,7 +165,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LinkedList': m.ClassMirror(
       'LinkedList',
-      {'': _LinkedList__$},
       {
         '#as': LinkedList_as$,
         '#is': LinkedList_is$,
@@ -173,7 +185,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'LinkedListEntry': m.ClassMirror(
       'LinkedListEntry',
-      {},
       {
         '#as': LinkedListEntry_as$,
         '#is': LinkedListEntry_is$,
@@ -188,7 +199,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ListBase': m.ClassMirror(
       'ListBase',
-      {},
       {
         '#as': ListBase_as$,
         '#is': ListBase_is$,
@@ -238,7 +248,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MapBase': m.ClassMirror(
       'MapBase',
-      {},
       {
         '#as': MapBase_as$,
         '#is': MapBase_is$,
@@ -263,7 +272,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableMapBase': m.ClassMirror(
       'UnmodifiableMapBase',
-      {},
       {
         '#as': UnmodifiableMapBase_as$,
         '#is': UnmodifiableMapBase_is$,
@@ -272,7 +280,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MapView': m.ClassMirror(
       'MapView',
-      {'': _MapView__$},
       {
         '#as': MapView_as$,
         '#is': MapView_is$,
@@ -297,7 +304,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableMapView': m.ClassMirror(
       'UnmodifiableMapView',
-      {'': _UnmodifiableMapView__$},
       {
         '#as': UnmodifiableMapView_as$,
         '#is': UnmodifiableMapView_is$,
@@ -307,11 +313,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Queue': m.ClassMirror(
       'Queue',
-      {
-        '': _Queue__$,
-        'from': _Queue_from_$,
-        'of': _Queue_of_$,
-      },
       {
         '#as': Queue_as$,
         '#is': Queue_is$,
@@ -329,11 +330,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'DoubleLinkedQueue': m.ClassMirror(
       'DoubleLinkedQueue',
-      {
-        '': _DoubleLinkedQueue__$,
-        'from': _DoubleLinkedQueue_from_$,
-        'of': _DoubleLinkedQueue_of_$,
-      },
       {
         '#as': DoubleLinkedQueue_as$,
         '#is': DoubleLinkedQueue_is$,
@@ -361,11 +357,6 @@ const libraryMirror = m.LibraryMirror(
     'ListQueue': m.ClassMirror(
       'ListQueue',
       {
-        '': _ListQueue__$,
-        'from': _ListQueue_from_$,
-        'of': _ListQueue_of_$,
-      },
-      {
         '#as': ListQueue_as$,
         '#is': ListQueue_is$,
         'iterator': _ListQueue_iterator$,
@@ -391,7 +382,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SetBase': m.ClassMirror(
       'SetBase',
-      {},
       {
         '#as': SetBase_as$,
         '#is': SetBase_is$,
@@ -429,7 +419,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UnmodifiableSetView': m.ClassMirror(
       'UnmodifiableSetView',
-      {'': _UnmodifiableSetView__$},
       {
         '#as': UnmodifiableSetView_as$,
         '#is': UnmodifiableSetView_is$,
@@ -443,13 +432,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SplayTreeMap': m.ClassMirror(
       'SplayTreeMap',
-      {
-        '': _SplayTreeMap__$,
-        'from': _SplayTreeMap_from_$,
-        'of': _SplayTreeMap_of_$,
-        'fromIterable': _SplayTreeMap_fromIterable_$,
-        'fromIterables': _SplayTreeMap_fromIterables_$,
-      },
       {
         '#as': SplayTreeMap_as$,
         '#is': SplayTreeMap_is$,
@@ -475,11 +457,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'SplayTreeSet': m.ClassMirror(
       'SplayTreeSet',
-      {
-        '': _SplayTreeSet__$,
-        'from': _SplayTreeSet_from_$,
-        'of': _SplayTreeSet_of_$,
-      },
       {
         '#as': SplayTreeSet_as$,
         '#is': SplayTreeSet_is$,

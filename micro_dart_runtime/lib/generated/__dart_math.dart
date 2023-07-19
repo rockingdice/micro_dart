@@ -28,12 +28,18 @@ const libraryMirror = m.LibraryMirror(
     'sqrt': _sqrt$,
     'exp': _exp$,
     'log': _log$,
+    'Point.': _Point__$,
+    'Random.': _Random__$,
+    'Random.secure': _Random_secure_$,
+    'Rectangle.': _Rectangle__$,
+    'Rectangle.fromPoints': _Rectangle_fromPoints_$,
+    'MutableRectangle.': _MutableRectangle__$,
+    'MutableRectangle.fromPoints': _MutableRectangle_fromPoints_$,
   },
   {},
   {
     'Point': m.ClassMirror(
       'Point',
-      {'': _Point__$},
       {
         '#as': Point_as$,
         '#is': Point_is$,
@@ -54,10 +60,6 @@ const libraryMirror = m.LibraryMirror(
     'Random': m.ClassMirror(
       'Random',
       {
-        '': _Random__$,
-        'secure': _Random_secure_$,
-      },
-      {
         '#as': Random_as$,
         '#is': Random_is$,
         'nextInt': _Random_nextInt$,
@@ -68,10 +70,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Rectangle': m.ClassMirror(
       'Rectangle',
-      {
-        '': _Rectangle__$,
-        'fromPoints': _Rectangle_fromPoints_$,
-      },
       {
         '#as': Rectangle_as$,
         '#is': Rectangle_is$,
@@ -84,10 +82,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'MutableRectangle': m.ClassMirror(
       'MutableRectangle',
-      {
-        '': _MutableRectangle__$,
-        'fromPoints': _MutableRectangle_fromPoints_$,
-      },
       {
         '#as': MutableRectangle_as$,
         '#is': MutableRectangle_is$,

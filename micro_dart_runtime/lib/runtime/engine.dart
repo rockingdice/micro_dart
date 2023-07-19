@@ -208,7 +208,7 @@ class MicroDartEngine {
     return null;
   }
 
-  CallRef? getCallRefBySuperType(CType type, ClassRef superKey, String name,
+  CallRef? getCallRefBySuperType(CType type, ClassRef superRef, String name,
       bool isSetter, bool isStatic) {
     //如果没有父类则直接返回null
     if (type.superType == null) {
@@ -216,23 +216,37 @@ class MicroDartEngine {
     }
     //当前类的父类不是需要调用的父类则轮询
     bool isSuper = false;
-    if (superKey == type.superType) {
+    bool isMixin = false;
+
+    if (superRef == type.superType) {
+      print("1");
       isSuper = true;
-    } else if (superKey == type.mixinType) {
-      isSuper = true;
-    } else if (type.implementTypes.contains(superKey)) {
+    } else if (superRef == type.mixinType) {
+      print("2 ${type} ${superRef}");
+      isMixin = true;
+    } else if (type.implementTypes.contains(superRef)) {
+      print("3");
       isSuper = true;
     }
-    if (!isSuper) {
+    if (!isSuper && !isMixin) {
+      print("4");
       return getCallRefBySuperType(
-          getType(type.superType!), superKey, name, isSetter, isStatic);
+          getType(type.superType!), superRef, name, isSetter, isStatic);
     }
+    print("5");
+    CType? superType;
 
-    var superType = getType(type.superType!);
+    if (isSuper) {
+      superType = getType(type.superType!);
+    } else if (isMixin) {
+      superType = getType(type.mixinType!);
+    }
+    print("6");
+    var callback = getKeyByType2(superType!, name, isSetter, isStatic);
 
-    var callback = getKeyByType2(superType, name, isSetter, isStatic);
     if (callback == null) {
-      superType = getType(superKey);
+      print("7");
+      superType = getType(superRef);
       callback = getKeyByType2(superType, name, isSetter, isStatic);
     }
     return callback;

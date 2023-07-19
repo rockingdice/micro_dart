@@ -16,7 +16,7 @@ class ClassItem {
   ClassItem(this.name);
   Map<String, cb.Expression> proxyGetterList = {};
   Map<String, cb.Expression> proxySetterList = {};
-  Map<String, cb.Expression> proxyConstructorList = {};
+  //Map<String, cb.Expression> proxyConstructorList = {};
 }
 
 class CodeGenMirror extends AbsVisitor {
@@ -45,7 +45,7 @@ class CodeGenMirror extends AbsVisitor {
         cb.literalMap(proxyClassList.map<String, cb.Expression>((key, value) {
       List<cb.Expression> posational = [];
       posational.add(cb.literalString(key));
-      posational.add(cb.literalMap(value.proxyConstructorList));
+      //posational.add(cb.literalMap(value.proxyConstructorList));
       posational.add(cb.literalMap(value.proxyGetterList));
       posational.add(cb.literalMap(value.proxySetterList));
       return MapEntry(key, cb.refer("m.ClassMirror").call(posational));
@@ -148,12 +148,12 @@ class CodeGenMirror extends AbsVisitor {
       return;
     }
 
-    var classItem =
-        proxyClassList[constructorElement.enclosingElement.displayName];
-    if (classItem == null) {
-      throw Exception(
-          "not found classItem ${constructorElement.enclosingElement.displayName}");
-    }
+    // var classItem =
+    //     proxyClassList[constructorElement.enclosingElement.displayName];
+    // if (classItem == null) {
+    //   throw Exception(
+    //       "not found classItem ${constructorElement.enclosingElement.displayName}");
+    // }
 
     // functionElementWithFunctionType(constructorElement, true,
     //     (cb.Method method) {
@@ -162,12 +162,14 @@ class CodeGenMirror extends AbsVisitor {
     //       cb.refer(constructorElement.proxyName!).expression;
     // });
 
+    var name = "${classElement.name}.${constructorElement.name}";
+
     if (hasFunctionTypeParams(constructorElement.type) ||
         constructorElement.name.isEmpty) {
       functionElementWithFunctionType(constructorElement, true,
           (cb.Method method) {
         proxyGlobalMethods.add(method);
-        classItem.proxyConstructorList[constructorElement.name] =
+        proxyGlobalGetterList[name] =
             cb.refer(constructorElement.proxyName!).expression;
       });
       return;
@@ -194,7 +196,7 @@ class CodeGenMirror extends AbsVisitor {
       ));
       p0.body = cb.TypeReference(
         (p0) {
-          p0.symbol = "${classElement.name}.${constructorElement.name}";
+          p0.symbol = name;
           p0.types.addAll(constructorElement.typeParameters
               .map<cb.TypeReference>((e) => cb.TypeReference(
                     (p0) {
@@ -205,7 +207,7 @@ class CodeGenMirror extends AbsVisitor {
       ).code;
     }));
     proxyGlobalMethods.add(method);
-    classItem.proxyConstructorList[constructorElement.name] =
+    proxyGlobalGetterList[name] =
         cb.refer(constructorElement.proxyName!).expression;
   }
 
@@ -1276,6 +1278,12 @@ class CodeGenMirror extends AbsVisitor {
       p0.name = element.proxyName;
       p0.requiredParameters.add(cb.Parameter(
         (p0) {
+          p0.name = "scope\$";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
           p0.name = "target\$";
           p0.type = cb.refer(
               dartTypeTargetClassName(type, classElement.typeParameters));
@@ -1290,33 +1298,40 @@ class CodeGenMirror extends AbsVisitor {
                   }
                 },
               )));
-      var returnType = element.returnType;
-      if (returnType is InterfaceType) {
-        if (returnType.element.isPrivate) {
-          p0.returns = cb.refer("dynamic");
-        } else {
-          p0.returns = cb.refer(
-              dartTypeTargetClassName(returnType, classElement.typeParameters));
-        }
-      } else {
-        p0.returns = cb
-            .refer(dartTypeToClassName3(returnType, toFunctionPointer: false));
-      }
+      p0.returns = cb.refer("Function");
+      // var returnType = element.returnType;
+      // if (returnType is InterfaceType) {
+      //   if (returnType.element.isPrivate) {
+      //     p0.returns = cb.refer("dynamic");
+      //   } else {
+      //     p0.returns = cb.refer(
+      //         dartTypeTargetClassName(returnType, classElement.typeParameters));
+      //   }
+      // } else {
+      //   p0.returns = cb
+      //       .refer(dartTypeToClassName3(returnType, toFunctionPointer: false));
+      // }
 
-      p0.body = cb.Block.of([
-        cb.Code("return "),
-        cb.TypeReference(
-          (p0) {
-            p0.symbol = name;
-            p0.types.addAll(element.typeParameters
-                .map<cb.TypeReference>((e) => cb.TypeReference(
-                      (p0) {
-                        p0.symbol = e.name;
-                      },
-                    )));
-          },
-        ).statement
-      ]);
+      var method = cb.Method(
+        (p1) {
+          p1.body = cb.Block.of([
+            cb.Code("return "),
+            cb.TypeReference(
+              (p0) {
+                p0.symbol = name;
+                p0.types.addAll(element.typeParameters
+                    .map<cb.TypeReference>((e) => cb.TypeReference(
+                          (p0) {
+                            p0.symbol = e.name;
+                          },
+                        )));
+              },
+            ).statement
+          ]);
+        },
+      ).genericClosure.code;
+
+      p0.body = method;
     }));
 
     proxyGlobalMethods.add(method);
@@ -1359,16 +1374,17 @@ class CodeGenMirror extends AbsVisitor {
       p0.name = propertyAccessorElement.proxyName;
       p0.requiredParameters.add(cb.Parameter(
         (p0) {
-          p0.name = "target\$";
-          p0.type = cb.refer(dartTypeTargetClassName(type, []));
+          p0.name = "scope\$";
+          p0.type = cb.refer("m.Scope");
         },
       ));
       p0.requiredParameters.add(cb.Parameter(
         (p0) {
-          p0.name = "other\$";
-          p0.type = requiredParameters.first.type;
+          p0.name = "target\$";
+          p0.type = cb.refer(dartTypeTargetClassName(type, []));
         },
       ));
+
       p0.types.addAll(classElement.typeParameters
           .map<cb.TypeReference>((e) => cb.TypeReference(
                 (p0) {
@@ -1379,8 +1395,21 @@ class CodeGenMirror extends AbsVisitor {
                 },
               )));
       p0.returns = cb.refer("void");
-      p0.lambda = false;
-      p0.body = cb.refer(name).assign(cb.refer("other\$")).statement;
+      p0.lambda = true;
+
+      var method = cb.Method(
+        (p1) {
+          p1.requiredParameters.add(cb.Parameter(
+            (p0) {
+              p0.name = "other\$";
+              p0.type = cb.refer("dynamic");
+            },
+          ));
+          p1.body = cb.refer(name).assign(cb.refer("other\$")).statement;
+        },
+      ).genericClosure.code;
+
+      p0.body = method;
     }));
     proxyGlobalMethods.add(method);
     classItem.proxySetterList[propertyAccessorElement.displayName] =

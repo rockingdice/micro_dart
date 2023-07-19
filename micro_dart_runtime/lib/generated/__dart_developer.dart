@@ -26,11 +26,16 @@ const libraryMirror = m.LibraryMirror(
         _ServiceExtensionResponse_extensionErrorMax$,
     'ServiceExtensionResponse.extensionErrorMin':
         _ServiceExtensionResponse_extensionErrorMin$,
+    'ServiceExtensionResponse.result': _ServiceExtensionResponse_result_$,
+    'ServiceExtensionResponse.error': _ServiceExtensionResponse_error_$,
     'registerExtension': _registerExtension$,
     'postEvent': _postEvent$,
     'UserTag.maxUserTags': _UserTag_maxUserTags$,
     'UserTag.defaultTag': _UserTag_defaultTag$,
+    'UserTag.': _UserTag__$,
     'getCurrentTag': _getCurrentTag$,
+    'ServiceProtocolInfo.': _ServiceProtocolInfo__$,
+    'Service.': _Service__$,
     'Service.getInfo': _Service_getInfo$,
     'Service.controlWebServer': _Service_controlWebServer$,
     'Service.getIsolateID': _Service_getIsolateID$,
@@ -42,12 +47,13 @@ const libraryMirror = m.LibraryMirror(
     'Timeline.finishSync': _Timeline_finishSync$,
     'Timeline.instantSync': _Timeline_instantSync$,
     'Timeline.timeSync': _Timeline_timeSync$,
+    'TimelineTask.': _TimelineTask__$,
+    'TimelineTask.withTaskId': _TimelineTask_withTaskId_$,
   },
   {},
   {
     'NativeRuntime': m.ClassMirror(
       'NativeRuntime',
-      {},
       {
         '#as': NativeRuntime_as$,
         '#is': NativeRuntime_is$,
@@ -56,10 +62,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ServiceExtensionResponse': m.ClassMirror(
       'ServiceExtensionResponse',
-      {
-        'result': _ServiceExtensionResponse_result_$,
-        'error': _ServiceExtensionResponse_error_$,
-      },
       {
         '#as': ServiceExtensionResponse_as$,
         '#is': ServiceExtensionResponse_is$,
@@ -72,7 +74,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'UserTag': m.ClassMirror(
       'UserTag',
-      {'': _UserTag__$},
       {
         '#as': UserTag_as$,
         '#is': UserTag_is$,
@@ -83,7 +84,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'ServiceProtocolInfo': m.ClassMirror(
       'ServiceProtocolInfo',
-      {'': _ServiceProtocolInfo__$},
       {
         '#as': ServiceProtocolInfo_as$,
         '#is': ServiceProtocolInfo_is$,
@@ -97,7 +97,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Service': m.ClassMirror(
       'Service',
-      {'': _Service__$},
       {
         '#as': Service_as$,
         '#is': Service_is$,
@@ -106,7 +105,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Flow': m.ClassMirror(
       'Flow',
-      {},
       {
         '#as': Flow_as$,
         '#is': Flow_is$,
@@ -116,7 +114,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Timeline': m.ClassMirror(
       'Timeline',
-      {},
       {
         '#as': Timeline_as$,
         '#is': Timeline_is$,
@@ -125,10 +122,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'TimelineTask': m.ClassMirror(
       'TimelineTask',
-      {
-        '': _TimelineTask__$,
-        'withTaskId': _TimelineTask_withTaskId_$,
-      },
       {
         '#as': TimelineTask_as$,
         '#is': TimelineTask_is$,

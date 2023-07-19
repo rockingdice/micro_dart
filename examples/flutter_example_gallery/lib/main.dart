@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 //import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
-import 'package:micro_dart_flutter/generated2/micro_dart.dart' as mdf;
+import 'package:micro_dart_flutter/generated/micro_dart.dart' as mdf;
 import 'generated/micro_dart.dart' as g;
 
 void main() async {
@@ -11,7 +11,7 @@ void main() async {
   var data = await rootBundle.load('assets/micro_dart.data');
   var d2 = DateTime.now();
   debugPrint("start createMicroDartEngine... ${d2.difference(d1).inSeconds}");
-  var engine = mdf.createMicroDartEngine(data);
+  var engine = g
   var d3 = DateTime.now();
   debugPrint("start addMicroDartLibrary... ${d3.difference(d2).inSeconds}");
   g.addMicroDartLibrary(engine);
