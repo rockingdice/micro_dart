@@ -15,8 +15,6 @@ const libraryMirror = m.LibraryMirror(
     'ObjectCreated.': _ObjectCreated__$,
     'ObjectDisposed.': _ObjectDisposed__$,
     'MemoryAllocations.instance': _MemoryAllocations_instance$,
-    'MemoryAllocations.addListener': _MemoryAllocations_addListener$,
-    'MemoryAllocations.removeListener': _MemoryAllocations_removeListener$,
   },
   {},
   {
@@ -56,6 +54,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': MemoryAllocations_as$,
         '#is': MemoryAllocations_is$,
         'hasListeners': _MemoryAllocations_hasListeners$,
+        'addListener': _MemoryAllocations_addListener$,
+        'removeListener': _MemoryAllocations_removeListener$,
         'dispatchObjectEvent': _MemoryAllocations_dispatchObjectEvent$,
         'dispatchObjectCreated': _MemoryAllocations_dispatchObjectCreated$,
         'dispatchObjectDisposed': _MemoryAllocations_dispatchObjectDisposed$,
@@ -64,10 +64,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-bool _kFlutterMemoryAllocationsEnabled$() {
-  return kFlutterMemoryAllocationsEnabled;
-}
-
+Function _kFlutterMemoryAllocationsEnabled$(m.Scope scope$) =>
+    () => kFlutterMemoryAllocationsEnabled;
 Function ObjectEvent_as$(
   m.Scope scope$,
   dynamic target$,
@@ -158,10 +156,8 @@ Function MemoryAllocations_is$(
   dynamic target$,
 ) =>
     () => target$ is MemoryAllocations;
-MemoryAllocations _MemoryAllocations_instance$() {
-  return MemoryAllocations.instance;
-}
-
+Function _MemoryAllocations_instance$(m.Scope scope$) =>
+    () => MemoryAllocations.instance;
 Function _MemoryAllocations_hasListeners$(
   m.Scope scope$,
   MemoryAllocations target$,

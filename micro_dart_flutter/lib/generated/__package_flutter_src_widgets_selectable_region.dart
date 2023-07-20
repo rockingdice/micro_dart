@@ -31,8 +31,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/selectable_region.dart',
   {
     'SelectableRegion.': _SelectableRegion__$,
-    'SelectableRegion.getSelectableButtonItems':
-        _SelectableRegion_getSelectableButtonItems$,
     'SelectableRegionState.': _SelectableRegionState__$,
   },
   {},
@@ -48,6 +46,7 @@ const libraryMirror = m.LibraryMirror(
         'contextMenuBuilder': _SelectableRegion_contextMenuBuilder$,
         'selectionControls': _SelectableRegion_selectionControls$,
         'onSelectionChanged': _SelectableRegion_onSelectionChanged$,
+        'getSelectableButtonItems': _SelectableRegion_getSelectableButtonItems$,
         'createState': _SelectableRegion_createState$,
       },
       {},

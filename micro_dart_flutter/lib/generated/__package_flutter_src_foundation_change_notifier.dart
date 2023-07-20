@@ -13,13 +13,9 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/change_notifier.dart',
   {
     'Listenable.merge': _Listenable_merge_$,
-    'Listenable.addListener': _Listenable_addListener$,
-    'Listenable.removeListener': _Listenable_removeListener$,
     'ChangeNotifier.': _ChangeNotifier__$,
     'ChangeNotifier.debugAssertNotDisposed':
         _ChangeNotifier_debugAssertNotDisposed$,
-    'ChangeNotifier.addListener': _ChangeNotifier_addListener$,
-    'ChangeNotifier.removeListener': _ChangeNotifier_removeListener$,
     'ValueNotifier.': _ValueNotifier__$,
   },
   {},
@@ -29,6 +25,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': Listenable_as$,
         '#is': Listenable_is$,
+        'addListener': _Listenable_addListener$,
+        'removeListener': _Listenable_removeListener$,
       },
       {},
     ),
@@ -47,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': ChangeNotifier_as$,
         '#is': ChangeNotifier_is$,
         'hasListeners': _ChangeNotifier_hasListeners$,
+        'addListener': _ChangeNotifier_addListener$,
+        'removeListener': _ChangeNotifier_removeListener$,
         'dispose': _ChangeNotifier_dispose$,
         'notifyListeners': _ChangeNotifier_notifyListeners$,
       },

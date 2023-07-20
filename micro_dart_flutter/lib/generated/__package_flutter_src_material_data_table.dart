@@ -325,10 +325,7 @@ Function DataCell_is$(
   dynamic target$,
 ) =>
     () => target$ is DataCell;
-DataCell _DataCell_empty$() {
-  return DataCell.empty;
-}
-
+Function _DataCell_empty$(m.Scope scope$) => () => DataCell.empty;
 Function _DataCell_child$(
   m.Scope scope$,
   DataCell target$,

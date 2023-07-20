@@ -49,8 +49,6 @@ const libraryMirror = m.LibraryMirror(
     'MenuAcceleratorLabel.': _MenuAcceleratorLabel__$,
     'MenuAcceleratorLabel.defaultLabelBuilder':
         _MenuAcceleratorLabel_defaultLabelBuilder$,
-    'MenuAcceleratorLabel.stripAcceleratorMarkers':
-        _MenuAcceleratorLabel_stripAcceleratorMarkers$,
   },
   {},
   {
@@ -236,6 +234,8 @@ const libraryMirror = m.LibraryMirror(
         'builder': _MenuAcceleratorLabel_builder$,
         'displayLabel': _MenuAcceleratorLabel_displayLabel$,
         'hasAccelerator': _MenuAcceleratorLabel_hasAccelerator$,
+        'stripAcceleratorMarkers':
+            _MenuAcceleratorLabel_stripAcceleratorMarkers$,
         'createState': _MenuAcceleratorLabel_createState$,
         'toString': _MenuAcceleratorLabel_toString$,
         'debugFillProperties': _MenuAcceleratorLabel_debugFillProperties$,

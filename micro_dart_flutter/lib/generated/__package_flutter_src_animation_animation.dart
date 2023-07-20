@@ -10,10 +10,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/animation/animation.dart',
   {
     'Animation.fromValueListenable': _Animation_fromValueListenable_$,
-    'Animation.addListener': _Animation_addListener$,
-    'Animation.removeListener': _Animation_removeListener$,
-    'Animation.addStatusListener': _Animation_addStatusListener$,
-    'Animation.removeStatusListener': _Animation_removeStatusListener$,
     'AnimationStatus.dismissed': _AnimationStatus_dismissed$,
     'AnimationStatus.forward': _AnimationStatus_forward$,
     'AnimationStatus.reverse': _AnimationStatus_reverse$,
@@ -31,6 +27,10 @@ const libraryMirror = m.LibraryMirror(
         'value': _Animation_value$,
         'isDismissed': _Animation_isDismissed$,
         'isCompleted': _Animation_isCompleted$,
+        'addListener': _Animation_addListener$,
+        'removeListener': _Animation_removeListener$,
+        'addStatusListener': _Animation_addStatusListener$,
+        'removeStatusListener': _Animation_removeStatusListener$,
         'drive': _Animation_drive$,
         'toString': _Animation_toString$,
         'toStringDetails': _Animation_toStringDetails$,
@@ -167,22 +167,13 @@ Function _Animation_toStringDetails$<T>(
   Animation<T> target$,
 ) =>
     target$.toStringDetails;
-AnimationStatus _AnimationStatus_dismissed$() {
-  return AnimationStatus.dismissed;
-}
-
-AnimationStatus _AnimationStatus_forward$() {
-  return AnimationStatus.forward;
-}
-
-AnimationStatus _AnimationStatus_reverse$() {
-  return AnimationStatus.reverse;
-}
-
-AnimationStatus _AnimationStatus_completed$() {
-  return AnimationStatus.completed;
-}
-
-List<AnimationStatus> _AnimationStatus_values$() {
-  return AnimationStatus.values;
-}
+Function _AnimationStatus_dismissed$(m.Scope scope$) =>
+    () => AnimationStatus.dismissed;
+Function _AnimationStatus_forward$(m.Scope scope$) =>
+    () => AnimationStatus.forward;
+Function _AnimationStatus_reverse$(m.Scope scope$) =>
+    () => AnimationStatus.reverse;
+Function _AnimationStatus_completed$(m.Scope scope$) =>
+    () => AnimationStatus.completed;
+Function _AnimationStatus_values$(m.Scope scope$) =>
+    () => AnimationStatus.values;

@@ -198,14 +198,8 @@ Function _AnimatedCrossFade_debugFillProperties$(
   AnimatedCrossFade target$,
 ) =>
     target$.debugFillProperties;
-CrossFadeState _CrossFadeState_showFirst$() {
-  return CrossFadeState.showFirst;
-}
-
-CrossFadeState _CrossFadeState_showSecond$() {
-  return CrossFadeState.showSecond;
-}
-
-List<CrossFadeState> _CrossFadeState_values$() {
-  return CrossFadeState.values;
-}
+Function _CrossFadeState_showFirst$(m.Scope scope$) =>
+    () => CrossFadeState.showFirst;
+Function _CrossFadeState_showSecond$(m.Scope scope$) =>
+    () => CrossFadeState.showSecond;
+Function _CrossFadeState_values$(m.Scope scope$) => () => CrossFadeState.values;

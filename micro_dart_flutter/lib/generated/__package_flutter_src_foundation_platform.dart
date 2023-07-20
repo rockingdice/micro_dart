@@ -29,42 +29,20 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-TargetPlatform? _debugDefaultTargetPlatformOverride$() {
-  return debugDefaultTargetPlatformOverride;
-}
-
+Function _debugDefaultTargetPlatformOverride$(m.Scope scope$) =>
+    () => debugDefaultTargetPlatformOverride;
 void _debugDefaultTargetPlatformOverride_set$(TargetPlatform? other$) {
   debugDefaultTargetPlatformOverride = other$;
 }
 
-TargetPlatform _defaultTargetPlatform$() {
-  return defaultTargetPlatform;
-}
-
-TargetPlatform _TargetPlatform_android$() {
-  return TargetPlatform.android;
-}
-
-TargetPlatform _TargetPlatform_fuchsia$() {
-  return TargetPlatform.fuchsia;
-}
-
-TargetPlatform _TargetPlatform_iOS$() {
-  return TargetPlatform.iOS;
-}
-
-TargetPlatform _TargetPlatform_linux$() {
-  return TargetPlatform.linux;
-}
-
-TargetPlatform _TargetPlatform_macOS$() {
-  return TargetPlatform.macOS;
-}
-
-TargetPlatform _TargetPlatform_windows$() {
-  return TargetPlatform.windows;
-}
-
-List<TargetPlatform> _TargetPlatform_values$() {
-  return TargetPlatform.values;
-}
+Function _defaultTargetPlatform$(m.Scope scope$) => () => defaultTargetPlatform;
+Function _TargetPlatform_android$(m.Scope scope$) =>
+    () => TargetPlatform.android;
+Function _TargetPlatform_fuchsia$(m.Scope scope$) =>
+    () => TargetPlatform.fuchsia;
+Function _TargetPlatform_iOS$(m.Scope scope$) => () => TargetPlatform.iOS;
+Function _TargetPlatform_linux$(m.Scope scope$) => () => TargetPlatform.linux;
+Function _TargetPlatform_macOS$(m.Scope scope$) => () => TargetPlatform.macOS;
+Function _TargetPlatform_windows$(m.Scope scope$) =>
+    () => TargetPlatform.windows;
+Function _TargetPlatform_values$(m.Scope scope$) => () => TargetPlatform.values;

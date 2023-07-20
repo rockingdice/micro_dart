@@ -16,15 +16,10 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/sliver.dart',
   {
     'SliverConstraints.': _SliverConstraints__$,
-    'SliverConstraints.debugAssertIsValid':
-        _SliverConstraints_debugAssertIsValid$,
     'SliverGeometry.zero': _SliverGeometry_zero$,
     'SliverGeometry.': _SliverGeometry__$,
-    'SliverGeometry.debugAssertIsValid': _SliverGeometry_debugAssertIsValid$,
     'SliverHitTestResult.': _SliverHitTestResult__$,
     'SliverHitTestResult.wrap': _SliverHitTestResult_wrap_$,
-    'SliverHitTestResult.addWithAxisOffset':
-        _SliverHitTestResult_addWithAxisOffset$,
     'SliverHitTestEntry.': _SliverHitTestEntry__$,
     'SliverLogicalParentData.': _SliverLogicalParentData__$,
     'SliverLogicalContainerParentData.': _SliverLogicalContainerParentData__$,
@@ -66,6 +61,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _SliverConstraints_hashCode$,
         'copyWith': _SliverConstraints_copyWith$,
         'asBoxConstraints': _SliverConstraints_asBoxConstraints$,
+        'debugAssertIsValid': _SliverConstraints_debugAssertIsValid$,
         '==': _SliverConstraints_eq$$,
         'toString': _SliverConstraints_toString$,
       },
@@ -88,6 +84,7 @@ const libraryMirror = m.LibraryMirror(
         'hasVisualOverflow': _SliverGeometry_hasVisualOverflow$,
         'scrollOffsetCorrection': _SliverGeometry_scrollOffsetCorrection$,
         'cacheExtent': _SliverGeometry_cacheExtent$,
+        'debugAssertIsValid': _SliverGeometry_debugAssertIsValid$,
         'toStringShort': _SliverGeometry_toStringShort$,
         'debugFillProperties': _SliverGeometry_debugFillProperties$,
       },
@@ -98,6 +95,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': SliverHitTestResult_as$,
         '#is': SliverHitTestResult_is$,
+        'addWithAxisOffset': _SliverHitTestResult_addWithAxisOffset$,
       },
       {},
     ),
@@ -422,10 +420,7 @@ Function SliverGeometry_is$(
   dynamic target$,
 ) =>
     () => target$ is SliverGeometry;
-SliverGeometry _SliverGeometry_zero$() {
-  return SliverGeometry.zero;
-}
-
+Function _SliverGeometry_zero$(m.Scope scope$) => () => SliverGeometry.zero;
 Function _SliverGeometry_scrollExtent$(
   m.Scope scope$,
   SliverGeometry target$,
@@ -936,18 +931,12 @@ Function _RenderSliverToBoxAdapter_performLayout$(
   RenderSliverToBoxAdapter target$,
 ) =>
     target$.performLayout;
-GrowthDirection _GrowthDirection_forward$() {
-  return GrowthDirection.forward;
-}
-
-GrowthDirection _GrowthDirection_reverse$() {
-  return GrowthDirection.reverse;
-}
-
-List<GrowthDirection> _GrowthDirection_values$() {
-  return GrowthDirection.values;
-}
-
+Function _GrowthDirection_forward$(m.Scope scope$) =>
+    () => GrowthDirection.forward;
+Function _GrowthDirection_reverse$(m.Scope scope$) =>
+    () => GrowthDirection.reverse;
+Function _GrowthDirection_values$(m.Scope scope$) =>
+    () => GrowthDirection.values;
 Function _applyGrowthDirectionToAxisDirection$(m.Scope scope$) =>
     applyGrowthDirectionToAxisDirection;
 Function _applyGrowthDirectionToScrollDirection$(m.Scope scope$) =>

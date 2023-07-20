@@ -16,22 +16,9 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-bool _kReleaseMode$() {
-  return kReleaseMode;
-}
-
-bool _kProfileMode$() {
-  return kProfileMode;
-}
-
-bool _kDebugMode$() {
-  return kDebugMode;
-}
-
-double _precisionErrorTolerance$() {
-  return precisionErrorTolerance;
-}
-
-bool _kIsWeb$() {
-  return kIsWeb;
-}
+Function _kReleaseMode$(m.Scope scope$) => () => kReleaseMode;
+Function _kProfileMode$(m.Scope scope$) => () => kProfileMode;
+Function _kDebugMode$(m.Scope scope$) => () => kDebugMode;
+Function _precisionErrorTolerance$(m.Scope scope$) =>
+    () => precisionErrorTolerance;
+Function _kIsWeb$(m.Scope scope$) => () => kIsWeb;

@@ -307,34 +307,19 @@ Function _CupertinoTimerPicker_createState$(
   CupertinoTimerPicker target$,
 ) =>
     target$.createState;
-CupertinoDatePickerMode _CupertinoDatePickerMode_time$() {
-  return CupertinoDatePickerMode.time;
-}
-
-CupertinoDatePickerMode _CupertinoDatePickerMode_date$() {
-  return CupertinoDatePickerMode.date;
-}
-
-CupertinoDatePickerMode _CupertinoDatePickerMode_dateAndTime$() {
-  return CupertinoDatePickerMode.dateAndTime;
-}
-
-List<CupertinoDatePickerMode> _CupertinoDatePickerMode_values$() {
-  return CupertinoDatePickerMode.values;
-}
-
-CupertinoTimerPickerMode _CupertinoTimerPickerMode_hm$() {
-  return CupertinoTimerPickerMode.hm;
-}
-
-CupertinoTimerPickerMode _CupertinoTimerPickerMode_ms$() {
-  return CupertinoTimerPickerMode.ms;
-}
-
-CupertinoTimerPickerMode _CupertinoTimerPickerMode_hms$() {
-  return CupertinoTimerPickerMode.hms;
-}
-
-List<CupertinoTimerPickerMode> _CupertinoTimerPickerMode_values$() {
-  return CupertinoTimerPickerMode.values;
-}
+Function _CupertinoDatePickerMode_time$(m.Scope scope$) =>
+    () => CupertinoDatePickerMode.time;
+Function _CupertinoDatePickerMode_date$(m.Scope scope$) =>
+    () => CupertinoDatePickerMode.date;
+Function _CupertinoDatePickerMode_dateAndTime$(m.Scope scope$) =>
+    () => CupertinoDatePickerMode.dateAndTime;
+Function _CupertinoDatePickerMode_values$(m.Scope scope$) =>
+    () => CupertinoDatePickerMode.values;
+Function _CupertinoTimerPickerMode_hm$(m.Scope scope$) =>
+    () => CupertinoTimerPickerMode.hm;
+Function _CupertinoTimerPickerMode_ms$(m.Scope scope$) =>
+    () => CupertinoTimerPickerMode.ms;
+Function _CupertinoTimerPickerMode_hms$(m.Scope scope$) =>
+    () => CupertinoTimerPickerMode.hms;
+Function _CupertinoTimerPickerMode_values$(m.Scope scope$) =>
+    () => CupertinoTimerPickerMode.values;

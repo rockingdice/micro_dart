@@ -18,10 +18,6 @@ import 'package:flutter/src/material/theme.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/ink_well.dart',
   {
-    'InteractiveInkFeature.paintInkCircle':
-        _InteractiveInkFeature_paintInkCircle$,
-    'InteractiveInkFeatureFactory.create':
-        _InteractiveInkFeatureFactory_create$,
     'InkResponse.': _InkResponse__$,
     'InkWell.': _InkWell__$,
   },
@@ -36,6 +32,7 @@ const libraryMirror = m.LibraryMirror(
         'customBorder': _InteractiveInkFeature_customBorder$,
         'confirm': _InteractiveInkFeature_confirm$,
         'cancel': _InteractiveInkFeature_cancel$,
+        'paintInkCircle': _InteractiveInkFeature_paintInkCircle$,
       },
       {
         'color': _InteractiveInkFeature_color_set$,
@@ -47,6 +44,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': InteractiveInkFeatureFactory_as$,
         '#is': InteractiveInkFeatureFactory_is$,
+        'create': _InteractiveInkFeatureFactory_create$,
       },
       {},
     ),

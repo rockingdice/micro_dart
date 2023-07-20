@@ -41,14 +41,7 @@ Function SystemSound_is$(
 ) =>
     () => target$ is SystemSound;
 Function _SystemSound_play$(m.Scope scope$) => SystemSound.play;
-SystemSoundType _SystemSoundType_click$() {
-  return SystemSoundType.click;
-}
-
-SystemSoundType _SystemSoundType_alert$() {
-  return SystemSoundType.alert;
-}
-
-List<SystemSoundType> _SystemSoundType_values$() {
-  return SystemSoundType.values;
-}
+Function _SystemSoundType_click$(m.Scope scope$) => () => SystemSoundType.click;
+Function _SystemSoundType_alert$(m.Scope scope$) => () => SystemSoundType.alert;
+Function _SystemSoundType_values$(m.Scope scope$) =>
+    () => SystemSoundType.values;

@@ -16,14 +16,8 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/proxy_sliver.dart',
   {
     'RenderSliverOpacity.': _RenderSliverOpacity__$,
-    'RenderSliverOpacity.visitChildrenForSemantics':
-        _RenderSliverOpacity_visitChildrenForSemantics$,
     'RenderSliverIgnorePointer.': _RenderSliverIgnorePointer__$,
-    'RenderSliverIgnorePointer.visitChildrenForSemantics':
-        _RenderSliverIgnorePointer_visitChildrenForSemantics$,
     'RenderSliverOffstage.': _RenderSliverOffstage__$,
-    'RenderSliverOffstage.visitChildrenForSemantics':
-        _RenderSliverOffstage_visitChildrenForSemantics$,
     'RenderSliverAnimatedOpacity.': _RenderSliverAnimatedOpacity__$,
   },
   {},
@@ -51,6 +45,8 @@ const libraryMirror = m.LibraryMirror(
         'opacity': _RenderSliverOpacity_opacity$,
         'alwaysIncludeSemantics': _RenderSliverOpacity_alwaysIncludeSemantics$,
         'paint': _RenderSliverOpacity_paint$,
+        'visitChildrenForSemantics':
+            _RenderSliverOpacity_visitChildrenForSemantics$,
         'debugFillProperties': _RenderSliverOpacity_debugFillProperties$,
       },
       {
@@ -67,6 +63,8 @@ const libraryMirror = m.LibraryMirror(
         'ignoring': _RenderSliverIgnorePointer_ignoring$,
         'ignoringSemantics': _RenderSliverIgnorePointer_ignoringSemantics$,
         'hitTest': _RenderSliverIgnorePointer_hitTest$,
+        'visitChildrenForSemantics':
+            _RenderSliverIgnorePointer_visitChildrenForSemantics$,
         'debugFillProperties': _RenderSliverIgnorePointer_debugFillProperties$,
       },
       {
@@ -84,6 +82,8 @@ const libraryMirror = m.LibraryMirror(
         'hitTest': _RenderSliverOffstage_hitTest$,
         'hitTestChildren': _RenderSliverOffstage_hitTestChildren$,
         'paint': _RenderSliverOffstage_paint$,
+        'visitChildrenForSemantics':
+            _RenderSliverOffstage_visitChildrenForSemantics$,
         'debugFillProperties': _RenderSliverOffstage_debugFillProperties$,
         'debugDescribeChildren': _RenderSliverOffstage_debugDescribeChildren$,
       },

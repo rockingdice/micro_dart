@@ -12,6 +12,4 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-TargetPlatform _defaultTargetPlatform$() {
-  return defaultTargetPlatform;
-}
+Function _defaultTargetPlatform$(m.Scope scope$) => () => defaultTargetPlatform;

@@ -505,10 +505,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Pointer<Never> _nullptr$() {
-  return nullptr;
-}
-
+Function _nullptr$(m.Scope scope$) => () => nullptr;
 Function Pointer_as$<T extends NativeType>(
   m.Scope scope$,
   dynamic target$,
@@ -622,37 +619,17 @@ Function NativeApi_is$(
   dynamic target$,
 ) =>
     () => target$ is NativeApi;
-int _NativeApi_majorVersion$() {
-  return NativeApi.majorVersion;
-}
-
-int _NativeApi_minorVersion$() {
-  return NativeApi.minorVersion;
-}
-
-Pointer<NativeFunction<Int8 Function(Int64, Pointer<Dart_CObject>)>>
-    _NativeApi_postCObject$() {
-  return NativeApi.postCObject;
-}
-
-Pointer<
-    NativeFunction<
-        Int64 Function(
-            Pointer<Uint8>,
-            Pointer<
-                NativeFunction<Void Function(Int64, Pointer<Dart_CObject>)>>,
-            Int8)>> _NativeApi_newNativePort$() {
-  return NativeApi.newNativePort;
-}
-
-Pointer<NativeFunction<Int8 Function(Int64)>> _NativeApi_closeNativePort$() {
-  return NativeApi.closeNativePort;
-}
-
-Pointer<Void> _NativeApi_initializeApiDLData$() {
-  return NativeApi.initializeApiDLData;
-}
-
+Function _NativeApi_majorVersion$(m.Scope scope$) =>
+    () => NativeApi.majorVersion;
+Function _NativeApi_minorVersion$(m.Scope scope$) =>
+    () => NativeApi.minorVersion;
+Function _NativeApi_postCObject$(m.Scope scope$) => () => NativeApi.postCObject;
+Function _NativeApi_newNativePort$(m.Scope scope$) =>
+    () => NativeApi.newNativePort;
+Function _NativeApi_closeNativePort$(m.Scope scope$) =>
+    () => NativeApi.closeNativePort;
+Function _NativeApi_initializeApiDLData$(m.Scope scope$) =>
+    () => NativeApi.initializeApiDLData;
 Function Native_as$<T>(
   m.Scope scope$,
   dynamic target$,
@@ -726,94 +703,28 @@ Function Abi_is$(
   dynamic target$,
 ) =>
     () => target$ is Abi;
-Abi _Abi_androidArm$() {
-  return Abi.androidArm;
-}
-
-Abi _Abi_androidArm64$() {
-  return Abi.androidArm64;
-}
-
-Abi _Abi_androidIA32$() {
-  return Abi.androidIA32;
-}
-
-Abi _Abi_androidX64$() {
-  return Abi.androidX64;
-}
-
-Abi _Abi_fuchsiaArm64$() {
-  return Abi.fuchsiaArm64;
-}
-
-Abi _Abi_fuchsiaX64$() {
-  return Abi.fuchsiaX64;
-}
-
-Abi _Abi_fuchsiaRiscv64$() {
-  return Abi.fuchsiaRiscv64;
-}
-
-Abi _Abi_iosArm$() {
-  return Abi.iosArm;
-}
-
-Abi _Abi_iosArm64$() {
-  return Abi.iosArm64;
-}
-
-Abi _Abi_iosX64$() {
-  return Abi.iosX64;
-}
-
-Abi _Abi_linuxArm$() {
-  return Abi.linuxArm;
-}
-
-Abi _Abi_linuxArm64$() {
-  return Abi.linuxArm64;
-}
-
-Abi _Abi_linuxIA32$() {
-  return Abi.linuxIA32;
-}
-
-Abi _Abi_linuxX64$() {
-  return Abi.linuxX64;
-}
-
-Abi _Abi_linuxRiscv32$() {
-  return Abi.linuxRiscv32;
-}
-
-Abi _Abi_linuxRiscv64$() {
-  return Abi.linuxRiscv64;
-}
-
-Abi _Abi_macosArm64$() {
-  return Abi.macosArm64;
-}
-
-Abi _Abi_macosX64$() {
-  return Abi.macosX64;
-}
-
-Abi _Abi_windowsArm64$() {
-  return Abi.windowsArm64;
-}
-
-Abi _Abi_windowsIA32$() {
-  return Abi.windowsIA32;
-}
-
-Abi _Abi_windowsX64$() {
-  return Abi.windowsX64;
-}
-
-List<Abi> _Abi_values$() {
-  return Abi.values;
-}
-
+Function _Abi_androidArm$(m.Scope scope$) => () => Abi.androidArm;
+Function _Abi_androidArm64$(m.Scope scope$) => () => Abi.androidArm64;
+Function _Abi_androidIA32$(m.Scope scope$) => () => Abi.androidIA32;
+Function _Abi_androidX64$(m.Scope scope$) => () => Abi.androidX64;
+Function _Abi_fuchsiaArm64$(m.Scope scope$) => () => Abi.fuchsiaArm64;
+Function _Abi_fuchsiaX64$(m.Scope scope$) => () => Abi.fuchsiaX64;
+Function _Abi_fuchsiaRiscv64$(m.Scope scope$) => () => Abi.fuchsiaRiscv64;
+Function _Abi_iosArm$(m.Scope scope$) => () => Abi.iosArm;
+Function _Abi_iosArm64$(m.Scope scope$) => () => Abi.iosArm64;
+Function _Abi_iosX64$(m.Scope scope$) => () => Abi.iosX64;
+Function _Abi_linuxArm$(m.Scope scope$) => () => Abi.linuxArm;
+Function _Abi_linuxArm64$(m.Scope scope$) => () => Abi.linuxArm64;
+Function _Abi_linuxIA32$(m.Scope scope$) => () => Abi.linuxIA32;
+Function _Abi_linuxX64$(m.Scope scope$) => () => Abi.linuxX64;
+Function _Abi_linuxRiscv32$(m.Scope scope$) => () => Abi.linuxRiscv32;
+Function _Abi_linuxRiscv64$(m.Scope scope$) => () => Abi.linuxRiscv64;
+Function _Abi_macosArm64$(m.Scope scope$) => () => Abi.macosArm64;
+Function _Abi_macosX64$(m.Scope scope$) => () => Abi.macosX64;
+Function _Abi_windowsArm64$(m.Scope scope$) => () => Abi.windowsArm64;
+Function _Abi_windowsIA32$(m.Scope scope$) => () => Abi.windowsIA32;
+Function _Abi_windowsX64$(m.Scope scope$) => () => Abi.windowsX64;
+Function _Abi_values$(m.Scope scope$) => () => Abi.values;
 Function _Abi_current_$(m.Scope scope$) => Abi.current;
 Function _Abi_toString$(
   m.Scope scope$,
@@ -1100,10 +1011,7 @@ Function _Allocator_free$(
   Allocator target$,
 ) =>
     target$.free;
-Unsized _unsized$() {
-  return unsized;
-}
-
+Function _unsized$(m.Scope scope$) => () => unsized;
 Function DartRepresentationOf_as$(
   m.Scope scope$,
   dynamic target$,

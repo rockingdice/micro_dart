@@ -15,14 +15,6 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-Curve _standardEasing$() {
-  return standardEasing;
-}
-
-Curve _accelerateEasing$() {
-  return accelerateEasing;
-}
-
-Curve _decelerateEasing$() {
-  return decelerateEasing;
-}
+Function _standardEasing$(m.Scope scope$) => () => standardEasing;
+Function _accelerateEasing$(m.Scope scope$) => () => accelerateEasing;
+Function _decelerateEasing$(m.Scope scope$) => () => decelerateEasing;

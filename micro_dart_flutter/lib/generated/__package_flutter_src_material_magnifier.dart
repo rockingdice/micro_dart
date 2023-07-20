@@ -61,19 +61,15 @@ Function TextMagnifier_is$(
   dynamic target$,
 ) =>
     () => target$ is TextMagnifier;
-TextMagnifierConfiguration _TextMagnifier_adaptiveMagnifierConfiguration$() {
-  return TextMagnifier.adaptiveMagnifierConfiguration;
-}
-
+Function _TextMagnifier_adaptiveMagnifierConfiguration$(m.Scope scope$) =>
+    () => TextMagnifier.adaptiveMagnifierConfiguration;
 void _TextMagnifier_adaptiveMagnifierConfiguration_set$(
     TextMagnifierConfiguration other$) {
   TextMagnifier.adaptiveMagnifierConfiguration = other$;
 }
 
-Duration _TextMagnifier_jumpBetweenLinesAnimationDuration$() {
-  return TextMagnifier.jumpBetweenLinesAnimationDuration;
-}
-
+Function _TextMagnifier_jumpBetweenLinesAnimationDuration$(m.Scope scope$) =>
+    () => TextMagnifier.jumpBetweenLinesAnimationDuration;
 Function _TextMagnifier_magnifierInfo$(
   m.Scope scope$,
   TextMagnifier target$,
@@ -105,14 +101,10 @@ Function Magnifier_is$(
   dynamic target$,
 ) =>
     () => target$ is Magnifier;
-Size _Magnifier_kDefaultMagnifierSize$() {
-  return Magnifier.kDefaultMagnifierSize;
-}
-
-double _Magnifier_kStandardVerticalFocalPointShift$() {
-  return Magnifier.kStandardVerticalFocalPointShift;
-}
-
+Function _Magnifier_kDefaultMagnifierSize$(m.Scope scope$) =>
+    () => Magnifier.kDefaultMagnifierSize;
+Function _Magnifier_kStandardVerticalFocalPointShift$(m.Scope scope$) =>
+    () => Magnifier.kStandardVerticalFocalPointShift;
 Function _Magnifier_additionalFocalPointOffset$(
   m.Scope scope$,
   Magnifier target$,

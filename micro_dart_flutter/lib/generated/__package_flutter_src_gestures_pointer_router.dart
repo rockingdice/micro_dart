@@ -8,13 +8,7 @@ import 'package:flutter/src/gestures/events.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/pointer_router.dart',
-  {
-    'PointerRouter.': _PointerRouter__$,
-    'PointerRouter.addRoute': _PointerRouter_addRoute$,
-    'PointerRouter.removeRoute': _PointerRouter_removeRoute$,
-    'PointerRouter.addGlobalRoute': _PointerRouter_addGlobalRoute$,
-    'PointerRouter.removeGlobalRoute': _PointerRouter_removeGlobalRoute$,
-  },
+  {'PointerRouter.': _PointerRouter__$},
   {},
   {
     'PointerRouter': m.ClassMirror(
@@ -23,6 +17,10 @@ const libraryMirror = m.LibraryMirror(
         '#as': PointerRouter_as$,
         '#is': PointerRouter_is$,
         'debugGlobalRouteCount': _PointerRouter_debugGlobalRouteCount$,
+        'addRoute': _PointerRouter_addRoute$,
+        'removeRoute': _PointerRouter_removeRoute$,
+        'addGlobalRoute': _PointerRouter_addGlobalRoute$,
+        'removeGlobalRoute': _PointerRouter_removeGlobalRoute$,
         'route': _PointerRouter_route$,
       },
       {},

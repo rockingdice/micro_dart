@@ -41,10 +41,8 @@ Function DefaultSelectionStyle_is$(
   dynamic target$,
 ) =>
     () => target$ is DefaultSelectionStyle;
-Color _DefaultSelectionStyle_defaultColor$() {
-  return DefaultSelectionStyle.defaultColor;
-}
-
+Function _DefaultSelectionStyle_defaultColor$(m.Scope scope$) =>
+    () => DefaultSelectionStyle.defaultColor;
 Function _DefaultSelectionStyle_cursorColor$(
   m.Scope scope$,
   DefaultSelectionStyle target$,

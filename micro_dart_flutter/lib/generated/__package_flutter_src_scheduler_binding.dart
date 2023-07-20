@@ -51,10 +51,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-double _timeDilation$() {
-  return timeDilation;
-}
-
+Function _timeDilation$(m.Scope scope$) => () => timeDilation;
 void _timeDilation_set$(double other$) {
   timeDilation = other$;
 }
@@ -74,29 +71,15 @@ Function _PerformanceModeRequestHandle_dispose$(
   PerformanceModeRequestHandle target$,
 ) =>
     target$.dispose;
-SchedulerPhase _SchedulerPhase_idle$() {
-  return SchedulerPhase.idle;
-}
-
-SchedulerPhase _SchedulerPhase_transientCallbacks$() {
-  return SchedulerPhase.transientCallbacks;
-}
-
-SchedulerPhase _SchedulerPhase_midFrameMicrotasks$() {
-  return SchedulerPhase.midFrameMicrotasks;
-}
-
-SchedulerPhase _SchedulerPhase_persistentCallbacks$() {
-  return SchedulerPhase.persistentCallbacks;
-}
-
-SchedulerPhase _SchedulerPhase_postFrameCallbacks$() {
-  return SchedulerPhase.postFrameCallbacks;
-}
-
-List<SchedulerPhase> _SchedulerPhase_values$() {
-  return SchedulerPhase.values;
-}
-
+Function _SchedulerPhase_idle$(m.Scope scope$) => () => SchedulerPhase.idle;
+Function _SchedulerPhase_transientCallbacks$(m.Scope scope$) =>
+    () => SchedulerPhase.transientCallbacks;
+Function _SchedulerPhase_midFrameMicrotasks$(m.Scope scope$) =>
+    () => SchedulerPhase.midFrameMicrotasks;
+Function _SchedulerPhase_persistentCallbacks$(m.Scope scope$) =>
+    () => SchedulerPhase.persistentCallbacks;
+Function _SchedulerPhase_postFrameCallbacks$(m.Scope scope$) =>
+    () => SchedulerPhase.postFrameCallbacks;
+Function _SchedulerPhase_values$(m.Scope scope$) => () => SchedulerPhase.values;
 Function _defaultSchedulingStrategy$(m.Scope scope$) =>
     defaultSchedulingStrategy;

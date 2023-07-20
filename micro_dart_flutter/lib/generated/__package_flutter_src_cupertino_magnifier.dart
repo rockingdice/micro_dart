@@ -151,14 +151,10 @@ Function _CupertinoMagnifier_borderSide$(
     () {
       return target$.borderSide;
     };
-double _CupertinoMagnifier_kMagnifierAboveFocalPoint$() {
-  return CupertinoMagnifier.kMagnifierAboveFocalPoint;
-}
-
-Size _CupertinoMagnifier_kDefaultSize$() {
-  return CupertinoMagnifier.kDefaultSize;
-}
-
+Function _CupertinoMagnifier_kMagnifierAboveFocalPoint$(m.Scope scope$) =>
+    () => CupertinoMagnifier.kMagnifierAboveFocalPoint;
+Function _CupertinoMagnifier_kDefaultSize$(m.Scope scope$) =>
+    () => CupertinoMagnifier.kDefaultSize;
 Function _CupertinoMagnifier_size$(
   m.Scope scope$,
   CupertinoMagnifier target$,

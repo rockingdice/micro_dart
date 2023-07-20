@@ -229,34 +229,13 @@ Function _FlexibleSpaceBarSettings_updateShouldNotify$(
   FlexibleSpaceBarSettings target$,
 ) =>
     target$.updateShouldNotify;
-CollapseMode _CollapseMode_parallax$() {
-  return CollapseMode.parallax;
-}
-
-CollapseMode _CollapseMode_pin$() {
-  return CollapseMode.pin;
-}
-
-CollapseMode _CollapseMode_none$() {
-  return CollapseMode.none;
-}
-
-List<CollapseMode> _CollapseMode_values$() {
-  return CollapseMode.values;
-}
-
-StretchMode _StretchMode_zoomBackground$() {
-  return StretchMode.zoomBackground;
-}
-
-StretchMode _StretchMode_blurBackground$() {
-  return StretchMode.blurBackground;
-}
-
-StretchMode _StretchMode_fadeTitle$() {
-  return StretchMode.fadeTitle;
-}
-
-List<StretchMode> _StretchMode_values$() {
-  return StretchMode.values;
-}
+Function _CollapseMode_parallax$(m.Scope scope$) => () => CollapseMode.parallax;
+Function _CollapseMode_pin$(m.Scope scope$) => () => CollapseMode.pin;
+Function _CollapseMode_none$(m.Scope scope$) => () => CollapseMode.none;
+Function _CollapseMode_values$(m.Scope scope$) => () => CollapseMode.values;
+Function _StretchMode_zoomBackground$(m.Scope scope$) =>
+    () => StretchMode.zoomBackground;
+Function _StretchMode_blurBackground$(m.Scope scope$) =>
+    () => StretchMode.blurBackground;
+Function _StretchMode_fadeTitle$(m.Scope scope$) => () => StretchMode.fadeTitle;
+Function _StretchMode_values$(m.Scope scope$) => () => StretchMode.values;

@@ -21,7 +21,6 @@ const libraryMirror = m.LibraryMirror(
     'MaxColumnWidth.': _MaxColumnWidth__$,
     'MinColumnWidth.': _MinColumnWidth__$,
     'RenderTable.': _RenderTable__$,
-    'RenderTable.visitChildren': _RenderTable_visitChildren$,
     'TableCellVerticalAlignment.top': _TableCellVerticalAlignment_top$,
     'TableCellVerticalAlignment.middle': _TableCellVerticalAlignment_middle$,
     'TableCellVerticalAlignment.bottom': _TableCellVerticalAlignment_bottom$,
@@ -160,6 +159,7 @@ const libraryMirror = m.LibraryMirror(
         'setChild': _RenderTable_setChild$,
         'attach': _RenderTable_attach$,
         'detach': _RenderTable_detach$,
+        'visitChildren': _RenderTable_visitChildren$,
         'computeMinIntrinsicWidth': _RenderTable_computeMinIntrinsicWidth$,
         'computeMaxIntrinsicWidth': _RenderTable_computeMaxIntrinsicWidth$,
         'computeMinIntrinsicHeight': _RenderTable_computeMinIntrinsicHeight$,
@@ -841,26 +841,15 @@ Function _RenderTable_debugDescribeChildren$(
   RenderTable target$,
 ) =>
     target$.debugDescribeChildren;
-TableCellVerticalAlignment _TableCellVerticalAlignment_top$() {
-  return TableCellVerticalAlignment.top;
-}
-
-TableCellVerticalAlignment _TableCellVerticalAlignment_middle$() {
-  return TableCellVerticalAlignment.middle;
-}
-
-TableCellVerticalAlignment _TableCellVerticalAlignment_bottom$() {
-  return TableCellVerticalAlignment.bottom;
-}
-
-TableCellVerticalAlignment _TableCellVerticalAlignment_baseline$() {
-  return TableCellVerticalAlignment.baseline;
-}
-
-TableCellVerticalAlignment _TableCellVerticalAlignment_fill$() {
-  return TableCellVerticalAlignment.fill;
-}
-
-List<TableCellVerticalAlignment> _TableCellVerticalAlignment_values$() {
-  return TableCellVerticalAlignment.values;
-}
+Function _TableCellVerticalAlignment_top$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.top;
+Function _TableCellVerticalAlignment_middle$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.middle;
+Function _TableCellVerticalAlignment_bottom$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.bottom;
+Function _TableCellVerticalAlignment_baseline$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.baseline;
+Function _TableCellVerticalAlignment_fill$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.fill;
+Function _TableCellVerticalAlignment_values$(m.Scope scope$) =>
+    () => TableCellVerticalAlignment.values;

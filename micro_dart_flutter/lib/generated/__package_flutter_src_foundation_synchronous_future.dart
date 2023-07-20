@@ -7,13 +7,7 @@ import 'dart:async';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/synchronous_future.dart',
-  {
-    'SynchronousFuture.': _SynchronousFuture__$,
-    'SynchronousFuture.catchError': _SynchronousFuture_catchError$,
-    'SynchronousFuture.then': _SynchronousFuture_then$,
-    'SynchronousFuture.timeout': _SynchronousFuture_timeout$,
-    'SynchronousFuture.whenComplete': _SynchronousFuture_whenComplete$,
-  },
+  {'SynchronousFuture.': _SynchronousFuture__$},
   {},
   {
     'SynchronousFuture': m.ClassMirror(
@@ -22,6 +16,10 @@ const libraryMirror = m.LibraryMirror(
         '#as': SynchronousFuture_as$,
         '#is': SynchronousFuture_is$,
         'asStream': _SynchronousFuture_asStream$,
+        'catchError': _SynchronousFuture_catchError$,
+        'then': _SynchronousFuture_then$,
+        'timeout': _SynchronousFuture_timeout$,
+        'whenComplete': _SynchronousFuture_whenComplete$,
       },
       {},
     )

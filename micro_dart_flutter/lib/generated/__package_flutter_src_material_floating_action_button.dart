@@ -290,34 +290,6 @@ Function _FloatingActionButton__$(m.Scope scope$) => ({
             [],
             {},
           );
-
-      if (heroTag == null) {
-        return FloatingActionButton(
-          autofocus: autofocus ?? false,
-          backgroundColor: backgroundColor,
-          child: child,
-          clipBehavior: clipBehavior ?? Clip.none,
-          disabledElevation: disabledElevation,
-          elevation: elevation,
-          enableFeedback: enableFeedback,
-          focusColor: focusColor,
-          focusElevation: focusElevation,
-          focusNode: focusNode,
-          foregroundColor: foregroundColor,
-          highlightElevation: highlightElevation,
-          hoverColor: hoverColor,
-          hoverElevation: hoverElevation,
-          isExtended: isExtended ?? false,
-          key: key,
-          materialTapTargetSize: materialTapTargetSize,
-          mini: mini ?? false,
-          mouseCursor: mouseCursor,
-          onPressed: onPressed == null ? null : onPressedProxy,
-          shape: shape,
-          splashColor: splashColor,
-          tooltip: tooltip,
-        );
-      }
       return FloatingActionButton(
         autofocus: autofocus ?? false,
         backgroundColor: backgroundColor,
@@ -330,7 +302,7 @@ Function _FloatingActionButton__$(m.Scope scope$) => ({
         focusElevation: focusElevation,
         focusNode: focusNode,
         foregroundColor: foregroundColor,
-        heroTag: heroTag,
+        heroTag: heroTag ?? const _DefaultHeroTag(),
         highlightElevation: highlightElevation,
         hoverColor: hoverColor,
         hoverElevation: hoverElevation,
@@ -375,31 +347,6 @@ Function _FloatingActionButton_small_$(m.Scope scope$) => ({
             [],
             {},
           );
-      if (heroTag == null) {
-        return FloatingActionButton.small(
-          autofocus: autofocus ?? false,
-          backgroundColor: backgroundColor,
-          child: child,
-          clipBehavior: clipBehavior ?? Clip.none,
-          disabledElevation: disabledElevation,
-          elevation: elevation,
-          enableFeedback: enableFeedback,
-          focusColor: focusColor,
-          focusElevation: focusElevation,
-          focusNode: focusNode,
-          foregroundColor: foregroundColor,
-          highlightElevation: highlightElevation,
-          hoverColor: hoverColor,
-          hoverElevation: hoverElevation,
-          key: key,
-          materialTapTargetSize: materialTapTargetSize,
-          mouseCursor: mouseCursor,
-          onPressed: onPressed == null ? null : onPressedProxy,
-          shape: shape,
-          splashColor: splashColor,
-          tooltip: tooltip,
-        );
-      }
       return FloatingActionButton.small(
         autofocus: autofocus ?? false,
         backgroundColor: backgroundColor,
@@ -412,7 +359,7 @@ Function _FloatingActionButton_small_$(m.Scope scope$) => ({
         focusElevation: focusElevation,
         focusNode: focusNode,
         foregroundColor: foregroundColor,
-        heroTag: heroTag,
+        heroTag: heroTag ?? const _DefaultHeroTag(),
         highlightElevation: highlightElevation,
         hoverColor: hoverColor,
         hoverElevation: hoverElevation,
@@ -455,32 +402,6 @@ Function _FloatingActionButton_large_$(m.Scope scope$) => ({
             [],
             {},
           );
-
-      if (heroTag == null) {
-        return FloatingActionButton.large(
-          autofocus: autofocus ?? false,
-          backgroundColor: backgroundColor,
-          child: child,
-          clipBehavior: clipBehavior ?? Clip.none,
-          disabledElevation: disabledElevation,
-          elevation: elevation,
-          enableFeedback: enableFeedback,
-          focusColor: focusColor,
-          focusElevation: focusElevation,
-          focusNode: focusNode,
-          foregroundColor: foregroundColor,
-          highlightElevation: highlightElevation,
-          hoverColor: hoverColor,
-          hoverElevation: hoverElevation,
-          key: key,
-          materialTapTargetSize: materialTapTargetSize,
-          mouseCursor: mouseCursor,
-          onPressed: onPressed == null ? null : onPressedProxy,
-          shape: shape,
-          splashColor: splashColor,
-          tooltip: tooltip,
-        );
-      }
       return FloatingActionButton.large(
         autofocus: autofocus ?? false,
         backgroundColor: backgroundColor,
@@ -493,7 +414,7 @@ Function _FloatingActionButton_large_$(m.Scope scope$) => ({
         focusElevation: focusElevation,
         focusNode: focusNode,
         foregroundColor: foregroundColor,
-        heroTag: heroTag,
+        heroTag: heroTag ?? const _DefaultHeroTag(),
         highlightElevation: highlightElevation,
         hoverColor: hoverColor,
         hoverElevation: hoverElevation,
@@ -541,36 +462,6 @@ Function _FloatingActionButton_extended_$(m.Scope scope$) => ({
             [],
             {},
           );
-      if (heroTag == null) {
-        return FloatingActionButton.extended(
-          autofocus: autofocus ?? false,
-          backgroundColor: backgroundColor,
-          clipBehavior: clipBehavior ?? Clip.none,
-          disabledElevation: disabledElevation,
-          elevation: elevation,
-          enableFeedback: enableFeedback,
-          extendedIconLabelSpacing: extendedIconLabelSpacing,
-          extendedPadding: extendedPadding,
-          extendedTextStyle: extendedTextStyle,
-          focusColor: focusColor,
-          focusElevation: focusElevation,
-          focusNode: focusNode,
-          foregroundColor: foregroundColor,
-          highlightElevation: highlightElevation,
-          hoverColor: hoverColor,
-          hoverElevation: hoverElevation,
-          icon: icon,
-          isExtended: isExtended ?? true,
-          key: key,
-          label: label,
-          materialTapTargetSize: materialTapTargetSize,
-          mouseCursor: mouseCursor ?? SystemMouseCursors.click,
-          onPressed: onPressed == null ? null : onPressedProxy,
-          shape: shape,
-          splashColor: splashColor,
-          tooltip: tooltip,
-        );
-      }
       return FloatingActionButton.extended(
         autofocus: autofocus ?? false,
         backgroundColor: backgroundColor,
@@ -585,7 +476,7 @@ Function _FloatingActionButton_extended_$(m.Scope scope$) => ({
         focusElevation: focusElevation,
         focusNode: focusNode,
         foregroundColor: foregroundColor,
-        heroTag: heroTag,
+        heroTag: heroTag ?? const _DefaultHeroTag(),
         highlightElevation: highlightElevation,
         hoverColor: hoverColor,
         hoverElevation: hoverElevation,
@@ -611,3 +502,9 @@ Function _FloatingActionButton_debugFillProperties$(
   FloatingActionButton target$,
 ) =>
     target$.debugFillProperties;
+
+class _DefaultHeroTag {
+  const _DefaultHeroTag();
+  @override
+  String toString() => '<default FloatingActionButton tag>';
+}

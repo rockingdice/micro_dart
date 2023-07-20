@@ -16,7 +16,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'AnnotationEntry.': _AnnotationEntry__$,
     'AnnotationResult.': _AnnotationResult__$,
-    'Layer.addCompositionCallback': _Layer_addCompositionCallback$,
     'LayerHandle.': _LayerHandle__$,
     'PictureLayer.': _PictureLayer__$,
     'TextureLayer.': _TextureLayer__$,
@@ -80,6 +79,7 @@ const libraryMirror = m.LibraryMirror(
         'previousSibling': _Layer_previousSibling$,
         'supportsRasterization': _Layer_supportsRasterization$,
         'describeClipBounds': _Layer_describeClipBounds$,
+        'addCompositionCallback': _Layer_addCompositionCallback$,
         'dispose': _Layer_dispose$,
         'markNeedsAddToScene': _Layer_markNeedsAddToScene$,
         'debugMarkClean': _Layer_debugMarkClean$,

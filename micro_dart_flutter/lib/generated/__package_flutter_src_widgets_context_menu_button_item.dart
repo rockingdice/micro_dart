@@ -9,7 +9,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/context_menu_button_item.dart',
   {
     'ContextMenuButtonItem.': _ContextMenuButtonItem__$,
-    'ContextMenuButtonItem.copyWith': _ContextMenuButtonItem_copyWith$,
     'ContextMenuButtonType.cut': _ContextMenuButtonType_cut$,
     'ContextMenuButtonType.copy': _ContextMenuButtonType_copy$,
     'ContextMenuButtonType.paste': _ContextMenuButtonType_paste$,
@@ -29,6 +28,7 @@ const libraryMirror = m.LibraryMirror(
         'type': _ContextMenuButtonItem_type$,
         'label': _ContextMenuButtonItem_label$,
         'hashCode': _ContextMenuButtonItem_hashCode$,
+        'copyWith': _ContextMenuButtonItem_copyWith$,
         '==': _ContextMenuButtonItem_eq$$,
         'toString': _ContextMenuButtonItem_toString$,
       },
@@ -127,30 +127,17 @@ Function _ContextMenuButtonItem_toString$(
   ContextMenuButtonItem target$,
 ) =>
     target$.toString;
-ContextMenuButtonType _ContextMenuButtonType_cut$() {
-  return ContextMenuButtonType.cut;
-}
-
-ContextMenuButtonType _ContextMenuButtonType_copy$() {
-  return ContextMenuButtonType.copy;
-}
-
-ContextMenuButtonType _ContextMenuButtonType_paste$() {
-  return ContextMenuButtonType.paste;
-}
-
-ContextMenuButtonType _ContextMenuButtonType_selectAll$() {
-  return ContextMenuButtonType.selectAll;
-}
-
-ContextMenuButtonType _ContextMenuButtonType_delete$() {
-  return ContextMenuButtonType.delete;
-}
-
-ContextMenuButtonType _ContextMenuButtonType_custom$() {
-  return ContextMenuButtonType.custom;
-}
-
-List<ContextMenuButtonType> _ContextMenuButtonType_values$() {
-  return ContextMenuButtonType.values;
-}
+Function _ContextMenuButtonType_cut$(m.Scope scope$) =>
+    () => ContextMenuButtonType.cut;
+Function _ContextMenuButtonType_copy$(m.Scope scope$) =>
+    () => ContextMenuButtonType.copy;
+Function _ContextMenuButtonType_paste$(m.Scope scope$) =>
+    () => ContextMenuButtonType.paste;
+Function _ContextMenuButtonType_selectAll$(m.Scope scope$) =>
+    () => ContextMenuButtonType.selectAll;
+Function _ContextMenuButtonType_delete$(m.Scope scope$) =>
+    () => ContextMenuButtonType.delete;
+Function _ContextMenuButtonType_custom$(m.Scope scope$) =>
+    () => ContextMenuButtonType.custom;
+Function _ContextMenuButtonType_values$(m.Scope scope$) =>
+    () => ContextMenuButtonType.values;

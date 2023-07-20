@@ -141,34 +141,16 @@ Function _DateTimeRange_toString$(
   DateTimeRange target$,
 ) =>
     target$.toString;
-DatePickerEntryMode _DatePickerEntryMode_calendar$() {
-  return DatePickerEntryMode.calendar;
-}
-
-DatePickerEntryMode _DatePickerEntryMode_input$() {
-  return DatePickerEntryMode.input;
-}
-
-DatePickerEntryMode _DatePickerEntryMode_calendarOnly$() {
-  return DatePickerEntryMode.calendarOnly;
-}
-
-DatePickerEntryMode _DatePickerEntryMode_inputOnly$() {
-  return DatePickerEntryMode.inputOnly;
-}
-
-List<DatePickerEntryMode> _DatePickerEntryMode_values$() {
-  return DatePickerEntryMode.values;
-}
-
-DatePickerMode _DatePickerMode_day$() {
-  return DatePickerMode.day;
-}
-
-DatePickerMode _DatePickerMode_year$() {
-  return DatePickerMode.year;
-}
-
-List<DatePickerMode> _DatePickerMode_values$() {
-  return DatePickerMode.values;
-}
+Function _DatePickerEntryMode_calendar$(m.Scope scope$) =>
+    () => DatePickerEntryMode.calendar;
+Function _DatePickerEntryMode_input$(m.Scope scope$) =>
+    () => DatePickerEntryMode.input;
+Function _DatePickerEntryMode_calendarOnly$(m.Scope scope$) =>
+    () => DatePickerEntryMode.calendarOnly;
+Function _DatePickerEntryMode_inputOnly$(m.Scope scope$) =>
+    () => DatePickerEntryMode.inputOnly;
+Function _DatePickerEntryMode_values$(m.Scope scope$) =>
+    () => DatePickerEntryMode.values;
+Function _DatePickerMode_day$(m.Scope scope$) => () => DatePickerMode.day;
+Function _DatePickerMode_year$(m.Scope scope$) => () => DatePickerMode.year;
+Function _DatePickerMode_values$(m.Scope scope$) => () => DatePickerMode.values;

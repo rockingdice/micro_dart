@@ -173,10 +173,7 @@ Function BorderRadius_is$(
   dynamic target$,
 ) =>
     () => target$ is BorderRadius;
-BorderRadius _BorderRadius_zero$() {
-  return BorderRadius.zero;
-}
-
+Function _BorderRadius_zero$(m.Scope scope$) => () => BorderRadius.zero;
 Function _BorderRadius_topLeft$(
   m.Scope scope$,
   BorderRadius target$,
@@ -281,10 +278,8 @@ Function BorderRadiusDirectional_is$(
   dynamic target$,
 ) =>
     () => target$ is BorderRadiusDirectional;
-BorderRadiusDirectional _BorderRadiusDirectional_zero$() {
-  return BorderRadiusDirectional.zero;
-}
-
+Function _BorderRadiusDirectional_zero$(m.Scope scope$) =>
+    () => BorderRadiusDirectional.zero;
 Function _BorderRadiusDirectional_topStart$(
   m.Scope scope$,
   BorderRadiusDirectional target$,

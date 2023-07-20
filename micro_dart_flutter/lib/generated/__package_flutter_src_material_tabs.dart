@@ -741,14 +741,9 @@ Function _TabPageSelector_build$(
   TabPageSelector target$,
 ) =>
     target$.build;
-TabBarIndicatorSize _TabBarIndicatorSize_tab$() {
-  return TabBarIndicatorSize.tab;
-}
-
-TabBarIndicatorSize _TabBarIndicatorSize_label$() {
-  return TabBarIndicatorSize.label;
-}
-
-List<TabBarIndicatorSize> _TabBarIndicatorSize_values$() {
-  return TabBarIndicatorSize.values;
-}
+Function _TabBarIndicatorSize_tab$(m.Scope scope$) =>
+    () => TabBarIndicatorSize.tab;
+Function _TabBarIndicatorSize_label$(m.Scope scope$) =>
+    () => TabBarIndicatorSize.label;
+Function _TabBarIndicatorSize_values$(m.Scope scope$) =>
+    () => TabBarIndicatorSize.values;

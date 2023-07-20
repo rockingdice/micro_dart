@@ -31,82 +31,26 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-Duration _kPressTimeout$() {
-  return kPressTimeout;
-}
-
-Duration _kHoverTapTimeout$() {
-  return kHoverTapTimeout;
-}
-
-double _kHoverTapSlop$() {
-  return kHoverTapSlop;
-}
-
-Duration _kLongPressTimeout$() {
-  return kLongPressTimeout;
-}
-
-Duration _kDoubleTapTimeout$() {
-  return kDoubleTapTimeout;
-}
-
-Duration _kDoubleTapMinTime$() {
-  return kDoubleTapMinTime;
-}
-
-double _kDoubleTapTouchSlop$() {
-  return kDoubleTapTouchSlop;
-}
-
-double _kDoubleTapSlop$() {
-  return kDoubleTapSlop;
-}
-
-Duration _kZoomControlsTimeout$() {
-  return kZoomControlsTimeout;
-}
-
-double _kTouchSlop$() {
-  return kTouchSlop;
-}
-
-double _kPagingTouchSlop$() {
-  return kPagingTouchSlop;
-}
-
-double _kPanSlop$() {
-  return kPanSlop;
-}
-
-double _kScaleSlop$() {
-  return kScaleSlop;
-}
-
-double _kWindowTouchSlop$() {
-  return kWindowTouchSlop;
-}
-
-double _kMinFlingVelocity$() {
-  return kMinFlingVelocity;
-}
-
-double _kMaxFlingVelocity$() {
-  return kMaxFlingVelocity;
-}
-
-Duration _kJumpTapTimeout$() {
-  return kJumpTapTimeout;
-}
-
-double _kPrecisePointerHitSlop$() {
-  return kPrecisePointerHitSlop;
-}
-
-double _kPrecisePointerPanSlop$() {
-  return kPrecisePointerPanSlop;
-}
-
-double _kPrecisePointerScaleSlop$() {
-  return kPrecisePointerScaleSlop;
-}
+Function _kPressTimeout$(m.Scope scope$) => () => kPressTimeout;
+Function _kHoverTapTimeout$(m.Scope scope$) => () => kHoverTapTimeout;
+Function _kHoverTapSlop$(m.Scope scope$) => () => kHoverTapSlop;
+Function _kLongPressTimeout$(m.Scope scope$) => () => kLongPressTimeout;
+Function _kDoubleTapTimeout$(m.Scope scope$) => () => kDoubleTapTimeout;
+Function _kDoubleTapMinTime$(m.Scope scope$) => () => kDoubleTapMinTime;
+Function _kDoubleTapTouchSlop$(m.Scope scope$) => () => kDoubleTapTouchSlop;
+Function _kDoubleTapSlop$(m.Scope scope$) => () => kDoubleTapSlop;
+Function _kZoomControlsTimeout$(m.Scope scope$) => () => kZoomControlsTimeout;
+Function _kTouchSlop$(m.Scope scope$) => () => kTouchSlop;
+Function _kPagingTouchSlop$(m.Scope scope$) => () => kPagingTouchSlop;
+Function _kPanSlop$(m.Scope scope$) => () => kPanSlop;
+Function _kScaleSlop$(m.Scope scope$) => () => kScaleSlop;
+Function _kWindowTouchSlop$(m.Scope scope$) => () => kWindowTouchSlop;
+Function _kMinFlingVelocity$(m.Scope scope$) => () => kMinFlingVelocity;
+Function _kMaxFlingVelocity$(m.Scope scope$) => () => kMaxFlingVelocity;
+Function _kJumpTapTimeout$(m.Scope scope$) => () => kJumpTapTimeout;
+Function _kPrecisePointerHitSlop$(m.Scope scope$) =>
+    () => kPrecisePointerHitSlop;
+Function _kPrecisePointerPanSlop$(m.Scope scope$) =>
+    () => kPrecisePointerPanSlop;
+Function _kPrecisePointerScaleSlop$(m.Scope scope$) =>
+    () => kPrecisePointerScaleSlop;

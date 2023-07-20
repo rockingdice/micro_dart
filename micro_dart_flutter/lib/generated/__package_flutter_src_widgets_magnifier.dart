@@ -23,7 +23,6 @@ const libraryMirror = m.LibraryMirror(
         _TextMagnifierConfiguration_disabled$,
     'TextMagnifierConfiguration.': _TextMagnifierConfiguration__$,
     'MagnifierController.': _MagnifierController__$,
-    'MagnifierController.show': _MagnifierController_show$,
     'MagnifierController.shiftWithinBounds':
         _MagnifierController_shiftWithinBounds$,
     'MagnifierDecoration.': _MagnifierDecoration__$,
@@ -64,6 +63,7 @@ const libraryMirror = m.LibraryMirror(
         'animationController': _MagnifierController_animationController$,
         'overlayEntry': _MagnifierController_overlayEntry$,
         'shown': _MagnifierController_shown$,
+        'show': _MagnifierController_show$,
         'hide': _MagnifierController_hide$,
         'removeFromOverlay': _MagnifierController_removeFromOverlay$,
       },
@@ -106,10 +106,7 @@ Function MagnifierInfo_is$(
   dynamic target$,
 ) =>
     () => target$ is MagnifierInfo;
-MagnifierInfo _MagnifierInfo_empty$() {
-  return MagnifierInfo.empty;
-}
-
+Function _MagnifierInfo_empty$(m.Scope scope$) => () => MagnifierInfo.empty;
 Function _MagnifierInfo_globalGesturePosition$(
   m.Scope scope$,
   MagnifierInfo target$,
@@ -180,10 +177,8 @@ Function _TextMagnifierConfiguration_shouldDisplayHandlesInMagnifier$(
     () {
       return target$.shouldDisplayHandlesInMagnifier;
     };
-TextMagnifierConfiguration _TextMagnifierConfiguration_disabled$() {
-  return TextMagnifierConfiguration.disabled;
-}
-
+Function _TextMagnifierConfiguration_disabled$(m.Scope scope$) =>
+    () => TextMagnifierConfiguration.disabled;
 Function _TextMagnifierConfiguration_magnifierBuilder$(
   m.Scope scope$,
   TextMagnifierConfiguration target$,

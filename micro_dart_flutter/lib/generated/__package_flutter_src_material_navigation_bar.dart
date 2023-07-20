@@ -363,22 +363,12 @@ Function _NavigationIndicator_build$(
   NavigationIndicator target$,
 ) =>
     target$.build;
-NavigationDestinationLabelBehavior
-    _NavigationDestinationLabelBehavior_alwaysShow$() {
-  return NavigationDestinationLabelBehavior.alwaysShow;
-}
-
-NavigationDestinationLabelBehavior
-    _NavigationDestinationLabelBehavior_alwaysHide$() {
-  return NavigationDestinationLabelBehavior.alwaysHide;
-}
-
-NavigationDestinationLabelBehavior
-    _NavigationDestinationLabelBehavior_onlyShowSelected$() {
-  return NavigationDestinationLabelBehavior.onlyShowSelected;
-}
-
-List<NavigationDestinationLabelBehavior>
-    _NavigationDestinationLabelBehavior_values$() {
-  return NavigationDestinationLabelBehavior.values;
-}
+Function _NavigationDestinationLabelBehavior_alwaysShow$(m.Scope scope$) =>
+    () => NavigationDestinationLabelBehavior.alwaysShow;
+Function _NavigationDestinationLabelBehavior_alwaysHide$(m.Scope scope$) =>
+    () => NavigationDestinationLabelBehavior.alwaysHide;
+Function _NavigationDestinationLabelBehavior_onlyShowSelected$(
+        m.Scope scope$) =>
+    () => NavigationDestinationLabelBehavior.onlyShowSelected;
+Function _NavigationDestinationLabelBehavior_values$(m.Scope scope$) =>
+    () => NavigationDestinationLabelBehavior.values;

@@ -195,12 +195,12 @@ Function GestureRecognizerFactoryWithHandlers_is$<T extends GestureRecognizer>(
   dynamic target$,
 ) =>
     () => target$ is GestureRecognizerFactoryWithHandlers<T>;
-Function _GestureRecognizerFactoryWithHandlers__$(m.Scope scope$) => (
+Function _GestureRecognizerFactoryWithHandlers__$(m.Scope scope$) =>
+    <T extends GestureRecognizer>(
       m.FunctionPointer _constructor,
       m.FunctionPointer _initializer,
     ) {
-      GestureRecognizer _constructorProxy() =>
-          scope$.engine.callFunctionPointer(
+      T _constructorProxy() => scope$.engine.callFunctionPointer(
             scope$,
             _constructor,
             [],
@@ -213,7 +213,7 @@ Function _GestureRecognizerFactoryWithHandlers__$(m.Scope scope$) => (
             [_initializer_instance$],
             {},
           );
-      return GestureRecognizerFactoryWithHandlers(
+      return GestureRecognizerFactoryWithHandlers<T>(
         _constructorProxy,
         _initializerProxy,
       );

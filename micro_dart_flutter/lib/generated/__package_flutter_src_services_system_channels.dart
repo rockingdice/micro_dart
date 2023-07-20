@@ -50,70 +50,34 @@ Function SystemChannels_is$(
   dynamic target$,
 ) =>
     () => target$ is SystemChannels;
-MethodChannel _SystemChannels_navigation$() {
-  return SystemChannels.navigation;
-}
-
-MethodChannel _SystemChannels_platform$() {
-  return SystemChannels.platform;
-}
-
-MethodChannel _SystemChannels_textInput$() {
-  return SystemChannels.textInput;
-}
-
-MethodChannel _SystemChannels_spellCheck$() {
-  return SystemChannels.spellCheck;
-}
-
-MethodChannel _SystemChannels_undoManager$() {
-  return SystemChannels.undoManager;
-}
-
-BasicMessageChannel<Object?> _SystemChannels_keyEvent$() {
-  return SystemChannels.keyEvent;
-}
-
-BasicMessageChannel<String?> _SystemChannels_lifecycle$() {
-  return SystemChannels.lifecycle;
-}
-
-BasicMessageChannel<Object?> _SystemChannels_system$() {
-  return SystemChannels.system;
-}
-
-BasicMessageChannel<Object?> _SystemChannels_accessibility$() {
-  return SystemChannels.accessibility;
-}
-
-MethodChannel _SystemChannels_platform_views$() {
-  return SystemChannels.platform_views;
-}
-
-MethodChannel _SystemChannels_skia$() {
-  return SystemChannels.skia;
-}
-
-MethodChannel _SystemChannels_mouseCursor$() {
-  return SystemChannels.mouseCursor;
-}
-
-MethodChannel _SystemChannels_restoration$() {
-  return SystemChannels.restoration;
-}
-
-MethodChannel _SystemChannels_deferredComponent$() {
-  return SystemChannels.deferredComponent;
-}
-
-MethodChannel _SystemChannels_localization$() {
-  return SystemChannels.localization;
-}
-
-MethodChannel _SystemChannels_menu$() {
-  return SystemChannels.menu;
-}
-
-MethodChannel _SystemChannels_contextMenu$() {
-  return SystemChannels.contextMenu;
-}
+Function _SystemChannels_navigation$(m.Scope scope$) =>
+    () => SystemChannels.navigation;
+Function _SystemChannels_platform$(m.Scope scope$) =>
+    () => SystemChannels.platform;
+Function _SystemChannels_textInput$(m.Scope scope$) =>
+    () => SystemChannels.textInput;
+Function _SystemChannels_spellCheck$(m.Scope scope$) =>
+    () => SystemChannels.spellCheck;
+Function _SystemChannels_undoManager$(m.Scope scope$) =>
+    () => SystemChannels.undoManager;
+Function _SystemChannels_keyEvent$(m.Scope scope$) =>
+    () => SystemChannels.keyEvent;
+Function _SystemChannels_lifecycle$(m.Scope scope$) =>
+    () => SystemChannels.lifecycle;
+Function _SystemChannels_system$(m.Scope scope$) => () => SystemChannels.system;
+Function _SystemChannels_accessibility$(m.Scope scope$) =>
+    () => SystemChannels.accessibility;
+Function _SystemChannels_platform_views$(m.Scope scope$) =>
+    () => SystemChannels.platform_views;
+Function _SystemChannels_skia$(m.Scope scope$) => () => SystemChannels.skia;
+Function _SystemChannels_mouseCursor$(m.Scope scope$) =>
+    () => SystemChannels.mouseCursor;
+Function _SystemChannels_restoration$(m.Scope scope$) =>
+    () => SystemChannels.restoration;
+Function _SystemChannels_deferredComponent$(m.Scope scope$) =>
+    () => SystemChannels.deferredComponent;
+Function _SystemChannels_localization$(m.Scope scope$) =>
+    () => SystemChannels.localization;
+Function _SystemChannels_menu$(m.Scope scope$) => () => SystemChannels.menu;
+Function _SystemChannels_contextMenu$(m.Scope scope$) =>
+    () => SystemChannels.contextMenu;

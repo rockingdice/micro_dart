@@ -22,8 +22,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'FlutterLogoDecoration.': _FlutterLogoDecoration__$,
     'FlutterLogoDecoration.lerp': _FlutterLogoDecoration_lerp$,
-    'FlutterLogoDecoration.createBoxPainter':
-        _FlutterLogoDecoration_createBoxPainter$,
     'FlutterLogoStyle.markOnly': _FlutterLogoStyle_markOnly$,
     'FlutterLogoStyle.horizontal': _FlutterLogoStyle_horizontal$,
     'FlutterLogoStyle.stacked': _FlutterLogoStyle_stacked$,
@@ -45,6 +43,7 @@ const libraryMirror = m.LibraryMirror(
         'lerpFrom': _FlutterLogoDecoration_lerpFrom$,
         'lerpTo': _FlutterLogoDecoration_lerpTo$,
         'hitTest': _FlutterLogoDecoration_hitTest$,
+        'createBoxPainter': _FlutterLogoDecoration_createBoxPainter$,
         'getClipPath': _FlutterLogoDecoration_getClipPath$,
         '==': _FlutterLogoDecoration_eq$$,
         'debugFillProperties': _FlutterLogoDecoration_debugFillProperties$,
@@ -168,18 +167,11 @@ Function _FlutterLogoDecoration_debugFillProperties$(
   FlutterLogoDecoration target$,
 ) =>
     target$.debugFillProperties;
-FlutterLogoStyle _FlutterLogoStyle_markOnly$() {
-  return FlutterLogoStyle.markOnly;
-}
-
-FlutterLogoStyle _FlutterLogoStyle_horizontal$() {
-  return FlutterLogoStyle.horizontal;
-}
-
-FlutterLogoStyle _FlutterLogoStyle_stacked$() {
-  return FlutterLogoStyle.stacked;
-}
-
-List<FlutterLogoStyle> _FlutterLogoStyle_values$() {
-  return FlutterLogoStyle.values;
-}
+Function _FlutterLogoStyle_markOnly$(m.Scope scope$) =>
+    () => FlutterLogoStyle.markOnly;
+Function _FlutterLogoStyle_horizontal$(m.Scope scope$) =>
+    () => FlutterLogoStyle.horizontal;
+Function _FlutterLogoStyle_stacked$(m.Scope scope$) =>
+    () => FlutterLogoStyle.stacked;
+Function _FlutterLogoStyle_values$(m.Scope scope$) =>
+    () => FlutterLogoStyle.values;

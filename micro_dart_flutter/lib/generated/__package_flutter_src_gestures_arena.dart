@@ -129,14 +129,9 @@ Function _GestureArenaManager_release$(
   GestureArenaManager target$,
 ) =>
     target$.release;
-GestureDisposition _GestureDisposition_accepted$() {
-  return GestureDisposition.accepted;
-}
-
-GestureDisposition _GestureDisposition_rejected$() {
-  return GestureDisposition.rejected;
-}
-
-List<GestureDisposition> _GestureDisposition_values$() {
-  return GestureDisposition.values;
-}
+Function _GestureDisposition_accepted$(m.Scope scope$) =>
+    () => GestureDisposition.accepted;
+Function _GestureDisposition_rejected$(m.Scope scope$) =>
+    () => GestureDisposition.rejected;
+Function _GestureDisposition_values$(m.Scope scope$) =>
+    () => GestureDisposition.values;

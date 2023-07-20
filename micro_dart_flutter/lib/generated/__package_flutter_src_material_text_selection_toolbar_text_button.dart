@@ -15,8 +15,6 @@ const libraryMirror = m.LibraryMirror(
     'TextSelectionToolbarTextButton.': _TextSelectionToolbarTextButton__$,
     'TextSelectionToolbarTextButton.getPadding':
         _TextSelectionToolbarTextButton_getPadding$,
-    'TextSelectionToolbarTextButton.copyWith':
-        _TextSelectionToolbarTextButton_copyWith$,
   },
   {},
   {
@@ -29,6 +27,7 @@ const libraryMirror = m.LibraryMirror(
         'onPressed': _TextSelectionToolbarTextButton_onPressed$,
         'padding': _TextSelectionToolbarTextButton_padding$,
         'alignment': _TextSelectionToolbarTextButton_alignment$,
+        'copyWith': _TextSelectionToolbarTextButton_copyWith$,
         'build': _TextSelectionToolbarTextButton_build$,
       },
       {},

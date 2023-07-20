@@ -496,10 +496,13 @@ Function UnmodifiableListView_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is UnmodifiableListView<E>;
-int _UnmodifiableListView_length$<E>(UnmodifiableListView<E> target$) {
-  return target$.length;
-}
-
+Function _UnmodifiableListView_length$<E>(
+  m.Scope scope$,
+  UnmodifiableListView<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
 Function _UnmodifiableListView__$(m.Scope scope$) => (Iterable source) {
       return UnmodifiableListView(Iterable.castFrom(source));
     };
@@ -601,10 +604,13 @@ Function HashSet_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is HashSet<E>;
-Iterator<E> _HashSet_iterator$<E>(HashSet<E> target$) {
-  return target$.iterator;
-}
-
+Function _HashSet_iterator$<E>(
+  m.Scope scope$,
+  HashSet<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
 Function _HashSet__$(m.Scope scope$) => ({
       m.FunctionPointer? equals,
       m.FunctionPointer? hashCode,
@@ -736,10 +742,13 @@ Function LinkedHashSet_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is LinkedHashSet<E>;
-Iterator<E> _LinkedHashSet_iterator$<E>(LinkedHashSet<E> target$) {
-  return target$.iterator;
-}
-
+Function _LinkedHashSet_iterator$<E>(
+  m.Scope scope$,
+  LinkedHashSet<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
 Function _LinkedHashSet__$(m.Scope scope$) => ({
       m.FunctionPointer? equals,
       m.FunctionPointer? hashCode,
@@ -805,31 +814,48 @@ Function LinkedList_is$<E extends LinkedListEntry<E>>(
   dynamic target$,
 ) =>
     () => target$ is LinkedList<E>;
-Iterator<E> _LinkedList_iterator$<E extends LinkedListEntry<E>>(
-    LinkedList<E> target$) {
-  return target$.iterator;
-}
-
-int _LinkedList_length$<E extends LinkedListEntry<E>>(LinkedList<E> target$) {
-  return target$.length;
-}
-
-E _LinkedList_first$<E extends LinkedListEntry<E>>(LinkedList<E> target$) {
-  return target$.first;
-}
-
-E _LinkedList_last$<E extends LinkedListEntry<E>>(LinkedList<E> target$) {
-  return target$.last;
-}
-
-E _LinkedList_single$<E extends LinkedListEntry<E>>(LinkedList<E> target$) {
-  return target$.single;
-}
-
-bool _LinkedList_isEmpty$<E extends LinkedListEntry<E>>(LinkedList<E> target$) {
-  return target$.isEmpty;
-}
-
+Function _LinkedList_iterator$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _LinkedList_length$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _LinkedList_first$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _LinkedList_last$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _LinkedList_single$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
+Function _LinkedList_isEmpty$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedList<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
 Function _LinkedList__$(m.Scope scope$) => <E extends LinkedListEntry<E>>() {
       return LinkedList<E>();
     };
@@ -887,21 +913,27 @@ Function LinkedListEntry_is$<E extends LinkedListEntry<E>>(
   dynamic target$,
 ) =>
     () => target$ is LinkedListEntry<E>;
-LinkedList<E>? _LinkedListEntry_list$<E extends LinkedListEntry<E>>(
-    LinkedListEntry<E> target$) {
-  return target$.list;
-}
-
-E? _LinkedListEntry_next$<E extends LinkedListEntry<E>>(
-    LinkedListEntry<E> target$) {
-  return target$.next;
-}
-
-E? _LinkedListEntry_previous$<E extends LinkedListEntry<E>>(
-    LinkedListEntry<E> target$) {
-  return target$.previous;
-}
-
+Function _LinkedListEntry_list$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedListEntry<E> target$,
+) =>
+    () {
+      return target$.list;
+    };
+Function _LinkedListEntry_next$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedListEntry<E> target$,
+) =>
+    () {
+      return target$.next;
+    };
+Function _LinkedListEntry_previous$<E extends LinkedListEntry<E>>(
+  m.Scope scope$,
+  LinkedListEntry<E> target$,
+) =>
+    () {
+      return target$.previous;
+    };
 Function _LinkedListEntry_unlink$<E extends LinkedListEntry<E>>(
   m.Scope scope$,
   LinkedListEntry<E> target$,
@@ -927,48 +959,69 @@ Function ListBase_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is ListBase<E>;
-Iterator<E> _ListBase_iterator$<E>(ListBase<E> target$) {
-  return target$.iterator;
-}
-
-bool _ListBase_isEmpty$<E>(ListBase<E> target$) {
-  return target$.isEmpty;
-}
-
-bool _ListBase_isNotEmpty$<E>(ListBase<E> target$) {
-  return target$.isNotEmpty;
-}
-
-E _ListBase_first$<E>(ListBase<E> target$) {
-  return target$.first;
-}
-
+Function _ListBase_iterator$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _ListBase_isEmpty$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _ListBase_isNotEmpty$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _ListBase_first$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
 void _ListBase_first_set$<E>(
+  m.Scope scope$,
   ListBase target$,
-  dynamic other$,
-) {
-  target$.first = other$;
-}
-
-E _ListBase_last$<E>(ListBase<E> target$) {
-  return target$.last;
-}
-
+) =>
+    (dynamic other$) {
+      target$.first = other$;
+    };
+Function _ListBase_last$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
 void _ListBase_last_set$<E>(
+  m.Scope scope$,
   ListBase target$,
-  dynamic other$,
-) {
-  target$.last = other$;
-}
-
-E _ListBase_single$<E>(ListBase<E> target$) {
-  return target$.single;
-}
-
-Iterable<E> _ListBase_reversed$<E>(ListBase<E> target$) {
-  return target$.reversed;
-}
-
+) =>
+    (dynamic other$) {
+      target$.last = other$;
+    };
+Function _ListBase_single$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
+Function _ListBase_reversed$<E>(
+  m.Scope scope$,
+  ListBase<E> target$,
+) =>
+    () {
+      return target$.reversed;
+    };
 Function _ListBase_elementAt$<E>(
   m.Scope scope$,
   ListBase<E> target$,
@@ -1467,30 +1520,48 @@ Function MapBase_is$<K, V>(
   dynamic target$,
 ) =>
     () => target$ is MapBase<K, V>;
-Iterable<K> _MapBase_keys$<K, V>(MapBase<K, V> target$) {
-  return target$.keys;
-}
-
-Iterable<MapEntry<K, V>> _MapBase_entries$<K, V>(MapBase<K, V> target$) {
-  return target$.entries;
-}
-
-int _MapBase_length$<K, V>(MapBase<K, V> target$) {
-  return target$.length;
-}
-
-bool _MapBase_isEmpty$<K, V>(MapBase<K, V> target$) {
-  return target$.isEmpty;
-}
-
-bool _MapBase_isNotEmpty$<K, V>(MapBase<K, V> target$) {
-  return target$.isNotEmpty;
-}
-
-Iterable<V> _MapBase_values$<K, V>(MapBase<K, V> target$) {
-  return target$.values;
-}
-
+Function _MapBase_keys$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.keys;
+    };
+Function _MapBase_entries$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.entries;
+    };
+Function _MapBase_length$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _MapBase_isEmpty$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _MapBase_isNotEmpty$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _MapBase_values$<K, V>(
+  m.Scope scope$,
+  MapBase<K, V> target$,
+) =>
+    () {
+      return target$.values;
+    };
 Function _MapBase_$index$$<K, V>(
   m.Scope scope$,
   MapBase<K, V> target$,
@@ -1693,30 +1764,48 @@ Function MapView_is$<K, V>(
   dynamic target$,
 ) =>
     () => target$ is MapView<K, V>;
-bool _MapView_isEmpty$<K, V>(MapView<K, V> target$) {
-  return target$.isEmpty;
-}
-
-bool _MapView_isNotEmpty$<K, V>(MapView<K, V> target$) {
-  return target$.isNotEmpty;
-}
-
-int _MapView_length$<K, V>(MapView<K, V> target$) {
-  return target$.length;
-}
-
-Iterable<K> _MapView_keys$<K, V>(MapView<K, V> target$) {
-  return target$.keys;
-}
-
-Iterable<V> _MapView_values$<K, V>(MapView<K, V> target$) {
-  return target$.values;
-}
-
-Iterable<MapEntry<K, V>> _MapView_entries$<K, V>(MapView<K, V> target$) {
-  return target$.entries;
-}
-
+Function _MapView_isEmpty$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _MapView_isNotEmpty$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _MapView_length$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _MapView_keys$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.keys;
+    };
+Function _MapView_values$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.values;
+    };
+Function _MapView_entries$<K, V>(
+  m.Scope scope$,
+  MapView<K, V> target$,
+) =>
+    () {
+      return target$.entries;
+    };
 Function _MapView__$(m.Scope scope$) => (Map map) {
       return MapView(Map.from(map));
     };
@@ -2018,30 +2107,48 @@ Function DoubleLinkedQueue_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is DoubleLinkedQueue<E>;
-int _DoubleLinkedQueue_length$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.length;
-}
-
-E _DoubleLinkedQueue_first$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.first;
-}
-
-E _DoubleLinkedQueue_last$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.last;
-}
-
-E _DoubleLinkedQueue_single$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.single;
-}
-
-bool _DoubleLinkedQueue_isEmpty$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.isEmpty;
-}
-
-dynamic _DoubleLinkedQueue_iterator$<E>(DoubleLinkedQueue<E> target$) {
-  return target$.iterator;
-}
-
+Function _DoubleLinkedQueue_length$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _DoubleLinkedQueue_first$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _DoubleLinkedQueue_last$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _DoubleLinkedQueue_single$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
+Function _DoubleLinkedQueue_isEmpty$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _DoubleLinkedQueue_iterator$<E>(
+  m.Scope scope$,
+  DoubleLinkedQueue<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
 Function _DoubleLinkedQueue__$(m.Scope scope$) => () {
       return DoubleLinkedQueue();
     };
@@ -2159,30 +2266,48 @@ Function ListQueue_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is ListQueue<E>;
-Iterator<E> _ListQueue_iterator$<E>(ListQueue<E> target$) {
-  return target$.iterator;
-}
-
-bool _ListQueue_isEmpty$<E>(ListQueue<E> target$) {
-  return target$.isEmpty;
-}
-
-int _ListQueue_length$<E>(ListQueue<E> target$) {
-  return target$.length;
-}
-
-E _ListQueue_first$<E>(ListQueue<E> target$) {
-  return target$.first;
-}
-
-E _ListQueue_last$<E>(ListQueue<E> target$) {
-  return target$.last;
-}
-
-E _ListQueue_single$<E>(ListQueue<E> target$) {
-  return target$.single;
-}
-
+Function _ListQueue_iterator$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _ListQueue_isEmpty$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _ListQueue_length$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _ListQueue_first$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _ListQueue_last$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _ListQueue_single$<E>(
+  m.Scope scope$,
+  ListQueue<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
 Function _ListQueue__$(m.Scope scope$) => ([int? initialCapacity]) {
       if (initialCapacity == null) {
         return ListQueue();
@@ -2302,34 +2427,55 @@ Function SetBase_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is SetBase<E>;
-Iterator<E> _SetBase_iterator$<E>(SetBase<E> target$) {
-  return target$.iterator;
-}
-
-int _SetBase_length$<E>(SetBase<E> target$) {
-  return target$.length;
-}
-
-bool _SetBase_isEmpty$<E>(SetBase<E> target$) {
-  return target$.isEmpty;
-}
-
-bool _SetBase_isNotEmpty$<E>(SetBase<E> target$) {
-  return target$.isNotEmpty;
-}
-
-E _SetBase_single$<E>(SetBase<E> target$) {
-  return target$.single;
-}
-
-E _SetBase_first$<E>(SetBase<E> target$) {
-  return target$.first;
-}
-
-E _SetBase_last$<E>(SetBase<E> target$) {
-  return target$.last;
-}
-
+Function _SetBase_iterator$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _SetBase_length$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _SetBase_isEmpty$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _SetBase_isNotEmpty$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _SetBase_single$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
+Function _SetBase_first$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _SetBase_last$<E>(
+  m.Scope scope$,
+  SetBase<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
 Function _SetBase_add$<E>(
   m.Scope scope$,
   SetBase<E> target$,
@@ -2705,14 +2851,20 @@ Function UnmodifiableSetView_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is UnmodifiableSetView<E>;
-int _UnmodifiableSetView_length$<E>(UnmodifiableSetView<E> target$) {
-  return target$.length;
-}
-
-Iterator<E> _UnmodifiableSetView_iterator$<E>(UnmodifiableSetView<E> target$) {
-  return target$.iterator;
-}
-
+Function _UnmodifiableSetView_length$<E>(
+  m.Scope scope$,
+  UnmodifiableSetView<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _UnmodifiableSetView_iterator$<E>(
+  m.Scope scope$,
+  UnmodifiableSetView<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
 Function _UnmodifiableSetView__$(m.Scope scope$) => (Set source) {
       return UnmodifiableSetView(Set.from(source));
     };
@@ -2741,31 +2893,48 @@ Function SplayTreeMap_is$<K, V>(
   dynamic target$,
 ) =>
     () => target$ is SplayTreeMap<K, V>;
-bool _SplayTreeMap_isEmpty$<K, V>(SplayTreeMap<K, V> target$) {
-  return target$.isEmpty;
-}
-
-bool _SplayTreeMap_isNotEmpty$<K, V>(SplayTreeMap<K, V> target$) {
-  return target$.isNotEmpty;
-}
-
-int _SplayTreeMap_length$<K, V>(SplayTreeMap<K, V> target$) {
-  return target$.length;
-}
-
-Iterable<K> _SplayTreeMap_keys$<K, V>(SplayTreeMap<K, V> target$) {
-  return target$.keys;
-}
-
-Iterable<V> _SplayTreeMap_values$<K, V>(SplayTreeMap<K, V> target$) {
-  return target$.values;
-}
-
-Iterable<MapEntry<K, V>> _SplayTreeMap_entries$<K, V>(
-    SplayTreeMap<K, V> target$) {
-  return target$.entries;
-}
-
+Function _SplayTreeMap_isEmpty$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _SplayTreeMap_isNotEmpty$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _SplayTreeMap_length$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _SplayTreeMap_keys$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.keys;
+    };
+Function _SplayTreeMap_values$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.values;
+    };
+Function _SplayTreeMap_entries$<K, V>(
+  m.Scope scope$,
+  SplayTreeMap<K, V> target$,
+) =>
+    () {
+      return target$.entries;
+    };
 Function _SplayTreeMap__$(m.Scope scope$) => ([
       m.FunctionPointer? compare,
       m.FunctionPointer? isValidKey,
@@ -3132,34 +3301,55 @@ Function SplayTreeSet_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is SplayTreeSet<E>;
-Iterator<E> _SplayTreeSet_iterator$<E>(SplayTreeSet<E> target$) {
-  return target$.iterator;
-}
-
-int _SplayTreeSet_length$<E>(SplayTreeSet<E> target$) {
-  return target$.length;
-}
-
-bool _SplayTreeSet_isEmpty$<E>(SplayTreeSet<E> target$) {
-  return target$.isEmpty;
-}
-
-bool _SplayTreeSet_isNotEmpty$<E>(SplayTreeSet<E> target$) {
-  return target$.isNotEmpty;
-}
-
-E _SplayTreeSet_first$<E>(SplayTreeSet<E> target$) {
-  return target$.first;
-}
-
-E _SplayTreeSet_last$<E>(SplayTreeSet<E> target$) {
-  return target$.last;
-}
-
-E _SplayTreeSet_single$<E>(SplayTreeSet<E> target$) {
-  return target$.single;
-}
-
+Function _SplayTreeSet_iterator$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _SplayTreeSet_length$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _SplayTreeSet_isEmpty$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _SplayTreeSet_isNotEmpty$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _SplayTreeSet_first$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _SplayTreeSet_last$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _SplayTreeSet_single$<E>(
+  m.Scope scope$,
+  SplayTreeSet<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
 Function _SplayTreeSet__$(m.Scope scope$) => ([
       m.FunctionPointer? compare,
       m.FunctionPointer? isValidKey,

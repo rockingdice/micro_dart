@@ -19,8 +19,6 @@ const libraryMirror = m.LibraryMirror(
         _materialTextSelectionHandleControls$,
     'materialTextSelectionControls': _materialTextSelectionControls$,
     'MaterialTextSelectionControls.': _MaterialTextSelectionControls__$,
-    'MaterialTextSelectionControls.buildHandle':
-        _MaterialTextSelectionControls_buildHandle$,
   },
   {},
   {
@@ -30,20 +28,17 @@ const libraryMirror = m.LibraryMirror(
         '#as': MaterialTextSelectionControls_as$,
         '#is': MaterialTextSelectionControls_is$,
         'getHandleSize': _MaterialTextSelectionControls_getHandleSize$,
+        'buildHandle': _MaterialTextSelectionControls_buildHandle$,
         'getHandleAnchor': _MaterialTextSelectionControls_getHandleAnchor$,
       },
       {},
     )
   },
 );
-TextSelectionControls _materialTextSelectionHandleControls$() {
-  return materialTextSelectionHandleControls;
-}
-
-TextSelectionControls _materialTextSelectionControls$() {
-  return materialTextSelectionControls;
-}
-
+Function _materialTextSelectionHandleControls$(m.Scope scope$) =>
+    () => materialTextSelectionHandleControls;
+Function _materialTextSelectionControls$(m.Scope scope$) =>
+    () => materialTextSelectionControls;
 Function MaterialTextSelectionControls_as$(
   m.Scope scope$,
   dynamic target$,

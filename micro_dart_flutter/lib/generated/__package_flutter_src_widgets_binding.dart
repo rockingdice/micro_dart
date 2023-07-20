@@ -34,8 +34,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'RenderObjectToWidgetAdapter.': _RenderObjectToWidgetAdapter__$,
     'RenderObjectToWidgetElement.': _RenderObjectToWidgetElement__$,
-    'RenderObjectToWidgetElement.visitChildren':
-        _RenderObjectToWidgetElement_visitChildren$,
     'WidgetsFlutterBinding.': _WidgetsFlutterBinding__$,
     'WidgetsFlutterBinding.ensureInitialized':
         _WidgetsFlutterBinding_ensureInitialized$,
@@ -91,6 +89,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': RenderObjectToWidgetElement_as$,
         '#is': RenderObjectToWidgetElement_is$,
         'renderObject': _RenderObjectToWidgetElement_renderObject$,
+        'visitChildren': _RenderObjectToWidgetElement_visitChildren$,
         'forgetChild': _RenderObjectToWidgetElement_forgetChild$,
         'mount': _RenderObjectToWidgetElement_mount$,
         'update': _RenderObjectToWidgetElement_update$,

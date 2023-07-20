@@ -46,7 +46,6 @@ const libraryMirror = m.LibraryMirror(
     'Timeline.startSync': _Timeline_startSync$,
     'Timeline.finishSync': _Timeline_finishSync$,
     'Timeline.instantSync': _Timeline_instantSync$,
-    'Timeline.timeSync': _Timeline_timeSync$,
     'TimelineTask.': _TimelineTask__$,
     'TimelineTask.withTaskId': _TimelineTask_withTaskId_$,
   },
@@ -117,6 +116,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': Timeline_as$,
         '#is': Timeline_is$,
+        'timeSync': _Timeline_timeSync$,
       },
       {},
     ),
@@ -134,10 +134,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-int _reachabilityBarrier$() {
-  return reachabilityBarrier;
-}
-
+Function _reachabilityBarrier$(m.Scope scope$) => () => reachabilityBarrier;
 Function NativeRuntime_as$(
   m.Scope scope$,
   dynamic target$,
@@ -153,10 +150,8 @@ Function _NativeRuntime_writeHeapSnapshotToFile$(m.Scope scope$) =>
 Function _debugger$(m.Scope scope$) => debugger;
 Function _inspect$(m.Scope scope$) => inspect;
 Function _log$(m.Scope scope$) => log;
-bool _extensionStreamHasListener$() {
-  return extensionStreamHasListener;
-}
-
+Function _extensionStreamHasListener$(m.Scope scope$) =>
+    () => extensionStreamHasListener;
 Function ServiceExtensionResponse_as$(
   m.Scope scope$,
   dynamic target$,
@@ -188,22 +183,14 @@ Function _ServiceExtensionResponse_errorDetail$(
     () {
       return target$.errorDetail;
     };
-int _ServiceExtensionResponse_invalidParams$() {
-  return ServiceExtensionResponse.invalidParams;
-}
-
-int _ServiceExtensionResponse_extensionError$() {
-  return ServiceExtensionResponse.extensionError;
-}
-
-int _ServiceExtensionResponse_extensionErrorMax$() {
-  return ServiceExtensionResponse.extensionErrorMax;
-}
-
-int _ServiceExtensionResponse_extensionErrorMin$() {
-  return ServiceExtensionResponse.extensionErrorMin;
-}
-
+Function _ServiceExtensionResponse_invalidParams$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.invalidParams;
+Function _ServiceExtensionResponse_extensionError$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionError;
+Function _ServiceExtensionResponse_extensionErrorMax$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionErrorMax;
+Function _ServiceExtensionResponse_extensionErrorMin$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionErrorMin;
 Function _ServiceExtensionResponse_result_$(m.Scope scope$) =>
     ServiceExtensionResponse.result;
 Function _ServiceExtensionResponse_error_$(m.Scope scope$) =>
@@ -246,10 +233,7 @@ Function UserTag_is$(
   dynamic target$,
 ) =>
     () => target$ is UserTag;
-int _UserTag_maxUserTags$() {
-  return UserTag.maxUserTags;
-}
-
+Function _UserTag_maxUserTags$(m.Scope scope$) => () => UserTag.maxUserTags;
 Function _UserTag_label$(
   m.Scope scope$,
   UserTag target$,
@@ -257,10 +241,7 @@ Function _UserTag_label$(
     () {
       return target$.label;
     };
-UserTag _UserTag_defaultTag$() {
-  return UserTag.defaultTag;
-}
-
+Function _UserTag_defaultTag$(m.Scope scope$) => () => UserTag.defaultTag;
 Function _UserTag__$(m.Scope scope$) => (String label) {
       return UserTag(label);
     };
@@ -362,10 +343,7 @@ Function Timeline_is$(
   dynamic target$,
 ) =>
     () => target$ is Timeline;
-int _Timeline_now$() {
-  return Timeline.now;
-}
-
+Function _Timeline_now$(m.Scope scope$) => () => Timeline.now;
 Function _Timeline_startSync$(m.Scope scope$) => Timeline.startSync;
 Function _Timeline_finishSync$(m.Scope scope$) => Timeline.finishSync;
 Function _Timeline_instantSync$(m.Scope scope$) => Timeline.instantSync;

@@ -8,11 +8,7 @@ import 'package:flutter/src/gestures/events.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/resampler.dart',
-  {
-    'PointerEventResampler.': _PointerEventResampler__$,
-    'PointerEventResampler.sample': _PointerEventResampler_sample$,
-    'PointerEventResampler.stop': _PointerEventResampler_stop$,
-  },
+  {'PointerEventResampler.': _PointerEventResampler__$},
   {},
   {
     'PointerEventResampler': m.ClassMirror(
@@ -24,6 +20,8 @@ const libraryMirror = m.LibraryMirror(
         'isTracked': _PointerEventResampler_isTracked$,
         'isDown': _PointerEventResampler_isDown$,
         'addEvent': _PointerEventResampler_addEvent$,
+        'sample': _PointerEventResampler_sample$,
+        'stop': _PointerEventResampler_stop$,
       },
       {},
     )

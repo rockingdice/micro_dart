@@ -201,22 +201,13 @@ Function _RenderAnimatedSize_dispose$(
   RenderAnimatedSize target$,
 ) =>
     target$.dispose;
-RenderAnimatedSizeState _RenderAnimatedSizeState_start$() {
-  return RenderAnimatedSizeState.start;
-}
-
-RenderAnimatedSizeState _RenderAnimatedSizeState_stable$() {
-  return RenderAnimatedSizeState.stable;
-}
-
-RenderAnimatedSizeState _RenderAnimatedSizeState_changed$() {
-  return RenderAnimatedSizeState.changed;
-}
-
-RenderAnimatedSizeState _RenderAnimatedSizeState_unstable$() {
-  return RenderAnimatedSizeState.unstable;
-}
-
-List<RenderAnimatedSizeState> _RenderAnimatedSizeState_values$() {
-  return RenderAnimatedSizeState.values;
-}
+Function _RenderAnimatedSizeState_start$(m.Scope scope$) =>
+    () => RenderAnimatedSizeState.start;
+Function _RenderAnimatedSizeState_stable$(m.Scope scope$) =>
+    () => RenderAnimatedSizeState.stable;
+Function _RenderAnimatedSizeState_changed$(m.Scope scope$) =>
+    () => RenderAnimatedSizeState.changed;
+Function _RenderAnimatedSizeState_unstable$(m.Scope scope$) =>
+    () => RenderAnimatedSizeState.unstable;
+Function _RenderAnimatedSizeState_values$(m.Scope scope$) =>
+    () => RenderAnimatedSizeState.values;

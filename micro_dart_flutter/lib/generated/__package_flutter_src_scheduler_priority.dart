@@ -38,22 +38,10 @@ Function Priority_is$(
   dynamic target$,
 ) =>
     () => target$ is Priority;
-Priority _Priority_idle$() {
-  return Priority.idle;
-}
-
-Priority _Priority_animation$() {
-  return Priority.animation;
-}
-
-Priority _Priority_touch$() {
-  return Priority.touch;
-}
-
-int _Priority_kMaxOffset$() {
-  return Priority.kMaxOffset;
-}
-
+Function _Priority_idle$(m.Scope scope$) => () => Priority.idle;
+Function _Priority_animation$(m.Scope scope$) => () => Priority.animation;
+Function _Priority_touch$(m.Scope scope$) => () => Priority.touch;
+Function _Priority_kMaxOffset$(m.Scope scope$) => () => Priority.kMaxOffset;
 Function _Priority_value$(
   m.Scope scope$,
   Priority target$,

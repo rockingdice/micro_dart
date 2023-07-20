@@ -12,11 +12,7 @@ import 'package:flutter/src/rendering/object.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/mouse_tracker.dart',
-  {
-    'MouseTracker.': _MouseTracker__$,
-    'MouseTracker.updateWithEvent': _MouseTracker_updateWithEvent$,
-    'MouseTracker.updateAllDevices': _MouseTracker_updateAllDevices$,
-  },
+  {'MouseTracker.': _MouseTracker__$},
   {},
   {
     'MouseTracker': m.ClassMirror(
@@ -25,6 +21,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': MouseTracker_as$,
         '#is': MouseTracker_is$,
         'mouseIsConnected': _MouseTracker_mouseIsConnected$,
+        'updateWithEvent': _MouseTracker_updateWithEvent$,
+        'updateAllDevices': _MouseTracker_updateAllDevices$,
         'debugDeviceActiveCursor': _MouseTracker_debugDeviceActiveCursor$,
       },
       {},

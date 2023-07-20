@@ -102,14 +102,10 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-double _kDefaultMouseScrollToScaleFactor$() {
-  return kDefaultMouseScrollToScaleFactor;
-}
-
-Offset _kDefaultTrackpadScrollToScaleFactor$() {
-  return kDefaultTrackpadScrollToScaleFactor;
-}
-
+Function _kDefaultMouseScrollToScaleFactor$(m.Scope scope$) =>
+    () => kDefaultMouseScrollToScaleFactor;
+Function _kDefaultTrackpadScrollToScaleFactor$(m.Scope scope$) =>
+    () => kDefaultTrackpadScrollToScaleFactor;
 Function ScaleStartDetails_as$(
   m.Scope scope$,
   dynamic target$,

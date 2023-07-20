@@ -918,18 +918,6 @@ class CodeGenMirror extends AbsVisitor {
           p0.body = cb.Code(" ${unaryOperatorList[element.name]![0]} target\$");
         },
       ).closure.code;
-
-      cb.TypeReference(
-        (p0) {
-          p0.symbol = name;
-          p0.types.addAll(element.typeParameters
-              .map<cb.TypeReference>((e) => cb.TypeReference(
-                    (p0) {
-                      p0.symbol = e.name;
-                    },
-                  )));
-        },
-      ).code;
     }));
     proxyGlobalMethods.add(method);
     classItem.proxyGetterList[element.name] =
@@ -1044,21 +1032,22 @@ class CodeGenMirror extends AbsVisitor {
 
       return;
     }
-    if (hasFunctionTypeParams(element.type)) {
-      functionElementWithFunctionType(element, element.isStatic,
-          (cb.Method method) {
-        proxyGlobalMethods.add(method);
-        var name = element.getNameWithClass();
-        proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
-      });
-      return;
-    }
     var classElement = element.enclosingElement as InterfaceElement;
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
     if (classItem == null) {
       throw Exception(
           "not found classItem ${element.enclosingElement.displayName}");
+    }
+    if (hasFunctionTypeParams(element.type)) {
+      functionElementWithFunctionType(element, element.isStatic,
+          (cb.Method method) {
+        proxyGlobalMethods.add(method);
+        var name = element.name;
+        classItem.proxyGetterList[name] =
+            cb.refer(element.proxyName!).expression;
+      });
+      return;
     }
 
     if (element.isStatic) {
@@ -1170,43 +1159,23 @@ class CodeGenMirror extends AbsVisitor {
 
     var method = cb.Method(((p0) {
       p0.name = element.proxyName;
-      p0.types.addAll(
-          element.typeParameters.map<cb.TypeReference>((e) => cb.TypeReference(
-                (p0) {
-                  p0.symbol = e.name;
-                  if (e.bound != null) {
-                    p0.bound = cb.refer(e.bound.toString());
-                  }
-                },
-              )));
-      var returnType = element.returnType;
-      if (returnType is InterfaceType) {
-        if (returnType.element.isPrivate) {
-          p0.returns = cb.refer("dynamic");
-        } else {
-          p0.returns = cb.refer(
-              dartTypeTargetClassName(returnType, element.typeParameters));
-        }
-      } else {
-        p0.returns = cb
-            .refer(dartTypeToClassName3(returnType, toFunctionPointer: false));
-      }
+      p0.returns = cb.refer("Function");
 
-      p0.body = cb.Block.of([
-        cb.Code("return "),
-        cb.TypeReference(
-          (p0) {
-            p0.symbol = name;
-            p0.types.addAll(element.typeParameters
-                .map<cb.TypeReference>((e) => cb.TypeReference(
-                      (p0) {
-                        p0.symbol = e.name;
-                      },
-                    )));
-          },
-        ).statement
-      ]);
+      p0.lambda = true;
+      p0.requiredParameters.add(cb.Parameter(
+        (p0) {
+          p0.name = "scope\$";
+          p0.type = cb.refer("m.Scope");
+        },
+      ));
+      p0.body = cb.Method(
+        (p0) {
+          p0.lambda = true;
+          p0.body = cb.Code(name);
+        },
+      ).closure.code;
     }));
+
     proxyGlobalMethods.add(method);
     proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
   }

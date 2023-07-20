@@ -13,7 +13,6 @@ const libraryMirror = m.LibraryMirror(
     'LicenseParagraph.': _LicenseParagraph__$,
     'LicenseEntryWithLineBreaks.': _LicenseEntryWithLineBreaks__$,
     'LicenseRegistry.licenses': _LicenseRegistry_licenses$,
-    'LicenseRegistry.addLicense': _LicenseRegistry_addLicense$,
     'LicenseRegistry.reset': _LicenseRegistry_reset$,
   },
   {},
@@ -54,6 +53,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': LicenseRegistry_as$,
         '#is': LicenseRegistry_is$,
+        'addLicense': _LicenseRegistry_addLicense$,
       },
       {},
     ),
@@ -83,10 +83,8 @@ Function _LicenseParagraph_indent$(
     () {
       return target$.indent;
     };
-int _LicenseParagraph_centeredIndent$() {
-  return LicenseParagraph.centeredIndent;
-}
-
+Function _LicenseParagraph_centeredIndent$(m.Scope scope$) =>
+    () => LicenseParagraph.centeredIndent;
 Function _LicenseParagraph__$(m.Scope scope$) => (
       String text,
       int indent,
@@ -170,10 +168,8 @@ Function LicenseRegistry_is$(
   dynamic target$,
 ) =>
     () => target$ is LicenseRegistry;
-Stream<LicenseEntry> _LicenseRegistry_licenses$() {
-  return LicenseRegistry.licenses;
-}
-
+Function _LicenseRegistry_licenses$(m.Scope scope$) =>
+    () => LicenseRegistry.licenses;
 Function _LicenseRegistry_addLicense$(m.Scope scope$) =>
     (m.FunctionPointer collector) {
       Stream<LicenseEntry> collectorProxy() =>

@@ -17,8 +17,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/overlay.dart',
   {
     'OverlayEntry.': _OverlayEntry__$,
-    'OverlayEntry.addListener': _OverlayEntry_addListener$,
-    'OverlayEntry.removeListener': _OverlayEntry_removeListener$,
     'Overlay.': _Overlay__$,
     'Overlay.of': _Overlay_of$,
     'Overlay.maybeOf': _Overlay_maybeOf$,
@@ -38,6 +36,8 @@ const libraryMirror = m.LibraryMirror(
         'opaque': _OverlayEntry_opaque$,
         'maintainState': _OverlayEntry_maintainState$,
         'mounted': _OverlayEntry_mounted$,
+        'addListener': _OverlayEntry_addListener$,
+        'removeListener': _OverlayEntry_removeListener$,
         'remove': _OverlayEntry_remove$,
         'markNeedsBuild': _OverlayEntry_markNeedsBuild$,
         'dispose': _OverlayEntry_dispose$,

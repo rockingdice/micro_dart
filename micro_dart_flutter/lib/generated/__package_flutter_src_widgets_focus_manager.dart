@@ -20,14 +20,9 @@ const libraryMirror = m.LibraryMirror(
     'debugFocusChanges': _debugFocusChanges$,
     'primaryFocus': _primaryFocus$,
     'FocusNode.': _FocusNode__$,
-    'FocusNode.attach': _FocusNode_attach$,
     'FocusScopeNode.': _FocusScopeNode__$,
     'FocusManager.instance': _FocusManager_instance$,
     'FocusManager.': _FocusManager__$,
-    'FocusManager.addHighlightModeListener':
-        _FocusManager_addHighlightModeListener$,
-    'FocusManager.removeHighlightModeListener':
-        _FocusManager_removeHighlightModeListener$,
     'KeyEventResult.handled': _KeyEventResult_handled$,
     'KeyEventResult.ignored': _KeyEventResult_ignored$,
     'KeyEventResult.skipRemainingHandlers':
@@ -91,6 +86,7 @@ const libraryMirror = m.LibraryMirror(
         'rect': _FocusNode_rect$,
         'unfocus': _FocusNode_unfocus$,
         'consumeKeyboardToken': _FocusNode_consumeKeyboardToken$,
+        'attach': _FocusNode_attach$,
         'dispose': _FocusNode_dispose$,
         'requestFocus': _FocusNode_requestFocus$,
         'nextFocus': _FocusNode_nextFocus$,
@@ -138,6 +134,9 @@ const libraryMirror = m.LibraryMirror(
         'primaryFocus': _FocusManager_primaryFocus$,
         'registerGlobalHandlers': _FocusManager_registerGlobalHandlers$,
         'dispose': _FocusManager_dispose$,
+        'addHighlightModeListener': _FocusManager_addHighlightModeListener$,
+        'removeHighlightModeListener':
+            _FocusManager_removeHighlightModeListener$,
         'debugDescribeChildren': _FocusManager_debugDescribeChildren$,
         'debugFillProperties': _FocusManager_debugFillProperties$,
       },
@@ -165,18 +164,12 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-bool _debugFocusChanges$() {
-  return debugFocusChanges;
-}
-
+Function _debugFocusChanges$(m.Scope scope$) => () => debugFocusChanges;
 void _debugFocusChanges_set$(bool other$) {
   debugFocusChanges = other$;
 }
 
-FocusNode? _primaryFocus$() {
-  return primaryFocus;
-}
-
+Function _primaryFocus$(m.Scope scope$) => () => primaryFocus;
 Function FocusAttachment_as$(
   m.Scope scope$,
   dynamic target$,
@@ -714,10 +707,7 @@ Function _FocusManager_rootScope$(
     () {
       return target$.rootScope;
     };
-FocusManager _FocusManager_instance$() {
-  return FocusManager.instance;
-}
-
+Function _FocusManager_instance$(m.Scope scope$) => () => FocusManager.instance;
 Function _FocusManager_highlightStrategy$(
   m.Scope scope$,
   FocusManager target$,
@@ -797,62 +787,33 @@ Function _FocusManager_debugFillProperties$(
   FocusManager target$,
 ) =>
     target$.debugFillProperties;
-KeyEventResult _KeyEventResult_handled$() {
-  return KeyEventResult.handled;
-}
-
-KeyEventResult _KeyEventResult_ignored$() {
-  return KeyEventResult.ignored;
-}
-
-KeyEventResult _KeyEventResult_skipRemainingHandlers$() {
-  return KeyEventResult.skipRemainingHandlers;
-}
-
-List<KeyEventResult> _KeyEventResult_values$() {
-  return KeyEventResult.values;
-}
-
-UnfocusDisposition _UnfocusDisposition_scope$() {
-  return UnfocusDisposition.scope;
-}
-
-UnfocusDisposition _UnfocusDisposition_previouslyFocusedChild$() {
-  return UnfocusDisposition.previouslyFocusedChild;
-}
-
-List<UnfocusDisposition> _UnfocusDisposition_values$() {
-  return UnfocusDisposition.values;
-}
-
-FocusHighlightMode _FocusHighlightMode_touch$() {
-  return FocusHighlightMode.touch;
-}
-
-FocusHighlightMode _FocusHighlightMode_traditional$() {
-  return FocusHighlightMode.traditional;
-}
-
-List<FocusHighlightMode> _FocusHighlightMode_values$() {
-  return FocusHighlightMode.values;
-}
-
-FocusHighlightStrategy _FocusHighlightStrategy_automatic$() {
-  return FocusHighlightStrategy.automatic;
-}
-
-FocusHighlightStrategy _FocusHighlightStrategy_alwaysTouch$() {
-  return FocusHighlightStrategy.alwaysTouch;
-}
-
-FocusHighlightStrategy _FocusHighlightStrategy_alwaysTraditional$() {
-  return FocusHighlightStrategy.alwaysTraditional;
-}
-
-List<FocusHighlightStrategy> _FocusHighlightStrategy_values$() {
-  return FocusHighlightStrategy.values;
-}
-
+Function _KeyEventResult_handled$(m.Scope scope$) =>
+    () => KeyEventResult.handled;
+Function _KeyEventResult_ignored$(m.Scope scope$) =>
+    () => KeyEventResult.ignored;
+Function _KeyEventResult_skipRemainingHandlers$(m.Scope scope$) =>
+    () => KeyEventResult.skipRemainingHandlers;
+Function _KeyEventResult_values$(m.Scope scope$) => () => KeyEventResult.values;
+Function _UnfocusDisposition_scope$(m.Scope scope$) =>
+    () => UnfocusDisposition.scope;
+Function _UnfocusDisposition_previouslyFocusedChild$(m.Scope scope$) =>
+    () => UnfocusDisposition.previouslyFocusedChild;
+Function _UnfocusDisposition_values$(m.Scope scope$) =>
+    () => UnfocusDisposition.values;
+Function _FocusHighlightMode_touch$(m.Scope scope$) =>
+    () => FocusHighlightMode.touch;
+Function _FocusHighlightMode_traditional$(m.Scope scope$) =>
+    () => FocusHighlightMode.traditional;
+Function _FocusHighlightMode_values$(m.Scope scope$) =>
+    () => FocusHighlightMode.values;
+Function _FocusHighlightStrategy_automatic$(m.Scope scope$) =>
+    () => FocusHighlightStrategy.automatic;
+Function _FocusHighlightStrategy_alwaysTouch$(m.Scope scope$) =>
+    () => FocusHighlightStrategy.alwaysTouch;
+Function _FocusHighlightStrategy_alwaysTraditional$(m.Scope scope$) =>
+    () => FocusHighlightStrategy.alwaysTraditional;
+Function _FocusHighlightStrategy_values$(m.Scope scope$) =>
+    () => FocusHighlightStrategy.values;
 Function _combineKeyEventResults$(m.Scope scope$) => combineKeyEventResults;
 Function _debugDescribeFocusTree$(m.Scope scope$) => debugDescribeFocusTree;
 Function _debugDumpFocusTree$(m.Scope scope$) => debugDumpFocusTree;

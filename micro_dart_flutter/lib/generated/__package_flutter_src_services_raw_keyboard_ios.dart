@@ -104,74 +104,40 @@ Function _RawKeyEventDataIos_modifiers$(
     () {
       return target$.modifiers;
     };
-int _RawKeyEventDataIos_modifierCapsLock$() {
-  return RawKeyEventDataIos.modifierCapsLock;
-}
-
-int _RawKeyEventDataIos_modifierShift$() {
-  return RawKeyEventDataIos.modifierShift;
-}
-
-int _RawKeyEventDataIos_modifierLeftShift$() {
-  return RawKeyEventDataIos.modifierLeftShift;
-}
-
-int _RawKeyEventDataIos_modifierRightShift$() {
-  return RawKeyEventDataIos.modifierRightShift;
-}
-
-int _RawKeyEventDataIos_modifierControl$() {
-  return RawKeyEventDataIos.modifierControl;
-}
-
-int _RawKeyEventDataIos_modifierLeftControl$() {
-  return RawKeyEventDataIos.modifierLeftControl;
-}
-
-int _RawKeyEventDataIos_modifierRightControl$() {
-  return RawKeyEventDataIos.modifierRightControl;
-}
-
-int _RawKeyEventDataIos_modifierOption$() {
-  return RawKeyEventDataIos.modifierOption;
-}
-
-int _RawKeyEventDataIos_modifierLeftOption$() {
-  return RawKeyEventDataIos.modifierLeftOption;
-}
-
-int _RawKeyEventDataIos_modifierRightOption$() {
-  return RawKeyEventDataIos.modifierRightOption;
-}
-
-int _RawKeyEventDataIos_modifierCommand$() {
-  return RawKeyEventDataIos.modifierCommand;
-}
-
-int _RawKeyEventDataIos_modifierLeftCommand$() {
-  return RawKeyEventDataIos.modifierLeftCommand;
-}
-
-int _RawKeyEventDataIos_modifierRightCommand$() {
-  return RawKeyEventDataIos.modifierRightCommand;
-}
-
-int _RawKeyEventDataIos_modifierNumericPad$() {
-  return RawKeyEventDataIos.modifierNumericPad;
-}
-
-int _RawKeyEventDataIos_modifierHelp$() {
-  return RawKeyEventDataIos.modifierHelp;
-}
-
-int _RawKeyEventDataIos_modifierFunction$() {
-  return RawKeyEventDataIos.modifierFunction;
-}
-
-int _RawKeyEventDataIos_deviceIndependentMask$() {
-  return RawKeyEventDataIos.deviceIndependentMask;
-}
-
+Function _RawKeyEventDataIos_modifierCapsLock$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierCapsLock;
+Function _RawKeyEventDataIos_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierShift;
+Function _RawKeyEventDataIos_modifierLeftShift$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierLeftShift;
+Function _RawKeyEventDataIos_modifierRightShift$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierRightShift;
+Function _RawKeyEventDataIos_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierControl;
+Function _RawKeyEventDataIos_modifierLeftControl$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierLeftControl;
+Function _RawKeyEventDataIos_modifierRightControl$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierRightControl;
+Function _RawKeyEventDataIos_modifierOption$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierOption;
+Function _RawKeyEventDataIos_modifierLeftOption$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierLeftOption;
+Function _RawKeyEventDataIos_modifierRightOption$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierRightOption;
+Function _RawKeyEventDataIos_modifierCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierCommand;
+Function _RawKeyEventDataIos_modifierLeftCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierLeftCommand;
+Function _RawKeyEventDataIos_modifierRightCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierRightCommand;
+Function _RawKeyEventDataIos_modifierNumericPad$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierNumericPad;
+Function _RawKeyEventDataIos_modifierHelp$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierHelp;
+Function _RawKeyEventDataIos_modifierFunction$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.modifierFunction;
+Function _RawKeyEventDataIos_deviceIndependentMask$(m.Scope scope$) =>
+    () => RawKeyEventDataIos.deviceIndependentMask;
 Function _RawKeyEventDataIos_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataIos target$,

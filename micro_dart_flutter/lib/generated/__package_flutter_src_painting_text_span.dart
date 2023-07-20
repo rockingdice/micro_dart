@@ -3,15 +3,24 @@
 
 import 'package:flutter/painting.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
+import 'package:flutter/src/painting/text_span.dart';
+import 'dart:ui'
+    show
+        Locale,
+        LocaleStringAttribute,
+        ParagraphBuilder,
+        SpellOutStringAttribute,
+        StringAttribute;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/inline_span.dart';
+import 'package:flutter/src/painting/text_painter.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/text_span.dart',
-  {
-    'TextSpan.': _TextSpan__$,
-    'TextSpan.visitChildren': _TextSpan_visitChildren$,
-  },
+  {'TextSpan.': _TextSpan__$},
   {},
   {
     'TextSpan': m.ClassMirror(
@@ -33,6 +42,7 @@ const libraryMirror = m.LibraryMirror(
         'hashCode': _TextSpan_hashCode$,
         'handleEvent': _TextSpan_handleEvent$,
         'build': _TextSpan_build$,
+        'visitChildren': _TextSpan_visitChildren$,
         'getSpanForPositionVisitor': _TextSpan_getSpanForPositionVisitor$,
         'computeToPlainText': _TextSpan_computeToPlainText$,
         'computeSemanticsInformation': _TextSpan_computeSemanticsInformation$,

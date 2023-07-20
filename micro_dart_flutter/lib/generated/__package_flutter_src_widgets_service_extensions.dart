@@ -107,207 +107,107 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-WidgetsServiceExtensions _WidgetsServiceExtensions_debugDumpApp$() {
-  return WidgetsServiceExtensions.debugDumpApp;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_debugDumpFocusTree$() {
-  return WidgetsServiceExtensions.debugDumpFocusTree;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_showPerformanceOverlay$() {
-  return WidgetsServiceExtensions.showPerformanceOverlay;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_didSendFirstFrameEvent$() {
-  return WidgetsServiceExtensions.didSendFirstFrameEvent;
-}
-
-WidgetsServiceExtensions
-    _WidgetsServiceExtensions_didSendFirstFrameRasterizedEvent$() {
-  return WidgetsServiceExtensions.didSendFirstFrameRasterizedEvent;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_fastReassemble$() {
-  return WidgetsServiceExtensions.fastReassemble;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_profileWidgetBuilds$() {
-  return WidgetsServiceExtensions.profileWidgetBuilds;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_profileUserWidgetBuilds$() {
-  return WidgetsServiceExtensions.profileUserWidgetBuilds;
-}
-
-WidgetsServiceExtensions _WidgetsServiceExtensions_debugAllowBanner$() {
-  return WidgetsServiceExtensions.debugAllowBanner;
-}
-
-List<WidgetsServiceExtensions> _WidgetsServiceExtensions_values$() {
-  return WidgetsServiceExtensions.values;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_structuredErrors$() {
-  return WidgetInspectorServiceExtensions.structuredErrors;
-}
-
-WidgetInspectorServiceExtensions _WidgetInspectorServiceExtensions_show$() {
-  return WidgetInspectorServiceExtensions.show;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_trackRebuildDirtyWidgets$() {
-  return WidgetInspectorServiceExtensions.trackRebuildDirtyWidgets;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_trackRepaintWidgets$() {
-  return WidgetInspectorServiceExtensions.trackRepaintWidgets;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_disposeAllGroups$() {
-  return WidgetInspectorServiceExtensions.disposeAllGroups;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_disposeGroup$() {
-  return WidgetInspectorServiceExtensions.disposeGroup;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_isWidgetTreeReady$() {
-  return WidgetInspectorServiceExtensions.isWidgetTreeReady;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_disposeId$() {
-  return WidgetInspectorServiceExtensions.disposeId;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_setPubRootDirectories$() {
-  return WidgetInspectorServiceExtensions.setPubRootDirectories;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_addPubRootDirectories$() {
-  return WidgetInspectorServiceExtensions.addPubRootDirectories;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_removePubRootDirectories$() {
-  return WidgetInspectorServiceExtensions.removePubRootDirectories;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getPubRootDirectories$() {
-  return WidgetInspectorServiceExtensions.getPubRootDirectories;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_setSelectionById$() {
-  return WidgetInspectorServiceExtensions.setSelectionById;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getParentChain$() {
-  return WidgetInspectorServiceExtensions.getParentChain;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getProperties$() {
-  return WidgetInspectorServiceExtensions.getProperties;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getChildren$() {
-  return WidgetInspectorServiceExtensions.getChildren;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getChildrenSummaryTree$() {
-  return WidgetInspectorServiceExtensions.getChildrenSummaryTree;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getChildrenDetailsSubtree$() {
-  return WidgetInspectorServiceExtensions.getChildrenDetailsSubtree;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getRootWidget$() {
-  return WidgetInspectorServiceExtensions.getRootWidget;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getRootRenderObject$() {
-  return WidgetInspectorServiceExtensions.getRootRenderObject;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getRootWidgetSummaryTree$() {
-  return WidgetInspectorServiceExtensions.getRootWidgetSummaryTree;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getRootWidgetSummaryTreeWithPreviews$() {
-  return WidgetInspectorServiceExtensions.getRootWidgetSummaryTreeWithPreviews;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getDetailsSubtree$() {
-  return WidgetInspectorServiceExtensions.getDetailsSubtree;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getSelectedRenderObject$() {
-  return WidgetInspectorServiceExtensions.getSelectedRenderObject;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getSelectedWidget$() {
-  return WidgetInspectorServiceExtensions.getSelectedWidget;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getSelectedSummaryWidget$() {
-  return WidgetInspectorServiceExtensions.getSelectedSummaryWidget;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_isWidgetCreationTracked$() {
-  return WidgetInspectorServiceExtensions.isWidgetCreationTracked;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_screenshot$() {
-  return WidgetInspectorServiceExtensions.screenshot;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_getLayoutExplorerNode$() {
-  return WidgetInspectorServiceExtensions.getLayoutExplorerNode;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_setFlexFit$() {
-  return WidgetInspectorServiceExtensions.setFlexFit;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_setFlexFactor$() {
-  return WidgetInspectorServiceExtensions.setFlexFactor;
-}
-
-WidgetInspectorServiceExtensions
-    _WidgetInspectorServiceExtensions_setFlexProperties$() {
-  return WidgetInspectorServiceExtensions.setFlexProperties;
-}
-
-List<WidgetInspectorServiceExtensions>
-    _WidgetInspectorServiceExtensions_values$() {
-  return WidgetInspectorServiceExtensions.values;
-}
+Function _WidgetsServiceExtensions_debugDumpApp$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.debugDumpApp;
+Function _WidgetsServiceExtensions_debugDumpFocusTree$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.debugDumpFocusTree;
+Function _WidgetsServiceExtensions_showPerformanceOverlay$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.showPerformanceOverlay;
+Function _WidgetsServiceExtensions_didSendFirstFrameEvent$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.didSendFirstFrameEvent;
+Function _WidgetsServiceExtensions_didSendFirstFrameRasterizedEvent$(
+        m.Scope scope$) =>
+    () => WidgetsServiceExtensions.didSendFirstFrameRasterizedEvent;
+Function _WidgetsServiceExtensions_fastReassemble$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.fastReassemble;
+Function _WidgetsServiceExtensions_profileWidgetBuilds$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.profileWidgetBuilds;
+Function _WidgetsServiceExtensions_profileUserWidgetBuilds$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.profileUserWidgetBuilds;
+Function _WidgetsServiceExtensions_debugAllowBanner$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.debugAllowBanner;
+Function _WidgetsServiceExtensions_values$(m.Scope scope$) =>
+    () => WidgetsServiceExtensions.values;
+Function _WidgetInspectorServiceExtensions_structuredErrors$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.structuredErrors;
+Function _WidgetInspectorServiceExtensions_show$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.show;
+Function _WidgetInspectorServiceExtensions_trackRebuildDirtyWidgets$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.trackRebuildDirtyWidgets;
+Function _WidgetInspectorServiceExtensions_trackRepaintWidgets$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.trackRepaintWidgets;
+Function _WidgetInspectorServiceExtensions_disposeAllGroups$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.disposeAllGroups;
+Function _WidgetInspectorServiceExtensions_disposeGroup$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.disposeGroup;
+Function _WidgetInspectorServiceExtensions_isWidgetTreeReady$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.isWidgetTreeReady;
+Function _WidgetInspectorServiceExtensions_disposeId$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.disposeId;
+Function _WidgetInspectorServiceExtensions_setPubRootDirectories$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.setPubRootDirectories;
+Function _WidgetInspectorServiceExtensions_addPubRootDirectories$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.addPubRootDirectories;
+Function _WidgetInspectorServiceExtensions_removePubRootDirectories$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.removePubRootDirectories;
+Function _WidgetInspectorServiceExtensions_getPubRootDirectories$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getPubRootDirectories;
+Function _WidgetInspectorServiceExtensions_setSelectionById$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.setSelectionById;
+Function _WidgetInspectorServiceExtensions_getParentChain$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getParentChain;
+Function _WidgetInspectorServiceExtensions_getProperties$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getProperties;
+Function _WidgetInspectorServiceExtensions_getChildren$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getChildren;
+Function _WidgetInspectorServiceExtensions_getChildrenSummaryTree$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getChildrenSummaryTree;
+Function _WidgetInspectorServiceExtensions_getChildrenDetailsSubtree$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getChildrenDetailsSubtree;
+Function _WidgetInspectorServiceExtensions_getRootWidget$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getRootWidget;
+Function _WidgetInspectorServiceExtensions_getRootRenderObject$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getRootRenderObject;
+Function _WidgetInspectorServiceExtensions_getRootWidgetSummaryTree$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getRootWidgetSummaryTree;
+Function
+    _WidgetInspectorServiceExtensions_getRootWidgetSummaryTreeWithPreviews$(
+            m.Scope scope$) =>
+        () => WidgetInspectorServiceExtensions
+            .getRootWidgetSummaryTreeWithPreviews;
+Function _WidgetInspectorServiceExtensions_getDetailsSubtree$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getDetailsSubtree;
+Function _WidgetInspectorServiceExtensions_getSelectedRenderObject$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getSelectedRenderObject;
+Function _WidgetInspectorServiceExtensions_getSelectedWidget$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getSelectedWidget;
+Function _WidgetInspectorServiceExtensions_getSelectedSummaryWidget$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getSelectedSummaryWidget;
+Function _WidgetInspectorServiceExtensions_isWidgetCreationTracked$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.isWidgetCreationTracked;
+Function _WidgetInspectorServiceExtensions_screenshot$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.screenshot;
+Function _WidgetInspectorServiceExtensions_getLayoutExplorerNode$(
+        m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.getLayoutExplorerNode;
+Function _WidgetInspectorServiceExtensions_setFlexFit$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.setFlexFit;
+Function _WidgetInspectorServiceExtensions_setFlexFactor$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.setFlexFactor;
+Function _WidgetInspectorServiceExtensions_setFlexProperties$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.setFlexProperties;
+Function _WidgetInspectorServiceExtensions_values$(m.Scope scope$) =>
+    () => WidgetInspectorServiceExtensions.values;

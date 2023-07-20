@@ -399,38 +399,13 @@ Function _Stepper_createState$(
   Stepper target$,
 ) =>
     target$.createState;
-StepState _StepState_indexed$() {
-  return StepState.indexed;
-}
-
-StepState _StepState_editing$() {
-  return StepState.editing;
-}
-
-StepState _StepState_complete$() {
-  return StepState.complete;
-}
-
-StepState _StepState_disabled$() {
-  return StepState.disabled;
-}
-
-StepState _StepState_error$() {
-  return StepState.error;
-}
-
-List<StepState> _StepState_values$() {
-  return StepState.values;
-}
-
-StepperType _StepperType_vertical$() {
-  return StepperType.vertical;
-}
-
-StepperType _StepperType_horizontal$() {
-  return StepperType.horizontal;
-}
-
-List<StepperType> _StepperType_values$() {
-  return StepperType.values;
-}
+Function _StepState_indexed$(m.Scope scope$) => () => StepState.indexed;
+Function _StepState_editing$(m.Scope scope$) => () => StepState.editing;
+Function _StepState_complete$(m.Scope scope$) => () => StepState.complete;
+Function _StepState_disabled$(m.Scope scope$) => () => StepState.disabled;
+Function _StepState_error$(m.Scope scope$) => () => StepState.error;
+Function _StepState_values$(m.Scope scope$) => () => StepState.values;
+Function _StepperType_vertical$(m.Scope scope$) => () => StepperType.vertical;
+Function _StepperType_horizontal$(m.Scope scope$) =>
+    () => StepperType.horizontal;
+Function _StepperType_values$(m.Scope scope$) => () => StepperType.values;

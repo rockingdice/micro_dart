@@ -12,7 +12,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/context_menu_controller.dart',
   {
     'ContextMenuController.': _ContextMenuController__$,
-    'ContextMenuController.show': _ContextMenuController_show$,
     'ContextMenuController.removeAny': _ContextMenuController_removeAny$,
   },
   {},
@@ -24,6 +23,7 @@ const libraryMirror = m.LibraryMirror(
         '#is': ContextMenuController_is$,
         'onRemove': _ContextMenuController_onRemove$,
         'isShown': _ContextMenuController_isShown$,
+        'show': _ContextMenuController_show$,
         'markNeedsBuild': _ContextMenuController_markNeedsBuild$,
         'remove': _ContextMenuController_remove$,
       },

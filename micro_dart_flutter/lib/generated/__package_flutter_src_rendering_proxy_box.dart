@@ -24,13 +24,9 @@ const libraryMirror = m.LibraryMirror(
     'RenderIntrinsicWidth.': _RenderIntrinsicWidth__$,
     'RenderIntrinsicHeight.': _RenderIntrinsicHeight__$,
     'RenderOpacity.': _RenderOpacity__$,
-    'RenderOpacity.visitChildrenForSemantics':
-        _RenderOpacity_visitChildrenForSemantics$,
     'RenderAnimatedOpacity.': _RenderAnimatedOpacity__$,
     'RenderShaderMask.': _RenderShaderMask__$,
     'RenderBackdropFilter.': _RenderBackdropFilter__$,
-    'CustomClipper.addListener': _CustomClipper_addListener$,
-    'CustomClipper.removeListener': _CustomClipper_removeListener$,
     'ShapeBorderClipper.': _ShapeBorderClipper__$,
     'RenderClipRect.': _RenderClipRect__$,
     'RenderClipRRect.': _RenderClipRRect__$,
@@ -46,24 +42,14 @@ const libraryMirror = m.LibraryMirror(
     'RenderMouseRegion.': _RenderMouseRegion__$,
     'RenderRepaintBoundary.': _RenderRepaintBoundary__$,
     'RenderIgnorePointer.': _RenderIgnorePointer__$,
-    'RenderIgnorePointer.visitChildrenForSemantics':
-        _RenderIgnorePointer_visitChildrenForSemantics$,
     'RenderOffstage.': _RenderOffstage__$,
-    'RenderOffstage.visitChildrenForSemantics':
-        _RenderOffstage_visitChildrenForSemantics$,
     'RenderAbsorbPointer.': _RenderAbsorbPointer__$,
-    'RenderAbsorbPointer.visitChildrenForSemantics':
-        _RenderAbsorbPointer_visitChildrenForSemantics$,
     'RenderMetaData.': _RenderMetaData__$,
     'RenderSemanticsGestureHandler.': _RenderSemanticsGestureHandler__$,
     'RenderSemanticsAnnotations.': _RenderSemanticsAnnotations__$,
-    'RenderSemanticsAnnotations.visitChildrenForSemantics':
-        _RenderSemanticsAnnotations_visitChildrenForSemantics$,
     'RenderBlockSemantics.': _RenderBlockSemantics__$,
     'RenderMergeSemantics.': _RenderMergeSemantics__$,
     'RenderExcludeSemantics.': _RenderExcludeSemantics__$,
-    'RenderExcludeSemantics.visitChildrenForSemantics':
-        _RenderExcludeSemantics_visitChildrenForSemantics$,
     'RenderIndexedSemantics.': _RenderIndexedSemantics__$,
     'RenderLeaderLayer.': _RenderLeaderLayer__$,
     'RenderFollowerLayer.': _RenderFollowerLayer__$,
@@ -211,6 +197,7 @@ const libraryMirror = m.LibraryMirror(
         'paintsChild': _RenderOpacity_paintsChild$,
         'updateCompositedLayer': _RenderOpacity_updateCompositedLayer$,
         'paint': _RenderOpacity_paint$,
+        'visitChildrenForSemantics': _RenderOpacity_visitChildrenForSemantics$,
         'debugFillProperties': _RenderOpacity_debugFillProperties$,
       },
       {
@@ -263,6 +250,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': CustomClipper_as$,
         '#is': CustomClipper_is$,
+        'addListener': _CustomClipper_addListener$,
+        'removeListener': _CustomClipper_removeListener$,
         'getClip': _CustomClipper_getClip$,
         'getApproximateClipRect': _CustomClipper_getApproximateClipRect$,
         'shouldReclip': _CustomClipper_shouldReclip$,
@@ -542,6 +531,8 @@ const libraryMirror = m.LibraryMirror(
         'ignoring': _RenderIgnorePointer_ignoring$,
         'ignoringSemantics': _RenderIgnorePointer_ignoringSemantics$,
         'hitTest': _RenderIgnorePointer_hitTest$,
+        'visitChildrenForSemantics':
+            _RenderIgnorePointer_visitChildrenForSemantics$,
         'debugFillProperties': _RenderIgnorePointer_debugFillProperties$,
       },
       {
@@ -568,6 +559,7 @@ const libraryMirror = m.LibraryMirror(
         'hitTest': _RenderOffstage_hitTest$,
         'paintsChild': _RenderOffstage_paintsChild$,
         'paint': _RenderOffstage_paint$,
+        'visitChildrenForSemantics': _RenderOffstage_visitChildrenForSemantics$,
         'debugFillProperties': _RenderOffstage_debugFillProperties$,
         'debugDescribeChildren': _RenderOffstage_debugDescribeChildren$,
       },
@@ -581,6 +573,8 @@ const libraryMirror = m.LibraryMirror(
         'absorbing': _RenderAbsorbPointer_absorbing$,
         'ignoringSemantics': _RenderAbsorbPointer_ignoringSemantics$,
         'hitTest': _RenderAbsorbPointer_hitTest$,
+        'visitChildrenForSemantics':
+            _RenderAbsorbPointer_visitChildrenForSemantics$,
         'debugFillProperties': _RenderAbsorbPointer_debugFillProperties$,
       },
       {
@@ -637,6 +631,8 @@ const libraryMirror = m.LibraryMirror(
         'explicitChildNodes': _RenderSemanticsAnnotations_explicitChildNodes$,
         'excludeSemantics': _RenderSemanticsAnnotations_excludeSemantics$,
         'textDirection': _RenderSemanticsAnnotations_textDirection$,
+        'visitChildrenForSemantics':
+            _RenderSemanticsAnnotations_visitChildrenForSemantics$,
         'describeSemanticsConfiguration':
             _RenderSemanticsAnnotations_describeSemanticsConfiguration$,
       },
@@ -677,6 +673,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': RenderExcludeSemantics_as$,
         '#is': RenderExcludeSemantics_is$,
         'excluding': _RenderExcludeSemantics_excluding$,
+        'visitChildrenForSemantics':
+            _RenderExcludeSemantics_visitChildrenForSemantics$,
         'debugFillProperties': _RenderExcludeSemantics_debugFillProperties$,
       },
       {'excluding': _RenderExcludeSemantics_excluding_set$},
@@ -3837,30 +3835,17 @@ Function _RenderAnnotatedRegion_paint$<T extends Object>(
   RenderAnnotatedRegion<T> target$,
 ) =>
     target$.paint;
-HitTestBehavior _HitTestBehavior_deferToChild$() {
-  return HitTestBehavior.deferToChild;
-}
-
-HitTestBehavior _HitTestBehavior_opaque$() {
-  return HitTestBehavior.opaque;
-}
-
-HitTestBehavior _HitTestBehavior_translucent$() {
-  return HitTestBehavior.translucent;
-}
-
-List<HitTestBehavior> _HitTestBehavior_values$() {
-  return HitTestBehavior.values;
-}
-
-DecorationPosition _DecorationPosition_background$() {
-  return DecorationPosition.background;
-}
-
-DecorationPosition _DecorationPosition_foreground$() {
-  return DecorationPosition.foreground;
-}
-
-List<DecorationPosition> _DecorationPosition_values$() {
-  return DecorationPosition.values;
-}
+Function _HitTestBehavior_deferToChild$(m.Scope scope$) =>
+    () => HitTestBehavior.deferToChild;
+Function _HitTestBehavior_opaque$(m.Scope scope$) =>
+    () => HitTestBehavior.opaque;
+Function _HitTestBehavior_translucent$(m.Scope scope$) =>
+    () => HitTestBehavior.translucent;
+Function _HitTestBehavior_values$(m.Scope scope$) =>
+    () => HitTestBehavior.values;
+Function _DecorationPosition_background$(m.Scope scope$) =>
+    () => DecorationPosition.background;
+Function _DecorationPosition_foreground$(m.Scope scope$) =>
+    () => DecorationPosition.foreground;
+Function _DecorationPosition_values$(m.Scope scope$) =>
+    () => DecorationPosition.values;

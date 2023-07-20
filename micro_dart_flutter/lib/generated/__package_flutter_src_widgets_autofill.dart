@@ -144,14 +144,9 @@ Function _AutofillGroupState_dispose$(
   AutofillGroupState target$,
 ) =>
     target$.dispose;
-AutofillContextAction _AutofillContextAction_commit$() {
-  return AutofillContextAction.commit;
-}
-
-AutofillContextAction _AutofillContextAction_cancel$() {
-  return AutofillContextAction.cancel;
-}
-
-List<AutofillContextAction> _AutofillContextAction_values$() {
-  return AutofillContextAction.values;
-}
+Function _AutofillContextAction_commit$(m.Scope scope$) =>
+    () => AutofillContextAction.commit;
+Function _AutofillContextAction_cancel$(m.Scope scope$) =>
+    () => AutofillContextAction.cancel;
+Function _AutofillContextAction_values$(m.Scope scope$) =>
+    () => AutofillContextAction.values;

@@ -313,14 +313,9 @@ Function _HeroMode_debugFillProperties$(
   HeroMode target$,
 ) =>
     target$.debugFillProperties;
-HeroFlightDirection _HeroFlightDirection_push$() {
-  return HeroFlightDirection.push;
-}
-
-HeroFlightDirection _HeroFlightDirection_pop$() {
-  return HeroFlightDirection.pop;
-}
-
-List<HeroFlightDirection> _HeroFlightDirection_values$() {
-  return HeroFlightDirection.values;
-}
+Function _HeroFlightDirection_push$(m.Scope scope$) =>
+    () => HeroFlightDirection.push;
+Function _HeroFlightDirection_pop$(m.Scope scope$) =>
+    () => HeroFlightDirection.pop;
+Function _HeroFlightDirection_values$(m.Scope scope$) =>
+    () => HeroFlightDirection.values;

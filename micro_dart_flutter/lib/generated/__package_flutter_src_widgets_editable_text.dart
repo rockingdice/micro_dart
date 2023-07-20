@@ -58,8 +58,6 @@ const libraryMirror = m.LibraryMirror(
     'EditableText.debugDeterministicCursor':
         _EditableText_debugDeterministicCursor$,
     'EditableText.': _EditableText__$,
-    'EditableText.getEditableButtonItems':
-        _EditableText_getEditableButtonItems$,
     'EditableTextState.': _EditableTextState__$,
   },
   {
@@ -174,6 +172,7 @@ const libraryMirror = m.LibraryMirror(
         'magnifierConfiguration': _EditableText_magnifierConfiguration$,
         'strutStyle': _EditableText_strutStyle$,
         'selectionEnabled': _EditableText_selectionEnabled$,
+        'getEditableButtonItems': _EditableText_getEditableButtonItems$,
         'createState': _EditableText_createState$,
         'debugFillProperties': _EditableText_debugFillProperties$,
       },
@@ -248,10 +247,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-List<String> _kDefaultContentInsertionMimeTypes$() {
-  return kDefaultContentInsertionMimeTypes;
-}
-
+Function _kDefaultContentInsertionMimeTypes$(m.Scope scope$) =>
+    () => kDefaultContentInsertionMimeTypes;
 Function TextEditingController_as$(
   m.Scope scope$,
   dynamic target$,
@@ -753,10 +750,8 @@ Function _EditableText_enableInteractiveSelection$(
     () {
       return target$.enableInteractiveSelection;
     };
-bool _EditableText_debugDeterministicCursor$() {
-  return EditableText.debugDeterministicCursor;
-}
-
+Function _EditableText_debugDeterministicCursor$(m.Scope scope$) =>
+    () => EditableText.debugDeterministicCursor;
 void _EditableText_debugDeterministicCursor_set$(bool other$) {
   EditableText.debugDeterministicCursor = other$;
 }

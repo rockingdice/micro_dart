@@ -259,18 +259,11 @@ Function _TooltipTheme_updateShouldNotify$(
   TooltipTheme target$,
 ) =>
     target$.updateShouldNotify;
-TooltipTriggerMode _TooltipTriggerMode_manual$() {
-  return TooltipTriggerMode.manual;
-}
-
-TooltipTriggerMode _TooltipTriggerMode_longPress$() {
-  return TooltipTriggerMode.longPress;
-}
-
-TooltipTriggerMode _TooltipTriggerMode_tap$() {
-  return TooltipTriggerMode.tap;
-}
-
-List<TooltipTriggerMode> _TooltipTriggerMode_values$() {
-  return TooltipTriggerMode.values;
-}
+Function _TooltipTriggerMode_manual$(m.Scope scope$) =>
+    () => TooltipTriggerMode.manual;
+Function _TooltipTriggerMode_longPress$(m.Scope scope$) =>
+    () => TooltipTriggerMode.longPress;
+Function _TooltipTriggerMode_tap$(m.Scope scope$) =>
+    () => TooltipTriggerMode.tap;
+Function _TooltipTriggerMode_values$(m.Scope scope$) =>
+    () => TooltipTriggerMode.values;

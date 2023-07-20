@@ -10,10 +10,7 @@ import 'package:flutter/src/painting/image_stream.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/image_cache.dart',
-  {
-    'ImageCache.': _ImageCache__$,
-    'ImageCache.putIfAbsent': _ImageCache_putIfAbsent$,
-  },
+  {'ImageCache.': _ImageCache__$},
   {},
   {
     'ImageCache': m.ClassMirror(
@@ -29,6 +26,7 @@ const libraryMirror = m.LibraryMirror(
         'pendingImageCount': _ImageCache_pendingImageCount$,
         'clear': _ImageCache_clear$,
         'evict': _ImageCache_evict$,
+        'putIfAbsent': _ImageCache_putIfAbsent$,
         'statusForKey': _ImageCache_statusForKey$,
         'containsKey': _ImageCache_containsKey$,
         'clearLiveImages': _ImageCache_clearLiveImages$,

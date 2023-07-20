@@ -42,7 +42,6 @@ const libraryMirror = m.LibraryMirror(
     'Scaffold.geometryOf': _Scaffold_geometryOf$,
     'Scaffold.hasDrawer': _Scaffold_hasDrawer$,
     'ScaffoldState.': _ScaffoldState__$,
-    'ScaffoldState.showBottomSheet': _ScaffoldState_showBottomSheet$,
   },
   {},
   {
@@ -159,6 +158,7 @@ const libraryMirror = m.LibraryMirror(
         'openEndDrawer': _ScaffoldState_openEndDrawer$,
         'closeDrawer': _ScaffoldState_closeDrawer$,
         'closeEndDrawer': _ScaffoldState_closeEndDrawer$,
+        'showBottomSheet': _ScaffoldState_showBottomSheet$,
         'initState': _ScaffoldState_initState$,
         'didUpdateWidget': _ScaffoldState_didUpdateWidget$,
         'didChangeDependencies': _ScaffoldState_didChangeDependencies$,

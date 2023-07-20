@@ -76,14 +76,10 @@ Function _TextSelectionToolbar_toolbarBuilder$(
     () {
       return target$.toolbarBuilder;
     };
-double _TextSelectionToolbar_kHandleSize$() {
-  return TextSelectionToolbar.kHandleSize;
-}
-
-double _TextSelectionToolbar_kToolbarContentDistanceBelow$() {
-  return TextSelectionToolbar.kToolbarContentDistanceBelow;
-}
-
+Function _TextSelectionToolbar_kHandleSize$(m.Scope scope$) =>
+    () => TextSelectionToolbar.kHandleSize;
+Function _TextSelectionToolbar_kToolbarContentDistanceBelow$(m.Scope scope$) =>
+    () => TextSelectionToolbar.kToolbarContentDistanceBelow;
 Function _TextSelectionToolbar__$(m.Scope scope$) => ({
       Key? key,
       required Offset anchorAbove,

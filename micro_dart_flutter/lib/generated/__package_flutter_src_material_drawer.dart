@@ -339,14 +339,7 @@ Function _DrawerControllerState_build$(
   DrawerControllerState target$,
 ) =>
     target$.build;
-DrawerAlignment _DrawerAlignment_start$() {
-  return DrawerAlignment.start;
-}
-
-DrawerAlignment _DrawerAlignment_end$() {
-  return DrawerAlignment.end;
-}
-
-List<DrawerAlignment> _DrawerAlignment_values$() {
-  return DrawerAlignment.values;
-}
+Function _DrawerAlignment_start$(m.Scope scope$) => () => DrawerAlignment.start;
+Function _DrawerAlignment_end$(m.Scope scope$) => () => DrawerAlignment.end;
+Function _DrawerAlignment_values$(m.Scope scope$) =>
+    () => DrawerAlignment.values;

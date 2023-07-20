@@ -389,18 +389,11 @@ Function _PlatformViewRenderBox_describeSemanticsConfiguration$(
   PlatformViewRenderBox target$,
 ) =>
     target$.describeSemanticsConfiguration;
-PlatformViewHitTestBehavior _PlatformViewHitTestBehavior_opaque$() {
-  return PlatformViewHitTestBehavior.opaque;
-}
-
-PlatformViewHitTestBehavior _PlatformViewHitTestBehavior_translucent$() {
-  return PlatformViewHitTestBehavior.translucent;
-}
-
-PlatformViewHitTestBehavior _PlatformViewHitTestBehavior_transparent$() {
-  return PlatformViewHitTestBehavior.transparent;
-}
-
-List<PlatformViewHitTestBehavior> _PlatformViewHitTestBehavior_values$() {
-  return PlatformViewHitTestBehavior.values;
-}
+Function _PlatformViewHitTestBehavior_opaque$(m.Scope scope$) =>
+    () => PlatformViewHitTestBehavior.opaque;
+Function _PlatformViewHitTestBehavior_translucent$(m.Scope scope$) =>
+    () => PlatformViewHitTestBehavior.translucent;
+Function _PlatformViewHitTestBehavior_transparent$(m.Scope scope$) =>
+    () => PlatformViewHitTestBehavior.transparent;
+Function _PlatformViewHitTestBehavior_values$(m.Scope scope$) =>
+    () => PlatformViewHitTestBehavior.values;

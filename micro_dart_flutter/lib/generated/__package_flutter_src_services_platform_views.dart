@@ -14,13 +14,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/platform_views.dart',
   {
     'platformViewsRegistry': _platformViewsRegistry$,
-    'PlatformViewsService.initAndroidView':
-        _PlatformViewsService_initAndroidView$,
-    'PlatformViewsService.initSurfaceAndroidView':
-        _PlatformViewsService_initSurfaceAndroidView$,
-    'PlatformViewsService.initExpensiveAndroidView':
-        _PlatformViewsService_initExpensiveAndroidView$,
-    'PlatformViewsService.initUiKitView': _PlatformViewsService_initUiKitView$,
     'AndroidPointerProperties.kToolTypeUnknown':
         _AndroidPointerProperties_kToolTypeUnknown$,
     'AndroidPointerProperties.kToolTypeFinger':
@@ -49,10 +42,6 @@ const libraryMirror = m.LibraryMirror(
         _AndroidViewController_kAndroidLayoutDirectionRtl$,
     'AndroidViewController.pointerAction':
         _AndroidViewController_pointerAction$,
-    'AndroidViewController.addOnPlatformViewCreatedListener':
-        _AndroidViewController_addOnPlatformViewCreatedListener$,
-    'AndroidViewController.removeOnPlatformViewCreatedListener':
-        _AndroidViewController_removeOnPlatformViewCreatedListener$,
   },
   {},
   {
@@ -70,6 +59,11 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': PlatformViewsService_as$,
         '#is': PlatformViewsService_is$,
+        'initAndroidView': _PlatformViewsService_initAndroidView$,
+        'initSurfaceAndroidView': _PlatformViewsService_initSurfaceAndroidView$,
+        'initExpensiveAndroidView':
+            _PlatformViewsService_initExpensiveAndroidView$,
+        'initUiKitView': _PlatformViewsService_initUiKitView$,
       },
       {},
     ),
@@ -143,6 +137,10 @@ const libraryMirror = m.LibraryMirror(
         'setSize': _AndroidViewController_setSize$,
         'setOffset': _AndroidViewController_setOffset$,
         'sendMotionEvent': _AndroidViewController_sendMotionEvent$,
+        'addOnPlatformViewCreatedListener':
+            _AndroidViewController_addOnPlatformViewCreatedListener$,
+        'removeOnPlatformViewCreatedListener':
+            _AndroidViewController_removeOnPlatformViewCreatedListener$,
         'setLayoutDirection': _AndroidViewController_setLayoutDirection$,
         'dispatchPointerEvent': _AndroidViewController_dispatchPointerEvent$,
         'clearFocus': _AndroidViewController_clearFocus$,
@@ -215,10 +213,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-PlatformViewsRegistry _platformViewsRegistry$() {
-  return platformViewsRegistry;
-}
-
+Function _platformViewsRegistry$(m.Scope scope$) => () => platformViewsRegistry;
 Function PlatformViewsRegistry_as$(
   m.Scope scope$,
   dynamic target$,
@@ -360,26 +355,16 @@ Function _AndroidPointerProperties_toolType$(
     () {
       return target$.toolType;
     };
-int _AndroidPointerProperties_kToolTypeUnknown$() {
-  return AndroidPointerProperties.kToolTypeUnknown;
-}
-
-int _AndroidPointerProperties_kToolTypeFinger$() {
-  return AndroidPointerProperties.kToolTypeFinger;
-}
-
-int _AndroidPointerProperties_kToolTypeStylus$() {
-  return AndroidPointerProperties.kToolTypeStylus;
-}
-
-int _AndroidPointerProperties_kToolTypeMouse$() {
-  return AndroidPointerProperties.kToolTypeMouse;
-}
-
-int _AndroidPointerProperties_kToolTypeEraser$() {
-  return AndroidPointerProperties.kToolTypeEraser;
-}
-
+Function _AndroidPointerProperties_kToolTypeUnknown$(m.Scope scope$) =>
+    () => AndroidPointerProperties.kToolTypeUnknown;
+Function _AndroidPointerProperties_kToolTypeFinger$(m.Scope scope$) =>
+    () => AndroidPointerProperties.kToolTypeFinger;
+Function _AndroidPointerProperties_kToolTypeStylus$(m.Scope scope$) =>
+    () => AndroidPointerProperties.kToolTypeStylus;
+Function _AndroidPointerProperties_kToolTypeMouse$(m.Scope scope$) =>
+    () => AndroidPointerProperties.kToolTypeMouse;
+Function _AndroidPointerProperties_kToolTypeEraser$(m.Scope scope$) =>
+    () => AndroidPointerProperties.kToolTypeEraser;
 Function _AndroidPointerProperties__$(m.Scope scope$) => ({
       required int id,
       required int toolType,
@@ -660,38 +645,22 @@ Function AndroidViewController_is$(
   dynamic target$,
 ) =>
     () => target$ is AndroidViewController;
-int _AndroidViewController_kActionDown$() {
-  return AndroidViewController.kActionDown;
-}
-
-int _AndroidViewController_kActionUp$() {
-  return AndroidViewController.kActionUp;
-}
-
-int _AndroidViewController_kActionMove$() {
-  return AndroidViewController.kActionMove;
-}
-
-int _AndroidViewController_kActionCancel$() {
-  return AndroidViewController.kActionCancel;
-}
-
-int _AndroidViewController_kActionPointerDown$() {
-  return AndroidViewController.kActionPointerDown;
-}
-
-int _AndroidViewController_kActionPointerUp$() {
-  return AndroidViewController.kActionPointerUp;
-}
-
-int _AndroidViewController_kAndroidLayoutDirectionLtr$() {
-  return AndroidViewController.kAndroidLayoutDirectionLtr;
-}
-
-int _AndroidViewController_kAndroidLayoutDirectionRtl$() {
-  return AndroidViewController.kAndroidLayoutDirectionRtl;
-}
-
+Function _AndroidViewController_kActionDown$(m.Scope scope$) =>
+    () => AndroidViewController.kActionDown;
+Function _AndroidViewController_kActionUp$(m.Scope scope$) =>
+    () => AndroidViewController.kActionUp;
+Function _AndroidViewController_kActionMove$(m.Scope scope$) =>
+    () => AndroidViewController.kActionMove;
+Function _AndroidViewController_kActionCancel$(m.Scope scope$) =>
+    () => AndroidViewController.kActionCancel;
+Function _AndroidViewController_kActionPointerDown$(m.Scope scope$) =>
+    () => AndroidViewController.kActionPointerDown;
+Function _AndroidViewController_kActionPointerUp$(m.Scope scope$) =>
+    () => AndroidViewController.kActionPointerUp;
+Function _AndroidViewController_kAndroidLayoutDirectionLtr$(m.Scope scope$) =>
+    () => AndroidViewController.kAndroidLayoutDirectionLtr;
+Function _AndroidViewController_kAndroidLayoutDirectionRtl$(m.Scope scope$) =>
+    () => AndroidViewController.kAndroidLayoutDirectionRtl;
 Function _AndroidViewController_viewId$(
   m.Scope scope$,
   AndroidViewController target$,

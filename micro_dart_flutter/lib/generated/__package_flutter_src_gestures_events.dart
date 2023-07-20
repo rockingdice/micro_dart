@@ -249,54 +249,19 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-int _kPrimaryButton$() {
-  return kPrimaryButton;
-}
-
-int _kSecondaryButton$() {
-  return kSecondaryButton;
-}
-
-int _kPrimaryMouseButton$() {
-  return kPrimaryMouseButton;
-}
-
-int _kSecondaryMouseButton$() {
-  return kSecondaryMouseButton;
-}
-
-int _kStylusContact$() {
-  return kStylusContact;
-}
-
-int _kPrimaryStylusButton$() {
-  return kPrimaryStylusButton;
-}
-
-int _kTertiaryButton$() {
-  return kTertiaryButton;
-}
-
-int _kMiddleMouseButton$() {
-  return kMiddleMouseButton;
-}
-
-int _kSecondaryStylusButton$() {
-  return kSecondaryStylusButton;
-}
-
-int _kBackMouseButton$() {
-  return kBackMouseButton;
-}
-
-int _kForwardMouseButton$() {
-  return kForwardMouseButton;
-}
-
-int _kTouchContact$() {
-  return kTouchContact;
-}
-
+Function _kPrimaryButton$(m.Scope scope$) => () => kPrimaryButton;
+Function _kSecondaryButton$(m.Scope scope$) => () => kSecondaryButton;
+Function _kPrimaryMouseButton$(m.Scope scope$) => () => kPrimaryMouseButton;
+Function _kSecondaryMouseButton$(m.Scope scope$) => () => kSecondaryMouseButton;
+Function _kStylusContact$(m.Scope scope$) => () => kStylusContact;
+Function _kPrimaryStylusButton$(m.Scope scope$) => () => kPrimaryStylusButton;
+Function _kTertiaryButton$(m.Scope scope$) => () => kTertiaryButton;
+Function _kMiddleMouseButton$(m.Scope scope$) => () => kMiddleMouseButton;
+Function _kSecondaryStylusButton$(m.Scope scope$) =>
+    () => kSecondaryStylusButton;
+Function _kBackMouseButton$(m.Scope scope$) => () => kBackMouseButton;
+Function _kForwardMouseButton$(m.Scope scope$) => () => kForwardMouseButton;
+Function _kTouchContact$(m.Scope scope$) => () => kTouchContact;
 Function PointerEvent_as$(
   m.Scope scope$,
   dynamic target$,

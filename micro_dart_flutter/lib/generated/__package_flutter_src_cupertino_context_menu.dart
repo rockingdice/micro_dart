@@ -51,18 +51,12 @@ Function CupertinoContextMenu_is$(
   dynamic target$,
 ) =>
     () => target$ is CupertinoContextMenu;
-double _CupertinoContextMenu_kOpenBorderRadius$() {
-  return CupertinoContextMenu.kOpenBorderRadius;
-}
-
-List<BoxShadow> _CupertinoContextMenu_kEndBoxShadow$() {
-  return CupertinoContextMenu.kEndBoxShadow;
-}
-
-double _CupertinoContextMenu_animationOpensAt$() {
-  return CupertinoContextMenu.animationOpensAt;
-}
-
+Function _CupertinoContextMenu_kOpenBorderRadius$(m.Scope scope$) =>
+    () => CupertinoContextMenu.kOpenBorderRadius;
+Function _CupertinoContextMenu_kEndBoxShadow$(m.Scope scope$) =>
+    () => CupertinoContextMenu.kEndBoxShadow;
+Function _CupertinoContextMenu_animationOpensAt$(m.Scope scope$) =>
+    () => CupertinoContextMenu.animationOpensAt;
 Function _CupertinoContextMenu_builder$(
   m.Scope scope$,
   CupertinoContextMenu target$,

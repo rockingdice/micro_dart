@@ -8,11 +8,7 @@ import 'package:flutter/src/material/colors.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/tab_indicator.dart',
-  {
-    'UnderlineTabIndicator.': _UnderlineTabIndicator__$,
-    'UnderlineTabIndicator.createBoxPainter':
-        _UnderlineTabIndicator_createBoxPainter$,
-  },
+  {'UnderlineTabIndicator.': _UnderlineTabIndicator__$},
   {},
   {
     'UnderlineTabIndicator': m.ClassMirror(
@@ -25,6 +21,7 @@ const libraryMirror = m.LibraryMirror(
         'insets': _UnderlineTabIndicator_insets$,
         'lerpFrom': _UnderlineTabIndicator_lerpFrom$,
         'lerpTo': _UnderlineTabIndicator_lerpTo$,
+        'createBoxPainter': _UnderlineTabIndicator_createBoxPainter$,
         'getClipPath': _UnderlineTabIndicator_getClipPath$,
       },
       {},

@@ -1400,11 +1400,8 @@ Function DefaultMaterialLocalizations_is$(
   dynamic target$,
 ) =>
     () => target$ is DefaultMaterialLocalizations;
-LocalizationsDelegate<MaterialLocalizations>
-    _DefaultMaterialLocalizations_delegate$() {
-  return DefaultMaterialLocalizations.delegate;
-}
-
+Function _DefaultMaterialLocalizations_delegate$(m.Scope scope$) =>
+    () => DefaultMaterialLocalizations.delegate;
 Function _DefaultMaterialLocalizations_narrowWeekdays$(
   m.Scope scope$,
   DefaultMaterialLocalizations target$,

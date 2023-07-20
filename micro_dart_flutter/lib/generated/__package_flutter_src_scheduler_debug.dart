@@ -20,26 +20,20 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-bool _debugPrintBeginFrameBanner$() {
-  return debugPrintBeginFrameBanner;
-}
-
+Function _debugPrintBeginFrameBanner$(m.Scope scope$) =>
+    () => debugPrintBeginFrameBanner;
 void _debugPrintBeginFrameBanner_set$(bool other$) {
   debugPrintBeginFrameBanner = other$;
 }
 
-bool _debugPrintEndFrameBanner$() {
-  return debugPrintEndFrameBanner;
-}
-
+Function _debugPrintEndFrameBanner$(m.Scope scope$) =>
+    () => debugPrintEndFrameBanner;
 void _debugPrintEndFrameBanner_set$(bool other$) {
   debugPrintEndFrameBanner = other$;
 }
 
-bool _debugPrintScheduleFrameStacks$() {
-  return debugPrintScheduleFrameStacks;
-}
-
+Function _debugPrintScheduleFrameStacks$(m.Scope scope$) =>
+    () => debugPrintScheduleFrameStacks;
 void _debugPrintScheduleFrameStacks_set$(bool other$) {
   debugPrintScheduleFrameStacks = other$;
 }

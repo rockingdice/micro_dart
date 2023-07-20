@@ -92,10 +92,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Map<MaterialType, BorderRadius?> _kMaterialEdges$() {
-  return kMaterialEdges;
-}
-
+Function _kMaterialEdges$(m.Scope scope$) => () => kMaterialEdges;
 Function MaterialInkController_as$(
   m.Scope scope$,
   dynamic target$,
@@ -224,10 +221,8 @@ Function _Material_borderRadius$(
     () {
       return target$.borderRadius;
     };
-double _Material_defaultSplashRadius$() {
-  return Material.defaultSplashRadius;
-}
-
+Function _Material_defaultSplashRadius$(m.Scope scope$) =>
+    () => Material.defaultSplashRadius;
 Function _Material__$(m.Scope scope$) => ({
       Key? key,
       MaterialType? type,
@@ -341,26 +336,10 @@ Function _ShapeBorderTween_lerp$(
   ShapeBorderTween target$,
 ) =>
     target$.lerp;
-MaterialType _MaterialType_canvas$() {
-  return MaterialType.canvas;
-}
-
-MaterialType _MaterialType_card$() {
-  return MaterialType.card;
-}
-
-MaterialType _MaterialType_circle$() {
-  return MaterialType.circle;
-}
-
-MaterialType _MaterialType_button$() {
-  return MaterialType.button;
-}
-
-MaterialType _MaterialType_transparency$() {
-  return MaterialType.transparency;
-}
-
-List<MaterialType> _MaterialType_values$() {
-  return MaterialType.values;
-}
+Function _MaterialType_canvas$(m.Scope scope$) => () => MaterialType.canvas;
+Function _MaterialType_card$(m.Scope scope$) => () => MaterialType.card;
+Function _MaterialType_circle$(m.Scope scope$) => () => MaterialType.circle;
+Function _MaterialType_button$(m.Scope scope$) => () => MaterialType.button;
+Function _MaterialType_transparency$(m.Scope scope$) =>
+    () => MaterialType.transparency;
+Function _MaterialType_values$(m.Scope scope$) => () => MaterialType.values;

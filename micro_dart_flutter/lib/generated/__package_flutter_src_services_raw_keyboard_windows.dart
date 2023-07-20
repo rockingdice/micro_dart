@@ -102,62 +102,34 @@ Function _RawKeyEventDataWindows_modifiers$(
     () {
       return target$.modifiers;
     };
-int _RawKeyEventDataWindows_modifierShift$() {
-  return RawKeyEventDataWindows.modifierShift;
-}
-
-int _RawKeyEventDataWindows_modifierLeftShift$() {
-  return RawKeyEventDataWindows.modifierLeftShift;
-}
-
-int _RawKeyEventDataWindows_modifierRightShift$() {
-  return RawKeyEventDataWindows.modifierRightShift;
-}
-
-int _RawKeyEventDataWindows_modifierControl$() {
-  return RawKeyEventDataWindows.modifierControl;
-}
-
-int _RawKeyEventDataWindows_modifierLeftControl$() {
-  return RawKeyEventDataWindows.modifierLeftControl;
-}
-
-int _RawKeyEventDataWindows_modifierRightControl$() {
-  return RawKeyEventDataWindows.modifierRightControl;
-}
-
-int _RawKeyEventDataWindows_modifierAlt$() {
-  return RawKeyEventDataWindows.modifierAlt;
-}
-
-int _RawKeyEventDataWindows_modifierLeftAlt$() {
-  return RawKeyEventDataWindows.modifierLeftAlt;
-}
-
-int _RawKeyEventDataWindows_modifierRightAlt$() {
-  return RawKeyEventDataWindows.modifierRightAlt;
-}
-
-int _RawKeyEventDataWindows_modifierLeftMeta$() {
-  return RawKeyEventDataWindows.modifierLeftMeta;
-}
-
-int _RawKeyEventDataWindows_modifierRightMeta$() {
-  return RawKeyEventDataWindows.modifierRightMeta;
-}
-
-int _RawKeyEventDataWindows_modifierCaps$() {
-  return RawKeyEventDataWindows.modifierCaps;
-}
-
-int _RawKeyEventDataWindows_modifierNumLock$() {
-  return RawKeyEventDataWindows.modifierNumLock;
-}
-
-int _RawKeyEventDataWindows_modifierScrollLock$() {
-  return RawKeyEventDataWindows.modifierScrollLock;
-}
-
+Function _RawKeyEventDataWindows_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierShift;
+Function _RawKeyEventDataWindows_modifierLeftShift$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierLeftShift;
+Function _RawKeyEventDataWindows_modifierRightShift$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierRightShift;
+Function _RawKeyEventDataWindows_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierControl;
+Function _RawKeyEventDataWindows_modifierLeftControl$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierLeftControl;
+Function _RawKeyEventDataWindows_modifierRightControl$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierRightControl;
+Function _RawKeyEventDataWindows_modifierAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierAlt;
+Function _RawKeyEventDataWindows_modifierLeftAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierLeftAlt;
+Function _RawKeyEventDataWindows_modifierRightAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierRightAlt;
+Function _RawKeyEventDataWindows_modifierLeftMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierLeftMeta;
+Function _RawKeyEventDataWindows_modifierRightMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierRightMeta;
+Function _RawKeyEventDataWindows_modifierCaps$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierCaps;
+Function _RawKeyEventDataWindows_modifierNumLock$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierNumLock;
+Function _RawKeyEventDataWindows_modifierScrollLock$(m.Scope scope$) =>
+    () => RawKeyEventDataWindows.modifierScrollLock;
 Function _RawKeyEventDataWindows_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataWindows target$,

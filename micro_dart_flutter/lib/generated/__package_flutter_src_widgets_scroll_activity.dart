@@ -450,18 +450,15 @@ Function _ScrollDragController_motionStartDistanceThreshold$(
     () {
       return target$.motionStartDistanceThreshold;
     };
-Duration _ScrollDragController_momentumRetainStationaryDurationThreshold$() {
-  return ScrollDragController.momentumRetainStationaryDurationThreshold;
-}
-
-double _ScrollDragController_momentumRetainVelocityThresholdFactor$() {
-  return ScrollDragController.momentumRetainVelocityThresholdFactor;
-}
-
-Duration _ScrollDragController_motionStoppedDurationThreshold$() {
-  return ScrollDragController.motionStoppedDurationThreshold;
-}
-
+Function _ScrollDragController_momentumRetainStationaryDurationThreshold$(
+        m.Scope scope$) =>
+    () => ScrollDragController.momentumRetainStationaryDurationThreshold;
+Function _ScrollDragController_momentumRetainVelocityThresholdFactor$(
+        m.Scope scope$) =>
+    () => ScrollDragController.momentumRetainVelocityThresholdFactor;
+Function _ScrollDragController_motionStoppedDurationThreshold$(
+        m.Scope scope$) =>
+    () => ScrollDragController.motionStoppedDurationThreshold;
 Function _ScrollDragController_delegate$(
   m.Scope scope$,
   ScrollDragController target$,

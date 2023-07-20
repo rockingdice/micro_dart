@@ -122,10 +122,7 @@ Function LinearBorder_is$(
   dynamic target$,
 ) =>
     () => target$ is LinearBorder;
-LinearBorder _LinearBorder_none$() {
-  return LinearBorder.none;
-}
-
+Function _LinearBorder_none$(m.Scope scope$) => () => LinearBorder.none;
 Function _LinearBorder_start$(
   m.Scope scope$,
   LinearBorder target$,

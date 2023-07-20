@@ -15,6 +15,4 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-ImageCache _imageCache$() {
-  return imageCache;
-}
+Function _imageCache$(m.Scope scope$) => () => imageCache;

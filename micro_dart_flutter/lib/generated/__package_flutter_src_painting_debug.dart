@@ -51,18 +51,13 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-bool _debugDisableShadows$() {
-  return debugDisableShadows;
-}
-
+Function _debugDisableShadows$(m.Scope scope$) => () => debugDisableShadows;
 void _debugDisableShadows_set$(bool other$) {
   debugDisableShadows = other$;
 }
 
-HttpClient Function()? _debugNetworkImageHttpClientProvider$() {
-  return debugNetworkImageHttpClientProvider;
-}
-
+Function _debugNetworkImageHttpClientProvider$(m.Scope scope$) =>
+    () => debugNetworkImageHttpClientProvider;
 Function _debugNetworkImageHttpClientProvider_set$(m.Scope scope$) =>
     (m.FunctionPointer? _debugNetworkImageHttpClientProvider) {
       HttpClient _debugNetworkImageHttpClientProviderProxy() =>
@@ -77,10 +72,7 @@ Function _debugNetworkImageHttpClientProvider_set$(m.Scope scope$) =>
               ? null
               : _debugNetworkImageHttpClientProviderProxy);
     };
-void Function(ImageSizeInfo)? _debugOnPaintImage$() {
-  return debugOnPaintImage;
-}
-
+Function _debugOnPaintImage$(m.Scope scope$) => () => debugOnPaintImage;
 Function _debugOnPaintImage_set$(m.Scope scope$) =>
     (m.FunctionPointer? _debugOnPaintImage) {
       void _debugOnPaintImageProxy(ImageSizeInfo _debugOnPaintImage_$p0$) =>
@@ -93,26 +85,20 @@ Function _debugOnPaintImage_set$(m.Scope scope$) =>
       debugOnPaintImage =
           (_debugOnPaintImage == null ? null : _debugOnPaintImageProxy);
     };
-bool _debugInvertOversizedImages$() {
-  return debugInvertOversizedImages;
-}
-
+Function _debugInvertOversizedImages$(m.Scope scope$) =>
+    () => debugInvertOversizedImages;
 void _debugInvertOversizedImages_set$(bool other$) {
   debugInvertOversizedImages = other$;
 }
 
-int _debugImageOverheadAllowance$() {
-  return debugImageOverheadAllowance;
-}
-
+Function _debugImageOverheadAllowance$(m.Scope scope$) =>
+    () => debugImageOverheadAllowance;
 void _debugImageOverheadAllowance_set$(int other$) {
   debugImageOverheadAllowance = other$;
 }
 
-bool Function(Picture) _debugCaptureShaderWarmUpPicture$() {
-  return debugCaptureShaderWarmUpPicture;
-}
-
+Function _debugCaptureShaderWarmUpPicture$(m.Scope scope$) =>
+    () => debugCaptureShaderWarmUpPicture;
 Function _debugCaptureShaderWarmUpPicture_set$(m.Scope scope$) =>
     (m.FunctionPointer _debugCaptureShaderWarmUpPicture) {
       bool _debugCaptureShaderWarmUpPictureProxy(
@@ -125,10 +111,8 @@ Function _debugCaptureShaderWarmUpPicture_set$(m.Scope scope$) =>
           );
       debugCaptureShaderWarmUpPicture = (_debugCaptureShaderWarmUpPictureProxy);
     };
-bool Function(Image) _debugCaptureShaderWarmUpImage$() {
-  return debugCaptureShaderWarmUpImage;
-}
-
+Function _debugCaptureShaderWarmUpImage$(m.Scope scope$) =>
+    () => debugCaptureShaderWarmUpImage;
 Function _debugCaptureShaderWarmUpImage_set$(m.Scope scope$) =>
     (m.FunctionPointer _debugCaptureShaderWarmUpImage) {
       bool _debugCaptureShaderWarmUpImageProxy(

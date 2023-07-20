@@ -1193,18 +1193,9 @@ Function Endian_is$(
   dynamic target$,
 ) =>
     () => target$ is Endian;
-Endian _Endian_big$() {
-  return Endian.big;
-}
-
-Endian _Endian_little$() {
-  return Endian.little;
-}
-
-Endian _Endian_host$() {
-  return Endian.host;
-}
-
+Function _Endian_big$(m.Scope scope$) => () => Endian.big;
+Function _Endian_little$(m.Scope scope$) => () => Endian.little;
+Function _Endian_host$(m.Scope scope$) => () => Endian.host;
 Function ByteData_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1330,10 +1321,8 @@ Function Int8List_is$(
   dynamic target$,
 ) =>
     () => target$ is Int8List;
-int _Int8List_bytesPerElement$() {
-  return Int8List.bytesPerElement;
-}
-
+Function _Int8List_bytesPerElement$(m.Scope scope$) =>
+    () => Int8List.bytesPerElement;
 Function _Int8List__$(m.Scope scope$) => (int length) {
       return Int8List(length);
     };
@@ -1355,10 +1344,8 @@ Function Uint8List_is$(
   dynamic target$,
 ) =>
     () => target$ is Uint8List;
-int _Uint8List_bytesPerElement$() {
-  return Uint8List.bytesPerElement;
-}
-
+Function _Uint8List_bytesPerElement$(m.Scope scope$) =>
+    () => Uint8List.bytesPerElement;
 Function _Uint8List__$(m.Scope scope$) => (int length) {
       return Uint8List(length);
     };
@@ -1385,10 +1372,8 @@ Function Uint8ClampedList_is$(
   dynamic target$,
 ) =>
     () => target$ is Uint8ClampedList;
-int _Uint8ClampedList_bytesPerElement$() {
-  return Uint8ClampedList.bytesPerElement;
-}
-
+Function _Uint8ClampedList_bytesPerElement$(m.Scope scope$) =>
+    () => Uint8ClampedList.bytesPerElement;
 Function _Uint8ClampedList__$(m.Scope scope$) => (int length) {
       return Uint8ClampedList(length);
     };
@@ -1412,10 +1397,8 @@ Function Int16List_is$(
   dynamic target$,
 ) =>
     () => target$ is Int16List;
-int _Int16List_bytesPerElement$() {
-  return Int16List.bytesPerElement;
-}
-
+Function _Int16List_bytesPerElement$(m.Scope scope$) =>
+    () => Int16List.bytesPerElement;
 Function _Int16List__$(m.Scope scope$) => (int length) {
       return Int16List(length);
     };
@@ -1437,10 +1420,8 @@ Function Uint16List_is$(
   dynamic target$,
 ) =>
     () => target$ is Uint16List;
-int _Uint16List_bytesPerElement$() {
-  return Uint16List.bytesPerElement;
-}
-
+Function _Uint16List_bytesPerElement$(m.Scope scope$) =>
+    () => Uint16List.bytesPerElement;
 Function _Uint16List__$(m.Scope scope$) => (int length) {
       return Uint16List(length);
     };
@@ -1462,10 +1443,8 @@ Function Int32List_is$(
   dynamic target$,
 ) =>
     () => target$ is Int32List;
-int _Int32List_bytesPerElement$() {
-  return Int32List.bytesPerElement;
-}
-
+Function _Int32List_bytesPerElement$(m.Scope scope$) =>
+    () => Int32List.bytesPerElement;
 Function _Int32List__$(m.Scope scope$) => (int length) {
       return Int32List(length);
     };
@@ -1487,10 +1466,8 @@ Function Uint32List_is$(
   dynamic target$,
 ) =>
     () => target$ is Uint32List;
-int _Uint32List_bytesPerElement$() {
-  return Uint32List.bytesPerElement;
-}
-
+Function _Uint32List_bytesPerElement$(m.Scope scope$) =>
+    () => Uint32List.bytesPerElement;
 Function _Uint32List__$(m.Scope scope$) => (int length) {
       return Uint32List(length);
     };
@@ -1512,10 +1489,8 @@ Function Int64List_is$(
   dynamic target$,
 ) =>
     () => target$ is Int64List;
-int _Int64List_bytesPerElement$() {
-  return Int64List.bytesPerElement;
-}
-
+Function _Int64List_bytesPerElement$(m.Scope scope$) =>
+    () => Int64List.bytesPerElement;
 Function _Int64List__$(m.Scope scope$) => (int length) {
       return Int64List(length);
     };
@@ -1537,10 +1512,8 @@ Function Uint64List_is$(
   dynamic target$,
 ) =>
     () => target$ is Uint64List;
-int _Uint64List_bytesPerElement$() {
-  return Uint64List.bytesPerElement;
-}
-
+Function _Uint64List_bytesPerElement$(m.Scope scope$) =>
+    () => Uint64List.bytesPerElement;
 Function _Uint64List__$(m.Scope scope$) => (int length) {
       return Uint64List(length);
     };
@@ -1562,10 +1535,8 @@ Function Float32List_is$(
   dynamic target$,
 ) =>
     () => target$ is Float32List;
-int _Float32List_bytesPerElement$() {
-  return Float32List.bytesPerElement;
-}
-
+Function _Float32List_bytesPerElement$(m.Scope scope$) =>
+    () => Float32List.bytesPerElement;
 Function _Float32List__$(m.Scope scope$) => (int length) {
       return Float32List(length);
     };
@@ -1587,10 +1558,8 @@ Function Float64List_is$(
   dynamic target$,
 ) =>
     () => target$ is Float64List;
-int _Float64List_bytesPerElement$() {
-  return Float64List.bytesPerElement;
-}
-
+Function _Float64List_bytesPerElement$(m.Scope scope$) =>
+    () => Float64List.bytesPerElement;
 Function _Float64List__$(m.Scope scope$) => (int length) {
       return Float64List(length);
     };
@@ -1612,10 +1581,8 @@ Function Float32x4List_is$(
   dynamic target$,
 ) =>
     () => target$ is Float32x4List;
-int _Float32x4List_bytesPerElement$() {
-  return Float32x4List.bytesPerElement;
-}
-
+Function _Float32x4List_bytesPerElement$(m.Scope scope$) =>
+    () => Float32x4List.bytesPerElement;
 Function _Float32x4List__$(m.Scope scope$) => (int length) {
       return Float32x4List(length);
     };
@@ -1643,10 +1610,8 @@ Function Int32x4List_is$(
   dynamic target$,
 ) =>
     () => target$ is Int32x4List;
-int _Int32x4List_bytesPerElement$() {
-  return Int32x4List.bytesPerElement;
-}
-
+Function _Int32x4List_bytesPerElement$(m.Scope scope$) =>
+    () => Int32x4List.bytesPerElement;
 Function _Int32x4List__$(m.Scope scope$) => (int length) {
       return Int32x4List(length);
     };
@@ -1673,10 +1638,8 @@ Function Float64x2List_is$(
   dynamic target$,
 ) =>
     () => target$ is Float64x2List;
-int _Float64x2List_bytesPerElement$() {
-  return Float64x2List.bytesPerElement;
-}
-
+Function _Float64x2List_bytesPerElement$(m.Scope scope$) =>
+    () => Float64x2List.bytesPerElement;
 Function _Float64x2List__$(m.Scope scope$) => (int length) {
       return Float64x2List(length);
     };
@@ -1704,1030 +1667,262 @@ Function Float32x4_is$(
   dynamic target$,
 ) =>
     () => target$ is Float32x4;
-int _Float32x4_xxxx$() {
-  return Float32x4.xxxx;
-}
-
-int _Float32x4_xxxy$() {
-  return Float32x4.xxxy;
-}
-
-int _Float32x4_xxxz$() {
-  return Float32x4.xxxz;
-}
-
-int _Float32x4_xxxw$() {
-  return Float32x4.xxxw;
-}
-
-int _Float32x4_xxyx$() {
-  return Float32x4.xxyx;
-}
-
-int _Float32x4_xxyy$() {
-  return Float32x4.xxyy;
-}
-
-int _Float32x4_xxyz$() {
-  return Float32x4.xxyz;
-}
-
-int _Float32x4_xxyw$() {
-  return Float32x4.xxyw;
-}
-
-int _Float32x4_xxzx$() {
-  return Float32x4.xxzx;
-}
-
-int _Float32x4_xxzy$() {
-  return Float32x4.xxzy;
-}
-
-int _Float32x4_xxzz$() {
-  return Float32x4.xxzz;
-}
-
-int _Float32x4_xxzw$() {
-  return Float32x4.xxzw;
-}
-
-int _Float32x4_xxwx$() {
-  return Float32x4.xxwx;
-}
-
-int _Float32x4_xxwy$() {
-  return Float32x4.xxwy;
-}
-
-int _Float32x4_xxwz$() {
-  return Float32x4.xxwz;
-}
-
-int _Float32x4_xxww$() {
-  return Float32x4.xxww;
-}
-
-int _Float32x4_xyxx$() {
-  return Float32x4.xyxx;
-}
-
-int _Float32x4_xyxy$() {
-  return Float32x4.xyxy;
-}
-
-int _Float32x4_xyxz$() {
-  return Float32x4.xyxz;
-}
-
-int _Float32x4_xyxw$() {
-  return Float32x4.xyxw;
-}
-
-int _Float32x4_xyyx$() {
-  return Float32x4.xyyx;
-}
-
-int _Float32x4_xyyy$() {
-  return Float32x4.xyyy;
-}
-
-int _Float32x4_xyyz$() {
-  return Float32x4.xyyz;
-}
-
-int _Float32x4_xyyw$() {
-  return Float32x4.xyyw;
-}
-
-int _Float32x4_xyzx$() {
-  return Float32x4.xyzx;
-}
-
-int _Float32x4_xyzy$() {
-  return Float32x4.xyzy;
-}
-
-int _Float32x4_xyzz$() {
-  return Float32x4.xyzz;
-}
-
-int _Float32x4_xyzw$() {
-  return Float32x4.xyzw;
-}
-
-int _Float32x4_xywx$() {
-  return Float32x4.xywx;
-}
-
-int _Float32x4_xywy$() {
-  return Float32x4.xywy;
-}
-
-int _Float32x4_xywz$() {
-  return Float32x4.xywz;
-}
-
-int _Float32x4_xyww$() {
-  return Float32x4.xyww;
-}
-
-int _Float32x4_xzxx$() {
-  return Float32x4.xzxx;
-}
-
-int _Float32x4_xzxy$() {
-  return Float32x4.xzxy;
-}
-
-int _Float32x4_xzxz$() {
-  return Float32x4.xzxz;
-}
-
-int _Float32x4_xzxw$() {
-  return Float32x4.xzxw;
-}
-
-int _Float32x4_xzyx$() {
-  return Float32x4.xzyx;
-}
-
-int _Float32x4_xzyy$() {
-  return Float32x4.xzyy;
-}
-
-int _Float32x4_xzyz$() {
-  return Float32x4.xzyz;
-}
-
-int _Float32x4_xzyw$() {
-  return Float32x4.xzyw;
-}
-
-int _Float32x4_xzzx$() {
-  return Float32x4.xzzx;
-}
-
-int _Float32x4_xzzy$() {
-  return Float32x4.xzzy;
-}
-
-int _Float32x4_xzzz$() {
-  return Float32x4.xzzz;
-}
-
-int _Float32x4_xzzw$() {
-  return Float32x4.xzzw;
-}
-
-int _Float32x4_xzwx$() {
-  return Float32x4.xzwx;
-}
-
-int _Float32x4_xzwy$() {
-  return Float32x4.xzwy;
-}
-
-int _Float32x4_xzwz$() {
-  return Float32x4.xzwz;
-}
-
-int _Float32x4_xzww$() {
-  return Float32x4.xzww;
-}
-
-int _Float32x4_xwxx$() {
-  return Float32x4.xwxx;
-}
-
-int _Float32x4_xwxy$() {
-  return Float32x4.xwxy;
-}
-
-int _Float32x4_xwxz$() {
-  return Float32x4.xwxz;
-}
-
-int _Float32x4_xwxw$() {
-  return Float32x4.xwxw;
-}
-
-int _Float32x4_xwyx$() {
-  return Float32x4.xwyx;
-}
-
-int _Float32x4_xwyy$() {
-  return Float32x4.xwyy;
-}
-
-int _Float32x4_xwyz$() {
-  return Float32x4.xwyz;
-}
-
-int _Float32x4_xwyw$() {
-  return Float32x4.xwyw;
-}
-
-int _Float32x4_xwzx$() {
-  return Float32x4.xwzx;
-}
-
-int _Float32x4_xwzy$() {
-  return Float32x4.xwzy;
-}
-
-int _Float32x4_xwzz$() {
-  return Float32x4.xwzz;
-}
-
-int _Float32x4_xwzw$() {
-  return Float32x4.xwzw;
-}
-
-int _Float32x4_xwwx$() {
-  return Float32x4.xwwx;
-}
-
-int _Float32x4_xwwy$() {
-  return Float32x4.xwwy;
-}
-
-int _Float32x4_xwwz$() {
-  return Float32x4.xwwz;
-}
-
-int _Float32x4_xwww$() {
-  return Float32x4.xwww;
-}
-
-int _Float32x4_yxxx$() {
-  return Float32x4.yxxx;
-}
-
-int _Float32x4_yxxy$() {
-  return Float32x4.yxxy;
-}
-
-int _Float32x4_yxxz$() {
-  return Float32x4.yxxz;
-}
-
-int _Float32x4_yxxw$() {
-  return Float32x4.yxxw;
-}
-
-int _Float32x4_yxyx$() {
-  return Float32x4.yxyx;
-}
-
-int _Float32x4_yxyy$() {
-  return Float32x4.yxyy;
-}
-
-int _Float32x4_yxyz$() {
-  return Float32x4.yxyz;
-}
-
-int _Float32x4_yxyw$() {
-  return Float32x4.yxyw;
-}
-
-int _Float32x4_yxzx$() {
-  return Float32x4.yxzx;
-}
-
-int _Float32x4_yxzy$() {
-  return Float32x4.yxzy;
-}
-
-int _Float32x4_yxzz$() {
-  return Float32x4.yxzz;
-}
-
-int _Float32x4_yxzw$() {
-  return Float32x4.yxzw;
-}
-
-int _Float32x4_yxwx$() {
-  return Float32x4.yxwx;
-}
-
-int _Float32x4_yxwy$() {
-  return Float32x4.yxwy;
-}
-
-int _Float32x4_yxwz$() {
-  return Float32x4.yxwz;
-}
-
-int _Float32x4_yxww$() {
-  return Float32x4.yxww;
-}
-
-int _Float32x4_yyxx$() {
-  return Float32x4.yyxx;
-}
-
-int _Float32x4_yyxy$() {
-  return Float32x4.yyxy;
-}
-
-int _Float32x4_yyxz$() {
-  return Float32x4.yyxz;
-}
-
-int _Float32x4_yyxw$() {
-  return Float32x4.yyxw;
-}
-
-int _Float32x4_yyyx$() {
-  return Float32x4.yyyx;
-}
-
-int _Float32x4_yyyy$() {
-  return Float32x4.yyyy;
-}
-
-int _Float32x4_yyyz$() {
-  return Float32x4.yyyz;
-}
-
-int _Float32x4_yyyw$() {
-  return Float32x4.yyyw;
-}
-
-int _Float32x4_yyzx$() {
-  return Float32x4.yyzx;
-}
-
-int _Float32x4_yyzy$() {
-  return Float32x4.yyzy;
-}
-
-int _Float32x4_yyzz$() {
-  return Float32x4.yyzz;
-}
-
-int _Float32x4_yyzw$() {
-  return Float32x4.yyzw;
-}
-
-int _Float32x4_yywx$() {
-  return Float32x4.yywx;
-}
-
-int _Float32x4_yywy$() {
-  return Float32x4.yywy;
-}
-
-int _Float32x4_yywz$() {
-  return Float32x4.yywz;
-}
-
-int _Float32x4_yyww$() {
-  return Float32x4.yyww;
-}
-
-int _Float32x4_yzxx$() {
-  return Float32x4.yzxx;
-}
-
-int _Float32x4_yzxy$() {
-  return Float32x4.yzxy;
-}
-
-int _Float32x4_yzxz$() {
-  return Float32x4.yzxz;
-}
-
-int _Float32x4_yzxw$() {
-  return Float32x4.yzxw;
-}
-
-int _Float32x4_yzyx$() {
-  return Float32x4.yzyx;
-}
-
-int _Float32x4_yzyy$() {
-  return Float32x4.yzyy;
-}
-
-int _Float32x4_yzyz$() {
-  return Float32x4.yzyz;
-}
-
-int _Float32x4_yzyw$() {
-  return Float32x4.yzyw;
-}
-
-int _Float32x4_yzzx$() {
-  return Float32x4.yzzx;
-}
-
-int _Float32x4_yzzy$() {
-  return Float32x4.yzzy;
-}
-
-int _Float32x4_yzzz$() {
-  return Float32x4.yzzz;
-}
-
-int _Float32x4_yzzw$() {
-  return Float32x4.yzzw;
-}
-
-int _Float32x4_yzwx$() {
-  return Float32x4.yzwx;
-}
-
-int _Float32x4_yzwy$() {
-  return Float32x4.yzwy;
-}
-
-int _Float32x4_yzwz$() {
-  return Float32x4.yzwz;
-}
-
-int _Float32x4_yzww$() {
-  return Float32x4.yzww;
-}
-
-int _Float32x4_ywxx$() {
-  return Float32x4.ywxx;
-}
-
-int _Float32x4_ywxy$() {
-  return Float32x4.ywxy;
-}
-
-int _Float32x4_ywxz$() {
-  return Float32x4.ywxz;
-}
-
-int _Float32x4_ywxw$() {
-  return Float32x4.ywxw;
-}
-
-int _Float32x4_ywyx$() {
-  return Float32x4.ywyx;
-}
-
-int _Float32x4_ywyy$() {
-  return Float32x4.ywyy;
-}
-
-int _Float32x4_ywyz$() {
-  return Float32x4.ywyz;
-}
-
-int _Float32x4_ywyw$() {
-  return Float32x4.ywyw;
-}
-
-int _Float32x4_ywzx$() {
-  return Float32x4.ywzx;
-}
-
-int _Float32x4_ywzy$() {
-  return Float32x4.ywzy;
-}
-
-int _Float32x4_ywzz$() {
-  return Float32x4.ywzz;
-}
-
-int _Float32x4_ywzw$() {
-  return Float32x4.ywzw;
-}
-
-int _Float32x4_ywwx$() {
-  return Float32x4.ywwx;
-}
-
-int _Float32x4_ywwy$() {
-  return Float32x4.ywwy;
-}
-
-int _Float32x4_ywwz$() {
-  return Float32x4.ywwz;
-}
-
-int _Float32x4_ywww$() {
-  return Float32x4.ywww;
-}
-
-int _Float32x4_zxxx$() {
-  return Float32x4.zxxx;
-}
-
-int _Float32x4_zxxy$() {
-  return Float32x4.zxxy;
-}
-
-int _Float32x4_zxxz$() {
-  return Float32x4.zxxz;
-}
-
-int _Float32x4_zxxw$() {
-  return Float32x4.zxxw;
-}
-
-int _Float32x4_zxyx$() {
-  return Float32x4.zxyx;
-}
-
-int _Float32x4_zxyy$() {
-  return Float32x4.zxyy;
-}
-
-int _Float32x4_zxyz$() {
-  return Float32x4.zxyz;
-}
-
-int _Float32x4_zxyw$() {
-  return Float32x4.zxyw;
-}
-
-int _Float32x4_zxzx$() {
-  return Float32x4.zxzx;
-}
-
-int _Float32x4_zxzy$() {
-  return Float32x4.zxzy;
-}
-
-int _Float32x4_zxzz$() {
-  return Float32x4.zxzz;
-}
-
-int _Float32x4_zxzw$() {
-  return Float32x4.zxzw;
-}
-
-int _Float32x4_zxwx$() {
-  return Float32x4.zxwx;
-}
-
-int _Float32x4_zxwy$() {
-  return Float32x4.zxwy;
-}
-
-int _Float32x4_zxwz$() {
-  return Float32x4.zxwz;
-}
-
-int _Float32x4_zxww$() {
-  return Float32x4.zxww;
-}
-
-int _Float32x4_zyxx$() {
-  return Float32x4.zyxx;
-}
-
-int _Float32x4_zyxy$() {
-  return Float32x4.zyxy;
-}
-
-int _Float32x4_zyxz$() {
-  return Float32x4.zyxz;
-}
-
-int _Float32x4_zyxw$() {
-  return Float32x4.zyxw;
-}
-
-int _Float32x4_zyyx$() {
-  return Float32x4.zyyx;
-}
-
-int _Float32x4_zyyy$() {
-  return Float32x4.zyyy;
-}
-
-int _Float32x4_zyyz$() {
-  return Float32x4.zyyz;
-}
-
-int _Float32x4_zyyw$() {
-  return Float32x4.zyyw;
-}
-
-int _Float32x4_zyzx$() {
-  return Float32x4.zyzx;
-}
-
-int _Float32x4_zyzy$() {
-  return Float32x4.zyzy;
-}
-
-int _Float32x4_zyzz$() {
-  return Float32x4.zyzz;
-}
-
-int _Float32x4_zyzw$() {
-  return Float32x4.zyzw;
-}
-
-int _Float32x4_zywx$() {
-  return Float32x4.zywx;
-}
-
-int _Float32x4_zywy$() {
-  return Float32x4.zywy;
-}
-
-int _Float32x4_zywz$() {
-  return Float32x4.zywz;
-}
-
-int _Float32x4_zyww$() {
-  return Float32x4.zyww;
-}
-
-int _Float32x4_zzxx$() {
-  return Float32x4.zzxx;
-}
-
-int _Float32x4_zzxy$() {
-  return Float32x4.zzxy;
-}
-
-int _Float32x4_zzxz$() {
-  return Float32x4.zzxz;
-}
-
-int _Float32x4_zzxw$() {
-  return Float32x4.zzxw;
-}
-
-int _Float32x4_zzyx$() {
-  return Float32x4.zzyx;
-}
-
-int _Float32x4_zzyy$() {
-  return Float32x4.zzyy;
-}
-
-int _Float32x4_zzyz$() {
-  return Float32x4.zzyz;
-}
-
-int _Float32x4_zzyw$() {
-  return Float32x4.zzyw;
-}
-
-int _Float32x4_zzzx$() {
-  return Float32x4.zzzx;
-}
-
-int _Float32x4_zzzy$() {
-  return Float32x4.zzzy;
-}
-
-int _Float32x4_zzzz$() {
-  return Float32x4.zzzz;
-}
-
-int _Float32x4_zzzw$() {
-  return Float32x4.zzzw;
-}
-
-int _Float32x4_zzwx$() {
-  return Float32x4.zzwx;
-}
-
-int _Float32x4_zzwy$() {
-  return Float32x4.zzwy;
-}
-
-int _Float32x4_zzwz$() {
-  return Float32x4.zzwz;
-}
-
-int _Float32x4_zzww$() {
-  return Float32x4.zzww;
-}
-
-int _Float32x4_zwxx$() {
-  return Float32x4.zwxx;
-}
-
-int _Float32x4_zwxy$() {
-  return Float32x4.zwxy;
-}
-
-int _Float32x4_zwxz$() {
-  return Float32x4.zwxz;
-}
-
-int _Float32x4_zwxw$() {
-  return Float32x4.zwxw;
-}
-
-int _Float32x4_zwyx$() {
-  return Float32x4.zwyx;
-}
-
-int _Float32x4_zwyy$() {
-  return Float32x4.zwyy;
-}
-
-int _Float32x4_zwyz$() {
-  return Float32x4.zwyz;
-}
-
-int _Float32x4_zwyw$() {
-  return Float32x4.zwyw;
-}
-
-int _Float32x4_zwzx$() {
-  return Float32x4.zwzx;
-}
-
-int _Float32x4_zwzy$() {
-  return Float32x4.zwzy;
-}
-
-int _Float32x4_zwzz$() {
-  return Float32x4.zwzz;
-}
-
-int _Float32x4_zwzw$() {
-  return Float32x4.zwzw;
-}
-
-int _Float32x4_zwwx$() {
-  return Float32x4.zwwx;
-}
-
-int _Float32x4_zwwy$() {
-  return Float32x4.zwwy;
-}
-
-int _Float32x4_zwwz$() {
-  return Float32x4.zwwz;
-}
-
-int _Float32x4_zwww$() {
-  return Float32x4.zwww;
-}
-
-int _Float32x4_wxxx$() {
-  return Float32x4.wxxx;
-}
-
-int _Float32x4_wxxy$() {
-  return Float32x4.wxxy;
-}
-
-int _Float32x4_wxxz$() {
-  return Float32x4.wxxz;
-}
-
-int _Float32x4_wxxw$() {
-  return Float32x4.wxxw;
-}
-
-int _Float32x4_wxyx$() {
-  return Float32x4.wxyx;
-}
-
-int _Float32x4_wxyy$() {
-  return Float32x4.wxyy;
-}
-
-int _Float32x4_wxyz$() {
-  return Float32x4.wxyz;
-}
-
-int _Float32x4_wxyw$() {
-  return Float32x4.wxyw;
-}
-
-int _Float32x4_wxzx$() {
-  return Float32x4.wxzx;
-}
-
-int _Float32x4_wxzy$() {
-  return Float32x4.wxzy;
-}
-
-int _Float32x4_wxzz$() {
-  return Float32x4.wxzz;
-}
-
-int _Float32x4_wxzw$() {
-  return Float32x4.wxzw;
-}
-
-int _Float32x4_wxwx$() {
-  return Float32x4.wxwx;
-}
-
-int _Float32x4_wxwy$() {
-  return Float32x4.wxwy;
-}
-
-int _Float32x4_wxwz$() {
-  return Float32x4.wxwz;
-}
-
-int _Float32x4_wxww$() {
-  return Float32x4.wxww;
-}
-
-int _Float32x4_wyxx$() {
-  return Float32x4.wyxx;
-}
-
-int _Float32x4_wyxy$() {
-  return Float32x4.wyxy;
-}
-
-int _Float32x4_wyxz$() {
-  return Float32x4.wyxz;
-}
-
-int _Float32x4_wyxw$() {
-  return Float32x4.wyxw;
-}
-
-int _Float32x4_wyyx$() {
-  return Float32x4.wyyx;
-}
-
-int _Float32x4_wyyy$() {
-  return Float32x4.wyyy;
-}
-
-int _Float32x4_wyyz$() {
-  return Float32x4.wyyz;
-}
-
-int _Float32x4_wyyw$() {
-  return Float32x4.wyyw;
-}
-
-int _Float32x4_wyzx$() {
-  return Float32x4.wyzx;
-}
-
-int _Float32x4_wyzy$() {
-  return Float32x4.wyzy;
-}
-
-int _Float32x4_wyzz$() {
-  return Float32x4.wyzz;
-}
-
-int _Float32x4_wyzw$() {
-  return Float32x4.wyzw;
-}
-
-int _Float32x4_wywx$() {
-  return Float32x4.wywx;
-}
-
-int _Float32x4_wywy$() {
-  return Float32x4.wywy;
-}
-
-int _Float32x4_wywz$() {
-  return Float32x4.wywz;
-}
-
-int _Float32x4_wyww$() {
-  return Float32x4.wyww;
-}
-
-int _Float32x4_wzxx$() {
-  return Float32x4.wzxx;
-}
-
-int _Float32x4_wzxy$() {
-  return Float32x4.wzxy;
-}
-
-int _Float32x4_wzxz$() {
-  return Float32x4.wzxz;
-}
-
-int _Float32x4_wzxw$() {
-  return Float32x4.wzxw;
-}
-
-int _Float32x4_wzyx$() {
-  return Float32x4.wzyx;
-}
-
-int _Float32x4_wzyy$() {
-  return Float32x4.wzyy;
-}
-
-int _Float32x4_wzyz$() {
-  return Float32x4.wzyz;
-}
-
-int _Float32x4_wzyw$() {
-  return Float32x4.wzyw;
-}
-
-int _Float32x4_wzzx$() {
-  return Float32x4.wzzx;
-}
-
-int _Float32x4_wzzy$() {
-  return Float32x4.wzzy;
-}
-
-int _Float32x4_wzzz$() {
-  return Float32x4.wzzz;
-}
-
-int _Float32x4_wzzw$() {
-  return Float32x4.wzzw;
-}
-
-int _Float32x4_wzwx$() {
-  return Float32x4.wzwx;
-}
-
-int _Float32x4_wzwy$() {
-  return Float32x4.wzwy;
-}
-
-int _Float32x4_wzwz$() {
-  return Float32x4.wzwz;
-}
-
-int _Float32x4_wzww$() {
-  return Float32x4.wzww;
-}
-
-int _Float32x4_wwxx$() {
-  return Float32x4.wwxx;
-}
-
-int _Float32x4_wwxy$() {
-  return Float32x4.wwxy;
-}
-
-int _Float32x4_wwxz$() {
-  return Float32x4.wwxz;
-}
-
-int _Float32x4_wwxw$() {
-  return Float32x4.wwxw;
-}
-
-int _Float32x4_wwyx$() {
-  return Float32x4.wwyx;
-}
-
-int _Float32x4_wwyy$() {
-  return Float32x4.wwyy;
-}
-
-int _Float32x4_wwyz$() {
-  return Float32x4.wwyz;
-}
-
-int _Float32x4_wwyw$() {
-  return Float32x4.wwyw;
-}
-
-int _Float32x4_wwzx$() {
-  return Float32x4.wwzx;
-}
-
-int _Float32x4_wwzy$() {
-  return Float32x4.wwzy;
-}
-
-int _Float32x4_wwzz$() {
-  return Float32x4.wwzz;
-}
-
-int _Float32x4_wwzw$() {
-  return Float32x4.wwzw;
-}
-
-int _Float32x4_wwwx$() {
-  return Float32x4.wwwx;
-}
-
-int _Float32x4_wwwy$() {
-  return Float32x4.wwwy;
-}
-
-int _Float32x4_wwwz$() {
-  return Float32x4.wwwz;
-}
-
-int _Float32x4_wwww$() {
-  return Float32x4.wwww;
-}
-
+Function _Float32x4_xxxx$(m.Scope scope$) => () => Float32x4.xxxx;
+Function _Float32x4_xxxy$(m.Scope scope$) => () => Float32x4.xxxy;
+Function _Float32x4_xxxz$(m.Scope scope$) => () => Float32x4.xxxz;
+Function _Float32x4_xxxw$(m.Scope scope$) => () => Float32x4.xxxw;
+Function _Float32x4_xxyx$(m.Scope scope$) => () => Float32x4.xxyx;
+Function _Float32x4_xxyy$(m.Scope scope$) => () => Float32x4.xxyy;
+Function _Float32x4_xxyz$(m.Scope scope$) => () => Float32x4.xxyz;
+Function _Float32x4_xxyw$(m.Scope scope$) => () => Float32x4.xxyw;
+Function _Float32x4_xxzx$(m.Scope scope$) => () => Float32x4.xxzx;
+Function _Float32x4_xxzy$(m.Scope scope$) => () => Float32x4.xxzy;
+Function _Float32x4_xxzz$(m.Scope scope$) => () => Float32x4.xxzz;
+Function _Float32x4_xxzw$(m.Scope scope$) => () => Float32x4.xxzw;
+Function _Float32x4_xxwx$(m.Scope scope$) => () => Float32x4.xxwx;
+Function _Float32x4_xxwy$(m.Scope scope$) => () => Float32x4.xxwy;
+Function _Float32x4_xxwz$(m.Scope scope$) => () => Float32x4.xxwz;
+Function _Float32x4_xxww$(m.Scope scope$) => () => Float32x4.xxww;
+Function _Float32x4_xyxx$(m.Scope scope$) => () => Float32x4.xyxx;
+Function _Float32x4_xyxy$(m.Scope scope$) => () => Float32x4.xyxy;
+Function _Float32x4_xyxz$(m.Scope scope$) => () => Float32x4.xyxz;
+Function _Float32x4_xyxw$(m.Scope scope$) => () => Float32x4.xyxw;
+Function _Float32x4_xyyx$(m.Scope scope$) => () => Float32x4.xyyx;
+Function _Float32x4_xyyy$(m.Scope scope$) => () => Float32x4.xyyy;
+Function _Float32x4_xyyz$(m.Scope scope$) => () => Float32x4.xyyz;
+Function _Float32x4_xyyw$(m.Scope scope$) => () => Float32x4.xyyw;
+Function _Float32x4_xyzx$(m.Scope scope$) => () => Float32x4.xyzx;
+Function _Float32x4_xyzy$(m.Scope scope$) => () => Float32x4.xyzy;
+Function _Float32x4_xyzz$(m.Scope scope$) => () => Float32x4.xyzz;
+Function _Float32x4_xyzw$(m.Scope scope$) => () => Float32x4.xyzw;
+Function _Float32x4_xywx$(m.Scope scope$) => () => Float32x4.xywx;
+Function _Float32x4_xywy$(m.Scope scope$) => () => Float32x4.xywy;
+Function _Float32x4_xywz$(m.Scope scope$) => () => Float32x4.xywz;
+Function _Float32x4_xyww$(m.Scope scope$) => () => Float32x4.xyww;
+Function _Float32x4_xzxx$(m.Scope scope$) => () => Float32x4.xzxx;
+Function _Float32x4_xzxy$(m.Scope scope$) => () => Float32x4.xzxy;
+Function _Float32x4_xzxz$(m.Scope scope$) => () => Float32x4.xzxz;
+Function _Float32x4_xzxw$(m.Scope scope$) => () => Float32x4.xzxw;
+Function _Float32x4_xzyx$(m.Scope scope$) => () => Float32x4.xzyx;
+Function _Float32x4_xzyy$(m.Scope scope$) => () => Float32x4.xzyy;
+Function _Float32x4_xzyz$(m.Scope scope$) => () => Float32x4.xzyz;
+Function _Float32x4_xzyw$(m.Scope scope$) => () => Float32x4.xzyw;
+Function _Float32x4_xzzx$(m.Scope scope$) => () => Float32x4.xzzx;
+Function _Float32x4_xzzy$(m.Scope scope$) => () => Float32x4.xzzy;
+Function _Float32x4_xzzz$(m.Scope scope$) => () => Float32x4.xzzz;
+Function _Float32x4_xzzw$(m.Scope scope$) => () => Float32x4.xzzw;
+Function _Float32x4_xzwx$(m.Scope scope$) => () => Float32x4.xzwx;
+Function _Float32x4_xzwy$(m.Scope scope$) => () => Float32x4.xzwy;
+Function _Float32x4_xzwz$(m.Scope scope$) => () => Float32x4.xzwz;
+Function _Float32x4_xzww$(m.Scope scope$) => () => Float32x4.xzww;
+Function _Float32x4_xwxx$(m.Scope scope$) => () => Float32x4.xwxx;
+Function _Float32x4_xwxy$(m.Scope scope$) => () => Float32x4.xwxy;
+Function _Float32x4_xwxz$(m.Scope scope$) => () => Float32x4.xwxz;
+Function _Float32x4_xwxw$(m.Scope scope$) => () => Float32x4.xwxw;
+Function _Float32x4_xwyx$(m.Scope scope$) => () => Float32x4.xwyx;
+Function _Float32x4_xwyy$(m.Scope scope$) => () => Float32x4.xwyy;
+Function _Float32x4_xwyz$(m.Scope scope$) => () => Float32x4.xwyz;
+Function _Float32x4_xwyw$(m.Scope scope$) => () => Float32x4.xwyw;
+Function _Float32x4_xwzx$(m.Scope scope$) => () => Float32x4.xwzx;
+Function _Float32x4_xwzy$(m.Scope scope$) => () => Float32x4.xwzy;
+Function _Float32x4_xwzz$(m.Scope scope$) => () => Float32x4.xwzz;
+Function _Float32x4_xwzw$(m.Scope scope$) => () => Float32x4.xwzw;
+Function _Float32x4_xwwx$(m.Scope scope$) => () => Float32x4.xwwx;
+Function _Float32x4_xwwy$(m.Scope scope$) => () => Float32x4.xwwy;
+Function _Float32x4_xwwz$(m.Scope scope$) => () => Float32x4.xwwz;
+Function _Float32x4_xwww$(m.Scope scope$) => () => Float32x4.xwww;
+Function _Float32x4_yxxx$(m.Scope scope$) => () => Float32x4.yxxx;
+Function _Float32x4_yxxy$(m.Scope scope$) => () => Float32x4.yxxy;
+Function _Float32x4_yxxz$(m.Scope scope$) => () => Float32x4.yxxz;
+Function _Float32x4_yxxw$(m.Scope scope$) => () => Float32x4.yxxw;
+Function _Float32x4_yxyx$(m.Scope scope$) => () => Float32x4.yxyx;
+Function _Float32x4_yxyy$(m.Scope scope$) => () => Float32x4.yxyy;
+Function _Float32x4_yxyz$(m.Scope scope$) => () => Float32x4.yxyz;
+Function _Float32x4_yxyw$(m.Scope scope$) => () => Float32x4.yxyw;
+Function _Float32x4_yxzx$(m.Scope scope$) => () => Float32x4.yxzx;
+Function _Float32x4_yxzy$(m.Scope scope$) => () => Float32x4.yxzy;
+Function _Float32x4_yxzz$(m.Scope scope$) => () => Float32x4.yxzz;
+Function _Float32x4_yxzw$(m.Scope scope$) => () => Float32x4.yxzw;
+Function _Float32x4_yxwx$(m.Scope scope$) => () => Float32x4.yxwx;
+Function _Float32x4_yxwy$(m.Scope scope$) => () => Float32x4.yxwy;
+Function _Float32x4_yxwz$(m.Scope scope$) => () => Float32x4.yxwz;
+Function _Float32x4_yxww$(m.Scope scope$) => () => Float32x4.yxww;
+Function _Float32x4_yyxx$(m.Scope scope$) => () => Float32x4.yyxx;
+Function _Float32x4_yyxy$(m.Scope scope$) => () => Float32x4.yyxy;
+Function _Float32x4_yyxz$(m.Scope scope$) => () => Float32x4.yyxz;
+Function _Float32x4_yyxw$(m.Scope scope$) => () => Float32x4.yyxw;
+Function _Float32x4_yyyx$(m.Scope scope$) => () => Float32x4.yyyx;
+Function _Float32x4_yyyy$(m.Scope scope$) => () => Float32x4.yyyy;
+Function _Float32x4_yyyz$(m.Scope scope$) => () => Float32x4.yyyz;
+Function _Float32x4_yyyw$(m.Scope scope$) => () => Float32x4.yyyw;
+Function _Float32x4_yyzx$(m.Scope scope$) => () => Float32x4.yyzx;
+Function _Float32x4_yyzy$(m.Scope scope$) => () => Float32x4.yyzy;
+Function _Float32x4_yyzz$(m.Scope scope$) => () => Float32x4.yyzz;
+Function _Float32x4_yyzw$(m.Scope scope$) => () => Float32x4.yyzw;
+Function _Float32x4_yywx$(m.Scope scope$) => () => Float32x4.yywx;
+Function _Float32x4_yywy$(m.Scope scope$) => () => Float32x4.yywy;
+Function _Float32x4_yywz$(m.Scope scope$) => () => Float32x4.yywz;
+Function _Float32x4_yyww$(m.Scope scope$) => () => Float32x4.yyww;
+Function _Float32x4_yzxx$(m.Scope scope$) => () => Float32x4.yzxx;
+Function _Float32x4_yzxy$(m.Scope scope$) => () => Float32x4.yzxy;
+Function _Float32x4_yzxz$(m.Scope scope$) => () => Float32x4.yzxz;
+Function _Float32x4_yzxw$(m.Scope scope$) => () => Float32x4.yzxw;
+Function _Float32x4_yzyx$(m.Scope scope$) => () => Float32x4.yzyx;
+Function _Float32x4_yzyy$(m.Scope scope$) => () => Float32x4.yzyy;
+Function _Float32x4_yzyz$(m.Scope scope$) => () => Float32x4.yzyz;
+Function _Float32x4_yzyw$(m.Scope scope$) => () => Float32x4.yzyw;
+Function _Float32x4_yzzx$(m.Scope scope$) => () => Float32x4.yzzx;
+Function _Float32x4_yzzy$(m.Scope scope$) => () => Float32x4.yzzy;
+Function _Float32x4_yzzz$(m.Scope scope$) => () => Float32x4.yzzz;
+Function _Float32x4_yzzw$(m.Scope scope$) => () => Float32x4.yzzw;
+Function _Float32x4_yzwx$(m.Scope scope$) => () => Float32x4.yzwx;
+Function _Float32x4_yzwy$(m.Scope scope$) => () => Float32x4.yzwy;
+Function _Float32x4_yzwz$(m.Scope scope$) => () => Float32x4.yzwz;
+Function _Float32x4_yzww$(m.Scope scope$) => () => Float32x4.yzww;
+Function _Float32x4_ywxx$(m.Scope scope$) => () => Float32x4.ywxx;
+Function _Float32x4_ywxy$(m.Scope scope$) => () => Float32x4.ywxy;
+Function _Float32x4_ywxz$(m.Scope scope$) => () => Float32x4.ywxz;
+Function _Float32x4_ywxw$(m.Scope scope$) => () => Float32x4.ywxw;
+Function _Float32x4_ywyx$(m.Scope scope$) => () => Float32x4.ywyx;
+Function _Float32x4_ywyy$(m.Scope scope$) => () => Float32x4.ywyy;
+Function _Float32x4_ywyz$(m.Scope scope$) => () => Float32x4.ywyz;
+Function _Float32x4_ywyw$(m.Scope scope$) => () => Float32x4.ywyw;
+Function _Float32x4_ywzx$(m.Scope scope$) => () => Float32x4.ywzx;
+Function _Float32x4_ywzy$(m.Scope scope$) => () => Float32x4.ywzy;
+Function _Float32x4_ywzz$(m.Scope scope$) => () => Float32x4.ywzz;
+Function _Float32x4_ywzw$(m.Scope scope$) => () => Float32x4.ywzw;
+Function _Float32x4_ywwx$(m.Scope scope$) => () => Float32x4.ywwx;
+Function _Float32x4_ywwy$(m.Scope scope$) => () => Float32x4.ywwy;
+Function _Float32x4_ywwz$(m.Scope scope$) => () => Float32x4.ywwz;
+Function _Float32x4_ywww$(m.Scope scope$) => () => Float32x4.ywww;
+Function _Float32x4_zxxx$(m.Scope scope$) => () => Float32x4.zxxx;
+Function _Float32x4_zxxy$(m.Scope scope$) => () => Float32x4.zxxy;
+Function _Float32x4_zxxz$(m.Scope scope$) => () => Float32x4.zxxz;
+Function _Float32x4_zxxw$(m.Scope scope$) => () => Float32x4.zxxw;
+Function _Float32x4_zxyx$(m.Scope scope$) => () => Float32x4.zxyx;
+Function _Float32x4_zxyy$(m.Scope scope$) => () => Float32x4.zxyy;
+Function _Float32x4_zxyz$(m.Scope scope$) => () => Float32x4.zxyz;
+Function _Float32x4_zxyw$(m.Scope scope$) => () => Float32x4.zxyw;
+Function _Float32x4_zxzx$(m.Scope scope$) => () => Float32x4.zxzx;
+Function _Float32x4_zxzy$(m.Scope scope$) => () => Float32x4.zxzy;
+Function _Float32x4_zxzz$(m.Scope scope$) => () => Float32x4.zxzz;
+Function _Float32x4_zxzw$(m.Scope scope$) => () => Float32x4.zxzw;
+Function _Float32x4_zxwx$(m.Scope scope$) => () => Float32x4.zxwx;
+Function _Float32x4_zxwy$(m.Scope scope$) => () => Float32x4.zxwy;
+Function _Float32x4_zxwz$(m.Scope scope$) => () => Float32x4.zxwz;
+Function _Float32x4_zxww$(m.Scope scope$) => () => Float32x4.zxww;
+Function _Float32x4_zyxx$(m.Scope scope$) => () => Float32x4.zyxx;
+Function _Float32x4_zyxy$(m.Scope scope$) => () => Float32x4.zyxy;
+Function _Float32x4_zyxz$(m.Scope scope$) => () => Float32x4.zyxz;
+Function _Float32x4_zyxw$(m.Scope scope$) => () => Float32x4.zyxw;
+Function _Float32x4_zyyx$(m.Scope scope$) => () => Float32x4.zyyx;
+Function _Float32x4_zyyy$(m.Scope scope$) => () => Float32x4.zyyy;
+Function _Float32x4_zyyz$(m.Scope scope$) => () => Float32x4.zyyz;
+Function _Float32x4_zyyw$(m.Scope scope$) => () => Float32x4.zyyw;
+Function _Float32x4_zyzx$(m.Scope scope$) => () => Float32x4.zyzx;
+Function _Float32x4_zyzy$(m.Scope scope$) => () => Float32x4.zyzy;
+Function _Float32x4_zyzz$(m.Scope scope$) => () => Float32x4.zyzz;
+Function _Float32x4_zyzw$(m.Scope scope$) => () => Float32x4.zyzw;
+Function _Float32x4_zywx$(m.Scope scope$) => () => Float32x4.zywx;
+Function _Float32x4_zywy$(m.Scope scope$) => () => Float32x4.zywy;
+Function _Float32x4_zywz$(m.Scope scope$) => () => Float32x4.zywz;
+Function _Float32x4_zyww$(m.Scope scope$) => () => Float32x4.zyww;
+Function _Float32x4_zzxx$(m.Scope scope$) => () => Float32x4.zzxx;
+Function _Float32x4_zzxy$(m.Scope scope$) => () => Float32x4.zzxy;
+Function _Float32x4_zzxz$(m.Scope scope$) => () => Float32x4.zzxz;
+Function _Float32x4_zzxw$(m.Scope scope$) => () => Float32x4.zzxw;
+Function _Float32x4_zzyx$(m.Scope scope$) => () => Float32x4.zzyx;
+Function _Float32x4_zzyy$(m.Scope scope$) => () => Float32x4.zzyy;
+Function _Float32x4_zzyz$(m.Scope scope$) => () => Float32x4.zzyz;
+Function _Float32x4_zzyw$(m.Scope scope$) => () => Float32x4.zzyw;
+Function _Float32x4_zzzx$(m.Scope scope$) => () => Float32x4.zzzx;
+Function _Float32x4_zzzy$(m.Scope scope$) => () => Float32x4.zzzy;
+Function _Float32x4_zzzz$(m.Scope scope$) => () => Float32x4.zzzz;
+Function _Float32x4_zzzw$(m.Scope scope$) => () => Float32x4.zzzw;
+Function _Float32x4_zzwx$(m.Scope scope$) => () => Float32x4.zzwx;
+Function _Float32x4_zzwy$(m.Scope scope$) => () => Float32x4.zzwy;
+Function _Float32x4_zzwz$(m.Scope scope$) => () => Float32x4.zzwz;
+Function _Float32x4_zzww$(m.Scope scope$) => () => Float32x4.zzww;
+Function _Float32x4_zwxx$(m.Scope scope$) => () => Float32x4.zwxx;
+Function _Float32x4_zwxy$(m.Scope scope$) => () => Float32x4.zwxy;
+Function _Float32x4_zwxz$(m.Scope scope$) => () => Float32x4.zwxz;
+Function _Float32x4_zwxw$(m.Scope scope$) => () => Float32x4.zwxw;
+Function _Float32x4_zwyx$(m.Scope scope$) => () => Float32x4.zwyx;
+Function _Float32x4_zwyy$(m.Scope scope$) => () => Float32x4.zwyy;
+Function _Float32x4_zwyz$(m.Scope scope$) => () => Float32x4.zwyz;
+Function _Float32x4_zwyw$(m.Scope scope$) => () => Float32x4.zwyw;
+Function _Float32x4_zwzx$(m.Scope scope$) => () => Float32x4.zwzx;
+Function _Float32x4_zwzy$(m.Scope scope$) => () => Float32x4.zwzy;
+Function _Float32x4_zwzz$(m.Scope scope$) => () => Float32x4.zwzz;
+Function _Float32x4_zwzw$(m.Scope scope$) => () => Float32x4.zwzw;
+Function _Float32x4_zwwx$(m.Scope scope$) => () => Float32x4.zwwx;
+Function _Float32x4_zwwy$(m.Scope scope$) => () => Float32x4.zwwy;
+Function _Float32x4_zwwz$(m.Scope scope$) => () => Float32x4.zwwz;
+Function _Float32x4_zwww$(m.Scope scope$) => () => Float32x4.zwww;
+Function _Float32x4_wxxx$(m.Scope scope$) => () => Float32x4.wxxx;
+Function _Float32x4_wxxy$(m.Scope scope$) => () => Float32x4.wxxy;
+Function _Float32x4_wxxz$(m.Scope scope$) => () => Float32x4.wxxz;
+Function _Float32x4_wxxw$(m.Scope scope$) => () => Float32x4.wxxw;
+Function _Float32x4_wxyx$(m.Scope scope$) => () => Float32x4.wxyx;
+Function _Float32x4_wxyy$(m.Scope scope$) => () => Float32x4.wxyy;
+Function _Float32x4_wxyz$(m.Scope scope$) => () => Float32x4.wxyz;
+Function _Float32x4_wxyw$(m.Scope scope$) => () => Float32x4.wxyw;
+Function _Float32x4_wxzx$(m.Scope scope$) => () => Float32x4.wxzx;
+Function _Float32x4_wxzy$(m.Scope scope$) => () => Float32x4.wxzy;
+Function _Float32x4_wxzz$(m.Scope scope$) => () => Float32x4.wxzz;
+Function _Float32x4_wxzw$(m.Scope scope$) => () => Float32x4.wxzw;
+Function _Float32x4_wxwx$(m.Scope scope$) => () => Float32x4.wxwx;
+Function _Float32x4_wxwy$(m.Scope scope$) => () => Float32x4.wxwy;
+Function _Float32x4_wxwz$(m.Scope scope$) => () => Float32x4.wxwz;
+Function _Float32x4_wxww$(m.Scope scope$) => () => Float32x4.wxww;
+Function _Float32x4_wyxx$(m.Scope scope$) => () => Float32x4.wyxx;
+Function _Float32x4_wyxy$(m.Scope scope$) => () => Float32x4.wyxy;
+Function _Float32x4_wyxz$(m.Scope scope$) => () => Float32x4.wyxz;
+Function _Float32x4_wyxw$(m.Scope scope$) => () => Float32x4.wyxw;
+Function _Float32x4_wyyx$(m.Scope scope$) => () => Float32x4.wyyx;
+Function _Float32x4_wyyy$(m.Scope scope$) => () => Float32x4.wyyy;
+Function _Float32x4_wyyz$(m.Scope scope$) => () => Float32x4.wyyz;
+Function _Float32x4_wyyw$(m.Scope scope$) => () => Float32x4.wyyw;
+Function _Float32x4_wyzx$(m.Scope scope$) => () => Float32x4.wyzx;
+Function _Float32x4_wyzy$(m.Scope scope$) => () => Float32x4.wyzy;
+Function _Float32x4_wyzz$(m.Scope scope$) => () => Float32x4.wyzz;
+Function _Float32x4_wyzw$(m.Scope scope$) => () => Float32x4.wyzw;
+Function _Float32x4_wywx$(m.Scope scope$) => () => Float32x4.wywx;
+Function _Float32x4_wywy$(m.Scope scope$) => () => Float32x4.wywy;
+Function _Float32x4_wywz$(m.Scope scope$) => () => Float32x4.wywz;
+Function _Float32x4_wyww$(m.Scope scope$) => () => Float32x4.wyww;
+Function _Float32x4_wzxx$(m.Scope scope$) => () => Float32x4.wzxx;
+Function _Float32x4_wzxy$(m.Scope scope$) => () => Float32x4.wzxy;
+Function _Float32x4_wzxz$(m.Scope scope$) => () => Float32x4.wzxz;
+Function _Float32x4_wzxw$(m.Scope scope$) => () => Float32x4.wzxw;
+Function _Float32x4_wzyx$(m.Scope scope$) => () => Float32x4.wzyx;
+Function _Float32x4_wzyy$(m.Scope scope$) => () => Float32x4.wzyy;
+Function _Float32x4_wzyz$(m.Scope scope$) => () => Float32x4.wzyz;
+Function _Float32x4_wzyw$(m.Scope scope$) => () => Float32x4.wzyw;
+Function _Float32x4_wzzx$(m.Scope scope$) => () => Float32x4.wzzx;
+Function _Float32x4_wzzy$(m.Scope scope$) => () => Float32x4.wzzy;
+Function _Float32x4_wzzz$(m.Scope scope$) => () => Float32x4.wzzz;
+Function _Float32x4_wzzw$(m.Scope scope$) => () => Float32x4.wzzw;
+Function _Float32x4_wzwx$(m.Scope scope$) => () => Float32x4.wzwx;
+Function _Float32x4_wzwy$(m.Scope scope$) => () => Float32x4.wzwy;
+Function _Float32x4_wzwz$(m.Scope scope$) => () => Float32x4.wzwz;
+Function _Float32x4_wzww$(m.Scope scope$) => () => Float32x4.wzww;
+Function _Float32x4_wwxx$(m.Scope scope$) => () => Float32x4.wwxx;
+Function _Float32x4_wwxy$(m.Scope scope$) => () => Float32x4.wwxy;
+Function _Float32x4_wwxz$(m.Scope scope$) => () => Float32x4.wwxz;
+Function _Float32x4_wwxw$(m.Scope scope$) => () => Float32x4.wwxw;
+Function _Float32x4_wwyx$(m.Scope scope$) => () => Float32x4.wwyx;
+Function _Float32x4_wwyy$(m.Scope scope$) => () => Float32x4.wwyy;
+Function _Float32x4_wwyz$(m.Scope scope$) => () => Float32x4.wwyz;
+Function _Float32x4_wwyw$(m.Scope scope$) => () => Float32x4.wwyw;
+Function _Float32x4_wwzx$(m.Scope scope$) => () => Float32x4.wwzx;
+Function _Float32x4_wwzy$(m.Scope scope$) => () => Float32x4.wwzy;
+Function _Float32x4_wwzz$(m.Scope scope$) => () => Float32x4.wwzz;
+Function _Float32x4_wwzw$(m.Scope scope$) => () => Float32x4.wwzw;
+Function _Float32x4_wwwx$(m.Scope scope$) => () => Float32x4.wwwx;
+Function _Float32x4_wwwy$(m.Scope scope$) => () => Float32x4.wwwy;
+Function _Float32x4_wwwz$(m.Scope scope$) => () => Float32x4.wwwz;
+Function _Float32x4_wwww$(m.Scope scope$) => () => Float32x4.wwww;
 Function _Float32x4_x$(
   m.Scope scope$,
   Float32x4 target$,
@@ -2916,1030 +2111,262 @@ Function Int32x4_is$(
   dynamic target$,
 ) =>
     () => target$ is Int32x4;
-int _Int32x4_xxxx$() {
-  return Int32x4.xxxx;
-}
-
-int _Int32x4_xxxy$() {
-  return Int32x4.xxxy;
-}
-
-int _Int32x4_xxxz$() {
-  return Int32x4.xxxz;
-}
-
-int _Int32x4_xxxw$() {
-  return Int32x4.xxxw;
-}
-
-int _Int32x4_xxyx$() {
-  return Int32x4.xxyx;
-}
-
-int _Int32x4_xxyy$() {
-  return Int32x4.xxyy;
-}
-
-int _Int32x4_xxyz$() {
-  return Int32x4.xxyz;
-}
-
-int _Int32x4_xxyw$() {
-  return Int32x4.xxyw;
-}
-
-int _Int32x4_xxzx$() {
-  return Int32x4.xxzx;
-}
-
-int _Int32x4_xxzy$() {
-  return Int32x4.xxzy;
-}
-
-int _Int32x4_xxzz$() {
-  return Int32x4.xxzz;
-}
-
-int _Int32x4_xxzw$() {
-  return Int32x4.xxzw;
-}
-
-int _Int32x4_xxwx$() {
-  return Int32x4.xxwx;
-}
-
-int _Int32x4_xxwy$() {
-  return Int32x4.xxwy;
-}
-
-int _Int32x4_xxwz$() {
-  return Int32x4.xxwz;
-}
-
-int _Int32x4_xxww$() {
-  return Int32x4.xxww;
-}
-
-int _Int32x4_xyxx$() {
-  return Int32x4.xyxx;
-}
-
-int _Int32x4_xyxy$() {
-  return Int32x4.xyxy;
-}
-
-int _Int32x4_xyxz$() {
-  return Int32x4.xyxz;
-}
-
-int _Int32x4_xyxw$() {
-  return Int32x4.xyxw;
-}
-
-int _Int32x4_xyyx$() {
-  return Int32x4.xyyx;
-}
-
-int _Int32x4_xyyy$() {
-  return Int32x4.xyyy;
-}
-
-int _Int32x4_xyyz$() {
-  return Int32x4.xyyz;
-}
-
-int _Int32x4_xyyw$() {
-  return Int32x4.xyyw;
-}
-
-int _Int32x4_xyzx$() {
-  return Int32x4.xyzx;
-}
-
-int _Int32x4_xyzy$() {
-  return Int32x4.xyzy;
-}
-
-int _Int32x4_xyzz$() {
-  return Int32x4.xyzz;
-}
-
-int _Int32x4_xyzw$() {
-  return Int32x4.xyzw;
-}
-
-int _Int32x4_xywx$() {
-  return Int32x4.xywx;
-}
-
-int _Int32x4_xywy$() {
-  return Int32x4.xywy;
-}
-
-int _Int32x4_xywz$() {
-  return Int32x4.xywz;
-}
-
-int _Int32x4_xyww$() {
-  return Int32x4.xyww;
-}
-
-int _Int32x4_xzxx$() {
-  return Int32x4.xzxx;
-}
-
-int _Int32x4_xzxy$() {
-  return Int32x4.xzxy;
-}
-
-int _Int32x4_xzxz$() {
-  return Int32x4.xzxz;
-}
-
-int _Int32x4_xzxw$() {
-  return Int32x4.xzxw;
-}
-
-int _Int32x4_xzyx$() {
-  return Int32x4.xzyx;
-}
-
-int _Int32x4_xzyy$() {
-  return Int32x4.xzyy;
-}
-
-int _Int32x4_xzyz$() {
-  return Int32x4.xzyz;
-}
-
-int _Int32x4_xzyw$() {
-  return Int32x4.xzyw;
-}
-
-int _Int32x4_xzzx$() {
-  return Int32x4.xzzx;
-}
-
-int _Int32x4_xzzy$() {
-  return Int32x4.xzzy;
-}
-
-int _Int32x4_xzzz$() {
-  return Int32x4.xzzz;
-}
-
-int _Int32x4_xzzw$() {
-  return Int32x4.xzzw;
-}
-
-int _Int32x4_xzwx$() {
-  return Int32x4.xzwx;
-}
-
-int _Int32x4_xzwy$() {
-  return Int32x4.xzwy;
-}
-
-int _Int32x4_xzwz$() {
-  return Int32x4.xzwz;
-}
-
-int _Int32x4_xzww$() {
-  return Int32x4.xzww;
-}
-
-int _Int32x4_xwxx$() {
-  return Int32x4.xwxx;
-}
-
-int _Int32x4_xwxy$() {
-  return Int32x4.xwxy;
-}
-
-int _Int32x4_xwxz$() {
-  return Int32x4.xwxz;
-}
-
-int _Int32x4_xwxw$() {
-  return Int32x4.xwxw;
-}
-
-int _Int32x4_xwyx$() {
-  return Int32x4.xwyx;
-}
-
-int _Int32x4_xwyy$() {
-  return Int32x4.xwyy;
-}
-
-int _Int32x4_xwyz$() {
-  return Int32x4.xwyz;
-}
-
-int _Int32x4_xwyw$() {
-  return Int32x4.xwyw;
-}
-
-int _Int32x4_xwzx$() {
-  return Int32x4.xwzx;
-}
-
-int _Int32x4_xwzy$() {
-  return Int32x4.xwzy;
-}
-
-int _Int32x4_xwzz$() {
-  return Int32x4.xwzz;
-}
-
-int _Int32x4_xwzw$() {
-  return Int32x4.xwzw;
-}
-
-int _Int32x4_xwwx$() {
-  return Int32x4.xwwx;
-}
-
-int _Int32x4_xwwy$() {
-  return Int32x4.xwwy;
-}
-
-int _Int32x4_xwwz$() {
-  return Int32x4.xwwz;
-}
-
-int _Int32x4_xwww$() {
-  return Int32x4.xwww;
-}
-
-int _Int32x4_yxxx$() {
-  return Int32x4.yxxx;
-}
-
-int _Int32x4_yxxy$() {
-  return Int32x4.yxxy;
-}
-
-int _Int32x4_yxxz$() {
-  return Int32x4.yxxz;
-}
-
-int _Int32x4_yxxw$() {
-  return Int32x4.yxxw;
-}
-
-int _Int32x4_yxyx$() {
-  return Int32x4.yxyx;
-}
-
-int _Int32x4_yxyy$() {
-  return Int32x4.yxyy;
-}
-
-int _Int32x4_yxyz$() {
-  return Int32x4.yxyz;
-}
-
-int _Int32x4_yxyw$() {
-  return Int32x4.yxyw;
-}
-
-int _Int32x4_yxzx$() {
-  return Int32x4.yxzx;
-}
-
-int _Int32x4_yxzy$() {
-  return Int32x4.yxzy;
-}
-
-int _Int32x4_yxzz$() {
-  return Int32x4.yxzz;
-}
-
-int _Int32x4_yxzw$() {
-  return Int32x4.yxzw;
-}
-
-int _Int32x4_yxwx$() {
-  return Int32x4.yxwx;
-}
-
-int _Int32x4_yxwy$() {
-  return Int32x4.yxwy;
-}
-
-int _Int32x4_yxwz$() {
-  return Int32x4.yxwz;
-}
-
-int _Int32x4_yxww$() {
-  return Int32x4.yxww;
-}
-
-int _Int32x4_yyxx$() {
-  return Int32x4.yyxx;
-}
-
-int _Int32x4_yyxy$() {
-  return Int32x4.yyxy;
-}
-
-int _Int32x4_yyxz$() {
-  return Int32x4.yyxz;
-}
-
-int _Int32x4_yyxw$() {
-  return Int32x4.yyxw;
-}
-
-int _Int32x4_yyyx$() {
-  return Int32x4.yyyx;
-}
-
-int _Int32x4_yyyy$() {
-  return Int32x4.yyyy;
-}
-
-int _Int32x4_yyyz$() {
-  return Int32x4.yyyz;
-}
-
-int _Int32x4_yyyw$() {
-  return Int32x4.yyyw;
-}
-
-int _Int32x4_yyzx$() {
-  return Int32x4.yyzx;
-}
-
-int _Int32x4_yyzy$() {
-  return Int32x4.yyzy;
-}
-
-int _Int32x4_yyzz$() {
-  return Int32x4.yyzz;
-}
-
-int _Int32x4_yyzw$() {
-  return Int32x4.yyzw;
-}
-
-int _Int32x4_yywx$() {
-  return Int32x4.yywx;
-}
-
-int _Int32x4_yywy$() {
-  return Int32x4.yywy;
-}
-
-int _Int32x4_yywz$() {
-  return Int32x4.yywz;
-}
-
-int _Int32x4_yyww$() {
-  return Int32x4.yyww;
-}
-
-int _Int32x4_yzxx$() {
-  return Int32x4.yzxx;
-}
-
-int _Int32x4_yzxy$() {
-  return Int32x4.yzxy;
-}
-
-int _Int32x4_yzxz$() {
-  return Int32x4.yzxz;
-}
-
-int _Int32x4_yzxw$() {
-  return Int32x4.yzxw;
-}
-
-int _Int32x4_yzyx$() {
-  return Int32x4.yzyx;
-}
-
-int _Int32x4_yzyy$() {
-  return Int32x4.yzyy;
-}
-
-int _Int32x4_yzyz$() {
-  return Int32x4.yzyz;
-}
-
-int _Int32x4_yzyw$() {
-  return Int32x4.yzyw;
-}
-
-int _Int32x4_yzzx$() {
-  return Int32x4.yzzx;
-}
-
-int _Int32x4_yzzy$() {
-  return Int32x4.yzzy;
-}
-
-int _Int32x4_yzzz$() {
-  return Int32x4.yzzz;
-}
-
-int _Int32x4_yzzw$() {
-  return Int32x4.yzzw;
-}
-
-int _Int32x4_yzwx$() {
-  return Int32x4.yzwx;
-}
-
-int _Int32x4_yzwy$() {
-  return Int32x4.yzwy;
-}
-
-int _Int32x4_yzwz$() {
-  return Int32x4.yzwz;
-}
-
-int _Int32x4_yzww$() {
-  return Int32x4.yzww;
-}
-
-int _Int32x4_ywxx$() {
-  return Int32x4.ywxx;
-}
-
-int _Int32x4_ywxy$() {
-  return Int32x4.ywxy;
-}
-
-int _Int32x4_ywxz$() {
-  return Int32x4.ywxz;
-}
-
-int _Int32x4_ywxw$() {
-  return Int32x4.ywxw;
-}
-
-int _Int32x4_ywyx$() {
-  return Int32x4.ywyx;
-}
-
-int _Int32x4_ywyy$() {
-  return Int32x4.ywyy;
-}
-
-int _Int32x4_ywyz$() {
-  return Int32x4.ywyz;
-}
-
-int _Int32x4_ywyw$() {
-  return Int32x4.ywyw;
-}
-
-int _Int32x4_ywzx$() {
-  return Int32x4.ywzx;
-}
-
-int _Int32x4_ywzy$() {
-  return Int32x4.ywzy;
-}
-
-int _Int32x4_ywzz$() {
-  return Int32x4.ywzz;
-}
-
-int _Int32x4_ywzw$() {
-  return Int32x4.ywzw;
-}
-
-int _Int32x4_ywwx$() {
-  return Int32x4.ywwx;
-}
-
-int _Int32x4_ywwy$() {
-  return Int32x4.ywwy;
-}
-
-int _Int32x4_ywwz$() {
-  return Int32x4.ywwz;
-}
-
-int _Int32x4_ywww$() {
-  return Int32x4.ywww;
-}
-
-int _Int32x4_zxxx$() {
-  return Int32x4.zxxx;
-}
-
-int _Int32x4_zxxy$() {
-  return Int32x4.zxxy;
-}
-
-int _Int32x4_zxxz$() {
-  return Int32x4.zxxz;
-}
-
-int _Int32x4_zxxw$() {
-  return Int32x4.zxxw;
-}
-
-int _Int32x4_zxyx$() {
-  return Int32x4.zxyx;
-}
-
-int _Int32x4_zxyy$() {
-  return Int32x4.zxyy;
-}
-
-int _Int32x4_zxyz$() {
-  return Int32x4.zxyz;
-}
-
-int _Int32x4_zxyw$() {
-  return Int32x4.zxyw;
-}
-
-int _Int32x4_zxzx$() {
-  return Int32x4.zxzx;
-}
-
-int _Int32x4_zxzy$() {
-  return Int32x4.zxzy;
-}
-
-int _Int32x4_zxzz$() {
-  return Int32x4.zxzz;
-}
-
-int _Int32x4_zxzw$() {
-  return Int32x4.zxzw;
-}
-
-int _Int32x4_zxwx$() {
-  return Int32x4.zxwx;
-}
-
-int _Int32x4_zxwy$() {
-  return Int32x4.zxwy;
-}
-
-int _Int32x4_zxwz$() {
-  return Int32x4.zxwz;
-}
-
-int _Int32x4_zxww$() {
-  return Int32x4.zxww;
-}
-
-int _Int32x4_zyxx$() {
-  return Int32x4.zyxx;
-}
-
-int _Int32x4_zyxy$() {
-  return Int32x4.zyxy;
-}
-
-int _Int32x4_zyxz$() {
-  return Int32x4.zyxz;
-}
-
-int _Int32x4_zyxw$() {
-  return Int32x4.zyxw;
-}
-
-int _Int32x4_zyyx$() {
-  return Int32x4.zyyx;
-}
-
-int _Int32x4_zyyy$() {
-  return Int32x4.zyyy;
-}
-
-int _Int32x4_zyyz$() {
-  return Int32x4.zyyz;
-}
-
-int _Int32x4_zyyw$() {
-  return Int32x4.zyyw;
-}
-
-int _Int32x4_zyzx$() {
-  return Int32x4.zyzx;
-}
-
-int _Int32x4_zyzy$() {
-  return Int32x4.zyzy;
-}
-
-int _Int32x4_zyzz$() {
-  return Int32x4.zyzz;
-}
-
-int _Int32x4_zyzw$() {
-  return Int32x4.zyzw;
-}
-
-int _Int32x4_zywx$() {
-  return Int32x4.zywx;
-}
-
-int _Int32x4_zywy$() {
-  return Int32x4.zywy;
-}
-
-int _Int32x4_zywz$() {
-  return Int32x4.zywz;
-}
-
-int _Int32x4_zyww$() {
-  return Int32x4.zyww;
-}
-
-int _Int32x4_zzxx$() {
-  return Int32x4.zzxx;
-}
-
-int _Int32x4_zzxy$() {
-  return Int32x4.zzxy;
-}
-
-int _Int32x4_zzxz$() {
-  return Int32x4.zzxz;
-}
-
-int _Int32x4_zzxw$() {
-  return Int32x4.zzxw;
-}
-
-int _Int32x4_zzyx$() {
-  return Int32x4.zzyx;
-}
-
-int _Int32x4_zzyy$() {
-  return Int32x4.zzyy;
-}
-
-int _Int32x4_zzyz$() {
-  return Int32x4.zzyz;
-}
-
-int _Int32x4_zzyw$() {
-  return Int32x4.zzyw;
-}
-
-int _Int32x4_zzzx$() {
-  return Int32x4.zzzx;
-}
-
-int _Int32x4_zzzy$() {
-  return Int32x4.zzzy;
-}
-
-int _Int32x4_zzzz$() {
-  return Int32x4.zzzz;
-}
-
-int _Int32x4_zzzw$() {
-  return Int32x4.zzzw;
-}
-
-int _Int32x4_zzwx$() {
-  return Int32x4.zzwx;
-}
-
-int _Int32x4_zzwy$() {
-  return Int32x4.zzwy;
-}
-
-int _Int32x4_zzwz$() {
-  return Int32x4.zzwz;
-}
-
-int _Int32x4_zzww$() {
-  return Int32x4.zzww;
-}
-
-int _Int32x4_zwxx$() {
-  return Int32x4.zwxx;
-}
-
-int _Int32x4_zwxy$() {
-  return Int32x4.zwxy;
-}
-
-int _Int32x4_zwxz$() {
-  return Int32x4.zwxz;
-}
-
-int _Int32x4_zwxw$() {
-  return Int32x4.zwxw;
-}
-
-int _Int32x4_zwyx$() {
-  return Int32x4.zwyx;
-}
-
-int _Int32x4_zwyy$() {
-  return Int32x4.zwyy;
-}
-
-int _Int32x4_zwyz$() {
-  return Int32x4.zwyz;
-}
-
-int _Int32x4_zwyw$() {
-  return Int32x4.zwyw;
-}
-
-int _Int32x4_zwzx$() {
-  return Int32x4.zwzx;
-}
-
-int _Int32x4_zwzy$() {
-  return Int32x4.zwzy;
-}
-
-int _Int32x4_zwzz$() {
-  return Int32x4.zwzz;
-}
-
-int _Int32x4_zwzw$() {
-  return Int32x4.zwzw;
-}
-
-int _Int32x4_zwwx$() {
-  return Int32x4.zwwx;
-}
-
-int _Int32x4_zwwy$() {
-  return Int32x4.zwwy;
-}
-
-int _Int32x4_zwwz$() {
-  return Int32x4.zwwz;
-}
-
-int _Int32x4_zwww$() {
-  return Int32x4.zwww;
-}
-
-int _Int32x4_wxxx$() {
-  return Int32x4.wxxx;
-}
-
-int _Int32x4_wxxy$() {
-  return Int32x4.wxxy;
-}
-
-int _Int32x4_wxxz$() {
-  return Int32x4.wxxz;
-}
-
-int _Int32x4_wxxw$() {
-  return Int32x4.wxxw;
-}
-
-int _Int32x4_wxyx$() {
-  return Int32x4.wxyx;
-}
-
-int _Int32x4_wxyy$() {
-  return Int32x4.wxyy;
-}
-
-int _Int32x4_wxyz$() {
-  return Int32x4.wxyz;
-}
-
-int _Int32x4_wxyw$() {
-  return Int32x4.wxyw;
-}
-
-int _Int32x4_wxzx$() {
-  return Int32x4.wxzx;
-}
-
-int _Int32x4_wxzy$() {
-  return Int32x4.wxzy;
-}
-
-int _Int32x4_wxzz$() {
-  return Int32x4.wxzz;
-}
-
-int _Int32x4_wxzw$() {
-  return Int32x4.wxzw;
-}
-
-int _Int32x4_wxwx$() {
-  return Int32x4.wxwx;
-}
-
-int _Int32x4_wxwy$() {
-  return Int32x4.wxwy;
-}
-
-int _Int32x4_wxwz$() {
-  return Int32x4.wxwz;
-}
-
-int _Int32x4_wxww$() {
-  return Int32x4.wxww;
-}
-
-int _Int32x4_wyxx$() {
-  return Int32x4.wyxx;
-}
-
-int _Int32x4_wyxy$() {
-  return Int32x4.wyxy;
-}
-
-int _Int32x4_wyxz$() {
-  return Int32x4.wyxz;
-}
-
-int _Int32x4_wyxw$() {
-  return Int32x4.wyxw;
-}
-
-int _Int32x4_wyyx$() {
-  return Int32x4.wyyx;
-}
-
-int _Int32x4_wyyy$() {
-  return Int32x4.wyyy;
-}
-
-int _Int32x4_wyyz$() {
-  return Int32x4.wyyz;
-}
-
-int _Int32x4_wyyw$() {
-  return Int32x4.wyyw;
-}
-
-int _Int32x4_wyzx$() {
-  return Int32x4.wyzx;
-}
-
-int _Int32x4_wyzy$() {
-  return Int32x4.wyzy;
-}
-
-int _Int32x4_wyzz$() {
-  return Int32x4.wyzz;
-}
-
-int _Int32x4_wyzw$() {
-  return Int32x4.wyzw;
-}
-
-int _Int32x4_wywx$() {
-  return Int32x4.wywx;
-}
-
-int _Int32x4_wywy$() {
-  return Int32x4.wywy;
-}
-
-int _Int32x4_wywz$() {
-  return Int32x4.wywz;
-}
-
-int _Int32x4_wyww$() {
-  return Int32x4.wyww;
-}
-
-int _Int32x4_wzxx$() {
-  return Int32x4.wzxx;
-}
-
-int _Int32x4_wzxy$() {
-  return Int32x4.wzxy;
-}
-
-int _Int32x4_wzxz$() {
-  return Int32x4.wzxz;
-}
-
-int _Int32x4_wzxw$() {
-  return Int32x4.wzxw;
-}
-
-int _Int32x4_wzyx$() {
-  return Int32x4.wzyx;
-}
-
-int _Int32x4_wzyy$() {
-  return Int32x4.wzyy;
-}
-
-int _Int32x4_wzyz$() {
-  return Int32x4.wzyz;
-}
-
-int _Int32x4_wzyw$() {
-  return Int32x4.wzyw;
-}
-
-int _Int32x4_wzzx$() {
-  return Int32x4.wzzx;
-}
-
-int _Int32x4_wzzy$() {
-  return Int32x4.wzzy;
-}
-
-int _Int32x4_wzzz$() {
-  return Int32x4.wzzz;
-}
-
-int _Int32x4_wzzw$() {
-  return Int32x4.wzzw;
-}
-
-int _Int32x4_wzwx$() {
-  return Int32x4.wzwx;
-}
-
-int _Int32x4_wzwy$() {
-  return Int32x4.wzwy;
-}
-
-int _Int32x4_wzwz$() {
-  return Int32x4.wzwz;
-}
-
-int _Int32x4_wzww$() {
-  return Int32x4.wzww;
-}
-
-int _Int32x4_wwxx$() {
-  return Int32x4.wwxx;
-}
-
-int _Int32x4_wwxy$() {
-  return Int32x4.wwxy;
-}
-
-int _Int32x4_wwxz$() {
-  return Int32x4.wwxz;
-}
-
-int _Int32x4_wwxw$() {
-  return Int32x4.wwxw;
-}
-
-int _Int32x4_wwyx$() {
-  return Int32x4.wwyx;
-}
-
-int _Int32x4_wwyy$() {
-  return Int32x4.wwyy;
-}
-
-int _Int32x4_wwyz$() {
-  return Int32x4.wwyz;
-}
-
-int _Int32x4_wwyw$() {
-  return Int32x4.wwyw;
-}
-
-int _Int32x4_wwzx$() {
-  return Int32x4.wwzx;
-}
-
-int _Int32x4_wwzy$() {
-  return Int32x4.wwzy;
-}
-
-int _Int32x4_wwzz$() {
-  return Int32x4.wwzz;
-}
-
-int _Int32x4_wwzw$() {
-  return Int32x4.wwzw;
-}
-
-int _Int32x4_wwwx$() {
-  return Int32x4.wwwx;
-}
-
-int _Int32x4_wwwy$() {
-  return Int32x4.wwwy;
-}
-
-int _Int32x4_wwwz$() {
-  return Int32x4.wwwz;
-}
-
-int _Int32x4_wwww$() {
-  return Int32x4.wwww;
-}
-
+Function _Int32x4_xxxx$(m.Scope scope$) => () => Int32x4.xxxx;
+Function _Int32x4_xxxy$(m.Scope scope$) => () => Int32x4.xxxy;
+Function _Int32x4_xxxz$(m.Scope scope$) => () => Int32x4.xxxz;
+Function _Int32x4_xxxw$(m.Scope scope$) => () => Int32x4.xxxw;
+Function _Int32x4_xxyx$(m.Scope scope$) => () => Int32x4.xxyx;
+Function _Int32x4_xxyy$(m.Scope scope$) => () => Int32x4.xxyy;
+Function _Int32x4_xxyz$(m.Scope scope$) => () => Int32x4.xxyz;
+Function _Int32x4_xxyw$(m.Scope scope$) => () => Int32x4.xxyw;
+Function _Int32x4_xxzx$(m.Scope scope$) => () => Int32x4.xxzx;
+Function _Int32x4_xxzy$(m.Scope scope$) => () => Int32x4.xxzy;
+Function _Int32x4_xxzz$(m.Scope scope$) => () => Int32x4.xxzz;
+Function _Int32x4_xxzw$(m.Scope scope$) => () => Int32x4.xxzw;
+Function _Int32x4_xxwx$(m.Scope scope$) => () => Int32x4.xxwx;
+Function _Int32x4_xxwy$(m.Scope scope$) => () => Int32x4.xxwy;
+Function _Int32x4_xxwz$(m.Scope scope$) => () => Int32x4.xxwz;
+Function _Int32x4_xxww$(m.Scope scope$) => () => Int32x4.xxww;
+Function _Int32x4_xyxx$(m.Scope scope$) => () => Int32x4.xyxx;
+Function _Int32x4_xyxy$(m.Scope scope$) => () => Int32x4.xyxy;
+Function _Int32x4_xyxz$(m.Scope scope$) => () => Int32x4.xyxz;
+Function _Int32x4_xyxw$(m.Scope scope$) => () => Int32x4.xyxw;
+Function _Int32x4_xyyx$(m.Scope scope$) => () => Int32x4.xyyx;
+Function _Int32x4_xyyy$(m.Scope scope$) => () => Int32x4.xyyy;
+Function _Int32x4_xyyz$(m.Scope scope$) => () => Int32x4.xyyz;
+Function _Int32x4_xyyw$(m.Scope scope$) => () => Int32x4.xyyw;
+Function _Int32x4_xyzx$(m.Scope scope$) => () => Int32x4.xyzx;
+Function _Int32x4_xyzy$(m.Scope scope$) => () => Int32x4.xyzy;
+Function _Int32x4_xyzz$(m.Scope scope$) => () => Int32x4.xyzz;
+Function _Int32x4_xyzw$(m.Scope scope$) => () => Int32x4.xyzw;
+Function _Int32x4_xywx$(m.Scope scope$) => () => Int32x4.xywx;
+Function _Int32x4_xywy$(m.Scope scope$) => () => Int32x4.xywy;
+Function _Int32x4_xywz$(m.Scope scope$) => () => Int32x4.xywz;
+Function _Int32x4_xyww$(m.Scope scope$) => () => Int32x4.xyww;
+Function _Int32x4_xzxx$(m.Scope scope$) => () => Int32x4.xzxx;
+Function _Int32x4_xzxy$(m.Scope scope$) => () => Int32x4.xzxy;
+Function _Int32x4_xzxz$(m.Scope scope$) => () => Int32x4.xzxz;
+Function _Int32x4_xzxw$(m.Scope scope$) => () => Int32x4.xzxw;
+Function _Int32x4_xzyx$(m.Scope scope$) => () => Int32x4.xzyx;
+Function _Int32x4_xzyy$(m.Scope scope$) => () => Int32x4.xzyy;
+Function _Int32x4_xzyz$(m.Scope scope$) => () => Int32x4.xzyz;
+Function _Int32x4_xzyw$(m.Scope scope$) => () => Int32x4.xzyw;
+Function _Int32x4_xzzx$(m.Scope scope$) => () => Int32x4.xzzx;
+Function _Int32x4_xzzy$(m.Scope scope$) => () => Int32x4.xzzy;
+Function _Int32x4_xzzz$(m.Scope scope$) => () => Int32x4.xzzz;
+Function _Int32x4_xzzw$(m.Scope scope$) => () => Int32x4.xzzw;
+Function _Int32x4_xzwx$(m.Scope scope$) => () => Int32x4.xzwx;
+Function _Int32x4_xzwy$(m.Scope scope$) => () => Int32x4.xzwy;
+Function _Int32x4_xzwz$(m.Scope scope$) => () => Int32x4.xzwz;
+Function _Int32x4_xzww$(m.Scope scope$) => () => Int32x4.xzww;
+Function _Int32x4_xwxx$(m.Scope scope$) => () => Int32x4.xwxx;
+Function _Int32x4_xwxy$(m.Scope scope$) => () => Int32x4.xwxy;
+Function _Int32x4_xwxz$(m.Scope scope$) => () => Int32x4.xwxz;
+Function _Int32x4_xwxw$(m.Scope scope$) => () => Int32x4.xwxw;
+Function _Int32x4_xwyx$(m.Scope scope$) => () => Int32x4.xwyx;
+Function _Int32x4_xwyy$(m.Scope scope$) => () => Int32x4.xwyy;
+Function _Int32x4_xwyz$(m.Scope scope$) => () => Int32x4.xwyz;
+Function _Int32x4_xwyw$(m.Scope scope$) => () => Int32x4.xwyw;
+Function _Int32x4_xwzx$(m.Scope scope$) => () => Int32x4.xwzx;
+Function _Int32x4_xwzy$(m.Scope scope$) => () => Int32x4.xwzy;
+Function _Int32x4_xwzz$(m.Scope scope$) => () => Int32x4.xwzz;
+Function _Int32x4_xwzw$(m.Scope scope$) => () => Int32x4.xwzw;
+Function _Int32x4_xwwx$(m.Scope scope$) => () => Int32x4.xwwx;
+Function _Int32x4_xwwy$(m.Scope scope$) => () => Int32x4.xwwy;
+Function _Int32x4_xwwz$(m.Scope scope$) => () => Int32x4.xwwz;
+Function _Int32x4_xwww$(m.Scope scope$) => () => Int32x4.xwww;
+Function _Int32x4_yxxx$(m.Scope scope$) => () => Int32x4.yxxx;
+Function _Int32x4_yxxy$(m.Scope scope$) => () => Int32x4.yxxy;
+Function _Int32x4_yxxz$(m.Scope scope$) => () => Int32x4.yxxz;
+Function _Int32x4_yxxw$(m.Scope scope$) => () => Int32x4.yxxw;
+Function _Int32x4_yxyx$(m.Scope scope$) => () => Int32x4.yxyx;
+Function _Int32x4_yxyy$(m.Scope scope$) => () => Int32x4.yxyy;
+Function _Int32x4_yxyz$(m.Scope scope$) => () => Int32x4.yxyz;
+Function _Int32x4_yxyw$(m.Scope scope$) => () => Int32x4.yxyw;
+Function _Int32x4_yxzx$(m.Scope scope$) => () => Int32x4.yxzx;
+Function _Int32x4_yxzy$(m.Scope scope$) => () => Int32x4.yxzy;
+Function _Int32x4_yxzz$(m.Scope scope$) => () => Int32x4.yxzz;
+Function _Int32x4_yxzw$(m.Scope scope$) => () => Int32x4.yxzw;
+Function _Int32x4_yxwx$(m.Scope scope$) => () => Int32x4.yxwx;
+Function _Int32x4_yxwy$(m.Scope scope$) => () => Int32x4.yxwy;
+Function _Int32x4_yxwz$(m.Scope scope$) => () => Int32x4.yxwz;
+Function _Int32x4_yxww$(m.Scope scope$) => () => Int32x4.yxww;
+Function _Int32x4_yyxx$(m.Scope scope$) => () => Int32x4.yyxx;
+Function _Int32x4_yyxy$(m.Scope scope$) => () => Int32x4.yyxy;
+Function _Int32x4_yyxz$(m.Scope scope$) => () => Int32x4.yyxz;
+Function _Int32x4_yyxw$(m.Scope scope$) => () => Int32x4.yyxw;
+Function _Int32x4_yyyx$(m.Scope scope$) => () => Int32x4.yyyx;
+Function _Int32x4_yyyy$(m.Scope scope$) => () => Int32x4.yyyy;
+Function _Int32x4_yyyz$(m.Scope scope$) => () => Int32x4.yyyz;
+Function _Int32x4_yyyw$(m.Scope scope$) => () => Int32x4.yyyw;
+Function _Int32x4_yyzx$(m.Scope scope$) => () => Int32x4.yyzx;
+Function _Int32x4_yyzy$(m.Scope scope$) => () => Int32x4.yyzy;
+Function _Int32x4_yyzz$(m.Scope scope$) => () => Int32x4.yyzz;
+Function _Int32x4_yyzw$(m.Scope scope$) => () => Int32x4.yyzw;
+Function _Int32x4_yywx$(m.Scope scope$) => () => Int32x4.yywx;
+Function _Int32x4_yywy$(m.Scope scope$) => () => Int32x4.yywy;
+Function _Int32x4_yywz$(m.Scope scope$) => () => Int32x4.yywz;
+Function _Int32x4_yyww$(m.Scope scope$) => () => Int32x4.yyww;
+Function _Int32x4_yzxx$(m.Scope scope$) => () => Int32x4.yzxx;
+Function _Int32x4_yzxy$(m.Scope scope$) => () => Int32x4.yzxy;
+Function _Int32x4_yzxz$(m.Scope scope$) => () => Int32x4.yzxz;
+Function _Int32x4_yzxw$(m.Scope scope$) => () => Int32x4.yzxw;
+Function _Int32x4_yzyx$(m.Scope scope$) => () => Int32x4.yzyx;
+Function _Int32x4_yzyy$(m.Scope scope$) => () => Int32x4.yzyy;
+Function _Int32x4_yzyz$(m.Scope scope$) => () => Int32x4.yzyz;
+Function _Int32x4_yzyw$(m.Scope scope$) => () => Int32x4.yzyw;
+Function _Int32x4_yzzx$(m.Scope scope$) => () => Int32x4.yzzx;
+Function _Int32x4_yzzy$(m.Scope scope$) => () => Int32x4.yzzy;
+Function _Int32x4_yzzz$(m.Scope scope$) => () => Int32x4.yzzz;
+Function _Int32x4_yzzw$(m.Scope scope$) => () => Int32x4.yzzw;
+Function _Int32x4_yzwx$(m.Scope scope$) => () => Int32x4.yzwx;
+Function _Int32x4_yzwy$(m.Scope scope$) => () => Int32x4.yzwy;
+Function _Int32x4_yzwz$(m.Scope scope$) => () => Int32x4.yzwz;
+Function _Int32x4_yzww$(m.Scope scope$) => () => Int32x4.yzww;
+Function _Int32x4_ywxx$(m.Scope scope$) => () => Int32x4.ywxx;
+Function _Int32x4_ywxy$(m.Scope scope$) => () => Int32x4.ywxy;
+Function _Int32x4_ywxz$(m.Scope scope$) => () => Int32x4.ywxz;
+Function _Int32x4_ywxw$(m.Scope scope$) => () => Int32x4.ywxw;
+Function _Int32x4_ywyx$(m.Scope scope$) => () => Int32x4.ywyx;
+Function _Int32x4_ywyy$(m.Scope scope$) => () => Int32x4.ywyy;
+Function _Int32x4_ywyz$(m.Scope scope$) => () => Int32x4.ywyz;
+Function _Int32x4_ywyw$(m.Scope scope$) => () => Int32x4.ywyw;
+Function _Int32x4_ywzx$(m.Scope scope$) => () => Int32x4.ywzx;
+Function _Int32x4_ywzy$(m.Scope scope$) => () => Int32x4.ywzy;
+Function _Int32x4_ywzz$(m.Scope scope$) => () => Int32x4.ywzz;
+Function _Int32x4_ywzw$(m.Scope scope$) => () => Int32x4.ywzw;
+Function _Int32x4_ywwx$(m.Scope scope$) => () => Int32x4.ywwx;
+Function _Int32x4_ywwy$(m.Scope scope$) => () => Int32x4.ywwy;
+Function _Int32x4_ywwz$(m.Scope scope$) => () => Int32x4.ywwz;
+Function _Int32x4_ywww$(m.Scope scope$) => () => Int32x4.ywww;
+Function _Int32x4_zxxx$(m.Scope scope$) => () => Int32x4.zxxx;
+Function _Int32x4_zxxy$(m.Scope scope$) => () => Int32x4.zxxy;
+Function _Int32x4_zxxz$(m.Scope scope$) => () => Int32x4.zxxz;
+Function _Int32x4_zxxw$(m.Scope scope$) => () => Int32x4.zxxw;
+Function _Int32x4_zxyx$(m.Scope scope$) => () => Int32x4.zxyx;
+Function _Int32x4_zxyy$(m.Scope scope$) => () => Int32x4.zxyy;
+Function _Int32x4_zxyz$(m.Scope scope$) => () => Int32x4.zxyz;
+Function _Int32x4_zxyw$(m.Scope scope$) => () => Int32x4.zxyw;
+Function _Int32x4_zxzx$(m.Scope scope$) => () => Int32x4.zxzx;
+Function _Int32x4_zxzy$(m.Scope scope$) => () => Int32x4.zxzy;
+Function _Int32x4_zxzz$(m.Scope scope$) => () => Int32x4.zxzz;
+Function _Int32x4_zxzw$(m.Scope scope$) => () => Int32x4.zxzw;
+Function _Int32x4_zxwx$(m.Scope scope$) => () => Int32x4.zxwx;
+Function _Int32x4_zxwy$(m.Scope scope$) => () => Int32x4.zxwy;
+Function _Int32x4_zxwz$(m.Scope scope$) => () => Int32x4.zxwz;
+Function _Int32x4_zxww$(m.Scope scope$) => () => Int32x4.zxww;
+Function _Int32x4_zyxx$(m.Scope scope$) => () => Int32x4.zyxx;
+Function _Int32x4_zyxy$(m.Scope scope$) => () => Int32x4.zyxy;
+Function _Int32x4_zyxz$(m.Scope scope$) => () => Int32x4.zyxz;
+Function _Int32x4_zyxw$(m.Scope scope$) => () => Int32x4.zyxw;
+Function _Int32x4_zyyx$(m.Scope scope$) => () => Int32x4.zyyx;
+Function _Int32x4_zyyy$(m.Scope scope$) => () => Int32x4.zyyy;
+Function _Int32x4_zyyz$(m.Scope scope$) => () => Int32x4.zyyz;
+Function _Int32x4_zyyw$(m.Scope scope$) => () => Int32x4.zyyw;
+Function _Int32x4_zyzx$(m.Scope scope$) => () => Int32x4.zyzx;
+Function _Int32x4_zyzy$(m.Scope scope$) => () => Int32x4.zyzy;
+Function _Int32x4_zyzz$(m.Scope scope$) => () => Int32x4.zyzz;
+Function _Int32x4_zyzw$(m.Scope scope$) => () => Int32x4.zyzw;
+Function _Int32x4_zywx$(m.Scope scope$) => () => Int32x4.zywx;
+Function _Int32x4_zywy$(m.Scope scope$) => () => Int32x4.zywy;
+Function _Int32x4_zywz$(m.Scope scope$) => () => Int32x4.zywz;
+Function _Int32x4_zyww$(m.Scope scope$) => () => Int32x4.zyww;
+Function _Int32x4_zzxx$(m.Scope scope$) => () => Int32x4.zzxx;
+Function _Int32x4_zzxy$(m.Scope scope$) => () => Int32x4.zzxy;
+Function _Int32x4_zzxz$(m.Scope scope$) => () => Int32x4.zzxz;
+Function _Int32x4_zzxw$(m.Scope scope$) => () => Int32x4.zzxw;
+Function _Int32x4_zzyx$(m.Scope scope$) => () => Int32x4.zzyx;
+Function _Int32x4_zzyy$(m.Scope scope$) => () => Int32x4.zzyy;
+Function _Int32x4_zzyz$(m.Scope scope$) => () => Int32x4.zzyz;
+Function _Int32x4_zzyw$(m.Scope scope$) => () => Int32x4.zzyw;
+Function _Int32x4_zzzx$(m.Scope scope$) => () => Int32x4.zzzx;
+Function _Int32x4_zzzy$(m.Scope scope$) => () => Int32x4.zzzy;
+Function _Int32x4_zzzz$(m.Scope scope$) => () => Int32x4.zzzz;
+Function _Int32x4_zzzw$(m.Scope scope$) => () => Int32x4.zzzw;
+Function _Int32x4_zzwx$(m.Scope scope$) => () => Int32x4.zzwx;
+Function _Int32x4_zzwy$(m.Scope scope$) => () => Int32x4.zzwy;
+Function _Int32x4_zzwz$(m.Scope scope$) => () => Int32x4.zzwz;
+Function _Int32x4_zzww$(m.Scope scope$) => () => Int32x4.zzww;
+Function _Int32x4_zwxx$(m.Scope scope$) => () => Int32x4.zwxx;
+Function _Int32x4_zwxy$(m.Scope scope$) => () => Int32x4.zwxy;
+Function _Int32x4_zwxz$(m.Scope scope$) => () => Int32x4.zwxz;
+Function _Int32x4_zwxw$(m.Scope scope$) => () => Int32x4.zwxw;
+Function _Int32x4_zwyx$(m.Scope scope$) => () => Int32x4.zwyx;
+Function _Int32x4_zwyy$(m.Scope scope$) => () => Int32x4.zwyy;
+Function _Int32x4_zwyz$(m.Scope scope$) => () => Int32x4.zwyz;
+Function _Int32x4_zwyw$(m.Scope scope$) => () => Int32x4.zwyw;
+Function _Int32x4_zwzx$(m.Scope scope$) => () => Int32x4.zwzx;
+Function _Int32x4_zwzy$(m.Scope scope$) => () => Int32x4.zwzy;
+Function _Int32x4_zwzz$(m.Scope scope$) => () => Int32x4.zwzz;
+Function _Int32x4_zwzw$(m.Scope scope$) => () => Int32x4.zwzw;
+Function _Int32x4_zwwx$(m.Scope scope$) => () => Int32x4.zwwx;
+Function _Int32x4_zwwy$(m.Scope scope$) => () => Int32x4.zwwy;
+Function _Int32x4_zwwz$(m.Scope scope$) => () => Int32x4.zwwz;
+Function _Int32x4_zwww$(m.Scope scope$) => () => Int32x4.zwww;
+Function _Int32x4_wxxx$(m.Scope scope$) => () => Int32x4.wxxx;
+Function _Int32x4_wxxy$(m.Scope scope$) => () => Int32x4.wxxy;
+Function _Int32x4_wxxz$(m.Scope scope$) => () => Int32x4.wxxz;
+Function _Int32x4_wxxw$(m.Scope scope$) => () => Int32x4.wxxw;
+Function _Int32x4_wxyx$(m.Scope scope$) => () => Int32x4.wxyx;
+Function _Int32x4_wxyy$(m.Scope scope$) => () => Int32x4.wxyy;
+Function _Int32x4_wxyz$(m.Scope scope$) => () => Int32x4.wxyz;
+Function _Int32x4_wxyw$(m.Scope scope$) => () => Int32x4.wxyw;
+Function _Int32x4_wxzx$(m.Scope scope$) => () => Int32x4.wxzx;
+Function _Int32x4_wxzy$(m.Scope scope$) => () => Int32x4.wxzy;
+Function _Int32x4_wxzz$(m.Scope scope$) => () => Int32x4.wxzz;
+Function _Int32x4_wxzw$(m.Scope scope$) => () => Int32x4.wxzw;
+Function _Int32x4_wxwx$(m.Scope scope$) => () => Int32x4.wxwx;
+Function _Int32x4_wxwy$(m.Scope scope$) => () => Int32x4.wxwy;
+Function _Int32x4_wxwz$(m.Scope scope$) => () => Int32x4.wxwz;
+Function _Int32x4_wxww$(m.Scope scope$) => () => Int32x4.wxww;
+Function _Int32x4_wyxx$(m.Scope scope$) => () => Int32x4.wyxx;
+Function _Int32x4_wyxy$(m.Scope scope$) => () => Int32x4.wyxy;
+Function _Int32x4_wyxz$(m.Scope scope$) => () => Int32x4.wyxz;
+Function _Int32x4_wyxw$(m.Scope scope$) => () => Int32x4.wyxw;
+Function _Int32x4_wyyx$(m.Scope scope$) => () => Int32x4.wyyx;
+Function _Int32x4_wyyy$(m.Scope scope$) => () => Int32x4.wyyy;
+Function _Int32x4_wyyz$(m.Scope scope$) => () => Int32x4.wyyz;
+Function _Int32x4_wyyw$(m.Scope scope$) => () => Int32x4.wyyw;
+Function _Int32x4_wyzx$(m.Scope scope$) => () => Int32x4.wyzx;
+Function _Int32x4_wyzy$(m.Scope scope$) => () => Int32x4.wyzy;
+Function _Int32x4_wyzz$(m.Scope scope$) => () => Int32x4.wyzz;
+Function _Int32x4_wyzw$(m.Scope scope$) => () => Int32x4.wyzw;
+Function _Int32x4_wywx$(m.Scope scope$) => () => Int32x4.wywx;
+Function _Int32x4_wywy$(m.Scope scope$) => () => Int32x4.wywy;
+Function _Int32x4_wywz$(m.Scope scope$) => () => Int32x4.wywz;
+Function _Int32x4_wyww$(m.Scope scope$) => () => Int32x4.wyww;
+Function _Int32x4_wzxx$(m.Scope scope$) => () => Int32x4.wzxx;
+Function _Int32x4_wzxy$(m.Scope scope$) => () => Int32x4.wzxy;
+Function _Int32x4_wzxz$(m.Scope scope$) => () => Int32x4.wzxz;
+Function _Int32x4_wzxw$(m.Scope scope$) => () => Int32x4.wzxw;
+Function _Int32x4_wzyx$(m.Scope scope$) => () => Int32x4.wzyx;
+Function _Int32x4_wzyy$(m.Scope scope$) => () => Int32x4.wzyy;
+Function _Int32x4_wzyz$(m.Scope scope$) => () => Int32x4.wzyz;
+Function _Int32x4_wzyw$(m.Scope scope$) => () => Int32x4.wzyw;
+Function _Int32x4_wzzx$(m.Scope scope$) => () => Int32x4.wzzx;
+Function _Int32x4_wzzy$(m.Scope scope$) => () => Int32x4.wzzy;
+Function _Int32x4_wzzz$(m.Scope scope$) => () => Int32x4.wzzz;
+Function _Int32x4_wzzw$(m.Scope scope$) => () => Int32x4.wzzw;
+Function _Int32x4_wzwx$(m.Scope scope$) => () => Int32x4.wzwx;
+Function _Int32x4_wzwy$(m.Scope scope$) => () => Int32x4.wzwy;
+Function _Int32x4_wzwz$(m.Scope scope$) => () => Int32x4.wzwz;
+Function _Int32x4_wzww$(m.Scope scope$) => () => Int32x4.wzww;
+Function _Int32x4_wwxx$(m.Scope scope$) => () => Int32x4.wwxx;
+Function _Int32x4_wwxy$(m.Scope scope$) => () => Int32x4.wwxy;
+Function _Int32x4_wwxz$(m.Scope scope$) => () => Int32x4.wwxz;
+Function _Int32x4_wwxw$(m.Scope scope$) => () => Int32x4.wwxw;
+Function _Int32x4_wwyx$(m.Scope scope$) => () => Int32x4.wwyx;
+Function _Int32x4_wwyy$(m.Scope scope$) => () => Int32x4.wwyy;
+Function _Int32x4_wwyz$(m.Scope scope$) => () => Int32x4.wwyz;
+Function _Int32x4_wwyw$(m.Scope scope$) => () => Int32x4.wwyw;
+Function _Int32x4_wwzx$(m.Scope scope$) => () => Int32x4.wwzx;
+Function _Int32x4_wwzy$(m.Scope scope$) => () => Int32x4.wwzy;
+Function _Int32x4_wwzz$(m.Scope scope$) => () => Int32x4.wwzz;
+Function _Int32x4_wwzw$(m.Scope scope$) => () => Int32x4.wwzw;
+Function _Int32x4_wwwx$(m.Scope scope$) => () => Int32x4.wwwx;
+Function _Int32x4_wwwy$(m.Scope scope$) => () => Int32x4.wwwy;
+Function _Int32x4_wwwz$(m.Scope scope$) => () => Int32x4.wwwz;
+Function _Int32x4_wwww$(m.Scope scope$) => () => Int32x4.wwww;
 Function _Int32x4_x$(
   m.Scope scope$,
   Int32x4 target$,

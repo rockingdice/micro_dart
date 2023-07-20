@@ -218,14 +218,7 @@ Function _TapSemanticEvent_getDataMap$(
   TapSemanticEvent target$,
 ) =>
     target$.getDataMap;
-Assertiveness _Assertiveness_polite$() {
-  return Assertiveness.polite;
-}
-
-Assertiveness _Assertiveness_assertive$() {
-  return Assertiveness.assertive;
-}
-
-List<Assertiveness> _Assertiveness_values$() {
-  return Assertiveness.values;
-}
+Function _Assertiveness_polite$(m.Scope scope$) => () => Assertiveness.polite;
+Function _Assertiveness_assertive$(m.Scope scope$) =>
+    () => Assertiveness.assertive;
+Function _Assertiveness_values$(m.Scope scope$) => () => Assertiveness.values;

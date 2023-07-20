@@ -30,12 +30,7 @@ const libraryMirror = m.LibraryMirror(
   {
     'LocalHistoryEntry.': _LocalHistoryEntry__$,
     'ModalRoute.of': _ModalRoute_of$,
-    'ModalRoute.setState': _ModalRoute_setState$,
     'ModalRoute.withName': _ModalRoute_withName$,
-    'ModalRoute.addScopedWillPopCallback':
-        _ModalRoute_addScopedWillPopCallback$,
-    'ModalRoute.removeScopedWillPopCallback':
-        _ModalRoute_removeScopedWillPopCallback$,
     'RouteObserver.': _RouteObserver__$,
     'RawDialogRoute.': _RawDialogRoute__$,
     'showGeneralDialog': _showGeneralDialog$,
@@ -125,12 +120,15 @@ const libraryMirror = m.LibraryMirror(
         'hasScopedWillPopCallback': _ModalRoute_hasScopedWillPopCallback$,
         'canPop': _ModalRoute_canPop$,
         'impliesAppBarDismissal': _ModalRoute_impliesAppBarDismissal$,
+        'setState': _ModalRoute_setState$,
         'buildPage': _ModalRoute_buildPage$,
         'buildTransitions': _ModalRoute_buildTransitions$,
         'install': _ModalRoute_install$,
         'didPush': _ModalRoute_didPush$,
         'didAdd': _ModalRoute_didAdd$,
         'willPop': _ModalRoute_willPop$,
+        'addScopedWillPopCallback': _ModalRoute_addScopedWillPopCallback$,
+        'removeScopedWillPopCallback': _ModalRoute_removeScopedWillPopCallback$,
         'didChangePrevious': _ModalRoute_didChangePrevious$,
         'changedInternalState': _ModalRoute_changedInternalState$,
         'changedExternalState': _ModalRoute_changedExternalState$,

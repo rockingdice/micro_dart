@@ -24,7 +24,6 @@ const libraryMirror = m.LibraryMirror(
     'FlutterErrorDetails.propertiesTransformers':
         _FlutterErrorDetails_propertiesTransformers$,
     'FlutterErrorDetails.': _FlutterErrorDetails__$,
-    'FlutterErrorDetails.copyWith': _FlutterErrorDetails_copyWith$,
     'FlutterError.onError': _FlutterError_onError$,
     'FlutterError.demangleStackTrace': _FlutterError_demangleStackTrace$,
     'FlutterError.presentError': _FlutterError_presentError$,
@@ -124,6 +123,7 @@ const libraryMirror = m.LibraryMirror(
         'informationCollector': _FlutterErrorDetails_informationCollector$,
         'silent': _FlutterErrorDetails_silent$,
         'summary': _FlutterErrorDetails_summary$,
+        'copyWith': _FlutterErrorDetails_copyWith$,
         'exceptionAsString': _FlutterErrorDetails_exceptionAsString$,
         'debugFillProperties': _FlutterErrorDetails_debugFillProperties$,
         'toStringShort': _FlutterErrorDetails_toStringShort$,
@@ -166,10 +166,8 @@ Function PartialStackFrame_is$(
   dynamic target$,
 ) =>
     () => target$ is PartialStackFrame;
-PartialStackFrame _PartialStackFrame_asynchronousSuspension$() {
-  return PartialStackFrame.asynchronousSuspension;
-}
-
+Function _PartialStackFrame_asynchronousSuspension$(m.Scope scope$) =>
+    () => PartialStackFrame.asynchronousSuspension;
 Function _PartialStackFrame_package$(
   m.Scope scope$,
   PartialStackFrame target$,
@@ -329,11 +327,8 @@ Function FlutterErrorDetails_is$(
   dynamic target$,
 ) =>
     () => target$ is FlutterErrorDetails;
-List<Iterable<DiagnosticsNode> Function(Iterable<DiagnosticsNode>)>
-    _FlutterErrorDetails_propertiesTransformers$() {
-  return FlutterErrorDetails.propertiesTransformers;
-}
-
+Function _FlutterErrorDetails_propertiesTransformers$(m.Scope scope$) =>
+    () => FlutterErrorDetails.propertiesTransformers;
 Function _FlutterErrorDetails_exception$(
   m.Scope scope$,
   FlutterErrorDetails target$,
@@ -504,10 +499,7 @@ Function _FlutterError_diagnostics$(
     () {
       return target$.diagnostics;
     };
-void Function(FlutterErrorDetails)? _FlutterError_onError$() {
-  return FlutterError.onError;
-}
-
+Function _FlutterError_onError$(m.Scope scope$) => () => FlutterError.onError;
 Function _FlutterError_onError_set$(m.Scope scope$) =>
     (m.FunctionPointer? _onError) {
       void _onErrorProxy(FlutterErrorDetails _onError_details$) =>
@@ -519,10 +511,8 @@ Function _FlutterError_onError_set$(m.Scope scope$) =>
           );
       FlutterError.onError = (_onError == null ? null : _onErrorProxy);
     };
-StackTrace Function(StackTrace) _FlutterError_demangleStackTrace$() {
-  return FlutterError.demangleStackTrace;
-}
-
+Function _FlutterError_demangleStackTrace$(m.Scope scope$) =>
+    () => FlutterError.demangleStackTrace;
 Function _FlutterError_demangleStackTrace_set$(m.Scope scope$) =>
     (m.FunctionPointer _demangleStackTrace) {
       StackTrace _demangleStackTraceProxy(
@@ -535,10 +525,8 @@ Function _FlutterError_demangleStackTrace_set$(m.Scope scope$) =>
           );
       FlutterError.demangleStackTrace = (_demangleStackTraceProxy);
     };
-void Function(FlutterErrorDetails) _FlutterError_presentError$() {
-  return FlutterError.presentError;
-}
-
+Function _FlutterError_presentError$(m.Scope scope$) =>
+    () => FlutterError.presentError;
 Function _FlutterError_presentError_set$(m.Scope scope$) =>
     (m.FunctionPointer _presentError) {
       void _presentErrorProxy(FlutterErrorDetails _presentError_details$) =>
@@ -550,10 +538,8 @@ Function _FlutterError_presentError_set$(m.Scope scope$) =>
           );
       FlutterError.presentError = (_presentErrorProxy);
     };
-int _FlutterError_wrapWidth$() {
-  return FlutterError.wrapWidth;
-}
-
+Function _FlutterError_wrapWidth$(m.Scope scope$) =>
+    () => FlutterError.wrapWidth;
 Function _FlutterError_message$(
   m.Scope scope$,
   FlutterError target$,

@@ -53,10 +53,7 @@ Function StrutStyle_is$(
   dynamic target$,
 ) =>
     () => target$ is StrutStyle;
-StrutStyle _StrutStyle_disabled$() {
-  return StrutStyle.disabled;
-}
-
+Function _StrutStyle_disabled$(m.Scope scope$) => () => StrutStyle.disabled;
 Function _StrutStyle_fontFamily$(
   m.Scope scope$,
   StrutStyle target$,

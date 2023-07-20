@@ -74,10 +74,9 @@ Function _CupertinoTextSelectionToolbar_toolbarBuilder$(
     () {
       return target$.toolbarBuilder;
     };
-double _CupertinoTextSelectionToolbar_kToolbarScreenPadding$() {
-  return CupertinoTextSelectionToolbar.kToolbarScreenPadding;
-}
-
+Function _CupertinoTextSelectionToolbar_kToolbarScreenPadding$(
+        m.Scope scope$) =>
+    () => CupertinoTextSelectionToolbar.kToolbarScreenPadding;
 Function _CupertinoTextSelectionToolbar__$(m.Scope scope$) => ({
       Key? key,
       required Offset anchorAbove,
@@ -102,7 +101,6 @@ Function _CupertinoTextSelectionToolbar__$(m.Scope scope$) => ({
             ],
             {},
           );
-
       if (toolbarBuilder == null) {
         return CupertinoTextSelectionToolbar(
           anchorAbove: anchorAbove,

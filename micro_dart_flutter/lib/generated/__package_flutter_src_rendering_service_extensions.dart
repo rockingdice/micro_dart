@@ -44,67 +44,40 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-RenderingServiceExtensions
-    _RenderingServiceExtensions_invertOversizedImages$() {
-  return RenderingServiceExtensions.invertOversizedImages;
-}
-
-RenderingServiceExtensions _RenderingServiceExtensions_debugPaint$() {
-  return RenderingServiceExtensions.debugPaint;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugPaintBaselinesEnabled$() {
-  return RenderingServiceExtensions.debugPaintBaselinesEnabled;
-}
-
-RenderingServiceExtensions _RenderingServiceExtensions_repaintRainbow$() {
-  return RenderingServiceExtensions.repaintRainbow;
-}
-
-RenderingServiceExtensions _RenderingServiceExtensions_debugDumpLayerTree$() {
-  return RenderingServiceExtensions.debugDumpLayerTree;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugDisableClipLayers$() {
-  return RenderingServiceExtensions.debugDisableClipLayers;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugDisablePhysicalShapeLayers$() {
-  return RenderingServiceExtensions.debugDisablePhysicalShapeLayers;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugDisableOpacityLayers$() {
-  return RenderingServiceExtensions.debugDisableOpacityLayers;
-}
-
-RenderingServiceExtensions _RenderingServiceExtensions_debugDumpRenderTree$() {
-  return RenderingServiceExtensions.debugDumpRenderTree;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugDumpSemanticsTreeInTraversalOrder$() {
-  return RenderingServiceExtensions.debugDumpSemanticsTreeInTraversalOrder;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_debugDumpSemanticsTreeInInverseHitTestOrder$() {
-  return RenderingServiceExtensions.debugDumpSemanticsTreeInInverseHitTestOrder;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_profileRenderObjectPaints$() {
-  return RenderingServiceExtensions.profileRenderObjectPaints;
-}
-
-RenderingServiceExtensions
-    _RenderingServiceExtensions_profileRenderObjectLayouts$() {
-  return RenderingServiceExtensions.profileRenderObjectLayouts;
-}
-
-List<RenderingServiceExtensions> _RenderingServiceExtensions_values$() {
-  return RenderingServiceExtensions.values;
-}
+Function _RenderingServiceExtensions_invertOversizedImages$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.invertOversizedImages;
+Function _RenderingServiceExtensions_debugPaint$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugPaint;
+Function _RenderingServiceExtensions_debugPaintBaselinesEnabled$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugPaintBaselinesEnabled;
+Function _RenderingServiceExtensions_repaintRainbow$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.repaintRainbow;
+Function _RenderingServiceExtensions_debugDumpLayerTree$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDumpLayerTree;
+Function _RenderingServiceExtensions_debugDisableClipLayers$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDisableClipLayers;
+Function _RenderingServiceExtensions_debugDisablePhysicalShapeLayers$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDisablePhysicalShapeLayers;
+Function _RenderingServiceExtensions_debugDisableOpacityLayers$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDisableOpacityLayers;
+Function _RenderingServiceExtensions_debugDumpRenderTree$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDumpRenderTree;
+Function _RenderingServiceExtensions_debugDumpSemanticsTreeInTraversalOrder$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.debugDumpSemanticsTreeInTraversalOrder;
+Function
+    _RenderingServiceExtensions_debugDumpSemanticsTreeInInverseHitTestOrder$(
+            m.Scope scope$) =>
+        () => RenderingServiceExtensions
+            .debugDumpSemanticsTreeInInverseHitTestOrder;
+Function _RenderingServiceExtensions_profileRenderObjectPaints$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.profileRenderObjectPaints;
+Function _RenderingServiceExtensions_profileRenderObjectLayouts$(
+        m.Scope scope$) =>
+    () => RenderingServiceExtensions.profileRenderObjectLayouts;
+Function _RenderingServiceExtensions_values$(m.Scope scope$) =>
+    () => RenderingServiceExtensions.values;

@@ -57,42 +57,24 @@ Function FractionalOffset_is$(
   dynamic target$,
 ) =>
     () => target$ is FractionalOffset;
-FractionalOffset _FractionalOffset_topLeft$() {
-  return FractionalOffset.topLeft;
-}
-
-FractionalOffset _FractionalOffset_topCenter$() {
-  return FractionalOffset.topCenter;
-}
-
-FractionalOffset _FractionalOffset_topRight$() {
-  return FractionalOffset.topRight;
-}
-
-FractionalOffset _FractionalOffset_centerLeft$() {
-  return FractionalOffset.centerLeft;
-}
-
-FractionalOffset _FractionalOffset_center$() {
-  return FractionalOffset.center;
-}
-
-FractionalOffset _FractionalOffset_centerRight$() {
-  return FractionalOffset.centerRight;
-}
-
-FractionalOffset _FractionalOffset_bottomLeft$() {
-  return FractionalOffset.bottomLeft;
-}
-
-FractionalOffset _FractionalOffset_bottomCenter$() {
-  return FractionalOffset.bottomCenter;
-}
-
-FractionalOffset _FractionalOffset_bottomRight$() {
-  return FractionalOffset.bottomRight;
-}
-
+Function _FractionalOffset_topLeft$(m.Scope scope$) =>
+    () => FractionalOffset.topLeft;
+Function _FractionalOffset_topCenter$(m.Scope scope$) =>
+    () => FractionalOffset.topCenter;
+Function _FractionalOffset_topRight$(m.Scope scope$) =>
+    () => FractionalOffset.topRight;
+Function _FractionalOffset_centerLeft$(m.Scope scope$) =>
+    () => FractionalOffset.centerLeft;
+Function _FractionalOffset_center$(m.Scope scope$) =>
+    () => FractionalOffset.center;
+Function _FractionalOffset_centerRight$(m.Scope scope$) =>
+    () => FractionalOffset.centerRight;
+Function _FractionalOffset_bottomLeft$(m.Scope scope$) =>
+    () => FractionalOffset.bottomLeft;
+Function _FractionalOffset_bottomCenter$(m.Scope scope$) =>
+    () => FractionalOffset.bottomCenter;
+Function _FractionalOffset_bottomRight$(m.Scope scope$) =>
+    () => FractionalOffset.bottomRight;
 Function _FractionalOffset_dx$(
   m.Scope scope$,
   FractionalOffset target$,

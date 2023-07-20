@@ -40,8 +40,6 @@ const libraryMirror = m.LibraryMirror(
     'JsonCyclicError.': _JsonCyclicError__$,
     'JsonCodec.': _JsonCodec__$,
     'JsonCodec.withReviver': _JsonCodec_withReviver_$,
-    'JsonCodec.decode': _JsonCodec_decode$,
-    'JsonCodec.encode': _JsonCodec_encode$,
     'JsonEncoder.': _JsonEncoder__$,
     'JsonEncoder.withIndent': _JsonEncoder_withIndent_$,
     'JsonUtf8Encoder.': _JsonUtf8Encoder__$,
@@ -240,6 +238,8 @@ const libraryMirror = m.LibraryMirror(
         '#is': JsonCodec_is$,
         'encoder': _JsonCodec_encoder$,
         'decoder': _JsonCodec_decoder$,
+        'decode': _JsonCodec_decode$,
+        'encode': _JsonCodec_encode$,
       },
       {},
     ),
@@ -377,10 +377,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-AsciiCodec _ascii$() {
-  return ascii;
-}
-
+Function _ascii$(m.Scope scope$) => () => ascii;
 Function AsciiCodec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -456,14 +453,8 @@ Function _AsciiDecoder_startChunkedConversion$(
   AsciiDecoder target$,
 ) =>
     target$.startChunkedConversion;
-Base64Codec _base64$() {
-  return base64;
-}
-
-Base64Codec _base64Url$() {
-  return base64Url;
-}
-
+Function _base64$(m.Scope scope$) => () => base64;
+Function _base64Url$(m.Scope scope$) => () => base64Url;
 Function Base64Codec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -730,10 +721,7 @@ Function _Encoding_decodeStream$(
 ) =>
     target$.decodeStream;
 Function _Encoding_getByName$(m.Scope scope$) => Encoding.getByName;
-HtmlEscape _htmlEscape$() {
-  return htmlEscape;
-}
-
+Function _htmlEscape$(m.Scope scope$) => () => htmlEscape;
 Function HtmlEscapeMode_as$(
   m.Scope scope$,
   dynamic target$,
@@ -772,22 +760,14 @@ Function _HtmlEscapeMode_escapeSlash$(
     () {
       return target$.escapeSlash;
     };
-HtmlEscapeMode _HtmlEscapeMode_unknown$() {
-  return HtmlEscapeMode.unknown;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_attribute$() {
-  return HtmlEscapeMode.attribute;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_sqAttribute$() {
-  return HtmlEscapeMode.sqAttribute;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_element$() {
-  return HtmlEscapeMode.element;
-}
-
+Function _HtmlEscapeMode_unknown$(m.Scope scope$) =>
+    () => HtmlEscapeMode.unknown;
+Function _HtmlEscapeMode_attribute$(m.Scope scope$) =>
+    () => HtmlEscapeMode.attribute;
+Function _HtmlEscapeMode_sqAttribute$(m.Scope scope$) =>
+    () => HtmlEscapeMode.sqAttribute;
+Function _HtmlEscapeMode_element$(m.Scope scope$) =>
+    () => HtmlEscapeMode.element;
 Function _HtmlEscapeMode__$(m.Scope scope$) => ({
       String? name,
       bool? escapeLtGt,
@@ -841,10 +821,7 @@ Function _HtmlEscape_startChunkedConversion$(
   HtmlEscape target$,
 ) =>
     target$.startChunkedConversion;
-JsonCodec _json$() {
-  return json;
-}
-
+Function _json$(m.Scope scope$) => () => json;
 Function JsonUnsupportedObjectError_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1232,10 +1209,7 @@ Function _jsonDecode$(m.Scope scope$) => (
         reviver: reviver == null ? null : reviverProxy,
       );
     };
-Latin1Codec _latin1$() {
-  return latin1;
-}
-
+Function _latin1$(m.Scope scope$) => () => latin1;
 Function Latin1Codec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1415,18 +1389,11 @@ Function _ClosableStringSink_close$(
   ClosableStringSink target$,
 ) =>
     target$.close;
-int _unicodeReplacementCharacterRune$() {
-  return unicodeReplacementCharacterRune;
-}
-
-int _unicodeBomCharacterRune$() {
-  return unicodeBomCharacterRune;
-}
-
-Utf8Codec _utf8$() {
-  return utf8;
-}
-
+Function _unicodeReplacementCharacterRune$(m.Scope scope$) =>
+    () => unicodeReplacementCharacterRune;
+Function _unicodeBomCharacterRune$(m.Scope scope$) =>
+    () => unicodeBomCharacterRune;
+Function _utf8$(m.Scope scope$) => () => utf8;
 Function Utf8Codec_as$(
   m.Scope scope$,
   dynamic target$,

@@ -11,13 +11,7 @@ import 'package:flutter/src/rendering/sliver.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/sliver_multi_box_adaptor.dart',
-  {
-    'SliverMultiBoxAdaptorParentData.': _SliverMultiBoxAdaptorParentData__$,
-    'RenderSliverMultiBoxAdaptor.visitChildren':
-        _RenderSliverMultiBoxAdaptor_visitChildren$,
-    'RenderSliverMultiBoxAdaptor.visitChildrenForSemantics':
-        _RenderSliverMultiBoxAdaptor_visitChildrenForSemantics$,
-  },
+  {'SliverMultiBoxAdaptorParentData.': _SliverMultiBoxAdaptorParentData__$},
   {},
   {
     'RenderSliverBoxChildManager': m.ClassMirror(
@@ -67,6 +61,9 @@ const libraryMirror = m.LibraryMirror(
         'attach': _RenderSliverMultiBoxAdaptor_attach$,
         'detach': _RenderSliverMultiBoxAdaptor_detach$,
         'redepthChildren': _RenderSliverMultiBoxAdaptor_redepthChildren$,
+        'visitChildren': _RenderSliverMultiBoxAdaptor_visitChildren$,
+        'visitChildrenForSemantics':
+            _RenderSliverMultiBoxAdaptor_visitChildrenForSemantics$,
         'addInitialChild': _RenderSliverMultiBoxAdaptor_addInitialChild$,
         'insertAndLayoutLeadingChild':
             _RenderSliverMultiBoxAdaptor_insertAndLayoutLeadingChild$,

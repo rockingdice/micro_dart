@@ -10,11 +10,12 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/proxy_box.dart';
 
+part '../proxy/proxy__package_flutter_src_rendering_custom_paint.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/custom_paint.dart',
   {
-    'CustomPainter.addListener': _CustomPainter_addListener$,
-    'CustomPainter.removeListener': _CustomPainter_removeListener$,
+    'CustomPainter.': _CustomPainter__$,
     'CustomPainterSemantics.': _CustomPainterSemantics__$,
     'RenderCustomPaint.': _RenderCustomPaint__$,
   },
@@ -26,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': CustomPainter_as$,
         '#is': CustomPainter_is$,
         'semanticsBuilder': _CustomPainter_semanticsBuilder$,
+        'addListener': _CustomPainter_addListener$,
+        'removeListener': _CustomPainter_removeListener$,
         'paint': _CustomPainter_paint$,
         'shouldRebuildSemantics': _CustomPainter_shouldRebuildSemantics$,
         'shouldRepaint': _CustomPainter_shouldRepaint$,

@@ -1272,18 +1272,21 @@ Function OSError_is$(
   dynamic target$,
 ) =>
     () => target$ is OSError;
-int _OSError_noErrorCode$() {
-  return OSError.noErrorCode;
-}
-
-String _OSError_message$(OSError target$) {
-  return target$.message;
-}
-
-int _OSError_errorCode$(OSError target$) {
-  return target$.errorCode;
-}
-
+Function _OSError_noErrorCode$(m.Scope scope$) => () => OSError.noErrorCode;
+Function _OSError_message$(
+  m.Scope scope$,
+  OSError target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _OSError_errorCode$(
+  m.Scope scope$,
+  OSError target$,
+) =>
+    () {
+      return target$.errorCode;
+    };
 Function _OSError__$(m.Scope scope$) => ([
       String? message,
       int? errorCode,
@@ -1304,14 +1307,8 @@ Function _OSError_toString$(
   OSError target$,
 ) =>
     target$.toString;
-ZLibCodec _zlib$() {
-  return zlib;
-}
-
-GZipCodec _gzip$() {
-  return gzip;
-}
-
+Function _zlib$(m.Scope scope$) => () => zlib;
+Function _gzip$(m.Scope scope$) => () => gzip;
 Function ZLibOption_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1322,62 +1319,32 @@ Function ZLibOption_is$(
   dynamic target$,
 ) =>
     () => target$ is ZLibOption;
-int _ZLibOption_minWindowBits$() {
-  return ZLibOption.minWindowBits;
-}
-
-int _ZLibOption_maxWindowBits$() {
-  return ZLibOption.maxWindowBits;
-}
-
-int _ZLibOption_defaultWindowBits$() {
-  return ZLibOption.defaultWindowBits;
-}
-
-int _ZLibOption_minLevel$() {
-  return ZLibOption.minLevel;
-}
-
-int _ZLibOption_maxLevel$() {
-  return ZLibOption.maxLevel;
-}
-
-int _ZLibOption_defaultLevel$() {
-  return ZLibOption.defaultLevel;
-}
-
-int _ZLibOption_minMemLevel$() {
-  return ZLibOption.minMemLevel;
-}
-
-int _ZLibOption_maxMemLevel$() {
-  return ZLibOption.maxMemLevel;
-}
-
-int _ZLibOption_defaultMemLevel$() {
-  return ZLibOption.defaultMemLevel;
-}
-
-int _ZLibOption_strategyFiltered$() {
-  return ZLibOption.strategyFiltered;
-}
-
-int _ZLibOption_strategyHuffmanOnly$() {
-  return ZLibOption.strategyHuffmanOnly;
-}
-
-int _ZLibOption_strategyRle$() {
-  return ZLibOption.strategyRle;
-}
-
-int _ZLibOption_strategyFixed$() {
-  return ZLibOption.strategyFixed;
-}
-
-int _ZLibOption_strategyDefault$() {
-  return ZLibOption.strategyDefault;
-}
-
+Function _ZLibOption_minWindowBits$(m.Scope scope$) =>
+    () => ZLibOption.minWindowBits;
+Function _ZLibOption_maxWindowBits$(m.Scope scope$) =>
+    () => ZLibOption.maxWindowBits;
+Function _ZLibOption_defaultWindowBits$(m.Scope scope$) =>
+    () => ZLibOption.defaultWindowBits;
+Function _ZLibOption_minLevel$(m.Scope scope$) => () => ZLibOption.minLevel;
+Function _ZLibOption_maxLevel$(m.Scope scope$) => () => ZLibOption.maxLevel;
+Function _ZLibOption_defaultLevel$(m.Scope scope$) =>
+    () => ZLibOption.defaultLevel;
+Function _ZLibOption_minMemLevel$(m.Scope scope$) =>
+    () => ZLibOption.minMemLevel;
+Function _ZLibOption_maxMemLevel$(m.Scope scope$) =>
+    () => ZLibOption.maxMemLevel;
+Function _ZLibOption_defaultMemLevel$(m.Scope scope$) =>
+    () => ZLibOption.defaultMemLevel;
+Function _ZLibOption_strategyFiltered$(m.Scope scope$) =>
+    () => ZLibOption.strategyFiltered;
+Function _ZLibOption_strategyHuffmanOnly$(m.Scope scope$) =>
+    () => ZLibOption.strategyHuffmanOnly;
+Function _ZLibOption_strategyRle$(m.Scope scope$) =>
+    () => ZLibOption.strategyRle;
+Function _ZLibOption_strategyFixed$(m.Scope scope$) =>
+    () => ZLibOption.strategyFixed;
+Function _ZLibOption_strategyDefault$(m.Scope scope$) =>
+    () => ZLibOption.strategyDefault;
 Function ZLibCodec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1388,42 +1355,69 @@ Function ZLibCodec_is$(
   dynamic target$,
 ) =>
     () => target$ is ZLibCodec;
-bool _ZLibCodec_gzip$(ZLibCodec target$) {
-  return target$.gzip;
-}
-
-int _ZLibCodec_level$(ZLibCodec target$) {
-  return target$.level;
-}
-
-int _ZLibCodec_memLevel$(ZLibCodec target$) {
-  return target$.memLevel;
-}
-
-int _ZLibCodec_strategy$(ZLibCodec target$) {
-  return target$.strategy;
-}
-
-int _ZLibCodec_windowBits$(ZLibCodec target$) {
-  return target$.windowBits;
-}
-
-bool _ZLibCodec_raw$(ZLibCodec target$) {
-  return target$.raw;
-}
-
-List<int>? _ZLibCodec_dictionary$(ZLibCodec target$) {
-  return target$.dictionary;
-}
-
-ZLibEncoder _ZLibCodec_encoder$(ZLibCodec target$) {
-  return target$.encoder;
-}
-
-ZLibDecoder _ZLibCodec_decoder$(ZLibCodec target$) {
-  return target$.decoder;
-}
-
+Function _ZLibCodec_gzip$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.gzip;
+    };
+Function _ZLibCodec_level$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.level;
+    };
+Function _ZLibCodec_memLevel$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.memLevel;
+    };
+Function _ZLibCodec_strategy$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.strategy;
+    };
+Function _ZLibCodec_windowBits$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.windowBits;
+    };
+Function _ZLibCodec_raw$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.raw;
+    };
+Function _ZLibCodec_dictionary$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.dictionary;
+    };
+Function _ZLibCodec_encoder$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _ZLibCodec_decoder$(
+  m.Scope scope$,
+  ZLibCodec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _ZLibCodec__$(m.Scope scope$) => ({
       int? level,
       int? windowBits,
@@ -1453,42 +1447,69 @@ Function GZipCodec_is$(
   dynamic target$,
 ) =>
     () => target$ is GZipCodec;
-bool _GZipCodec_gzip$(GZipCodec target$) {
-  return target$.gzip;
-}
-
-int _GZipCodec_level$(GZipCodec target$) {
-  return target$.level;
-}
-
-int _GZipCodec_memLevel$(GZipCodec target$) {
-  return target$.memLevel;
-}
-
-int _GZipCodec_strategy$(GZipCodec target$) {
-  return target$.strategy;
-}
-
-int _GZipCodec_windowBits$(GZipCodec target$) {
-  return target$.windowBits;
-}
-
-List<int>? _GZipCodec_dictionary$(GZipCodec target$) {
-  return target$.dictionary;
-}
-
-bool _GZipCodec_raw$(GZipCodec target$) {
-  return target$.raw;
-}
-
-ZLibEncoder _GZipCodec_encoder$(GZipCodec target$) {
-  return target$.encoder;
-}
-
-ZLibDecoder _GZipCodec_decoder$(GZipCodec target$) {
-  return target$.decoder;
-}
-
+Function _GZipCodec_gzip$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.gzip;
+    };
+Function _GZipCodec_level$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.level;
+    };
+Function _GZipCodec_memLevel$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.memLevel;
+    };
+Function _GZipCodec_strategy$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.strategy;
+    };
+Function _GZipCodec_windowBits$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.windowBits;
+    };
+Function _GZipCodec_dictionary$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.dictionary;
+    };
+Function _GZipCodec_raw$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.raw;
+    };
+Function _GZipCodec_encoder$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _GZipCodec_decoder$(
+  m.Scope scope$,
+  GZipCodec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _GZipCodec__$(m.Scope scope$) => ({
       int? level,
       int? windowBits,
@@ -1518,34 +1539,55 @@ Function ZLibEncoder_is$(
   dynamic target$,
 ) =>
     () => target$ is ZLibEncoder;
-bool _ZLibEncoder_gzip$(ZLibEncoder target$) {
-  return target$.gzip;
-}
-
-int _ZLibEncoder_level$(ZLibEncoder target$) {
-  return target$.level;
-}
-
-int _ZLibEncoder_memLevel$(ZLibEncoder target$) {
-  return target$.memLevel;
-}
-
-int _ZLibEncoder_strategy$(ZLibEncoder target$) {
-  return target$.strategy;
-}
-
-int _ZLibEncoder_windowBits$(ZLibEncoder target$) {
-  return target$.windowBits;
-}
-
-List<int>? _ZLibEncoder_dictionary$(ZLibEncoder target$) {
-  return target$.dictionary;
-}
-
-bool _ZLibEncoder_raw$(ZLibEncoder target$) {
-  return target$.raw;
-}
-
+Function _ZLibEncoder_gzip$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.gzip;
+    };
+Function _ZLibEncoder_level$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.level;
+    };
+Function _ZLibEncoder_memLevel$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.memLevel;
+    };
+Function _ZLibEncoder_strategy$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.strategy;
+    };
+Function _ZLibEncoder_windowBits$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.windowBits;
+    };
+Function _ZLibEncoder_dictionary$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.dictionary;
+    };
+Function _ZLibEncoder_raw$(
+  m.Scope scope$,
+  ZLibEncoder target$,
+) =>
+    () {
+      return target$.raw;
+    };
 Function _ZLibEncoder__$(m.Scope scope$) => ({
       bool? gzip,
       int? level,
@@ -1585,18 +1627,27 @@ Function ZLibDecoder_is$(
   dynamic target$,
 ) =>
     () => target$ is ZLibDecoder;
-int _ZLibDecoder_windowBits$(ZLibDecoder target$) {
-  return target$.windowBits;
-}
-
-List<int>? _ZLibDecoder_dictionary$(ZLibDecoder target$) {
-  return target$.dictionary;
-}
-
-bool _ZLibDecoder_raw$(ZLibDecoder target$) {
-  return target$.raw;
-}
-
+Function _ZLibDecoder_windowBits$(
+  m.Scope scope$,
+  ZLibDecoder target$,
+) =>
+    () {
+      return target$.windowBits;
+    };
+Function _ZLibDecoder_dictionary$(
+  m.Scope scope$,
+  ZLibDecoder target$,
+) =>
+    () {
+      return target$.dictionary;
+    };
+Function _ZLibDecoder_raw$(
+  m.Scope scope$,
+  ZLibDecoder target$,
+) =>
+    () {
+      return target$.raw;
+    };
 Function _ZLibDecoder__$(m.Scope scope$) => ({
       int? windowBits,
       List? dictionary,
@@ -1652,30 +1703,33 @@ Function Directory_is$(
   dynamic target$,
 ) =>
     () => target$ is Directory;
-String _Directory_path$(Directory target$) {
-  return target$.path;
-}
-
-Directory _Directory_current$() {
-  return Directory.current;
-}
-
-Uri _Directory_uri$(Directory target$) {
-  return target$.uri;
-}
-
+Function _Directory_path$(
+  m.Scope scope$,
+  Directory target$,
+) =>
+    () {
+      return target$.path;
+    };
+Function _Directory_current$(m.Scope scope$) => () => Directory.current;
+Function _Directory_uri$(
+  m.Scope scope$,
+  Directory target$,
+) =>
+    () {
+      return target$.uri;
+    };
 void _Directory_current_set$(dynamic other$) {
   Directory.current = other$;
 }
 
-Directory _Directory_systemTemp$() {
-  return Directory.systemTemp;
-}
-
-Directory _Directory_absolute$(Directory target$) {
-  return target$.absolute;
-}
-
+Function _Directory_systemTemp$(m.Scope scope$) => () => Directory.systemTemp;
+Function _Directory_absolute$(
+  m.Scope scope$,
+  Directory target$,
+) =>
+    () {
+      return target$.absolute;
+    };
 Function _Directory__$(m.Scope scope$) => (String path) {
       return Directory(path);
     };
@@ -1746,26 +1800,12 @@ Function FileMode_is$(
   dynamic target$,
 ) =>
     () => target$ is FileMode;
-FileMode _FileMode_read$() {
-  return FileMode.read;
-}
-
-FileMode _FileMode_write$() {
-  return FileMode.write;
-}
-
-FileMode _FileMode_append$() {
-  return FileMode.append;
-}
-
-FileMode _FileMode_writeOnly$() {
-  return FileMode.writeOnly;
-}
-
-FileMode _FileMode_writeOnlyAppend$() {
-  return FileMode.writeOnlyAppend;
-}
-
+Function _FileMode_read$(m.Scope scope$) => () => FileMode.read;
+Function _FileMode_write$(m.Scope scope$) => () => FileMode.write;
+Function _FileMode_append$(m.Scope scope$) => () => FileMode.append;
+Function _FileMode_writeOnly$(m.Scope scope$) => () => FileMode.writeOnly;
+Function _FileMode_writeOnlyAppend$(m.Scope scope$) =>
+    () => FileMode.writeOnlyAppend;
 Function FileLock_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1776,22 +1816,12 @@ Function FileLock_is$(
   dynamic target$,
 ) =>
     () => target$ is FileLock;
-FileLock _FileLock_shared$() {
-  return FileLock.shared;
-}
-
-FileLock _FileLock_exclusive$() {
-  return FileLock.exclusive;
-}
-
-FileLock _FileLock_blockingShared$() {
-  return FileLock.blockingShared;
-}
-
-FileLock _FileLock_blockingExclusive$() {
-  return FileLock.blockingExclusive;
-}
-
+Function _FileLock_shared$(m.Scope scope$) => () => FileLock.shared;
+Function _FileLock_exclusive$(m.Scope scope$) => () => FileLock.exclusive;
+Function _FileLock_blockingShared$(m.Scope scope$) =>
+    () => FileLock.blockingShared;
+Function _FileLock_blockingExclusive$(m.Scope scope$) =>
+    () => FileLock.blockingExclusive;
 Function File_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1802,14 +1832,20 @@ Function File_is$(
   dynamic target$,
 ) =>
     () => target$ is File;
-File _File_absolute$(File target$) {
-  return target$.absolute;
-}
-
-String _File_path$(File target$) {
-  return target$.path;
-}
-
+Function _File_absolute$(
+  m.Scope scope$,
+  File target$,
+) =>
+    () {
+      return target$.absolute;
+    };
+Function _File_path$(
+  m.Scope scope$,
+  File target$,
+) =>
+    () {
+      return target$.path;
+    };
 Function _File__$(m.Scope scope$) => (String path) {
       return File(path);
     };
@@ -1975,10 +2011,13 @@ Function RandomAccessFile_is$(
   dynamic target$,
 ) =>
     () => target$ is RandomAccessFile;
-String _RandomAccessFile_path$(RandomAccessFile target$) {
-  return target$.path;
-}
-
+Function _RandomAccessFile_path$(
+  m.Scope scope$,
+  RandomAccessFile target$,
+) =>
+    () {
+      return target$.path;
+    };
 Function _RandomAccessFile_close$(
   m.Scope scope$,
   RandomAccessFile target$,
@@ -2134,18 +2173,27 @@ Function FileSystemException_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemException;
-String _FileSystemException_message$(FileSystemException target$) {
-  return target$.message;
-}
-
-String? _FileSystemException_path$(FileSystemException target$) {
-  return target$.path;
-}
-
-OSError? _FileSystemException_osError$(FileSystemException target$) {
-  return target$.osError;
-}
-
+Function _FileSystemException_message$(
+  m.Scope scope$,
+  FileSystemException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _FileSystemException_path$(
+  m.Scope scope$,
+  FileSystemException target$,
+) =>
+    () {
+      return target$.path;
+    };
+Function _FileSystemException_osError$(
+  m.Scope scope$,
+  FileSystemException target$,
+) =>
+    () {
+      return target$.osError;
+    };
 Function _FileSystemException__$(m.Scope scope$) => ([
       String? message,
       String? path,
@@ -2300,14 +2348,20 @@ Function Pipe_is$(
   dynamic target$,
 ) =>
     () => target$ is Pipe;
-ReadPipe _Pipe_read$(Pipe target$) {
-  return target$.read;
-}
-
-WritePipe _Pipe_write$(Pipe target$) {
-  return target$.write;
-}
-
+Function _Pipe_read$(
+  m.Scope scope$,
+  Pipe target$,
+) =>
+    () {
+      return target$.read;
+    };
+Function _Pipe_write$(
+  m.Scope scope$,
+  Pipe target$,
+) =>
+    () {
+      return target$.write;
+    };
 Function _Pipe_createSync_$(m.Scope scope$) => Pipe.createSync;
 Function _Pipe_create$(m.Scope scope$) => Pipe.create;
 Function FileSystemEntityType_as$(
@@ -2320,34 +2374,20 @@ Function FileSystemEntityType_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemEntityType;
-FileSystemEntityType _FileSystemEntityType_file$() {
-  return FileSystemEntityType.file;
-}
-
-FileSystemEntityType _FileSystemEntityType_directory$() {
-  return FileSystemEntityType.directory;
-}
-
-FileSystemEntityType _FileSystemEntityType_link$() {
-  return FileSystemEntityType.link;
-}
-
-FileSystemEntityType _FileSystemEntityType_unixDomainSock$() {
-  return FileSystemEntityType.unixDomainSock;
-}
-
-FileSystemEntityType _FileSystemEntityType_pipe$() {
-  return FileSystemEntityType.pipe;
-}
-
-FileSystemEntityType _FileSystemEntityType_notFound$() {
-  return FileSystemEntityType.notFound;
-}
-
-FileSystemEntityType _FileSystemEntityType_NOT_FOUND$() {
-  return FileSystemEntityType.NOT_FOUND;
-}
-
+Function _FileSystemEntityType_file$(m.Scope scope$) =>
+    () => FileSystemEntityType.file;
+Function _FileSystemEntityType_directory$(m.Scope scope$) =>
+    () => FileSystemEntityType.directory;
+Function _FileSystemEntityType_link$(m.Scope scope$) =>
+    () => FileSystemEntityType.link;
+Function _FileSystemEntityType_unixDomainSock$(m.Scope scope$) =>
+    () => FileSystemEntityType.unixDomainSock;
+Function _FileSystemEntityType_pipe$(m.Scope scope$) =>
+    () => FileSystemEntityType.pipe;
+Function _FileSystemEntityType_notFound$(m.Scope scope$) =>
+    () => FileSystemEntityType.notFound;
+Function _FileSystemEntityType_NOT_FOUND$(m.Scope scope$) =>
+    () => FileSystemEntityType.NOT_FOUND;
 Function _FileSystemEntityType_toString$(
   m.Scope scope$,
   FileSystemEntityType target$,
@@ -2363,30 +2403,48 @@ Function FileStat_is$(
   dynamic target$,
 ) =>
     () => target$ is FileStat;
-DateTime _FileStat_changed$(FileStat target$) {
-  return target$.changed;
-}
-
-DateTime _FileStat_modified$(FileStat target$) {
-  return target$.modified;
-}
-
-DateTime _FileStat_accessed$(FileStat target$) {
-  return target$.accessed;
-}
-
-FileSystemEntityType _FileStat_type$(FileStat target$) {
-  return target$.type;
-}
-
-int _FileStat_mode$(FileStat target$) {
-  return target$.mode;
-}
-
-int _FileStat_size$(FileStat target$) {
-  return target$.size;
-}
-
+Function _FileStat_changed$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.changed;
+    };
+Function _FileStat_modified$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.modified;
+    };
+Function _FileStat_accessed$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.accessed;
+    };
+Function _FileStat_type$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.type;
+    };
+Function _FileStat_mode$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.mode;
+    };
+Function _FileStat_size$(
+  m.Scope scope$,
+  FileStat target$,
+) =>
+    () {
+      return target$.size;
+    };
 Function _FileStat_statSync$(m.Scope scope$) => FileStat.statSync;
 Function _FileStat_stat$(m.Scope scope$) => FileStat.stat;
 Function _FileStat_toString$(
@@ -2409,30 +2467,43 @@ Function FileSystemEntity_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemEntity;
-String _FileSystemEntity_path$(FileSystemEntity target$) {
-  return target$.path;
-}
-
-Uri _FileSystemEntity_uri$(FileSystemEntity target$) {
-  return target$.uri;
-}
-
-bool _FileSystemEntity_isAbsolute$(FileSystemEntity target$) {
-  return target$.isAbsolute;
-}
-
-FileSystemEntity _FileSystemEntity_absolute$(FileSystemEntity target$) {
-  return target$.absolute;
-}
-
-bool _FileSystemEntity_isWatchSupported$() {
-  return FileSystemEntity.isWatchSupported;
-}
-
-Directory _FileSystemEntity_parent$(FileSystemEntity target$) {
-  return target$.parent;
-}
-
+Function _FileSystemEntity_path$(
+  m.Scope scope$,
+  FileSystemEntity target$,
+) =>
+    () {
+      return target$.path;
+    };
+Function _FileSystemEntity_uri$(
+  m.Scope scope$,
+  FileSystemEntity target$,
+) =>
+    () {
+      return target$.uri;
+    };
+Function _FileSystemEntity_isAbsolute$(
+  m.Scope scope$,
+  FileSystemEntity target$,
+) =>
+    () {
+      return target$.isAbsolute;
+    };
+Function _FileSystemEntity_absolute$(
+  m.Scope scope$,
+  FileSystemEntity target$,
+) =>
+    () {
+      return target$.absolute;
+    };
+Function _FileSystemEntity_isWatchSupported$(m.Scope scope$) =>
+    () => FileSystemEntity.isWatchSupported;
+Function _FileSystemEntity_parent$(
+  m.Scope scope$,
+  FileSystemEntity target$,
+) =>
+    () {
+      return target$.parent;
+    };
 Function _FileSystemEntity_exists$(
   m.Scope scope$,
   FileSystemEntity target$,
@@ -2517,38 +2588,35 @@ Function FileSystemEvent_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemEvent;
-int _FileSystemEvent_create$() {
-  return FileSystemEvent.create;
-}
-
-int _FileSystemEvent_modify$() {
-  return FileSystemEvent.modify;
-}
-
-int _FileSystemEvent_delete$() {
-  return FileSystemEvent.delete;
-}
-
-int _FileSystemEvent_move$() {
-  return FileSystemEvent.move;
-}
-
-int _FileSystemEvent_all$() {
-  return FileSystemEvent.all;
-}
-
-int _FileSystemEvent_type$(FileSystemEvent target$) {
-  return target$.type;
-}
-
-String _FileSystemEvent_path$(FileSystemEvent target$) {
-  return target$.path;
-}
-
-bool _FileSystemEvent_isDirectory$(FileSystemEvent target$) {
-  return target$.isDirectory;
-}
-
+Function _FileSystemEvent_create$(m.Scope scope$) =>
+    () => FileSystemEvent.create;
+Function _FileSystemEvent_modify$(m.Scope scope$) =>
+    () => FileSystemEvent.modify;
+Function _FileSystemEvent_delete$(m.Scope scope$) =>
+    () => FileSystemEvent.delete;
+Function _FileSystemEvent_move$(m.Scope scope$) => () => FileSystemEvent.move;
+Function _FileSystemEvent_all$(m.Scope scope$) => () => FileSystemEvent.all;
+Function _FileSystemEvent_type$(
+  m.Scope scope$,
+  FileSystemEvent target$,
+) =>
+    () {
+      return target$.type;
+    };
+Function _FileSystemEvent_path$(
+  m.Scope scope$,
+  FileSystemEvent target$,
+) =>
+    () {
+      return target$.path;
+    };
+Function _FileSystemEvent_isDirectory$(
+  m.Scope scope$,
+  FileSystemEvent target$,
+) =>
+    () {
+      return target$.isDirectory;
+    };
 Function FileSystemCreateEvent_as$(
   m.Scope scope$,
   dynamic target$,
@@ -2583,10 +2651,13 @@ Function FileSystemModifyEvent_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemModifyEvent;
-bool _FileSystemModifyEvent_contentChanged$(FileSystemModifyEvent target$) {
-  return target$.contentChanged;
-}
-
+Function _FileSystemModifyEvent_contentChanged$(
+  m.Scope scope$,
+  FileSystemModifyEvent target$,
+) =>
+    () {
+      return target$.contentChanged;
+    };
 Function _FileSystemModifyEvent__$(m.Scope scope$) => (
       String path,
       bool isDirectory,
@@ -2637,10 +2708,13 @@ Function FileSystemMoveEvent_is$(
   dynamic target$,
 ) =>
     () => target$ is FileSystemMoveEvent;
-String? _FileSystemMoveEvent_destination$(FileSystemMoveEvent target$) {
-  return target$.destination;
-}
-
+Function _FileSystemMoveEvent_destination$(
+  m.Scope scope$,
+  FileSystemMoveEvent target$,
+) =>
+    () {
+      return target$.destination;
+    };
 Function _FileSystemMoveEvent__$(m.Scope scope$) => (
       String path,
       bool isDirectory,
@@ -2667,21 +2741,27 @@ Function IOSink_is$(
   dynamic target$,
 ) =>
     () => target$ is IOSink;
-Encoding _IOSink_encoding$(IOSink target$) {
-  return target$.encoding;
-}
-
-void _IOSink_encoding_set$(
+Function _IOSink_encoding$(
+  m.Scope scope$,
   IOSink target$,
-  Encoding other$,
-) {
-  target$.encoding = other$;
-}
-
-Future<dynamic> _IOSink_done$(IOSink target$) {
-  return target$.done;
-}
-
+) =>
+    () {
+      return target$.encoding;
+    };
+void _IOSink_encoding_set$(
+  m.Scope scope$,
+  IOSink target$,
+) =>
+    (dynamic other$) {
+      target$.encoding = other$;
+    };
+Function _IOSink_done$(
+  m.Scope scope$,
+  IOSink target$,
+) =>
+    () {
+      return target$.done;
+    };
 Function _IOSink__$(m.Scope scope$) => (
       StreamConsumer<List<int>> target, {
       Encoding? encoding,
@@ -2746,10 +2826,13 @@ Function Link_is$(
   dynamic target$,
 ) =>
     () => target$ is Link;
-Link _Link_absolute$(Link target$) {
-  return target$.absolute;
-}
-
+Function _Link_absolute$(
+  m.Scope scope$,
+  Link target$,
+) =>
+    () {
+      return target$.absolute;
+    };
 Function _Link__$(m.Scope scope$) => (String path) {
       return Link(path);
     };
@@ -2815,26 +2898,32 @@ Function IOOverrides_is$(
   dynamic target$,
 ) =>
     () => target$ is IOOverrides;
-IOOverrides? _IOOverrides_current$() {
-  return IOOverrides.current;
-}
-
+Function _IOOverrides_current$(m.Scope scope$) => () => IOOverrides.current;
 void _IOOverrides_global_set$(IOOverrides? other$) {
   IOOverrides.global = other$;
 }
 
-Stdin _IOOverrides_stdin$(IOOverrides target$) {
-  return target$.stdin;
-}
-
-Stdout _IOOverrides_stdout$(IOOverrides target$) {
-  return target$.stdout;
-}
-
-Stdout _IOOverrides_stderr$(IOOverrides target$) {
-  return target$.stderr;
-}
-
+Function _IOOverrides_stdin$(
+  m.Scope scope$,
+  IOOverrides target$,
+) =>
+    () {
+      return target$.stdin;
+    };
+Function _IOOverrides_stdout$(
+  m.Scope scope$,
+  IOOverrides target$,
+) =>
+    () {
+      return target$.stdout;
+    };
+Function _IOOverrides_stderr$(
+  m.Scope scope$,
+  IOOverrides target$,
+) =>
+    () {
+      return target$.stderr;
+    };
 Function _IOOverrides_runZoned$(m.Scope scope$) => (
       m.FunctionPointer body, {
       m.FunctionPointer? createDirectory,
@@ -3209,82 +3298,33 @@ Function Platform_is$(
   dynamic target$,
 ) =>
     () => target$ is Platform;
-bool _Platform_isLinux$() {
-  return Platform.isLinux;
-}
-
-bool _Platform_isMacOS$() {
-  return Platform.isMacOS;
-}
-
-bool _Platform_isWindows$() {
-  return Platform.isWindows;
-}
-
-bool _Platform_isAndroid$() {
-  return Platform.isAndroid;
-}
-
-bool _Platform_isIOS$() {
-  return Platform.isIOS;
-}
-
-bool _Platform_isFuchsia$() {
-  return Platform.isFuchsia;
-}
-
-int _Platform_numberOfProcessors$() {
-  return Platform.numberOfProcessors;
-}
-
-String _Platform_pathSeparator$() {
-  return Platform.pathSeparator;
-}
-
-String _Platform_localeName$() {
-  return Platform.localeName;
-}
-
-String _Platform_operatingSystem$() {
-  return Platform.operatingSystem;
-}
-
-String _Platform_operatingSystemVersion$() {
-  return Platform.operatingSystemVersion;
-}
-
-String _Platform_localHostname$() {
-  return Platform.localHostname;
-}
-
-Map<String, String> _Platform_environment$() {
-  return Platform.environment;
-}
-
-String _Platform_executable$() {
-  return Platform.executable;
-}
-
-String _Platform_resolvedExecutable$() {
-  return Platform.resolvedExecutable;
-}
-
-Uri _Platform_script$() {
-  return Platform.script;
-}
-
-List<String> _Platform_executableArguments$() {
-  return Platform.executableArguments;
-}
-
-String? _Platform_packageConfig$() {
-  return Platform.packageConfig;
-}
-
-String _Platform_version$() {
-  return Platform.version;
-}
-
+Function _Platform_isLinux$(m.Scope scope$) => () => Platform.isLinux;
+Function _Platform_isMacOS$(m.Scope scope$) => () => Platform.isMacOS;
+Function _Platform_isWindows$(m.Scope scope$) => () => Platform.isWindows;
+Function _Platform_isAndroid$(m.Scope scope$) => () => Platform.isAndroid;
+Function _Platform_isIOS$(m.Scope scope$) => () => Platform.isIOS;
+Function _Platform_isFuchsia$(m.Scope scope$) => () => Platform.isFuchsia;
+Function _Platform_numberOfProcessors$(m.Scope scope$) =>
+    () => Platform.numberOfProcessors;
+Function _Platform_pathSeparator$(m.Scope scope$) =>
+    () => Platform.pathSeparator;
+Function _Platform_localeName$(m.Scope scope$) => () => Platform.localeName;
+Function _Platform_operatingSystem$(m.Scope scope$) =>
+    () => Platform.operatingSystem;
+Function _Platform_operatingSystemVersion$(m.Scope scope$) =>
+    () => Platform.operatingSystemVersion;
+Function _Platform_localHostname$(m.Scope scope$) =>
+    () => Platform.localHostname;
+Function _Platform_environment$(m.Scope scope$) => () => Platform.environment;
+Function _Platform_executable$(m.Scope scope$) => () => Platform.executable;
+Function _Platform_resolvedExecutable$(m.Scope scope$) =>
+    () => Platform.resolvedExecutable;
+Function _Platform_script$(m.Scope scope$) => () => Platform.script;
+Function _Platform_executableArguments$(m.Scope scope$) =>
+    () => Platform.executableArguments;
+Function _Platform_packageConfig$(m.Scope scope$) =>
+    () => Platform.packageConfig;
+Function _Platform_version$(m.Scope scope$) => () => Platform.version;
 Function _Platform__$(m.Scope scope$) => () {
       return Platform();
     };
@@ -3292,14 +3332,8 @@ void _exitCode_set$(int other$) {
   exitCode = other$;
 }
 
-int _exitCode$() {
-  return exitCode;
-}
-
-int _pid$() {
-  return pid;
-}
-
+Function _exitCode$(m.Scope scope$) => () => exitCode;
+Function _pid$(m.Scope scope$) => () => pid;
 Function ProcessInfo_as$(
   m.Scope scope$,
   dynamic target$,
@@ -3310,14 +3344,9 @@ Function ProcessInfo_is$(
   dynamic target$,
 ) =>
     () => target$ is ProcessInfo;
-int _ProcessInfo_currentRss$() {
-  return ProcessInfo.currentRss;
-}
-
-int _ProcessInfo_maxRss$() {
-  return ProcessInfo.maxRss;
-}
-
+Function _ProcessInfo_currentRss$(m.Scope scope$) =>
+    () => ProcessInfo.currentRss;
+Function _ProcessInfo_maxRss$(m.Scope scope$) => () => ProcessInfo.maxRss;
 Function ProcessStartMode_as$(
   m.Scope scope$,
   dynamic target$,
@@ -3328,26 +3357,16 @@ Function ProcessStartMode_is$(
   dynamic target$,
 ) =>
     () => target$ is ProcessStartMode;
-ProcessStartMode _ProcessStartMode_normal$() {
-  return ProcessStartMode.normal;
-}
-
-ProcessStartMode _ProcessStartMode_inheritStdio$() {
-  return ProcessStartMode.inheritStdio;
-}
-
-ProcessStartMode _ProcessStartMode_detached$() {
-  return ProcessStartMode.detached;
-}
-
-ProcessStartMode _ProcessStartMode_detachedWithStdio$() {
-  return ProcessStartMode.detachedWithStdio;
-}
-
-List<ProcessStartMode> _ProcessStartMode_values$() {
-  return ProcessStartMode.values;
-}
-
+Function _ProcessStartMode_normal$(m.Scope scope$) =>
+    () => ProcessStartMode.normal;
+Function _ProcessStartMode_inheritStdio$(m.Scope scope$) =>
+    () => ProcessStartMode.inheritStdio;
+Function _ProcessStartMode_detached$(m.Scope scope$) =>
+    () => ProcessStartMode.detached;
+Function _ProcessStartMode_detachedWithStdio$(m.Scope scope$) =>
+    () => ProcessStartMode.detachedWithStdio;
+Function _ProcessStartMode_values$(m.Scope scope$) =>
+    () => ProcessStartMode.values;
 Function _ProcessStartMode_toString$(
   m.Scope scope$,
   ProcessStartMode target$,
@@ -3363,26 +3382,41 @@ Function Process_is$(
   dynamic target$,
 ) =>
     () => target$ is Process;
-Future<int> _Process_exitCode$(Process target$) {
-  return target$.exitCode;
-}
-
-Stream<List<int>> _Process_stdout$(Process target$) {
-  return target$.stdout;
-}
-
-Stream<List<int>> _Process_stderr$(Process target$) {
-  return target$.stderr;
-}
-
-IOSink _Process_stdin$(Process target$) {
-  return target$.stdin;
-}
-
-int _Process_pid$(Process target$) {
-  return target$.pid;
-}
-
+Function _Process_exitCode$(
+  m.Scope scope$,
+  Process target$,
+) =>
+    () {
+      return target$.exitCode;
+    };
+Function _Process_stdout$(
+  m.Scope scope$,
+  Process target$,
+) =>
+    () {
+      return target$.stdout;
+    };
+Function _Process_stderr$(
+  m.Scope scope$,
+  Process target$,
+) =>
+    () {
+      return target$.stderr;
+    };
+Function _Process_stdin$(
+  m.Scope scope$,
+  Process target$,
+) =>
+    () {
+      return target$.stdin;
+    };
+Function _Process_pid$(
+  m.Scope scope$,
+  Process target$,
+) =>
+    () {
+      return target$.pid;
+    };
 Function _Process_start$(m.Scope scope$) => Process.start;
 Function _Process_run$(m.Scope scope$) => Process.run;
 Function _Process_runSync$(m.Scope scope$) => Process.runSync;
@@ -3402,22 +3436,34 @@ Function ProcessResult_is$(
   dynamic target$,
 ) =>
     () => target$ is ProcessResult;
-int _ProcessResult_exitCode$(ProcessResult target$) {
-  return target$.exitCode;
-}
-
-dynamic _ProcessResult_stdout$(ProcessResult target$) {
-  return target$.stdout;
-}
-
-dynamic _ProcessResult_stderr$(ProcessResult target$) {
-  return target$.stderr;
-}
-
-int _ProcessResult_pid$(ProcessResult target$) {
-  return target$.pid;
-}
-
+Function _ProcessResult_exitCode$(
+  m.Scope scope$,
+  ProcessResult target$,
+) =>
+    () {
+      return target$.exitCode;
+    };
+Function _ProcessResult_stdout$(
+  m.Scope scope$,
+  ProcessResult target$,
+) =>
+    () {
+      return target$.stdout;
+    };
+Function _ProcessResult_stderr$(
+  m.Scope scope$,
+  ProcessResult target$,
+) =>
+    () {
+      return target$.stderr;
+    };
+Function _ProcessResult_pid$(
+  m.Scope scope$,
+  ProcessResult target$,
+) =>
+    () {
+      return target$.pid;
+    };
 Function _ProcessResult__$(m.Scope scope$) => (
       int pid,
       int exitCode,
@@ -3441,130 +3487,51 @@ Function ProcessSignal_is$(
   dynamic target$,
 ) =>
     () => target$ is ProcessSignal;
-ProcessSignal _ProcessSignal_sighup$() {
-  return ProcessSignal.sighup;
-}
-
-ProcessSignal _ProcessSignal_sigint$() {
-  return ProcessSignal.sigint;
-}
-
-ProcessSignal _ProcessSignal_sigquit$() {
-  return ProcessSignal.sigquit;
-}
-
-ProcessSignal _ProcessSignal_sigill$() {
-  return ProcessSignal.sigill;
-}
-
-ProcessSignal _ProcessSignal_sigtrap$() {
-  return ProcessSignal.sigtrap;
-}
-
-ProcessSignal _ProcessSignal_sigabrt$() {
-  return ProcessSignal.sigabrt;
-}
-
-ProcessSignal _ProcessSignal_sigbus$() {
-  return ProcessSignal.sigbus;
-}
-
-ProcessSignal _ProcessSignal_sigfpe$() {
-  return ProcessSignal.sigfpe;
-}
-
-ProcessSignal _ProcessSignal_sigkill$() {
-  return ProcessSignal.sigkill;
-}
-
-ProcessSignal _ProcessSignal_sigusr1$() {
-  return ProcessSignal.sigusr1;
-}
-
-ProcessSignal _ProcessSignal_sigsegv$() {
-  return ProcessSignal.sigsegv;
-}
-
-ProcessSignal _ProcessSignal_sigusr2$() {
-  return ProcessSignal.sigusr2;
-}
-
-ProcessSignal _ProcessSignal_sigpipe$() {
-  return ProcessSignal.sigpipe;
-}
-
-ProcessSignal _ProcessSignal_sigalrm$() {
-  return ProcessSignal.sigalrm;
-}
-
-ProcessSignal _ProcessSignal_sigterm$() {
-  return ProcessSignal.sigterm;
-}
-
-ProcessSignal _ProcessSignal_sigchld$() {
-  return ProcessSignal.sigchld;
-}
-
-ProcessSignal _ProcessSignal_sigcont$() {
-  return ProcessSignal.sigcont;
-}
-
-ProcessSignal _ProcessSignal_sigstop$() {
-  return ProcessSignal.sigstop;
-}
-
-ProcessSignal _ProcessSignal_sigtstp$() {
-  return ProcessSignal.sigtstp;
-}
-
-ProcessSignal _ProcessSignal_sigttin$() {
-  return ProcessSignal.sigttin;
-}
-
-ProcessSignal _ProcessSignal_sigttou$() {
-  return ProcessSignal.sigttou;
-}
-
-ProcessSignal _ProcessSignal_sigurg$() {
-  return ProcessSignal.sigurg;
-}
-
-ProcessSignal _ProcessSignal_sigxcpu$() {
-  return ProcessSignal.sigxcpu;
-}
-
-ProcessSignal _ProcessSignal_sigxfsz$() {
-  return ProcessSignal.sigxfsz;
-}
-
-ProcessSignal _ProcessSignal_sigvtalrm$() {
-  return ProcessSignal.sigvtalrm;
-}
-
-ProcessSignal _ProcessSignal_sigprof$() {
-  return ProcessSignal.sigprof;
-}
-
-ProcessSignal _ProcessSignal_sigwinch$() {
-  return ProcessSignal.sigwinch;
-}
-
-ProcessSignal _ProcessSignal_sigpoll$() {
-  return ProcessSignal.sigpoll;
-}
-
-ProcessSignal _ProcessSignal_sigsys$() {
-  return ProcessSignal.sigsys;
-}
-
-int _ProcessSignal_signalNumber$(ProcessSignal target$) {
-  return target$.signalNumber;
-}
-
-String _ProcessSignal_name$(ProcessSignal target$) {
-  return target$.name;
-}
-
+Function _ProcessSignal_sighup$(m.Scope scope$) => () => ProcessSignal.sighup;
+Function _ProcessSignal_sigint$(m.Scope scope$) => () => ProcessSignal.sigint;
+Function _ProcessSignal_sigquit$(m.Scope scope$) => () => ProcessSignal.sigquit;
+Function _ProcessSignal_sigill$(m.Scope scope$) => () => ProcessSignal.sigill;
+Function _ProcessSignal_sigtrap$(m.Scope scope$) => () => ProcessSignal.sigtrap;
+Function _ProcessSignal_sigabrt$(m.Scope scope$) => () => ProcessSignal.sigabrt;
+Function _ProcessSignal_sigbus$(m.Scope scope$) => () => ProcessSignal.sigbus;
+Function _ProcessSignal_sigfpe$(m.Scope scope$) => () => ProcessSignal.sigfpe;
+Function _ProcessSignal_sigkill$(m.Scope scope$) => () => ProcessSignal.sigkill;
+Function _ProcessSignal_sigusr1$(m.Scope scope$) => () => ProcessSignal.sigusr1;
+Function _ProcessSignal_sigsegv$(m.Scope scope$) => () => ProcessSignal.sigsegv;
+Function _ProcessSignal_sigusr2$(m.Scope scope$) => () => ProcessSignal.sigusr2;
+Function _ProcessSignal_sigpipe$(m.Scope scope$) => () => ProcessSignal.sigpipe;
+Function _ProcessSignal_sigalrm$(m.Scope scope$) => () => ProcessSignal.sigalrm;
+Function _ProcessSignal_sigterm$(m.Scope scope$) => () => ProcessSignal.sigterm;
+Function _ProcessSignal_sigchld$(m.Scope scope$) => () => ProcessSignal.sigchld;
+Function _ProcessSignal_sigcont$(m.Scope scope$) => () => ProcessSignal.sigcont;
+Function _ProcessSignal_sigstop$(m.Scope scope$) => () => ProcessSignal.sigstop;
+Function _ProcessSignal_sigtstp$(m.Scope scope$) => () => ProcessSignal.sigtstp;
+Function _ProcessSignal_sigttin$(m.Scope scope$) => () => ProcessSignal.sigttin;
+Function _ProcessSignal_sigttou$(m.Scope scope$) => () => ProcessSignal.sigttou;
+Function _ProcessSignal_sigurg$(m.Scope scope$) => () => ProcessSignal.sigurg;
+Function _ProcessSignal_sigxcpu$(m.Scope scope$) => () => ProcessSignal.sigxcpu;
+Function _ProcessSignal_sigxfsz$(m.Scope scope$) => () => ProcessSignal.sigxfsz;
+Function _ProcessSignal_sigvtalrm$(m.Scope scope$) =>
+    () => ProcessSignal.sigvtalrm;
+Function _ProcessSignal_sigprof$(m.Scope scope$) => () => ProcessSignal.sigprof;
+Function _ProcessSignal_sigwinch$(m.Scope scope$) =>
+    () => ProcessSignal.sigwinch;
+Function _ProcessSignal_sigpoll$(m.Scope scope$) => () => ProcessSignal.sigpoll;
+Function _ProcessSignal_sigsys$(m.Scope scope$) => () => ProcessSignal.sigsys;
+Function _ProcessSignal_signalNumber$(
+  m.Scope scope$,
+  ProcessSignal target$,
+) =>
+    () {
+      return target$.signalNumber;
+    };
+Function _ProcessSignal_name$(
+  m.Scope scope$,
+  ProcessSignal target$,
+) =>
+    () {
+      return target$.name;
+    };
 Function _ProcessSignal_toString$(
   m.Scope scope$,
   ProcessSignal target$,
@@ -3585,14 +3552,20 @@ Function SignalException_is$(
   dynamic target$,
 ) =>
     () => target$ is SignalException;
-String _SignalException_message$(SignalException target$) {
-  return target$.message;
-}
-
-dynamic _SignalException_osError$(SignalException target$) {
-  return target$.osError;
-}
-
+Function _SignalException_message$(
+  m.Scope scope$,
+  SignalException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _SignalException_osError$(
+  m.Scope scope$,
+  SignalException target$,
+) =>
+    () {
+      return target$.osError;
+    };
 Function _SignalException__$(m.Scope scope$) => (
       String message, [
       dynamic? osError,
@@ -3620,22 +3593,34 @@ Function ProcessException_is$(
   dynamic target$,
 ) =>
     () => target$ is ProcessException;
-String _ProcessException_executable$(ProcessException target$) {
-  return target$.executable;
-}
-
-List<String> _ProcessException_arguments$(ProcessException target$) {
-  return target$.arguments;
-}
-
-String _ProcessException_message$(ProcessException target$) {
-  return target$.message;
-}
-
-int _ProcessException_errorCode$(ProcessException target$) {
-  return target$.errorCode;
-}
-
+Function _ProcessException_executable$(
+  m.Scope scope$,
+  ProcessException target$,
+) =>
+    () {
+      return target$.executable;
+    };
+Function _ProcessException_arguments$(
+  m.Scope scope$,
+  ProcessException target$,
+) =>
+    () {
+      return target$.arguments;
+    };
+Function _ProcessException_message$(
+  m.Scope scope$,
+  ProcessException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _ProcessException_errorCode$(
+  m.Scope scope$,
+  ProcessException target$,
+) =>
+    () {
+      return target$.errorCode;
+    };
 Function _ProcessException__$(m.Scope scope$) => (
       String executable,
       List arguments, [
@@ -3679,14 +3664,20 @@ Function SecureServerSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is SecureServerSocket;
-int _SecureServerSocket_port$(SecureServerSocket target$) {
-  return target$.port;
-}
-
-InternetAddress _SecureServerSocket_address$(SecureServerSocket target$) {
-  return target$.address;
-}
-
+Function _SecureServerSocket_port$(
+  m.Scope scope$,
+  SecureServerSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _SecureServerSocket_address$(
+  m.Scope scope$,
+  SecureServerSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
 Function _SecureServerSocket_bind$(m.Scope scope$) => SecureServerSocket.bind;
 Function _SecureServerSocket_listen$(
   m.Scope scope$,
@@ -3733,29 +3724,41 @@ Function RawSecureServerSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSecureServerSocket;
-bool _RawSecureServerSocket_requestClientCertificate$(
-    RawSecureServerSocket target$) {
-  return target$.requestClientCertificate;
-}
-
-bool _RawSecureServerSocket_requireClientCertificate$(
-    RawSecureServerSocket target$) {
-  return target$.requireClientCertificate;
-}
-
-List<String>? _RawSecureServerSocket_supportedProtocols$(
-    RawSecureServerSocket target$) {
-  return target$.supportedProtocols;
-}
-
-int _RawSecureServerSocket_port$(RawSecureServerSocket target$) {
-  return target$.port;
-}
-
-InternetAddress _RawSecureServerSocket_address$(RawSecureServerSocket target$) {
-  return target$.address;
-}
-
+Function _RawSecureServerSocket_requestClientCertificate$(
+  m.Scope scope$,
+  RawSecureServerSocket target$,
+) =>
+    () {
+      return target$.requestClientCertificate;
+    };
+Function _RawSecureServerSocket_requireClientCertificate$(
+  m.Scope scope$,
+  RawSecureServerSocket target$,
+) =>
+    () {
+      return target$.requireClientCertificate;
+    };
+Function _RawSecureServerSocket_supportedProtocols$(
+  m.Scope scope$,
+  RawSecureServerSocket target$,
+) =>
+    () {
+      return target$.supportedProtocols;
+    };
+Function _RawSecureServerSocket_port$(
+  m.Scope scope$,
+  RawSecureServerSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _RawSecureServerSocket_address$(
+  m.Scope scope$,
+  RawSecureServerSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
 Function _RawSecureServerSocket_bind$(m.Scope scope$) =>
     RawSecureServerSocket.bind;
 Function _RawSecureServerSocket_listen$(
@@ -3803,14 +3806,20 @@ Function SecureSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is SecureSocket;
-X509Certificate? _SecureSocket_peerCertificate$(SecureSocket target$) {
-  return target$.peerCertificate;
-}
-
-String? _SecureSocket_selectedProtocol$(SecureSocket target$) {
-  return target$.selectedProtocol;
-}
-
+Function _SecureSocket_peerCertificate$(
+  m.Scope scope$,
+  SecureSocket target$,
+) =>
+    () {
+      return target$.peerCertificate;
+    };
+Function _SecureSocket_selectedProtocol$(
+  m.Scope scope$,
+  SecureSocket target$,
+) =>
+    () {
+      return target$.selectedProtocol;
+    };
 Function _SecureSocket_connect$(m.Scope scope$) => (
       dynamic host,
       int port, {
@@ -3927,14 +3936,20 @@ Function RawSecureSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSecureSocket;
-X509Certificate? _RawSecureSocket_peerCertificate$(RawSecureSocket target$) {
-  return target$.peerCertificate;
-}
-
-String? _RawSecureSocket_selectedProtocol$(RawSecureSocket target$) {
-  return target$.selectedProtocol;
-}
-
+Function _RawSecureSocket_peerCertificate$(
+  m.Scope scope$,
+  RawSecureSocket target$,
+) =>
+    () {
+      return target$.peerCertificate;
+    };
+Function _RawSecureSocket_selectedProtocol$(
+  m.Scope scope$,
+  RawSecureSocket target$,
+) =>
+    () {
+      return target$.selectedProtocol;
+    };
 Function _RawSecureSocket_connect$(m.Scope scope$) => (
       dynamic host,
       int port, {
@@ -4053,34 +4068,55 @@ Function X509Certificate_is$(
   dynamic target$,
 ) =>
     () => target$ is X509Certificate;
-Uint8List _X509Certificate_der$(X509Certificate target$) {
-  return target$.der;
-}
-
-String _X509Certificate_pem$(X509Certificate target$) {
-  return target$.pem;
-}
-
-Uint8List _X509Certificate_sha1$(X509Certificate target$) {
-  return target$.sha1;
-}
-
-String _X509Certificate_subject$(X509Certificate target$) {
-  return target$.subject;
-}
-
-String _X509Certificate_issuer$(X509Certificate target$) {
-  return target$.issuer;
-}
-
-DateTime _X509Certificate_startValidity$(X509Certificate target$) {
-  return target$.startValidity;
-}
-
-DateTime _X509Certificate_endValidity$(X509Certificate target$) {
-  return target$.endValidity;
-}
-
+Function _X509Certificate_der$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.der;
+    };
+Function _X509Certificate_pem$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.pem;
+    };
+Function _X509Certificate_sha1$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.sha1;
+    };
+Function _X509Certificate_subject$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.subject;
+    };
+Function _X509Certificate_issuer$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.issuer;
+    };
+Function _X509Certificate_startValidity$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.startValidity;
+    };
+Function _X509Certificate_endValidity$(
+  m.Scope scope$,
+  X509Certificate target$,
+) =>
+    () {
+      return target$.endValidity;
+    };
 Function TlsException_as$(
   m.Scope scope$,
   dynamic target$,
@@ -4091,18 +4127,27 @@ Function TlsException_is$(
   dynamic target$,
 ) =>
     () => target$ is TlsException;
-String _TlsException_type$(TlsException target$) {
-  return target$.type;
-}
-
-String _TlsException_message$(TlsException target$) {
-  return target$.message;
-}
-
-OSError? _TlsException_osError$(TlsException target$) {
-  return target$.osError;
-}
-
+Function _TlsException_type$(
+  m.Scope scope$,
+  TlsException target$,
+) =>
+    () {
+      return target$.type;
+    };
+Function _TlsException_message$(
+  m.Scope scope$,
+  TlsException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _TlsException_osError$(
+  m.Scope scope$,
+  TlsException target$,
+) =>
+    () {
+      return target$.osError;
+    };
 Function _TlsException__$(m.Scope scope$) => ([
       String? message,
       OSError? osError,
@@ -4183,21 +4228,22 @@ Function SecurityContext_is$(
   dynamic target$,
 ) =>
     () => target$ is SecurityContext;
-bool _SecurityContext_allowLegacyUnsafeRenegotiation$(SecurityContext target$) {
-  return target$.allowLegacyUnsafeRenegotiation;
-}
-
-void _SecurityContext_allowLegacyUnsafeRenegotiation_set$(
+Function _SecurityContext_allowLegacyUnsafeRenegotiation$(
+  m.Scope scope$,
   SecurityContext target$,
-  bool other$,
-) {
-  target$.allowLegacyUnsafeRenegotiation = other$;
-}
-
-SecurityContext _SecurityContext_defaultContext$() {
-  return SecurityContext.defaultContext;
-}
-
+) =>
+    () {
+      return target$.allowLegacyUnsafeRenegotiation;
+    };
+void _SecurityContext_allowLegacyUnsafeRenegotiation_set$(
+  m.Scope scope$,
+  SecurityContext target$,
+) =>
+    (dynamic other$) {
+      target$.allowLegacyUnsafeRenegotiation = other$;
+    };
+Function _SecurityContext_defaultContext$(m.Scope scope$) =>
+    () => SecurityContext.defaultContext;
 Function _SecurityContext__$(m.Scope scope$) => ({bool? withTrustedRoots}) {
       return SecurityContext(withTrustedRoots: withTrustedRoots ?? false);
     };
@@ -4256,26 +4302,21 @@ Function InternetAddressType_is$(
   dynamic target$,
 ) =>
     () => target$ is InternetAddressType;
-InternetAddressType _InternetAddressType_IPv4$() {
-  return InternetAddressType.IPv4;
-}
-
-InternetAddressType _InternetAddressType_IPv6$() {
-  return InternetAddressType.IPv6;
-}
-
-InternetAddressType _InternetAddressType_unix$() {
-  return InternetAddressType.unix;
-}
-
-InternetAddressType _InternetAddressType_any$() {
-  return InternetAddressType.any;
-}
-
-String _InternetAddressType_name$(InternetAddressType target$) {
-  return target$.name;
-}
-
+Function _InternetAddressType_IPv4$(m.Scope scope$) =>
+    () => InternetAddressType.IPv4;
+Function _InternetAddressType_IPv6$(m.Scope scope$) =>
+    () => InternetAddressType.IPv6;
+Function _InternetAddressType_unix$(m.Scope scope$) =>
+    () => InternetAddressType.unix;
+Function _InternetAddressType_any$(m.Scope scope$) =>
+    () => InternetAddressType.any;
+Function _InternetAddressType_name$(
+  m.Scope scope$,
+  InternetAddressType target$,
+) =>
+    () {
+      return target$.name;
+    };
 Function _InternetAddressType_toString$(
   m.Scope scope$,
   InternetAddressType target$,
@@ -4291,50 +4332,63 @@ Function InternetAddress_is$(
   dynamic target$,
 ) =>
     () => target$ is InternetAddress;
-InternetAddress _InternetAddress_loopbackIPv4$() {
-  return InternetAddress.loopbackIPv4;
-}
-
-InternetAddress _InternetAddress_loopbackIPv6$() {
-  return InternetAddress.loopbackIPv6;
-}
-
-InternetAddress _InternetAddress_anyIPv4$() {
-  return InternetAddress.anyIPv4;
-}
-
-InternetAddress _InternetAddress_anyIPv6$() {
-  return InternetAddress.anyIPv6;
-}
-
-InternetAddressType _InternetAddress_type$(InternetAddress target$) {
-  return target$.type;
-}
-
-String _InternetAddress_address$(InternetAddress target$) {
-  return target$.address;
-}
-
-String _InternetAddress_host$(InternetAddress target$) {
-  return target$.host;
-}
-
-Uint8List _InternetAddress_rawAddress$(InternetAddress target$) {
-  return target$.rawAddress;
-}
-
-bool _InternetAddress_isLoopback$(InternetAddress target$) {
-  return target$.isLoopback;
-}
-
-bool _InternetAddress_isLinkLocal$(InternetAddress target$) {
-  return target$.isLinkLocal;
-}
-
-bool _InternetAddress_isMulticast$(InternetAddress target$) {
-  return target$.isMulticast;
-}
-
+Function _InternetAddress_loopbackIPv4$(m.Scope scope$) =>
+    () => InternetAddress.loopbackIPv4;
+Function _InternetAddress_loopbackIPv6$(m.Scope scope$) =>
+    () => InternetAddress.loopbackIPv6;
+Function _InternetAddress_anyIPv4$(m.Scope scope$) =>
+    () => InternetAddress.anyIPv4;
+Function _InternetAddress_anyIPv6$(m.Scope scope$) =>
+    () => InternetAddress.anyIPv6;
+Function _InternetAddress_type$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.type;
+    };
+Function _InternetAddress_address$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.address;
+    };
+Function _InternetAddress_host$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.host;
+    };
+Function _InternetAddress_rawAddress$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.rawAddress;
+    };
+Function _InternetAddress_isLoopback$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.isLoopback;
+    };
+Function _InternetAddress_isLinkLocal$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.isLinkLocal;
+    };
+Function _InternetAddress_isMulticast$(
+  m.Scope scope$,
+  InternetAddress target$,
+) =>
+    () {
+      return target$.isMulticast;
+    };
 Function _InternetAddress__$(m.Scope scope$) => (
       String address, {
       InternetAddressType? type,
@@ -4363,18 +4417,27 @@ Function NetworkInterface_is$(
   dynamic target$,
 ) =>
     () => target$ is NetworkInterface;
-String _NetworkInterface_name$(NetworkInterface target$) {
-  return target$.name;
-}
-
-int _NetworkInterface_index$(NetworkInterface target$) {
-  return target$.index;
-}
-
-List<InternetAddress> _NetworkInterface_addresses$(NetworkInterface target$) {
-  return target$.addresses;
-}
-
+Function _NetworkInterface_name$(
+  m.Scope scope$,
+  NetworkInterface target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _NetworkInterface_index$(
+  m.Scope scope$,
+  NetworkInterface target$,
+) =>
+    () {
+      return target$.index;
+    };
+Function _NetworkInterface_addresses$(
+  m.Scope scope$,
+  NetworkInterface target$,
+) =>
+    () {
+      return target$.addresses;
+    };
 Function _NetworkInterface_list$(m.Scope scope$) => NetworkInterface.list;
 Function RawServerSocket_as$(
   m.Scope scope$,
@@ -4386,14 +4449,20 @@ Function RawServerSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawServerSocket;
-int _RawServerSocket_port$(RawServerSocket target$) {
-  return target$.port;
-}
-
-InternetAddress _RawServerSocket_address$(RawServerSocket target$) {
-  return target$.address;
-}
-
+Function _RawServerSocket_port$(
+  m.Scope scope$,
+  RawServerSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _RawServerSocket_address$(
+  m.Scope scope$,
+  RawServerSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
 Function _RawServerSocket_bind$(m.Scope scope$) => RawServerSocket.bind;
 Function _RawServerSocket_close$(
   m.Scope scope$,
@@ -4410,14 +4479,20 @@ Function ServerSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is ServerSocket;
-int _ServerSocket_port$(ServerSocket target$) {
-  return target$.port;
-}
-
-InternetAddress _ServerSocket_address$(ServerSocket target$) {
-  return target$.address;
-}
-
+Function _ServerSocket_port$(
+  m.Scope scope$,
+  ServerSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _ServerSocket_address$(
+  m.Scope scope$,
+  ServerSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
 Function _ServerSocket_bind$(m.Scope scope$) => ServerSocket.bind;
 Function _ServerSocket_close$(
   m.Scope scope$,
@@ -4434,18 +4509,10 @@ Function SocketDirection_is$(
   dynamic target$,
 ) =>
     () => target$ is SocketDirection;
-SocketDirection _SocketDirection_receive$() {
-  return SocketDirection.receive;
-}
-
-SocketDirection _SocketDirection_send$() {
-  return SocketDirection.send;
-}
-
-SocketDirection _SocketDirection_both$() {
-  return SocketDirection.both;
-}
-
+Function _SocketDirection_receive$(m.Scope scope$) =>
+    () => SocketDirection.receive;
+Function _SocketDirection_send$(m.Scope scope$) => () => SocketDirection.send;
+Function _SocketDirection_both$(m.Scope scope$) => () => SocketDirection.both;
 Function SocketOption_as$(
   m.Scope scope$,
   dynamic target$,
@@ -4456,10 +4523,8 @@ Function SocketOption_is$(
   dynamic target$,
 ) =>
     () => target$ is SocketOption;
-SocketOption _SocketOption_tcpNoDelay$() {
-  return SocketOption.tcpNoDelay;
-}
-
+Function _SocketOption_tcpNoDelay$(m.Scope scope$) =>
+    () => SocketOption.tcpNoDelay;
 Function RawSocketOption_as$(
   m.Scope scope$,
   dynamic target$,
@@ -4470,46 +4535,41 @@ Function RawSocketOption_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSocketOption;
-int _RawSocketOption_level$(RawSocketOption target$) {
-  return target$.level;
-}
-
-int _RawSocketOption_option$(RawSocketOption target$) {
-  return target$.option;
-}
-
-Uint8List _RawSocketOption_value$(RawSocketOption target$) {
-  return target$.value;
-}
-
-int _RawSocketOption_levelSocket$() {
-  return RawSocketOption.levelSocket;
-}
-
-int _RawSocketOption_levelIPv4$() {
-  return RawSocketOption.levelIPv4;
-}
-
-int _RawSocketOption_IPv4MulticastInterface$() {
-  return RawSocketOption.IPv4MulticastInterface;
-}
-
-int _RawSocketOption_levelIPv6$() {
-  return RawSocketOption.levelIPv6;
-}
-
-int _RawSocketOption_IPv6MulticastInterface$() {
-  return RawSocketOption.IPv6MulticastInterface;
-}
-
-int _RawSocketOption_levelTcp$() {
-  return RawSocketOption.levelTcp;
-}
-
-int _RawSocketOption_levelUdp$() {
-  return RawSocketOption.levelUdp;
-}
-
+Function _RawSocketOption_level$(
+  m.Scope scope$,
+  RawSocketOption target$,
+) =>
+    () {
+      return target$.level;
+    };
+Function _RawSocketOption_option$(
+  m.Scope scope$,
+  RawSocketOption target$,
+) =>
+    () {
+      return target$.option;
+    };
+Function _RawSocketOption_value$(
+  m.Scope scope$,
+  RawSocketOption target$,
+) =>
+    () {
+      return target$.value;
+    };
+Function _RawSocketOption_levelSocket$(m.Scope scope$) =>
+    () => RawSocketOption.levelSocket;
+Function _RawSocketOption_levelIPv4$(m.Scope scope$) =>
+    () => RawSocketOption.levelIPv4;
+Function _RawSocketOption_IPv4MulticastInterface$(m.Scope scope$) =>
+    () => RawSocketOption.IPv4MulticastInterface;
+Function _RawSocketOption_levelIPv6$(m.Scope scope$) =>
+    () => RawSocketOption.levelIPv6;
+Function _RawSocketOption_IPv6MulticastInterface$(m.Scope scope$) =>
+    () => RawSocketOption.IPv6MulticastInterface;
+Function _RawSocketOption_levelTcp$(m.Scope scope$) =>
+    () => RawSocketOption.levelTcp;
+Function _RawSocketOption_levelUdp$(m.Scope scope$) =>
+    () => RawSocketOption.levelUdp;
 Function _RawSocketOption__$(m.Scope scope$) => (
       int level,
       int option,
@@ -4534,22 +4594,11 @@ Function RawSocketEvent_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSocketEvent;
-RawSocketEvent _RawSocketEvent_read$() {
-  return RawSocketEvent.read;
-}
-
-RawSocketEvent _RawSocketEvent_write$() {
-  return RawSocketEvent.write;
-}
-
-RawSocketEvent _RawSocketEvent_readClosed$() {
-  return RawSocketEvent.readClosed;
-}
-
-RawSocketEvent _RawSocketEvent_closed$() {
-  return RawSocketEvent.closed;
-}
-
+Function _RawSocketEvent_read$(m.Scope scope$) => () => RawSocketEvent.read;
+Function _RawSocketEvent_write$(m.Scope scope$) => () => RawSocketEvent.write;
+Function _RawSocketEvent_readClosed$(m.Scope scope$) =>
+    () => RawSocketEvent.readClosed;
+Function _RawSocketEvent_closed$(m.Scope scope$) => () => RawSocketEvent.closed;
 Function _RawSocketEvent_toString$(
   m.Scope scope$,
   RawSocketEvent target$,
@@ -4565,10 +4614,13 @@ Function ConnectionTask_is$<S>(
   dynamic target$,
 ) =>
     () => target$ is ConnectionTask<S>;
-Future<S> _ConnectionTask_socket$<S>(ConnectionTask<S> target$) {
-  return target$.socket;
-}
-
+Function _ConnectionTask_socket$<S>(
+  m.Scope scope$,
+  ConnectionTask<S> target$,
+) =>
+    () {
+      return target$.socket;
+    };
 Function _ConnectionTask_cancel$<S>(
   m.Scope scope$,
   ConnectionTask<S> target$,
@@ -4584,44 +4636,62 @@ Function RawSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSocket;
-bool _RawSocket_readEventsEnabled$(RawSocket target$) {
-  return target$.readEventsEnabled;
-}
-
+Function _RawSocket_readEventsEnabled$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.readEventsEnabled;
+    };
 void _RawSocket_readEventsEnabled_set$(
+  m.Scope scope$,
   RawSocket target$,
-  bool other$,
-) {
-  target$.readEventsEnabled = other$;
-}
-
-bool _RawSocket_writeEventsEnabled$(RawSocket target$) {
-  return target$.writeEventsEnabled;
-}
-
+) =>
+    (dynamic other$) {
+      target$.readEventsEnabled = other$;
+    };
+Function _RawSocket_writeEventsEnabled$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.writeEventsEnabled;
+    };
 void _RawSocket_writeEventsEnabled_set$(
+  m.Scope scope$,
   RawSocket target$,
-  bool other$,
-) {
-  target$.writeEventsEnabled = other$;
-}
-
-int _RawSocket_port$(RawSocket target$) {
-  return target$.port;
-}
-
-int _RawSocket_remotePort$(RawSocket target$) {
-  return target$.remotePort;
-}
-
-InternetAddress _RawSocket_address$(RawSocket target$) {
-  return target$.address;
-}
-
-InternetAddress _RawSocket_remoteAddress$(RawSocket target$) {
-  return target$.remoteAddress;
-}
-
+) =>
+    (dynamic other$) {
+      target$.writeEventsEnabled = other$;
+    };
+Function _RawSocket_port$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _RawSocket_remotePort$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.remotePort;
+    };
+Function _RawSocket_address$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
+Function _RawSocket_remoteAddress$(
+  m.Scope scope$,
+  RawSocket target$,
+) =>
+    () {
+      return target$.remoteAddress;
+    };
 Function _RawSocket_connect$(m.Scope scope$) => RawSocket.connect;
 Function _RawSocket_startConnect$(m.Scope scope$) => RawSocket.startConnect;
 Function _RawSocket_available$(
@@ -4684,26 +4754,41 @@ Function Socket_is$(
   dynamic target$,
 ) =>
     () => target$ is Socket;
-int _Socket_port$(Socket target$) {
-  return target$.port;
-}
-
-int _Socket_remotePort$(Socket target$) {
-  return target$.remotePort;
-}
-
-InternetAddress _Socket_address$(Socket target$) {
-  return target$.address;
-}
-
-InternetAddress _Socket_remoteAddress$(Socket target$) {
-  return target$.remoteAddress;
-}
-
-Future<dynamic> _Socket_done$(Socket target$) {
-  return target$.done;
-}
-
+Function _Socket_port$(
+  m.Scope scope$,
+  Socket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _Socket_remotePort$(
+  m.Scope scope$,
+  Socket target$,
+) =>
+    () {
+      return target$.remotePort;
+    };
+Function _Socket_address$(
+  m.Scope scope$,
+  Socket target$,
+) =>
+    () {
+      return target$.address;
+    };
+Function _Socket_remoteAddress$(
+  m.Scope scope$,
+  Socket target$,
+) =>
+    () {
+      return target$.remoteAddress;
+    };
+Function _Socket_done$(
+  m.Scope scope$,
+  Socket target$,
+) =>
+    () {
+      return target$.done;
+    };
 Function _Socket_connect$(m.Scope scope$) => Socket.connect;
 Function _Socket_startConnect$(m.Scope scope$) => Socket.startConnect;
 Function _Socket_destroy$(
@@ -4741,39 +4826,48 @@ Function Datagram_is$(
   dynamic target$,
 ) =>
     () => target$ is Datagram;
-Uint8List _Datagram_data$(Datagram target$) {
-  return target$.data;
-}
-
+Function _Datagram_data$(
+  m.Scope scope$,
+  Datagram target$,
+) =>
+    () {
+      return target$.data;
+    };
 void _Datagram_data_set$(
+  m.Scope scope$,
   Datagram target$,
-  Uint8List other$,
-) {
-  target$.data = other$;
-}
-
-InternetAddress _Datagram_address$(Datagram target$) {
-  return target$.address;
-}
-
+) =>
+    (dynamic other$) {
+      target$.data = other$;
+    };
+Function _Datagram_address$(
+  m.Scope scope$,
+  Datagram target$,
+) =>
+    () {
+      return target$.address;
+    };
 void _Datagram_address_set$(
+  m.Scope scope$,
   Datagram target$,
-  InternetAddress other$,
-) {
-  target$.address = other$;
-}
-
-int _Datagram_port$(Datagram target$) {
-  return target$.port;
-}
-
+) =>
+    (dynamic other$) {
+      target$.address = other$;
+    };
+Function _Datagram_port$(
+  m.Scope scope$,
+  Datagram target$,
+) =>
+    () {
+      return target$.port;
+    };
 void _Datagram_port_set$(
+  m.Scope scope$,
   Datagram target$,
-  int other$,
-) {
-  target$.port = other$;
-}
-
+) =>
+    (dynamic other$) {
+      target$.port = other$;
+    };
 Function _Datagram__$(m.Scope scope$) => (
       Uint8List data,
       InternetAddress address,
@@ -4850,18 +4944,27 @@ Function SocketControlMessage_is$(
   dynamic target$,
 ) =>
     () => target$ is SocketControlMessage;
-int _SocketControlMessage_level$(SocketControlMessage target$) {
-  return target$.level;
-}
-
-int _SocketControlMessage_type$(SocketControlMessage target$) {
-  return target$.type;
-}
-
-Uint8List _SocketControlMessage_data$(SocketControlMessage target$) {
-  return target$.data;
-}
-
+Function _SocketControlMessage_level$(
+  m.Scope scope$,
+  SocketControlMessage target$,
+) =>
+    () {
+      return target$.level;
+    };
+Function _SocketControlMessage_type$(
+  m.Scope scope$,
+  SocketControlMessage target$,
+) =>
+    () {
+      return target$.type;
+    };
+Function _SocketControlMessage_data$(
+  m.Scope scope$,
+  SocketControlMessage target$,
+) =>
+    () {
+      return target$.data;
+    };
 Function _SocketControlMessage_fromHandles_$(m.Scope scope$) =>
     SocketControlMessage.fromHandles;
 Function _SocketControlMessage_extractHandles$(
@@ -4879,15 +4982,20 @@ Function SocketMessage_is$(
   dynamic target$,
 ) =>
     () => target$ is SocketMessage;
-Uint8List _SocketMessage_data$(SocketMessage target$) {
-  return target$.data;
-}
-
-List<SocketControlMessage> _SocketMessage_controlMessages$(
-    SocketMessage target$) {
-  return target$.controlMessages;
-}
-
+Function _SocketMessage_data$(
+  m.Scope scope$,
+  SocketMessage target$,
+) =>
+    () {
+      return target$.data;
+    };
+Function _SocketMessage_controlMessages$(
+  m.Scope scope$,
+  SocketMessage target$,
+) =>
+    () {
+      return target$.controlMessages;
+    };
 Function _SocketMessage__$(m.Scope scope$) => (
       Uint8List data,
       List controlMessages,
@@ -4907,81 +5015,104 @@ Function RawDatagramSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawDatagramSocket;
-bool _RawDatagramSocket_readEventsEnabled$(RawDatagramSocket target$) {
-  return target$.readEventsEnabled;
-}
-
+Function _RawDatagramSocket_readEventsEnabled$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.readEventsEnabled;
+    };
 void _RawDatagramSocket_readEventsEnabled_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  bool other$,
-) {
-  target$.readEventsEnabled = other$;
-}
-
-bool _RawDatagramSocket_writeEventsEnabled$(RawDatagramSocket target$) {
-  return target$.writeEventsEnabled;
-}
-
+) =>
+    (dynamic other$) {
+      target$.readEventsEnabled = other$;
+    };
+Function _RawDatagramSocket_writeEventsEnabled$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.writeEventsEnabled;
+    };
 void _RawDatagramSocket_writeEventsEnabled_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  bool other$,
-) {
-  target$.writeEventsEnabled = other$;
-}
-
-bool _RawDatagramSocket_multicastLoopback$(RawDatagramSocket target$) {
-  return target$.multicastLoopback;
-}
-
+) =>
+    (dynamic other$) {
+      target$.writeEventsEnabled = other$;
+    };
+Function _RawDatagramSocket_multicastLoopback$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.multicastLoopback;
+    };
 void _RawDatagramSocket_multicastLoopback_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  bool other$,
-) {
-  target$.multicastLoopback = other$;
-}
-
-int _RawDatagramSocket_multicastHops$(RawDatagramSocket target$) {
-  return target$.multicastHops;
-}
-
+) =>
+    (dynamic other$) {
+      target$.multicastLoopback = other$;
+    };
+Function _RawDatagramSocket_multicastHops$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.multicastHops;
+    };
 void _RawDatagramSocket_multicastHops_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  int other$,
-) {
-  target$.multicastHops = other$;
-}
-
-NetworkInterface? _RawDatagramSocket_multicastInterface$(
-    RawDatagramSocket target$) {
-  return target$.multicastInterface;
-}
-
+) =>
+    (dynamic other$) {
+      target$.multicastHops = other$;
+    };
+Function _RawDatagramSocket_multicastInterface$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.multicastInterface;
+    };
 void _RawDatagramSocket_multicastInterface_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  NetworkInterface? other$,
-) {
-  target$.multicastInterface = other$;
-}
-
-bool _RawDatagramSocket_broadcastEnabled$(RawDatagramSocket target$) {
-  return target$.broadcastEnabled;
-}
-
+) =>
+    (dynamic other$) {
+      target$.multicastInterface = other$;
+    };
+Function _RawDatagramSocket_broadcastEnabled$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.broadcastEnabled;
+    };
 void _RawDatagramSocket_broadcastEnabled_set$(
+  m.Scope scope$,
   RawDatagramSocket target$,
-  bool other$,
-) {
-  target$.broadcastEnabled = other$;
-}
-
-int _RawDatagramSocket_port$(RawDatagramSocket target$) {
-  return target$.port;
-}
-
-InternetAddress _RawDatagramSocket_address$(RawDatagramSocket target$) {
-  return target$.address;
-}
-
+) =>
+    (dynamic other$) {
+      target$.broadcastEnabled = other$;
+    };
+Function _RawDatagramSocket_port$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _RawDatagramSocket_address$(
+  m.Scope scope$,
+  RawDatagramSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
 Function _RawDatagramSocket_bind$(m.Scope scope$) => RawDatagramSocket.bind;
 Function _RawDatagramSocket_close$(
   m.Scope scope$,
@@ -5028,22 +5159,34 @@ Function SocketException_is$(
   dynamic target$,
 ) =>
     () => target$ is SocketException;
-String _SocketException_message$(SocketException target$) {
-  return target$.message;
-}
-
-OSError? _SocketException_osError$(SocketException target$) {
-  return target$.osError;
-}
-
-InternetAddress? _SocketException_address$(SocketException target$) {
-  return target$.address;
-}
-
-int? _SocketException_port$(SocketException target$) {
-  return target$.port;
-}
-
+Function _SocketException_message$(
+  m.Scope scope$,
+  SocketException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _SocketException_osError$(
+  m.Scope scope$,
+  SocketException target$,
+) =>
+    () {
+      return target$.osError;
+    };
+Function _SocketException_address$(
+  m.Scope scope$,
+  SocketException target$,
+) =>
+    () {
+      return target$.address;
+    };
+Function _SocketException_port$(
+  m.Scope scope$,
+  SocketException target$,
+) =>
+    () {
+      return target$.port;
+    };
 Function _SocketException__$(m.Scope scope$) => (
       String message, {
       OSError? osError,
@@ -5063,18 +5206,9 @@ Function _SocketException_toString$(
   SocketException target$,
 ) =>
     target$.toString;
-Stdin _stdin$() {
-  return stdin;
-}
-
-Stdout _stdout$() {
-  return stdout;
-}
-
-Stdout _stderr$() {
-  return stderr;
-}
-
+Function _stdin$(m.Scope scope$) => () => stdin;
+Function _stdout$(m.Scope scope$) => () => stdout;
+Function _stderr$(m.Scope scope$) => () => stderr;
 Function Stdin_as$(
   m.Scope scope$,
   dynamic target$,
@@ -5085,47 +5219,62 @@ Function Stdin_is$(
   dynamic target$,
 ) =>
     () => target$ is Stdin;
-bool _Stdin_echoMode$(Stdin target$) {
-  return target$.echoMode;
-}
-
+Function _Stdin_echoMode$(
+  m.Scope scope$,
+  Stdin target$,
+) =>
+    () {
+      return target$.echoMode;
+    };
 void _Stdin_echoMode_set$(
+  m.Scope scope$,
   Stdin target$,
-  bool other$,
-) {
-  target$.echoMode = other$;
-}
-
-bool _Stdin_echoNewlineMode$(Stdin target$) {
-  return target$.echoNewlineMode;
-}
-
+) =>
+    (dynamic other$) {
+      target$.echoMode = other$;
+    };
+Function _Stdin_echoNewlineMode$(
+  m.Scope scope$,
+  Stdin target$,
+) =>
+    () {
+      return target$.echoNewlineMode;
+    };
 void _Stdin_echoNewlineMode_set$(
+  m.Scope scope$,
   Stdin target$,
-  bool other$,
-) {
-  target$.echoNewlineMode = other$;
-}
-
-bool _Stdin_lineMode$(Stdin target$) {
-  return target$.lineMode;
-}
-
+) =>
+    (dynamic other$) {
+      target$.echoNewlineMode = other$;
+    };
+Function _Stdin_lineMode$(
+  m.Scope scope$,
+  Stdin target$,
+) =>
+    () {
+      return target$.lineMode;
+    };
 void _Stdin_lineMode_set$(
+  m.Scope scope$,
   Stdin target$,
-  bool other$,
-) {
-  target$.lineMode = other$;
-}
-
-bool _Stdin_supportsAnsiEscapes$(Stdin target$) {
-  return target$.supportsAnsiEscapes;
-}
-
-bool _Stdin_hasTerminal$(Stdin target$) {
-  return target$.hasTerminal;
-}
-
+) =>
+    (dynamic other$) {
+      target$.lineMode = other$;
+    };
+Function _Stdin_supportsAnsiEscapes$(
+  m.Scope scope$,
+  Stdin target$,
+) =>
+    () {
+      return target$.supportsAnsiEscapes;
+    };
+Function _Stdin_hasTerminal$(
+  m.Scope scope$,
+  Stdin target$,
+) =>
+    () {
+      return target$.hasTerminal;
+    };
 Function _Stdin_readLineSync$(
   m.Scope scope$,
   Stdin target$,
@@ -5146,26 +5295,41 @@ Function Stdout_is$(
   dynamic target$,
 ) =>
     () => target$ is Stdout;
-bool _Stdout_hasTerminal$(Stdout target$) {
-  return target$.hasTerminal;
-}
-
-int _Stdout_terminalColumns$(Stdout target$) {
-  return target$.terminalColumns;
-}
-
-int _Stdout_terminalLines$(Stdout target$) {
-  return target$.terminalLines;
-}
-
-bool _Stdout_supportsAnsiEscapes$(Stdout target$) {
-  return target$.supportsAnsiEscapes;
-}
-
-IOSink _Stdout_nonBlocking$(Stdout target$) {
-  return target$.nonBlocking;
-}
-
+Function _Stdout_hasTerminal$(
+  m.Scope scope$,
+  Stdout target$,
+) =>
+    () {
+      return target$.hasTerminal;
+    };
+Function _Stdout_terminalColumns$(
+  m.Scope scope$,
+  Stdout target$,
+) =>
+    () {
+      return target$.terminalColumns;
+    };
+Function _Stdout_terminalLines$(
+  m.Scope scope$,
+  Stdout target$,
+) =>
+    () {
+      return target$.terminalLines;
+    };
+Function _Stdout_supportsAnsiEscapes$(
+  m.Scope scope$,
+  Stdout target$,
+) =>
+    () {
+      return target$.supportsAnsiEscapes;
+    };
+Function _Stdout_nonBlocking$(
+  m.Scope scope$,
+  Stdout target$,
+) =>
+    () {
+      return target$.nonBlocking;
+    };
 Function StdoutException_as$(
   m.Scope scope$,
   dynamic target$,
@@ -5176,14 +5340,20 @@ Function StdoutException_is$(
   dynamic target$,
 ) =>
     () => target$ is StdoutException;
-String _StdoutException_message$(StdoutException target$) {
-  return target$.message;
-}
-
-OSError? _StdoutException_osError$(StdoutException target$) {
-  return target$.osError;
-}
-
+Function _StdoutException_message$(
+  m.Scope scope$,
+  StdoutException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _StdoutException_osError$(
+  m.Scope scope$,
+  StdoutException target$,
+) =>
+    () {
+      return target$.osError;
+    };
 Function _StdoutException__$(m.Scope scope$) => (
       String message, [
       OSError? osError,
@@ -5211,14 +5381,20 @@ Function StdinException_is$(
   dynamic target$,
 ) =>
     () => target$ is StdinException;
-String _StdinException_message$(StdinException target$) {
-  return target$.message;
-}
-
-OSError? _StdinException_osError$(StdinException target$) {
-  return target$.osError;
-}
-
+Function _StdinException_message$(
+  m.Scope scope$,
+  StdinException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _StdinException_osError$(
+  m.Scope scope$,
+  StdinException target$,
+) =>
+    () {
+      return target$.osError;
+    };
 Function _StdinException__$(m.Scope scope$) => (
       String message, [
       OSError? osError,
@@ -5246,36 +5422,24 @@ Function StdioType_is$(
   dynamic target$,
 ) =>
     () => target$ is StdioType;
-StdioType _StdioType_terminal$() {
-  return StdioType.terminal;
-}
-
-StdioType _StdioType_pipe$() {
-  return StdioType.pipe;
-}
-
-StdioType _StdioType_file$() {
-  return StdioType.file;
-}
-
-StdioType _StdioType_other$() {
-  return StdioType.other;
-}
-
-String _StdioType_name$(StdioType target$) {
-  return target$.name;
-}
-
+Function _StdioType_terminal$(m.Scope scope$) => () => StdioType.terminal;
+Function _StdioType_pipe$(m.Scope scope$) => () => StdioType.pipe;
+Function _StdioType_file$(m.Scope scope$) => () => StdioType.file;
+Function _StdioType_other$(m.Scope scope$) => () => StdioType.other;
+Function _StdioType_name$(
+  m.Scope scope$,
+  StdioType target$,
+) =>
+    () {
+      return target$.name;
+    };
 Function _StdioType_toString$(
   m.Scope scope$,
   StdioType target$,
 ) =>
     target$.toString;
 Function _stdioType$(m.Scope scope$) => stdioType;
-SystemEncoding _systemEncoding$() {
-  return systemEncoding;
-}
-
+Function _systemEncoding$(m.Scope scope$) => () => systemEncoding;
 Function SystemEncoding_as$(
   m.Scope scope$,
   dynamic target$,
@@ -5286,18 +5450,27 @@ Function SystemEncoding_is$(
   dynamic target$,
 ) =>
     () => target$ is SystemEncoding;
-String _SystemEncoding_name$(SystemEncoding target$) {
-  return target$.name;
-}
-
-Converter<String, List<int>> _SystemEncoding_encoder$(SystemEncoding target$) {
-  return target$.encoder;
-}
-
-Converter<List<int>, String> _SystemEncoding_decoder$(SystemEncoding target$) {
-  return target$.decoder;
-}
-
+Function _SystemEncoding_name$(
+  m.Scope scope$,
+  SystemEncoding target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _SystemEncoding_encoder$(
+  m.Scope scope$,
+  SystemEncoding target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _SystemEncoding_decoder$(
+  m.Scope scope$,
+  SystemEncoding target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _SystemEncoding__$(m.Scope scope$) => () {
       return SystemEncoding();
     };
@@ -5321,23 +5494,34 @@ Function RawSynchronousSocket_is$(
   dynamic target$,
 ) =>
     () => target$ is RawSynchronousSocket;
-int _RawSynchronousSocket_port$(RawSynchronousSocket target$) {
-  return target$.port;
-}
-
-int _RawSynchronousSocket_remotePort$(RawSynchronousSocket target$) {
-  return target$.remotePort;
-}
-
-InternetAddress _RawSynchronousSocket_address$(RawSynchronousSocket target$) {
-  return target$.address;
-}
-
-InternetAddress _RawSynchronousSocket_remoteAddress$(
-    RawSynchronousSocket target$) {
-  return target$.remoteAddress;
-}
-
+Function _RawSynchronousSocket_port$(
+  m.Scope scope$,
+  RawSynchronousSocket target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _RawSynchronousSocket_remotePort$(
+  m.Scope scope$,
+  RawSynchronousSocket target$,
+) =>
+    () {
+      return target$.remotePort;
+    };
+Function _RawSynchronousSocket_address$(
+  m.Scope scope$,
+  RawSynchronousSocket target$,
+) =>
+    () {
+      return target$.address;
+    };
+Function _RawSynchronousSocket_remoteAddress$(
+  m.Scope scope$,
+  RawSynchronousSocket target$,
+) =>
+    () {
+      return target$.remoteAddress;
+    };
 Function _RawSynchronousSocket_connectSync$(m.Scope scope$) =>
     RawSynchronousSocket.connectSync;
 Function _RawSynchronousSocket_available$(

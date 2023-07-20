@@ -16,8 +16,6 @@ const libraryMirror = m.LibraryMirror(
     'KeyRepeatEvent.': _KeyRepeatEvent__$,
     'HardwareKeyboard.instance': _HardwareKeyboard_instance$,
     'HardwareKeyboard.': _HardwareKeyboard__$,
-    'HardwareKeyboard.addHandler': _HardwareKeyboard_addHandler$,
-    'HardwareKeyboard.removeHandler': _HardwareKeyboard_removeHandler$,
     'KeyMessage.': _KeyMessage__$,
     'KeyEventManager.': _KeyEventManager__$,
     'KeyboardLockMode.numLock': _KeyboardLockMode_numLock$,
@@ -79,6 +77,8 @@ const libraryMirror = m.LibraryMirror(
         'logicalKeysPressed': _HardwareKeyboard_logicalKeysPressed$,
         'lockModesEnabled': _HardwareKeyboard_lockModesEnabled$,
         'lookUpLayout': _HardwareKeyboard_lookUpLayout$,
+        'addHandler': _HardwareKeyboard_addHandler$,
+        'removeHandler': _HardwareKeyboard_removeHandler$,
         'handleKeyEvent': _HardwareKeyboard_handleKeyEvent$,
         'clearState': _HardwareKeyboard_clearState$,
       },
@@ -250,10 +250,8 @@ Function HardwareKeyboard_is$(
   dynamic target$,
 ) =>
     () => target$ is HardwareKeyboard;
-HardwareKeyboard _HardwareKeyboard_instance$() {
-  return HardwareKeyboard.instance;
-}
-
+Function _HardwareKeyboard_instance$(m.Scope scope$) =>
+    () => HardwareKeyboard.instance;
 Function _HardwareKeyboard_physicalKeysPressed$(
   m.Scope scope$,
   HardwareKeyboard target$,
@@ -415,22 +413,14 @@ Function _KeyEventManager_clearState$(
   KeyEventManager target$,
 ) =>
     target$.clearState;
-KeyboardLockMode _KeyboardLockMode_numLock$() {
-  return KeyboardLockMode.numLock;
-}
-
-KeyboardLockMode _KeyboardLockMode_scrollLock$() {
-  return KeyboardLockMode.scrollLock;
-}
-
-KeyboardLockMode _KeyboardLockMode_capsLock$() {
-  return KeyboardLockMode.capsLock;
-}
-
-List<KeyboardLockMode> _KeyboardLockMode_values$() {
-  return KeyboardLockMode.values;
-}
-
+Function _KeyboardLockMode_numLock$(m.Scope scope$) =>
+    () => KeyboardLockMode.numLock;
+Function _KeyboardLockMode_scrollLock$(m.Scope scope$) =>
+    () => KeyboardLockMode.scrollLock;
+Function _KeyboardLockMode_capsLock$(m.Scope scope$) =>
+    () => KeyboardLockMode.capsLock;
+Function _KeyboardLockMode_values$(m.Scope scope$) =>
+    () => KeyboardLockMode.values;
 Function _KeyboardLockMode_logicalKey$(
   m.Scope scope$,
   KeyboardLockMode target$,
@@ -440,14 +430,9 @@ Function _KeyboardLockMode_logicalKey$(
     };
 Function _findLockByLogicalKey$(m.Scope scope$) =>
     KeyboardLockMode.findLockByLogicalKey;
-KeyDataTransitMode _KeyDataTransitMode_rawKeyData$() {
-  return KeyDataTransitMode.rawKeyData;
-}
-
-KeyDataTransitMode _KeyDataTransitMode_keyDataThenRawKeyData$() {
-  return KeyDataTransitMode.keyDataThenRawKeyData;
-}
-
-List<KeyDataTransitMode> _KeyDataTransitMode_values$() {
-  return KeyDataTransitMode.values;
-}
+Function _KeyDataTransitMode_rawKeyData$(m.Scope scope$) =>
+    () => KeyDataTransitMode.rawKeyData;
+Function _KeyDataTransitMode_keyDataThenRawKeyData$(m.Scope scope$) =>
+    () => KeyDataTransitMode.keyDataThenRawKeyData;
+Function _KeyDataTransitMode_values$(m.Scope scope$) =>
+    () => KeyDataTransitMode.values;

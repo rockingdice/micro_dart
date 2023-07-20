@@ -27,10 +27,6 @@ const libraryMirror = m.LibraryMirror(
     'SliverGrid.count': _SliverGrid_count_$,
     'SliverGrid.extent': _SliverGrid_extent_$,
     'SliverMultiBoxAdaptorElement.': _SliverMultiBoxAdaptorElement__$,
-    'SliverMultiBoxAdaptorElement.visitChildren':
-        _SliverMultiBoxAdaptorElement_visitChildren$,
-    'SliverMultiBoxAdaptorElement.debugVisitOnstageChildren':
-        _SliverMultiBoxAdaptorElement_debugVisitOnstageChildren$,
     'SliverOpacity.': _SliverOpacity__$,
     'SliverIgnorePointer.': _SliverIgnorePointer__$,
     'SliverOffstage.': _SliverOffstage__$,
@@ -124,6 +120,9 @@ const libraryMirror = m.LibraryMirror(
             _SliverMultiBoxAdaptorElement_moveRenderObjectChild$,
         'removeRenderObjectChild':
             _SliverMultiBoxAdaptorElement_removeRenderObjectChild$,
+        'visitChildren': _SliverMultiBoxAdaptorElement_visitChildren$,
+        'debugVisitOnstageChildren':
+            _SliverMultiBoxAdaptorElement_debugVisitOnstageChildren$,
       },
       {},
     ),

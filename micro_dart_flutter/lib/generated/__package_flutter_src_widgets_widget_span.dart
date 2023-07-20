@@ -9,10 +9,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/widget_span.dart',
-  {
-    'WidgetSpan.': _WidgetSpan__$,
-    'WidgetSpan.visitChildren': _WidgetSpan_visitChildren$,
-  },
+  {'WidgetSpan.': _WidgetSpan__$},
   {},
   {
     'WidgetSpan': m.ClassMirror(
@@ -23,6 +20,7 @@ const libraryMirror = m.LibraryMirror(
         'child': _WidgetSpan_child$,
         'hashCode': _WidgetSpan_hashCode$,
         'build': _WidgetSpan_build$,
+        'visitChildren': _WidgetSpan_visitChildren$,
         'getSpanForPositionVisitor': _WidgetSpan_getSpanForPositionVisitor$,
         'codeUnitAtVisitor': _WidgetSpan_codeUnitAtVisitor$,
         'compareTo': _WidgetSpan_compareTo$,

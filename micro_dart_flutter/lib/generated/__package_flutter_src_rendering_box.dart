@@ -22,17 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'BoxConstraints.loose': _BoxConstraints_loose_$,
     'BoxConstraints.expand': _BoxConstraints_expand_$,
     'BoxConstraints.lerp': _BoxConstraints_lerp$,
-    'BoxConstraints.debugAssertIsValid': _BoxConstraints_debugAssertIsValid$,
     'BoxHitTestResult.': _BoxHitTestResult__$,
     'BoxHitTestResult.wrap': _BoxHitTestResult_wrap_$,
-    'BoxHitTestResult.addWithPaintTransform':
-        _BoxHitTestResult_addWithPaintTransform$,
-    'BoxHitTestResult.addWithPaintOffset':
-        _BoxHitTestResult_addWithPaintOffset$,
-    'BoxHitTestResult.addWithRawTransform':
-        _BoxHitTestResult_addWithRawTransform$,
-    'BoxHitTestResult.addWithOutOfBandPosition':
-        _BoxHitTestResult_addWithOutOfBandPosition$,
     'BoxHitTestEntry.': _BoxHitTestEntry__$,
     'BoxParentData.': _BoxParentData__$,
   },
@@ -77,6 +68,7 @@ const libraryMirror = m.LibraryMirror(
         '/': _BoxConstraints_over$$,
         '~/': _BoxConstraints_division$$,
         '%': _BoxConstraints_surplus$$,
+        'debugAssertIsValid': _BoxConstraints_debugAssertIsValid$,
         'normalize': _BoxConstraints_normalize$,
         '==': _BoxConstraints_eq$$,
         'toString': _BoxConstraints_toString$,
@@ -88,6 +80,10 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': BoxHitTestResult_as$,
         '#is': BoxHitTestResult_is$,
+        'addWithPaintTransform': _BoxHitTestResult_addWithPaintTransform$,
+        'addWithPaintOffset': _BoxHitTestResult_addWithPaintOffset$,
+        'addWithRawTransform': _BoxHitTestResult_addWithRawTransform$,
+        'addWithOutOfBandPosition': _BoxHitTestResult_addWithOutOfBandPosition$,
       },
       {},
     ),

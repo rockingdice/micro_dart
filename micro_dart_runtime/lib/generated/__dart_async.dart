@@ -414,14 +414,20 @@ Function AsyncError_is$(
   dynamic target$,
 ) =>
     () => target$ is AsyncError;
-Object _AsyncError_error$(AsyncError target$) {
-  return target$.error;
-}
-
-StackTrace _AsyncError_stackTrace$(AsyncError target$) {
-  return target$.stackTrace;
-}
-
+Function _AsyncError_error$(
+  m.Scope scope$,
+  AsyncError target$,
+) =>
+    () {
+      return target$.error;
+    };
+Function _AsyncError_stackTrace$(
+  m.Scope scope$,
+  AsyncError target$,
+) =>
+    () {
+      return target$.stackTrace;
+    };
 Function _AsyncError__$(m.Scope scope$) => (
       Object error,
       StackTrace? stackTrace,
@@ -661,14 +667,20 @@ Function TimeoutException_is$(
   dynamic target$,
 ) =>
     () => target$ is TimeoutException;
-String? _TimeoutException_message$(TimeoutException target$) {
-  return target$.message;
-}
-
-Duration? _TimeoutException_duration$(TimeoutException target$) {
-  return target$.duration;
-}
-
+Function _TimeoutException_message$(
+  m.Scope scope$,
+  TimeoutException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _TimeoutException_duration$(
+  m.Scope scope$,
+  TimeoutException target$,
+) =>
+    () {
+      return target$.duration;
+    };
 Function _TimeoutException__$(m.Scope scope$) => (
       String? message, [
       Duration? duration,
@@ -696,14 +708,20 @@ Function Completer_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is Completer<T>;
-Future<T> _Completer_future$<T>(Completer<T> target$) {
-  return target$.future;
-}
-
-bool _Completer_isCompleted$<T>(Completer<T> target$) {
-  return target$.isCompleted;
-}
-
+Function _Completer_future$<T>(
+  m.Scope scope$,
+  Completer<T> target$,
+) =>
+    () {
+      return target$.future;
+    };
+Function _Completer_isCompleted$<T>(
+  m.Scope scope$,
+  Completer<T> target$,
+) =>
+    () {
+      return target$.isCompleted;
+    };
 Function _Completer__$(m.Scope scope$) => () {
       return Completer();
     };
@@ -729,14 +747,20 @@ Function ParallelWaitError_is$<V, E>(
   dynamic target$,
 ) =>
     () => target$ is ParallelWaitError<V, E>;
-V _ParallelWaitError_values$<V, E>(ParallelWaitError<V, E> target$) {
-  return target$.values;
-}
-
-E _ParallelWaitError_errors$<V, E>(ParallelWaitError<V, E> target$) {
-  return target$.errors;
-}
-
+Function _ParallelWaitError_values$<V, E>(
+  m.Scope scope$,
+  ParallelWaitError<V, E> target$,
+) =>
+    () {
+      return target$.values;
+    };
+Function _ParallelWaitError_errors$<V, E>(
+  m.Scope scope$,
+  ParallelWaitError<V, E> target$,
+) =>
+    () {
+      return target$.errors;
+    };
 Function _ParallelWaitError__$(m.Scope scope$) => (
       dynamic values,
       dynamic errors,
@@ -770,30 +794,48 @@ Function Stream_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is Stream<T>;
-bool _Stream_isBroadcast$<T>(Stream<T> target$) {
-  return target$.isBroadcast;
-}
-
-Future<int> _Stream_length$<T>(Stream<T> target$) {
-  return target$.length;
-}
-
-Future<bool> _Stream_isEmpty$<T>(Stream<T> target$) {
-  return target$.isEmpty;
-}
-
-Future<T> _Stream_first$<T>(Stream<T> target$) {
-  return target$.first;
-}
-
-Future<T> _Stream_last$<T>(Stream<T> target$) {
-  return target$.last;
-}
-
-Future<T> _Stream_single$<T>(Stream<T> target$) {
-  return target$.single;
-}
-
+Function _Stream_isBroadcast$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.isBroadcast;
+    };
+Function _Stream_length$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _Stream_isEmpty$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _Stream_first$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _Stream_last$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _Stream_single$<T>(
+  m.Scope scope$,
+  Stream<T> target$,
+) =>
+    () {
+      return target$.single;
+    };
 Function _Stream_empty_$(m.Scope scope$) => Stream.empty;
 Function _Stream_value_$(m.Scope scope$) => Stream.value;
 Function _Stream_error_$(m.Scope scope$) => Stream.error;
@@ -1299,10 +1341,13 @@ Function StreamSubscription_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is StreamSubscription<T>;
-bool _StreamSubscription_isPaused$<T>(StreamSubscription<T> target$) {
-  return target$.isPaused;
-}
-
+Function _StreamSubscription_isPaused$<T>(
+  m.Scope scope$,
+  StreamSubscription<T> target$,
+) =>
+    () {
+      return target$.isPaused;
+    };
 Function _StreamSubscription_cancel$<T>(
   m.Scope scope$,
   StreamSubscription<T> target$,
@@ -1390,10 +1435,13 @@ Function StreamView_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is StreamView<T>;
-bool _StreamView_isBroadcast$<T>(StreamView<T> target$) {
-  return target$.isBroadcast;
-}
-
+Function _StreamView_isBroadcast$<T>(
+  m.Scope scope$,
+  StreamView<T> target$,
+) =>
+    () {
+      return target$.isBroadcast;
+    };
 Function _StreamView__$(m.Scope scope$) => (Stream stream) {
       return StreamView(stream);
     };
@@ -1484,10 +1532,13 @@ Function StreamSink_is$<S>(
   dynamic target$,
 ) =>
     () => target$ is StreamSink<S>;
-Future<dynamic> _StreamSink_done$<S>(StreamSink<S> target$) {
-  return target$.done;
-}
-
+Function _StreamSink_done$<S>(
+  m.Scope scope$,
+  StreamSink<S> target$,
+) =>
+    () {
+      return target$.done;
+    };
 Function _StreamSink_close$<S>(
   m.Scope scope$,
   StreamSink<S> target$,
@@ -1612,10 +1663,13 @@ Function StreamIterator_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is StreamIterator<T>;
-T _StreamIterator_current$<T>(StreamIterator<T> target$) {
-  return target$.current;
-}
-
+Function _StreamIterator_current$<T>(
+  m.Scope scope$,
+  StreamIterator<T> target$,
+) =>
+    () {
+      return target$.current;
+    };
 Function _StreamIterator__$(m.Scope scope$) => (Stream stream) {
       return StreamIterator(stream);
     };
@@ -1664,10 +1718,13 @@ Function StreamController_is$<T>(
   dynamic target$,
 ) =>
     () => target$ is StreamController<T>;
-void Function()? _StreamController_onListen$<T>(StreamController<T> target$) {
-  return target$.onListen;
-}
-
+Function _StreamController_onListen$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.onListen;
+    };
 Function _StreamController_onListen_set$(
   m.Scope scope$,
   StreamController target$,
@@ -1681,10 +1738,13 @@ Function _StreamController_onListen_set$(
           );
       target$.onListen = (_onListen == null ? null : _onListenProxy);
     };
-void Function()? _StreamController_onPause$<T>(StreamController<T> target$) {
-  return target$.onPause;
-}
-
+Function _StreamController_onPause$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.onPause;
+    };
 Function _StreamController_onPause_set$(
   m.Scope scope$,
   StreamController target$,
@@ -1698,10 +1758,13 @@ Function _StreamController_onPause_set$(
           );
       target$.onPause = (_onPause == null ? null : _onPauseProxy);
     };
-void Function()? _StreamController_onResume$<T>(StreamController<T> target$) {
-  return target$.onResume;
-}
-
+Function _StreamController_onResume$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.onResume;
+    };
 Function _StreamController_onResume_set$(
   m.Scope scope$,
   StreamController target$,
@@ -1715,11 +1778,13 @@ Function _StreamController_onResume_set$(
           );
       target$.onResume = (_onResume == null ? null : _onResumeProxy);
     };
-FutureOr<void> Function()? _StreamController_onCancel$<T>(
-    StreamController<T> target$) {
-  return target$.onCancel;
-}
-
+Function _StreamController_onCancel$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.onCancel;
+    };
 Function _StreamController_onCancel_set$(
   m.Scope scope$,
   StreamController target$,
@@ -1734,30 +1799,48 @@ Function _StreamController_onCancel_set$(
           );
       target$.onCancel = (_onCancel == null ? null : _onCancelProxy);
     };
-Stream<T> _StreamController_stream$<T>(StreamController<T> target$) {
-  return target$.stream;
-}
-
-StreamSink<T> _StreamController_sink$<T>(StreamController<T> target$) {
-  return target$.sink;
-}
-
-bool _StreamController_isClosed$<T>(StreamController<T> target$) {
-  return target$.isClosed;
-}
-
-bool _StreamController_isPaused$<T>(StreamController<T> target$) {
-  return target$.isPaused;
-}
-
-bool _StreamController_hasListener$<T>(StreamController<T> target$) {
-  return target$.hasListener;
-}
-
-Future<dynamic> _StreamController_done$<T>(StreamController<T> target$) {
-  return target$.done;
-}
-
+Function _StreamController_stream$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.stream;
+    };
+Function _StreamController_sink$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.sink;
+    };
+Function _StreamController_isClosed$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.isClosed;
+    };
+Function _StreamController_isPaused$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.isPaused;
+    };
+Function _StreamController_hasListener$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.hasListener;
+    };
+Function _StreamController_done$<T>(
+  m.Scope scope$,
+  StreamController<T> target$,
+) =>
+    () {
+      return target$.done;
+    };
 Function _StreamController__$(m.Scope scope$) => ({
       m.FunctionPointer? onListen,
       m.FunctionPointer? onPause,
@@ -1876,14 +1959,20 @@ Function Timer_is$(
   dynamic target$,
 ) =>
     () => target$ is Timer;
-int _Timer_tick$(Timer target$) {
-  return target$.tick;
-}
-
-bool _Timer_isActive$(Timer target$) {
-  return target$.isActive;
-}
-
+Function _Timer_tick$(
+  m.Scope scope$,
+  Timer target$,
+) =>
+    () {
+      return target$.tick;
+    };
+Function _Timer_isActive$(
+  m.Scope scope$,
+  Timer target$,
+) =>
+    () {
+      return target$.isActive;
+    };
 Function _Timer__$(m.Scope scope$) => (
       Duration duration,
       m.FunctionPointer callback,
@@ -1939,73 +2028,97 @@ Function ZoneSpecification_is$(
   dynamic target$,
 ) =>
     () => target$ is ZoneSpecification;
-void Function(Zone, ZoneDelegate, Zone, Object, StackTrace)?
-    _ZoneSpecification_handleUncaughtError$(ZoneSpecification target$) {
-  return target$.handleUncaughtError;
-}
-
-R Function<R>(Zone, ZoneDelegate, Zone, R Function())? _ZoneSpecification_run$(
-    ZoneSpecification target$) {
-  return target$.run;
-}
-
-R Function<R, T>(Zone, ZoneDelegate, Zone, R Function(T), T)?
-    _ZoneSpecification_runUnary$(ZoneSpecification target$) {
-  return target$.runUnary;
-}
-
-R Function<R, T1, T2>(Zone, ZoneDelegate, Zone, R Function(T1, T2), T1, T2)?
-    _ZoneSpecification_runBinary$(ZoneSpecification target$) {
-  return target$.runBinary;
-}
-
-R Function() Function<R>(Zone, ZoneDelegate, Zone, R Function())?
-    _ZoneSpecification_registerCallback$(ZoneSpecification target$) {
-  return target$.registerCallback;
-}
-
-R Function(T) Function<R, T>(Zone, ZoneDelegate, Zone, R Function(T))?
-    _ZoneSpecification_registerUnaryCallback$(ZoneSpecification target$) {
-  return target$.registerUnaryCallback;
-}
-
-R Function(T1, T2) Function<R, T1, T2>(
-        Zone, ZoneDelegate, Zone, R Function(T1, T2))?
-    _ZoneSpecification_registerBinaryCallback$(ZoneSpecification target$) {
-  return target$.registerBinaryCallback;
-}
-
-AsyncError? Function(Zone, ZoneDelegate, Zone, Object, StackTrace?)?
-    _ZoneSpecification_errorCallback$(ZoneSpecification target$) {
-  return target$.errorCallback;
-}
-
-void Function(Zone, ZoneDelegate, Zone, void Function())?
-    _ZoneSpecification_scheduleMicrotask$(ZoneSpecification target$) {
-  return target$.scheduleMicrotask;
-}
-
-Timer Function(Zone, ZoneDelegate, Zone, Duration, void Function())?
-    _ZoneSpecification_createTimer$(ZoneSpecification target$) {
-  return target$.createTimer;
-}
-
-Timer Function(Zone, ZoneDelegate, Zone, Duration, void Function(Timer))?
-    _ZoneSpecification_createPeriodicTimer$(ZoneSpecification target$) {
-  return target$.createPeriodicTimer;
-}
-
-void Function(Zone, ZoneDelegate, Zone, String)? _ZoneSpecification_print$(
-    ZoneSpecification target$) {
-  return target$.print;
-}
-
-Zone Function(
-        Zone, ZoneDelegate, Zone, ZoneSpecification?, Map<Object?, Object?>?)?
-    _ZoneSpecification_fork$(ZoneSpecification target$) {
-  return target$.fork;
-}
-
+Function _ZoneSpecification_handleUncaughtError$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.handleUncaughtError;
+    };
+Function _ZoneSpecification_run$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.run;
+    };
+Function _ZoneSpecification_runUnary$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.runUnary;
+    };
+Function _ZoneSpecification_runBinary$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.runBinary;
+    };
+Function _ZoneSpecification_registerCallback$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.registerCallback;
+    };
+Function _ZoneSpecification_registerUnaryCallback$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.registerUnaryCallback;
+    };
+Function _ZoneSpecification_registerBinaryCallback$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.registerBinaryCallback;
+    };
+Function _ZoneSpecification_errorCallback$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.errorCallback;
+    };
+Function _ZoneSpecification_scheduleMicrotask$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.scheduleMicrotask;
+    };
+Function _ZoneSpecification_createTimer$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.createTimer;
+    };
+Function _ZoneSpecification_createPeriodicTimer$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.createPeriodicTimer;
+    };
+Function _ZoneSpecification_print$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.print;
+    };
+Function _ZoneSpecification_fork$(
+  m.Scope scope$,
+  ZoneSpecification target$,
+) =>
+    () {
+      return target$.fork;
+    };
 Function _ZoneSpecification__$(m.Scope scope$) => ({
       m.FunctionPointer? handleUncaughtError,
       m.FunctionPointer? run,
@@ -2791,22 +2904,22 @@ Function Zone_is$(
   dynamic target$,
 ) =>
     () => target$ is Zone;
-Zone _Zone_root$() {
-  return Zone.root;
-}
-
-Zone _Zone_current$() {
-  return Zone.current;
-}
-
-Zone? _Zone_parent$(Zone target$) {
-  return target$.parent;
-}
-
-Zone _Zone_errorZone$(Zone target$) {
-  return target$.errorZone;
-}
-
+Function _Zone_root$(m.Scope scope$) => () => Zone.root;
+Function _Zone_current$(m.Scope scope$) => () => Zone.current;
+Function _Zone_parent$(
+  m.Scope scope$,
+  Zone target$,
+) =>
+    () {
+      return target$.parent;
+    };
+Function _Zone_errorZone$(
+  m.Scope scope$,
+  Zone target$,
+) =>
+    () {
+      return target$.errorZone;
+    };
 Function _Zone_handleUncaughtError$(
   m.Scope scope$,
   Zone target$,

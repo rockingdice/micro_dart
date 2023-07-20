@@ -395,30 +395,17 @@ Function _ButtonThemeData_debugFillProperties$(
   ButtonThemeData target$,
 ) =>
     target$.debugFillProperties;
-ButtonTextTheme _ButtonTextTheme_normal$() {
-  return ButtonTextTheme.normal;
-}
-
-ButtonTextTheme _ButtonTextTheme_accent$() {
-  return ButtonTextTheme.accent;
-}
-
-ButtonTextTheme _ButtonTextTheme_primary$() {
-  return ButtonTextTheme.primary;
-}
-
-List<ButtonTextTheme> _ButtonTextTheme_values$() {
-  return ButtonTextTheme.values;
-}
-
-ButtonBarLayoutBehavior _ButtonBarLayoutBehavior_constrained$() {
-  return ButtonBarLayoutBehavior.constrained;
-}
-
-ButtonBarLayoutBehavior _ButtonBarLayoutBehavior_padded$() {
-  return ButtonBarLayoutBehavior.padded;
-}
-
-List<ButtonBarLayoutBehavior> _ButtonBarLayoutBehavior_values$() {
-  return ButtonBarLayoutBehavior.values;
-}
+Function _ButtonTextTheme_normal$(m.Scope scope$) =>
+    () => ButtonTextTheme.normal;
+Function _ButtonTextTheme_accent$(m.Scope scope$) =>
+    () => ButtonTextTheme.accent;
+Function _ButtonTextTheme_primary$(m.Scope scope$) =>
+    () => ButtonTextTheme.primary;
+Function _ButtonTextTheme_values$(m.Scope scope$) =>
+    () => ButtonTextTheme.values;
+Function _ButtonBarLayoutBehavior_constrained$(m.Scope scope$) =>
+    () => ButtonBarLayoutBehavior.constrained;
+Function _ButtonBarLayoutBehavior_padded$(m.Scope scope$) =>
+    () => ButtonBarLayoutBehavior.padded;
+Function _ButtonBarLayoutBehavior_values$(m.Scope scope$) =>
+    () => ButtonBarLayoutBehavior.values;

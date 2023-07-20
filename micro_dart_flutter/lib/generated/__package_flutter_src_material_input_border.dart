@@ -86,10 +86,7 @@ Function InputBorder_is$(
   dynamic target$,
 ) =>
     () => target$ is InputBorder;
-InputBorder _InputBorder_none$() {
-  return InputBorder.none;
-}
-
+Function _InputBorder_none$(m.Scope scope$) => () => InputBorder.none;
 Function _InputBorder_borderSide$(
   m.Scope scope$,
   InputBorder target$,

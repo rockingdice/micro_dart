@@ -264,14 +264,9 @@ Function _AnimationController_toStringDetails$(
   AnimationController target$,
 ) =>
     target$.toStringDetails;
-AnimationBehavior _AnimationBehavior_normal$() {
-  return AnimationBehavior.normal;
-}
-
-AnimationBehavior _AnimationBehavior_preserve$() {
-  return AnimationBehavior.preserve;
-}
-
-List<AnimationBehavior> _AnimationBehavior_values$() {
-  return AnimationBehavior.values;
-}
+Function _AnimationBehavior_normal$(m.Scope scope$) =>
+    () => AnimationBehavior.normal;
+Function _AnimationBehavior_preserve$(m.Scope scope$) =>
+    () => AnimationBehavior.preserve;
+Function _AnimationBehavior_values$(m.Scope scope$) =>
+    () => AnimationBehavior.values;

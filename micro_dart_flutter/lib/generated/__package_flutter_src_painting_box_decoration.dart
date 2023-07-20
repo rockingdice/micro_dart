@@ -21,7 +21,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'BoxDecoration.': _BoxDecoration__$,
     'BoxDecoration.lerp': _BoxDecoration_lerp$,
-    'BoxDecoration.createBoxPainter': _BoxDecoration_createBoxPainter$,
   },
   {},
   {
@@ -50,6 +49,7 @@ const libraryMirror = m.LibraryMirror(
         '==': _BoxDecoration_eq$$,
         'debugFillProperties': _BoxDecoration_debugFillProperties$,
         'hitTest': _BoxDecoration_hitTest$,
+        'createBoxPainter': _BoxDecoration_createBoxPainter$,
       },
       {},
     )

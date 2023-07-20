@@ -229,14 +229,9 @@ Function _PopupMenuTheme_updateShouldNotify$(
   PopupMenuTheme target$,
 ) =>
     target$.updateShouldNotify;
-PopupMenuPosition _PopupMenuPosition_over$() {
-  return PopupMenuPosition.over;
-}
-
-PopupMenuPosition _PopupMenuPosition_under$() {
-  return PopupMenuPosition.under;
-}
-
-List<PopupMenuPosition> _PopupMenuPosition_values$() {
-  return PopupMenuPosition.values;
-}
+Function _PopupMenuPosition_over$(m.Scope scope$) =>
+    () => PopupMenuPosition.over;
+Function _PopupMenuPosition_under$(m.Scope scope$) =>
+    () => PopupMenuPosition.under;
+Function _PopupMenuPosition_values$(m.Scope scope$) =>
+    () => PopupMenuPosition.values;

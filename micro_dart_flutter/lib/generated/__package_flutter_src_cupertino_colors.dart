@@ -124,190 +124,94 @@ Function CupertinoColors_is$(
   dynamic target$,
 ) =>
     () => target$ is CupertinoColors;
-CupertinoDynamicColor _CupertinoColors_activeBlue$() {
-  return CupertinoColors.activeBlue;
-}
-
-CupertinoDynamicColor _CupertinoColors_activeGreen$() {
-  return CupertinoColors.activeGreen;
-}
-
-CupertinoDynamicColor _CupertinoColors_activeOrange$() {
-  return CupertinoColors.activeOrange;
-}
-
-Color _CupertinoColors_white$() {
-  return CupertinoColors.white;
-}
-
-Color _CupertinoColors_black$() {
-  return CupertinoColors.black;
-}
-
-Color _CupertinoColors_lightBackgroundGray$() {
-  return CupertinoColors.lightBackgroundGray;
-}
-
-Color _CupertinoColors_extraLightBackgroundGray$() {
-  return CupertinoColors.extraLightBackgroundGray;
-}
-
-Color _CupertinoColors_darkBackgroundGray$() {
-  return CupertinoColors.darkBackgroundGray;
-}
-
-CupertinoDynamicColor _CupertinoColors_inactiveGray$() {
-  return CupertinoColors.inactiveGray;
-}
-
-Color _CupertinoColors_destructiveRed$() {
-  return CupertinoColors.destructiveRed;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemBlue$() {
-  return CupertinoColors.systemBlue;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGreen$() {
-  return CupertinoColors.systemGreen;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemMint$() {
-  return CupertinoColors.systemMint;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemIndigo$() {
-  return CupertinoColors.systemIndigo;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemOrange$() {
-  return CupertinoColors.systemOrange;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemPink$() {
-  return CupertinoColors.systemPink;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemBrown$() {
-  return CupertinoColors.systemBrown;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemPurple$() {
-  return CupertinoColors.systemPurple;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemRed$() {
-  return CupertinoColors.systemRed;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemTeal$() {
-  return CupertinoColors.systemTeal;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemCyan$() {
-  return CupertinoColors.systemCyan;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemYellow$() {
-  return CupertinoColors.systemYellow;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey$() {
-  return CupertinoColors.systemGrey;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey2$() {
-  return CupertinoColors.systemGrey2;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey3$() {
-  return CupertinoColors.systemGrey3;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey4$() {
-  return CupertinoColors.systemGrey4;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey5$() {
-  return CupertinoColors.systemGrey5;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGrey6$() {
-  return CupertinoColors.systemGrey6;
-}
-
-CupertinoDynamicColor _CupertinoColors_label$() {
-  return CupertinoColors.label;
-}
-
-CupertinoDynamicColor _CupertinoColors_secondaryLabel$() {
-  return CupertinoColors.secondaryLabel;
-}
-
-CupertinoDynamicColor _CupertinoColors_tertiaryLabel$() {
-  return CupertinoColors.tertiaryLabel;
-}
-
-CupertinoDynamicColor _CupertinoColors_quaternaryLabel$() {
-  return CupertinoColors.quaternaryLabel;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemFill$() {
-  return CupertinoColors.systemFill;
-}
-
-CupertinoDynamicColor _CupertinoColors_secondarySystemFill$() {
-  return CupertinoColors.secondarySystemFill;
-}
-
-CupertinoDynamicColor _CupertinoColors_tertiarySystemFill$() {
-  return CupertinoColors.tertiarySystemFill;
-}
-
-CupertinoDynamicColor _CupertinoColors_quaternarySystemFill$() {
-  return CupertinoColors.quaternarySystemFill;
-}
-
-CupertinoDynamicColor _CupertinoColors_placeholderText$() {
-  return CupertinoColors.placeholderText;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemBackground$() {
-  return CupertinoColors.systemBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_secondarySystemBackground$() {
-  return CupertinoColors.secondarySystemBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_tertiarySystemBackground$() {
-  return CupertinoColors.tertiarySystemBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_systemGroupedBackground$() {
-  return CupertinoColors.systemGroupedBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_secondarySystemGroupedBackground$() {
-  return CupertinoColors.secondarySystemGroupedBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_tertiarySystemGroupedBackground$() {
-  return CupertinoColors.tertiarySystemGroupedBackground;
-}
-
-CupertinoDynamicColor _CupertinoColors_separator$() {
-  return CupertinoColors.separator;
-}
-
-CupertinoDynamicColor _CupertinoColors_opaqueSeparator$() {
-  return CupertinoColors.opaqueSeparator;
-}
-
-CupertinoDynamicColor _CupertinoColors_link$() {
-  return CupertinoColors.link;
-}
-
+Function _CupertinoColors_activeBlue$(m.Scope scope$) =>
+    () => CupertinoColors.activeBlue;
+Function _CupertinoColors_activeGreen$(m.Scope scope$) =>
+    () => CupertinoColors.activeGreen;
+Function _CupertinoColors_activeOrange$(m.Scope scope$) =>
+    () => CupertinoColors.activeOrange;
+Function _CupertinoColors_white$(m.Scope scope$) => () => CupertinoColors.white;
+Function _CupertinoColors_black$(m.Scope scope$) => () => CupertinoColors.black;
+Function _CupertinoColors_lightBackgroundGray$(m.Scope scope$) =>
+    () => CupertinoColors.lightBackgroundGray;
+Function _CupertinoColors_extraLightBackgroundGray$(m.Scope scope$) =>
+    () => CupertinoColors.extraLightBackgroundGray;
+Function _CupertinoColors_darkBackgroundGray$(m.Scope scope$) =>
+    () => CupertinoColors.darkBackgroundGray;
+Function _CupertinoColors_inactiveGray$(m.Scope scope$) =>
+    () => CupertinoColors.inactiveGray;
+Function _CupertinoColors_destructiveRed$(m.Scope scope$) =>
+    () => CupertinoColors.destructiveRed;
+Function _CupertinoColors_systemBlue$(m.Scope scope$) =>
+    () => CupertinoColors.systemBlue;
+Function _CupertinoColors_systemGreen$(m.Scope scope$) =>
+    () => CupertinoColors.systemGreen;
+Function _CupertinoColors_systemMint$(m.Scope scope$) =>
+    () => CupertinoColors.systemMint;
+Function _CupertinoColors_systemIndigo$(m.Scope scope$) =>
+    () => CupertinoColors.systemIndigo;
+Function _CupertinoColors_systemOrange$(m.Scope scope$) =>
+    () => CupertinoColors.systemOrange;
+Function _CupertinoColors_systemPink$(m.Scope scope$) =>
+    () => CupertinoColors.systemPink;
+Function _CupertinoColors_systemBrown$(m.Scope scope$) =>
+    () => CupertinoColors.systemBrown;
+Function _CupertinoColors_systemPurple$(m.Scope scope$) =>
+    () => CupertinoColors.systemPurple;
+Function _CupertinoColors_systemRed$(m.Scope scope$) =>
+    () => CupertinoColors.systemRed;
+Function _CupertinoColors_systemTeal$(m.Scope scope$) =>
+    () => CupertinoColors.systemTeal;
+Function _CupertinoColors_systemCyan$(m.Scope scope$) =>
+    () => CupertinoColors.systemCyan;
+Function _CupertinoColors_systemYellow$(m.Scope scope$) =>
+    () => CupertinoColors.systemYellow;
+Function _CupertinoColors_systemGrey$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey;
+Function _CupertinoColors_systemGrey2$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey2;
+Function _CupertinoColors_systemGrey3$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey3;
+Function _CupertinoColors_systemGrey4$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey4;
+Function _CupertinoColors_systemGrey5$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey5;
+Function _CupertinoColors_systemGrey6$(m.Scope scope$) =>
+    () => CupertinoColors.systemGrey6;
+Function _CupertinoColors_label$(m.Scope scope$) => () => CupertinoColors.label;
+Function _CupertinoColors_secondaryLabel$(m.Scope scope$) =>
+    () => CupertinoColors.secondaryLabel;
+Function _CupertinoColors_tertiaryLabel$(m.Scope scope$) =>
+    () => CupertinoColors.tertiaryLabel;
+Function _CupertinoColors_quaternaryLabel$(m.Scope scope$) =>
+    () => CupertinoColors.quaternaryLabel;
+Function _CupertinoColors_systemFill$(m.Scope scope$) =>
+    () => CupertinoColors.systemFill;
+Function _CupertinoColors_secondarySystemFill$(m.Scope scope$) =>
+    () => CupertinoColors.secondarySystemFill;
+Function _CupertinoColors_tertiarySystemFill$(m.Scope scope$) =>
+    () => CupertinoColors.tertiarySystemFill;
+Function _CupertinoColors_quaternarySystemFill$(m.Scope scope$) =>
+    () => CupertinoColors.quaternarySystemFill;
+Function _CupertinoColors_placeholderText$(m.Scope scope$) =>
+    () => CupertinoColors.placeholderText;
+Function _CupertinoColors_systemBackground$(m.Scope scope$) =>
+    () => CupertinoColors.systemBackground;
+Function _CupertinoColors_secondarySystemBackground$(m.Scope scope$) =>
+    () => CupertinoColors.secondarySystemBackground;
+Function _CupertinoColors_tertiarySystemBackground$(m.Scope scope$) =>
+    () => CupertinoColors.tertiarySystemBackground;
+Function _CupertinoColors_systemGroupedBackground$(m.Scope scope$) =>
+    () => CupertinoColors.systemGroupedBackground;
+Function _CupertinoColors_secondarySystemGroupedBackground$(m.Scope scope$) =>
+    () => CupertinoColors.secondarySystemGroupedBackground;
+Function _CupertinoColors_tertiarySystemGroupedBackground$(m.Scope scope$) =>
+    () => CupertinoColors.tertiarySystemGroupedBackground;
+Function _CupertinoColors_separator$(m.Scope scope$) =>
+    () => CupertinoColors.separator;
+Function _CupertinoColors_opaqueSeparator$(m.Scope scope$) =>
+    () => CupertinoColors.opaqueSeparator;
+Function _CupertinoColors_link$(m.Scope scope$) => () => CupertinoColors.link;
 Function CupertinoDynamicColor_as$(
   m.Scope scope$,
   dynamic target$,

@@ -26,42 +26,32 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-bool _debugPrintHitTestResults$() {
-  return debugPrintHitTestResults;
-}
-
+Function _debugPrintHitTestResults$(m.Scope scope$) =>
+    () => debugPrintHitTestResults;
 void _debugPrintHitTestResults_set$(bool other$) {
   debugPrintHitTestResults = other$;
 }
 
-bool _debugPrintMouseHoverEvents$() {
-  return debugPrintMouseHoverEvents;
-}
-
+Function _debugPrintMouseHoverEvents$(m.Scope scope$) =>
+    () => debugPrintMouseHoverEvents;
 void _debugPrintMouseHoverEvents_set$(bool other$) {
   debugPrintMouseHoverEvents = other$;
 }
 
-bool _debugPrintGestureArenaDiagnostics$() {
-  return debugPrintGestureArenaDiagnostics;
-}
-
+Function _debugPrintGestureArenaDiagnostics$(m.Scope scope$) =>
+    () => debugPrintGestureArenaDiagnostics;
 void _debugPrintGestureArenaDiagnostics_set$(bool other$) {
   debugPrintGestureArenaDiagnostics = other$;
 }
 
-bool _debugPrintRecognizerCallbacksTrace$() {
-  return debugPrintRecognizerCallbacksTrace;
-}
-
+Function _debugPrintRecognizerCallbacksTrace$(m.Scope scope$) =>
+    () => debugPrintRecognizerCallbacksTrace;
 void _debugPrintRecognizerCallbacksTrace_set$(bool other$) {
   debugPrintRecognizerCallbacksTrace = other$;
 }
 
-bool _debugPrintResamplingMargin$() {
-  return debugPrintResamplingMargin;
-}
-
+Function _debugPrintResamplingMargin$(m.Scope scope$) =>
+    () => debugPrintResamplingMargin;
 void _debugPrintResamplingMargin_set$(bool other$) {
   debugPrintResamplingMargin = other$;
 }

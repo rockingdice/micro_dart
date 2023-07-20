@@ -27,27 +27,11 @@ const libraryMirror = m.LibraryMirror(
         _PaintingContext_updateLayerProperties$,
     'PaintingContext.debugInstrumentRepaintCompositedChild':
         _PaintingContext_debugInstrumentRepaintCompositedChild$,
-    'PaintingContext.addCompositionCallback':
-        _PaintingContext_addCompositionCallback$,
-    'PaintingContext.pushLayer': _PaintingContext_pushLayer$,
-    'PaintingContext.pushClipRect': _PaintingContext_pushClipRect$,
-    'PaintingContext.pushClipRRect': _PaintingContext_pushClipRRect$,
-    'PaintingContext.pushClipPath': _PaintingContext_pushClipPath$,
-    'PaintingContext.pushColorFilter': _PaintingContext_pushColorFilter$,
-    'PaintingContext.pushTransform': _PaintingContext_pushTransform$,
-    'PaintingContext.pushOpacity': _PaintingContext_pushOpacity$,
-    'Constraints.debugAssertIsValid': _Constraints_debugAssertIsValid$,
     'PipelineOwner.': _PipelineOwner__$,
-    'PipelineOwner.ensureSemantics': _PipelineOwner_ensureSemantics$,
-    'PipelineOwner.visitChildren': _PipelineOwner_visitChildren$,
     'RenderObject.debugCheckingIntrinsics':
         _RenderObject_debugCheckingIntrinsics$,
     'RenderObject.debugActiveLayout': _RenderObject_debugActiveLayout$,
     'RenderObject.debugActivePaint': _RenderObject_debugActivePaint$,
-    'RenderObject.visitChildren': _RenderObject_visitChildren$,
-    'RenderObject.invokeLayoutCallback': _RenderObject_invokeLayoutCallback$,
-    'RenderObject.visitChildrenForSemantics':
-        _RenderObject_visitChildrenForSemantics$,
     'DiagnosticsDebugCreator.': _DiagnosticsDebugCreator__$,
   },
   {
@@ -74,11 +58,19 @@ const libraryMirror = m.LibraryMirror(
         'canvas': _PaintingContext_canvas$,
         'paintChild': _PaintingContext_paintChild$,
         'appendLayer': _PaintingContext_appendLayer$,
+        'addCompositionCallback': _PaintingContext_addCompositionCallback$,
         'stopRecordingIfNeeded': _PaintingContext_stopRecordingIfNeeded$,
         'setIsComplexHint': _PaintingContext_setIsComplexHint$,
         'setWillChangeHint': _PaintingContext_setWillChangeHint$,
         'addLayer': _PaintingContext_addLayer$,
+        'pushLayer': _PaintingContext_pushLayer$,
         'createChildContext': _PaintingContext_createChildContext$,
+        'pushClipRect': _PaintingContext_pushClipRect$,
+        'pushClipRRect': _PaintingContext_pushClipRRect$,
+        'pushClipPath': _PaintingContext_pushClipPath$,
+        'pushColorFilter': _PaintingContext_pushColorFilter$,
+        'pushTransform': _PaintingContext_pushTransform$,
+        'pushOpacity': _PaintingContext_pushOpacity$,
         'toString': _PaintingContext_toString$,
       },
       {},
@@ -90,6 +82,7 @@ const libraryMirror = m.LibraryMirror(
         '#is': Constraints_is$,
         'isTight': _Constraints_isTight$,
         'isNormalized': _Constraints_isNormalized$,
+        'debugAssertIsValid': _Constraints_debugAssertIsValid$,
       },
       {},
     ),
@@ -112,11 +105,13 @@ const libraryMirror = m.LibraryMirror(
         'flushLayout': _PipelineOwner_flushLayout$,
         'flushCompositingBits': _PipelineOwner_flushCompositingBits$,
         'flushPaint': _PipelineOwner_flushPaint$,
+        'ensureSemantics': _PipelineOwner_ensureSemantics$,
         'flushSemantics': _PipelineOwner_flushSemantics$,
         'attach': _PipelineOwner_attach$,
         'detach': _PipelineOwner_detach$,
         'adoptChild': _PipelineOwner_adoptChild$,
         'dropChild': _PipelineOwner_dropChild$,
+        'visitChildren': _PipelineOwner_visitChildren$,
       },
       {'rootNode': _PipelineOwner_rootNode_set$},
     ),
@@ -165,6 +160,7 @@ const libraryMirror = m.LibraryMirror(
         'setupParentData': _RenderObject_setupParentData$,
         'adoptChild': _RenderObject_adoptChild$,
         'dropChild': _RenderObject_dropChild$,
+        'visitChildren': _RenderObject_visitChildren$,
         'attach': _RenderObject_attach$,
         'debugAssertDoesMeetConstraints':
             _RenderObject_debugAssertDoesMeetConstraints$,
@@ -177,6 +173,7 @@ const libraryMirror = m.LibraryMirror(
         'debugResetSize': _RenderObject_debugResetSize$,
         'performResize': _RenderObject_performResize$,
         'performLayout': _RenderObject_performLayout$,
+        'invokeLayoutCallback': _RenderObject_invokeLayoutCallback$,
         'debugRegisterRepaintBoundaryPaint':
             _RenderObject_debugRegisterRepaintBoundaryPaint$,
         'updateCompositedLayer': _RenderObject_updateCompositedLayer$,
@@ -201,6 +198,7 @@ const libraryMirror = m.LibraryMirror(
         'sendSemanticsEvent': _RenderObject_sendSemanticsEvent$,
         'clearSemantics': _RenderObject_clearSemantics$,
         'markNeedsSemanticsUpdate': _RenderObject_markNeedsSemanticsUpdate$,
+        'visitChildrenForSemantics': _RenderObject_visitChildrenForSemantics$,
         'assembleSemanticsNode': _RenderObject_assembleSemanticsNode$,
         'handleEvent': _RenderObject_handleEvent$,
         'toStringShort': _RenderObject_toStringShort$,
@@ -875,10 +873,8 @@ void _RenderObject_debugCreator_set$(
     (dynamic other$) {
       target$.debugCreator = other$;
     };
-bool _RenderObject_debugCheckingIntrinsics$() {
-  return RenderObject.debugCheckingIntrinsics;
-}
-
+Function _RenderObject_debugCheckingIntrinsics$(m.Scope scope$) =>
+    () => RenderObject.debugCheckingIntrinsics;
 void _RenderObject_debugCheckingIntrinsics_set$(bool other$) {
   RenderObject.debugCheckingIntrinsics = other$;
 }
@@ -904,10 +900,8 @@ Function _RenderObject_debugDoingThisLayout$(
     () {
       return target$.debugDoingThisLayout;
     };
-RenderObject? _RenderObject_debugActiveLayout$() {
-  return RenderObject.debugActiveLayout;
-}
-
+Function _RenderObject_debugActiveLayout$(m.Scope scope$) =>
+    () => RenderObject.debugActiveLayout;
 Function _RenderObject_debugCanParentUseSize$(
   m.Scope scope$,
   RenderObject target$,
@@ -964,10 +958,8 @@ Function _RenderObject_debugDoingThisPaint$(
     () {
       return target$.debugDoingThisPaint;
     };
-RenderObject? _RenderObject_debugActivePaint$() {
-  return RenderObject.debugActivePaint;
-}
-
+Function _RenderObject_debugActivePaint$(m.Scope scope$) =>
+    () => RenderObject.debugActivePaint;
 Function _RenderObject_isRepaintBoundary$(
   m.Scope scope$,
   RenderObject target$,

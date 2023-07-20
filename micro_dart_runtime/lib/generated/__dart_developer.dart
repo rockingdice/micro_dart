@@ -134,10 +134,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-int _reachabilityBarrier$() {
-  return reachabilityBarrier;
-}
-
+Function _reachabilityBarrier$(m.Scope scope$) => () => reachabilityBarrier;
 Function NativeRuntime_as$(
   m.Scope scope$,
   dynamic target$,
@@ -153,10 +150,8 @@ Function _NativeRuntime_writeHeapSnapshotToFile$(m.Scope scope$) =>
 Function _debugger$(m.Scope scope$) => debugger;
 Function _inspect$(m.Scope scope$) => inspect;
 Function _log$(m.Scope scope$) => log;
-bool _extensionStreamHasListener$() {
-  return extensionStreamHasListener;
-}
-
+Function _extensionStreamHasListener$(m.Scope scope$) =>
+    () => extensionStreamHasListener;
 Function ServiceExtensionResponse_as$(
   m.Scope scope$,
   dynamic target$,
@@ -167,35 +162,35 @@ Function ServiceExtensionResponse_is$(
   dynamic target$,
 ) =>
     () => target$ is ServiceExtensionResponse;
-String? _ServiceExtensionResponse_result$(ServiceExtensionResponse target$) {
-  return target$.result;
-}
-
-int? _ServiceExtensionResponse_errorCode$(ServiceExtensionResponse target$) {
-  return target$.errorCode;
-}
-
-String? _ServiceExtensionResponse_errorDetail$(
-    ServiceExtensionResponse target$) {
-  return target$.errorDetail;
-}
-
-int _ServiceExtensionResponse_invalidParams$() {
-  return ServiceExtensionResponse.invalidParams;
-}
-
-int _ServiceExtensionResponse_extensionError$() {
-  return ServiceExtensionResponse.extensionError;
-}
-
-int _ServiceExtensionResponse_extensionErrorMax$() {
-  return ServiceExtensionResponse.extensionErrorMax;
-}
-
-int _ServiceExtensionResponse_extensionErrorMin$() {
-  return ServiceExtensionResponse.extensionErrorMin;
-}
-
+Function _ServiceExtensionResponse_result$(
+  m.Scope scope$,
+  ServiceExtensionResponse target$,
+) =>
+    () {
+      return target$.result;
+    };
+Function _ServiceExtensionResponse_errorCode$(
+  m.Scope scope$,
+  ServiceExtensionResponse target$,
+) =>
+    () {
+      return target$.errorCode;
+    };
+Function _ServiceExtensionResponse_errorDetail$(
+  m.Scope scope$,
+  ServiceExtensionResponse target$,
+) =>
+    () {
+      return target$.errorDetail;
+    };
+Function _ServiceExtensionResponse_invalidParams$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.invalidParams;
+Function _ServiceExtensionResponse_extensionError$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionError;
+Function _ServiceExtensionResponse_extensionErrorMax$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionErrorMax;
+Function _ServiceExtensionResponse_extensionErrorMin$(m.Scope scope$) =>
+    () => ServiceExtensionResponse.extensionErrorMin;
 Function _ServiceExtensionResponse_result_$(m.Scope scope$) =>
     ServiceExtensionResponse.result;
 Function _ServiceExtensionResponse_error_$(m.Scope scope$) =>
@@ -238,18 +233,15 @@ Function UserTag_is$(
   dynamic target$,
 ) =>
     () => target$ is UserTag;
-int _UserTag_maxUserTags$() {
-  return UserTag.maxUserTags;
-}
-
-String _UserTag_label$(UserTag target$) {
-  return target$.label;
-}
-
-UserTag _UserTag_defaultTag$() {
-  return UserTag.defaultTag;
-}
-
+Function _UserTag_maxUserTags$(m.Scope scope$) => () => UserTag.maxUserTags;
+Function _UserTag_label$(
+  m.Scope scope$,
+  UserTag target$,
+) =>
+    () {
+      return target$.label;
+    };
+Function _UserTag_defaultTag$(m.Scope scope$) => () => UserTag.defaultTag;
 Function _UserTag__$(m.Scope scope$) => (String label) {
       return UserTag(label);
     };
@@ -269,22 +261,34 @@ Function ServiceProtocolInfo_is$(
   dynamic target$,
 ) =>
     () => target$ is ServiceProtocolInfo;
-int _ServiceProtocolInfo_majorVersion$(ServiceProtocolInfo target$) {
-  return target$.majorVersion;
-}
-
-int _ServiceProtocolInfo_minorVersion$(ServiceProtocolInfo target$) {
-  return target$.minorVersion;
-}
-
-Uri? _ServiceProtocolInfo_serverUri$(ServiceProtocolInfo target$) {
-  return target$.serverUri;
-}
-
-Uri? _ServiceProtocolInfo_serverWebSocketUri$(ServiceProtocolInfo target$) {
-  return target$.serverWebSocketUri;
-}
-
+Function _ServiceProtocolInfo_majorVersion$(
+  m.Scope scope$,
+  ServiceProtocolInfo target$,
+) =>
+    () {
+      return target$.majorVersion;
+    };
+Function _ServiceProtocolInfo_minorVersion$(
+  m.Scope scope$,
+  ServiceProtocolInfo target$,
+) =>
+    () {
+      return target$.minorVersion;
+    };
+Function _ServiceProtocolInfo_serverUri$(
+  m.Scope scope$,
+  ServiceProtocolInfo target$,
+) =>
+    () {
+      return target$.serverUri;
+    };
+Function _ServiceProtocolInfo_serverWebSocketUri$(
+  m.Scope scope$,
+  ServiceProtocolInfo target$,
+) =>
+    () {
+      return target$.serverWebSocketUri;
+    };
 Function _ServiceProtocolInfo__$(m.Scope scope$) => (Uri? serverUri) {
       return ServiceProtocolInfo(serverUri);
     };
@@ -319,10 +323,13 @@ Function Flow_is$(
   dynamic target$,
 ) =>
     () => target$ is Flow;
-int _Flow_id$(Flow target$) {
-  return target$.id;
-}
-
+Function _Flow_id$(
+  m.Scope scope$,
+  Flow target$,
+) =>
+    () {
+      return target$.id;
+    };
 Function _Flow_begin$(m.Scope scope$) => Flow.begin;
 Function _Flow_step$(m.Scope scope$) => Flow.step;
 Function _Flow_end$(m.Scope scope$) => Flow.end;
@@ -336,10 +343,7 @@ Function Timeline_is$(
   dynamic target$,
 ) =>
     () => target$ is Timeline;
-int _Timeline_now$() {
-  return Timeline.now;
-}
-
+Function _Timeline_now$(m.Scope scope$) => () => Timeline.now;
 Function _Timeline_startSync$(m.Scope scope$) => Timeline.startSync;
 Function _Timeline_finishSync$(m.Scope scope$) => Timeline.finishSync;
 Function _Timeline_instantSync$(m.Scope scope$) => Timeline.instantSync;

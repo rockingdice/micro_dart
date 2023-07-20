@@ -24,8 +24,6 @@ const libraryMirror = m.LibraryMirror(
     'RawKeyDownEvent.': _RawKeyDownEvent__$,
     'RawKeyUpEvent.': _RawKeyUpEvent__$,
     'RawKeyboard.instance': _RawKeyboard_instance$,
-    'RawKeyboard.addListener': _RawKeyboard_addListener$,
-    'RawKeyboard.removeListener': _RawKeyboard_removeListener$,
     'KeyboardSide.any': _KeyboardSide_any$,
     'KeyboardSide.left': _KeyboardSide_left$,
     'KeyboardSide.right': _KeyboardSide_right$,
@@ -106,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
         'keyEventHandler': _RawKeyboard_keyEventHandler$,
         'keysPressed': _RawKeyboard_keysPressed$,
         'physicalKeysPressed': _RawKeyboard_physicalKeysPressed$,
+        'addListener': _RawKeyboard_addListener$,
+        'removeListener': _RawKeyboard_removeListener$,
         'handleRawKeyEvent': _RawKeyboard_handleRawKeyEvent$,
         'lookUpLayout': _RawKeyboard_lookUpLayout$,
         'clearKeysPressed': _RawKeyboard_clearKeysPressed$,
@@ -339,10 +339,7 @@ Function RawKeyboard_is$(
   dynamic target$,
 ) =>
     () => target$ is RawKeyboard;
-RawKeyboard _RawKeyboard_instance$() {
-  return RawKeyboard.instance;
-}
-
+Function _RawKeyboard_instance$(m.Scope scope$) => () => RawKeyboard.instance;
 Function _RawKeyboard_keyEventHandler$(
   m.Scope scope$,
   RawKeyboard target$,
@@ -421,62 +418,27 @@ Function _RawKeyboard_clearKeysPressed$(
   RawKeyboard target$,
 ) =>
     target$.clearKeysPressed;
-KeyboardSide _KeyboardSide_any$() {
-  return KeyboardSide.any;
-}
-
-KeyboardSide _KeyboardSide_left$() {
-  return KeyboardSide.left;
-}
-
-KeyboardSide _KeyboardSide_right$() {
-  return KeyboardSide.right;
-}
-
-KeyboardSide _KeyboardSide_all$() {
-  return KeyboardSide.all;
-}
-
-List<KeyboardSide> _KeyboardSide_values$() {
-  return KeyboardSide.values;
-}
-
-ModifierKey _ModifierKey_controlModifier$() {
-  return ModifierKey.controlModifier;
-}
-
-ModifierKey _ModifierKey_shiftModifier$() {
-  return ModifierKey.shiftModifier;
-}
-
-ModifierKey _ModifierKey_altModifier$() {
-  return ModifierKey.altModifier;
-}
-
-ModifierKey _ModifierKey_metaModifier$() {
-  return ModifierKey.metaModifier;
-}
-
-ModifierKey _ModifierKey_capsLockModifier$() {
-  return ModifierKey.capsLockModifier;
-}
-
-ModifierKey _ModifierKey_numLockModifier$() {
-  return ModifierKey.numLockModifier;
-}
-
-ModifierKey _ModifierKey_scrollLockModifier$() {
-  return ModifierKey.scrollLockModifier;
-}
-
-ModifierKey _ModifierKey_functionModifier$() {
-  return ModifierKey.functionModifier;
-}
-
-ModifierKey _ModifierKey_symbolModifier$() {
-  return ModifierKey.symbolModifier;
-}
-
-List<ModifierKey> _ModifierKey_values$() {
-  return ModifierKey.values;
-}
+Function _KeyboardSide_any$(m.Scope scope$) => () => KeyboardSide.any;
+Function _KeyboardSide_left$(m.Scope scope$) => () => KeyboardSide.left;
+Function _KeyboardSide_right$(m.Scope scope$) => () => KeyboardSide.right;
+Function _KeyboardSide_all$(m.Scope scope$) => () => KeyboardSide.all;
+Function _KeyboardSide_values$(m.Scope scope$) => () => KeyboardSide.values;
+Function _ModifierKey_controlModifier$(m.Scope scope$) =>
+    () => ModifierKey.controlModifier;
+Function _ModifierKey_shiftModifier$(m.Scope scope$) =>
+    () => ModifierKey.shiftModifier;
+Function _ModifierKey_altModifier$(m.Scope scope$) =>
+    () => ModifierKey.altModifier;
+Function _ModifierKey_metaModifier$(m.Scope scope$) =>
+    () => ModifierKey.metaModifier;
+Function _ModifierKey_capsLockModifier$(m.Scope scope$) =>
+    () => ModifierKey.capsLockModifier;
+Function _ModifierKey_numLockModifier$(m.Scope scope$) =>
+    () => ModifierKey.numLockModifier;
+Function _ModifierKey_scrollLockModifier$(m.Scope scope$) =>
+    () => ModifierKey.scrollLockModifier;
+Function _ModifierKey_functionModifier$(m.Scope scope$) =>
+    () => ModifierKey.functionModifier;
+Function _ModifierKey_symbolModifier$(m.Scope scope$) =>
+    () => ModifierKey.symbolModifier;
+Function _ModifierKey_values$(m.Scope scope$) => () => ModifierKey.values;

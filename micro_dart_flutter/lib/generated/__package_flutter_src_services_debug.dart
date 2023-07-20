@@ -21,19 +21,15 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-KeyDataTransitMode? _debugKeyEventSimulatorTransitModeOverride$() {
-  return debugKeyEventSimulatorTransitModeOverride;
-}
-
+Function _debugKeyEventSimulatorTransitModeOverride$(m.Scope scope$) =>
+    () => debugKeyEventSimulatorTransitModeOverride;
 void _debugKeyEventSimulatorTransitModeOverride_set$(
     KeyDataTransitMode? other$) {
   debugKeyEventSimulatorTransitModeOverride = other$;
 }
 
-bool _debugProfilePlatformChannels$() {
-  return debugProfilePlatformChannels;
-}
-
+Function _debugProfilePlatformChannels$(m.Scope scope$) =>
+    () => debugProfilePlatformChannels;
 void _debugProfilePlatformChannels_set$(bool other$) {
   debugProfilePlatformChannels = other$;
 }

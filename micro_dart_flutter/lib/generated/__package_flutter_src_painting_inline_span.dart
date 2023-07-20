@@ -18,7 +18,6 @@ const libraryMirror = m.LibraryMirror(
     'InlineSpanSemanticsInformation.placeholder':
         _InlineSpanSemanticsInformation_placeholder$,
     'InlineSpanSemanticsInformation.': _InlineSpanSemanticsInformation__$,
-    'InlineSpan.visitChildren': _InlineSpan_visitChildren$,
     'combineSemanticsInfo': _combineSemanticsInfo$,
   },
   {},
@@ -58,6 +57,7 @@ const libraryMirror = m.LibraryMirror(
         'style': _InlineSpan_style$,
         'hashCode': _InlineSpan_hashCode$,
         'build': _InlineSpan_build$,
+        'visitChildren': _InlineSpan_visitChildren$,
         'getSpanForPosition': _InlineSpan_getSpanForPosition$,
         'getSpanForPositionVisitor': _InlineSpan_getSpanForPositionVisitor$,
         'toPlainText': _InlineSpan_toPlainText$,
@@ -113,10 +113,8 @@ Function InlineSpanSemanticsInformation_is$(
   dynamic target$,
 ) =>
     () => target$ is InlineSpanSemanticsInformation;
-InlineSpanSemanticsInformation _InlineSpanSemanticsInformation_placeholder$() {
-  return InlineSpanSemanticsInformation.placeholder;
-}
-
+Function _InlineSpanSemanticsInformation_placeholder$(m.Scope scope$) =>
+    () => InlineSpanSemanticsInformation.placeholder;
 Function _InlineSpanSemanticsInformation_text$(
   m.Scope scope$,
   InlineSpanSemanticsInformation target$,

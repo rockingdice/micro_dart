@@ -445,14 +445,9 @@ Function _NeverScrollableScrollPhysics_shouldAcceptUserOffset$(
   NeverScrollableScrollPhysics target$,
 ) =>
     target$.shouldAcceptUserOffset;
-ScrollDecelerationRate _ScrollDecelerationRate_normal$() {
-  return ScrollDecelerationRate.normal;
-}
-
-ScrollDecelerationRate _ScrollDecelerationRate_fast$() {
-  return ScrollDecelerationRate.fast;
-}
-
-List<ScrollDecelerationRate> _ScrollDecelerationRate_values$() {
-  return ScrollDecelerationRate.values;
-}
+Function _ScrollDecelerationRate_normal$(m.Scope scope$) =>
+    () => ScrollDecelerationRate.normal;
+Function _ScrollDecelerationRate_fast$(m.Scope scope$) =>
+    () => ScrollDecelerationRate.fast;
+Function _ScrollDecelerationRate_values$(m.Scope scope$) =>
+    () => ScrollDecelerationRate.values;

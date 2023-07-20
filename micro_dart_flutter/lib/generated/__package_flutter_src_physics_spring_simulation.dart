@@ -194,18 +194,9 @@ Function _ScrollSpringSimulation_x$(
   ScrollSpringSimulation target$,
 ) =>
     target$.x;
-SpringType _SpringType_criticallyDamped$() {
-  return SpringType.criticallyDamped;
-}
-
-SpringType _SpringType_underDamped$() {
-  return SpringType.underDamped;
-}
-
-SpringType _SpringType_overDamped$() {
-  return SpringType.overDamped;
-}
-
-List<SpringType> _SpringType_values$() {
-  return SpringType.values;
-}
+Function _SpringType_criticallyDamped$(m.Scope scope$) =>
+    () => SpringType.criticallyDamped;
+Function _SpringType_underDamped$(m.Scope scope$) =>
+    () => SpringType.underDamped;
+Function _SpringType_overDamped$(m.Scope scope$) => () => SpringType.overDamped;
+Function _SpringType_values$(m.Scope scope$) => () => SpringType.values;

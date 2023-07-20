@@ -117,74 +117,40 @@ Function _RawKeyEventDataMacOs_specifiedLogicalKey$(
     () {
       return target$.specifiedLogicalKey;
     };
-int _RawKeyEventDataMacOs_modifierCapsLock$() {
-  return RawKeyEventDataMacOs.modifierCapsLock;
-}
-
-int _RawKeyEventDataMacOs_modifierShift$() {
-  return RawKeyEventDataMacOs.modifierShift;
-}
-
-int _RawKeyEventDataMacOs_modifierLeftShift$() {
-  return RawKeyEventDataMacOs.modifierLeftShift;
-}
-
-int _RawKeyEventDataMacOs_modifierRightShift$() {
-  return RawKeyEventDataMacOs.modifierRightShift;
-}
-
-int _RawKeyEventDataMacOs_modifierControl$() {
-  return RawKeyEventDataMacOs.modifierControl;
-}
-
-int _RawKeyEventDataMacOs_modifierLeftControl$() {
-  return RawKeyEventDataMacOs.modifierLeftControl;
-}
-
-int _RawKeyEventDataMacOs_modifierRightControl$() {
-  return RawKeyEventDataMacOs.modifierRightControl;
-}
-
-int _RawKeyEventDataMacOs_modifierOption$() {
-  return RawKeyEventDataMacOs.modifierOption;
-}
-
-int _RawKeyEventDataMacOs_modifierLeftOption$() {
-  return RawKeyEventDataMacOs.modifierLeftOption;
-}
-
-int _RawKeyEventDataMacOs_modifierRightOption$() {
-  return RawKeyEventDataMacOs.modifierRightOption;
-}
-
-int _RawKeyEventDataMacOs_modifierCommand$() {
-  return RawKeyEventDataMacOs.modifierCommand;
-}
-
-int _RawKeyEventDataMacOs_modifierLeftCommand$() {
-  return RawKeyEventDataMacOs.modifierLeftCommand;
-}
-
-int _RawKeyEventDataMacOs_modifierRightCommand$() {
-  return RawKeyEventDataMacOs.modifierRightCommand;
-}
-
-int _RawKeyEventDataMacOs_modifierNumericPad$() {
-  return RawKeyEventDataMacOs.modifierNumericPad;
-}
-
-int _RawKeyEventDataMacOs_modifierHelp$() {
-  return RawKeyEventDataMacOs.modifierHelp;
-}
-
-int _RawKeyEventDataMacOs_modifierFunction$() {
-  return RawKeyEventDataMacOs.modifierFunction;
-}
-
-int _RawKeyEventDataMacOs_deviceIndependentMask$() {
-  return RawKeyEventDataMacOs.deviceIndependentMask;
-}
-
+Function _RawKeyEventDataMacOs_modifierCapsLock$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierCapsLock;
+Function _RawKeyEventDataMacOs_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierShift;
+Function _RawKeyEventDataMacOs_modifierLeftShift$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierLeftShift;
+Function _RawKeyEventDataMacOs_modifierRightShift$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierRightShift;
+Function _RawKeyEventDataMacOs_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierControl;
+Function _RawKeyEventDataMacOs_modifierLeftControl$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierLeftControl;
+Function _RawKeyEventDataMacOs_modifierRightControl$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierRightControl;
+Function _RawKeyEventDataMacOs_modifierOption$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierOption;
+Function _RawKeyEventDataMacOs_modifierLeftOption$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierLeftOption;
+Function _RawKeyEventDataMacOs_modifierRightOption$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierRightOption;
+Function _RawKeyEventDataMacOs_modifierCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierCommand;
+Function _RawKeyEventDataMacOs_modifierLeftCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierLeftCommand;
+Function _RawKeyEventDataMacOs_modifierRightCommand$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierRightCommand;
+Function _RawKeyEventDataMacOs_modifierNumericPad$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierNumericPad;
+Function _RawKeyEventDataMacOs_modifierHelp$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierHelp;
+Function _RawKeyEventDataMacOs_modifierFunction$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.modifierFunction;
+Function _RawKeyEventDataMacOs_deviceIndependentMask$(m.Scope scope$) =>
+    () => RawKeyEventDataMacOs.deviceIndependentMask;
 Function _RawKeyEventDataMacOs_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataMacOs target$,

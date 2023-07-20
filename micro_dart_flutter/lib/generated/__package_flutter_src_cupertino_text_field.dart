@@ -583,14 +583,10 @@ Function _CupertinoTextField_spellCheckConfiguration$(
     () {
       return target$.spellCheckConfiguration;
     };
-TextStyle _CupertinoTextField_cupertinoMisspelledTextStyle$() {
-  return CupertinoTextField.cupertinoMisspelledTextStyle;
-}
-
-Color _CupertinoTextField_kMisspelledSelectionColor$() {
-  return CupertinoTextField.kMisspelledSelectionColor;
-}
-
+Function _CupertinoTextField_cupertinoMisspelledTextStyle$(m.Scope scope$) =>
+    () => CupertinoTextField.cupertinoMisspelledTextStyle;
+Function _CupertinoTextField_kMisspelledSelectionColor$(m.Scope scope$) =>
+    () => CupertinoTextField.kMisspelledSelectionColor;
 Function _CupertinoTextField_undoController$(
   m.Scope scope$,
   CupertinoTextField target$,
@@ -1050,22 +1046,13 @@ Function _CupertinoTextField_debugFillProperties$(
     target$.debugFillProperties;
 Function _CupertinoTextField_inferIOSSpellCheckConfiguration$(m.Scope scope$) =>
     CupertinoTextField.inferIOSSpellCheckConfiguration;
-OverlayVisibilityMode _OverlayVisibilityMode_never$() {
-  return OverlayVisibilityMode.never;
-}
-
-OverlayVisibilityMode _OverlayVisibilityMode_editing$() {
-  return OverlayVisibilityMode.editing;
-}
-
-OverlayVisibilityMode _OverlayVisibilityMode_notEditing$() {
-  return OverlayVisibilityMode.notEditing;
-}
-
-OverlayVisibilityMode _OverlayVisibilityMode_always$() {
-  return OverlayVisibilityMode.always;
-}
-
-List<OverlayVisibilityMode> _OverlayVisibilityMode_values$() {
-  return OverlayVisibilityMode.values;
-}
+Function _OverlayVisibilityMode_never$(m.Scope scope$) =>
+    () => OverlayVisibilityMode.never;
+Function _OverlayVisibilityMode_editing$(m.Scope scope$) =>
+    () => OverlayVisibilityMode.editing;
+Function _OverlayVisibilityMode_notEditing$(m.Scope scope$) =>
+    () => OverlayVisibilityMode.notEditing;
+Function _OverlayVisibilityMode_always$(m.Scope scope$) =>
+    () => OverlayVisibilityMode.always;
+Function _OverlayVisibilityMode_values$(m.Scope scope$) =>
+    () => OverlayVisibilityMode.values;

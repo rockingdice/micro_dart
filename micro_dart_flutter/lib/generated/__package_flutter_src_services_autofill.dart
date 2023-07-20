@@ -150,270 +150,132 @@ Function AutofillHints_is$(
   dynamic target$,
 ) =>
     () => target$ is AutofillHints;
-String _AutofillHints_addressCity$() {
-  return AutofillHints.addressCity;
-}
-
-String _AutofillHints_addressCityAndState$() {
-  return AutofillHints.addressCityAndState;
-}
-
-String _AutofillHints_addressState$() {
-  return AutofillHints.addressState;
-}
-
-String _AutofillHints_birthday$() {
-  return AutofillHints.birthday;
-}
-
-String _AutofillHints_birthdayDay$() {
-  return AutofillHints.birthdayDay;
-}
-
-String _AutofillHints_birthdayMonth$() {
-  return AutofillHints.birthdayMonth;
-}
-
-String _AutofillHints_birthdayYear$() {
-  return AutofillHints.birthdayYear;
-}
-
-String _AutofillHints_countryCode$() {
-  return AutofillHints.countryCode;
-}
-
-String _AutofillHints_countryName$() {
-  return AutofillHints.countryName;
-}
-
-String _AutofillHints_creditCardExpirationDate$() {
-  return AutofillHints.creditCardExpirationDate;
-}
-
-String _AutofillHints_creditCardExpirationDay$() {
-  return AutofillHints.creditCardExpirationDay;
-}
-
-String _AutofillHints_creditCardExpirationMonth$() {
-  return AutofillHints.creditCardExpirationMonth;
-}
-
-String _AutofillHints_creditCardExpirationYear$() {
-  return AutofillHints.creditCardExpirationYear;
-}
-
-String _AutofillHints_creditCardFamilyName$() {
-  return AutofillHints.creditCardFamilyName;
-}
-
-String _AutofillHints_creditCardGivenName$() {
-  return AutofillHints.creditCardGivenName;
-}
-
-String _AutofillHints_creditCardMiddleName$() {
-  return AutofillHints.creditCardMiddleName;
-}
-
-String _AutofillHints_creditCardName$() {
-  return AutofillHints.creditCardName;
-}
-
-String _AutofillHints_creditCardNumber$() {
-  return AutofillHints.creditCardNumber;
-}
-
-String _AutofillHints_creditCardSecurityCode$() {
-  return AutofillHints.creditCardSecurityCode;
-}
-
-String _AutofillHints_creditCardType$() {
-  return AutofillHints.creditCardType;
-}
-
-String _AutofillHints_email$() {
-  return AutofillHints.email;
-}
-
-String _AutofillHints_familyName$() {
-  return AutofillHints.familyName;
-}
-
-String _AutofillHints_fullStreetAddress$() {
-  return AutofillHints.fullStreetAddress;
-}
-
-String _AutofillHints_gender$() {
-  return AutofillHints.gender;
-}
-
-String _AutofillHints_givenName$() {
-  return AutofillHints.givenName;
-}
-
-String _AutofillHints_impp$() {
-  return AutofillHints.impp;
-}
-
-String _AutofillHints_jobTitle$() {
-  return AutofillHints.jobTitle;
-}
-
-String _AutofillHints_language$() {
-  return AutofillHints.language;
-}
-
-String _AutofillHints_location$() {
-  return AutofillHints.location;
-}
-
-String _AutofillHints_middleInitial$() {
-  return AutofillHints.middleInitial;
-}
-
-String _AutofillHints_middleName$() {
-  return AutofillHints.middleName;
-}
-
-String _AutofillHints_name$() {
-  return AutofillHints.name;
-}
-
-String _AutofillHints_namePrefix$() {
-  return AutofillHints.namePrefix;
-}
-
-String _AutofillHints_nameSuffix$() {
-  return AutofillHints.nameSuffix;
-}
-
-String _AutofillHints_newPassword$() {
-  return AutofillHints.newPassword;
-}
-
-String _AutofillHints_newUsername$() {
-  return AutofillHints.newUsername;
-}
-
-String _AutofillHints_nickname$() {
-  return AutofillHints.nickname;
-}
-
-String _AutofillHints_oneTimeCode$() {
-  return AutofillHints.oneTimeCode;
-}
-
-String _AutofillHints_organizationName$() {
-  return AutofillHints.organizationName;
-}
-
-String _AutofillHints_password$() {
-  return AutofillHints.password;
-}
-
-String _AutofillHints_photo$() {
-  return AutofillHints.photo;
-}
-
-String _AutofillHints_postalAddress$() {
-  return AutofillHints.postalAddress;
-}
-
-String _AutofillHints_postalAddressExtended$() {
-  return AutofillHints.postalAddressExtended;
-}
-
-String _AutofillHints_postalAddressExtendedPostalCode$() {
-  return AutofillHints.postalAddressExtendedPostalCode;
-}
-
-String _AutofillHints_postalCode$() {
-  return AutofillHints.postalCode;
-}
-
-String _AutofillHints_streetAddressLevel1$() {
-  return AutofillHints.streetAddressLevel1;
-}
-
-String _AutofillHints_streetAddressLevel2$() {
-  return AutofillHints.streetAddressLevel2;
-}
-
-String _AutofillHints_streetAddressLevel3$() {
-  return AutofillHints.streetAddressLevel3;
-}
-
-String _AutofillHints_streetAddressLevel4$() {
-  return AutofillHints.streetAddressLevel4;
-}
-
-String _AutofillHints_streetAddressLine1$() {
-  return AutofillHints.streetAddressLine1;
-}
-
-String _AutofillHints_streetAddressLine2$() {
-  return AutofillHints.streetAddressLine2;
-}
-
-String _AutofillHints_streetAddressLine3$() {
-  return AutofillHints.streetAddressLine3;
-}
-
-String _AutofillHints_sublocality$() {
-  return AutofillHints.sublocality;
-}
-
-String _AutofillHints_telephoneNumber$() {
-  return AutofillHints.telephoneNumber;
-}
-
-String _AutofillHints_telephoneNumberAreaCode$() {
-  return AutofillHints.telephoneNumberAreaCode;
-}
-
-String _AutofillHints_telephoneNumberCountryCode$() {
-  return AutofillHints.telephoneNumberCountryCode;
-}
-
-String _AutofillHints_telephoneNumberDevice$() {
-  return AutofillHints.telephoneNumberDevice;
-}
-
-String _AutofillHints_telephoneNumberExtension$() {
-  return AutofillHints.telephoneNumberExtension;
-}
-
-String _AutofillHints_telephoneNumberLocal$() {
-  return AutofillHints.telephoneNumberLocal;
-}
-
-String _AutofillHints_telephoneNumberLocalPrefix$() {
-  return AutofillHints.telephoneNumberLocalPrefix;
-}
-
-String _AutofillHints_telephoneNumberLocalSuffix$() {
-  return AutofillHints.telephoneNumberLocalSuffix;
-}
-
-String _AutofillHints_telephoneNumberNational$() {
-  return AutofillHints.telephoneNumberNational;
-}
-
-String _AutofillHints_transactionAmount$() {
-  return AutofillHints.transactionAmount;
-}
-
-String _AutofillHints_transactionCurrency$() {
-  return AutofillHints.transactionCurrency;
-}
-
-String _AutofillHints_url$() {
-  return AutofillHints.url;
-}
-
-String _AutofillHints_username$() {
-  return AutofillHints.username;
-}
-
+Function _AutofillHints_addressCity$(m.Scope scope$) =>
+    () => AutofillHints.addressCity;
+Function _AutofillHints_addressCityAndState$(m.Scope scope$) =>
+    () => AutofillHints.addressCityAndState;
+Function _AutofillHints_addressState$(m.Scope scope$) =>
+    () => AutofillHints.addressState;
+Function _AutofillHints_birthday$(m.Scope scope$) =>
+    () => AutofillHints.birthday;
+Function _AutofillHints_birthdayDay$(m.Scope scope$) =>
+    () => AutofillHints.birthdayDay;
+Function _AutofillHints_birthdayMonth$(m.Scope scope$) =>
+    () => AutofillHints.birthdayMonth;
+Function _AutofillHints_birthdayYear$(m.Scope scope$) =>
+    () => AutofillHints.birthdayYear;
+Function _AutofillHints_countryCode$(m.Scope scope$) =>
+    () => AutofillHints.countryCode;
+Function _AutofillHints_countryName$(m.Scope scope$) =>
+    () => AutofillHints.countryName;
+Function _AutofillHints_creditCardExpirationDate$(m.Scope scope$) =>
+    () => AutofillHints.creditCardExpirationDate;
+Function _AutofillHints_creditCardExpirationDay$(m.Scope scope$) =>
+    () => AutofillHints.creditCardExpirationDay;
+Function _AutofillHints_creditCardExpirationMonth$(m.Scope scope$) =>
+    () => AutofillHints.creditCardExpirationMonth;
+Function _AutofillHints_creditCardExpirationYear$(m.Scope scope$) =>
+    () => AutofillHints.creditCardExpirationYear;
+Function _AutofillHints_creditCardFamilyName$(m.Scope scope$) =>
+    () => AutofillHints.creditCardFamilyName;
+Function _AutofillHints_creditCardGivenName$(m.Scope scope$) =>
+    () => AutofillHints.creditCardGivenName;
+Function _AutofillHints_creditCardMiddleName$(m.Scope scope$) =>
+    () => AutofillHints.creditCardMiddleName;
+Function _AutofillHints_creditCardName$(m.Scope scope$) =>
+    () => AutofillHints.creditCardName;
+Function _AutofillHints_creditCardNumber$(m.Scope scope$) =>
+    () => AutofillHints.creditCardNumber;
+Function _AutofillHints_creditCardSecurityCode$(m.Scope scope$) =>
+    () => AutofillHints.creditCardSecurityCode;
+Function _AutofillHints_creditCardType$(m.Scope scope$) =>
+    () => AutofillHints.creditCardType;
+Function _AutofillHints_email$(m.Scope scope$) => () => AutofillHints.email;
+Function _AutofillHints_familyName$(m.Scope scope$) =>
+    () => AutofillHints.familyName;
+Function _AutofillHints_fullStreetAddress$(m.Scope scope$) =>
+    () => AutofillHints.fullStreetAddress;
+Function _AutofillHints_gender$(m.Scope scope$) => () => AutofillHints.gender;
+Function _AutofillHints_givenName$(m.Scope scope$) =>
+    () => AutofillHints.givenName;
+Function _AutofillHints_impp$(m.Scope scope$) => () => AutofillHints.impp;
+Function _AutofillHints_jobTitle$(m.Scope scope$) =>
+    () => AutofillHints.jobTitle;
+Function _AutofillHints_language$(m.Scope scope$) =>
+    () => AutofillHints.language;
+Function _AutofillHints_location$(m.Scope scope$) =>
+    () => AutofillHints.location;
+Function _AutofillHints_middleInitial$(m.Scope scope$) =>
+    () => AutofillHints.middleInitial;
+Function _AutofillHints_middleName$(m.Scope scope$) =>
+    () => AutofillHints.middleName;
+Function _AutofillHints_name$(m.Scope scope$) => () => AutofillHints.name;
+Function _AutofillHints_namePrefix$(m.Scope scope$) =>
+    () => AutofillHints.namePrefix;
+Function _AutofillHints_nameSuffix$(m.Scope scope$) =>
+    () => AutofillHints.nameSuffix;
+Function _AutofillHints_newPassword$(m.Scope scope$) =>
+    () => AutofillHints.newPassword;
+Function _AutofillHints_newUsername$(m.Scope scope$) =>
+    () => AutofillHints.newUsername;
+Function _AutofillHints_nickname$(m.Scope scope$) =>
+    () => AutofillHints.nickname;
+Function _AutofillHints_oneTimeCode$(m.Scope scope$) =>
+    () => AutofillHints.oneTimeCode;
+Function _AutofillHints_organizationName$(m.Scope scope$) =>
+    () => AutofillHints.organizationName;
+Function _AutofillHints_password$(m.Scope scope$) =>
+    () => AutofillHints.password;
+Function _AutofillHints_photo$(m.Scope scope$) => () => AutofillHints.photo;
+Function _AutofillHints_postalAddress$(m.Scope scope$) =>
+    () => AutofillHints.postalAddress;
+Function _AutofillHints_postalAddressExtended$(m.Scope scope$) =>
+    () => AutofillHints.postalAddressExtended;
+Function _AutofillHints_postalAddressExtendedPostalCode$(m.Scope scope$) =>
+    () => AutofillHints.postalAddressExtendedPostalCode;
+Function _AutofillHints_postalCode$(m.Scope scope$) =>
+    () => AutofillHints.postalCode;
+Function _AutofillHints_streetAddressLevel1$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLevel1;
+Function _AutofillHints_streetAddressLevel2$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLevel2;
+Function _AutofillHints_streetAddressLevel3$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLevel3;
+Function _AutofillHints_streetAddressLevel4$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLevel4;
+Function _AutofillHints_streetAddressLine1$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLine1;
+Function _AutofillHints_streetAddressLine2$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLine2;
+Function _AutofillHints_streetAddressLine3$(m.Scope scope$) =>
+    () => AutofillHints.streetAddressLine3;
+Function _AutofillHints_sublocality$(m.Scope scope$) =>
+    () => AutofillHints.sublocality;
+Function _AutofillHints_telephoneNumber$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumber;
+Function _AutofillHints_telephoneNumberAreaCode$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberAreaCode;
+Function _AutofillHints_telephoneNumberCountryCode$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberCountryCode;
+Function _AutofillHints_telephoneNumberDevice$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberDevice;
+Function _AutofillHints_telephoneNumberExtension$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberExtension;
+Function _AutofillHints_telephoneNumberLocal$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberLocal;
+Function _AutofillHints_telephoneNumberLocalPrefix$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberLocalPrefix;
+Function _AutofillHints_telephoneNumberLocalSuffix$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberLocalSuffix;
+Function _AutofillHints_telephoneNumberNational$(m.Scope scope$) =>
+    () => AutofillHints.telephoneNumberNational;
+Function _AutofillHints_transactionAmount$(m.Scope scope$) =>
+    () => AutofillHints.transactionAmount;
+Function _AutofillHints_transactionCurrency$(m.Scope scope$) =>
+    () => AutofillHints.transactionCurrency;
+Function _AutofillHints_url$(m.Scope scope$) => () => AutofillHints.url;
+Function _AutofillHints_username$(m.Scope scope$) =>
+    () => AutofillHints.username;
 Function AutofillConfiguration_as$(
   m.Scope scope$,
   dynamic target$,
@@ -424,10 +286,8 @@ Function AutofillConfiguration_is$(
   dynamic target$,
 ) =>
     () => target$ is AutofillConfiguration;
-AutofillConfiguration _AutofillConfiguration_disabled$() {
-  return AutofillConfiguration.disabled;
-}
-
+Function _AutofillConfiguration_disabled$(m.Scope scope$) =>
+    () => AutofillConfiguration.disabled;
 Function _AutofillConfiguration_enabled$(
   m.Scope scope$,
   AutofillConfiguration target$,

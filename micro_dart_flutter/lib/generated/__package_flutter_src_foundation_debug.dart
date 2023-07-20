@@ -29,42 +29,30 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-bool _debugInstrumentationEnabled$() {
-  return debugInstrumentationEnabled;
-}
-
+Function _debugInstrumentationEnabled$(m.Scope scope$) =>
+    () => debugInstrumentationEnabled;
 void _debugInstrumentationEnabled_set$(bool other$) {
   debugInstrumentationEnabled = other$;
 }
 
-int? _debugDoublePrecision$() {
-  return debugDoublePrecision;
-}
-
+Function _debugDoublePrecision$(m.Scope scope$) => () => debugDoublePrecision;
 void _debugDoublePrecision_set$(int? other$) {
   debugDoublePrecision = other$;
 }
 
-Brightness? _debugBrightnessOverride$() {
-  return debugBrightnessOverride;
-}
-
+Function _debugBrightnessOverride$(m.Scope scope$) =>
+    () => debugBrightnessOverride;
 void _debugBrightnessOverride_set$(Brightness? other$) {
   debugBrightnessOverride = other$;
 }
 
-String? _activeDevToolsServerAddress$() {
-  return activeDevToolsServerAddress;
-}
-
+Function _activeDevToolsServerAddress$(m.Scope scope$) =>
+    () => activeDevToolsServerAddress;
 void _activeDevToolsServerAddress_set$(String? other$) {
   activeDevToolsServerAddress = other$;
 }
 
-String? _connectedVmServiceUri$() {
-  return connectedVmServiceUri;
-}
-
+Function _connectedVmServiceUri$(m.Scope scope$) => () => connectedVmServiceUri;
 void _connectedVmServiceUri_set$(String? other$) {
   connectedVmServiceUri = other$;
 }

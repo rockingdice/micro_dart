@@ -8,7 +8,7 @@ import 'dart:ui';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/binary_messenger.dart',
-  {'BinaryMessenger.setMessageHandler': _BinaryMessenger_setMessageHandler$},
+  {},
   {},
   {
     'BinaryMessenger': m.ClassMirror(
@@ -17,6 +17,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': BinaryMessenger_as$,
         '#is': BinaryMessenger_is$,
         'send': _BinaryMessenger_send$,
+        'setMessageHandler': _BinaryMessenger_setMessageHandler$,
       },
       {},
     )

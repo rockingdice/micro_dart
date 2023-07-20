@@ -363,15 +363,10 @@ Function DefaultCupertinoLocalizations_is$(
   dynamic target$,
 ) =>
     () => target$ is DefaultCupertinoLocalizations;
-List<String> _DefaultCupertinoLocalizations_shortWeekdays$() {
-  return DefaultCupertinoLocalizations.shortWeekdays;
-}
-
-LocalizationsDelegate<CupertinoLocalizations>
-    _DefaultCupertinoLocalizations_delegate$() {
-  return DefaultCupertinoLocalizations.delegate;
-}
-
+Function _DefaultCupertinoLocalizations_shortWeekdays$(m.Scope scope$) =>
+    () => DefaultCupertinoLocalizations.shortWeekdays;
+Function _DefaultCupertinoLocalizations_delegate$(m.Scope scope$) =>
+    () => DefaultCupertinoLocalizations.delegate;
 Function _DefaultCupertinoLocalizations_datePickerDateOrder$(
   m.Scope scope$,
   DefaultCupertinoLocalizations target$,
@@ -564,42 +559,23 @@ Function _DefaultCupertinoLocalizations_timerPickerSecondLabel$(
     target$.timerPickerSecondLabel;
 Function _DefaultCupertinoLocalizations_load$(m.Scope scope$) =>
     DefaultCupertinoLocalizations.load;
-DatePickerDateTimeOrder _DatePickerDateTimeOrder_date_time_dayPeriod$() {
-  return DatePickerDateTimeOrder.date_time_dayPeriod;
-}
-
-DatePickerDateTimeOrder _DatePickerDateTimeOrder_date_dayPeriod_time$() {
-  return DatePickerDateTimeOrder.date_dayPeriod_time;
-}
-
-DatePickerDateTimeOrder _DatePickerDateTimeOrder_time_dayPeriod_date$() {
-  return DatePickerDateTimeOrder.time_dayPeriod_date;
-}
-
-DatePickerDateTimeOrder _DatePickerDateTimeOrder_dayPeriod_time_date$() {
-  return DatePickerDateTimeOrder.dayPeriod_time_date;
-}
-
-List<DatePickerDateTimeOrder> _DatePickerDateTimeOrder_values$() {
-  return DatePickerDateTimeOrder.values;
-}
-
-DatePickerDateOrder _DatePickerDateOrder_dmy$() {
-  return DatePickerDateOrder.dmy;
-}
-
-DatePickerDateOrder _DatePickerDateOrder_mdy$() {
-  return DatePickerDateOrder.mdy;
-}
-
-DatePickerDateOrder _DatePickerDateOrder_ymd$() {
-  return DatePickerDateOrder.ymd;
-}
-
-DatePickerDateOrder _DatePickerDateOrder_ydm$() {
-  return DatePickerDateOrder.ydm;
-}
-
-List<DatePickerDateOrder> _DatePickerDateOrder_values$() {
-  return DatePickerDateOrder.values;
-}
+Function _DatePickerDateTimeOrder_date_time_dayPeriod$(m.Scope scope$) =>
+    () => DatePickerDateTimeOrder.date_time_dayPeriod;
+Function _DatePickerDateTimeOrder_date_dayPeriod_time$(m.Scope scope$) =>
+    () => DatePickerDateTimeOrder.date_dayPeriod_time;
+Function _DatePickerDateTimeOrder_time_dayPeriod_date$(m.Scope scope$) =>
+    () => DatePickerDateTimeOrder.time_dayPeriod_date;
+Function _DatePickerDateTimeOrder_dayPeriod_time_date$(m.Scope scope$) =>
+    () => DatePickerDateTimeOrder.dayPeriod_time_date;
+Function _DatePickerDateTimeOrder_values$(m.Scope scope$) =>
+    () => DatePickerDateTimeOrder.values;
+Function _DatePickerDateOrder_dmy$(m.Scope scope$) =>
+    () => DatePickerDateOrder.dmy;
+Function _DatePickerDateOrder_mdy$(m.Scope scope$) =>
+    () => DatePickerDateOrder.mdy;
+Function _DatePickerDateOrder_ymd$(m.Scope scope$) =>
+    () => DatePickerDateOrder.ymd;
+Function _DatePickerDateOrder_ydm$(m.Scope scope$) =>
+    () => DatePickerDateOrder.ydm;
+Function _DatePickerDateOrder_values$(m.Scope scope$) =>
+    () => DatePickerDateOrder.values;

@@ -14,18 +14,7 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/asset_bundle.dart',
   {
     'rootBundle': _rootBundle$,
-    'AssetBundle.loadStructuredData': _AssetBundle_loadStructuredData$,
-    'AssetBundle.loadStructuredBinaryData':
-        _AssetBundle_loadStructuredBinaryData$,
     'NetworkAssetBundle.': _NetworkAssetBundle__$,
-    'NetworkAssetBundle.loadStructuredData':
-        _NetworkAssetBundle_loadStructuredData$,
-    'NetworkAssetBundle.loadStructuredBinaryData':
-        _NetworkAssetBundle_loadStructuredBinaryData$,
-    'CachingAssetBundle.loadStructuredData':
-        _CachingAssetBundle_loadStructuredData$,
-    'CachingAssetBundle.loadStructuredBinaryData':
-        _CachingAssetBundle_loadStructuredBinaryData$,
     'PlatformAssetBundle.': _PlatformAssetBundle__$,
   },
   {},
@@ -38,6 +27,8 @@ const libraryMirror = m.LibraryMirror(
         'load': _AssetBundle_load$,
         'loadBuffer': _AssetBundle_loadBuffer$,
         'loadString': _AssetBundle_loadString$,
+        'loadStructuredData': _AssetBundle_loadStructuredData$,
+        'loadStructuredBinaryData': _AssetBundle_loadStructuredBinaryData$,
         'evict': _AssetBundle_evict$,
         'clear': _AssetBundle_clear$,
         'toString': _AssetBundle_toString$,
@@ -50,6 +41,9 @@ const libraryMirror = m.LibraryMirror(
         '#as': NetworkAssetBundle_as$,
         '#is': NetworkAssetBundle_is$,
         'load': _NetworkAssetBundle_load$,
+        'loadStructuredData': _NetworkAssetBundle_loadStructuredData$,
+        'loadStructuredBinaryData':
+            _NetworkAssetBundle_loadStructuredBinaryData$,
         'toString': _NetworkAssetBundle_toString$,
       },
       {},
@@ -60,6 +54,9 @@ const libraryMirror = m.LibraryMirror(
         '#as': CachingAssetBundle_as$,
         '#is': CachingAssetBundle_is$,
         'loadString': _CachingAssetBundle_loadString$,
+        'loadStructuredData': _CachingAssetBundle_loadStructuredData$,
+        'loadStructuredBinaryData':
+            _CachingAssetBundle_loadStructuredBinaryData$,
         'evict': _CachingAssetBundle_evict$,
         'clear': _CachingAssetBundle_clear$,
         'loadBuffer': _CachingAssetBundle_loadBuffer$,
@@ -78,10 +75,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-AssetBundle _rootBundle$() {
-  return rootBundle;
-}
-
+Function _rootBundle$(m.Scope scope$) => () => rootBundle;
 Function AssetBundle_as$(
   m.Scope scope$,
   dynamic target$,

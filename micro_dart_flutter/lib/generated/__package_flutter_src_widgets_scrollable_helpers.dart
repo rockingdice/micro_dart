@@ -340,14 +340,9 @@ Function _ScrollAction_invoke$(
   ScrollAction target$,
 ) =>
     target$.invoke;
-ScrollIncrementType _ScrollIncrementType_line$() {
-  return ScrollIncrementType.line;
-}
-
-ScrollIncrementType _ScrollIncrementType_page$() {
-  return ScrollIncrementType.page;
-}
-
-List<ScrollIncrementType> _ScrollIncrementType_values$() {
-  return ScrollIncrementType.values;
-}
+Function _ScrollIncrementType_line$(m.Scope scope$) =>
+    () => ScrollIncrementType.line;
+Function _ScrollIncrementType_page$(m.Scope scope$) =>
+    () => ScrollIncrementType.page;
+Function _ScrollIncrementType_values$(m.Scope scope$) =>
+    () => ScrollIncrementType.values;

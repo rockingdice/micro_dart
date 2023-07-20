@@ -54,18 +54,14 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-bool _debugPrintRebuildDirtyWidgets$() {
-  return debugPrintRebuildDirtyWidgets;
-}
-
+Function _debugPrintRebuildDirtyWidgets$(m.Scope scope$) =>
+    () => debugPrintRebuildDirtyWidgets;
 void _debugPrintRebuildDirtyWidgets_set$(bool other$) {
   debugPrintRebuildDirtyWidgets = other$;
 }
 
-void Function(Element, bool)? _debugOnRebuildDirtyWidget$() {
-  return debugOnRebuildDirtyWidget;
-}
-
+Function _debugOnRebuildDirtyWidget$(m.Scope scope$) =>
+    () => debugOnRebuildDirtyWidget;
 Function _debugOnRebuildDirtyWidget_set$(m.Scope scope$) =>
     (m.FunctionPointer? _debugOnRebuildDirtyWidget) {
       void _debugOnRebuildDirtyWidgetProxy(
@@ -85,58 +81,43 @@ Function _debugOnRebuildDirtyWidget_set$(m.Scope scope$) =>
           ? null
           : _debugOnRebuildDirtyWidgetProxy);
     };
-bool _debugPrintBuildScope$() {
-  return debugPrintBuildScope;
-}
-
+Function _debugPrintBuildScope$(m.Scope scope$) => () => debugPrintBuildScope;
 void _debugPrintBuildScope_set$(bool other$) {
   debugPrintBuildScope = other$;
 }
 
-bool _debugPrintScheduleBuildForStacks$() {
-  return debugPrintScheduleBuildForStacks;
-}
-
+Function _debugPrintScheduleBuildForStacks$(m.Scope scope$) =>
+    () => debugPrintScheduleBuildForStacks;
 void _debugPrintScheduleBuildForStacks_set$(bool other$) {
   debugPrintScheduleBuildForStacks = other$;
 }
 
-bool _debugPrintGlobalKeyedWidgetLifecycle$() {
-  return debugPrintGlobalKeyedWidgetLifecycle;
-}
-
+Function _debugPrintGlobalKeyedWidgetLifecycle$(m.Scope scope$) =>
+    () => debugPrintGlobalKeyedWidgetLifecycle;
 void _debugPrintGlobalKeyedWidgetLifecycle_set$(bool other$) {
   debugPrintGlobalKeyedWidgetLifecycle = other$;
 }
 
-bool _debugProfileBuildsEnabled$() {
-  return debugProfileBuildsEnabled;
-}
-
+Function _debugProfileBuildsEnabled$(m.Scope scope$) =>
+    () => debugProfileBuildsEnabled;
 void _debugProfileBuildsEnabled_set$(bool other$) {
   debugProfileBuildsEnabled = other$;
 }
 
-bool _debugProfileBuildsEnabledUserWidgets$() {
-  return debugProfileBuildsEnabledUserWidgets;
-}
-
+Function _debugProfileBuildsEnabledUserWidgets$(m.Scope scope$) =>
+    () => debugProfileBuildsEnabledUserWidgets;
 void _debugProfileBuildsEnabledUserWidgets_set$(bool other$) {
   debugProfileBuildsEnabledUserWidgets = other$;
 }
 
-bool _debugEnhanceBuildTimelineArguments$() {
-  return debugEnhanceBuildTimelineArguments;
-}
-
+Function _debugEnhanceBuildTimelineArguments$(m.Scope scope$) =>
+    () => debugEnhanceBuildTimelineArguments;
 void _debugEnhanceBuildTimelineArguments_set$(bool other$) {
   debugEnhanceBuildTimelineArguments = other$;
 }
 
-bool _debugHighlightDeprecatedWidgets$() {
-  return debugHighlightDeprecatedWidgets;
-}
-
+Function _debugHighlightDeprecatedWidgets$(m.Scope scope$) =>
+    () => debugHighlightDeprecatedWidgets;
 void _debugHighlightDeprecatedWidgets_set$(bool other$) {
   debugHighlightDeprecatedWidgets = other$;
 }

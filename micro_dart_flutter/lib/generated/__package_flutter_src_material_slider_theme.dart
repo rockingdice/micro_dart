@@ -19,7 +19,6 @@ const libraryMirror = m.LibraryMirror(
     'SliderTheme.of': _SliderTheme_of$,
     'SliderThemeData.': _SliderThemeData__$,
     'SliderThemeData.fromPrimaryColors': _SliderThemeData_fromPrimaryColors_$,
-    'SliderThemeData.copyWith': _SliderThemeData_copyWith$,
     'SliderThemeData.lerp': _SliderThemeData_lerp$,
     'SliderComponentShape.noThumb': _SliderComponentShape_noThumb$,
     'SliderComponentShape.noOverlay': _SliderComponentShape_noOverlay$,
@@ -108,6 +107,7 @@ const libraryMirror = m.LibraryMirror(
         'thumbSelector': _SliderThemeData_thumbSelector$,
         'mouseCursor': _SliderThemeData_mouseCursor$,
         'hashCode': _SliderThemeData_hashCode$,
+        'copyWith': _SliderThemeData_copyWith$,
         '==': _SliderThemeData_eq$$,
         'debugFillProperties': _SliderThemeData_debugFillProperties$,
       },
@@ -844,14 +844,10 @@ Function SliderComponentShape_is$(
   dynamic target$,
 ) =>
     () => target$ is SliderComponentShape;
-SliderComponentShape _SliderComponentShape_noThumb$() {
-  return SliderComponentShape.noThumb;
-}
-
-SliderComponentShape _SliderComponentShape_noOverlay$() {
-  return SliderComponentShape.noOverlay;
-}
-
+Function _SliderComponentShape_noThumb$(m.Scope scope$) =>
+    () => SliderComponentShape.noThumb;
+Function _SliderComponentShape_noOverlay$(m.Scope scope$) =>
+    () => SliderComponentShape.noOverlay;
 Function _SliderComponentShape_getPreferredSize$(
   m.Scope scope$,
   SliderComponentShape target$,
@@ -872,10 +868,8 @@ Function SliderTickMarkShape_is$(
   dynamic target$,
 ) =>
     () => target$ is SliderTickMarkShape;
-SliderTickMarkShape _SliderTickMarkShape_noTickMark$() {
-  return SliderTickMarkShape.noTickMark;
-}
-
+Function _SliderTickMarkShape_noTickMark$(m.Scope scope$) =>
+    () => SliderTickMarkShape.noTickMark;
 Function _SliderTickMarkShape_getPreferredSize$(
   m.Scope scope$,
   SliderTickMarkShape target$,
@@ -1513,34 +1507,16 @@ Function _DropSliderValueIndicatorShape_paint$(
   DropSliderValueIndicatorShape target$,
 ) =>
     target$.paint;
-ShowValueIndicator _ShowValueIndicator_onlyForDiscrete$() {
-  return ShowValueIndicator.onlyForDiscrete;
-}
-
-ShowValueIndicator _ShowValueIndicator_onlyForContinuous$() {
-  return ShowValueIndicator.onlyForContinuous;
-}
-
-ShowValueIndicator _ShowValueIndicator_always$() {
-  return ShowValueIndicator.always;
-}
-
-ShowValueIndicator _ShowValueIndicator_never$() {
-  return ShowValueIndicator.never;
-}
-
-List<ShowValueIndicator> _ShowValueIndicator_values$() {
-  return ShowValueIndicator.values;
-}
-
-Thumb _Thumb_start$() {
-  return Thumb.start;
-}
-
-Thumb _Thumb_end$() {
-  return Thumb.end;
-}
-
-List<Thumb> _Thumb_values$() {
-  return Thumb.values;
-}
+Function _ShowValueIndicator_onlyForDiscrete$(m.Scope scope$) =>
+    () => ShowValueIndicator.onlyForDiscrete;
+Function _ShowValueIndicator_onlyForContinuous$(m.Scope scope$) =>
+    () => ShowValueIndicator.onlyForContinuous;
+Function _ShowValueIndicator_always$(m.Scope scope$) =>
+    () => ShowValueIndicator.always;
+Function _ShowValueIndicator_never$(m.Scope scope$) =>
+    () => ShowValueIndicator.never;
+Function _ShowValueIndicator_values$(m.Scope scope$) =>
+    () => ShowValueIndicator.values;
+Function _Thumb_start$(m.Scope scope$) => () => Thumb.start;
+Function _Thumb_end$(m.Scope scope$) => () => Thumb.end;
+Function _Thumb_values$(m.Scope scope$) => () => Thumb.values;

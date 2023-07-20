@@ -12,10 +12,7 @@ import 'package:flutter/src/cupertino/theme.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/cupertino/bottom_tab_bar.dart',
-  {
-    'CupertinoTabBar.': _CupertinoTabBar__$,
-    'CupertinoTabBar.copyWith': _CupertinoTabBar_copyWith$,
-  },
+  {'CupertinoTabBar.': _CupertinoTabBar__$},
   {},
   {
     'CupertinoTabBar': m.ClassMirror(
@@ -35,6 +32,7 @@ const libraryMirror = m.LibraryMirror(
         'preferredSize': _CupertinoTabBar_preferredSize$,
         'opaque': _CupertinoTabBar_opaque$,
         'build': _CupertinoTabBar_build$,
+        'copyWith': _CupertinoTabBar_copyWith$,
       },
       {},
     )

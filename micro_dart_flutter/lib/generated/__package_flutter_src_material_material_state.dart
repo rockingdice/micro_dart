@@ -11,20 +11,10 @@ import 'package:flutter/src/material/input_border.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/material_state.dart',
   {
-    'MaterialStateColor.resolveWith': _MaterialStateColor_resolveWith$,
     'MaterialStateMouseCursor.clickable': _MaterialStateMouseCursor_clickable$,
     'MaterialStateMouseCursor.textable': _MaterialStateMouseCursor_textable$,
-    'MaterialStateBorderSide.resolveWith':
-        _MaterialStateBorderSide_resolveWith$,
-    'MaterialStateTextStyle.resolveWith': _MaterialStateTextStyle_resolveWith$,
-    'MaterialStateOutlineInputBorder.resolveWith':
-        _MaterialStateOutlineInputBorder_resolveWith$,
-    'MaterialStateUnderlineInputBorder.resolveWith':
-        _MaterialStateUnderlineInputBorder_resolveWith$,
     'MaterialStateProperty.resolveAs': _MaterialStateProperty_resolveAs$,
-    'MaterialStateProperty.resolveWith': _MaterialStateProperty_resolveWith$,
     'MaterialStateProperty.all': _MaterialStateProperty_all$,
-    'MaterialStateProperty.lerp': _MaterialStateProperty_lerp$,
     'MaterialStatePropertyAll.': _MaterialStatePropertyAll__$,
     'MaterialStatesController.': _MaterialStatesController__$,
     'MaterialState.hovered': _MaterialState_hovered$,
@@ -44,6 +34,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': MaterialStateColor_as$,
         '#is': MaterialStateColor_is$,
+        'resolveWith': _MaterialStateColor_resolveWith$,
         'resolve': _MaterialStateColor_resolve$,
       },
       {},
@@ -64,6 +55,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': MaterialStateBorderSide_as$,
         '#is': MaterialStateBorderSide_is$,
         'resolve': _MaterialStateBorderSide_resolve$,
+        'resolveWith': _MaterialStateBorderSide_resolveWith$,
       },
       {},
     ),
@@ -81,6 +73,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': MaterialStateTextStyle_as$,
         '#is': MaterialStateTextStyle_is$,
+        'resolveWith': _MaterialStateTextStyle_resolveWith$,
         'resolve': _MaterialStateTextStyle_resolve$,
       },
       {},
@@ -90,6 +83,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': MaterialStateOutlineInputBorder_as$,
         '#is': MaterialStateOutlineInputBorder_is$,
+        'resolveWith': _MaterialStateOutlineInputBorder_resolveWith$,
         'resolve': _MaterialStateOutlineInputBorder_resolve$,
       },
       {},
@@ -99,6 +93,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': MaterialStateUnderlineInputBorder_as$,
         '#is': MaterialStateUnderlineInputBorder_is$,
+        'resolveWith': _MaterialStateUnderlineInputBorder_resolveWith$,
         'resolve': _MaterialStateUnderlineInputBorder_resolve$,
       },
       {},
@@ -109,6 +104,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': MaterialStateProperty_as$,
         '#is': MaterialStateProperty_is$,
         'resolve': _MaterialStateProperty_resolve$,
+        'resolveWith': _MaterialStateProperty_resolveWith$,
+        'lerp': _MaterialStateProperty_lerp$,
       },
       {},
     ),
@@ -175,14 +172,10 @@ Function MaterialStateMouseCursor_is$(
   dynamic target$,
 ) =>
     () => target$ is MaterialStateMouseCursor;
-MaterialStateMouseCursor _MaterialStateMouseCursor_clickable$() {
-  return MaterialStateMouseCursor.clickable;
-}
-
-MaterialStateMouseCursor _MaterialStateMouseCursor_textable$() {
-  return MaterialStateMouseCursor.textable;
-}
-
+Function _MaterialStateMouseCursor_clickable$(m.Scope scope$) =>
+    () => MaterialStateMouseCursor.clickable;
+Function _MaterialStateMouseCursor_textable$(m.Scope scope$) =>
+    () => MaterialStateMouseCursor.textable;
 Function _MaterialStateMouseCursor_createSession$(
   m.Scope scope$,
   MaterialStateMouseCursor target$,
@@ -421,38 +414,15 @@ Function _MaterialStatesController_update$(
   MaterialStatesController target$,
 ) =>
     target$.update;
-MaterialState _MaterialState_hovered$() {
-  return MaterialState.hovered;
-}
-
-MaterialState _MaterialState_focused$() {
-  return MaterialState.focused;
-}
-
-MaterialState _MaterialState_pressed$() {
-  return MaterialState.pressed;
-}
-
-MaterialState _MaterialState_dragged$() {
-  return MaterialState.dragged;
-}
-
-MaterialState _MaterialState_selected$() {
-  return MaterialState.selected;
-}
-
-MaterialState _MaterialState_scrolledUnder$() {
-  return MaterialState.scrolledUnder;
-}
-
-MaterialState _MaterialState_disabled$() {
-  return MaterialState.disabled;
-}
-
-MaterialState _MaterialState_error$() {
-  return MaterialState.error;
-}
-
-List<MaterialState> _MaterialState_values$() {
-  return MaterialState.values;
-}
+Function _MaterialState_hovered$(m.Scope scope$) => () => MaterialState.hovered;
+Function _MaterialState_focused$(m.Scope scope$) => () => MaterialState.focused;
+Function _MaterialState_pressed$(m.Scope scope$) => () => MaterialState.pressed;
+Function _MaterialState_dragged$(m.Scope scope$) => () => MaterialState.dragged;
+Function _MaterialState_selected$(m.Scope scope$) =>
+    () => MaterialState.selected;
+Function _MaterialState_scrolledUnder$(m.Scope scope$) =>
+    () => MaterialState.scrolledUnder;
+Function _MaterialState_disabled$(m.Scope scope$) =>
+    () => MaterialState.disabled;
+Function _MaterialState_error$(m.Scope scope$) => () => MaterialState.error;
+Function _MaterialState_values$(m.Scope scope$) => () => MaterialState.values;

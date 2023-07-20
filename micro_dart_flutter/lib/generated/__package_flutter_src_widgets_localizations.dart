@@ -190,11 +190,8 @@ Function DefaultWidgetsLocalizations_is$(
   dynamic target$,
 ) =>
     () => target$ is DefaultWidgetsLocalizations;
-LocalizationsDelegate<WidgetsLocalizations>
-    _DefaultWidgetsLocalizations_delegate$() {
-  return DefaultWidgetsLocalizations.delegate;
-}
-
+Function _DefaultWidgetsLocalizations_delegate$(m.Scope scope$) =>
+    () => DefaultWidgetsLocalizations.delegate;
 Function _DefaultWidgetsLocalizations_reorderItemUp$(
   m.Scope scope$,
   DefaultWidgetsLocalizations target$,

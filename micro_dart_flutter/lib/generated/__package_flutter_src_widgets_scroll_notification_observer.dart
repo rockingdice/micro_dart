@@ -17,10 +17,6 @@ const libraryMirror = m.LibraryMirror(
     'ScrollNotificationObserver.maybeOf': _ScrollNotificationObserver_maybeOf$,
     'ScrollNotificationObserver.of': _ScrollNotificationObserver_of$,
     'ScrollNotificationObserverState.': _ScrollNotificationObserverState__$,
-    'ScrollNotificationObserverState.addListener':
-        _ScrollNotificationObserverState_addListener$,
-    'ScrollNotificationObserverState.removeListener':
-        _ScrollNotificationObserverState_removeListener$,
   },
   {},
   {
@@ -39,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': ScrollNotificationObserverState_as$,
         '#is': ScrollNotificationObserverState_is$,
+        'addListener': _ScrollNotificationObserverState_addListener$,
+        'removeListener': _ScrollNotificationObserverState_removeListener$,
         'build': _ScrollNotificationObserverState_build$,
         'dispose': _ScrollNotificationObserverState_dispose$,
       },

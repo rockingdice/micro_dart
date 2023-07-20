@@ -40,7 +40,6 @@ const libraryMirror = m.LibraryMirror(
     'SemanticsProperties.': _SemanticsProperties__$,
     'SemanticsNode.': _SemanticsNode__$,
     'SemanticsNode.root': _SemanticsNode_root_$,
-    'SemanticsNode.visitChildren': _SemanticsNode_visitChildren$,
     'SemanticsOwner.': _SemanticsOwner__$,
     'SemanticsConfiguration.': _SemanticsConfiguration__$,
     'OrdinalSortKey.': _OrdinalSortKey__$,
@@ -311,6 +310,7 @@ const libraryMirror = m.LibraryMirror(
         'platformViewId': _SemanticsNode_platformViewId$,
         'maxValueLength': _SemanticsNode_maxValueLength$,
         'currentValueLength': _SemanticsNode_currentValueLength$,
+        'visitChildren': _SemanticsNode_visitChildren$,
         'redepthChildren': _SemanticsNode_redepthChildren$,
         'attach': _SemanticsNode_attach$,
         'detach': _SemanticsNode_detach$,
@@ -3758,17 +3758,11 @@ Function _OrdinalSortKey_debugFillProperties$(
   OrdinalSortKey target$,
 ) =>
     target$.debugFillProperties;
-DebugSemanticsDumpOrder _DebugSemanticsDumpOrder_inverseHitTest$() {
-  return DebugSemanticsDumpOrder.inverseHitTest;
-}
-
-DebugSemanticsDumpOrder _DebugSemanticsDumpOrder_traversalOrder$() {
-  return DebugSemanticsDumpOrder.traversalOrder;
-}
-
-List<DebugSemanticsDumpOrder> _DebugSemanticsDumpOrder_values$() {
-  return DebugSemanticsDumpOrder.values;
-}
-
+Function _DebugSemanticsDumpOrder_inverseHitTest$(m.Scope scope$) =>
+    () => DebugSemanticsDumpOrder.inverseHitTest;
+Function _DebugSemanticsDumpOrder_traversalOrder$(m.Scope scope$) =>
+    () => DebugSemanticsDumpOrder.traversalOrder;
+Function _DebugSemanticsDumpOrder_values$(m.Scope scope$) =>
+    () => DebugSemanticsDumpOrder.values;
 Function _debugResetSemanticsIdCounter$(m.Scope scope$) =>
     debugResetSemanticsIdCounter;

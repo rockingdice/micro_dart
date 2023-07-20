@@ -191,14 +191,10 @@ Function FloatingLabelAlignment_is$(
   dynamic target$,
 ) =>
     () => target$ is FloatingLabelAlignment;
-FloatingLabelAlignment _FloatingLabelAlignment_start$() {
-  return FloatingLabelAlignment.start;
-}
-
-FloatingLabelAlignment _FloatingLabelAlignment_center$() {
-  return FloatingLabelAlignment.center;
-}
-
+Function _FloatingLabelAlignment_start$(m.Scope scope$) =>
+    () => FloatingLabelAlignment.start;
+Function _FloatingLabelAlignment_center$(m.Scope scope$) =>
+    () => FloatingLabelAlignment.center;
 Function _FloatingLabelAlignment_hashCode$(
   m.Scope scope$,
   FloatingLabelAlignment target$,
@@ -1147,18 +1143,11 @@ Function _InputDecorationTheme_debugFillProperties$(
   InputDecorationTheme target$,
 ) =>
     target$.debugFillProperties;
-FloatingLabelBehavior _FloatingLabelBehavior_never$() {
-  return FloatingLabelBehavior.never;
-}
-
-FloatingLabelBehavior _FloatingLabelBehavior_auto$() {
-  return FloatingLabelBehavior.auto;
-}
-
-FloatingLabelBehavior _FloatingLabelBehavior_always$() {
-  return FloatingLabelBehavior.always;
-}
-
-List<FloatingLabelBehavior> _FloatingLabelBehavior_values$() {
-  return FloatingLabelBehavior.values;
-}
+Function _FloatingLabelBehavior_never$(m.Scope scope$) =>
+    () => FloatingLabelBehavior.never;
+Function _FloatingLabelBehavior_auto$(m.Scope scope$) =>
+    () => FloatingLabelBehavior.auto;
+Function _FloatingLabelBehavior_always$(m.Scope scope$) =>
+    () => FloatingLabelBehavior.always;
+Function _FloatingLabelBehavior_values$(m.Scope scope$) =>
+    () => FloatingLabelBehavior.values;

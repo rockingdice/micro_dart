@@ -300,10 +300,7 @@ Function _TextField_showCursor$(
     () {
       return target$.showCursor;
     };
-int _TextField_noMaxLength$() {
-  return TextField.noMaxLength;
-}
-
+Function _TextField_noMaxLength$(m.Scope scope$) => () => TextField.noMaxLength;
 Function _TextField_maxLength$(
   m.Scope scope$,
   TextField target$,
@@ -556,10 +553,8 @@ Function _TextField_spellCheckConfiguration$(
     () {
       return target$.spellCheckConfiguration;
     };
-TextStyle _TextField_materialMisspelledTextStyle$() {
-  return TextField.materialMisspelledTextStyle;
-}
-
+Function _TextField_materialMisspelledTextStyle$(m.Scope scope$) =>
+    () => TextField.materialMisspelledTextStyle;
 Function _TextField_selectionEnabled$(
   m.Scope scope$,
   TextField target$,

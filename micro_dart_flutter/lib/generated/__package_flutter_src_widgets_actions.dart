@@ -20,8 +20,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'Intent.doNothing': _Intent_doNothing$,
     'Action.overridable': _Action_overridable_$,
-    'Action.addActionListener': _Action_addActionListener$,
-    'Action.removeActionListener': _Action_removeActionListener$,
     'ActionListener.': _ActionListener__$,
     'CallbackAction.': _CallbackAction__$,
     'ActionDispatcher.': _ActionDispatcher__$,
@@ -67,6 +65,8 @@ const libraryMirror = m.LibraryMirror(
         'consumesKey': _Action_consumesKey$,
         'toKeyEventResult': _Action_toKeyEventResult$,
         'invoke': _Action_invoke$,
+        'addActionListener': _Action_addActionListener$,
+        'removeActionListener': _Action_removeActionListener$,
         'notifyActionListeners': _Action_notifyActionListeners$,
       },
       {},
@@ -280,10 +280,7 @@ Function Intent_is$(
   dynamic target$,
 ) =>
     () => target$ is Intent;
-DoNothingIntent _Intent_doNothing$() {
-  return Intent.doNothing;
-}
-
+Function _Intent_doNothing$(m.Scope scope$) => () => Intent.doNothing;
 Function Action_as$<T extends Intent>(
   m.Scope scope$,
   dynamic target$,

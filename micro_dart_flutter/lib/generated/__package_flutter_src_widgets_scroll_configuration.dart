@@ -170,14 +170,9 @@ Function _ScrollConfiguration_debugFillProperties$(
   ScrollConfiguration target$,
 ) =>
     target$.debugFillProperties;
-AndroidOverscrollIndicator _AndroidOverscrollIndicator_stretch$() {
-  return AndroidOverscrollIndicator.stretch;
-}
-
-AndroidOverscrollIndicator _AndroidOverscrollIndicator_glow$() {
-  return AndroidOverscrollIndicator.glow;
-}
-
-List<AndroidOverscrollIndicator> _AndroidOverscrollIndicator_values$() {
-  return AndroidOverscrollIndicator.values;
-}
+Function _AndroidOverscrollIndicator_stretch$(m.Scope scope$) =>
+    () => AndroidOverscrollIndicator.stretch;
+Function _AndroidOverscrollIndicator_glow$(m.Scope scope$) =>
+    () => AndroidOverscrollIndicator.glow;
+Function _AndroidOverscrollIndicator_values$(m.Scope scope$) =>
+    () => AndroidOverscrollIndicator.values;

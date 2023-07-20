@@ -46,26 +46,13 @@ const libraryMirror = m.LibraryMirror(
     'Navigator.popAndPushNamed': _Navigator_popAndPushNamed$,
     'Navigator.restorablePopAndPushNamed':
         _Navigator_restorablePopAndPushNamed$,
-    'Navigator.pushNamedAndRemoveUntil': _Navigator_pushNamedAndRemoveUntil$,
-    'Navigator.restorablePushNamedAndRemoveUntil':
-        _Navigator_restorablePushNamedAndRemoveUntil$,
     'Navigator.push': _Navigator_push$,
-    'Navigator.restorablePush': _Navigator_restorablePush$,
     'Navigator.pushReplacement': _Navigator_pushReplacement$,
-    'Navigator.restorablePushReplacement':
-        _Navigator_restorablePushReplacement$,
-    'Navigator.pushAndRemoveUntil': _Navigator_pushAndRemoveUntil$,
-    'Navigator.restorablePushAndRemoveUntil':
-        _Navigator_restorablePushAndRemoveUntil$,
     'Navigator.replace': _Navigator_replace$,
-    'Navigator.restorableReplace': _Navigator_restorableReplace$,
     'Navigator.replaceRouteBelow': _Navigator_replaceRouteBelow$,
-    'Navigator.restorableReplaceRouteBelow':
-        _Navigator_restorableReplaceRouteBelow$,
     'Navigator.canPop': _Navigator_canPop$,
     'Navigator.maybePop': _Navigator_maybePop$,
     'Navigator.pop': _Navigator_pop$,
-    'Navigator.popUntil': _Navigator_popUntil$,
     'Navigator.removeRoute': _Navigator_removeRoute$,
     'Navigator.removeRouteBelow': _Navigator_removeRouteBelow$,
     'Navigator.of': _Navigator_of$,
@@ -73,20 +60,6 @@ const libraryMirror = m.LibraryMirror(
     'Navigator.defaultGenerateInitialRoutes':
         _Navigator_defaultGenerateInitialRoutes$,
     'NavigatorState.': _NavigatorState__$,
-    'NavigatorState.pushNamedAndRemoveUntil':
-        _NavigatorState_pushNamedAndRemoveUntil$,
-    'NavigatorState.restorablePushNamedAndRemoveUntil':
-        _NavigatorState_restorablePushNamedAndRemoveUntil$,
-    'NavigatorState.restorablePush': _NavigatorState_restorablePush$,
-    'NavigatorState.restorablePushReplacement':
-        _NavigatorState_restorablePushReplacement$,
-    'NavigatorState.pushAndRemoveUntil': _NavigatorState_pushAndRemoveUntil$,
-    'NavigatorState.restorablePushAndRemoveUntil':
-        _NavigatorState_restorablePushAndRemoveUntil$,
-    'NavigatorState.restorableReplace': _NavigatorState_restorableReplace$,
-    'NavigatorState.restorableReplaceRouteBelow':
-        _NavigatorState_restorableReplaceRouteBelow$,
-    'NavigatorState.popUntil': _NavigatorState_popUntil$,
     'RestorableRouteFuture.': _RestorableRouteFuture__$,
     'RoutePopDisposition.pop': _RoutePopDisposition_pop$,
     'RoutePopDisposition.doNotPop': _RoutePopDisposition_doNotPop$,
@@ -230,6 +203,17 @@ const libraryMirror = m.LibraryMirror(
         'reportsRouteUpdateToEngine': _Navigator_reportsRouteUpdateToEngine$,
         'clipBehavior': _Navigator_clipBehavior$,
         'requestFocus': _Navigator_requestFocus$,
+        'pushNamedAndRemoveUntil': _Navigator_pushNamedAndRemoveUntil$,
+        'restorablePushNamedAndRemoveUntil':
+            _Navigator_restorablePushNamedAndRemoveUntil$,
+        'restorablePush': _Navigator_restorablePush$,
+        'restorablePushReplacement': _Navigator_restorablePushReplacement$,
+        'pushAndRemoveUntil': _Navigator_pushAndRemoveUntil$,
+        'restorablePushAndRemoveUntil':
+            _Navigator_restorablePushAndRemoveUntil$,
+        'restorableReplace': _Navigator_restorableReplace$,
+        'restorableReplaceRouteBelow': _Navigator_restorableReplaceRouteBelow$,
+        'popUntil': _Navigator_popUntil$,
         'createState': _Navigator_createState$,
       },
       {},
@@ -260,13 +244,25 @@ const libraryMirror = m.LibraryMirror(
             _NavigatorState_restorablePushReplacementNamed$,
         'popAndPushNamed': _NavigatorState_popAndPushNamed$,
         'restorablePopAndPushNamed': _NavigatorState_restorablePopAndPushNamed$,
+        'pushNamedAndRemoveUntil': _NavigatorState_pushNamedAndRemoveUntil$,
+        'restorablePushNamedAndRemoveUntil':
+            _NavigatorState_restorablePushNamedAndRemoveUntil$,
         'push': _NavigatorState_push$,
+        'restorablePush': _NavigatorState_restorablePush$,
         'pushReplacement': _NavigatorState_pushReplacement$,
+        'restorablePushReplacement': _NavigatorState_restorablePushReplacement$,
+        'pushAndRemoveUntil': _NavigatorState_pushAndRemoveUntil$,
+        'restorablePushAndRemoveUntil':
+            _NavigatorState_restorablePushAndRemoveUntil$,
         'replace': _NavigatorState_replace$,
+        'restorableReplace': _NavigatorState_restorableReplace$,
         'replaceRouteBelow': _NavigatorState_replaceRouteBelow$,
+        'restorableReplaceRouteBelow':
+            _NavigatorState_restorableReplaceRouteBelow$,
         'canPop': _NavigatorState_canPop$,
         'maybePop': _NavigatorState_maybePop$,
         'pop': _NavigatorState_pop$,
+        'popUntil': _NavigatorState_popUntil$,
         'removeRoute': _NavigatorState_removeRoute$,
         'removeRouteBelow': _NavigatorState_removeRouteBelow$,
         'finalizeRoute': _NavigatorState_finalizeRoute$,
@@ -303,10 +299,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-TraversalEdgeBehavior _kDefaultRouteTraversalEdgeBehavior$() {
-  return kDefaultRouteTraversalEdgeBehavior;
-}
-
+Function _kDefaultRouteTraversalEdgeBehavior$(m.Scope scope$) =>
+    () => kDefaultRouteTraversalEdgeBehavior;
 Function Route_as$<T>(
   m.Scope scope$,
   dynamic target$,
@@ -786,10 +780,8 @@ Function _Navigator_routeTraversalEdgeBehavior$(
     () {
       return target$.routeTraversalEdgeBehavior;
     };
-String _Navigator_defaultRouteName$() {
-  return Navigator.defaultRouteName;
-}
-
+Function _Navigator_defaultRouteName$(m.Scope scope$) =>
+    () => Navigator.defaultRouteName;
 Function _Navigator_onGenerateInitialRoutes$(
   m.Scope scope$,
   Navigator target$,
@@ -1689,18 +1681,11 @@ Function _RestorableRouteFuture_dispose$<T>(
   RestorableRouteFuture<T> target$,
 ) =>
     target$.dispose;
-RoutePopDisposition _RoutePopDisposition_pop$() {
-  return RoutePopDisposition.pop;
-}
-
-RoutePopDisposition _RoutePopDisposition_doNotPop$() {
-  return RoutePopDisposition.doNotPop;
-}
-
-RoutePopDisposition _RoutePopDisposition_bubble$() {
-  return RoutePopDisposition.bubble;
-}
-
-List<RoutePopDisposition> _RoutePopDisposition_values$() {
-  return RoutePopDisposition.values;
-}
+Function _RoutePopDisposition_pop$(m.Scope scope$) =>
+    () => RoutePopDisposition.pop;
+Function _RoutePopDisposition_doNotPop$(m.Scope scope$) =>
+    () => RoutePopDisposition.doNotPop;
+Function _RoutePopDisposition_bubble$(m.Scope scope$) =>
+    () => RoutePopDisposition.bubble;
+Function _RoutePopDisposition_values$(m.Scope scope$) =>
+    () => RoutePopDisposition.values;

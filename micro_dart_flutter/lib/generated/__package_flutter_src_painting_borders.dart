@@ -123,10 +123,7 @@ Function _BorderSide_style$(
     () {
       return target$.style;
     };
-BorderSide _BorderSide_none$() {
-  return BorderSide.none;
-}
-
+Function _BorderSide_none$(m.Scope scope$) => () => BorderSide.none;
 Function _BorderSide_strokeAlign$(
   m.Scope scope$,
   BorderSide target$,
@@ -134,18 +131,12 @@ Function _BorderSide_strokeAlign$(
     () {
       return target$.strokeAlign;
     };
-double _BorderSide_strokeAlignInside$() {
-  return BorderSide.strokeAlignInside;
-}
-
-double _BorderSide_strokeAlignCenter$() {
-  return BorderSide.strokeAlignCenter;
-}
-
-double _BorderSide_strokeAlignOutside$() {
-  return BorderSide.strokeAlignOutside;
-}
-
+Function _BorderSide_strokeAlignInside$(m.Scope scope$) =>
+    () => BorderSide.strokeAlignInside;
+Function _BorderSide_strokeAlignCenter$(m.Scope scope$) =>
+    () => BorderSide.strokeAlignCenter;
+Function _BorderSide_strokeAlignOutside$(m.Scope scope$) =>
+    () => BorderSide.strokeAlignOutside;
 Function _BorderSide_strokeInset$(
   m.Scope scope$,
   BorderSide target$,
@@ -340,16 +331,7 @@ Function _OutlinedBorder_lerpTo$(
 ) =>
     target$.lerpTo;
 Function _OutlinedBorder_lerp$(m.Scope scope$) => OutlinedBorder.lerp;
-BorderStyle _BorderStyle_none$() {
-  return BorderStyle.none;
-}
-
-BorderStyle _BorderStyle_solid$() {
-  return BorderStyle.solid;
-}
-
-List<BorderStyle> _BorderStyle_values$() {
-  return BorderStyle.values;
-}
-
+Function _BorderStyle_none$(m.Scope scope$) => () => BorderStyle.none;
+Function _BorderStyle_solid$(m.Scope scope$) => () => BorderStyle.solid;
+Function _BorderStyle_values$(m.Scope scope$) => () => BorderStyle.values;
 Function _paintBorder$(m.Scope scope$) => paintBorder;

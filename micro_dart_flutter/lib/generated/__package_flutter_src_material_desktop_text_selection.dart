@@ -16,8 +16,6 @@ const libraryMirror = m.LibraryMirror(
     'desktopTextSelectionHandleControls': _desktopTextSelectionHandleControls$,
     'desktopTextSelectionControls': _desktopTextSelectionControls$,
     'DesktopTextSelectionControls.': _DesktopTextSelectionControls__$,
-    'DesktopTextSelectionControls.buildHandle':
-        _DesktopTextSelectionControls_buildHandle$,
   },
   {},
   {
@@ -27,20 +25,17 @@ const libraryMirror = m.LibraryMirror(
         '#as': DesktopTextSelectionControls_as$,
         '#is': DesktopTextSelectionControls_is$,
         'getHandleSize': _DesktopTextSelectionControls_getHandleSize$,
+        'buildHandle': _DesktopTextSelectionControls_buildHandle$,
         'getHandleAnchor': _DesktopTextSelectionControls_getHandleAnchor$,
       },
       {},
     )
   },
 );
-TextSelectionControls _desktopTextSelectionHandleControls$() {
-  return desktopTextSelectionHandleControls;
-}
-
-TextSelectionControls _desktopTextSelectionControls$() {
-  return desktopTextSelectionControls;
-}
-
+Function _desktopTextSelectionHandleControls$(m.Scope scope$) =>
+    () => desktopTextSelectionHandleControls;
+Function _desktopTextSelectionControls$(m.Scope scope$) =>
+    () => desktopTextSelectionControls;
 Function DesktopTextSelectionControls_as$(
   m.Scope scope$,
   dynamic target$,

@@ -20,9 +20,9 @@ part '../proxy/proxy__dart_core.dart';
 const libraryMirror = m.LibraryMirror(
   'dart:core',
   {
+    '_Enum.': __Enum__$,
     'deprecated': _deprecated$,
     'override': _override$,
-    '_Enum.': __Enum__$,
     'Deprecated.': _Deprecated__$,
     'pragma.': _pragma__$,
     'BigInt.zero': _BigInt_zero$,
@@ -1137,14 +1137,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Deprecated _deprecated$() {
-  return deprecated;
-}
-
-Object _override$() {
-  return override;
-}
-
+Function _deprecated$(m.Scope scope$) => () => deprecated;
+Function _override$(m.Scope scope$) => () => override;
 Function Deprecated_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1155,10 +1149,13 @@ Function Deprecated_is$(
   dynamic target$,
 ) =>
     () => target$ is Deprecated;
-String _Deprecated_message$(Deprecated target$) {
-  return target$.message;
-}
-
+Function _Deprecated_message$(
+  m.Scope scope$,
+  Deprecated target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _Deprecated__$(m.Scope scope$) => (String message) {
       return $Deprecated(message);
     };
@@ -1177,14 +1174,20 @@ Function pragma_is$(
   dynamic target$,
 ) =>
     () => target$ is pragma;
-String _pragma_name$(pragma target$) {
-  return target$.name;
-}
-
-Object? _pragma_options$(pragma target$) {
-  return target$.options;
-}
-
+Function _pragma_name$(
+  m.Scope scope$,
+  pragma target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _pragma_options$(
+  m.Scope scope$,
+  pragma target$,
+) =>
+    () {
+      return target$.options;
+    };
 Function _pragma__$(m.Scope scope$) => (
       String name, [
       Object? options,
@@ -1207,42 +1210,51 @@ Function BigInt_is$(
   dynamic target$,
 ) =>
     () => target$ is BigInt;
-BigInt _BigInt_zero$() {
-  return BigInt.zero;
-}
-
-BigInt _BigInt_one$() {
-  return BigInt.one;
-}
-
-BigInt _BigInt_two$() {
-  return BigInt.two;
-}
-
-int _BigInt_bitLength$(BigInt target$) {
-  return target$.bitLength;
-}
-
-int _BigInt_sign$(BigInt target$) {
-  return target$.sign;
-}
-
-bool _BigInt_isEven$(BigInt target$) {
-  return target$.isEven;
-}
-
-bool _BigInt_isOdd$(BigInt target$) {
-  return target$.isOdd;
-}
-
-bool _BigInt_isNegative$(BigInt target$) {
-  return target$.isNegative;
-}
-
-bool _BigInt_isValidInt$(BigInt target$) {
-  return target$.isValidInt;
-}
-
+Function _BigInt_zero$(m.Scope scope$) => () => BigInt.zero;
+Function _BigInt_one$(m.Scope scope$) => () => BigInt.one;
+Function _BigInt_two$(m.Scope scope$) => () => BigInt.two;
+Function _BigInt_bitLength$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.bitLength;
+    };
+Function _BigInt_sign$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.sign;
+    };
+Function _BigInt_isEven$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.isEven;
+    };
+Function _BigInt_isOdd$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.isOdd;
+    };
+Function _BigInt_isNegative$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.isNegative;
+    };
+Function _BigInt_isValidInt$(
+  m.Scope scope$,
+  BigInt target$,
+) =>
+    () {
+      return target$.isValidInt;
+    };
 Function _BigInt_from_$(m.Scope scope$) => BigInt.from;
 Function _BigInt_parse$(m.Scope scope$) => BigInt.parse;
 Function _BigInt_tryParse$(m.Scope scope$) => BigInt.tryParse;
@@ -1406,10 +1418,13 @@ Function bool_is$(
   dynamic target$,
 ) =>
     () => target$ is bool;
-int _bool_hashCode$(bool target$) {
-  return target$.hashCode;
-}
-
+Function _bool_hashCode$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _bool_fromEnvironment_$(m.Scope scope$) => bool.fromEnvironment;
 Function _bool_hasEnvironment_$(m.Scope scope$) => bool.hasEnvironment;
 Function _bool_parse$(m.Scope scope$) => bool.parse;
@@ -1460,150 +1475,133 @@ Function DateTime_is$(
   dynamic target$,
 ) =>
     () => target$ is DateTime;
-int _DateTime_monday$() {
-  return DateTime.monday;
-}
-
-int _DateTime_tuesday$() {
-  return DateTime.tuesday;
-}
-
-int _DateTime_wednesday$() {
-  return DateTime.wednesday;
-}
-
-int _DateTime_thursday$() {
-  return DateTime.thursday;
-}
-
-int _DateTime_friday$() {
-  return DateTime.friday;
-}
-
-int _DateTime_saturday$() {
-  return DateTime.saturday;
-}
-
-int _DateTime_sunday$() {
-  return DateTime.sunday;
-}
-
-int _DateTime_daysPerWeek$() {
-  return DateTime.daysPerWeek;
-}
-
-int _DateTime_january$() {
-  return DateTime.january;
-}
-
-int _DateTime_february$() {
-  return DateTime.february;
-}
-
-int _DateTime_march$() {
-  return DateTime.march;
-}
-
-int _DateTime_april$() {
-  return DateTime.april;
-}
-
-int _DateTime_may$() {
-  return DateTime.may;
-}
-
-int _DateTime_june$() {
-  return DateTime.june;
-}
-
-int _DateTime_july$() {
-  return DateTime.july;
-}
-
-int _DateTime_august$() {
-  return DateTime.august;
-}
-
-int _DateTime_september$() {
-  return DateTime.september;
-}
-
-int _DateTime_october$() {
-  return DateTime.october;
-}
-
-int _DateTime_november$() {
-  return DateTime.november;
-}
-
-int _DateTime_december$() {
-  return DateTime.december;
-}
-
-int _DateTime_monthsPerYear$() {
-  return DateTime.monthsPerYear;
-}
-
-bool _DateTime_isUtc$(DateTime target$) {
-  return target$.isUtc;
-}
-
-int _DateTime_hashCode$(DateTime target$) {
-  return target$.hashCode;
-}
-
-int _DateTime_millisecondsSinceEpoch$(DateTime target$) {
-  return target$.millisecondsSinceEpoch;
-}
-
-int _DateTime_microsecondsSinceEpoch$(DateTime target$) {
-  return target$.microsecondsSinceEpoch;
-}
-
-String _DateTime_timeZoneName$(DateTime target$) {
-  return target$.timeZoneName;
-}
-
-Duration _DateTime_timeZoneOffset$(DateTime target$) {
-  return target$.timeZoneOffset;
-}
-
-int _DateTime_year$(DateTime target$) {
-  return target$.year;
-}
-
-int _DateTime_month$(DateTime target$) {
-  return target$.month;
-}
-
-int _DateTime_day$(DateTime target$) {
-  return target$.day;
-}
-
-int _DateTime_hour$(DateTime target$) {
-  return target$.hour;
-}
-
-int _DateTime_minute$(DateTime target$) {
-  return target$.minute;
-}
-
-int _DateTime_second$(DateTime target$) {
-  return target$.second;
-}
-
-int _DateTime_millisecond$(DateTime target$) {
-  return target$.millisecond;
-}
-
-int _DateTime_microsecond$(DateTime target$) {
-  return target$.microsecond;
-}
-
-int _DateTime_weekday$(DateTime target$) {
-  return target$.weekday;
-}
-
+Function _DateTime_monday$(m.Scope scope$) => () => DateTime.monday;
+Function _DateTime_tuesday$(m.Scope scope$) => () => DateTime.tuesday;
+Function _DateTime_wednesday$(m.Scope scope$) => () => DateTime.wednesday;
+Function _DateTime_thursday$(m.Scope scope$) => () => DateTime.thursday;
+Function _DateTime_friday$(m.Scope scope$) => () => DateTime.friday;
+Function _DateTime_saturday$(m.Scope scope$) => () => DateTime.saturday;
+Function _DateTime_sunday$(m.Scope scope$) => () => DateTime.sunday;
+Function _DateTime_daysPerWeek$(m.Scope scope$) => () => DateTime.daysPerWeek;
+Function _DateTime_january$(m.Scope scope$) => () => DateTime.january;
+Function _DateTime_february$(m.Scope scope$) => () => DateTime.february;
+Function _DateTime_march$(m.Scope scope$) => () => DateTime.march;
+Function _DateTime_april$(m.Scope scope$) => () => DateTime.april;
+Function _DateTime_may$(m.Scope scope$) => () => DateTime.may;
+Function _DateTime_june$(m.Scope scope$) => () => DateTime.june;
+Function _DateTime_july$(m.Scope scope$) => () => DateTime.july;
+Function _DateTime_august$(m.Scope scope$) => () => DateTime.august;
+Function _DateTime_september$(m.Scope scope$) => () => DateTime.september;
+Function _DateTime_october$(m.Scope scope$) => () => DateTime.october;
+Function _DateTime_november$(m.Scope scope$) => () => DateTime.november;
+Function _DateTime_december$(m.Scope scope$) => () => DateTime.december;
+Function _DateTime_monthsPerYear$(m.Scope scope$) =>
+    () => DateTime.monthsPerYear;
+Function _DateTime_isUtc$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.isUtc;
+    };
+Function _DateTime_hashCode$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _DateTime_millisecondsSinceEpoch$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.millisecondsSinceEpoch;
+    };
+Function _DateTime_microsecondsSinceEpoch$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.microsecondsSinceEpoch;
+    };
+Function _DateTime_timeZoneName$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.timeZoneName;
+    };
+Function _DateTime_timeZoneOffset$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.timeZoneOffset;
+    };
+Function _DateTime_year$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.year;
+    };
+Function _DateTime_month$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.month;
+    };
+Function _DateTime_day$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.day;
+    };
+Function _DateTime_hour$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.hour;
+    };
+Function _DateTime_minute$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.minute;
+    };
+Function _DateTime_second$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.second;
+    };
+Function _DateTime_millisecond$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.millisecond;
+    };
+Function _DateTime_microsecond$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.microsecond;
+    };
+Function _DateTime_weekday$(
+  m.Scope scope$,
+  DateTime target$,
+) =>
+    () {
+      return target$.weekday;
+    };
 Function _DateTime__$(m.Scope scope$) => (
       int year, [
       int? month,
@@ -1776,30 +1774,19 @@ Function double_is$(
   dynamic target$,
 ) =>
     () => target$ is double;
-double _double_nan$() {
-  return double.nan;
-}
-
-double _double_infinity$() {
-  return double.infinity;
-}
-
-double _double_negativeInfinity$() {
-  return double.negativeInfinity;
-}
-
-double _double_minPositive$() {
-  return double.minPositive;
-}
-
-double _double_maxFinite$() {
-  return double.maxFinite;
-}
-
-double _double_sign$(double target$) {
-  return target$.sign;
-}
-
+Function _double_nan$(m.Scope scope$) => () => double.nan;
+Function _double_infinity$(m.Scope scope$) => () => double.infinity;
+Function _double_negativeInfinity$(m.Scope scope$) =>
+    () => double.negativeInfinity;
+Function _double_minPositive$(m.Scope scope$) => () => double.minPositive;
+Function _double_maxFinite$(m.Scope scope$) => () => double.maxFinite;
+Function _double_sign$(
+  m.Scope scope$,
+  double target$,
+) =>
+    () {
+      return target$.sign;
+    };
 Function _double_remainder$(
   m.Scope scope$,
   double target$,
@@ -1902,102 +1889,92 @@ Function Duration_is$(
   dynamic target$,
 ) =>
     () => target$ is Duration;
-int _Duration_microsecondsPerMillisecond$() {
-  return Duration.microsecondsPerMillisecond;
-}
-
-int _Duration_millisecondsPerSecond$() {
-  return Duration.millisecondsPerSecond;
-}
-
-int _Duration_secondsPerMinute$() {
-  return Duration.secondsPerMinute;
-}
-
-int _Duration_minutesPerHour$() {
-  return Duration.minutesPerHour;
-}
-
-int _Duration_hoursPerDay$() {
-  return Duration.hoursPerDay;
-}
-
-int _Duration_microsecondsPerSecond$() {
-  return Duration.microsecondsPerSecond;
-}
-
-int _Duration_microsecondsPerMinute$() {
-  return Duration.microsecondsPerMinute;
-}
-
-int _Duration_microsecondsPerHour$() {
-  return Duration.microsecondsPerHour;
-}
-
-int _Duration_microsecondsPerDay$() {
-  return Duration.microsecondsPerDay;
-}
-
-int _Duration_millisecondsPerMinute$() {
-  return Duration.millisecondsPerMinute;
-}
-
-int _Duration_millisecondsPerHour$() {
-  return Duration.millisecondsPerHour;
-}
-
-int _Duration_millisecondsPerDay$() {
-  return Duration.millisecondsPerDay;
-}
-
-int _Duration_secondsPerHour$() {
-  return Duration.secondsPerHour;
-}
-
-int _Duration_secondsPerDay$() {
-  return Duration.secondsPerDay;
-}
-
-int _Duration_minutesPerDay$() {
-  return Duration.minutesPerDay;
-}
-
-Duration _Duration_zero$() {
-  return Duration.zero;
-}
-
-int _Duration_inDays$(Duration target$) {
-  return target$.inDays;
-}
-
-int _Duration_inHours$(Duration target$) {
-  return target$.inHours;
-}
-
-int _Duration_inMinutes$(Duration target$) {
-  return target$.inMinutes;
-}
-
-int _Duration_inSeconds$(Duration target$) {
-  return target$.inSeconds;
-}
-
-int _Duration_inMilliseconds$(Duration target$) {
-  return target$.inMilliseconds;
-}
-
-int _Duration_inMicroseconds$(Duration target$) {
-  return target$.inMicroseconds;
-}
-
-int _Duration_hashCode$(Duration target$) {
-  return target$.hashCode;
-}
-
-bool _Duration_isNegative$(Duration target$) {
-  return target$.isNegative;
-}
-
+Function _Duration_microsecondsPerMillisecond$(m.Scope scope$) =>
+    () => Duration.microsecondsPerMillisecond;
+Function _Duration_millisecondsPerSecond$(m.Scope scope$) =>
+    () => Duration.millisecondsPerSecond;
+Function _Duration_secondsPerMinute$(m.Scope scope$) =>
+    () => Duration.secondsPerMinute;
+Function _Duration_minutesPerHour$(m.Scope scope$) =>
+    () => Duration.minutesPerHour;
+Function _Duration_hoursPerDay$(m.Scope scope$) => () => Duration.hoursPerDay;
+Function _Duration_microsecondsPerSecond$(m.Scope scope$) =>
+    () => Duration.microsecondsPerSecond;
+Function _Duration_microsecondsPerMinute$(m.Scope scope$) =>
+    () => Duration.microsecondsPerMinute;
+Function _Duration_microsecondsPerHour$(m.Scope scope$) =>
+    () => Duration.microsecondsPerHour;
+Function _Duration_microsecondsPerDay$(m.Scope scope$) =>
+    () => Duration.microsecondsPerDay;
+Function _Duration_millisecondsPerMinute$(m.Scope scope$) =>
+    () => Duration.millisecondsPerMinute;
+Function _Duration_millisecondsPerHour$(m.Scope scope$) =>
+    () => Duration.millisecondsPerHour;
+Function _Duration_millisecondsPerDay$(m.Scope scope$) =>
+    () => Duration.millisecondsPerDay;
+Function _Duration_secondsPerHour$(m.Scope scope$) =>
+    () => Duration.secondsPerHour;
+Function _Duration_secondsPerDay$(m.Scope scope$) =>
+    () => Duration.secondsPerDay;
+Function _Duration_minutesPerDay$(m.Scope scope$) =>
+    () => Duration.minutesPerDay;
+Function _Duration_zero$(m.Scope scope$) => () => Duration.zero;
+Function _Duration_inDays$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inDays;
+    };
+Function _Duration_inHours$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inHours;
+    };
+Function _Duration_inMinutes$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inMinutes;
+    };
+Function _Duration_inSeconds$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inSeconds;
+    };
+Function _Duration_inMilliseconds$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inMilliseconds;
+    };
+Function _Duration_inMicroseconds$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.inMicroseconds;
+    };
+Function _Duration_hashCode$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _Duration_isNegative$(
+  m.Scope scope$,
+  Duration target$,
+) =>
+    () {
+      return target$.isNegative;
+    };
 Function _Duration__$(m.Scope scope$) => ({
       int? days,
       int? hours,
@@ -2090,10 +2067,13 @@ Function Enum_is$(
   dynamic target$,
 ) =>
     () => target$ is Enum;
-int _Enum_index$(Enum target$) {
-  return target$.index;
-}
-
+Function _Enum_index$(
+  m.Scope scope$,
+  Enum target$,
+) =>
+    () {
+      return target$.index;
+    };
 Function _Enum_compareByIndex$<T extends Enum>(m.Scope scope$) =>
     Enum.compareByIndex<T>;
 Function _Enum_compareByName$<T extends Enum>(m.Scope scope$) =>
@@ -2108,10 +2088,13 @@ Function Error_is$(
   dynamic target$,
 ) =>
     () => target$ is Error;
-StackTrace? _Error_stackTrace$(Error target$) {
-  return target$.stackTrace;
-}
-
+Function _Error_stackTrace$(
+  m.Scope scope$,
+  Error target$,
+) =>
+    () {
+      return target$.stackTrace;
+    };
 Function _Error__$(m.Scope scope$) => () {
       return Error();
     };
@@ -2128,10 +2111,13 @@ Function AssertionError_is$(
   dynamic target$,
 ) =>
     () => target$ is AssertionError;
-Object? _AssertionError_message$(AssertionError target$) {
-  return target$.message;
-}
-
+Function _AssertionError_message$(
+  m.Scope scope$,
+  AssertionError target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _AssertionError__$(m.Scope scope$) => ([Object? message]) {
       if (message == null) {
         return AssertionError();
@@ -2166,18 +2152,27 @@ Function ArgumentError_is$(
   dynamic target$,
 ) =>
     () => target$ is ArgumentError;
-dynamic _ArgumentError_invalidValue$(ArgumentError target$) {
-  return target$.invalidValue;
-}
-
-String? _ArgumentError_name$(ArgumentError target$) {
-  return target$.name;
-}
-
-dynamic _ArgumentError_message$(ArgumentError target$) {
-  return target$.message;
-}
-
+Function _ArgumentError_invalidValue$(
+  m.Scope scope$,
+  ArgumentError target$,
+) =>
+    () {
+      return target$.invalidValue;
+    };
+Function _ArgumentError_name$(
+  m.Scope scope$,
+  ArgumentError target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _ArgumentError_message$(
+  m.Scope scope$,
+  ArgumentError target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _ArgumentError__$(m.Scope scope$) => ([
       dynamic? message,
       String? name,
@@ -2212,18 +2207,27 @@ Function RangeError_is$(
   dynamic target$,
 ) =>
     () => target$ is RangeError;
-num? _RangeError_start$(RangeError target$) {
-  return target$.start;
-}
-
-num? _RangeError_end$(RangeError target$) {
-  return target$.end;
-}
-
-num? _RangeError_invalidValue$(RangeError target$) {
-  return target$.invalidValue;
-}
-
+Function _RangeError_start$(
+  m.Scope scope$,
+  RangeError target$,
+) =>
+    () {
+      return target$.start;
+    };
+Function _RangeError_end$(
+  m.Scope scope$,
+  RangeError target$,
+) =>
+    () {
+      return target$.end;
+    };
+Function _RangeError_invalidValue$(
+  m.Scope scope$,
+  RangeError target$,
+) =>
+    () {
+      return target$.invalidValue;
+    };
 Function _RangeError__$(m.Scope scope$) => (dynamic message) {
       return RangeError(message);
     };
@@ -2248,26 +2252,41 @@ Function IndexError_is$(
   dynamic target$,
 ) =>
     () => target$ is IndexError;
-Object? _IndexError_indexable$(IndexError target$) {
-  return target$.indexable;
-}
-
-int _IndexError_length$(IndexError target$) {
-  return target$.length;
-}
-
-int _IndexError_invalidValue$(IndexError target$) {
-  return target$.invalidValue;
-}
-
-int _IndexError_start$(IndexError target$) {
-  return target$.start;
-}
-
-int _IndexError_end$(IndexError target$) {
-  return target$.end;
-}
-
+Function _IndexError_indexable$(
+  m.Scope scope$,
+  IndexError target$,
+) =>
+    () {
+      return target$.indexable;
+    };
+Function _IndexError_length$(
+  m.Scope scope$,
+  IndexError target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _IndexError_invalidValue$(
+  m.Scope scope$,
+  IndexError target$,
+) =>
+    () {
+      return target$.invalidValue;
+    };
+Function _IndexError_start$(
+  m.Scope scope$,
+  IndexError target$,
+) =>
+    () {
+      return target$.start;
+    };
+Function _IndexError_end$(
+  m.Scope scope$,
+  IndexError target$,
+) =>
+    () {
+      return target$.end;
+    };
 Function _IndexError_withLength_$(m.Scope scope$) => IndexError.withLength;
 Function _IndexError_check$(m.Scope scope$) => IndexError.check;
 Function NoSuchMethodError_as$(
@@ -2297,10 +2316,13 @@ Function UnsupportedError_is$(
   dynamic target$,
 ) =>
     () => target$ is UnsupportedError;
-String? _UnsupportedError_message$(UnsupportedError target$) {
-  return target$.message;
-}
-
+Function _UnsupportedError_message$(
+  m.Scope scope$,
+  UnsupportedError target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _UnsupportedError__$(m.Scope scope$) => (String message) {
       return UnsupportedError(message);
     };
@@ -2319,10 +2341,13 @@ Function UnimplementedError_is$(
   dynamic target$,
 ) =>
     () => target$ is UnimplementedError;
-String? _UnimplementedError_message$(UnimplementedError target$) {
-  return target$.message;
-}
-
+Function _UnimplementedError_message$(
+  m.Scope scope$,
+  UnimplementedError target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _UnimplementedError__$(m.Scope scope$) => ([String? message]) {
       if (message == null) {
         return UnimplementedError();
@@ -2344,10 +2369,13 @@ Function StateError_is$(
   dynamic target$,
 ) =>
     () => target$ is StateError;
-String _StateError_message$(StateError target$) {
-  return target$.message;
-}
-
+Function _StateError_message$(
+  m.Scope scope$,
+  StateError target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _StateError__$(m.Scope scope$) => (String message) {
       return StateError(message);
     };
@@ -2366,11 +2394,13 @@ Function ConcurrentModificationError_is$(
   dynamic target$,
 ) =>
     () => target$ is ConcurrentModificationError;
-Object? _ConcurrentModificationError_modifiedObject$(
-    ConcurrentModificationError target$) {
-  return target$.modifiedObject;
-}
-
+Function _ConcurrentModificationError_modifiedObject$(
+  m.Scope scope$,
+  ConcurrentModificationError target$,
+) =>
+    () {
+      return target$.modifiedObject;
+    };
 Function _ConcurrentModificationError__$(m.Scope scope$) =>
     ([Object? modifiedObject]) {
       if (modifiedObject == null) {
@@ -2393,10 +2423,13 @@ Function OutOfMemoryError_is$(
   dynamic target$,
 ) =>
     () => target$ is OutOfMemoryError;
-StackTrace? _OutOfMemoryError_stackTrace$(OutOfMemoryError target$) {
-  return target$.stackTrace;
-}
-
+Function _OutOfMemoryError_stackTrace$(
+  m.Scope scope$,
+  OutOfMemoryError target$,
+) =>
+    () {
+      return target$.stackTrace;
+    };
 Function _OutOfMemoryError__$(m.Scope scope$) => () {
       return OutOfMemoryError();
     };
@@ -2415,10 +2448,13 @@ Function StackOverflowError_is$(
   dynamic target$,
 ) =>
     () => target$ is StackOverflowError;
-StackTrace? _StackOverflowError_stackTrace$(StackOverflowError target$) {
-  return target$.stackTrace;
-}
-
+Function _StackOverflowError_stackTrace$(
+  m.Scope scope$,
+  StackOverflowError target$,
+) =>
+    () {
+      return target$.stackTrace;
+    };
 Function _StackOverflowError__$(m.Scope scope$) => () {
       return StackOverflowError();
     };
@@ -2453,18 +2489,27 @@ Function FormatException_is$(
   dynamic target$,
 ) =>
     () => target$ is FormatException;
-String _FormatException_message$(FormatException target$) {
-  return target$.message;
-}
-
-dynamic _FormatException_source$(FormatException target$) {
-  return target$.source;
-}
-
-int? _FormatException_offset$(FormatException target$) {
-  return target$.offset;
-}
-
+Function _FormatException_message$(
+  m.Scope scope$,
+  FormatException target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _FormatException_source$(
+  m.Scope scope$,
+  FormatException target$,
+) =>
+    () {
+      return target$.source;
+    };
+Function _FormatException_offset$(
+  m.Scope scope$,
+  FormatException target$,
+) =>
+    () {
+      return target$.offset;
+    };
 Function _FormatException__$(m.Scope scope$) => ([
       String? message,
       dynamic? source,
@@ -2503,10 +2548,13 @@ Function Function_is$(
   dynamic target$,
 ) =>
     () => target$ is Function;
-int _Function_hashCode$(Function target$) {
-  return target$.hashCode;
-}
-
+Function _Function_hashCode$(
+  m.Scope scope$,
+  Function target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _Function_apply$(m.Scope scope$) => Function.apply;
 Function _Function_eq$$(
   m.Scope scope$,
@@ -2525,22 +2573,34 @@ Function int_is$(
   dynamic target$,
 ) =>
     () => target$ is int;
-bool _int_isEven$(int target$) {
-  return target$.isEven;
-}
-
-bool _int_isOdd$(int target$) {
-  return target$.isOdd;
-}
-
-int _int_bitLength$(int target$) {
-  return target$.bitLength;
-}
-
-int _int_sign$(int target$) {
-  return target$.sign;
-}
-
+Function _int_isEven$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () {
+      return target$.isEven;
+    };
+Function _int_isOdd$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () {
+      return target$.isOdd;
+    };
+Function _int_bitLength$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () {
+      return target$.bitLength;
+    };
+Function _int_sign$(
+  m.Scope scope$,
+  int target$,
+) =>
+    () {
+      return target$.sign;
+    };
 Function _int_fromEnvironment_$(m.Scope scope$) => int.fromEnvironment;
 Function _int_bit_and$$(
   m.Scope scope$,
@@ -2674,38 +2734,62 @@ Function Invocation_is$(
   dynamic target$,
 ) =>
     () => target$ is Invocation;
-Symbol _Invocation_memberName$(Invocation target$) {
-  return target$.memberName;
-}
-
-List<Type> _Invocation_typeArguments$(Invocation target$) {
-  return target$.typeArguments;
-}
-
-List<dynamic> _Invocation_positionalArguments$(Invocation target$) {
-  return target$.positionalArguments;
-}
-
-Map<Symbol, dynamic> _Invocation_namedArguments$(Invocation target$) {
-  return target$.namedArguments;
-}
-
-bool _Invocation_isMethod$(Invocation target$) {
-  return target$.isMethod;
-}
-
-bool _Invocation_isGetter$(Invocation target$) {
-  return target$.isGetter;
-}
-
-bool _Invocation_isSetter$(Invocation target$) {
-  return target$.isSetter;
-}
-
-bool _Invocation_isAccessor$(Invocation target$) {
-  return target$.isAccessor;
-}
-
+Function _Invocation_memberName$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.memberName;
+    };
+Function _Invocation_typeArguments$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.typeArguments;
+    };
+Function _Invocation_positionalArguments$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.positionalArguments;
+    };
+Function _Invocation_namedArguments$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.namedArguments;
+    };
+Function _Invocation_isMethod$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.isMethod;
+    };
+Function _Invocation_isGetter$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.isGetter;
+    };
+Function _Invocation_isSetter$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.isSetter;
+    };
+Function _Invocation_isAccessor$(
+  m.Scope scope$,
+  Invocation target$,
+) =>
+    () {
+      return target$.isAccessor;
+    };
 Function _Invocation_method_$(m.Scope scope$) => Invocation.method;
 Function _Invocation_genericMethod_$(m.Scope scope$) =>
     Invocation.genericMethod;
@@ -2721,34 +2805,55 @@ Function Iterable_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is Iterable<E>;
-Iterator<E> _Iterable_iterator$<E>(Iterable<E> target$) {
-  return target$.iterator;
-}
-
-int _Iterable_length$<E>(Iterable<E> target$) {
-  return target$.length;
-}
-
-bool _Iterable_isEmpty$<E>(Iterable<E> target$) {
-  return target$.isEmpty;
-}
-
-bool _Iterable_isNotEmpty$<E>(Iterable<E> target$) {
-  return target$.isNotEmpty;
-}
-
-E _Iterable_first$<E>(Iterable<E> target$) {
-  return target$.first;
-}
-
-E _Iterable_last$<E>(Iterable<E> target$) {
-  return target$.last;
-}
-
-E _Iterable_single$<E>(Iterable<E> target$) {
-  return target$.single;
-}
-
+Function _Iterable_iterator$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _Iterable_length$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _Iterable_isEmpty$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _Iterable_isNotEmpty$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _Iterable_first$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.first;
+    };
+Function _Iterable_last$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.last;
+    };
+Function _Iterable_single$<E>(
+  m.Scope scope$,
+  Iterable<E> target$,
+) =>
+    () {
+      return target$.single;
+    };
 Function _Iterable_generate_$(m.Scope scope$) => (
       int count, [
       m.FunctionPointer? generator,
@@ -3073,10 +3178,13 @@ Function Iterator_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is Iterator<E>;
-E _Iterator_current$<E>(Iterator<E> target$) {
-  return target$.current;
-}
-
+Function _Iterator_current$<E>(
+  m.Scope scope$,
+  Iterator<E> target$,
+) =>
+    () {
+      return target$.current;
+    };
 Function _Iterator_moveNext$<E>(
   m.Scope scope$,
   Iterator<E> target$,
@@ -3093,34 +3201,40 @@ Function List_is$<E>(
 ) =>
     () => target$ is List<E>;
 void _List_first_set$<E>(
+  m.Scope scope$,
   List target$,
-  dynamic other$,
-) {
-  target$.first = other$;
-}
-
+) =>
+    (dynamic other$) {
+      target$.first = other$;
+    };
 void _List_last_set$<E>(
+  m.Scope scope$,
   List target$,
-  dynamic other$,
-) {
-  target$.last = other$;
-}
-
-int _List_length$<E>(List<E> target$) {
-  return target$.length;
-}
-
+) =>
+    (dynamic other$) {
+      target$.last = other$;
+    };
+Function _List_length$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    () {
+      return target$.length;
+    };
 void _List_length_set$<E>(
+  m.Scope scope$,
   List target$,
-  int other$,
-) {
-  target$.length = other$;
-}
-
-Iterable<E> _List_reversed$<E>(List<E> target$) {
-  return target$.reversed;
-}
-
+) =>
+    (dynamic other$) {
+      target$.length = other$;
+    };
+Function _List_reversed$<E>(
+  m.Scope scope$,
+  List<E> target$,
+) =>
+    () {
+      return target$.reversed;
+    };
 Function _List_filled_$(m.Scope scope$) => List.filled;
 Function _List_empty_$(m.Scope scope$) => List.empty;
 Function _List_from_$(m.Scope scope$) => List.from;
@@ -3379,30 +3493,48 @@ Function Map_is$<K, V>(
   dynamic target$,
 ) =>
     () => target$ is Map<K, V>;
-Iterable<MapEntry<K, V>> _Map_entries$<K, V>(Map<K, V> target$) {
-  return target$.entries;
-}
-
-Iterable<K> _Map_keys$<K, V>(Map<K, V> target$) {
-  return target$.keys;
-}
-
-Iterable<V> _Map_values$<K, V>(Map<K, V> target$) {
-  return target$.values;
-}
-
-int _Map_length$<K, V>(Map<K, V> target$) {
-  return target$.length;
-}
-
-bool _Map_isEmpty$<K, V>(Map<K, V> target$) {
-  return target$.isEmpty;
-}
-
-bool _Map_isNotEmpty$<K, V>(Map<K, V> target$) {
-  return target$.isNotEmpty;
-}
-
+Function _Map_entries$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.entries;
+    };
+Function _Map_keys$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.keys;
+    };
+Function _Map_values$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.values;
+    };
+Function _Map_length$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _Map_isEmpty$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _Map_isNotEmpty$<K, V>(
+  m.Scope scope$,
+  Map<K, V> target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
 Function _Map__$(m.Scope scope$) => () {
       return Map();
     };
@@ -3625,14 +3757,20 @@ Function MapEntry_is$<K, V>(
   dynamic target$,
 ) =>
     () => target$ is MapEntry<K, V>;
-K _MapEntry_key$<K, V>(MapEntry<K, V> target$) {
-  return target$.key;
-}
-
-V _MapEntry_value$<K, V>(MapEntry<K, V> target$) {
-  return target$.value;
-}
-
+Function _MapEntry_key$<K, V>(
+  m.Scope scope$,
+  MapEntry<K, V> target$,
+) =>
+    () {
+      return target$.key;
+    };
+Function _MapEntry_value$<K, V>(
+  m.Scope scope$,
+  MapEntry<K, V> target$,
+) =>
+    () {
+      return target$.value;
+    };
 Function _MapEntry__$(m.Scope scope$) => (
       dynamic key,
       dynamic value,
@@ -3657,10 +3795,13 @@ Function Null_is$(
   dynamic target$,
 ) =>
     () => target$ is Null;
-int _Null_hashCode$(Null target$) {
-  return target$.hashCode;
-}
-
+Function _Null_hashCode$(
+  m.Scope scope$,
+  Null target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _Null_toString$(
   m.Scope scope$,
   Null target$,
@@ -3676,30 +3817,48 @@ Function num_is$(
   dynamic target$,
 ) =>
     () => target$ is num;
-int _num_hashCode$(num target$) {
-  return target$.hashCode;
-}
-
-bool _num_isNaN$(num target$) {
-  return target$.isNaN;
-}
-
-bool _num_isNegative$(num target$) {
-  return target$.isNegative;
-}
-
-bool _num_isInfinite$(num target$) {
-  return target$.isInfinite;
-}
-
-bool _num_isFinite$(num target$) {
-  return target$.isFinite;
-}
-
-num _num_sign$(num target$) {
-  return target$.sign;
-}
-
+Function _num_hashCode$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _num_isNaN$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.isNaN;
+    };
+Function _num_isNegative$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.isNegative;
+    };
+Function _num_isInfinite$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.isInfinite;
+    };
+Function _num_isFinite$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.isFinite;
+    };
+Function _num_sign$(
+  m.Scope scope$,
+  num target$,
+) =>
+    () {
+      return target$.sign;
+    };
 Function _num_eq$$(
   m.Scope scope$,
   num target$,
@@ -3880,14 +4039,20 @@ Function Object_is$(
   dynamic target$,
 ) =>
     () => target$ is Object;
-int _Object_hashCode$(Object target$) {
-  return target$.hashCode;
-}
-
-Type _Object_runtimeType$(Object target$) {
-  return target$.runtimeType;
-}
-
+Function _Object_hashCode$(
+  m.Scope scope$,
+  Object target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _Object_runtimeType$(
+  m.Scope scope$,
+  Object target$,
+) =>
+    () {
+      return target$.runtimeType;
+    };
 Function _Object__$(m.Scope scope$) => () {
       return Object();
     };
@@ -3939,26 +4104,41 @@ Function Match_is$(
   dynamic target$,
 ) =>
     () => target$ is Match;
-int _Match_start$(Match target$) {
-  return target$.start;
-}
-
-int _Match_end$(Match target$) {
-  return target$.end;
-}
-
-int _Match_groupCount$(Match target$) {
-  return target$.groupCount;
-}
-
-String _Match_input$(Match target$) {
-  return target$.input;
-}
-
-Pattern _Match_pattern$(Match target$) {
-  return target$.pattern;
-}
-
+Function _Match_start$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    () {
+      return target$.start;
+    };
+Function _Match_end$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    () {
+      return target$.end;
+    };
+Function _Match_groupCount$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    () {
+      return target$.groupCount;
+    };
+Function _Match_input$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    () {
+      return target$.input;
+    };
+Function _Match_pattern$(
+  m.Scope scope$,
+  Match target$,
+) =>
+    () {
+      return target$.pattern;
+    };
 Function _Match_group$(
   m.Scope scope$,
   Match target$,
@@ -3985,26 +4165,41 @@ Function RegExp_is$(
   dynamic target$,
 ) =>
     () => target$ is RegExp;
-String _RegExp_pattern$(RegExp target$) {
-  return target$.pattern;
-}
-
-bool _RegExp_isMultiLine$(RegExp target$) {
-  return target$.isMultiLine;
-}
-
-bool _RegExp_isCaseSensitive$(RegExp target$) {
-  return target$.isCaseSensitive;
-}
-
-bool _RegExp_isUnicode$(RegExp target$) {
-  return target$.isUnicode;
-}
-
-bool _RegExp_isDotAll$(RegExp target$) {
-  return target$.isDotAll;
-}
-
+Function _RegExp_pattern$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    () {
+      return target$.pattern;
+    };
+Function _RegExp_isMultiLine$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    () {
+      return target$.isMultiLine;
+    };
+Function _RegExp_isCaseSensitive$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    () {
+      return target$.isCaseSensitive;
+    };
+Function _RegExp_isUnicode$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    () {
+      return target$.isUnicode;
+    };
+Function _RegExp_isDotAll$(
+  m.Scope scope$,
+  RegExp target$,
+) =>
+    () {
+      return target$.isDotAll;
+    };
 Function _RegExp__$(m.Scope scope$) => (
       String source, {
       bool? multiLine,
@@ -4051,14 +4246,20 @@ Function RegExpMatch_is$(
   dynamic target$,
 ) =>
     () => target$ is RegExpMatch;
-Iterable<String> _RegExpMatch_groupNames$(RegExpMatch target$) {
-  return target$.groupNames;
-}
-
-RegExp _RegExpMatch_pattern$(RegExpMatch target$) {
-  return target$.pattern;
-}
-
+Function _RegExpMatch_groupNames$(
+  m.Scope scope$,
+  RegExpMatch target$,
+) =>
+    () {
+      return target$.groupNames;
+    };
+Function _RegExpMatch_pattern$(
+  m.Scope scope$,
+  RegExpMatch target$,
+) =>
+    () {
+      return target$.pattern;
+    };
 Function _RegExpMatch_namedGroup$(
   m.Scope scope$,
   RegExpMatch target$,
@@ -4074,10 +4275,13 @@ Function Set_is$<E>(
   dynamic target$,
 ) =>
     () => target$ is Set<E>;
-Iterator<E> _Set_iterator$<E>(Set<E> target$) {
-  return target$.iterator;
-}
-
+Function _Set_iterator$<E>(
+  m.Scope scope$,
+  Set<E> target$,
+) =>
+    () {
+      return target$.iterator;
+    };
 Function _Set__$(m.Scope scope$) => () {
       return Set();
     };
@@ -4228,14 +4432,8 @@ Function StackTrace_is$(
   dynamic target$,
 ) =>
     () => target$ is StackTrace;
-dynamic _StackTrace_empty$() {
-  return StackTrace.empty;
-}
-
-StackTrace _StackTrace_current$() {
-  return StackTrace.current;
-}
-
+Function _StackTrace_empty$(m.Scope scope$) => () => StackTrace.empty;
+Function _StackTrace_current$(m.Scope scope$) => () => StackTrace.current;
 Function _StackTrace_fromString_$(m.Scope scope$) => StackTrace.fromString;
 Function _StackTrace_toString$(
   m.Scope scope$,
@@ -4252,30 +4450,48 @@ Function Stopwatch_is$(
   dynamic target$,
 ) =>
     () => target$ is Stopwatch;
-int _Stopwatch_frequency$(Stopwatch target$) {
-  return target$.frequency;
-}
-
-int _Stopwatch_elapsedTicks$(Stopwatch target$) {
-  return target$.elapsedTicks;
-}
-
-Duration _Stopwatch_elapsed$(Stopwatch target$) {
-  return target$.elapsed;
-}
-
-int _Stopwatch_elapsedMicroseconds$(Stopwatch target$) {
-  return target$.elapsedMicroseconds;
-}
-
-int _Stopwatch_elapsedMilliseconds$(Stopwatch target$) {
-  return target$.elapsedMilliseconds;
-}
-
-bool _Stopwatch_isRunning$(Stopwatch target$) {
-  return target$.isRunning;
-}
-
+Function _Stopwatch_frequency$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.frequency;
+    };
+Function _Stopwatch_elapsedTicks$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.elapsedTicks;
+    };
+Function _Stopwatch_elapsed$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.elapsed;
+    };
+Function _Stopwatch_elapsedMicroseconds$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.elapsedMicroseconds;
+    };
+Function _Stopwatch_elapsedMilliseconds$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.elapsedMilliseconds;
+    };
+Function _Stopwatch_isRunning$(
+  m.Scope scope$,
+  Stopwatch target$,
+) =>
+    () {
+      return target$.isRunning;
+    };
 Function _Stopwatch__$(m.Scope scope$) => () {
       return Stopwatch();
     };
@@ -4304,30 +4520,48 @@ Function String_is$(
   dynamic target$,
 ) =>
     () => target$ is String;
-int _String_length$(String target$) {
-  return target$.length;
-}
-
-int _String_hashCode$(String target$) {
-  return target$.hashCode;
-}
-
-bool _String_isEmpty$(String target$) {
-  return target$.isEmpty;
-}
-
-bool _String_isNotEmpty$(String target$) {
-  return target$.isNotEmpty;
-}
-
-List<int> _String_codeUnits$(String target$) {
-  return target$.codeUnits;
-}
-
-Runes _String_runes$(String target$) {
-  return target$.runes;
-}
-
+Function _String_length$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _String_hashCode$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _String_isEmpty$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _String_isNotEmpty$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
+Function _String_codeUnits$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.codeUnits;
+    };
+Function _String_runes$(
+  m.Scope scope$,
+  String target$,
+) =>
+    () {
+      return target$.runes;
+    };
 Function _String_fromCharCodes_$(m.Scope scope$) => String.fromCharCodes;
 Function _String_fromCharCode_$(m.Scope scope$) => String.fromCharCode;
 Function _String_fromEnvironment_$(m.Scope scope$) => String.fromEnvironment;
@@ -4533,18 +4767,27 @@ Function Runes_is$(
   dynamic target$,
 ) =>
     () => target$ is Runes;
-String _Runes_string$(Runes target$) {
-  return target$.string;
-}
-
-RuneIterator _Runes_iterator$(Runes target$) {
-  return target$.iterator;
-}
-
-int _Runes_last$(Runes target$) {
-  return target$.last;
-}
-
+Function _Runes_string$(
+  m.Scope scope$,
+  Runes target$,
+) =>
+    () {
+      return target$.string;
+    };
+Function _Runes_iterator$(
+  m.Scope scope$,
+  Runes target$,
+) =>
+    () {
+      return target$.iterator;
+    };
+Function _Runes_last$(
+  m.Scope scope$,
+  Runes target$,
+) =>
+    () {
+      return target$.last;
+    };
 Function _Runes__$(m.Scope scope$) => (String string) {
       return Runes(string);
     };
@@ -4558,33 +4801,48 @@ Function RuneIterator_is$(
   dynamic target$,
 ) =>
     () => target$ is RuneIterator;
-String _RuneIterator_string$(RuneIterator target$) {
-  return target$.string;
-}
-
-int _RuneIterator_rawIndex$(RuneIterator target$) {
-  return target$.rawIndex;
-}
-
-void _RuneIterator_rawIndex_set$(
+Function _RuneIterator_string$(
+  m.Scope scope$,
   RuneIterator target$,
-  int other$,
-) {
-  target$.rawIndex = other$;
-}
-
-int _RuneIterator_current$(RuneIterator target$) {
-  return target$.current;
-}
-
-int _RuneIterator_currentSize$(RuneIterator target$) {
-  return target$.currentSize;
-}
-
-String _RuneIterator_currentAsString$(RuneIterator target$) {
-  return target$.currentAsString;
-}
-
+) =>
+    () {
+      return target$.string;
+    };
+Function _RuneIterator_rawIndex$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    () {
+      return target$.rawIndex;
+    };
+void _RuneIterator_rawIndex_set$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    (dynamic other$) {
+      target$.rawIndex = other$;
+    };
+Function _RuneIterator_current$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    () {
+      return target$.current;
+    };
+Function _RuneIterator_currentSize$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    () {
+      return target$.currentSize;
+    };
+Function _RuneIterator_currentAsString$(
+  m.Scope scope$,
+  RuneIterator target$,
+) =>
+    () {
+      return target$.currentAsString;
+    };
 Function _RuneIterator__$(m.Scope scope$) => (String string) {
       return RuneIterator(string);
     };
@@ -4614,18 +4872,27 @@ Function StringBuffer_is$(
   dynamic target$,
 ) =>
     () => target$ is StringBuffer;
-int _StringBuffer_length$(StringBuffer target$) {
-  return target$.length;
-}
-
-bool _StringBuffer_isEmpty$(StringBuffer target$) {
-  return target$.isEmpty;
-}
-
-bool _StringBuffer_isNotEmpty$(StringBuffer target$) {
-  return target$.isNotEmpty;
-}
-
+Function _StringBuffer_length$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    () {
+      return target$.length;
+    };
+Function _StringBuffer_isEmpty$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    () {
+      return target$.isEmpty;
+    };
+Function _StringBuffer_isNotEmpty$(
+  m.Scope scope$,
+  StringBuffer target$,
+) =>
+    () {
+      return target$.isNotEmpty;
+    };
 Function _StringBuffer__$(m.Scope scope$) => ([Object? content]) {
       if (content == null) {
         return StringBuffer();
@@ -4702,18 +4969,15 @@ Function Symbol_is$(
   dynamic target$,
 ) =>
     () => target$ is Symbol;
-Symbol _Symbol_unaryMinus$() {
-  return Symbol.unaryMinus;
-}
-
-Symbol _Symbol_empty$() {
-  return Symbol.empty;
-}
-
-int _Symbol_hashCode$(Symbol target$) {
-  return target$.hashCode;
-}
-
+Function _Symbol_unaryMinus$(m.Scope scope$) => () => Symbol.unaryMinus;
+Function _Symbol_empty$(m.Scope scope$) => () => Symbol.empty;
+Function _Symbol_hashCode$(
+  m.Scope scope$,
+  Symbol target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _Symbol__$(m.Scope scope$) => (String name) {
       return Symbol(name);
     };
@@ -4732,10 +4996,13 @@ Function Type_is$(
   dynamic target$,
 ) =>
     () => target$ is Type;
-int _Type_hashCode$(Type target$) {
-  return target$.hashCode;
-}
-
+Function _Type_hashCode$(
+  m.Scope scope$,
+  Type target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _Type_eq$$(
   m.Scope scope$,
   Type target$,
@@ -4756,98 +5023,161 @@ Function Uri_is$(
   dynamic target$,
 ) =>
     () => target$ is Uri;
-Uri _Uri_base$() {
-  return Uri.base;
-}
-
-String _Uri_scheme$(Uri target$) {
-  return target$.scheme;
-}
-
-String _Uri_authority$(Uri target$) {
-  return target$.authority;
-}
-
-String _Uri_userInfo$(Uri target$) {
-  return target$.userInfo;
-}
-
-String _Uri_host$(Uri target$) {
-  return target$.host;
-}
-
-int _Uri_port$(Uri target$) {
-  return target$.port;
-}
-
-String _Uri_path$(Uri target$) {
-  return target$.path;
-}
-
-String _Uri_query$(Uri target$) {
-  return target$.query;
-}
-
-String _Uri_fragment$(Uri target$) {
-  return target$.fragment;
-}
-
-List<String> _Uri_pathSegments$(Uri target$) {
-  return target$.pathSegments;
-}
-
-Map<String, String> _Uri_queryParameters$(Uri target$) {
-  return target$.queryParameters;
-}
-
-Map<String, List<String>> _Uri_queryParametersAll$(Uri target$) {
-  return target$.queryParametersAll;
-}
-
-bool _Uri_isAbsolute$(Uri target$) {
-  return target$.isAbsolute;
-}
-
-bool _Uri_hasScheme$(Uri target$) {
-  return target$.hasScheme;
-}
-
-bool _Uri_hasAuthority$(Uri target$) {
-  return target$.hasAuthority;
-}
-
-bool _Uri_hasPort$(Uri target$) {
-  return target$.hasPort;
-}
-
-bool _Uri_hasQuery$(Uri target$) {
-  return target$.hasQuery;
-}
-
-bool _Uri_hasFragment$(Uri target$) {
-  return target$.hasFragment;
-}
-
-bool _Uri_hasEmptyPath$(Uri target$) {
-  return target$.hasEmptyPath;
-}
-
-bool _Uri_hasAbsolutePath$(Uri target$) {
-  return target$.hasAbsolutePath;
-}
-
-String _Uri_origin$(Uri target$) {
-  return target$.origin;
-}
-
-UriData? _Uri_data$(Uri target$) {
-  return target$.data;
-}
-
-int _Uri_hashCode$(Uri target$) {
-  return target$.hashCode;
-}
-
+Function _Uri_base$(m.Scope scope$) => () => Uri.base;
+Function _Uri_scheme$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.scheme;
+    };
+Function _Uri_authority$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.authority;
+    };
+Function _Uri_userInfo$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.userInfo;
+    };
+Function _Uri_host$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.host;
+    };
+Function _Uri_port$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.port;
+    };
+Function _Uri_path$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.path;
+    };
+Function _Uri_query$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.query;
+    };
+Function _Uri_fragment$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.fragment;
+    };
+Function _Uri_pathSegments$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.pathSegments;
+    };
+Function _Uri_queryParameters$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.queryParameters;
+    };
+Function _Uri_queryParametersAll$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.queryParametersAll;
+    };
+Function _Uri_isAbsolute$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.isAbsolute;
+    };
+Function _Uri_hasScheme$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasScheme;
+    };
+Function _Uri_hasAuthority$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasAuthority;
+    };
+Function _Uri_hasPort$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasPort;
+    };
+Function _Uri_hasQuery$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasQuery;
+    };
+Function _Uri_hasFragment$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasFragment;
+    };
+Function _Uri_hasEmptyPath$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasEmptyPath;
+    };
+Function _Uri_hasAbsolutePath$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hasAbsolutePath;
+    };
+Function _Uri_origin$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.origin;
+    };
+Function _Uri_data$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.data;
+    };
+Function _Uri_hashCode$(
+  m.Scope scope$,
+  Uri target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _Uri__$(m.Scope scope$) => ({
       String? scheme,
       String? userInfo,
@@ -4945,30 +5275,48 @@ Function UriData_is$(
   dynamic target$,
 ) =>
     () => target$ is UriData;
-Uri _UriData_uri$(UriData target$) {
-  return target$.uri;
-}
-
-String _UriData_mimeType$(UriData target$) {
-  return target$.mimeType;
-}
-
-String _UriData_charset$(UriData target$) {
-  return target$.charset;
-}
-
-bool _UriData_isBase64$(UriData target$) {
-  return target$.isBase64;
-}
-
-String _UriData_contentText$(UriData target$) {
-  return target$.contentText;
-}
-
-Map<String, String> _UriData_parameters$(UriData target$) {
-  return target$.parameters;
-}
-
+Function _UriData_uri$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.uri;
+    };
+Function _UriData_mimeType$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.mimeType;
+    };
+Function _UriData_charset$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.charset;
+    };
+Function _UriData_isBase64$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.isBase64;
+    };
+Function _UriData_contentText$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.contentText;
+    };
+Function _UriData_parameters$(
+  m.Scope scope$,
+  UriData target$,
+) =>
+    () {
+      return target$.parameters;
+    };
 Function _UriData_fromString_$(m.Scope scope$) => UriData.fromString;
 Function _UriData_fromBytes_$(m.Scope scope$) => UriData.fromBytes;
 Function _UriData_fromUri_$(m.Scope scope$) => UriData.fromUri;
@@ -5013,10 +5361,13 @@ Function Expando_is$<T extends Object>(
   dynamic target$,
 ) =>
     () => target$ is Expando<T>;
-String? _Expando_name$<T extends Object>(Expando<T> target$) {
-  return target$.name;
-}
-
+Function _Expando_name$<T extends Object>(
+  m.Scope scope$,
+  Expando<T> target$,
+) =>
+    () {
+      return target$.name;
+    };
 Function _Expando__$(m.Scope scope$) => <T extends Object>([String? name]) {
       if (name == null) {
         return Expando<T>();
@@ -5052,10 +5403,13 @@ Function WeakReference_is$<T extends Object>(
   dynamic target$,
 ) =>
     () => target$ is WeakReference<T>;
-T? _WeakReference_target$<T extends Object>(WeakReference<T> target$) {
-  return target$.target;
-}
-
+Function _WeakReference_target$<T extends Object>(
+  m.Scope scope$,
+  WeakReference<T> target$,
+) =>
+    () {
+      return target$.target;
+    };
 Function _WeakReference__$(m.Scope scope$) =>
     <T extends Object>(dynamic target) {
       return WeakReference<T>(target);

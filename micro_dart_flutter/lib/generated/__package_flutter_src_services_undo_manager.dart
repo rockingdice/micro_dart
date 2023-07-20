@@ -47,20 +47,9 @@ void _UndoManager_client_set$(UndoManagerClient? other$) {
   UndoManager.client = other$;
 }
 
-UndoManagerClient? _UndoManager_client$() {
-  return UndoManager.client;
-}
-
+Function _UndoManager_client$(m.Scope scope$) => () => UndoManager.client;
 Function _UndoManager_setChannel$(m.Scope scope$) => UndoManager.setChannel;
 Function _UndoManager_setUndoState$(m.Scope scope$) => UndoManager.setUndoState;
-UndoDirection _UndoDirection_undo$() {
-  return UndoDirection.undo;
-}
-
-UndoDirection _UndoDirection_redo$() {
-  return UndoDirection.redo;
-}
-
-List<UndoDirection> _UndoDirection_values$() {
-  return UndoDirection.values;
-}
+Function _UndoDirection_undo$(m.Scope scope$) => () => UndoDirection.undo;
+Function _UndoDirection_redo$(m.Scope scope$) => () => UndoDirection.redo;
+Function _UndoDirection_values$(m.Scope scope$) => () => UndoDirection.values;

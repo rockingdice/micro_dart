@@ -123,10 +123,8 @@ Function EdgeInsetsGeometry_is$(
   dynamic target$,
 ) =>
     () => target$ is EdgeInsetsGeometry;
-EdgeInsetsGeometry _EdgeInsetsGeometry_infinity$() {
-  return EdgeInsetsGeometry.infinity;
-}
-
+Function _EdgeInsetsGeometry_infinity$(m.Scope scope$) =>
+    () => EdgeInsetsGeometry.infinity;
 Function _EdgeInsetsGeometry_isNonNegative$(
   m.Scope scope$,
   EdgeInsetsGeometry target$,
@@ -250,10 +248,7 @@ Function EdgeInsets_is$(
   dynamic target$,
 ) =>
     () => target$ is EdgeInsets;
-EdgeInsets _EdgeInsets_zero$() {
-  return EdgeInsets.zero;
-}
-
+Function _EdgeInsets_zero$(m.Scope scope$) => () => EdgeInsets.zero;
 Function _EdgeInsets_left$(
   m.Scope scope$,
   EdgeInsets target$,
@@ -404,10 +399,8 @@ Function EdgeInsetsDirectional_is$(
   dynamic target$,
 ) =>
     () => target$ is EdgeInsetsDirectional;
-EdgeInsetsDirectional _EdgeInsetsDirectional_zero$() {
-  return EdgeInsetsDirectional.zero;
-}
-
+Function _EdgeInsetsDirectional_zero$(m.Scope scope$) =>
+    () => EdgeInsetsDirectional.zero;
 Function _EdgeInsetsDirectional_start$(
   m.Scope scope$,
   EdgeInsetsDirectional target$,

@@ -164,78 +164,42 @@ Function _RawKeyEventDataAndroid_repeatCount$(
     () {
       return target$.repeatCount;
     };
-int _RawKeyEventDataAndroid_modifierNone$() {
-  return RawKeyEventDataAndroid.modifierNone;
-}
-
-int _RawKeyEventDataAndroid_modifierAlt$() {
-  return RawKeyEventDataAndroid.modifierAlt;
-}
-
-int _RawKeyEventDataAndroid_modifierLeftAlt$() {
-  return RawKeyEventDataAndroid.modifierLeftAlt;
-}
-
-int _RawKeyEventDataAndroid_modifierRightAlt$() {
-  return RawKeyEventDataAndroid.modifierRightAlt;
-}
-
-int _RawKeyEventDataAndroid_modifierShift$() {
-  return RawKeyEventDataAndroid.modifierShift;
-}
-
-int _RawKeyEventDataAndroid_modifierLeftShift$() {
-  return RawKeyEventDataAndroid.modifierLeftShift;
-}
-
-int _RawKeyEventDataAndroid_modifierRightShift$() {
-  return RawKeyEventDataAndroid.modifierRightShift;
-}
-
-int _RawKeyEventDataAndroid_modifierSym$() {
-  return RawKeyEventDataAndroid.modifierSym;
-}
-
-int _RawKeyEventDataAndroid_modifierFunction$() {
-  return RawKeyEventDataAndroid.modifierFunction;
-}
-
-int _RawKeyEventDataAndroid_modifierControl$() {
-  return RawKeyEventDataAndroid.modifierControl;
-}
-
-int _RawKeyEventDataAndroid_modifierLeftControl$() {
-  return RawKeyEventDataAndroid.modifierLeftControl;
-}
-
-int _RawKeyEventDataAndroid_modifierRightControl$() {
-  return RawKeyEventDataAndroid.modifierRightControl;
-}
-
-int _RawKeyEventDataAndroid_modifierMeta$() {
-  return RawKeyEventDataAndroid.modifierMeta;
-}
-
-int _RawKeyEventDataAndroid_modifierLeftMeta$() {
-  return RawKeyEventDataAndroid.modifierLeftMeta;
-}
-
-int _RawKeyEventDataAndroid_modifierRightMeta$() {
-  return RawKeyEventDataAndroid.modifierRightMeta;
-}
-
-int _RawKeyEventDataAndroid_modifierCapsLock$() {
-  return RawKeyEventDataAndroid.modifierCapsLock;
-}
-
-int _RawKeyEventDataAndroid_modifierNumLock$() {
-  return RawKeyEventDataAndroid.modifierNumLock;
-}
-
-int _RawKeyEventDataAndroid_modifierScrollLock$() {
-  return RawKeyEventDataAndroid.modifierScrollLock;
-}
-
+Function _RawKeyEventDataAndroid_modifierNone$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierNone;
+Function _RawKeyEventDataAndroid_modifierAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierAlt;
+Function _RawKeyEventDataAndroid_modifierLeftAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierLeftAlt;
+Function _RawKeyEventDataAndroid_modifierRightAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierRightAlt;
+Function _RawKeyEventDataAndroid_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierShift;
+Function _RawKeyEventDataAndroid_modifierLeftShift$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierLeftShift;
+Function _RawKeyEventDataAndroid_modifierRightShift$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierRightShift;
+Function _RawKeyEventDataAndroid_modifierSym$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierSym;
+Function _RawKeyEventDataAndroid_modifierFunction$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierFunction;
+Function _RawKeyEventDataAndroid_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierControl;
+Function _RawKeyEventDataAndroid_modifierLeftControl$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierLeftControl;
+Function _RawKeyEventDataAndroid_modifierRightControl$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierRightControl;
+Function _RawKeyEventDataAndroid_modifierMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierMeta;
+Function _RawKeyEventDataAndroid_modifierLeftMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierLeftMeta;
+Function _RawKeyEventDataAndroid_modifierRightMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierRightMeta;
+Function _RawKeyEventDataAndroid_modifierCapsLock$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierCapsLock;
+Function _RawKeyEventDataAndroid_modifierNumLock$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierNumLock;
+Function _RawKeyEventDataAndroid_modifierScrollLock$(m.Scope scope$) =>
+    () => RawKeyEventDataAndroid.modifierScrollLock;
 Function _RawKeyEventDataAndroid_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataAndroid target$,

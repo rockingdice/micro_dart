@@ -141,26 +141,15 @@ Function _CupertinoSliverRefreshControl_createState$(
   CupertinoSliverRefreshControl target$,
 ) =>
     target$.createState;
-RefreshIndicatorMode _RefreshIndicatorMode_inactive$() {
-  return RefreshIndicatorMode.inactive;
-}
-
-RefreshIndicatorMode _RefreshIndicatorMode_drag$() {
-  return RefreshIndicatorMode.drag;
-}
-
-RefreshIndicatorMode _RefreshIndicatorMode_armed$() {
-  return RefreshIndicatorMode.armed;
-}
-
-RefreshIndicatorMode _RefreshIndicatorMode_refresh$() {
-  return RefreshIndicatorMode.refresh;
-}
-
-RefreshIndicatorMode _RefreshIndicatorMode_done$() {
-  return RefreshIndicatorMode.done;
-}
-
-List<RefreshIndicatorMode> _RefreshIndicatorMode_values$() {
-  return RefreshIndicatorMode.values;
-}
+Function _RefreshIndicatorMode_inactive$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.inactive;
+Function _RefreshIndicatorMode_drag$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.drag;
+Function _RefreshIndicatorMode_armed$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.armed;
+Function _RefreshIndicatorMode_refresh$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.refresh;
+Function _RefreshIndicatorMode_done$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.done;
+Function _RefreshIndicatorMode_values$(m.Scope scope$) =>
+    () => RefreshIndicatorMode.values;

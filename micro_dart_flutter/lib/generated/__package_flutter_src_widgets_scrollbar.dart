@@ -385,12 +385,6 @@ void _ScrollbarPainter_ignorePointer_set$(
     (dynamic other$) {
       target$.ignorePointer = other$;
     };
-
-const double _kMinThumbExtent = 18.0;
-const double _kMinInteractiveSize = 48.0;
-const double _kScrollbarThickness = 6.0;
-const Duration _kScrollbarFadeDuration = Duration(milliseconds: 300);
-const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);
 Function _ScrollbarPainter_semanticsBuilder$(
   m.Scope scope$,
   ScrollbarPainter target$,
@@ -855,22 +849,19 @@ Function _RawScrollbarState_build$<T extends RawScrollbar>(
   RawScrollbarState<T> target$,
 ) =>
     target$.build;
-ScrollbarOrientation _ScrollbarOrientation_left$() {
-  return ScrollbarOrientation.left;
-}
+Function _ScrollbarOrientation_left$(m.Scope scope$) =>
+    () => ScrollbarOrientation.left;
+Function _ScrollbarOrientation_right$(m.Scope scope$) =>
+    () => ScrollbarOrientation.right;
+Function _ScrollbarOrientation_top$(m.Scope scope$) =>
+    () => ScrollbarOrientation.top;
+Function _ScrollbarOrientation_bottom$(m.Scope scope$) =>
+    () => ScrollbarOrientation.bottom;
+Function _ScrollbarOrientation_values$(m.Scope scope$) =>
+    () => ScrollbarOrientation.values;
 
-ScrollbarOrientation _ScrollbarOrientation_right$() {
-  return ScrollbarOrientation.right;
-}
-
-ScrollbarOrientation _ScrollbarOrientation_top$() {
-  return ScrollbarOrientation.top;
-}
-
-ScrollbarOrientation _ScrollbarOrientation_bottom$() {
-  return ScrollbarOrientation.bottom;
-}
-
-List<ScrollbarOrientation> _ScrollbarOrientation_values$() {
-  return ScrollbarOrientation.values;
-}
+const double _kMinThumbExtent = 18.0;
+const double _kMinInteractiveSize = 48.0;
+const double _kScrollbarThickness = 6.0;
+const Duration _kScrollbarFadeDuration = Duration(milliseconds: 300);
+const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);

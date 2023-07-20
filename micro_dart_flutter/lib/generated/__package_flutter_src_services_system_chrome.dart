@@ -23,8 +23,6 @@ const libraryMirror = m.LibraryMirror(
         _SystemChrome_setApplicationSwitcherDescription$,
     'SystemChrome.setEnabledSystemUIMode':
         _SystemChrome_setEnabledSystemUIMode$,
-    'SystemChrome.setSystemUIChangeCallback':
-        _SystemChrome_setSystemUIChangeCallback$,
     'SystemChrome.restoreSystemUIOverlays':
         _SystemChrome_restoreSystemUIOverlays$,
     'SystemChrome.setSystemUIOverlayStyle':
@@ -87,6 +85,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': SystemChrome_as$,
         '#is': SystemChrome_is$,
+        'setSystemUIChangeCallback': _SystemChrome_setSystemUIChangeCallback$,
       },
       {},
     ),
@@ -206,14 +205,10 @@ Function _SystemUiOverlayStyle_systemStatusBarContrastEnforced$(
     () {
       return target$.systemStatusBarContrastEnforced;
     };
-SystemUiOverlayStyle _SystemUiOverlayStyle_light$() {
-  return SystemUiOverlayStyle.light;
-}
-
-SystemUiOverlayStyle _SystemUiOverlayStyle_dark$() {
-  return SystemUiOverlayStyle.dark;
-}
-
+Function _SystemUiOverlayStyle_light$(m.Scope scope$) =>
+    () => SystemUiOverlayStyle.light;
+Function _SystemUiOverlayStyle_dark$(m.Scope scope$) =>
+    () => SystemUiOverlayStyle.dark;
 Function _SystemUiOverlayStyle_hashCode$(
   m.Scope scope$,
   SystemUiOverlayStyle target$,
@@ -268,10 +263,8 @@ Function SystemChrome_is$(
   dynamic target$,
 ) =>
     () => target$ is SystemChrome;
-SystemUiOverlayStyle? _SystemChrome_latestStyle$() {
-  return SystemChrome.latestStyle;
-}
-
+Function _SystemChrome_latestStyle$(m.Scope scope$) =>
+    () => SystemChrome.latestStyle;
 Function _SystemChrome_setPreferredOrientations$(m.Scope scope$) =>
     SystemChrome.setPreferredOrientations;
 Function _SystemChrome_setApplicationSwitcherDescription$(m.Scope scope$) =>
@@ -295,58 +288,27 @@ Function _SystemChrome_restoreSystemUIOverlays$(m.Scope scope$) =>
     SystemChrome.restoreSystemUIOverlays;
 Function _SystemChrome_setSystemUIOverlayStyle$(m.Scope scope$) =>
     SystemChrome.setSystemUIOverlayStyle;
-DeviceOrientation _DeviceOrientation_portraitUp$() {
-  return DeviceOrientation.portraitUp;
-}
-
-DeviceOrientation _DeviceOrientation_landscapeLeft$() {
-  return DeviceOrientation.landscapeLeft;
-}
-
-DeviceOrientation _DeviceOrientation_portraitDown$() {
-  return DeviceOrientation.portraitDown;
-}
-
-DeviceOrientation _DeviceOrientation_landscapeRight$() {
-  return DeviceOrientation.landscapeRight;
-}
-
-List<DeviceOrientation> _DeviceOrientation_values$() {
-  return DeviceOrientation.values;
-}
-
-SystemUiOverlay _SystemUiOverlay_top$() {
-  return SystemUiOverlay.top;
-}
-
-SystemUiOverlay _SystemUiOverlay_bottom$() {
-  return SystemUiOverlay.bottom;
-}
-
-List<SystemUiOverlay> _SystemUiOverlay_values$() {
-  return SystemUiOverlay.values;
-}
-
-SystemUiMode _SystemUiMode_leanBack$() {
-  return SystemUiMode.leanBack;
-}
-
-SystemUiMode _SystemUiMode_immersive$() {
-  return SystemUiMode.immersive;
-}
-
-SystemUiMode _SystemUiMode_immersiveSticky$() {
-  return SystemUiMode.immersiveSticky;
-}
-
-SystemUiMode _SystemUiMode_edgeToEdge$() {
-  return SystemUiMode.edgeToEdge;
-}
-
-SystemUiMode _SystemUiMode_manual$() {
-  return SystemUiMode.manual;
-}
-
-List<SystemUiMode> _SystemUiMode_values$() {
-  return SystemUiMode.values;
-}
+Function _DeviceOrientation_portraitUp$(m.Scope scope$) =>
+    () => DeviceOrientation.portraitUp;
+Function _DeviceOrientation_landscapeLeft$(m.Scope scope$) =>
+    () => DeviceOrientation.landscapeLeft;
+Function _DeviceOrientation_portraitDown$(m.Scope scope$) =>
+    () => DeviceOrientation.portraitDown;
+Function _DeviceOrientation_landscapeRight$(m.Scope scope$) =>
+    () => DeviceOrientation.landscapeRight;
+Function _DeviceOrientation_values$(m.Scope scope$) =>
+    () => DeviceOrientation.values;
+Function _SystemUiOverlay_top$(m.Scope scope$) => () => SystemUiOverlay.top;
+Function _SystemUiOverlay_bottom$(m.Scope scope$) =>
+    () => SystemUiOverlay.bottom;
+Function _SystemUiOverlay_values$(m.Scope scope$) =>
+    () => SystemUiOverlay.values;
+Function _SystemUiMode_leanBack$(m.Scope scope$) => () => SystemUiMode.leanBack;
+Function _SystemUiMode_immersive$(m.Scope scope$) =>
+    () => SystemUiMode.immersive;
+Function _SystemUiMode_immersiveSticky$(m.Scope scope$) =>
+    () => SystemUiMode.immersiveSticky;
+Function _SystemUiMode_edgeToEdge$(m.Scope scope$) =>
+    () => SystemUiMode.edgeToEdge;
+Function _SystemUiMode_manual$(m.Scope scope$) => () => SystemUiMode.manual;
+Function _SystemUiMode_values$(m.Scope scope$) => () => SystemUiMode.values;

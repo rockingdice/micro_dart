@@ -26,54 +26,20 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-double _kMinInteractiveDimension$() {
-  return kMinInteractiveDimension;
-}
-
-double _kToolbarHeight$() {
-  return kToolbarHeight;
-}
-
-double _kBottomNavigationBarHeight$() {
-  return kBottomNavigationBarHeight;
-}
-
-double _kTextTabBarHeight$() {
-  return kTextTabBarHeight;
-}
-
-Duration _kThemeChangeDuration$() {
-  return kThemeChangeDuration;
-}
-
-double _kRadialReactionRadius$() {
-  return kRadialReactionRadius;
-}
-
-Duration _kRadialReactionDuration$() {
-  return kRadialReactionDuration;
-}
-
-int _kRadialReactionAlpha$() {
-  return kRadialReactionAlpha;
-}
-
-Duration _kTabScrollDuration$() {
-  return kTabScrollDuration;
-}
-
-EdgeInsets _kTabLabelPadding$() {
-  return kTabLabelPadding;
-}
-
-EdgeInsets _kMaterialListPadding$() {
-  return kMaterialListPadding;
-}
-
-Color _kDefaultIconLightColor$() {
-  return kDefaultIconLightColor;
-}
-
-Color _kDefaultIconDarkColor$() {
-  return kDefaultIconDarkColor;
-}
+Function _kMinInteractiveDimension$(m.Scope scope$) =>
+    () => kMinInteractiveDimension;
+Function _kToolbarHeight$(m.Scope scope$) => () => kToolbarHeight;
+Function _kBottomNavigationBarHeight$(m.Scope scope$) =>
+    () => kBottomNavigationBarHeight;
+Function _kTextTabBarHeight$(m.Scope scope$) => () => kTextTabBarHeight;
+Function _kThemeChangeDuration$(m.Scope scope$) => () => kThemeChangeDuration;
+Function _kRadialReactionRadius$(m.Scope scope$) => () => kRadialReactionRadius;
+Function _kRadialReactionDuration$(m.Scope scope$) =>
+    () => kRadialReactionDuration;
+Function _kRadialReactionAlpha$(m.Scope scope$) => () => kRadialReactionAlpha;
+Function _kTabScrollDuration$(m.Scope scope$) => () => kTabScrollDuration;
+Function _kTabLabelPadding$(m.Scope scope$) => () => kTabLabelPadding;
+Function _kMaterialListPadding$(m.Scope scope$) => () => kMaterialListPadding;
+Function _kDefaultIconLightColor$(m.Scope scope$) =>
+    () => kDefaultIconLightColor;
+Function _kDefaultIconDarkColor$(m.Scope scope$) => () => kDefaultIconDarkColor;

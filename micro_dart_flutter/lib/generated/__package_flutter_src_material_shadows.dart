@@ -11,6 +11,4 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-Map<int, List<BoxShadow>> _kElevationToShadow$() {
-  return kElevationToShadow;
-}
+Function _kElevationToShadow$(m.Scope scope$) => () => kElevationToShadow;

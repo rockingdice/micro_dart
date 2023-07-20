@@ -171,14 +171,9 @@ Function _CupertinoListSection_build$(
   CupertinoListSection target$,
 ) =>
     target$.build;
-CupertinoListSectionType _CupertinoListSectionType_base$() {
-  return CupertinoListSectionType.base;
-}
-
-CupertinoListSectionType _CupertinoListSectionType_insetGrouped$() {
-  return CupertinoListSectionType.insetGrouped;
-}
-
-List<CupertinoListSectionType> _CupertinoListSectionType_values$() {
-  return CupertinoListSectionType.values;
-}
+Function _CupertinoListSectionType_base$(m.Scope scope$) =>
+    () => CupertinoListSectionType.base;
+Function _CupertinoListSectionType_insetGrouped$(m.Scope scope$) =>
+    () => CupertinoListSectionType.insetGrouped;
+Function _CupertinoListSectionType_values$(m.Scope scope$) =>
+    () => CupertinoListSectionType.values;

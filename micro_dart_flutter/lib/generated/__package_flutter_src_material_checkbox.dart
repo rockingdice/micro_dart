@@ -188,10 +188,7 @@ Function _Checkbox_isError$(
     () {
       return target$.isError;
     };
-double _Checkbox_width$() {
-  return Checkbox.width;
-}
-
+Function _Checkbox_width$(m.Scope scope$) => () => Checkbox.width;
 Function _Checkbox__$(m.Scope scope$) => ({
       Key? key,
       required bool? value,

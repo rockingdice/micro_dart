@@ -113,10 +113,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-dynamic _widgetFactory$() {
-  return widgetFactory;
-}
-
+Function _widgetFactory$(m.Scope scope$) => () => widgetFactory;
 Function WidgetInspector_as$(
   m.Scope scope$,
   dynamic target$,

@@ -45,10 +45,8 @@ Function PlaceholderSpan_is$(
   dynamic target$,
 ) =>
     () => target$ is PlaceholderSpan;
-int _PlaceholderSpan_placeholderCodeUnit$() {
-  return PlaceholderSpan.placeholderCodeUnit;
-}
-
+Function _PlaceholderSpan_placeholderCodeUnit$(m.Scope scope$) =>
+    () => PlaceholderSpan.placeholderCodeUnit;
 Function _PlaceholderSpan_alignment$(
   m.Scope scope$,
   PlaceholderSpan target$,

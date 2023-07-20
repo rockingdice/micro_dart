@@ -279,30 +279,18 @@ Function GLFWKeyHelper_is$(
   dynamic target$,
 ) =>
     () => target$ is GLFWKeyHelper;
-int _GLFWKeyHelper_modifierCapsLock$() {
-  return GLFWKeyHelper.modifierCapsLock;
-}
-
-int _GLFWKeyHelper_modifierShift$() {
-  return GLFWKeyHelper.modifierShift;
-}
-
-int _GLFWKeyHelper_modifierControl$() {
-  return GLFWKeyHelper.modifierControl;
-}
-
-int _GLFWKeyHelper_modifierAlt$() {
-  return GLFWKeyHelper.modifierAlt;
-}
-
-int _GLFWKeyHelper_modifierMeta$() {
-  return GLFWKeyHelper.modifierMeta;
-}
-
-int _GLFWKeyHelper_modifierNumericPad$() {
-  return GLFWKeyHelper.modifierNumericPad;
-}
-
+Function _GLFWKeyHelper_modifierCapsLock$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierCapsLock;
+Function _GLFWKeyHelper_modifierShift$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierShift;
+Function _GLFWKeyHelper_modifierControl$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierControl;
+Function _GLFWKeyHelper_modifierAlt$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierAlt;
+Function _GLFWKeyHelper_modifierMeta$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierMeta;
+Function _GLFWKeyHelper_modifierNumericPad$(m.Scope scope$) =>
+    () => GLFWKeyHelper.modifierNumericPad;
 Function _GLFWKeyHelper_debugToolkit$(
   m.Scope scope$,
   GLFWKeyHelper target$,
@@ -350,30 +338,18 @@ Function GtkKeyHelper_is$(
   dynamic target$,
 ) =>
     () => target$ is GtkKeyHelper;
-int _GtkKeyHelper_modifierShift$() {
-  return GtkKeyHelper.modifierShift;
-}
-
-int _GtkKeyHelper_modifierCapsLock$() {
-  return GtkKeyHelper.modifierCapsLock;
-}
-
-int _GtkKeyHelper_modifierControl$() {
-  return GtkKeyHelper.modifierControl;
-}
-
-int _GtkKeyHelper_modifierMod1$() {
-  return GtkKeyHelper.modifierMod1;
-}
-
-int _GtkKeyHelper_modifierMod2$() {
-  return GtkKeyHelper.modifierMod2;
-}
-
-int _GtkKeyHelper_modifierMeta$() {
-  return GtkKeyHelper.modifierMeta;
-}
-
+Function _GtkKeyHelper_modifierShift$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierShift;
+Function _GtkKeyHelper_modifierCapsLock$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierCapsLock;
+Function _GtkKeyHelper_modifierControl$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierControl;
+Function _GtkKeyHelper_modifierMod1$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierMod1;
+Function _GtkKeyHelper_modifierMod2$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierMod2;
+Function _GtkKeyHelper_modifierMeta$(m.Scope scope$) =>
+    () => GtkKeyHelper.modifierMeta;
 Function _GtkKeyHelper_debugToolkit$(
   m.Scope scope$,
   GtkKeyHelper target$,

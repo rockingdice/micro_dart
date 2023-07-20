@@ -37,10 +37,8 @@ Function BrowserContextMenu_is$(
   dynamic target$,
 ) =>
     () => target$ is BrowserContextMenu;
-bool _BrowserContextMenu_enabled$() {
-  return BrowserContextMenu.enabled;
-}
-
+Function _BrowserContextMenu_enabled$(m.Scope scope$) =>
+    () => BrowserContextMenu.enabled;
 Function _BrowserContextMenu_disableContextMenu$(m.Scope scope$) =>
     BrowserContextMenu.disableContextMenu;
 Function _BrowserContextMenu_enableContextMenu$(m.Scope scope$) =>

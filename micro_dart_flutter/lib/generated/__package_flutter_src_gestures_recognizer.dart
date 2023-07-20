@@ -17,7 +17,6 @@ import 'package:flutter/src/gestures/team.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/recognizer.dart',
   {
-    'GestureRecognizer.invokeCallback': _GestureRecognizer_invokeCallback$,
     'OffsetPair.zero': _OffsetPair_zero$,
     'OffsetPair.': _OffsetPair__$,
     'OffsetPair.fromEventPosition': _OffsetPair_fromEventPosition_$,
@@ -53,6 +52,7 @@ const libraryMirror = m.LibraryMirror(
         'isPointerPanZoomAllowed': _GestureRecognizer_isPointerPanZoomAllowed$,
         'getKindForPointer': _GestureRecognizer_getKindForPointer$,
         'dispose': _GestureRecognizer_dispose$,
+        'invokeCallback': _GestureRecognizer_invokeCallback$,
         'debugFillProperties': _GestureRecognizer_debugFillProperties$,
       },
       {
@@ -480,10 +480,7 @@ Function OffsetPair_is$(
   dynamic target$,
 ) =>
     () => target$ is OffsetPair;
-OffsetPair _OffsetPair_zero$() {
-  return OffsetPair.zero;
-}
-
+Function _OffsetPair_zero$(m.Scope scope$) => () => OffsetPair.zero;
 Function _OffsetPair_local$(
   m.Scope scope$,
   OffsetPair target$,
@@ -526,30 +523,17 @@ Function _OffsetPair_toString$(
   OffsetPair target$,
 ) =>
     target$.toString;
-DragStartBehavior _DragStartBehavior_down$() {
-  return DragStartBehavior.down;
-}
-
-DragStartBehavior _DragStartBehavior_start$() {
-  return DragStartBehavior.start;
-}
-
-List<DragStartBehavior> _DragStartBehavior_values$() {
-  return DragStartBehavior.values;
-}
-
-GestureRecognizerState _GestureRecognizerState_ready$() {
-  return GestureRecognizerState.ready;
-}
-
-GestureRecognizerState _GestureRecognizerState_possible$() {
-  return GestureRecognizerState.possible;
-}
-
-GestureRecognizerState _GestureRecognizerState_defunct$() {
-  return GestureRecognizerState.defunct;
-}
-
-List<GestureRecognizerState> _GestureRecognizerState_values$() {
-  return GestureRecognizerState.values;
-}
+Function _DragStartBehavior_down$(m.Scope scope$) =>
+    () => DragStartBehavior.down;
+Function _DragStartBehavior_start$(m.Scope scope$) =>
+    () => DragStartBehavior.start;
+Function _DragStartBehavior_values$(m.Scope scope$) =>
+    () => DragStartBehavior.values;
+Function _GestureRecognizerState_ready$(m.Scope scope$) =>
+    () => GestureRecognizerState.ready;
+Function _GestureRecognizerState_possible$(m.Scope scope$) =>
+    () => GestureRecognizerState.possible;
+Function _GestureRecognizerState_defunct$(m.Scope scope$) =>
+    () => GestureRecognizerState.defunct;
+Function _GestureRecognizerState_values$(m.Scope scope$) =>
+    () => GestureRecognizerState.values;

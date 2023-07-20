@@ -238,22 +238,13 @@ Function _MaterialBanner_createState$(
   MaterialBanner target$,
 ) =>
     target$.createState;
-MaterialBannerClosedReason _MaterialBannerClosedReason_dismiss$() {
-  return MaterialBannerClosedReason.dismiss;
-}
-
-MaterialBannerClosedReason _MaterialBannerClosedReason_swipe$() {
-  return MaterialBannerClosedReason.swipe;
-}
-
-MaterialBannerClosedReason _MaterialBannerClosedReason_hide$() {
-  return MaterialBannerClosedReason.hide;
-}
-
-MaterialBannerClosedReason _MaterialBannerClosedReason_remove$() {
-  return MaterialBannerClosedReason.remove;
-}
-
-List<MaterialBannerClosedReason> _MaterialBannerClosedReason_values$() {
-  return MaterialBannerClosedReason.values;
-}
+Function _MaterialBannerClosedReason_dismiss$(m.Scope scope$) =>
+    () => MaterialBannerClosedReason.dismiss;
+Function _MaterialBannerClosedReason_swipe$(m.Scope scope$) =>
+    () => MaterialBannerClosedReason.swipe;
+Function _MaterialBannerClosedReason_hide$(m.Scope scope$) =>
+    () => MaterialBannerClosedReason.hide;
+Function _MaterialBannerClosedReason_remove$(m.Scope scope$) =>
+    () => MaterialBannerClosedReason.remove;
+Function _MaterialBannerClosedReason_values$(m.Scope scope$) =>
+    () => MaterialBannerClosedReason.values;

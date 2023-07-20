@@ -7,11 +7,7 @@ import 'dart:ui' show Canvas, Clip, Paint, Path, RRect, Rect, VoidCallback;
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/clip.dart',
-  {
-    'ClipContext.clipPathAndPaint': _ClipContext_clipPathAndPaint$,
-    'ClipContext.clipRRectAndPaint': _ClipContext_clipRRectAndPaint$,
-    'ClipContext.clipRectAndPaint': _ClipContext_clipRectAndPaint$,
-  },
+  {},
   {},
   {
     'ClipContext': m.ClassMirror(
@@ -20,6 +16,9 @@ const libraryMirror = m.LibraryMirror(
         '#as': ClipContext_as$,
         '#is': ClipContext_is$,
         'canvas': _ClipContext_canvas$,
+        'clipPathAndPaint': _ClipContext_clipPathAndPaint$,
+        'clipRRectAndPaint': _ClipContext_clipRRectAndPaint$,
+        'clipRectAndPaint': _ClipContext_clipRectAndPaint$,
       },
       {},
     )

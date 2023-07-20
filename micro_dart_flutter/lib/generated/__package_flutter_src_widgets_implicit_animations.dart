@@ -26,8 +26,6 @@ const libraryMirror = m.LibraryMirror(
     'BorderTween.': _BorderTween__$,
     'Matrix4Tween.': _Matrix4Tween__$,
     'TextStyleTween.': _TextStyleTween__$,
-    'ImplicitlyAnimatedWidgetState.forEachTween':
-        _ImplicitlyAnimatedWidgetState_forEachTween$,
     'AnimatedContainer.': _AnimatedContainer__$,
     'AnimatedPadding.': _AnimatedPadding__$,
     'AnimatedAlign.': _AnimatedAlign__$,
@@ -140,6 +138,7 @@ const libraryMirror = m.LibraryMirror(
         'initState': _ImplicitlyAnimatedWidgetState_initState$,
         'didUpdateWidget': _ImplicitlyAnimatedWidgetState_didUpdateWidget$,
         'dispose': _ImplicitlyAnimatedWidgetState_dispose$,
+        'forEachTween': _ImplicitlyAnimatedWidgetState_forEachTween$,
         'didUpdateTweens': _ImplicitlyAnimatedWidgetState_didUpdateTweens$,
       },
       {},

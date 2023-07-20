@@ -33,27 +33,15 @@ const libraryMirror = m.LibraryMirror(
   {
     'emptyTextSelectionControls': _emptyTextSelectionControls$,
     'ToolbarItemsParentData.': _ToolbarItemsParentData__$,
-    'TextSelectionControls.buildHandle': _TextSelectionControls_buildHandle$,
     'EmptyTextSelectionControls.': _EmptyTextSelectionControls__$,
-    'EmptyTextSelectionControls.buildHandle':
-        _EmptyTextSelectionControls_buildHandle$,
     'TextSelectionOverlay.fadeDuration': _TextSelectionOverlay_fadeDuration$,
     'TextSelectionOverlay.': _TextSelectionOverlay__$,
-    'TextSelectionOverlay.showSpellCheckSuggestionsToolbar':
-        _TextSelectionOverlay_showSpellCheckSuggestionsToolbar$,
     'SelectionOverlay.fadeDuration': _SelectionOverlay_fadeDuration$,
     'SelectionOverlay.': _SelectionOverlay__$,
-    'SelectionOverlay.showToolbar': _SelectionOverlay_showToolbar$,
-    'SelectionOverlay.showSpellCheckSuggestionsToolbar':
-        _SelectionOverlay_showSpellCheckSuggestionsToolbar$,
     'TextSelectionGestureDetectorBuilder.':
         _TextSelectionGestureDetectorBuilder__$,
     'TextSelectionGestureDetector.': _TextSelectionGestureDetector__$,
     'ClipboardStatusNotifier.': _ClipboardStatusNotifier__$,
-    'ClipboardStatusNotifier.addListener':
-        _ClipboardStatusNotifier_addListener$,
-    'ClipboardStatusNotifier.removeListener':
-        _ClipboardStatusNotifier_removeListener$,
     'ClipboardStatus.pasteable': _ClipboardStatus_pasteable$,
     'ClipboardStatus.unknown': _ClipboardStatus_unknown$,
     'ClipboardStatus.notPasteable': _ClipboardStatus_notPasteable$,
@@ -76,6 +64,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': TextSelectionControls_as$,
         '#is': TextSelectionControls_is$,
+        'buildHandle': _TextSelectionControls_buildHandle$,
         'getHandleAnchor': _TextSelectionControls_getHandleAnchor$,
         'getHandleSize': _TextSelectionControls_getHandleSize$,
       },
@@ -88,6 +77,7 @@ const libraryMirror = m.LibraryMirror(
         '#is': EmptyTextSelectionControls_is$,
         'getHandleSize': _EmptyTextSelectionControls_getHandleSize$,
         'buildToolbar': _EmptyTextSelectionControls_buildToolbar$,
+        'buildHandle': _EmptyTextSelectionControls_buildHandle$,
         'getHandleAnchor': _EmptyTextSelectionControls_getHandleAnchor$,
       },
       {},
@@ -112,6 +102,8 @@ const libraryMirror = m.LibraryMirror(
         'showHandles': _TextSelectionOverlay_showHandles$,
         'hideHandles': _TextSelectionOverlay_hideHandles$,
         'showToolbar': _TextSelectionOverlay_showToolbar$,
+        'showSpellCheckSuggestionsToolbar':
+            _TextSelectionOverlay_showSpellCheckSuggestionsToolbar$,
         'showMagnifier': _TextSelectionOverlay_showMagnifier$,
         'updateMagnifier': _TextSelectionOverlay_updateMagnifier$,
         'hideMagnifier': _TextSelectionOverlay_hideMagnifier$,
@@ -157,6 +149,9 @@ const libraryMirror = m.LibraryMirror(
         'hideMagnifier': _SelectionOverlay_hideMagnifier$,
         'showHandles': _SelectionOverlay_showHandles$,
         'hideHandles': _SelectionOverlay_hideHandles$,
+        'showToolbar': _SelectionOverlay_showToolbar$,
+        'showSpellCheckSuggestionsToolbar':
+            _SelectionOverlay_showSpellCheckSuggestionsToolbar$,
         'markNeedsBuild': _SelectionOverlay_markNeedsBuild$,
         'hide': _SelectionOverlay_hide$,
         'hideToolbar': _SelectionOverlay_hideToolbar$,
@@ -265,6 +260,8 @@ const libraryMirror = m.LibraryMirror(
         '#is': ClipboardStatusNotifier_is$,
         'disposed': _ClipboardStatusNotifier_disposed$,
         'update': _ClipboardStatusNotifier_update$,
+        'addListener': _ClipboardStatusNotifier_addListener$,
+        'removeListener': _ClipboardStatusNotifier_removeListener$,
         'didChangeAppLifecycleState':
             _ClipboardStatusNotifier_didChangeAppLifecycleState$,
         'dispose': _ClipboardStatusNotifier_dispose$,
@@ -278,10 +275,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-TextSelectionControls _emptyTextSelectionControls$() {
-  return emptyTextSelectionControls;
-}
-
+Function _emptyTextSelectionControls$(m.Scope scope$) =>
+    () => emptyTextSelectionControls;
 Function ToolbarItemsParentData_as$(
   m.Scope scope$,
   dynamic target$,
@@ -439,10 +434,8 @@ Function _TextSelectionOverlay_context$(
     () {
       return target$.context;
     };
-Duration _TextSelectionOverlay_fadeDuration$() {
-  return TextSelectionOverlay.fadeDuration;
-}
-
+Function _TextSelectionOverlay_fadeDuration$(m.Scope scope$) =>
+    () => TextSelectionOverlay.fadeDuration;
 Function _TextSelectionOverlay_renderObject$(
   m.Scope scope$,
   TextSelectionOverlay target$,
@@ -793,10 +786,8 @@ Function _SelectionOverlay_clipboardStatus$(
     () {
       return target$.clipboardStatus;
     };
-Duration _SelectionOverlay_fadeDuration$() {
-  return SelectionOverlay.fadeDuration;
-}
-
+Function _SelectionOverlay_fadeDuration$(m.Scope scope$) =>
+    () => SelectionOverlay.fadeDuration;
 Function _SelectionOverlay_startHandleType$(
   m.Scope scope$,
   SelectionOverlay target$,
@@ -1592,18 +1583,11 @@ Function _ClipboardStatusNotifier_dispose$(
   ClipboardStatusNotifier target$,
 ) =>
     target$.dispose;
-ClipboardStatus _ClipboardStatus_pasteable$() {
-  return ClipboardStatus.pasteable;
-}
-
-ClipboardStatus _ClipboardStatus_unknown$() {
-  return ClipboardStatus.unknown;
-}
-
-ClipboardStatus _ClipboardStatus_notPasteable$() {
-  return ClipboardStatus.notPasteable;
-}
-
-List<ClipboardStatus> _ClipboardStatus_values$() {
-  return ClipboardStatus.values;
-}
+Function _ClipboardStatus_pasteable$(m.Scope scope$) =>
+    () => ClipboardStatus.pasteable;
+Function _ClipboardStatus_unknown$(m.Scope scope$) =>
+    () => ClipboardStatus.unknown;
+Function _ClipboardStatus_notPasteable$(m.Scope scope$) =>
+    () => ClipboardStatus.notPasteable;
+Function _ClipboardStatus_values$(m.Scope scope$) =>
+    () => ClipboardStatus.values;

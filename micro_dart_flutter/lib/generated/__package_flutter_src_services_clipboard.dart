@@ -66,10 +66,7 @@ Function Clipboard_is$(
   dynamic target$,
 ) =>
     () => target$ is Clipboard;
-String _Clipboard_kTextPlain$() {
-  return Clipboard.kTextPlain;
-}
-
+Function _Clipboard_kTextPlain$(m.Scope scope$) => () => Clipboard.kTextPlain;
 Function _Clipboard_setData$(m.Scope scope$) => Clipboard.setData;
 Function _Clipboard_getData$(m.Scope scope$) => Clipboard.getData;
 Function _Clipboard_hasStrings$(m.Scope scope$) => Clipboard.hasStrings;

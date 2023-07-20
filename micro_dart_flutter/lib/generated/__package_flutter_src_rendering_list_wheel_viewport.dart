@@ -203,28 +203,19 @@ Function RenderListWheelViewport_is$(
   dynamic target$,
 ) =>
     () => target$ is RenderListWheelViewport;
-double _RenderListWheelViewport_defaultDiameterRatio$() {
-  return RenderListWheelViewport.defaultDiameterRatio;
-}
-
-double _RenderListWheelViewport_defaultPerspective$() {
-  return RenderListWheelViewport.defaultPerspective;
-}
-
-String _RenderListWheelViewport_diameterRatioZeroMessage$() {
-  return RenderListWheelViewport.diameterRatioZeroMessage;
-}
-
-String _RenderListWheelViewport_perspectiveTooHighMessage$() {
-  return RenderListWheelViewport.perspectiveTooHighMessage;
-}
-
-String
-    _RenderListWheelViewport_clipBehaviorAndRenderChildrenOutsideViewportConflict$() {
-  return RenderListWheelViewport
-      .clipBehaviorAndRenderChildrenOutsideViewportConflict;
-}
-
+Function _RenderListWheelViewport_defaultDiameterRatio$(m.Scope scope$) =>
+    () => RenderListWheelViewport.defaultDiameterRatio;
+Function _RenderListWheelViewport_defaultPerspective$(m.Scope scope$) =>
+    () => RenderListWheelViewport.defaultPerspective;
+Function _RenderListWheelViewport_diameterRatioZeroMessage$(m.Scope scope$) =>
+    () => RenderListWheelViewport.diameterRatioZeroMessage;
+Function _RenderListWheelViewport_perspectiveTooHighMessage$(m.Scope scope$) =>
+    () => RenderListWheelViewport.perspectiveTooHighMessage;
+Function
+    _RenderListWheelViewport_clipBehaviorAndRenderChildrenOutsideViewportConflict$(
+            m.Scope scope$) =>
+        () => RenderListWheelViewport
+            .clipBehaviorAndRenderChildrenOutsideViewportConflict;
 Function _RenderListWheelViewport_childManager$(
   m.Scope scope$,
   RenderListWheelViewport target$,

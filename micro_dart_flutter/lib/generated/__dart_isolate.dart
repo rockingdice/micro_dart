@@ -15,14 +15,11 @@ const libraryMirror = m.LibraryMirror(
     'Isolate.current': _Isolate_current$,
     'Isolate.packageConfig': _Isolate_packageConfig$,
     'Isolate.': _Isolate__$,
-    'Isolate.run': _Isolate_run$,
     'Isolate.resolvePackageUri': _Isolate_resolvePackageUri$,
-    'Isolate.spawn': _Isolate_spawn$,
     'Isolate.spawnUri': _Isolate_spawnUri$,
     'Isolate.exit': _Isolate_exit$,
     'ReceivePort.': _ReceivePort__$,
     'ReceivePort.fromRawReceivePort': _ReceivePort_fromRawReceivePort_$,
-    'ReceivePort.listen': _ReceivePort_listen$,
     'RawReceivePort.': _RawReceivePort__$,
     'RemoteError.': _RemoteError__$,
     'TransferableTypedData.fromList': _TransferableTypedData_fromList_$,
@@ -50,6 +47,8 @@ const libraryMirror = m.LibraryMirror(
         'terminateCapability': _Isolate_terminateCapability$,
         'debugName': _Isolate_debugName$,
         'errors': _Isolate_errors$,
+        'run': _Isolate_run$,
+        'spawn': _Isolate_spawn$,
         'pause': _Isolate_pause$,
         'resume': _Isolate_resume$,
         'addOnExitListener': _Isolate_addOnExitListener$,
@@ -79,6 +78,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': ReceivePort_as$,
         '#is': ReceivePort_is$,
         'sendPort': _ReceivePort_sendPort$,
+        'listen': _ReceivePort_listen$,
         'close': _ReceivePort_close$,
       },
       {},
@@ -157,14 +157,9 @@ Function Isolate_is$(
   dynamic target$,
 ) =>
     () => target$ is Isolate;
-int _Isolate_immediate$() {
-  return Isolate.immediate;
-}
-
-int _Isolate_beforeNextEvent$() {
-  return Isolate.beforeNextEvent;
-}
-
+Function _Isolate_immediate$(m.Scope scope$) => () => Isolate.immediate;
+Function _Isolate_beforeNextEvent$(m.Scope scope$) =>
+    () => Isolate.beforeNextEvent;
 Function _Isolate_controlPort$(
   m.Scope scope$,
   Isolate target$,
@@ -193,14 +188,8 @@ Function _Isolate_debugName$(
     () {
       return target$.debugName;
     };
-Isolate _Isolate_current$() {
-  return Isolate.current;
-}
-
-Future<Uri?> _Isolate_packageConfig$() {
-  return Isolate.packageConfig;
-}
-
+Function _Isolate_current$(m.Scope scope$) => () => Isolate.current;
+Function _Isolate_packageConfig$(m.Scope scope$) => () => Isolate.packageConfig;
 Function _Isolate_errors$(
   m.Scope scope$,
   Isolate target$,

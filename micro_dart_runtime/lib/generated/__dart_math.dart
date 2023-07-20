@@ -99,38 +99,14 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-double _e$() {
-  return e;
-}
-
-double _ln10$() {
-  return ln10;
-}
-
-double _ln2$() {
-  return ln2;
-}
-
-double _log2e$() {
-  return log2e;
-}
-
-double _log10e$() {
-  return log10e;
-}
-
-double _pi$() {
-  return pi;
-}
-
-double _sqrt1_2$() {
-  return sqrt1_2;
-}
-
-double _sqrt2$() {
-  return sqrt2;
-}
-
+Function _e$(m.Scope scope$) => () => e;
+Function _ln10$(m.Scope scope$) => () => ln10;
+Function _ln2$(m.Scope scope$) => () => ln2;
+Function _log2e$(m.Scope scope$) => () => log2e;
+Function _log10e$(m.Scope scope$) => () => log10e;
+Function _pi$(m.Scope scope$) => () => pi;
+Function _sqrt1_2$(m.Scope scope$) => () => sqrt1_2;
+Function _sqrt2$(m.Scope scope$) => () => sqrt2;
 Function _min$<T extends num>(m.Scope scope$) => min<T>;
 Function _max$<T extends num>(m.Scope scope$) => max<T>;
 Function _atan2$(m.Scope scope$) => atan2;
@@ -154,22 +130,34 @@ Function Point_is$<T extends num>(
   dynamic target$,
 ) =>
     () => target$ is Point<T>;
-T _Point_x$<T extends num>(Point<T> target$) {
-  return target$.x;
-}
-
-T _Point_y$<T extends num>(Point<T> target$) {
-  return target$.y;
-}
-
-int _Point_hashCode$<T extends num>(Point<T> target$) {
-  return target$.hashCode;
-}
-
-double _Point_magnitude$<T extends num>(Point<T> target$) {
-  return target$.magnitude;
-}
-
+Function _Point_x$<T extends num>(
+  m.Scope scope$,
+  Point<T> target$,
+) =>
+    () {
+      return target$.x;
+    };
+Function _Point_y$<T extends num>(
+  m.Scope scope$,
+  Point<T> target$,
+) =>
+    () {
+      return target$.y;
+    };
+Function _Point_hashCode$<T extends num>(
+  m.Scope scope$,
+  Point<T> target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _Point_magnitude$<T extends num>(
+  m.Scope scope$,
+  Point<T> target$,
+) =>
+    () {
+      return target$.magnitude;
+    };
 Function _Point__$(m.Scope scope$) => <T extends num>(
       dynamic x,
       dynamic y,
@@ -256,22 +244,34 @@ Function Rectangle_is$<T extends num>(
   dynamic target$,
 ) =>
     () => target$ is Rectangle<T>;
-T _Rectangle_left$<T extends num>(Rectangle<T> target$) {
-  return target$.left;
-}
-
-T _Rectangle_top$<T extends num>(Rectangle<T> target$) {
-  return target$.top;
-}
-
-T _Rectangle_width$<T extends num>(Rectangle<T> target$) {
-  return target$.width;
-}
-
-T _Rectangle_height$<T extends num>(Rectangle<T> target$) {
-  return target$.height;
-}
-
+Function _Rectangle_left$<T extends num>(
+  m.Scope scope$,
+  Rectangle<T> target$,
+) =>
+    () {
+      return target$.left;
+    };
+Function _Rectangle_top$<T extends num>(
+  m.Scope scope$,
+  Rectangle<T> target$,
+) =>
+    () {
+      return target$.top;
+    };
+Function _Rectangle_width$<T extends num>(
+  m.Scope scope$,
+  Rectangle<T> target$,
+) =>
+    () {
+      return target$.width;
+    };
+Function _Rectangle_height$<T extends num>(
+  m.Scope scope$,
+  Rectangle<T> target$,
+) =>
+    () {
+      return target$.height;
+    };
 Function _Rectangle__$(m.Scope scope$) => <T extends num>(
       dynamic left,
       dynamic top,
@@ -296,50 +296,62 @@ Function MutableRectangle_is$<T extends num>(
   dynamic target$,
 ) =>
     () => target$ is MutableRectangle<T>;
-T _MutableRectangle_left$<T extends num>(MutableRectangle<T> target$) {
-  return target$.left;
-}
-
+Function _MutableRectangle_left$<T extends num>(
+  m.Scope scope$,
+  MutableRectangle<T> target$,
+) =>
+    () {
+      return target$.left;
+    };
 void _MutableRectangle_left_set$<T extends num>(
+  m.Scope scope$,
   MutableRectangle target$,
-  dynamic other$,
-) {
-  target$.left = other$;
-}
-
-T _MutableRectangle_top$<T extends num>(MutableRectangle<T> target$) {
-  return target$.top;
-}
-
+) =>
+    (dynamic other$) {
+      target$.left = other$;
+    };
+Function _MutableRectangle_top$<T extends num>(
+  m.Scope scope$,
+  MutableRectangle<T> target$,
+) =>
+    () {
+      return target$.top;
+    };
 void _MutableRectangle_top_set$<T extends num>(
+  m.Scope scope$,
   MutableRectangle target$,
-  dynamic other$,
-) {
-  target$.top = other$;
-}
-
-T _MutableRectangle_width$<T extends num>(MutableRectangle<T> target$) {
-  return target$.width;
-}
-
+) =>
+    (dynamic other$) {
+      target$.top = other$;
+    };
+Function _MutableRectangle_width$<T extends num>(
+  m.Scope scope$,
+  MutableRectangle<T> target$,
+) =>
+    () {
+      return target$.width;
+    };
 void _MutableRectangle_width_set$<T extends num>(
+  m.Scope scope$,
   MutableRectangle target$,
-  dynamic other$,
-) {
-  target$.width = other$;
-}
-
-T _MutableRectangle_height$<T extends num>(MutableRectangle<T> target$) {
-  return target$.height;
-}
-
+) =>
+    (dynamic other$) {
+      target$.width = other$;
+    };
+Function _MutableRectangle_height$<T extends num>(
+  m.Scope scope$,
+  MutableRectangle<T> target$,
+) =>
+    () {
+      return target$.height;
+    };
 void _MutableRectangle_height_set$<T extends num>(
+  m.Scope scope$,
   MutableRectangle target$,
-  dynamic other$,
-) {
-  target$.height = other$;
-}
-
+) =>
+    (dynamic other$) {
+      target$.height = other$;
+    };
 Function _MutableRectangle__$(m.Scope scope$) => <T extends num>(
       dynamic left,
       dynamic top,

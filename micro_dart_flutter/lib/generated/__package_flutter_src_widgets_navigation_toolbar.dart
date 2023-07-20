@@ -42,10 +42,8 @@ Function NavigationToolbar_is$(
   dynamic target$,
 ) =>
     () => target$ is NavigationToolbar;
-double _NavigationToolbar_kMiddleSpacing$() {
-  return NavigationToolbar.kMiddleSpacing;
-}
-
+Function _NavigationToolbar_kMiddleSpacing$(m.Scope scope$) =>
+    () => NavigationToolbar.kMiddleSpacing;
 Function _NavigationToolbar_leading$(
   m.Scope scope$,
   NavigationToolbar target$,

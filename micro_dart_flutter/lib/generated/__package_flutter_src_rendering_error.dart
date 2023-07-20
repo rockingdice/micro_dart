@@ -65,42 +65,32 @@ Function _RenderErrorBox_message$(
     () {
       return target$.message;
     };
-EdgeInsets _RenderErrorBox_padding$() {
-  return RenderErrorBox.padding;
-}
-
+Function _RenderErrorBox_padding$(m.Scope scope$) =>
+    () => RenderErrorBox.padding;
 void _RenderErrorBox_padding_set$(EdgeInsets other$) {
   RenderErrorBox.padding = other$;
 }
 
-double _RenderErrorBox_minimumWidth$() {
-  return RenderErrorBox.minimumWidth;
-}
-
+Function _RenderErrorBox_minimumWidth$(m.Scope scope$) =>
+    () => RenderErrorBox.minimumWidth;
 void _RenderErrorBox_minimumWidth_set$(double other$) {
   RenderErrorBox.minimumWidth = other$;
 }
 
-Color _RenderErrorBox_backgroundColor$() {
-  return RenderErrorBox.backgroundColor;
-}
-
+Function _RenderErrorBox_backgroundColor$(m.Scope scope$) =>
+    () => RenderErrorBox.backgroundColor;
 void _RenderErrorBox_backgroundColor_set$(Color other$) {
   RenderErrorBox.backgroundColor = other$;
 }
 
-TextStyle _RenderErrorBox_textStyle$() {
-  return RenderErrorBox.textStyle;
-}
-
+Function _RenderErrorBox_textStyle$(m.Scope scope$) =>
+    () => RenderErrorBox.textStyle;
 void _RenderErrorBox_textStyle_set$(TextStyle other$) {
   RenderErrorBox.textStyle = other$;
 }
 
-ParagraphStyle _RenderErrorBox_paragraphStyle$() {
-  return RenderErrorBox.paragraphStyle;
-}
-
+Function _RenderErrorBox_paragraphStyle$(m.Scope scope$) =>
+    () => RenderErrorBox.paragraphStyle;
 void _RenderErrorBox_paragraphStyle_set$(ParagraphStyle other$) {
   RenderErrorBox.paragraphStyle = other$;
 }

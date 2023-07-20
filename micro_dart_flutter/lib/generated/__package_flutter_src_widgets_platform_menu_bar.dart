@@ -22,21 +22,10 @@ const libraryMirror = m.LibraryMirror(
     'PlatformMenuBar.': _PlatformMenuBar__$,
     'PlatformMenu.': _PlatformMenu__$,
     'PlatformMenu.getDescendants': _PlatformMenu_getDescendants$,
-    'PlatformMenu.toChannelRepresentation':
-        _PlatformMenu_toChannelRepresentation$,
-    'PlatformMenu.serialize': _PlatformMenu_serialize$,
     'PlatformMenuItemGroup.': _PlatformMenuItemGroup__$,
-    'PlatformMenuItemGroup.toChannelRepresentation':
-        _PlatformMenuItemGroup_toChannelRepresentation$,
-    'PlatformMenuItemGroup.serialize': _PlatformMenuItemGroup_serialize$,
     'PlatformMenuItem.': _PlatformMenuItem__$,
-    'PlatformMenuItem.toChannelRepresentation':
-        _PlatformMenuItem_toChannelRepresentation$,
-    'PlatformMenuItem.serialize': _PlatformMenuItem_serialize$,
     'PlatformProvidedMenuItem.': _PlatformProvidedMenuItem__$,
     'PlatformProvidedMenuItem.hasMenu': _PlatformProvidedMenuItem_hasMenu$,
-    'PlatformProvidedMenuItem.toChannelRepresentation':
-        _PlatformProvidedMenuItem_toChannelRepresentation$,
     'PlatformProvidedMenuItemType.about': _PlatformProvidedMenuItemType_about$,
     'PlatformProvidedMenuItemType.quit': _PlatformProvidedMenuItemType_quit$,
     'PlatformProvidedMenuItemType.servicesSubmenu':
@@ -127,6 +116,8 @@ const libraryMirror = m.LibraryMirror(
         'onClose': _PlatformMenu_onClose$,
         'menus': _PlatformMenu_menus$,
         'descendants': _PlatformMenu_descendants$,
+        'toChannelRepresentation': _PlatformMenu_toChannelRepresentation$,
+        'serialize': _PlatformMenu_serialize$,
         'debugDescribeChildren': _PlatformMenu_debugDescribeChildren$,
         'debugFillProperties': _PlatformMenu_debugFillProperties$,
       },
@@ -138,6 +129,9 @@ const libraryMirror = m.LibraryMirror(
         '#as': PlatformMenuItemGroup_as$,
         '#is': PlatformMenuItemGroup_is$,
         'members': _PlatformMenuItemGroup_members$,
+        'toChannelRepresentation':
+            _PlatformMenuItemGroup_toChannelRepresentation$,
+        'serialize': _PlatformMenuItemGroup_serialize$,
         'debugFillProperties': _PlatformMenuItemGroup_debugFillProperties$,
       },
       {},
@@ -155,6 +149,8 @@ const libraryMirror = m.LibraryMirror(
         'onClose': _PlatformMenuItem_onClose$,
         'descendants': _PlatformMenuItem_descendants$,
         'members': _PlatformMenuItem_members$,
+        'toChannelRepresentation': _PlatformMenuItem_toChannelRepresentation$,
+        'serialize': _PlatformMenuItem_serialize$,
         'toStringShort': _PlatformMenuItem_toStringShort$,
         'debugFillProperties': _PlatformMenuItem_debugFillProperties$,
       },
@@ -167,6 +163,8 @@ const libraryMirror = m.LibraryMirror(
         '#is': PlatformProvidedMenuItem_is$,
         'type': _PlatformProvidedMenuItem_type$,
         'enabled': _PlatformProvidedMenuItem_enabled$,
+        'toChannelRepresentation':
+            _PlatformProvidedMenuItem_toChannelRepresentation$,
         'debugFillProperties': _PlatformProvidedMenuItem_debugFillProperties$,
       },
       {},
@@ -734,57 +732,29 @@ Function _PlatformProvidedMenuItem_debugFillProperties$(
   PlatformProvidedMenuItem target$,
 ) =>
     target$.debugFillProperties;
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_about$() {
-  return PlatformProvidedMenuItemType.about;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_quit$() {
-  return PlatformProvidedMenuItemType.quit;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_servicesSubmenu$() {
-  return PlatformProvidedMenuItemType.servicesSubmenu;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_hide$() {
-  return PlatformProvidedMenuItemType.hide;
-}
-
-PlatformProvidedMenuItemType
-    _PlatformProvidedMenuItemType_hideOtherApplications$() {
-  return PlatformProvidedMenuItemType.hideOtherApplications;
-}
-
-PlatformProvidedMenuItemType
-    _PlatformProvidedMenuItemType_showAllApplications$() {
-  return PlatformProvidedMenuItemType.showAllApplications;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_startSpeaking$() {
-  return PlatformProvidedMenuItemType.startSpeaking;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_stopSpeaking$() {
-  return PlatformProvidedMenuItemType.stopSpeaking;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_toggleFullScreen$() {
-  return PlatformProvidedMenuItemType.toggleFullScreen;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_minimizeWindow$() {
-  return PlatformProvidedMenuItemType.minimizeWindow;
-}
-
-PlatformProvidedMenuItemType _PlatformProvidedMenuItemType_zoomWindow$() {
-  return PlatformProvidedMenuItemType.zoomWindow;
-}
-
-PlatformProvidedMenuItemType
-    _PlatformProvidedMenuItemType_arrangeWindowsInFront$() {
-  return PlatformProvidedMenuItemType.arrangeWindowsInFront;
-}
-
-List<PlatformProvidedMenuItemType> _PlatformProvidedMenuItemType_values$() {
-  return PlatformProvidedMenuItemType.values;
-}
+Function _PlatformProvidedMenuItemType_about$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.about;
+Function _PlatformProvidedMenuItemType_quit$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.quit;
+Function _PlatformProvidedMenuItemType_servicesSubmenu$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.servicesSubmenu;
+Function _PlatformProvidedMenuItemType_hide$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.hide;
+Function _PlatformProvidedMenuItemType_hideOtherApplications$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.hideOtherApplications;
+Function _PlatformProvidedMenuItemType_showAllApplications$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.showAllApplications;
+Function _PlatformProvidedMenuItemType_startSpeaking$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.startSpeaking;
+Function _PlatformProvidedMenuItemType_stopSpeaking$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.stopSpeaking;
+Function _PlatformProvidedMenuItemType_toggleFullScreen$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.toggleFullScreen;
+Function _PlatformProvidedMenuItemType_minimizeWindow$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.minimizeWindow;
+Function _PlatformProvidedMenuItemType_zoomWindow$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.zoomWindow;
+Function _PlatformProvidedMenuItemType_arrangeWindowsInFront$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.arrangeWindowsInFront;
+Function _PlatformProvidedMenuItemType_values$(m.Scope scope$) =>
+    () => PlatformProvidedMenuItemType.values;

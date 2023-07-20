@@ -58,130 +58,95 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
 );
-bool _debugPaintSizeEnabled$() {
-  return debugPaintSizeEnabled;
-}
-
+Function _debugPaintSizeEnabled$(m.Scope scope$) => () => debugPaintSizeEnabled;
 void _debugPaintSizeEnabled_set$(bool other$) {
   debugPaintSizeEnabled = other$;
 }
 
-bool _debugPaintBaselinesEnabled$() {
-  return debugPaintBaselinesEnabled;
-}
-
+Function _debugPaintBaselinesEnabled$(m.Scope scope$) =>
+    () => debugPaintBaselinesEnabled;
 void _debugPaintBaselinesEnabled_set$(bool other$) {
   debugPaintBaselinesEnabled = other$;
 }
 
-bool _debugPaintLayerBordersEnabled$() {
-  return debugPaintLayerBordersEnabled;
-}
-
+Function _debugPaintLayerBordersEnabled$(m.Scope scope$) =>
+    () => debugPaintLayerBordersEnabled;
 void _debugPaintLayerBordersEnabled_set$(bool other$) {
   debugPaintLayerBordersEnabled = other$;
 }
 
-bool _debugPaintPointersEnabled$() {
-  return debugPaintPointersEnabled;
-}
-
+Function _debugPaintPointersEnabled$(m.Scope scope$) =>
+    () => debugPaintPointersEnabled;
 void _debugPaintPointersEnabled_set$(bool other$) {
   debugPaintPointersEnabled = other$;
 }
 
-bool _debugRepaintRainbowEnabled$() {
-  return debugRepaintRainbowEnabled;
-}
-
+Function _debugRepaintRainbowEnabled$(m.Scope scope$) =>
+    () => debugRepaintRainbowEnabled;
 void _debugRepaintRainbowEnabled_set$(bool other$) {
   debugRepaintRainbowEnabled = other$;
 }
 
-bool _debugRepaintTextRainbowEnabled$() {
-  return debugRepaintTextRainbowEnabled;
-}
-
+Function _debugRepaintTextRainbowEnabled$(m.Scope scope$) =>
+    () => debugRepaintTextRainbowEnabled;
 void _debugRepaintTextRainbowEnabled_set$(bool other$) {
   debugRepaintTextRainbowEnabled = other$;
 }
 
-HSVColor _debugCurrentRepaintColor$() {
-  return debugCurrentRepaintColor;
-}
-
+Function _debugCurrentRepaintColor$(m.Scope scope$) =>
+    () => debugCurrentRepaintColor;
 void _debugCurrentRepaintColor_set$(HSVColor other$) {
   debugCurrentRepaintColor = other$;
 }
 
-bool _debugPrintMarkNeedsLayoutStacks$() {
-  return debugPrintMarkNeedsLayoutStacks;
-}
-
+Function _debugPrintMarkNeedsLayoutStacks$(m.Scope scope$) =>
+    () => debugPrintMarkNeedsLayoutStacks;
 void _debugPrintMarkNeedsLayoutStacks_set$(bool other$) {
   debugPrintMarkNeedsLayoutStacks = other$;
 }
 
-bool _debugPrintMarkNeedsPaintStacks$() {
-  return debugPrintMarkNeedsPaintStacks;
-}
-
+Function _debugPrintMarkNeedsPaintStacks$(m.Scope scope$) =>
+    () => debugPrintMarkNeedsPaintStacks;
 void _debugPrintMarkNeedsPaintStacks_set$(bool other$) {
   debugPrintMarkNeedsPaintStacks = other$;
 }
 
-bool _debugPrintLayouts$() {
-  return debugPrintLayouts;
-}
-
+Function _debugPrintLayouts$(m.Scope scope$) => () => debugPrintLayouts;
 void _debugPrintLayouts_set$(bool other$) {
   debugPrintLayouts = other$;
 }
 
-bool _debugCheckIntrinsicSizes$() {
-  return debugCheckIntrinsicSizes;
-}
-
+Function _debugCheckIntrinsicSizes$(m.Scope scope$) =>
+    () => debugCheckIntrinsicSizes;
 void _debugCheckIntrinsicSizes_set$(bool other$) {
   debugCheckIntrinsicSizes = other$;
 }
 
-bool _debugProfileLayoutsEnabled$() {
-  return debugProfileLayoutsEnabled;
-}
-
+Function _debugProfileLayoutsEnabled$(m.Scope scope$) =>
+    () => debugProfileLayoutsEnabled;
 void _debugProfileLayoutsEnabled_set$(bool other$) {
   debugProfileLayoutsEnabled = other$;
 }
 
-bool _debugProfilePaintsEnabled$() {
-  return debugProfilePaintsEnabled;
-}
-
+Function _debugProfilePaintsEnabled$(m.Scope scope$) =>
+    () => debugProfilePaintsEnabled;
 void _debugProfilePaintsEnabled_set$(bool other$) {
   debugProfilePaintsEnabled = other$;
 }
 
-bool _debugEnhanceLayoutTimelineArguments$() {
-  return debugEnhanceLayoutTimelineArguments;
-}
-
+Function _debugEnhanceLayoutTimelineArguments$(m.Scope scope$) =>
+    () => debugEnhanceLayoutTimelineArguments;
 void _debugEnhanceLayoutTimelineArguments_set$(bool other$) {
   debugEnhanceLayoutTimelineArguments = other$;
 }
 
-bool _debugEnhancePaintTimelineArguments$() {
-  return debugEnhancePaintTimelineArguments;
-}
-
+Function _debugEnhancePaintTimelineArguments$(m.Scope scope$) =>
+    () => debugEnhancePaintTimelineArguments;
 void _debugEnhancePaintTimelineArguments_set$(bool other$) {
   debugEnhancePaintTimelineArguments = other$;
 }
 
-void Function(RenderObject)? _debugOnProfilePaint$() {
-  return debugOnProfilePaint;
-}
-
+Function _debugOnProfilePaint$(m.Scope scope$) => () => debugOnProfilePaint;
 Function _debugOnProfilePaint_set$(m.Scope scope$) =>
     (m.FunctionPointer? _debugOnProfilePaint) {
       void _debugOnProfilePaintProxy(
@@ -195,26 +160,20 @@ Function _debugOnProfilePaint_set$(m.Scope scope$) =>
       debugOnProfilePaint =
           (_debugOnProfilePaint == null ? null : _debugOnProfilePaintProxy);
     };
-bool _debugDisableClipLayers$() {
-  return debugDisableClipLayers;
-}
-
+Function _debugDisableClipLayers$(m.Scope scope$) =>
+    () => debugDisableClipLayers;
 void _debugDisableClipLayers_set$(bool other$) {
   debugDisableClipLayers = other$;
 }
 
-bool _debugDisablePhysicalShapeLayers$() {
-  return debugDisablePhysicalShapeLayers;
-}
-
+Function _debugDisablePhysicalShapeLayers$(m.Scope scope$) =>
+    () => debugDisablePhysicalShapeLayers;
 void _debugDisablePhysicalShapeLayers_set$(bool other$) {
   debugDisablePhysicalShapeLayers = other$;
 }
 
-bool _debugDisableOpacityLayers$() {
-  return debugDisableOpacityLayers;
-}
-
+Function _debugDisableOpacityLayers$(m.Scope scope$) =>
+    () => debugDisableOpacityLayers;
 void _debugDisableOpacityLayers_set$(bool other$) {
   debugDisableOpacityLayers = other$;
 }

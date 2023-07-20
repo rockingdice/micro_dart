@@ -196,6 +196,37 @@ Function _CupertinoNavigationBar_preferredSize$(
     () {
       return target$.preferredSize;
     };
+
+// There's a single tag for all instances of navigation bars because they can
+// all transition between each other (per Navigator) via Hero transitions.
+const _HeroTag _defaultHeroTag = _HeroTag(null);
+
+@immutable
+class _HeroTag {
+  const _HeroTag(this.navigator);
+
+  final NavigatorState? navigator;
+
+  // Let the Hero tag be described in tree dumps.
+  @override
+  String toString() =>
+      'Default Hero tag for Cupertino navigation bars with navigator $navigator';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other.runtimeType != runtimeType) {
+      return false;
+    }
+    return other is _HeroTag && other.navigator == navigator;
+  }
+
+  @override
+  int get hashCode => identityHashCode(navigator);
+}
+
 Function _CupertinoNavigationBar__$(m.Scope scope$) => ({
       Key? key,
       Widget? leading,
@@ -211,28 +242,6 @@ Function _CupertinoNavigationBar__$(m.Scope scope$) => ({
       bool? transitionBetweenRoutes,
       Object? heroTag,
     }) {
-      if (heroTag == null) {
-        return CupertinoNavigationBar(
-          automaticallyImplyLeading: automaticallyImplyLeading ?? true,
-          automaticallyImplyMiddle: automaticallyImplyMiddle ?? true,
-          backgroundColor: backgroundColor,
-          border: border ??
-              const Border(
-                bottom: BorderSide(
-                  color: Color(0x4D000000),
-                  width: 0.0,
-                ),
-              ),
-          brightness: brightness,
-          key: key,
-          leading: leading,
-          middle: middle,
-          padding: padding,
-          previousPageTitle: previousPageTitle,
-          trailing: trailing,
-          transitionBetweenRoutes: transitionBetweenRoutes ?? true,
-        );
-      }
       return CupertinoNavigationBar(
         automaticallyImplyLeading: automaticallyImplyLeading ?? true,
         automaticallyImplyMiddle: automaticallyImplyMiddle ?? true,
@@ -245,7 +254,7 @@ Function _CupertinoNavigationBar__$(m.Scope scope$) => ({
               ),
             ),
         brightness: brightness,
-        heroTag: heroTag,
+        heroTag: heroTag ?? _defaultHeroTag,
         key: key,
         leading: leading,
         middle: middle,
@@ -405,31 +414,6 @@ Function _CupertinoSliverNavigationBar__$(m.Scope scope$) => ({
       Object? heroTag,
       bool? stretch,
     }) {
-      if (heroTag == null) {
-        return CupertinoSliverNavigationBar(
-          alwaysShowMiddle: alwaysShowMiddle ?? true,
-          automaticallyImplyLeading: automaticallyImplyLeading ?? true,
-          automaticallyImplyTitle: automaticallyImplyTitle ?? true,
-          backgroundColor: backgroundColor,
-          border: border ??
-              const Border(
-                bottom: BorderSide(
-                  color: Color(0x4D000000),
-                  width: 0.0,
-                ),
-              ),
-          brightness: brightness,
-          key: key,
-          largeTitle: largeTitle,
-          leading: leading,
-          middle: middle,
-          padding: padding,
-          previousPageTitle: previousPageTitle,
-          stretch: stretch ?? false,
-          trailing: trailing,
-          transitionBetweenRoutes: transitionBetweenRoutes ?? true,
-        );
-      }
       return CupertinoSliverNavigationBar(
         alwaysShowMiddle: alwaysShowMiddle ?? true,
         automaticallyImplyLeading: automaticallyImplyLeading ?? true,
@@ -443,7 +427,7 @@ Function _CupertinoSliverNavigationBar__$(m.Scope scope$) => ({
               ),
             ),
         brightness: brightness,
-        heroTag: heroTag,
+        heroTag: heroTag ?? _defaultHeroTag,
         key: key,
         largeTitle: largeTitle,
         leading: leading,

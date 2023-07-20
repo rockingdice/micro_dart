@@ -132,10 +132,13 @@ Function IsolateSpawnException_is$(
   dynamic target$,
 ) =>
     () => target$ is IsolateSpawnException;
-String _IsolateSpawnException_message$(IsolateSpawnException target$) {
-  return target$.message;
-}
-
+Function _IsolateSpawnException_message$(
+  m.Scope scope$,
+  IsolateSpawnException target$,
+) =>
+    () {
+      return target$.message;
+    };
 Function _IsolateSpawnException__$(m.Scope scope$) => (String message) {
       return IsolateSpawnException(message);
     };
@@ -154,42 +157,46 @@ Function Isolate_is$(
   dynamic target$,
 ) =>
     () => target$ is Isolate;
-int _Isolate_immediate$() {
-  return Isolate.immediate;
-}
-
-int _Isolate_beforeNextEvent$() {
-  return Isolate.beforeNextEvent;
-}
-
-SendPort _Isolate_controlPort$(Isolate target$) {
-  return target$.controlPort;
-}
-
-Capability? _Isolate_pauseCapability$(Isolate target$) {
-  return target$.pauseCapability;
-}
-
-Capability? _Isolate_terminateCapability$(Isolate target$) {
-  return target$.terminateCapability;
-}
-
-String? _Isolate_debugName$(Isolate target$) {
-  return target$.debugName;
-}
-
-Isolate _Isolate_current$() {
-  return Isolate.current;
-}
-
-Future<Uri?> _Isolate_packageConfig$() {
-  return Isolate.packageConfig;
-}
-
-Stream<dynamic> _Isolate_errors$(Isolate target$) {
-  return target$.errors;
-}
-
+Function _Isolate_immediate$(m.Scope scope$) => () => Isolate.immediate;
+Function _Isolate_beforeNextEvent$(m.Scope scope$) =>
+    () => Isolate.beforeNextEvent;
+Function _Isolate_controlPort$(
+  m.Scope scope$,
+  Isolate target$,
+) =>
+    () {
+      return target$.controlPort;
+    };
+Function _Isolate_pauseCapability$(
+  m.Scope scope$,
+  Isolate target$,
+) =>
+    () {
+      return target$.pauseCapability;
+    };
+Function _Isolate_terminateCapability$(
+  m.Scope scope$,
+  Isolate target$,
+) =>
+    () {
+      return target$.terminateCapability;
+    };
+Function _Isolate_debugName$(
+  m.Scope scope$,
+  Isolate target$,
+) =>
+    () {
+      return target$.debugName;
+    };
+Function _Isolate_current$(m.Scope scope$) => () => Isolate.current;
+Function _Isolate_packageConfig$(m.Scope scope$) => () => Isolate.packageConfig;
+Function _Isolate_errors$(
+  m.Scope scope$,
+  Isolate target$,
+) =>
+    () {
+      return target$.errors;
+    };
 Function _Isolate__$(m.Scope scope$) => (
       SendPort controlPort, {
       Capability? pauseCapability,
@@ -302,10 +309,13 @@ Function SendPort_is$(
   dynamic target$,
 ) =>
     () => target$ is SendPort;
-int _SendPort_hashCode$(SendPort target$) {
-  return target$.hashCode;
-}
-
+Function _SendPort_hashCode$(
+  m.Scope scope$,
+  SendPort target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
 Function _SendPort_send$(
   m.Scope scope$,
   SendPort target$,
@@ -326,10 +336,13 @@ Function ReceivePort_is$(
   dynamic target$,
 ) =>
     () => target$ is ReceivePort;
-SendPort _ReceivePort_sendPort$(ReceivePort target$) {
-  return target$.sendPort;
-}
-
+Function _ReceivePort_sendPort$(
+  m.Scope scope$,
+  ReceivePort target$,
+) =>
+    () {
+      return target$.sendPort;
+    };
 Function _ReceivePort__$(m.Scope scope$) => ([String? debugName]) {
       if (debugName == null) {
         return ReceivePort();
@@ -384,16 +397,19 @@ Function RawReceivePort_is$(
 ) =>
     () => target$ is RawReceivePort;
 void _RawReceivePort_handler_set$(
+  m.Scope scope$,
   RawReceivePort target$,
-  Function? other$,
-) {
-  target$.handler = other$;
-}
-
-SendPort _RawReceivePort_sendPort$(RawReceivePort target$) {
-  return target$.sendPort;
-}
-
+) =>
+    (dynamic other$) {
+      target$.handler = other$;
+    };
+Function _RawReceivePort_sendPort$(
+  m.Scope scope$,
+  RawReceivePort target$,
+) =>
+    () {
+      return target$.sendPort;
+    };
 Function _RawReceivePort__$(m.Scope scope$) => ([
       Function? handler,
       String? debugName,
@@ -424,10 +440,13 @@ Function RemoteError_is$(
   dynamic target$,
 ) =>
     () => target$ is RemoteError;
-StackTrace _RemoteError_stackTrace$(RemoteError target$) {
-  return target$.stackTrace;
-}
-
+Function _RemoteError_stackTrace$(
+  m.Scope scope$,
+  RemoteError target$,
+) =>
+    () {
+      return target$.stackTrace;
+    };
 Function _RemoteError__$(m.Scope scope$) => (
       String description,
       String stackDescription,

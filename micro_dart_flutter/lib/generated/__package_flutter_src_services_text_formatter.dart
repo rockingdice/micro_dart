@@ -11,7 +11,6 @@ import 'package:flutter/src/services/text_input.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/text_formatter.dart',
   {
-    'TextInputFormatter.withFunction': _TextInputFormatter_withFunction$,
     'FilteringTextInputFormatter.singleLineFormatter':
         _FilteringTextInputFormatter_singleLineFormatter$,
     'FilteringTextInputFormatter.digitsOnly':
@@ -38,6 +37,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': TextInputFormatter_as$,
         '#is': TextInputFormatter_is$,
         'formatEditUpdate': _TextInputFormatter_formatEditUpdate$,
+        'withFunction': _TextInputFormatter_withFunction$,
       },
       {},
     ),
@@ -135,14 +135,10 @@ Function _FilteringTextInputFormatter_replacementString$(
     () {
       return target$.replacementString;
     };
-TextInputFormatter _FilteringTextInputFormatter_singleLineFormatter$() {
-  return FilteringTextInputFormatter.singleLineFormatter;
-}
-
-TextInputFormatter _FilteringTextInputFormatter_digitsOnly$() {
-  return FilteringTextInputFormatter.digitsOnly;
-}
-
+Function _FilteringTextInputFormatter_singleLineFormatter$(m.Scope scope$) =>
+    () => FilteringTextInputFormatter.singleLineFormatter;
+Function _FilteringTextInputFormatter_digitsOnly$(m.Scope scope$) =>
+    () => FilteringTextInputFormatter.digitsOnly;
 Function _FilteringTextInputFormatter__$(m.Scope scope$) => (
       Pattern filterPattern, {
       required bool allow,
@@ -206,18 +202,11 @@ Function _LengthLimitingTextInputFormatter_formatEditUpdate$(
   LengthLimitingTextInputFormatter target$,
 ) =>
     target$.formatEditUpdate;
-MaxLengthEnforcement _MaxLengthEnforcement_none$() {
-  return MaxLengthEnforcement.none;
-}
-
-MaxLengthEnforcement _MaxLengthEnforcement_enforced$() {
-  return MaxLengthEnforcement.enforced;
-}
-
-MaxLengthEnforcement _MaxLengthEnforcement_truncateAfterCompositionEnds$() {
-  return MaxLengthEnforcement.truncateAfterCompositionEnds;
-}
-
-List<MaxLengthEnforcement> _MaxLengthEnforcement_values$() {
-  return MaxLengthEnforcement.values;
-}
+Function _MaxLengthEnforcement_none$(m.Scope scope$) =>
+    () => MaxLengthEnforcement.none;
+Function _MaxLengthEnforcement_enforced$(m.Scope scope$) =>
+    () => MaxLengthEnforcement.enforced;
+Function _MaxLengthEnforcement_truncateAfterCompositionEnds$(m.Scope scope$) =>
+    () => MaxLengthEnforcement.truncateAfterCompositionEnds;
+Function _MaxLengthEnforcement_values$(m.Scope scope$) =>
+    () => MaxLengthEnforcement.values;

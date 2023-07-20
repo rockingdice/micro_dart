@@ -58,10 +58,8 @@ Function BouncingScrollSimulation_is$(
   dynamic target$,
 ) =>
     () => target$ is BouncingScrollSimulation;
-double _BouncingScrollSimulation_maxSpringTransferVelocity$() {
-  return BouncingScrollSimulation.maxSpringTransferVelocity;
-}
-
+Function _BouncingScrollSimulation_maxSpringTransferVelocity$(m.Scope scope$) =>
+    () => BouncingScrollSimulation.maxSpringTransferVelocity;
 Function _BouncingScrollSimulation_leadingExtent$(
   m.Scope scope$,
   BouncingScrollSimulation target$,

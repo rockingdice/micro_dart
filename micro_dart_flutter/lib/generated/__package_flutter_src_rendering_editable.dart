@@ -29,7 +29,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'TextSelectionPoint.': _TextSelectionPoint__$,
     'RenderEditable.': _RenderEditable__$,
-    'RenderEditable.visitChildren': _RenderEditable_visitChildren$,
   },
   {},
   {
@@ -133,6 +132,7 @@ const libraryMirror = m.LibraryMirror(
         'attach': _RenderEditable_attach$,
         'detach': _RenderEditable_detach$,
         'redepthChildren': _RenderEditable_redepthChildren$,
+        'visitChildren': _RenderEditable_visitChildren$,
         'getEndpointsForSelection': _RenderEditable_getEndpointsForSelection$,
         'getRectForComposingRange': _RenderEditable_getRectForComposingRange$,
         'getPositionForPoint': _RenderEditable_getPositionForPoint$,

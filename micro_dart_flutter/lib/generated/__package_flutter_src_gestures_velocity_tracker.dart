@@ -94,10 +94,7 @@ Function Velocity_is$(
   dynamic target$,
 ) =>
     () => target$ is Velocity;
-Velocity _Velocity_zero$() {
-  return Velocity.zero;
-}
-
+Function _Velocity_zero$(m.Scope scope$) => () => Velocity.zero;
 Function _Velocity_pixelsPerSecond$(
   m.Scope scope$,
   Velocity target$,

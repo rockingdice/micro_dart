@@ -293,14 +293,9 @@ Function _RefreshIndicatorState_build$(
   RefreshIndicatorState target$,
 ) =>
     target$.build;
-RefreshIndicatorTriggerMode _RefreshIndicatorTriggerMode_anywhere$() {
-  return RefreshIndicatorTriggerMode.anywhere;
-}
-
-RefreshIndicatorTriggerMode _RefreshIndicatorTriggerMode_onEdge$() {
-  return RefreshIndicatorTriggerMode.onEdge;
-}
-
-List<RefreshIndicatorTriggerMode> _RefreshIndicatorTriggerMode_values$() {
-  return RefreshIndicatorTriggerMode.values;
-}
+Function _RefreshIndicatorTriggerMode_anywhere$(m.Scope scope$) =>
+    () => RefreshIndicatorTriggerMode.anywhere;
+Function _RefreshIndicatorTriggerMode_onEdge$(m.Scope scope$) =>
+    () => RefreshIndicatorTriggerMode.onEdge;
+Function _RefreshIndicatorTriggerMode_values$(m.Scope scope$) =>
+    () => RefreshIndicatorTriggerMode.values;

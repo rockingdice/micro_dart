@@ -218,14 +218,9 @@ Function _SnackBarThemeData_debugFillProperties$(
   SnackBarThemeData target$,
 ) =>
     target$.debugFillProperties;
-SnackBarBehavior _SnackBarBehavior_fixed$() {
-  return SnackBarBehavior.fixed;
-}
-
-SnackBarBehavior _SnackBarBehavior_floating$() {
-  return SnackBarBehavior.floating;
-}
-
-List<SnackBarBehavior> _SnackBarBehavior_values$() {
-  return SnackBarBehavior.values;
-}
+Function _SnackBarBehavior_fixed$(m.Scope scope$) =>
+    () => SnackBarBehavior.fixed;
+Function _SnackBarBehavior_floating$(m.Scope scope$) =>
+    () => SnackBarBehavior.floating;
+Function _SnackBarBehavior_values$(m.Scope scope$) =>
+    () => SnackBarBehavior.values;

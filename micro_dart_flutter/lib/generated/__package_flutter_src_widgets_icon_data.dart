@@ -40,10 +40,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Object _staticIconProvider$() {
-  return staticIconProvider;
-}
-
+Function _staticIconProvider$(m.Scope scope$) => () => staticIconProvider;
 Function IconData_as$(
   m.Scope scope$,
   dynamic target$,

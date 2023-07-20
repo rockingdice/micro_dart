@@ -456,54 +456,26 @@ Function _ListTile_debugFillProperties$(
   ListTile target$,
 ) =>
     target$.debugFillProperties;
-ListTileStyle _ListTileStyle_list$() {
-  return ListTileStyle.list;
-}
-
-ListTileStyle _ListTileStyle_drawer$() {
-  return ListTileStyle.drawer;
-}
-
-List<ListTileStyle> _ListTileStyle_values$() {
-  return ListTileStyle.values;
-}
-
-ListTileControlAffinity _ListTileControlAffinity_leading$() {
-  return ListTileControlAffinity.leading;
-}
-
-ListTileControlAffinity _ListTileControlAffinity_trailing$() {
-  return ListTileControlAffinity.trailing;
-}
-
-ListTileControlAffinity _ListTileControlAffinity_platform$() {
-  return ListTileControlAffinity.platform;
-}
-
-List<ListTileControlAffinity> _ListTileControlAffinity_values$() {
-  return ListTileControlAffinity.values;
-}
-
-ListTileTitleAlignment _ListTileTitleAlignment_threeLine$() {
-  return ListTileTitleAlignment.threeLine;
-}
-
-ListTileTitleAlignment _ListTileTitleAlignment_titleHeight$() {
-  return ListTileTitleAlignment.titleHeight;
-}
-
-ListTileTitleAlignment _ListTileTitleAlignment_top$() {
-  return ListTileTitleAlignment.top;
-}
-
-ListTileTitleAlignment _ListTileTitleAlignment_center$() {
-  return ListTileTitleAlignment.center;
-}
-
-ListTileTitleAlignment _ListTileTitleAlignment_bottom$() {
-  return ListTileTitleAlignment.bottom;
-}
-
-List<ListTileTitleAlignment> _ListTileTitleAlignment_values$() {
-  return ListTileTitleAlignment.values;
-}
+Function _ListTileStyle_list$(m.Scope scope$) => () => ListTileStyle.list;
+Function _ListTileStyle_drawer$(m.Scope scope$) => () => ListTileStyle.drawer;
+Function _ListTileStyle_values$(m.Scope scope$) => () => ListTileStyle.values;
+Function _ListTileControlAffinity_leading$(m.Scope scope$) =>
+    () => ListTileControlAffinity.leading;
+Function _ListTileControlAffinity_trailing$(m.Scope scope$) =>
+    () => ListTileControlAffinity.trailing;
+Function _ListTileControlAffinity_platform$(m.Scope scope$) =>
+    () => ListTileControlAffinity.platform;
+Function _ListTileControlAffinity_values$(m.Scope scope$) =>
+    () => ListTileControlAffinity.values;
+Function _ListTileTitleAlignment_threeLine$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.threeLine;
+Function _ListTileTitleAlignment_titleHeight$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.titleHeight;
+Function _ListTileTitleAlignment_top$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.top;
+Function _ListTileTitleAlignment_center$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.center;
+Function _ListTileTitleAlignment_bottom$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.bottom;
+Function _ListTileTitleAlignment_values$(m.Scope scope$) =>
+    () => ListTileTitleAlignment.values;

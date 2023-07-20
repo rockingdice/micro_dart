@@ -299,34 +299,16 @@ Function _DismissUpdateDetails__$(m.Scope scope$) => ({
         reached: reached ?? false,
       );
     };
-DismissDirection _DismissDirection_vertical$() {
-  return DismissDirection.vertical;
-}
-
-DismissDirection _DismissDirection_horizontal$() {
-  return DismissDirection.horizontal;
-}
-
-DismissDirection _DismissDirection_endToStart$() {
-  return DismissDirection.endToStart;
-}
-
-DismissDirection _DismissDirection_startToEnd$() {
-  return DismissDirection.startToEnd;
-}
-
-DismissDirection _DismissDirection_up$() {
-  return DismissDirection.up;
-}
-
-DismissDirection _DismissDirection_down$() {
-  return DismissDirection.down;
-}
-
-DismissDirection _DismissDirection_none$() {
-  return DismissDirection.none;
-}
-
-List<DismissDirection> _DismissDirection_values$() {
-  return DismissDirection.values;
-}
+Function _DismissDirection_vertical$(m.Scope scope$) =>
+    () => DismissDirection.vertical;
+Function _DismissDirection_horizontal$(m.Scope scope$) =>
+    () => DismissDirection.horizontal;
+Function _DismissDirection_endToStart$(m.Scope scope$) =>
+    () => DismissDirection.endToStart;
+Function _DismissDirection_startToEnd$(m.Scope scope$) =>
+    () => DismissDirection.startToEnd;
+Function _DismissDirection_up$(m.Scope scope$) => () => DismissDirection.up;
+Function _DismissDirection_down$(m.Scope scope$) => () => DismissDirection.down;
+Function _DismissDirection_none$(m.Scope scope$) => () => DismissDirection.none;
+Function _DismissDirection_values$(m.Scope scope$) =>
+    () => DismissDirection.values;

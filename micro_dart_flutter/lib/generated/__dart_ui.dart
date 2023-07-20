@@ -20,9 +20,6 @@ const libraryMirror = m.LibraryMirror(
     'ChannelBuffers.kDefaultBufferSize': _ChannelBuffers_kDefaultBufferSize$,
     'ChannelBuffers.kControlChannelName': _ChannelBuffers_kControlChannelName$,
     'ChannelBuffers.': _ChannelBuffers__$,
-    'ChannelBuffers.push': _ChannelBuffers_push$,
-    'ChannelBuffers.setListener': _ChannelBuffers_setListener$,
-    'ChannelBuffers.drain': _ChannelBuffers_drain$,
     'SceneBuilder.': _SceneBuilder__$,
     'Offset.zero': _Offset_zero$,
     'Offset.infinite': _Offset_infinite$,
@@ -222,8 +219,6 @@ const libraryMirror = m.LibraryMirror(
     'decodeImageFromPixels': _decodeImageFromPixels$,
     'RootIsolateToken.instance': _RootIsolateToken_instance$,
     'PlatformDispatcher.instance': _PlatformDispatcher_instance$,
-    'PlatformDispatcher.sendPlatformMessage':
-        _PlatformDispatcher_sendPlatformMessage$,
     'FrameTiming.': _FrameTiming__$,
     'ViewPadding.zero': _ViewPadding_zero$,
     'DisplayFeature.': _DisplayFeature__$,
@@ -495,7 +490,10 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': ChannelBuffers_as$,
         '#is': ChannelBuffers_is$,
+        'push': _ChannelBuffers_push$,
+        'setListener': _ChannelBuffers_setListener$,
         'clearListener': _ChannelBuffers_clearListener$,
+        'drain': _ChannelBuffers_drain$,
         'handleMessage': _ChannelBuffers_handleMessage$,
         'resize': _ChannelBuffers_resize$,
         'allowOverflow': _ChannelBuffers_allowOverflow$,
@@ -1410,6 +1408,7 @@ const libraryMirror = m.LibraryMirror(
         'onFrameDataChanged': _PlatformDispatcher_onFrameDataChanged$,
         'onError': _PlatformDispatcher_onError$,
         'defaultRouteName': _PlatformDispatcher_defaultRouteName$,
+        'sendPlatformMessage': _PlatformDispatcher_sendPlatformMessage$,
         'sendPortPlatformMessage': _PlatformDispatcher_sendPortPlatformMessage$,
         'registerBackgroundIsolate':
             _PlatformDispatcher_registerBackgroundIsolate$,
@@ -2051,14 +2050,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-pragma _keepToString$() {
-  return keepToString;
-}
-
-ChannelBuffers _channelBuffers$() {
-  return channelBuffers;
-}
-
+Function _keepToString$(m.Scope scope$) => () => keepToString;
+Function _channelBuffers$(m.Scope scope$) => () => channelBuffers;
 Function ChannelBuffers_as$(
   m.Scope scope$,
   dynamic target$,
@@ -2069,14 +2062,10 @@ Function ChannelBuffers_is$(
   dynamic target$,
 ) =>
     () => target$ is ChannelBuffers;
-int _ChannelBuffers_kDefaultBufferSize$() {
-  return ChannelBuffers.kDefaultBufferSize;
-}
-
-String _ChannelBuffers_kControlChannelName$() {
-  return ChannelBuffers.kControlChannelName;
-}
-
+Function _ChannelBuffers_kDefaultBufferSize$(m.Scope scope$) =>
+    () => ChannelBuffers.kDefaultBufferSize;
+Function _ChannelBuffers_kControlChannelName$(m.Scope scope$) =>
+    () => ChannelBuffers.kControlChannelName;
 Function _ChannelBuffers__$(m.Scope scope$) => () {
       return ChannelBuffers();
     };
@@ -2493,14 +2482,8 @@ Function Offset_is$(
   dynamic target$,
 ) =>
     () => target$ is Offset;
-Offset _Offset_zero$() {
-  return Offset.zero;
-}
-
-Offset _Offset_infinite$() {
-  return Offset.infinite;
-}
-
+Function _Offset_zero$(m.Scope scope$) => () => Offset.zero;
+Function _Offset_infinite$(m.Scope scope$) => () => Offset.infinite;
 Function _Offset_dx$(
   m.Scope scope$,
   Offset target$,
@@ -2624,14 +2607,8 @@ Function Size_is$(
   dynamic target$,
 ) =>
     () => target$ is Size;
-Size _Size_zero$() {
-  return Size.zero;
-}
-
-Size _Size_infinite$() {
-  return Size.infinite;
-}
-
+Function _Size_zero$(m.Scope scope$) => () => Size.zero;
+Function _Size_infinite$(m.Scope scope$) => () => Size.infinite;
 Function _Size_width$(
   m.Scope scope$,
   Size target$,
@@ -2831,14 +2808,8 @@ Function _Rect_bottom$(
     () {
       return target$.bottom;
     };
-Rect _Rect_zero$() {
-  return Rect.zero;
-}
-
-Rect _Rect_largest$() {
-  return Rect.largest;
-}
-
+Function _Rect_zero$(m.Scope scope$) => () => Rect.zero;
+Function _Rect_largest$(m.Scope scope$) => () => Rect.largest;
 Function _Rect_width$(
   m.Scope scope$,
   Rect target$,
@@ -3052,10 +3023,7 @@ Function _Radius_y$(
     () {
       return target$.y;
     };
-Radius _Radius_zero$() {
-  return Radius.zero;
-}
-
+Function _Radius_zero$(m.Scope scope$) => () => Radius.zero;
 Function _Radius_hashCode$(
   m.Scope scope$,
   Radius target$,
@@ -3215,10 +3183,7 @@ Function _RRect_blRadiusY$(
     () {
       return target$.blRadiusY;
     };
-RRect _RRect_zero$() {
-  return RRect.zero;
-}
-
+Function _RRect_zero$(m.Scope scope$) => () => RRect.zero;
 Function _RRect_tlRadius$(
   m.Scope scope$,
   RRect target$,
@@ -3565,22 +3530,10 @@ Function _KeyData_toStringFull$(
   KeyData target$,
 ) =>
     target$.toStringFull;
-KeyEventType _KeyEventType_down$() {
-  return KeyEventType.down;
-}
-
-KeyEventType _KeyEventType_up$() {
-  return KeyEventType.up;
-}
-
-KeyEventType _KeyEventType_repeat$() {
-  return KeyEventType.repeat;
-}
-
-List<KeyEventType> _KeyEventType_values$() {
-  return KeyEventType.values;
-}
-
+Function _KeyEventType_down$(m.Scope scope$) => () => KeyEventType.down;
+Function _KeyEventType_up$(m.Scope scope$) => () => KeyEventType.up;
+Function _KeyEventType_repeat$(m.Scope scope$) => () => KeyEventType.repeat;
+Function _KeyEventType_values$(m.Scope scope$) => () => KeyEventType.values;
 Function _lerpDouble$(m.Scope scope$) => lerpDouble;
 Function _clampDouble$(m.Scope scope$) => clampDouble;
 Function DartPluginRegistrant_as$(
@@ -3714,10 +3667,7 @@ Function Paint_is$(
   dynamic target$,
 ) =>
     () => target$ is Paint;
-bool _Paint_enableDithering$() {
-  return Paint.enableDithering;
-}
-
+Function _Paint_enableDithering$(m.Scope scope$) => () => Paint.enableDithering;
 void _Paint_enableDithering_set$(bool other$) {
   Paint.enableDithering = other$;
 }
@@ -3936,10 +3886,7 @@ Function Image_is$(
   dynamic target$,
 ) =>
     () => target$ is Image;
-void Function(Image)? _Image_onCreate$() {
-  return Image.onCreate;
-}
-
+Function _Image_onCreate$(m.Scope scope$) => () => Image.onCreate;
 Function _Image_onCreate_set$(m.Scope scope$) =>
     (m.FunctionPointer? _onCreate) {
       void _onCreateProxy(Image _onCreate_image$) =>
@@ -3951,10 +3898,7 @@ Function _Image_onCreate_set$(m.Scope scope$) =>
           );
       Image.onCreate = (_onCreate == null ? null : _onCreateProxy);
     };
-void Function(Image)? _Image_onDispose$() {
-  return Image.onDispose;
-}
-
+Function _Image_onDispose$(m.Scope scope$) => () => Image.onDispose;
 Function _Image_onDispose_set$(m.Scope scope$) =>
     (m.FunctionPointer? _onDispose) {
       void _onDisposeProxy(Image _onDispose_image$) =>
@@ -4864,10 +4808,7 @@ Function Picture_is$(
   dynamic target$,
 ) =>
     () => target$ is Picture;
-void Function(Picture)? _Picture_onCreate$() {
-  return Picture.onCreate;
-}
-
+Function _Picture_onCreate$(m.Scope scope$) => () => Picture.onCreate;
 Function _Picture_onCreate_set$(m.Scope scope$) =>
     (m.FunctionPointer? _onCreate) {
       void _onCreateProxy(Picture _onCreate_picture$) =>
@@ -4879,10 +4820,7 @@ Function _Picture_onCreate_set$(m.Scope scope$) =>
           );
       Picture.onCreate = (_onCreate == null ? null : _onCreateProxy);
     };
-void Function(Picture)? _Picture_onDispose$() {
-  return Picture.onDispose;
-}
-
+Function _Picture_onDispose$(m.Scope scope$) => () => Picture.onDispose;
 Function _Picture_onDispose_set$(m.Scope scope$) =>
     (m.FunctionPointer? _onDispose) {
       void _onDisposeProxy(Picture _onDispose_picture$) =>
@@ -5135,382 +5073,113 @@ Function _PictureRasterizationException_toString$(
   PictureRasterizationException target$,
 ) =>
     target$.toString;
-BlendMode _BlendMode_clear$() {
-  return BlendMode.clear;
-}
-
-BlendMode _BlendMode_src$() {
-  return BlendMode.src;
-}
-
-BlendMode _BlendMode_dst$() {
-  return BlendMode.dst;
-}
-
-BlendMode _BlendMode_srcOver$() {
-  return BlendMode.srcOver;
-}
-
-BlendMode _BlendMode_dstOver$() {
-  return BlendMode.dstOver;
-}
-
-BlendMode _BlendMode_srcIn$() {
-  return BlendMode.srcIn;
-}
-
-BlendMode _BlendMode_dstIn$() {
-  return BlendMode.dstIn;
-}
-
-BlendMode _BlendMode_srcOut$() {
-  return BlendMode.srcOut;
-}
-
-BlendMode _BlendMode_dstOut$() {
-  return BlendMode.dstOut;
-}
-
-BlendMode _BlendMode_srcATop$() {
-  return BlendMode.srcATop;
-}
-
-BlendMode _BlendMode_dstATop$() {
-  return BlendMode.dstATop;
-}
-
-BlendMode _BlendMode_xor$() {
-  return BlendMode.xor;
-}
-
-BlendMode _BlendMode_plus$() {
-  return BlendMode.plus;
-}
-
-BlendMode _BlendMode_modulate$() {
-  return BlendMode.modulate;
-}
-
-BlendMode _BlendMode_screen$() {
-  return BlendMode.screen;
-}
-
-BlendMode _BlendMode_overlay$() {
-  return BlendMode.overlay;
-}
-
-BlendMode _BlendMode_darken$() {
-  return BlendMode.darken;
-}
-
-BlendMode _BlendMode_lighten$() {
-  return BlendMode.lighten;
-}
-
-BlendMode _BlendMode_colorDodge$() {
-  return BlendMode.colorDodge;
-}
-
-BlendMode _BlendMode_colorBurn$() {
-  return BlendMode.colorBurn;
-}
-
-BlendMode _BlendMode_hardLight$() {
-  return BlendMode.hardLight;
-}
-
-BlendMode _BlendMode_softLight$() {
-  return BlendMode.softLight;
-}
-
-BlendMode _BlendMode_difference$() {
-  return BlendMode.difference;
-}
-
-BlendMode _BlendMode_exclusion$() {
-  return BlendMode.exclusion;
-}
-
-BlendMode _BlendMode_multiply$() {
-  return BlendMode.multiply;
-}
-
-BlendMode _BlendMode_hue$() {
-  return BlendMode.hue;
-}
-
-BlendMode _BlendMode_saturation$() {
-  return BlendMode.saturation;
-}
-
-BlendMode _BlendMode_color$() {
-  return BlendMode.color;
-}
-
-BlendMode _BlendMode_luminosity$() {
-  return BlendMode.luminosity;
-}
-
-List<BlendMode> _BlendMode_values$() {
-  return BlendMode.values;
-}
-
-FilterQuality _FilterQuality_none$() {
-  return FilterQuality.none;
-}
-
-FilterQuality _FilterQuality_low$() {
-  return FilterQuality.low;
-}
-
-FilterQuality _FilterQuality_medium$() {
-  return FilterQuality.medium;
-}
-
-FilterQuality _FilterQuality_high$() {
-  return FilterQuality.high;
-}
-
-List<FilterQuality> _FilterQuality_values$() {
-  return FilterQuality.values;
-}
-
-StrokeCap _StrokeCap_butt$() {
-  return StrokeCap.butt;
-}
-
-StrokeCap _StrokeCap_round$() {
-  return StrokeCap.round;
-}
-
-StrokeCap _StrokeCap_square$() {
-  return StrokeCap.square;
-}
-
-List<StrokeCap> _StrokeCap_values$() {
-  return StrokeCap.values;
-}
-
-StrokeJoin _StrokeJoin_miter$() {
-  return StrokeJoin.miter;
-}
-
-StrokeJoin _StrokeJoin_round$() {
-  return StrokeJoin.round;
-}
-
-StrokeJoin _StrokeJoin_bevel$() {
-  return StrokeJoin.bevel;
-}
-
-List<StrokeJoin> _StrokeJoin_values$() {
-  return StrokeJoin.values;
-}
-
-PaintingStyle _PaintingStyle_fill$() {
-  return PaintingStyle.fill;
-}
-
-PaintingStyle _PaintingStyle_stroke$() {
-  return PaintingStyle.stroke;
-}
-
-List<PaintingStyle> _PaintingStyle_values$() {
-  return PaintingStyle.values;
-}
-
-Clip _Clip_none$() {
-  return Clip.none;
-}
-
-Clip _Clip_hardEdge$() {
-  return Clip.hardEdge;
-}
-
-Clip _Clip_antiAlias$() {
-  return Clip.antiAlias;
-}
-
-Clip _Clip_antiAliasWithSaveLayer$() {
-  return Clip.antiAliasWithSaveLayer;
-}
-
-List<Clip> _Clip_values$() {
-  return Clip.values;
-}
-
-ColorSpace _ColorSpace_sRGB$() {
-  return ColorSpace.sRGB;
-}
-
-ColorSpace _ColorSpace_extendedSRGB$() {
-  return ColorSpace.extendedSRGB;
-}
-
-List<ColorSpace> _ColorSpace_values$() {
-  return ColorSpace.values;
-}
-
-ImageByteFormat _ImageByteFormat_rawRgba$() {
-  return ImageByteFormat.rawRgba;
-}
-
-ImageByteFormat _ImageByteFormat_rawStraightRgba$() {
-  return ImageByteFormat.rawStraightRgba;
-}
-
-ImageByteFormat _ImageByteFormat_rawUnmodified$() {
-  return ImageByteFormat.rawUnmodified;
-}
-
-ImageByteFormat _ImageByteFormat_rawExtendedRgba128$() {
-  return ImageByteFormat.rawExtendedRgba128;
-}
-
-ImageByteFormat _ImageByteFormat_png$() {
-  return ImageByteFormat.png;
-}
-
-List<ImageByteFormat> _ImageByteFormat_values$() {
-  return ImageByteFormat.values;
-}
-
-PixelFormat _PixelFormat_rgba8888$() {
-  return PixelFormat.rgba8888;
-}
-
-PixelFormat _PixelFormat_bgra8888$() {
-  return PixelFormat.bgra8888;
-}
-
-PixelFormat _PixelFormat_rgbaFloat32$() {
-  return PixelFormat.rgbaFloat32;
-}
-
-List<PixelFormat> _PixelFormat_values$() {
-  return PixelFormat.values;
-}
-
-PathFillType _PathFillType_nonZero$() {
-  return PathFillType.nonZero;
-}
-
-PathFillType _PathFillType_evenOdd$() {
-  return PathFillType.evenOdd;
-}
-
-List<PathFillType> _PathFillType_values$() {
-  return PathFillType.values;
-}
-
-PathOperation _PathOperation_difference$() {
-  return PathOperation.difference;
-}
-
-PathOperation _PathOperation_intersect$() {
-  return PathOperation.intersect;
-}
-
-PathOperation _PathOperation_union$() {
-  return PathOperation.union;
-}
-
-PathOperation _PathOperation_xor$() {
-  return PathOperation.xor;
-}
-
-PathOperation _PathOperation_reverseDifference$() {
-  return PathOperation.reverseDifference;
-}
-
-List<PathOperation> _PathOperation_values$() {
-  return PathOperation.values;
-}
-
-BlurStyle _BlurStyle_normal$() {
-  return BlurStyle.normal;
-}
-
-BlurStyle _BlurStyle_solid$() {
-  return BlurStyle.solid;
-}
-
-BlurStyle _BlurStyle_outer$() {
-  return BlurStyle.outer;
-}
-
-BlurStyle _BlurStyle_inner$() {
-  return BlurStyle.inner;
-}
-
-List<BlurStyle> _BlurStyle_values$() {
-  return BlurStyle.values;
-}
-
-TileMode _TileMode_clamp$() {
-  return TileMode.clamp;
-}
-
-TileMode _TileMode_repeated$() {
-  return TileMode.repeated;
-}
-
-TileMode _TileMode_mirror$() {
-  return TileMode.mirror;
-}
-
-TileMode _TileMode_decal$() {
-  return TileMode.decal;
-}
-
-List<TileMode> _TileMode_values$() {
-  return TileMode.values;
-}
-
-VertexMode _VertexMode_triangles$() {
-  return VertexMode.triangles;
-}
-
-VertexMode _VertexMode_triangleStrip$() {
-  return VertexMode.triangleStrip;
-}
-
-VertexMode _VertexMode_triangleFan$() {
-  return VertexMode.triangleFan;
-}
-
-List<VertexMode> _VertexMode_values$() {
-  return VertexMode.values;
-}
-
-PointMode _PointMode_points$() {
-  return PointMode.points;
-}
-
-PointMode _PointMode_lines$() {
-  return PointMode.lines;
-}
-
-PointMode _PointMode_polygon$() {
-  return PointMode.polygon;
-}
-
-List<PointMode> _PointMode_values$() {
-  return PointMode.values;
-}
-
-ClipOp _ClipOp_difference$() {
-  return ClipOp.difference;
-}
-
-ClipOp _ClipOp_intersect$() {
-  return ClipOp.intersect;
-}
-
-List<ClipOp> _ClipOp_values$() {
-  return ClipOp.values;
-}
-
+Function _BlendMode_clear$(m.Scope scope$) => () => BlendMode.clear;
+Function _BlendMode_src$(m.Scope scope$) => () => BlendMode.src;
+Function _BlendMode_dst$(m.Scope scope$) => () => BlendMode.dst;
+Function _BlendMode_srcOver$(m.Scope scope$) => () => BlendMode.srcOver;
+Function _BlendMode_dstOver$(m.Scope scope$) => () => BlendMode.dstOver;
+Function _BlendMode_srcIn$(m.Scope scope$) => () => BlendMode.srcIn;
+Function _BlendMode_dstIn$(m.Scope scope$) => () => BlendMode.dstIn;
+Function _BlendMode_srcOut$(m.Scope scope$) => () => BlendMode.srcOut;
+Function _BlendMode_dstOut$(m.Scope scope$) => () => BlendMode.dstOut;
+Function _BlendMode_srcATop$(m.Scope scope$) => () => BlendMode.srcATop;
+Function _BlendMode_dstATop$(m.Scope scope$) => () => BlendMode.dstATop;
+Function _BlendMode_xor$(m.Scope scope$) => () => BlendMode.xor;
+Function _BlendMode_plus$(m.Scope scope$) => () => BlendMode.plus;
+Function _BlendMode_modulate$(m.Scope scope$) => () => BlendMode.modulate;
+Function _BlendMode_screen$(m.Scope scope$) => () => BlendMode.screen;
+Function _BlendMode_overlay$(m.Scope scope$) => () => BlendMode.overlay;
+Function _BlendMode_darken$(m.Scope scope$) => () => BlendMode.darken;
+Function _BlendMode_lighten$(m.Scope scope$) => () => BlendMode.lighten;
+Function _BlendMode_colorDodge$(m.Scope scope$) => () => BlendMode.colorDodge;
+Function _BlendMode_colorBurn$(m.Scope scope$) => () => BlendMode.colorBurn;
+Function _BlendMode_hardLight$(m.Scope scope$) => () => BlendMode.hardLight;
+Function _BlendMode_softLight$(m.Scope scope$) => () => BlendMode.softLight;
+Function _BlendMode_difference$(m.Scope scope$) => () => BlendMode.difference;
+Function _BlendMode_exclusion$(m.Scope scope$) => () => BlendMode.exclusion;
+Function _BlendMode_multiply$(m.Scope scope$) => () => BlendMode.multiply;
+Function _BlendMode_hue$(m.Scope scope$) => () => BlendMode.hue;
+Function _BlendMode_saturation$(m.Scope scope$) => () => BlendMode.saturation;
+Function _BlendMode_color$(m.Scope scope$) => () => BlendMode.color;
+Function _BlendMode_luminosity$(m.Scope scope$) => () => BlendMode.luminosity;
+Function _BlendMode_values$(m.Scope scope$) => () => BlendMode.values;
+Function _FilterQuality_none$(m.Scope scope$) => () => FilterQuality.none;
+Function _FilterQuality_low$(m.Scope scope$) => () => FilterQuality.low;
+Function _FilterQuality_medium$(m.Scope scope$) => () => FilterQuality.medium;
+Function _FilterQuality_high$(m.Scope scope$) => () => FilterQuality.high;
+Function _FilterQuality_values$(m.Scope scope$) => () => FilterQuality.values;
+Function _StrokeCap_butt$(m.Scope scope$) => () => StrokeCap.butt;
+Function _StrokeCap_round$(m.Scope scope$) => () => StrokeCap.round;
+Function _StrokeCap_square$(m.Scope scope$) => () => StrokeCap.square;
+Function _StrokeCap_values$(m.Scope scope$) => () => StrokeCap.values;
+Function _StrokeJoin_miter$(m.Scope scope$) => () => StrokeJoin.miter;
+Function _StrokeJoin_round$(m.Scope scope$) => () => StrokeJoin.round;
+Function _StrokeJoin_bevel$(m.Scope scope$) => () => StrokeJoin.bevel;
+Function _StrokeJoin_values$(m.Scope scope$) => () => StrokeJoin.values;
+Function _PaintingStyle_fill$(m.Scope scope$) => () => PaintingStyle.fill;
+Function _PaintingStyle_stroke$(m.Scope scope$) => () => PaintingStyle.stroke;
+Function _PaintingStyle_values$(m.Scope scope$) => () => PaintingStyle.values;
+Function _Clip_none$(m.Scope scope$) => () => Clip.none;
+Function _Clip_hardEdge$(m.Scope scope$) => () => Clip.hardEdge;
+Function _Clip_antiAlias$(m.Scope scope$) => () => Clip.antiAlias;
+Function _Clip_antiAliasWithSaveLayer$(m.Scope scope$) =>
+    () => Clip.antiAliasWithSaveLayer;
+Function _Clip_values$(m.Scope scope$) => () => Clip.values;
+Function _ColorSpace_sRGB$(m.Scope scope$) => () => ColorSpace.sRGB;
+Function _ColorSpace_extendedSRGB$(m.Scope scope$) =>
+    () => ColorSpace.extendedSRGB;
+Function _ColorSpace_values$(m.Scope scope$) => () => ColorSpace.values;
+Function _ImageByteFormat_rawRgba$(m.Scope scope$) =>
+    () => ImageByteFormat.rawRgba;
+Function _ImageByteFormat_rawStraightRgba$(m.Scope scope$) =>
+    () => ImageByteFormat.rawStraightRgba;
+Function _ImageByteFormat_rawUnmodified$(m.Scope scope$) =>
+    () => ImageByteFormat.rawUnmodified;
+Function _ImageByteFormat_rawExtendedRgba128$(m.Scope scope$) =>
+    () => ImageByteFormat.rawExtendedRgba128;
+Function _ImageByteFormat_png$(m.Scope scope$) => () => ImageByteFormat.png;
+Function _ImageByteFormat_values$(m.Scope scope$) =>
+    () => ImageByteFormat.values;
+Function _PixelFormat_rgba8888$(m.Scope scope$) => () => PixelFormat.rgba8888;
+Function _PixelFormat_bgra8888$(m.Scope scope$) => () => PixelFormat.bgra8888;
+Function _PixelFormat_rgbaFloat32$(m.Scope scope$) =>
+    () => PixelFormat.rgbaFloat32;
+Function _PixelFormat_values$(m.Scope scope$) => () => PixelFormat.values;
+Function _PathFillType_nonZero$(m.Scope scope$) => () => PathFillType.nonZero;
+Function _PathFillType_evenOdd$(m.Scope scope$) => () => PathFillType.evenOdd;
+Function _PathFillType_values$(m.Scope scope$) => () => PathFillType.values;
+Function _PathOperation_difference$(m.Scope scope$) =>
+    () => PathOperation.difference;
+Function _PathOperation_intersect$(m.Scope scope$) =>
+    () => PathOperation.intersect;
+Function _PathOperation_union$(m.Scope scope$) => () => PathOperation.union;
+Function _PathOperation_xor$(m.Scope scope$) => () => PathOperation.xor;
+Function _PathOperation_reverseDifference$(m.Scope scope$) =>
+    () => PathOperation.reverseDifference;
+Function _PathOperation_values$(m.Scope scope$) => () => PathOperation.values;
+Function _BlurStyle_normal$(m.Scope scope$) => () => BlurStyle.normal;
+Function _BlurStyle_solid$(m.Scope scope$) => () => BlurStyle.solid;
+Function _BlurStyle_outer$(m.Scope scope$) => () => BlurStyle.outer;
+Function _BlurStyle_inner$(m.Scope scope$) => () => BlurStyle.inner;
+Function _BlurStyle_values$(m.Scope scope$) => () => BlurStyle.values;
+Function _TileMode_clamp$(m.Scope scope$) => () => TileMode.clamp;
+Function _TileMode_repeated$(m.Scope scope$) => () => TileMode.repeated;
+Function _TileMode_mirror$(m.Scope scope$) => () => TileMode.mirror;
+Function _TileMode_decal$(m.Scope scope$) => () => TileMode.decal;
+Function _TileMode_values$(m.Scope scope$) => () => TileMode.values;
+Function _VertexMode_triangles$(m.Scope scope$) => () => VertexMode.triangles;
+Function _VertexMode_triangleStrip$(m.Scope scope$) =>
+    () => VertexMode.triangleStrip;
+Function _VertexMode_triangleFan$(m.Scope scope$) =>
+    () => VertexMode.triangleFan;
+Function _VertexMode_values$(m.Scope scope$) => () => VertexMode.values;
+Function _PointMode_points$(m.Scope scope$) => () => PointMode.points;
+Function _PointMode_lines$(m.Scope scope$) => () => PointMode.lines;
+Function _PointMode_polygon$(m.Scope scope$) => () => PointMode.polygon;
+Function _PointMode_values$(m.Scope scope$) => () => PointMode.values;
+Function _ClipOp_difference$(m.Scope scope$) => () => ClipOp.difference;
+Function _ClipOp_intersect$(m.Scope scope$) => () => ClipOp.intersect;
+Function _ClipOp_values$(m.Scope scope$) => () => ClipOp.values;
 Function _instantiateImageCodec$(m.Scope scope$) => instantiateImageCodec;
 Function _instantiateImageCodecFromBuffer$(m.Scope scope$) =>
     instantiateImageCodecFromBuffer;
@@ -5592,10 +5261,8 @@ Function RootIsolateToken_is$(
   dynamic target$,
 ) =>
     () => target$ is RootIsolateToken;
-RootIsolateToken? _RootIsolateToken_instance$() {
-  return RootIsolateToken.instance;
-}
-
+Function _RootIsolateToken_instance$(m.Scope scope$) =>
+    () => RootIsolateToken.instance;
 Function PlatformDispatcher_as$(
   m.Scope scope$,
   dynamic target$,
@@ -5606,10 +5273,8 @@ Function PlatformDispatcher_is$(
   dynamic target$,
 ) =>
     () => target$ is PlatformDispatcher;
-PlatformDispatcher _PlatformDispatcher_instance$() {
-  return PlatformDispatcher.instance;
-}
-
+Function _PlatformDispatcher_instance$(m.Scope scope$) =>
+    () => PlatformDispatcher.instance;
 Function _PlatformDispatcher_onPlatformConfigurationChanged$(
   m.Scope scope$,
   PlatformDispatcher target$,
@@ -6309,10 +5974,7 @@ Function _ViewPadding_bottom$(
     () {
       return target$.bottom;
     };
-ViewPadding _ViewPadding_zero$() {
-  return ViewPadding.zero;
-}
-
+Function _ViewPadding_zero$(m.Scope scope$) => () => ViewPadding.zero;
 Function _ViewPadding_toString$(
   m.Scope scope$,
   ViewPadding target$,
@@ -6443,134 +6105,64 @@ Function _Locale_toLanguageTag$(
   Locale target$,
 ) =>
     target$.toLanguageTag;
-FramePhase _FramePhase_vsyncStart$() {
-  return FramePhase.vsyncStart;
-}
-
-FramePhase _FramePhase_buildStart$() {
-  return FramePhase.buildStart;
-}
-
-FramePhase _FramePhase_buildFinish$() {
-  return FramePhase.buildFinish;
-}
-
-FramePhase _FramePhase_rasterStart$() {
-  return FramePhase.rasterStart;
-}
-
-FramePhase _FramePhase_rasterFinish$() {
-  return FramePhase.rasterFinish;
-}
-
-FramePhase _FramePhase_rasterFinishWallTime$() {
-  return FramePhase.rasterFinishWallTime;
-}
-
-List<FramePhase> _FramePhase_values$() {
-  return FramePhase.values;
-}
-
-AppLifecycleState _AppLifecycleState_resumed$() {
-  return AppLifecycleState.resumed;
-}
-
-AppLifecycleState _AppLifecycleState_inactive$() {
-  return AppLifecycleState.inactive;
-}
-
-AppLifecycleState _AppLifecycleState_paused$() {
-  return AppLifecycleState.paused;
-}
-
-AppLifecycleState _AppLifecycleState_detached$() {
-  return AppLifecycleState.detached;
-}
-
-List<AppLifecycleState> _AppLifecycleState_values$() {
-  return AppLifecycleState.values;
-}
-
-AppExitResponse _AppExitResponse_exit$() {
-  return AppExitResponse.exit;
-}
-
-AppExitResponse _AppExitResponse_cancel$() {
-  return AppExitResponse.cancel;
-}
-
-List<AppExitResponse> _AppExitResponse_values$() {
-  return AppExitResponse.values;
-}
-
-AppExitType _AppExitType_cancelable$() {
-  return AppExitType.cancelable;
-}
-
-AppExitType _AppExitType_required$() {
-  return AppExitType.required;
-}
-
-List<AppExitType> _AppExitType_values$() {
-  return AppExitType.values;
-}
-
-DisplayFeatureType _DisplayFeatureType_unknown$() {
-  return DisplayFeatureType.unknown;
-}
-
-DisplayFeatureType _DisplayFeatureType_fold$() {
-  return DisplayFeatureType.fold;
-}
-
-DisplayFeatureType _DisplayFeatureType_hinge$() {
-  return DisplayFeatureType.hinge;
-}
-
-DisplayFeatureType _DisplayFeatureType_cutout$() {
-  return DisplayFeatureType.cutout;
-}
-
-List<DisplayFeatureType> _DisplayFeatureType_values$() {
-  return DisplayFeatureType.values;
-}
-
-DisplayFeatureState _DisplayFeatureState_unknown$() {
-  return DisplayFeatureState.unknown;
-}
-
-DisplayFeatureState _DisplayFeatureState_postureFlat$() {
-  return DisplayFeatureState.postureFlat;
-}
-
-DisplayFeatureState _DisplayFeatureState_postureHalfOpened$() {
-  return DisplayFeatureState.postureHalfOpened;
-}
-
-List<DisplayFeatureState> _DisplayFeatureState_values$() {
-  return DisplayFeatureState.values;
-}
-
-DartPerformanceMode _DartPerformanceMode_balanced$() {
-  return DartPerformanceMode.balanced;
-}
-
-DartPerformanceMode _DartPerformanceMode_latency$() {
-  return DartPerformanceMode.latency;
-}
-
-DartPerformanceMode _DartPerformanceMode_throughput$() {
-  return DartPerformanceMode.throughput;
-}
-
-DartPerformanceMode _DartPerformanceMode_memory$() {
-  return DartPerformanceMode.memory;
-}
-
-List<DartPerformanceMode> _DartPerformanceMode_values$() {
-  return DartPerformanceMode.values;
-}
-
+Function _FramePhase_vsyncStart$(m.Scope scope$) => () => FramePhase.vsyncStart;
+Function _FramePhase_buildStart$(m.Scope scope$) => () => FramePhase.buildStart;
+Function _FramePhase_buildFinish$(m.Scope scope$) =>
+    () => FramePhase.buildFinish;
+Function _FramePhase_rasterStart$(m.Scope scope$) =>
+    () => FramePhase.rasterStart;
+Function _FramePhase_rasterFinish$(m.Scope scope$) =>
+    () => FramePhase.rasterFinish;
+Function _FramePhase_rasterFinishWallTime$(m.Scope scope$) =>
+    () => FramePhase.rasterFinishWallTime;
+Function _FramePhase_values$(m.Scope scope$) => () => FramePhase.values;
+Function _AppLifecycleState_resumed$(m.Scope scope$) =>
+    () => AppLifecycleState.resumed;
+Function _AppLifecycleState_inactive$(m.Scope scope$) =>
+    () => AppLifecycleState.inactive;
+Function _AppLifecycleState_paused$(m.Scope scope$) =>
+    () => AppLifecycleState.paused;
+Function _AppLifecycleState_detached$(m.Scope scope$) =>
+    () => AppLifecycleState.detached;
+Function _AppLifecycleState_values$(m.Scope scope$) =>
+    () => AppLifecycleState.values;
+Function _AppExitResponse_exit$(m.Scope scope$) => () => AppExitResponse.exit;
+Function _AppExitResponse_cancel$(m.Scope scope$) =>
+    () => AppExitResponse.cancel;
+Function _AppExitResponse_values$(m.Scope scope$) =>
+    () => AppExitResponse.values;
+Function _AppExitType_cancelable$(m.Scope scope$) =>
+    () => AppExitType.cancelable;
+Function _AppExitType_required$(m.Scope scope$) => () => AppExitType.required;
+Function _AppExitType_values$(m.Scope scope$) => () => AppExitType.values;
+Function _DisplayFeatureType_unknown$(m.Scope scope$) =>
+    () => DisplayFeatureType.unknown;
+Function _DisplayFeatureType_fold$(m.Scope scope$) =>
+    () => DisplayFeatureType.fold;
+Function _DisplayFeatureType_hinge$(m.Scope scope$) =>
+    () => DisplayFeatureType.hinge;
+Function _DisplayFeatureType_cutout$(m.Scope scope$) =>
+    () => DisplayFeatureType.cutout;
+Function _DisplayFeatureType_values$(m.Scope scope$) =>
+    () => DisplayFeatureType.values;
+Function _DisplayFeatureState_unknown$(m.Scope scope$) =>
+    () => DisplayFeatureState.unknown;
+Function _DisplayFeatureState_postureFlat$(m.Scope scope$) =>
+    () => DisplayFeatureState.postureFlat;
+Function _DisplayFeatureState_postureHalfOpened$(m.Scope scope$) =>
+    () => DisplayFeatureState.postureHalfOpened;
+Function _DisplayFeatureState_values$(m.Scope scope$) =>
+    () => DisplayFeatureState.values;
+Function _DartPerformanceMode_balanced$(m.Scope scope$) =>
+    () => DartPerformanceMode.balanced;
+Function _DartPerformanceMode_latency$(m.Scope scope$) =>
+    () => DartPerformanceMode.latency;
+Function _DartPerformanceMode_throughput$(m.Scope scope$) =>
+    () => DartPerformanceMode.throughput;
+Function _DartPerformanceMode_memory$(m.Scope scope$) =>
+    () => DartPerformanceMode.memory;
+Function _DartPerformanceMode_values$(m.Scope scope$) =>
+    () => DartPerformanceMode.values;
 Function CallbackHandle_as$(
   m.Scope scope$,
   dynamic target$,
@@ -6985,136 +6577,62 @@ Function _PointerDataPacket__$(m.Scope scope$) => ({List? data}) {
       return PointerDataPacket(
           data: data == null ? const <PointerData>[] : List.from(data));
     };
-PointerChange _PointerChange_cancel$() {
-  return PointerChange.cancel;
-}
-
-PointerChange _PointerChange_add$() {
-  return PointerChange.add;
-}
-
-PointerChange _PointerChange_remove$() {
-  return PointerChange.remove;
-}
-
-PointerChange _PointerChange_hover$() {
-  return PointerChange.hover;
-}
-
-PointerChange _PointerChange_down$() {
-  return PointerChange.down;
-}
-
-PointerChange _PointerChange_move$() {
-  return PointerChange.move;
-}
-
-PointerChange _PointerChange_up$() {
-  return PointerChange.up;
-}
-
-PointerChange _PointerChange_panZoomStart$() {
-  return PointerChange.panZoomStart;
-}
-
-PointerChange _PointerChange_panZoomUpdate$() {
-  return PointerChange.panZoomUpdate;
-}
-
-PointerChange _PointerChange_panZoomEnd$() {
-  return PointerChange.panZoomEnd;
-}
-
-List<PointerChange> _PointerChange_values$() {
-  return PointerChange.values;
-}
-
-PointerDeviceKind _PointerDeviceKind_touch$() {
-  return PointerDeviceKind.touch;
-}
-
-PointerDeviceKind _PointerDeviceKind_mouse$() {
-  return PointerDeviceKind.mouse;
-}
-
-PointerDeviceKind _PointerDeviceKind_stylus$() {
-  return PointerDeviceKind.stylus;
-}
-
-PointerDeviceKind _PointerDeviceKind_invertedStylus$() {
-  return PointerDeviceKind.invertedStylus;
-}
-
-PointerDeviceKind _PointerDeviceKind_trackpad$() {
-  return PointerDeviceKind.trackpad;
-}
-
-PointerDeviceKind _PointerDeviceKind_unknown$() {
-  return PointerDeviceKind.unknown;
-}
-
-List<PointerDeviceKind> _PointerDeviceKind_values$() {
-  return PointerDeviceKind.values;
-}
-
-PointerSignalKind _PointerSignalKind_none$() {
-  return PointerSignalKind.none;
-}
-
-PointerSignalKind _PointerSignalKind_scroll$() {
-  return PointerSignalKind.scroll;
-}
-
-PointerSignalKind _PointerSignalKind_scrollInertiaCancel$() {
-  return PointerSignalKind.scrollInertiaCancel;
-}
-
-PointerSignalKind _PointerSignalKind_scale$() {
-  return PointerSignalKind.scale;
-}
-
-PointerSignalKind _PointerSignalKind_stylusAuxiliaryAction$() {
-  return PointerSignalKind.stylusAuxiliaryAction;
-}
-
-PointerSignalKind _PointerSignalKind_unknown$() {
-  return PointerSignalKind.unknown;
-}
-
-List<PointerSignalKind> _PointerSignalKind_values$() {
-  return PointerSignalKind.values;
-}
-
-PointerPreferredStylusAuxiliaryAction
-    _PointerPreferredStylusAuxiliaryAction_ignore$() {
-  return PointerPreferredStylusAuxiliaryAction.ignore;
-}
-
-PointerPreferredStylusAuxiliaryAction
-    _PointerPreferredStylusAuxiliaryAction_showColorPalette$() {
-  return PointerPreferredStylusAuxiliaryAction.showColorPalette;
-}
-
-PointerPreferredStylusAuxiliaryAction
-    _PointerPreferredStylusAuxiliaryAction_switchEraser$() {
-  return PointerPreferredStylusAuxiliaryAction.switchEraser;
-}
-
-PointerPreferredStylusAuxiliaryAction
-    _PointerPreferredStylusAuxiliaryAction_switchPrevious$() {
-  return PointerPreferredStylusAuxiliaryAction.switchPrevious;
-}
-
-PointerPreferredStylusAuxiliaryAction
-    _PointerPreferredStylusAuxiliaryAction_unknown$() {
-  return PointerPreferredStylusAuxiliaryAction.unknown;
-}
-
-List<PointerPreferredStylusAuxiliaryAction>
-    _PointerPreferredStylusAuxiliaryAction_values$() {
-  return PointerPreferredStylusAuxiliaryAction.values;
-}
-
+Function _PointerChange_cancel$(m.Scope scope$) => () => PointerChange.cancel;
+Function _PointerChange_add$(m.Scope scope$) => () => PointerChange.add;
+Function _PointerChange_remove$(m.Scope scope$) => () => PointerChange.remove;
+Function _PointerChange_hover$(m.Scope scope$) => () => PointerChange.hover;
+Function _PointerChange_down$(m.Scope scope$) => () => PointerChange.down;
+Function _PointerChange_move$(m.Scope scope$) => () => PointerChange.move;
+Function _PointerChange_up$(m.Scope scope$) => () => PointerChange.up;
+Function _PointerChange_panZoomStart$(m.Scope scope$) =>
+    () => PointerChange.panZoomStart;
+Function _PointerChange_panZoomUpdate$(m.Scope scope$) =>
+    () => PointerChange.panZoomUpdate;
+Function _PointerChange_panZoomEnd$(m.Scope scope$) =>
+    () => PointerChange.panZoomEnd;
+Function _PointerChange_values$(m.Scope scope$) => () => PointerChange.values;
+Function _PointerDeviceKind_touch$(m.Scope scope$) =>
+    () => PointerDeviceKind.touch;
+Function _PointerDeviceKind_mouse$(m.Scope scope$) =>
+    () => PointerDeviceKind.mouse;
+Function _PointerDeviceKind_stylus$(m.Scope scope$) =>
+    () => PointerDeviceKind.stylus;
+Function _PointerDeviceKind_invertedStylus$(m.Scope scope$) =>
+    () => PointerDeviceKind.invertedStylus;
+Function _PointerDeviceKind_trackpad$(m.Scope scope$) =>
+    () => PointerDeviceKind.trackpad;
+Function _PointerDeviceKind_unknown$(m.Scope scope$) =>
+    () => PointerDeviceKind.unknown;
+Function _PointerDeviceKind_values$(m.Scope scope$) =>
+    () => PointerDeviceKind.values;
+Function _PointerSignalKind_none$(m.Scope scope$) =>
+    () => PointerSignalKind.none;
+Function _PointerSignalKind_scroll$(m.Scope scope$) =>
+    () => PointerSignalKind.scroll;
+Function _PointerSignalKind_scrollInertiaCancel$(m.Scope scope$) =>
+    () => PointerSignalKind.scrollInertiaCancel;
+Function _PointerSignalKind_scale$(m.Scope scope$) =>
+    () => PointerSignalKind.scale;
+Function _PointerSignalKind_stylusAuxiliaryAction$(m.Scope scope$) =>
+    () => PointerSignalKind.stylusAuxiliaryAction;
+Function _PointerSignalKind_unknown$(m.Scope scope$) =>
+    () => PointerSignalKind.unknown;
+Function _PointerSignalKind_values$(m.Scope scope$) =>
+    () => PointerSignalKind.values;
+Function _PointerPreferredStylusAuxiliaryAction_ignore$(m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.ignore;
+Function _PointerPreferredStylusAuxiliaryAction_showColorPalette$(
+        m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.showColorPalette;
+Function _PointerPreferredStylusAuxiliaryAction_switchEraser$(m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.switchEraser;
+Function _PointerPreferredStylusAuxiliaryAction_switchPrevious$(
+        m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.switchPrevious;
+Function _PointerPreferredStylusAuxiliaryAction_unknown$(m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.unknown;
+Function _PointerPreferredStylusAuxiliaryAction_values$(m.Scope scope$) =>
+    () => PointerPreferredStylusAuxiliaryAction.values;
 Function SemanticsAction_as$(
   m.Scope scope$,
   dynamic target$,
@@ -7132,98 +6650,48 @@ Function _SemanticsAction_index$(
     () {
       return target$.index;
     };
-SemanticsAction _SemanticsAction_tap$() {
-  return SemanticsAction.tap;
-}
-
-SemanticsAction _SemanticsAction_longPress$() {
-  return SemanticsAction.longPress;
-}
-
-SemanticsAction _SemanticsAction_scrollLeft$() {
-  return SemanticsAction.scrollLeft;
-}
-
-SemanticsAction _SemanticsAction_scrollRight$() {
-  return SemanticsAction.scrollRight;
-}
-
-SemanticsAction _SemanticsAction_scrollUp$() {
-  return SemanticsAction.scrollUp;
-}
-
-SemanticsAction _SemanticsAction_scrollDown$() {
-  return SemanticsAction.scrollDown;
-}
-
-SemanticsAction _SemanticsAction_increase$() {
-  return SemanticsAction.increase;
-}
-
-SemanticsAction _SemanticsAction_decrease$() {
-  return SemanticsAction.decrease;
-}
-
-SemanticsAction _SemanticsAction_showOnScreen$() {
-  return SemanticsAction.showOnScreen;
-}
-
-SemanticsAction _SemanticsAction_moveCursorForwardByCharacter$() {
-  return SemanticsAction.moveCursorForwardByCharacter;
-}
-
-SemanticsAction _SemanticsAction_moveCursorBackwardByCharacter$() {
-  return SemanticsAction.moveCursorBackwardByCharacter;
-}
-
-SemanticsAction _SemanticsAction_setText$() {
-  return SemanticsAction.setText;
-}
-
-SemanticsAction _SemanticsAction_setSelection$() {
-  return SemanticsAction.setSelection;
-}
-
-SemanticsAction _SemanticsAction_copy$() {
-  return SemanticsAction.copy;
-}
-
-SemanticsAction _SemanticsAction_cut$() {
-  return SemanticsAction.cut;
-}
-
-SemanticsAction _SemanticsAction_paste$() {
-  return SemanticsAction.paste;
-}
-
-SemanticsAction _SemanticsAction_didGainAccessibilityFocus$() {
-  return SemanticsAction.didGainAccessibilityFocus;
-}
-
-SemanticsAction _SemanticsAction_didLoseAccessibilityFocus$() {
-  return SemanticsAction.didLoseAccessibilityFocus;
-}
-
-SemanticsAction _SemanticsAction_customAction$() {
-  return SemanticsAction.customAction;
-}
-
-SemanticsAction _SemanticsAction_dismiss$() {
-  return SemanticsAction.dismiss;
-}
-
-SemanticsAction _SemanticsAction_moveCursorForwardByWord$() {
-  return SemanticsAction.moveCursorForwardByWord;
-}
-
-SemanticsAction _SemanticsAction_moveCursorBackwardByWord$() {
-  return SemanticsAction.moveCursorBackwardByWord;
-}
-
-Map<int, SemanticsAction> _SemanticsAction_values$() {
-  return SemanticsAction.values;
-}
-
+Function _SemanticsAction_tap$(m.Scope scope$) => () => SemanticsAction.tap;
+Function _SemanticsAction_longPress$(m.Scope scope$) =>
+    () => SemanticsAction.longPress;
+Function _SemanticsAction_scrollLeft$(m.Scope scope$) =>
+    () => SemanticsAction.scrollLeft;
+Function _SemanticsAction_scrollRight$(m.Scope scope$) =>
+    () => SemanticsAction.scrollRight;
+Function _SemanticsAction_scrollUp$(m.Scope scope$) =>
+    () => SemanticsAction.scrollUp;
+Function _SemanticsAction_scrollDown$(m.Scope scope$) =>
+    () => SemanticsAction.scrollDown;
+Function _SemanticsAction_increase$(m.Scope scope$) =>
+    () => SemanticsAction.increase;
+Function _SemanticsAction_decrease$(m.Scope scope$) =>
+    () => SemanticsAction.decrease;
+Function _SemanticsAction_showOnScreen$(m.Scope scope$) =>
+    () => SemanticsAction.showOnScreen;
+Function _SemanticsAction_moveCursorForwardByCharacter$(m.Scope scope$) =>
+    () => SemanticsAction.moveCursorForwardByCharacter;
+Function _SemanticsAction_moveCursorBackwardByCharacter$(m.Scope scope$) =>
+    () => SemanticsAction.moveCursorBackwardByCharacter;
+Function _SemanticsAction_setText$(m.Scope scope$) =>
+    () => SemanticsAction.setText;
+Function _SemanticsAction_setSelection$(m.Scope scope$) =>
+    () => SemanticsAction.setSelection;
+Function _SemanticsAction_copy$(m.Scope scope$) => () => SemanticsAction.copy;
+Function _SemanticsAction_cut$(m.Scope scope$) => () => SemanticsAction.cut;
+Function _SemanticsAction_paste$(m.Scope scope$) => () => SemanticsAction.paste;
+Function _SemanticsAction_didGainAccessibilityFocus$(m.Scope scope$) =>
+    () => SemanticsAction.didGainAccessibilityFocus;
+Function _SemanticsAction_didLoseAccessibilityFocus$(m.Scope scope$) =>
+    () => SemanticsAction.didLoseAccessibilityFocus;
+Function _SemanticsAction_customAction$(m.Scope scope$) =>
+    () => SemanticsAction.customAction;
+Function _SemanticsAction_dismiss$(m.Scope scope$) =>
+    () => SemanticsAction.dismiss;
+Function _SemanticsAction_moveCursorForwardByWord$(m.Scope scope$) =>
+    () => SemanticsAction.moveCursorForwardByWord;
+Function _SemanticsAction_moveCursorBackwardByWord$(m.Scope scope$) =>
+    () => SemanticsAction.moveCursorBackwardByWord;
+Function _SemanticsAction_values$(m.Scope scope$) =>
+    () => SemanticsAction.values;
 Function _SemanticsAction_toString$(
   m.Scope scope$,
   SemanticsAction target$,
@@ -7246,114 +6714,57 @@ Function _SemanticsFlag_index$(
     () {
       return target$.index;
     };
-SemanticsFlag _SemanticsFlag_hasCheckedState$() {
-  return SemanticsFlag.hasCheckedState;
-}
-
-SemanticsFlag _SemanticsFlag_isChecked$() {
-  return SemanticsFlag.isChecked;
-}
-
-SemanticsFlag _SemanticsFlag_isCheckStateMixed$() {
-  return SemanticsFlag.isCheckStateMixed;
-}
-
-SemanticsFlag _SemanticsFlag_isSelected$() {
-  return SemanticsFlag.isSelected;
-}
-
-SemanticsFlag _SemanticsFlag_isButton$() {
-  return SemanticsFlag.isButton;
-}
-
-SemanticsFlag _SemanticsFlag_isTextField$() {
-  return SemanticsFlag.isTextField;
-}
-
-SemanticsFlag _SemanticsFlag_isSlider$() {
-  return SemanticsFlag.isSlider;
-}
-
-SemanticsFlag _SemanticsFlag_isKeyboardKey$() {
-  return SemanticsFlag.isKeyboardKey;
-}
-
-SemanticsFlag _SemanticsFlag_isReadOnly$() {
-  return SemanticsFlag.isReadOnly;
-}
-
-SemanticsFlag _SemanticsFlag_isLink$() {
-  return SemanticsFlag.isLink;
-}
-
-SemanticsFlag _SemanticsFlag_isFocusable$() {
-  return SemanticsFlag.isFocusable;
-}
-
-SemanticsFlag _SemanticsFlag_isFocused$() {
-  return SemanticsFlag.isFocused;
-}
-
-SemanticsFlag _SemanticsFlag_hasEnabledState$() {
-  return SemanticsFlag.hasEnabledState;
-}
-
-SemanticsFlag _SemanticsFlag_isEnabled$() {
-  return SemanticsFlag.isEnabled;
-}
-
-SemanticsFlag _SemanticsFlag_isInMutuallyExclusiveGroup$() {
-  return SemanticsFlag.isInMutuallyExclusiveGroup;
-}
-
-SemanticsFlag _SemanticsFlag_isHeader$() {
-  return SemanticsFlag.isHeader;
-}
-
-SemanticsFlag _SemanticsFlag_isObscured$() {
-  return SemanticsFlag.isObscured;
-}
-
-SemanticsFlag _SemanticsFlag_isMultiline$() {
-  return SemanticsFlag.isMultiline;
-}
-
-SemanticsFlag _SemanticsFlag_scopesRoute$() {
-  return SemanticsFlag.scopesRoute;
-}
-
-SemanticsFlag _SemanticsFlag_namesRoute$() {
-  return SemanticsFlag.namesRoute;
-}
-
-SemanticsFlag _SemanticsFlag_isHidden$() {
-  return SemanticsFlag.isHidden;
-}
-
-SemanticsFlag _SemanticsFlag_isImage$() {
-  return SemanticsFlag.isImage;
-}
-
-SemanticsFlag _SemanticsFlag_isLiveRegion$() {
-  return SemanticsFlag.isLiveRegion;
-}
-
-SemanticsFlag _SemanticsFlag_hasToggledState$() {
-  return SemanticsFlag.hasToggledState;
-}
-
-SemanticsFlag _SemanticsFlag_isToggled$() {
-  return SemanticsFlag.isToggled;
-}
-
-SemanticsFlag _SemanticsFlag_hasImplicitScrolling$() {
-  return SemanticsFlag.hasImplicitScrolling;
-}
-
-Map<int, SemanticsFlag> _SemanticsFlag_values$() {
-  return SemanticsFlag.values;
-}
-
+Function _SemanticsFlag_hasCheckedState$(m.Scope scope$) =>
+    () => SemanticsFlag.hasCheckedState;
+Function _SemanticsFlag_isChecked$(m.Scope scope$) =>
+    () => SemanticsFlag.isChecked;
+Function _SemanticsFlag_isCheckStateMixed$(m.Scope scope$) =>
+    () => SemanticsFlag.isCheckStateMixed;
+Function _SemanticsFlag_isSelected$(m.Scope scope$) =>
+    () => SemanticsFlag.isSelected;
+Function _SemanticsFlag_isButton$(m.Scope scope$) =>
+    () => SemanticsFlag.isButton;
+Function _SemanticsFlag_isTextField$(m.Scope scope$) =>
+    () => SemanticsFlag.isTextField;
+Function _SemanticsFlag_isSlider$(m.Scope scope$) =>
+    () => SemanticsFlag.isSlider;
+Function _SemanticsFlag_isKeyboardKey$(m.Scope scope$) =>
+    () => SemanticsFlag.isKeyboardKey;
+Function _SemanticsFlag_isReadOnly$(m.Scope scope$) =>
+    () => SemanticsFlag.isReadOnly;
+Function _SemanticsFlag_isLink$(m.Scope scope$) => () => SemanticsFlag.isLink;
+Function _SemanticsFlag_isFocusable$(m.Scope scope$) =>
+    () => SemanticsFlag.isFocusable;
+Function _SemanticsFlag_isFocused$(m.Scope scope$) =>
+    () => SemanticsFlag.isFocused;
+Function _SemanticsFlag_hasEnabledState$(m.Scope scope$) =>
+    () => SemanticsFlag.hasEnabledState;
+Function _SemanticsFlag_isEnabled$(m.Scope scope$) =>
+    () => SemanticsFlag.isEnabled;
+Function _SemanticsFlag_isInMutuallyExclusiveGroup$(m.Scope scope$) =>
+    () => SemanticsFlag.isInMutuallyExclusiveGroup;
+Function _SemanticsFlag_isHeader$(m.Scope scope$) =>
+    () => SemanticsFlag.isHeader;
+Function _SemanticsFlag_isObscured$(m.Scope scope$) =>
+    () => SemanticsFlag.isObscured;
+Function _SemanticsFlag_isMultiline$(m.Scope scope$) =>
+    () => SemanticsFlag.isMultiline;
+Function _SemanticsFlag_scopesRoute$(m.Scope scope$) =>
+    () => SemanticsFlag.scopesRoute;
+Function _SemanticsFlag_namesRoute$(m.Scope scope$) =>
+    () => SemanticsFlag.namesRoute;
+Function _SemanticsFlag_isHidden$(m.Scope scope$) =>
+    () => SemanticsFlag.isHidden;
+Function _SemanticsFlag_isImage$(m.Scope scope$) => () => SemanticsFlag.isImage;
+Function _SemanticsFlag_isLiveRegion$(m.Scope scope$) =>
+    () => SemanticsFlag.isLiveRegion;
+Function _SemanticsFlag_hasToggledState$(m.Scope scope$) =>
+    () => SemanticsFlag.hasToggledState;
+Function _SemanticsFlag_isToggled$(m.Scope scope$) =>
+    () => SemanticsFlag.isToggled;
+Function _SemanticsFlag_hasImplicitScrolling$(m.Scope scope$) =>
+    () => SemanticsFlag.hasImplicitScrolling;
+Function _SemanticsFlag_values$(m.Scope scope$) => () => SemanticsFlag.values;
 Function _SemanticsFlag_toString$(
   m.Scope scope$,
   SemanticsFlag target$,
@@ -7508,54 +6919,18 @@ Function _FontWeight_value$(
     () {
       return target$.value;
     };
-FontWeight _FontWeight_w100$() {
-  return FontWeight.w100;
-}
-
-FontWeight _FontWeight_w200$() {
-  return FontWeight.w200;
-}
-
-FontWeight _FontWeight_w300$() {
-  return FontWeight.w300;
-}
-
-FontWeight _FontWeight_w400$() {
-  return FontWeight.w400;
-}
-
-FontWeight _FontWeight_w500$() {
-  return FontWeight.w500;
-}
-
-FontWeight _FontWeight_w600$() {
-  return FontWeight.w600;
-}
-
-FontWeight _FontWeight_w700$() {
-  return FontWeight.w700;
-}
-
-FontWeight _FontWeight_w800$() {
-  return FontWeight.w800;
-}
-
-FontWeight _FontWeight_w900$() {
-  return FontWeight.w900;
-}
-
-FontWeight _FontWeight_normal$() {
-  return FontWeight.normal;
-}
-
-FontWeight _FontWeight_bold$() {
-  return FontWeight.bold;
-}
-
-List<FontWeight> _FontWeight_values$() {
-  return FontWeight.values;
-}
-
+Function _FontWeight_w100$(m.Scope scope$) => () => FontWeight.w100;
+Function _FontWeight_w200$(m.Scope scope$) => () => FontWeight.w200;
+Function _FontWeight_w300$(m.Scope scope$) => () => FontWeight.w300;
+Function _FontWeight_w400$(m.Scope scope$) => () => FontWeight.w400;
+Function _FontWeight_w500$(m.Scope scope$) => () => FontWeight.w500;
+Function _FontWeight_w600$(m.Scope scope$) => () => FontWeight.w600;
+Function _FontWeight_w700$(m.Scope scope$) => () => FontWeight.w700;
+Function _FontWeight_w800$(m.Scope scope$) => () => FontWeight.w800;
+Function _FontWeight_w900$(m.Scope scope$) => () => FontWeight.w900;
+Function _FontWeight_normal$(m.Scope scope$) => () => FontWeight.normal;
+Function _FontWeight_bold$(m.Scope scope$) => () => FontWeight.bold;
+Function _FontWeight_values$(m.Scope scope$) => () => FontWeight.values;
 Function _FontWeight_lerp$(m.Scope scope$) => FontWeight.lerp;
 Function _FontWeight_toString$(
   m.Scope scope$,
@@ -7718,22 +7093,13 @@ Function TextDecoration_is$(
   dynamic target$,
 ) =>
     () => target$ is TextDecoration;
-TextDecoration _TextDecoration_none$() {
-  return TextDecoration.none;
-}
-
-TextDecoration _TextDecoration_underline$() {
-  return TextDecoration.underline;
-}
-
-TextDecoration _TextDecoration_overline$() {
-  return TextDecoration.overline;
-}
-
-TextDecoration _TextDecoration_lineThrough$() {
-  return TextDecoration.lineThrough;
-}
-
+Function _TextDecoration_none$(m.Scope scope$) => () => TextDecoration.none;
+Function _TextDecoration_underline$(m.Scope scope$) =>
+    () => TextDecoration.underline;
+Function _TextDecoration_overline$(m.Scope scope$) =>
+    () => TextDecoration.overline;
+Function _TextDecoration_lineThrough$(m.Scope scope$) =>
+    () => TextDecoration.lineThrough;
 Function _TextDecoration_hashCode$(
   m.Scope scope$,
   TextDecoration target$,
@@ -8137,10 +7503,7 @@ Function TextRange_is$(
   dynamic target$,
 ) =>
     () => target$ is TextRange;
-TextRange _TextRange_empty$() {
-  return TextRange.empty;
-}
-
+Function _TextRange_empty$(m.Scope scope$) => () => TextRange.empty;
 Function _TextRange_start$(
   m.Scope scope$,
   TextRange target$,
@@ -8533,191 +7896,75 @@ Function _ParagraphBuilder_build$(
   ParagraphBuilder target$,
 ) =>
     target$.build;
-FontStyle _FontStyle_normal$() {
-  return FontStyle.normal;
-}
-
-FontStyle _FontStyle_italic$() {
-  return FontStyle.italic;
-}
-
-List<FontStyle> _FontStyle_values$() {
-  return FontStyle.values;
-}
-
-TextAlign _TextAlign_left$() {
-  return TextAlign.left;
-}
-
-TextAlign _TextAlign_right$() {
-  return TextAlign.right;
-}
-
-TextAlign _TextAlign_center$() {
-  return TextAlign.center;
-}
-
-TextAlign _TextAlign_justify$() {
-  return TextAlign.justify;
-}
-
-TextAlign _TextAlign_start$() {
-  return TextAlign.start;
-}
-
-TextAlign _TextAlign_end$() {
-  return TextAlign.end;
-}
-
-List<TextAlign> _TextAlign_values$() {
-  return TextAlign.values;
-}
-
-TextBaseline _TextBaseline_alphabetic$() {
-  return TextBaseline.alphabetic;
-}
-
-TextBaseline _TextBaseline_ideographic$() {
-  return TextBaseline.ideographic;
-}
-
-List<TextBaseline> _TextBaseline_values$() {
-  return TextBaseline.values;
-}
-
-TextDecorationStyle _TextDecorationStyle_solid$() {
-  return TextDecorationStyle.solid;
-}
-
-TextDecorationStyle _TextDecorationStyle_double$() {
-  return TextDecorationStyle.double;
-}
-
-TextDecorationStyle _TextDecorationStyle_dotted$() {
-  return TextDecorationStyle.dotted;
-}
-
-TextDecorationStyle _TextDecorationStyle_dashed$() {
-  return TextDecorationStyle.dashed;
-}
-
-TextDecorationStyle _TextDecorationStyle_wavy$() {
-  return TextDecorationStyle.wavy;
-}
-
-List<TextDecorationStyle> _TextDecorationStyle_values$() {
-  return TextDecorationStyle.values;
-}
-
-TextLeadingDistribution _TextLeadingDistribution_proportional$() {
-  return TextLeadingDistribution.proportional;
-}
-
-TextLeadingDistribution _TextLeadingDistribution_even$() {
-  return TextLeadingDistribution.even;
-}
-
-List<TextLeadingDistribution> _TextLeadingDistribution_values$() {
-  return TextLeadingDistribution.values;
-}
-
-TextDirection _TextDirection_rtl$() {
-  return TextDirection.rtl;
-}
-
-TextDirection _TextDirection_ltr$() {
-  return TextDirection.ltr;
-}
-
-List<TextDirection> _TextDirection_values$() {
-  return TextDirection.values;
-}
-
-TextAffinity _TextAffinity_upstream$() {
-  return TextAffinity.upstream;
-}
-
-TextAffinity _TextAffinity_downstream$() {
-  return TextAffinity.downstream;
-}
-
-List<TextAffinity> _TextAffinity_values$() {
-  return TextAffinity.values;
-}
-
-BoxHeightStyle _BoxHeightStyle_tight$() {
-  return BoxHeightStyle.tight;
-}
-
-BoxHeightStyle _BoxHeightStyle_max$() {
-  return BoxHeightStyle.max;
-}
-
-BoxHeightStyle _BoxHeightStyle_includeLineSpacingMiddle$() {
-  return BoxHeightStyle.includeLineSpacingMiddle;
-}
-
-BoxHeightStyle _BoxHeightStyle_includeLineSpacingTop$() {
-  return BoxHeightStyle.includeLineSpacingTop;
-}
-
-BoxHeightStyle _BoxHeightStyle_includeLineSpacingBottom$() {
-  return BoxHeightStyle.includeLineSpacingBottom;
-}
-
-BoxHeightStyle _BoxHeightStyle_strut$() {
-  return BoxHeightStyle.strut;
-}
-
-List<BoxHeightStyle> _BoxHeightStyle_values$() {
-  return BoxHeightStyle.values;
-}
-
-BoxWidthStyle _BoxWidthStyle_tight$() {
-  return BoxWidthStyle.tight;
-}
-
-BoxWidthStyle _BoxWidthStyle_max$() {
-  return BoxWidthStyle.max;
-}
-
-List<BoxWidthStyle> _BoxWidthStyle_values$() {
-  return BoxWidthStyle.values;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_baseline$() {
-  return PlaceholderAlignment.baseline;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_aboveBaseline$() {
-  return PlaceholderAlignment.aboveBaseline;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_belowBaseline$() {
-  return PlaceholderAlignment.belowBaseline;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_top$() {
-  return PlaceholderAlignment.top;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_bottom$() {
-  return PlaceholderAlignment.bottom;
-}
-
-PlaceholderAlignment _PlaceholderAlignment_middle$() {
-  return PlaceholderAlignment.middle;
-}
-
-List<PlaceholderAlignment> _PlaceholderAlignment_values$() {
-  return PlaceholderAlignment.values;
-}
-
+Function _FontStyle_normal$(m.Scope scope$) => () => FontStyle.normal;
+Function _FontStyle_italic$(m.Scope scope$) => () => FontStyle.italic;
+Function _FontStyle_values$(m.Scope scope$) => () => FontStyle.values;
+Function _TextAlign_left$(m.Scope scope$) => () => TextAlign.left;
+Function _TextAlign_right$(m.Scope scope$) => () => TextAlign.right;
+Function _TextAlign_center$(m.Scope scope$) => () => TextAlign.center;
+Function _TextAlign_justify$(m.Scope scope$) => () => TextAlign.justify;
+Function _TextAlign_start$(m.Scope scope$) => () => TextAlign.start;
+Function _TextAlign_end$(m.Scope scope$) => () => TextAlign.end;
+Function _TextAlign_values$(m.Scope scope$) => () => TextAlign.values;
+Function _TextBaseline_alphabetic$(m.Scope scope$) =>
+    () => TextBaseline.alphabetic;
+Function _TextBaseline_ideographic$(m.Scope scope$) =>
+    () => TextBaseline.ideographic;
+Function _TextBaseline_values$(m.Scope scope$) => () => TextBaseline.values;
+Function _TextDecorationStyle_solid$(m.Scope scope$) =>
+    () => TextDecorationStyle.solid;
+Function _TextDecorationStyle_double$(m.Scope scope$) =>
+    () => TextDecorationStyle.double;
+Function _TextDecorationStyle_dotted$(m.Scope scope$) =>
+    () => TextDecorationStyle.dotted;
+Function _TextDecorationStyle_dashed$(m.Scope scope$) =>
+    () => TextDecorationStyle.dashed;
+Function _TextDecorationStyle_wavy$(m.Scope scope$) =>
+    () => TextDecorationStyle.wavy;
+Function _TextDecorationStyle_values$(m.Scope scope$) =>
+    () => TextDecorationStyle.values;
+Function _TextLeadingDistribution_proportional$(m.Scope scope$) =>
+    () => TextLeadingDistribution.proportional;
+Function _TextLeadingDistribution_even$(m.Scope scope$) =>
+    () => TextLeadingDistribution.even;
+Function _TextLeadingDistribution_values$(m.Scope scope$) =>
+    () => TextLeadingDistribution.values;
+Function _TextDirection_rtl$(m.Scope scope$) => () => TextDirection.rtl;
+Function _TextDirection_ltr$(m.Scope scope$) => () => TextDirection.ltr;
+Function _TextDirection_values$(m.Scope scope$) => () => TextDirection.values;
+Function _TextAffinity_upstream$(m.Scope scope$) => () => TextAffinity.upstream;
+Function _TextAffinity_downstream$(m.Scope scope$) =>
+    () => TextAffinity.downstream;
+Function _TextAffinity_values$(m.Scope scope$) => () => TextAffinity.values;
+Function _BoxHeightStyle_tight$(m.Scope scope$) => () => BoxHeightStyle.tight;
+Function _BoxHeightStyle_max$(m.Scope scope$) => () => BoxHeightStyle.max;
+Function _BoxHeightStyle_includeLineSpacingMiddle$(m.Scope scope$) =>
+    () => BoxHeightStyle.includeLineSpacingMiddle;
+Function _BoxHeightStyle_includeLineSpacingTop$(m.Scope scope$) =>
+    () => BoxHeightStyle.includeLineSpacingTop;
+Function _BoxHeightStyle_includeLineSpacingBottom$(m.Scope scope$) =>
+    () => BoxHeightStyle.includeLineSpacingBottom;
+Function _BoxHeightStyle_strut$(m.Scope scope$) => () => BoxHeightStyle.strut;
+Function _BoxHeightStyle_values$(m.Scope scope$) => () => BoxHeightStyle.values;
+Function _BoxWidthStyle_tight$(m.Scope scope$) => () => BoxWidthStyle.tight;
+Function _BoxWidthStyle_max$(m.Scope scope$) => () => BoxWidthStyle.max;
+Function _BoxWidthStyle_values$(m.Scope scope$) => () => BoxWidthStyle.values;
+Function _PlaceholderAlignment_baseline$(m.Scope scope$) =>
+    () => PlaceholderAlignment.baseline;
+Function _PlaceholderAlignment_aboveBaseline$(m.Scope scope$) =>
+    () => PlaceholderAlignment.aboveBaseline;
+Function _PlaceholderAlignment_belowBaseline$(m.Scope scope$) =>
+    () => PlaceholderAlignment.belowBaseline;
+Function _PlaceholderAlignment_top$(m.Scope scope$) =>
+    () => PlaceholderAlignment.top;
+Function _PlaceholderAlignment_bottom$(m.Scope scope$) =>
+    () => PlaceholderAlignment.bottom;
+Function _PlaceholderAlignment_middle$(m.Scope scope$) =>
+    () => PlaceholderAlignment.middle;
+Function _PlaceholderAlignment_values$(m.Scope scope$) =>
+    () => PlaceholderAlignment.values;
 Function _loadFontFromList$(m.Scope scope$) => loadFontFromList;
-SingletonFlutterWindow _window$() {
-  return window;
-}
-
+Function _window$(m.Scope scope$) => () => window;
 Function FlutterView_as$(
   m.Scope scope$,
   dynamic target$,
@@ -8963,14 +8210,6 @@ Function _GestureSettings_toString$(
   GestureSettings target$,
 ) =>
     target$.toString;
-Brightness _Brightness_dark$() {
-  return Brightness.dark;
-}
-
-Brightness _Brightness_light$() {
-  return Brightness.light;
-}
-
-List<Brightness> _Brightness_values$() {
-  return Brightness.values;
-}
+Function _Brightness_dark$(m.Scope scope$) => () => Brightness.dark;
+Function _Brightness_light$(m.Scope scope$) => () => Brightness.light;
+Function _Brightness_values$(m.Scope scope$) => () => Brightness.values;

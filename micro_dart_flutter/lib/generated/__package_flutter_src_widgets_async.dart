@@ -355,10 +355,8 @@ Function _FutureBuilder_initialData$<T>(
     () {
       return target$.initialData;
     };
-bool _FutureBuilder_debugRethrowError$() {
-  return FutureBuilder.debugRethrowError;
-}
-
+Function _FutureBuilder_debugRethrowError$(m.Scope scope$) =>
+    () => FutureBuilder.debugRethrowError;
 void _FutureBuilder_debugRethrowError_set$(bool other$) {
   FutureBuilder.debugRethrowError = other$;
 }
@@ -394,22 +392,11 @@ Function _FutureBuilder_createState$<T>(
   FutureBuilder<T> target$,
 ) =>
     target$.createState;
-ConnectionState _ConnectionState_none$() {
-  return ConnectionState.none;
-}
-
-ConnectionState _ConnectionState_waiting$() {
-  return ConnectionState.waiting;
-}
-
-ConnectionState _ConnectionState_active$() {
-  return ConnectionState.active;
-}
-
-ConnectionState _ConnectionState_done$() {
-  return ConnectionState.done;
-}
-
-List<ConnectionState> _ConnectionState_values$() {
-  return ConnectionState.values;
-}
+Function _ConnectionState_none$(m.Scope scope$) => () => ConnectionState.none;
+Function _ConnectionState_waiting$(m.Scope scope$) =>
+    () => ConnectionState.waiting;
+Function _ConnectionState_active$(m.Scope scope$) =>
+    () => ConnectionState.active;
+Function _ConnectionState_done$(m.Scope scope$) => () => ConnectionState.done;
+Function _ConnectionState_values$(m.Scope scope$) =>
+    () => ConnectionState.values;

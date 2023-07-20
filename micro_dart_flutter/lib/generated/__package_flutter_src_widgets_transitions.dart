@@ -10,9 +10,12 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/text.dart';
 
+part '../proxy/proxy__package_flutter_src_widgets_transitions.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/transitions.dart',
   {
+    'AnimatedWidget.': _AnimatedWidget__$,
     'SlideTransition.': _SlideTransition__$,
     'ScaleTransition.': _ScaleTransition__$,
     'RotationTransition.': _RotationTransition__$,

@@ -731,18 +731,7 @@ Function _MaterialScrollBehavior_buildOverscrollIndicator$(
   MaterialScrollBehavior target$,
 ) =>
     target$.buildOverscrollIndicator;
-ThemeMode _ThemeMode_system$() {
-  return ThemeMode.system;
-}
-
-ThemeMode _ThemeMode_light$() {
-  return ThemeMode.light;
-}
-
-ThemeMode _ThemeMode_dark$() {
-  return ThemeMode.dark;
-}
-
-List<ThemeMode> _ThemeMode_values$() {
-  return ThemeMode.values;
-}
+Function _ThemeMode_system$(m.Scope scope$) => () => ThemeMode.system;
+Function _ThemeMode_light$(m.Scope scope$) => () => ThemeMode.light;
+Function _ThemeMode_dark$(m.Scope scope$) => () => ThemeMode.dark;
+Function _ThemeMode_values$(m.Scope scope$) => () => ThemeMode.values;

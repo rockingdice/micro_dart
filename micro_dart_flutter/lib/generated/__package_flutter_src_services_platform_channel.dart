@@ -18,10 +18,7 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/services/platform_channel.dart',
   {
     'BasicMessageChannel.': _BasicMessageChannel__$,
-    'BasicMessageChannel.setMessageHandler':
-        _BasicMessageChannel_setMessageHandler$,
     'MethodChannel.': _MethodChannel__$,
-    'MethodChannel.setMethodCallHandler': _MethodChannel_setMethodCallHandler$,
     'OptionalMethodChannel.': _OptionalMethodChannel__$,
     'EventChannel.': _EventChannel__$,
   },
@@ -36,6 +33,7 @@ const libraryMirror = m.LibraryMirror(
         'codec': _BasicMessageChannel_codec$,
         'binaryMessenger': _BasicMessageChannel_binaryMessenger$,
         'send': _BasicMessageChannel_send$,
+        'setMessageHandler': _BasicMessageChannel_setMessageHandler$,
       },
       {},
     ),
@@ -50,6 +48,7 @@ const libraryMirror = m.LibraryMirror(
         'invokeMethod': _MethodChannel_invokeMethod$,
         'invokeListMethod': _MethodChannel_invokeListMethod$,
         'invokeMapMethod': _MethodChannel_invokeMapMethod$,
+        'setMethodCallHandler': _MethodChannel_setMethodCallHandler$,
       },
       {},
     ),

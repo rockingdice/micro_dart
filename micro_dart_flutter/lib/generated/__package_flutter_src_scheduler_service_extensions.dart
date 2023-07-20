@@ -20,10 +20,7 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-SchedulerServiceExtensions _SchedulerServiceExtensions_timeDilation$() {
-  return SchedulerServiceExtensions.timeDilation;
-}
-
-List<SchedulerServiceExtensions> _SchedulerServiceExtensions_values$() {
-  return SchedulerServiceExtensions.values;
-}
+Function _SchedulerServiceExtensions_timeDilation$(m.Scope scope$) =>
+    () => SchedulerServiceExtensions.timeDilation;
+Function _SchedulerServiceExtensions_values$(m.Scope scope$) =>
+    () => SchedulerServiceExtensions.values;

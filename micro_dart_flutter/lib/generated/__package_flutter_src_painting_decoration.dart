@@ -10,10 +10,7 @@ import 'package:flutter/src/painting/image_provider.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/decoration.dart',
-  {
-    'Decoration.lerp': _Decoration_lerp$,
-    'Decoration.createBoxPainter': _Decoration_createBoxPainter$,
-  },
+  {'Decoration.lerp': _Decoration_lerp$},
   {},
   {
     'Decoration': m.ClassMirror(
@@ -28,6 +25,7 @@ const libraryMirror = m.LibraryMirror(
         'lerpFrom': _Decoration_lerpFrom$,
         'lerpTo': _Decoration_lerpTo$,
         'hitTest': _Decoration_hitTest$,
+        'createBoxPainter': _Decoration_createBoxPainter$,
         'getClipPath': _Decoration_getClipPath$,
       },
       {},

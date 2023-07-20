@@ -253,218 +253,61 @@ Function Colors_is$(
   dynamic target$,
 ) =>
     () => target$ is Colors;
-Color _Colors_transparent$() {
-  return Colors.transparent;
-}
-
-Color _Colors_black$() {
-  return Colors.black;
-}
-
-Color _Colors_black87$() {
-  return Colors.black87;
-}
-
-Color _Colors_black54$() {
-  return Colors.black54;
-}
-
-Color _Colors_black45$() {
-  return Colors.black45;
-}
-
-Color _Colors_black38$() {
-  return Colors.black38;
-}
-
-Color _Colors_black26$() {
-  return Colors.black26;
-}
-
-Color _Colors_black12$() {
-  return Colors.black12;
-}
-
-Color _Colors_white$() {
-  return Colors.white;
-}
-
-Color _Colors_white70$() {
-  return Colors.white70;
-}
-
-Color _Colors_white60$() {
-  return Colors.white60;
-}
-
-Color _Colors_white54$() {
-  return Colors.white54;
-}
-
-Color _Colors_white38$() {
-  return Colors.white38;
-}
-
-Color _Colors_white30$() {
-  return Colors.white30;
-}
-
-Color _Colors_white24$() {
-  return Colors.white24;
-}
-
-Color _Colors_white12$() {
-  return Colors.white12;
-}
-
-Color _Colors_white10$() {
-  return Colors.white10;
-}
-
-MaterialColor _Colors_red$() {
-  return Colors.red;
-}
-
-MaterialAccentColor _Colors_redAccent$() {
-  return Colors.redAccent;
-}
-
-MaterialColor _Colors_pink$() {
-  return Colors.pink;
-}
-
-MaterialAccentColor _Colors_pinkAccent$() {
-  return Colors.pinkAccent;
-}
-
-MaterialColor _Colors_purple$() {
-  return Colors.purple;
-}
-
-MaterialAccentColor _Colors_purpleAccent$() {
-  return Colors.purpleAccent;
-}
-
-MaterialColor _Colors_deepPurple$() {
-  return Colors.deepPurple;
-}
-
-MaterialAccentColor _Colors_deepPurpleAccent$() {
-  return Colors.deepPurpleAccent;
-}
-
-MaterialColor _Colors_indigo$() {
-  return Colors.indigo;
-}
-
-MaterialAccentColor _Colors_indigoAccent$() {
-  return Colors.indigoAccent;
-}
-
-MaterialColor _Colors_blue$() {
-  return Colors.blue;
-}
-
-MaterialAccentColor _Colors_blueAccent$() {
-  return Colors.blueAccent;
-}
-
-MaterialColor _Colors_lightBlue$() {
-  return Colors.lightBlue;
-}
-
-MaterialAccentColor _Colors_lightBlueAccent$() {
-  return Colors.lightBlueAccent;
-}
-
-MaterialColor _Colors_cyan$() {
-  return Colors.cyan;
-}
-
-MaterialAccentColor _Colors_cyanAccent$() {
-  return Colors.cyanAccent;
-}
-
-MaterialColor _Colors_teal$() {
-  return Colors.teal;
-}
-
-MaterialAccentColor _Colors_tealAccent$() {
-  return Colors.tealAccent;
-}
-
-MaterialColor _Colors_green$() {
-  return Colors.green;
-}
-
-MaterialAccentColor _Colors_greenAccent$() {
-  return Colors.greenAccent;
-}
-
-MaterialColor _Colors_lightGreen$() {
-  return Colors.lightGreen;
-}
-
-MaterialAccentColor _Colors_lightGreenAccent$() {
-  return Colors.lightGreenAccent;
-}
-
-MaterialColor _Colors_lime$() {
-  return Colors.lime;
-}
-
-MaterialAccentColor _Colors_limeAccent$() {
-  return Colors.limeAccent;
-}
-
-MaterialColor _Colors_yellow$() {
-  return Colors.yellow;
-}
-
-MaterialAccentColor _Colors_yellowAccent$() {
-  return Colors.yellowAccent;
-}
-
-MaterialColor _Colors_amber$() {
-  return Colors.amber;
-}
-
-MaterialAccentColor _Colors_amberAccent$() {
-  return Colors.amberAccent;
-}
-
-MaterialColor _Colors_orange$() {
-  return Colors.orange;
-}
-
-MaterialAccentColor _Colors_orangeAccent$() {
-  return Colors.orangeAccent;
-}
-
-MaterialColor _Colors_deepOrange$() {
-  return Colors.deepOrange;
-}
-
-MaterialAccentColor _Colors_deepOrangeAccent$() {
-  return Colors.deepOrangeAccent;
-}
-
-MaterialColor _Colors_brown$() {
-  return Colors.brown;
-}
-
-MaterialColor _Colors_grey$() {
-  return Colors.grey;
-}
-
-MaterialColor _Colors_blueGrey$() {
-  return Colors.blueGrey;
-}
-
-List<MaterialColor> _Colors_primaries$() {
-  return Colors.primaries;
-}
-
-List<MaterialAccentColor> _Colors_accents$() {
-  return Colors.accents;
-}
+Function _Colors_transparent$(m.Scope scope$) => () => Colors.transparent;
+Function _Colors_black$(m.Scope scope$) => () => Colors.black;
+Function _Colors_black87$(m.Scope scope$) => () => Colors.black87;
+Function _Colors_black54$(m.Scope scope$) => () => Colors.black54;
+Function _Colors_black45$(m.Scope scope$) => () => Colors.black45;
+Function _Colors_black38$(m.Scope scope$) => () => Colors.black38;
+Function _Colors_black26$(m.Scope scope$) => () => Colors.black26;
+Function _Colors_black12$(m.Scope scope$) => () => Colors.black12;
+Function _Colors_white$(m.Scope scope$) => () => Colors.white;
+Function _Colors_white70$(m.Scope scope$) => () => Colors.white70;
+Function _Colors_white60$(m.Scope scope$) => () => Colors.white60;
+Function _Colors_white54$(m.Scope scope$) => () => Colors.white54;
+Function _Colors_white38$(m.Scope scope$) => () => Colors.white38;
+Function _Colors_white30$(m.Scope scope$) => () => Colors.white30;
+Function _Colors_white24$(m.Scope scope$) => () => Colors.white24;
+Function _Colors_white12$(m.Scope scope$) => () => Colors.white12;
+Function _Colors_white10$(m.Scope scope$) => () => Colors.white10;
+Function _Colors_red$(m.Scope scope$) => () => Colors.red;
+Function _Colors_redAccent$(m.Scope scope$) => () => Colors.redAccent;
+Function _Colors_pink$(m.Scope scope$) => () => Colors.pink;
+Function _Colors_pinkAccent$(m.Scope scope$) => () => Colors.pinkAccent;
+Function _Colors_purple$(m.Scope scope$) => () => Colors.purple;
+Function _Colors_purpleAccent$(m.Scope scope$) => () => Colors.purpleAccent;
+Function _Colors_deepPurple$(m.Scope scope$) => () => Colors.deepPurple;
+Function _Colors_deepPurpleAccent$(m.Scope scope$) =>
+    () => Colors.deepPurpleAccent;
+Function _Colors_indigo$(m.Scope scope$) => () => Colors.indigo;
+Function _Colors_indigoAccent$(m.Scope scope$) => () => Colors.indigoAccent;
+Function _Colors_blue$(m.Scope scope$) => () => Colors.blue;
+Function _Colors_blueAccent$(m.Scope scope$) => () => Colors.blueAccent;
+Function _Colors_lightBlue$(m.Scope scope$) => () => Colors.lightBlue;
+Function _Colors_lightBlueAccent$(m.Scope scope$) =>
+    () => Colors.lightBlueAccent;
+Function _Colors_cyan$(m.Scope scope$) => () => Colors.cyan;
+Function _Colors_cyanAccent$(m.Scope scope$) => () => Colors.cyanAccent;
+Function _Colors_teal$(m.Scope scope$) => () => Colors.teal;
+Function _Colors_tealAccent$(m.Scope scope$) => () => Colors.tealAccent;
+Function _Colors_green$(m.Scope scope$) => () => Colors.green;
+Function _Colors_greenAccent$(m.Scope scope$) => () => Colors.greenAccent;
+Function _Colors_lightGreen$(m.Scope scope$) => () => Colors.lightGreen;
+Function _Colors_lightGreenAccent$(m.Scope scope$) =>
+    () => Colors.lightGreenAccent;
+Function _Colors_lime$(m.Scope scope$) => () => Colors.lime;
+Function _Colors_limeAccent$(m.Scope scope$) => () => Colors.limeAccent;
+Function _Colors_yellow$(m.Scope scope$) => () => Colors.yellow;
+Function _Colors_yellowAccent$(m.Scope scope$) => () => Colors.yellowAccent;
+Function _Colors_amber$(m.Scope scope$) => () => Colors.amber;
+Function _Colors_amberAccent$(m.Scope scope$) => () => Colors.amberAccent;
+Function _Colors_orange$(m.Scope scope$) => () => Colors.orange;
+Function _Colors_orangeAccent$(m.Scope scope$) => () => Colors.orangeAccent;
+Function _Colors_deepOrange$(m.Scope scope$) => () => Colors.deepOrange;
+Function _Colors_deepOrangeAccent$(m.Scope scope$) =>
+    () => Colors.deepOrangeAccent;
+Function _Colors_brown$(m.Scope scope$) => () => Colors.brown;
+Function _Colors_grey$(m.Scope scope$) => () => Colors.grey;
+Function _Colors_blueGrey$(m.Scope scope$) => () => Colors.blueGrey;
+Function _Colors_primaries$(m.Scope scope$) => () => Colors.primaries;
+Function _Colors_accents$(m.Scope scope$) => () => Colors.accents;

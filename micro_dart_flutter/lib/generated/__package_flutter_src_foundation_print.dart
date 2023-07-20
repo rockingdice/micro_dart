@@ -18,10 +18,7 @@ const libraryMirror = m.LibraryMirror(
   {'debugPrint': _debugPrint_set$},
   {},
 );
-void Function(String?, {int? wrapWidth}) _debugPrint$() {
-  return debugPrint;
-}
-
+Function _debugPrint$(m.Scope scope$) => () => debugPrint;
 Function _debugPrint_set$(m.Scope scope$) => (m.FunctionPointer _debugPrint) {
       void _debugPrintProxy(
         String? _debugPrint_message$, {
@@ -35,10 +32,7 @@ Function _debugPrint_set$(m.Scope scope$) => (m.FunctionPointer _debugPrint) {
           );
       debugPrint = (_debugPrintProxy);
     };
-Future<void> _debugPrintDone$() {
-  return debugPrintDone;
-}
-
+Function _debugPrintDone$(m.Scope scope$) => () => debugPrintDone;
 Function _debugPrintSynchronously$(m.Scope scope$) => debugPrintSynchronously;
 Function _debugPrintThrottled$(m.Scope scope$) => debugPrintThrottled;
 Function _debugWordWrap$(m.Scope scope$) => debugWordWrap;

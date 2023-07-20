@@ -26,10 +26,7 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-int _kMaxUnsignedSMI$() {
-  return kMaxUnsignedSMI;
-}
-
+Function _kMaxUnsignedSMI$(m.Scope scope$) => () => kMaxUnsignedSMI;
 Function BitField_as$<T extends dynamic>(
   m.Scope scope$,
   dynamic target$,

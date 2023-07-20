@@ -188,14 +188,9 @@ Function MouseCursor_is$(
   dynamic target$,
 ) =>
     () => target$ is MouseCursor;
-MouseCursor _MouseCursor_defer$() {
-  return MouseCursor.defer;
-}
-
-MouseCursor _MouseCursor_uncontrolled$() {
-  return MouseCursor.uncontrolled;
-}
-
+Function _MouseCursor_defer$(m.Scope scope$) => () => MouseCursor.defer;
+Function _MouseCursor_uncontrolled$(m.Scope scope$) =>
+    () => MouseCursor.uncontrolled;
 Function _MouseCursor_debugDescription$(
   m.Scope scope$,
   MouseCursor target$,
@@ -269,146 +264,75 @@ Function SystemMouseCursors_is$(
   dynamic target$,
 ) =>
     () => target$ is SystemMouseCursors;
-SystemMouseCursor _SystemMouseCursors_none$() {
-  return SystemMouseCursors.none;
-}
-
-SystemMouseCursor _SystemMouseCursors_basic$() {
-  return SystemMouseCursors.basic;
-}
-
-SystemMouseCursor _SystemMouseCursors_click$() {
-  return SystemMouseCursors.click;
-}
-
-SystemMouseCursor _SystemMouseCursors_forbidden$() {
-  return SystemMouseCursors.forbidden;
-}
-
-SystemMouseCursor _SystemMouseCursors_wait$() {
-  return SystemMouseCursors.wait;
-}
-
-SystemMouseCursor _SystemMouseCursors_progress$() {
-  return SystemMouseCursors.progress;
-}
-
-SystemMouseCursor _SystemMouseCursors_contextMenu$() {
-  return SystemMouseCursors.contextMenu;
-}
-
-SystemMouseCursor _SystemMouseCursors_help$() {
-  return SystemMouseCursors.help;
-}
-
-SystemMouseCursor _SystemMouseCursors_text$() {
-  return SystemMouseCursors.text;
-}
-
-SystemMouseCursor _SystemMouseCursors_verticalText$() {
-  return SystemMouseCursors.verticalText;
-}
-
-SystemMouseCursor _SystemMouseCursors_cell$() {
-  return SystemMouseCursors.cell;
-}
-
-SystemMouseCursor _SystemMouseCursors_precise$() {
-  return SystemMouseCursors.precise;
-}
-
-SystemMouseCursor _SystemMouseCursors_move$() {
-  return SystemMouseCursors.move;
-}
-
-SystemMouseCursor _SystemMouseCursors_grab$() {
-  return SystemMouseCursors.grab;
-}
-
-SystemMouseCursor _SystemMouseCursors_grabbing$() {
-  return SystemMouseCursors.grabbing;
-}
-
-SystemMouseCursor _SystemMouseCursors_noDrop$() {
-  return SystemMouseCursors.noDrop;
-}
-
-SystemMouseCursor _SystemMouseCursors_alias$() {
-  return SystemMouseCursors.alias;
-}
-
-SystemMouseCursor _SystemMouseCursors_copy$() {
-  return SystemMouseCursors.copy;
-}
-
-SystemMouseCursor _SystemMouseCursors_disappearing$() {
-  return SystemMouseCursors.disappearing;
-}
-
-SystemMouseCursor _SystemMouseCursors_allScroll$() {
-  return SystemMouseCursors.allScroll;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeLeftRight$() {
-  return SystemMouseCursors.resizeLeftRight;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUpDown$() {
-  return SystemMouseCursors.resizeUpDown;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUpLeftDownRight$() {
-  return SystemMouseCursors.resizeUpLeftDownRight;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUpRightDownLeft$() {
-  return SystemMouseCursors.resizeUpRightDownLeft;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUp$() {
-  return SystemMouseCursors.resizeUp;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeDown$() {
-  return SystemMouseCursors.resizeDown;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeLeft$() {
-  return SystemMouseCursors.resizeLeft;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeRight$() {
-  return SystemMouseCursors.resizeRight;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUpLeft$() {
-  return SystemMouseCursors.resizeUpLeft;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeUpRight$() {
-  return SystemMouseCursors.resizeUpRight;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeDownLeft$() {
-  return SystemMouseCursors.resizeDownLeft;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeDownRight$() {
-  return SystemMouseCursors.resizeDownRight;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeColumn$() {
-  return SystemMouseCursors.resizeColumn;
-}
-
-SystemMouseCursor _SystemMouseCursors_resizeRow$() {
-  return SystemMouseCursors.resizeRow;
-}
-
-SystemMouseCursor _SystemMouseCursors_zoomIn$() {
-  return SystemMouseCursors.zoomIn;
-}
-
-SystemMouseCursor _SystemMouseCursors_zoomOut$() {
-  return SystemMouseCursors.zoomOut;
-}
+Function _SystemMouseCursors_none$(m.Scope scope$) =>
+    () => SystemMouseCursors.none;
+Function _SystemMouseCursors_basic$(m.Scope scope$) =>
+    () => SystemMouseCursors.basic;
+Function _SystemMouseCursors_click$(m.Scope scope$) =>
+    () => SystemMouseCursors.click;
+Function _SystemMouseCursors_forbidden$(m.Scope scope$) =>
+    () => SystemMouseCursors.forbidden;
+Function _SystemMouseCursors_wait$(m.Scope scope$) =>
+    () => SystemMouseCursors.wait;
+Function _SystemMouseCursors_progress$(m.Scope scope$) =>
+    () => SystemMouseCursors.progress;
+Function _SystemMouseCursors_contextMenu$(m.Scope scope$) =>
+    () => SystemMouseCursors.contextMenu;
+Function _SystemMouseCursors_help$(m.Scope scope$) =>
+    () => SystemMouseCursors.help;
+Function _SystemMouseCursors_text$(m.Scope scope$) =>
+    () => SystemMouseCursors.text;
+Function _SystemMouseCursors_verticalText$(m.Scope scope$) =>
+    () => SystemMouseCursors.verticalText;
+Function _SystemMouseCursors_cell$(m.Scope scope$) =>
+    () => SystemMouseCursors.cell;
+Function _SystemMouseCursors_precise$(m.Scope scope$) =>
+    () => SystemMouseCursors.precise;
+Function _SystemMouseCursors_move$(m.Scope scope$) =>
+    () => SystemMouseCursors.move;
+Function _SystemMouseCursors_grab$(m.Scope scope$) =>
+    () => SystemMouseCursors.grab;
+Function _SystemMouseCursors_grabbing$(m.Scope scope$) =>
+    () => SystemMouseCursors.grabbing;
+Function _SystemMouseCursors_noDrop$(m.Scope scope$) =>
+    () => SystemMouseCursors.noDrop;
+Function _SystemMouseCursors_alias$(m.Scope scope$) =>
+    () => SystemMouseCursors.alias;
+Function _SystemMouseCursors_copy$(m.Scope scope$) =>
+    () => SystemMouseCursors.copy;
+Function _SystemMouseCursors_disappearing$(m.Scope scope$) =>
+    () => SystemMouseCursors.disappearing;
+Function _SystemMouseCursors_allScroll$(m.Scope scope$) =>
+    () => SystemMouseCursors.allScroll;
+Function _SystemMouseCursors_resizeLeftRight$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeLeftRight;
+Function _SystemMouseCursors_resizeUpDown$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUpDown;
+Function _SystemMouseCursors_resizeUpLeftDownRight$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUpLeftDownRight;
+Function _SystemMouseCursors_resizeUpRightDownLeft$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUpRightDownLeft;
+Function _SystemMouseCursors_resizeUp$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUp;
+Function _SystemMouseCursors_resizeDown$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeDown;
+Function _SystemMouseCursors_resizeLeft$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeLeft;
+Function _SystemMouseCursors_resizeRight$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeRight;
+Function _SystemMouseCursors_resizeUpLeft$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUpLeft;
+Function _SystemMouseCursors_resizeUpRight$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeUpRight;
+Function _SystemMouseCursors_resizeDownLeft$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeDownLeft;
+Function _SystemMouseCursors_resizeDownRight$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeDownRight;
+Function _SystemMouseCursors_resizeColumn$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeColumn;
+Function _SystemMouseCursors_resizeRow$(m.Scope scope$) =>
+    () => SystemMouseCursors.resizeRow;
+Function _SystemMouseCursors_zoomIn$(m.Scope scope$) =>
+    () => SystemMouseCursors.zoomIn;
+Function _SystemMouseCursors_zoomOut$(m.Scope scope$) =>
+    () => SystemMouseCursors.zoomOut;

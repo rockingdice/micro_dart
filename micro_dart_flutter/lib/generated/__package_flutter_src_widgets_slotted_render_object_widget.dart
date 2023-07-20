@@ -9,11 +9,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/slotted_render_object_widget.dart',
-  {
-    'SlottedRenderObjectElement.': _SlottedRenderObjectElement__$,
-    'SlottedRenderObjectElement.visitChildren':
-        _SlottedRenderObjectElement_visitChildren$,
-  },
+  {'SlottedRenderObjectElement.': _SlottedRenderObjectElement__$},
   {},
   {
     'SlottedRenderObjectElement': m.ClassMirror(
@@ -22,6 +18,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': SlottedRenderObjectElement_as$,
         '#is': SlottedRenderObjectElement_is$,
         'renderObject': _SlottedRenderObjectElement_renderObject$,
+        'visitChildren': _SlottedRenderObjectElement_visitChildren$,
         'forgetChild': _SlottedRenderObjectElement_forgetChild$,
         'mount': _SlottedRenderObjectElement_mount$,
         'update': _SlottedRenderObjectElement_update$,

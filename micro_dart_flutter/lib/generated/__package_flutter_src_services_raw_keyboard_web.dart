@@ -92,38 +92,22 @@ Function _RawKeyEventDataWeb_keyCode$(
     () {
       return target$.keyCode;
     };
-int _RawKeyEventDataWeb_modifierNone$() {
-  return RawKeyEventDataWeb.modifierNone;
-}
-
-int _RawKeyEventDataWeb_modifierShift$() {
-  return RawKeyEventDataWeb.modifierShift;
-}
-
-int _RawKeyEventDataWeb_modifierAlt$() {
-  return RawKeyEventDataWeb.modifierAlt;
-}
-
-int _RawKeyEventDataWeb_modifierControl$() {
-  return RawKeyEventDataWeb.modifierControl;
-}
-
-int _RawKeyEventDataWeb_modifierMeta$() {
-  return RawKeyEventDataWeb.modifierMeta;
-}
-
-int _RawKeyEventDataWeb_modifierNumLock$() {
-  return RawKeyEventDataWeb.modifierNumLock;
-}
-
-int _RawKeyEventDataWeb_modifierCapsLock$() {
-  return RawKeyEventDataWeb.modifierCapsLock;
-}
-
-int _RawKeyEventDataWeb_modifierScrollLock$() {
-  return RawKeyEventDataWeb.modifierScrollLock;
-}
-
+Function _RawKeyEventDataWeb_modifierNone$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierNone;
+Function _RawKeyEventDataWeb_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierShift;
+Function _RawKeyEventDataWeb_modifierAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierAlt;
+Function _RawKeyEventDataWeb_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierControl;
+Function _RawKeyEventDataWeb_modifierMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierMeta;
+Function _RawKeyEventDataWeb_modifierNumLock$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierNumLock;
+Function _RawKeyEventDataWeb_modifierCapsLock$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierCapsLock;
+Function _RawKeyEventDataWeb_modifierScrollLock$(m.Scope scope$) =>
+    () => RawKeyEventDataWeb.modifierScrollLock;
 Function _RawKeyEventDataWeb_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataWeb target$,

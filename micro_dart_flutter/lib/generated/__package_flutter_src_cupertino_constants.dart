@@ -10,6 +10,5 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-double _kMinInteractiveDimensionCupertino$() {
-  return kMinInteractiveDimensionCupertino;
-}
+Function _kMinInteractiveDimensionCupertino$(m.Scope scope$) =>
+    () => kMinInteractiveDimensionCupertino;

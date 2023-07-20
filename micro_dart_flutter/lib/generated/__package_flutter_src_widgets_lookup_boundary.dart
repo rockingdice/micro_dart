@@ -21,9 +21,6 @@ const libraryMirror = m.LibraryMirror(
         _LookupBoundary_findRootAncestorStateOfType$,
     'LookupBoundary.findAncestorRenderObjectOfType':
         _LookupBoundary_findAncestorRenderObjectOfType$,
-    'LookupBoundary.visitAncestorElements':
-        _LookupBoundary_visitAncestorElements$,
-    'LookupBoundary.visitChildElements': _LookupBoundary_visitChildElements$,
     'LookupBoundary.debugIsHidingAncestorWidgetOfExactType':
         _LookupBoundary_debugIsHidingAncestorWidgetOfExactType$,
     'LookupBoundary.debugIsHidingAncestorStateOfType':
@@ -38,6 +35,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': LookupBoundary_as$,
         '#is': LookupBoundary_is$,
+        'visitAncestorElements': _LookupBoundary_visitAncestorElements$,
+        'visitChildElements': _LookupBoundary_visitChildElements$,
         'updateShouldNotify': _LookupBoundary_updateShouldNotify$,
       },
       {},

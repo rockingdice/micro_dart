@@ -180,12 +180,15 @@ extension ExtensionNamedNode on NamedNode {
 
   CallRef getFieldCallRef() {
     var thiz = this.asField;
-    String fieldName = thiz.name.text;
-    String libraryUri = "";
-    String className = "";
+    var fieldName = thiz.name.text;
+    var libraryUri = "";
+    var className = "";
     if (this.parent is Class) {
       className = (this.parent as Class).name;
       libraryUri = (this.parent!.parent as Library).importUri.toString();
+      if (thiz.isStatic) {
+        fieldName = "${className}.${thiz.name.text}";
+      }
     } else if (this.parent is Library) {
       libraryUri = (this.parent as Library).importUri.toString();
     }

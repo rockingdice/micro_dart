@@ -353,30 +353,17 @@ Function _SnackBar_createState$(
   SnackBar target$,
 ) =>
     target$.createState;
-SnackBarClosedReason _SnackBarClosedReason_action$() {
-  return SnackBarClosedReason.action;
-}
-
-SnackBarClosedReason _SnackBarClosedReason_dismiss$() {
-  return SnackBarClosedReason.dismiss;
-}
-
-SnackBarClosedReason _SnackBarClosedReason_swipe$() {
-  return SnackBarClosedReason.swipe;
-}
-
-SnackBarClosedReason _SnackBarClosedReason_hide$() {
-  return SnackBarClosedReason.hide;
-}
-
-SnackBarClosedReason _SnackBarClosedReason_remove$() {
-  return SnackBarClosedReason.remove;
-}
-
-SnackBarClosedReason _SnackBarClosedReason_timeout$() {
-  return SnackBarClosedReason.timeout;
-}
-
-List<SnackBarClosedReason> _SnackBarClosedReason_values$() {
-  return SnackBarClosedReason.values;
-}
+Function _SnackBarClosedReason_action$(m.Scope scope$) =>
+    () => SnackBarClosedReason.action;
+Function _SnackBarClosedReason_dismiss$(m.Scope scope$) =>
+    () => SnackBarClosedReason.dismiss;
+Function _SnackBarClosedReason_swipe$(m.Scope scope$) =>
+    () => SnackBarClosedReason.swipe;
+Function _SnackBarClosedReason_hide$(m.Scope scope$) =>
+    () => SnackBarClosedReason.hide;
+Function _SnackBarClosedReason_remove$(m.Scope scope$) =>
+    () => SnackBarClosedReason.remove;
+Function _SnackBarClosedReason_timeout$(m.Scope scope$) =>
+    () => SnackBarClosedReason.timeout;
+Function _SnackBarClosedReason_values$(m.Scope scope$) =>
+    () => SnackBarClosedReason.values;

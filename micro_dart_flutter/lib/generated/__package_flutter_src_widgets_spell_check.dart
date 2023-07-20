@@ -18,7 +18,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'SpellCheckConfiguration.': _SpellCheckConfiguration__$,
     'SpellCheckConfiguration.disabled': _SpellCheckConfiguration_disabled_$,
-    'SpellCheckConfiguration.copyWith': _SpellCheckConfiguration_copyWith$,
     'buildTextSpanWithSpellCheckSuggestions':
         _buildTextSpanWithSpellCheckSuggestions$,
   },
@@ -37,6 +36,7 @@ const libraryMirror = m.LibraryMirror(
             _SpellCheckConfiguration_spellCheckSuggestionsToolbarBuilder$,
         'spellCheckEnabled': _SpellCheckConfiguration_spellCheckEnabled$,
         'hashCode': _SpellCheckConfiguration_hashCode$,
+        'copyWith': _SpellCheckConfiguration_copyWith$,
         'toString': _SpellCheckConfiguration_toString$,
         '==': _SpellCheckConfiguration_eq$$,
       },

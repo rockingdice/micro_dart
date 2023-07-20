@@ -609,130 +609,61 @@ Function _SelectionPoint_eq$$(
   SelectionPoint target$,
 ) =>
     (Object other$) => target$ == other$;
-SelectionResult _SelectionResult_next$() {
-  return SelectionResult.next;
-}
-
-SelectionResult _SelectionResult_previous$() {
-  return SelectionResult.previous;
-}
-
-SelectionResult _SelectionResult_end$() {
-  return SelectionResult.end;
-}
-
-SelectionResult _SelectionResult_pending$() {
-  return SelectionResult.pending;
-}
-
-SelectionResult _SelectionResult_none$() {
-  return SelectionResult.none;
-}
-
-List<SelectionResult> _SelectionResult_values$() {
-  return SelectionResult.values;
-}
-
-SelectionEventType _SelectionEventType_startEdgeUpdate$() {
-  return SelectionEventType.startEdgeUpdate;
-}
-
-SelectionEventType _SelectionEventType_endEdgeUpdate$() {
-  return SelectionEventType.endEdgeUpdate;
-}
-
-SelectionEventType _SelectionEventType_clear$() {
-  return SelectionEventType.clear;
-}
-
-SelectionEventType _SelectionEventType_selectAll$() {
-  return SelectionEventType.selectAll;
-}
-
-SelectionEventType _SelectionEventType_selectWord$() {
-  return SelectionEventType.selectWord;
-}
-
-SelectionEventType _SelectionEventType_granularlyExtendSelection$() {
-  return SelectionEventType.granularlyExtendSelection;
-}
-
-SelectionEventType _SelectionEventType_directionallyExtendSelection$() {
-  return SelectionEventType.directionallyExtendSelection;
-}
-
-List<SelectionEventType> _SelectionEventType_values$() {
-  return SelectionEventType.values;
-}
-
-TextGranularity _TextGranularity_character$() {
-  return TextGranularity.character;
-}
-
-TextGranularity _TextGranularity_word$() {
-  return TextGranularity.word;
-}
-
-TextGranularity _TextGranularity_line$() {
-  return TextGranularity.line;
-}
-
-TextGranularity _TextGranularity_document$() {
-  return TextGranularity.document;
-}
-
-List<TextGranularity> _TextGranularity_values$() {
-  return TextGranularity.values;
-}
-
-SelectionExtendDirection _SelectionExtendDirection_previousLine$() {
-  return SelectionExtendDirection.previousLine;
-}
-
-SelectionExtendDirection _SelectionExtendDirection_nextLine$() {
-  return SelectionExtendDirection.nextLine;
-}
-
-SelectionExtendDirection _SelectionExtendDirection_forward$() {
-  return SelectionExtendDirection.forward;
-}
-
-SelectionExtendDirection _SelectionExtendDirection_backward$() {
-  return SelectionExtendDirection.backward;
-}
-
-List<SelectionExtendDirection> _SelectionExtendDirection_values$() {
-  return SelectionExtendDirection.values;
-}
-
-SelectionStatus _SelectionStatus_uncollapsed$() {
-  return SelectionStatus.uncollapsed;
-}
-
-SelectionStatus _SelectionStatus_collapsed$() {
-  return SelectionStatus.collapsed;
-}
-
-SelectionStatus _SelectionStatus_none$() {
-  return SelectionStatus.none;
-}
-
-List<SelectionStatus> _SelectionStatus_values$() {
-  return SelectionStatus.values;
-}
-
-TextSelectionHandleType _TextSelectionHandleType_left$() {
-  return TextSelectionHandleType.left;
-}
-
-TextSelectionHandleType _TextSelectionHandleType_right$() {
-  return TextSelectionHandleType.right;
-}
-
-TextSelectionHandleType _TextSelectionHandleType_collapsed$() {
-  return TextSelectionHandleType.collapsed;
-}
-
-List<TextSelectionHandleType> _TextSelectionHandleType_values$() {
-  return TextSelectionHandleType.values;
-}
+Function _SelectionResult_next$(m.Scope scope$) => () => SelectionResult.next;
+Function _SelectionResult_previous$(m.Scope scope$) =>
+    () => SelectionResult.previous;
+Function _SelectionResult_end$(m.Scope scope$) => () => SelectionResult.end;
+Function _SelectionResult_pending$(m.Scope scope$) =>
+    () => SelectionResult.pending;
+Function _SelectionResult_none$(m.Scope scope$) => () => SelectionResult.none;
+Function _SelectionResult_values$(m.Scope scope$) =>
+    () => SelectionResult.values;
+Function _SelectionEventType_startEdgeUpdate$(m.Scope scope$) =>
+    () => SelectionEventType.startEdgeUpdate;
+Function _SelectionEventType_endEdgeUpdate$(m.Scope scope$) =>
+    () => SelectionEventType.endEdgeUpdate;
+Function _SelectionEventType_clear$(m.Scope scope$) =>
+    () => SelectionEventType.clear;
+Function _SelectionEventType_selectAll$(m.Scope scope$) =>
+    () => SelectionEventType.selectAll;
+Function _SelectionEventType_selectWord$(m.Scope scope$) =>
+    () => SelectionEventType.selectWord;
+Function _SelectionEventType_granularlyExtendSelection$(m.Scope scope$) =>
+    () => SelectionEventType.granularlyExtendSelection;
+Function _SelectionEventType_directionallyExtendSelection$(m.Scope scope$) =>
+    () => SelectionEventType.directionallyExtendSelection;
+Function _SelectionEventType_values$(m.Scope scope$) =>
+    () => SelectionEventType.values;
+Function _TextGranularity_character$(m.Scope scope$) =>
+    () => TextGranularity.character;
+Function _TextGranularity_word$(m.Scope scope$) => () => TextGranularity.word;
+Function _TextGranularity_line$(m.Scope scope$) => () => TextGranularity.line;
+Function _TextGranularity_document$(m.Scope scope$) =>
+    () => TextGranularity.document;
+Function _TextGranularity_values$(m.Scope scope$) =>
+    () => TextGranularity.values;
+Function _SelectionExtendDirection_previousLine$(m.Scope scope$) =>
+    () => SelectionExtendDirection.previousLine;
+Function _SelectionExtendDirection_nextLine$(m.Scope scope$) =>
+    () => SelectionExtendDirection.nextLine;
+Function _SelectionExtendDirection_forward$(m.Scope scope$) =>
+    () => SelectionExtendDirection.forward;
+Function _SelectionExtendDirection_backward$(m.Scope scope$) =>
+    () => SelectionExtendDirection.backward;
+Function _SelectionExtendDirection_values$(m.Scope scope$) =>
+    () => SelectionExtendDirection.values;
+Function _SelectionStatus_uncollapsed$(m.Scope scope$) =>
+    () => SelectionStatus.uncollapsed;
+Function _SelectionStatus_collapsed$(m.Scope scope$) =>
+    () => SelectionStatus.collapsed;
+Function _SelectionStatus_none$(m.Scope scope$) => () => SelectionStatus.none;
+Function _SelectionStatus_values$(m.Scope scope$) =>
+    () => SelectionStatus.values;
+Function _TextSelectionHandleType_left$(m.Scope scope$) =>
+    () => TextSelectionHandleType.left;
+Function _TextSelectionHandleType_right$(m.Scope scope$) =>
+    () => TextSelectionHandleType.right;
+Function _TextSelectionHandleType_collapsed$(m.Scope scope$) =>
+    () => TextSelectionHandleType.collapsed;
+Function _TextSelectionHandleType_values$(m.Scope scope$) =>
+    () => TextSelectionHandleType.values;

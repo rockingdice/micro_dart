@@ -348,18 +348,11 @@ Function _NavigationRailDestination__$(m.Scope scope$) => ({
         selectedIcon: selectedIcon,
       );
     };
-NavigationRailLabelType _NavigationRailLabelType_none$() {
-  return NavigationRailLabelType.none;
-}
-
-NavigationRailLabelType _NavigationRailLabelType_selected$() {
-  return NavigationRailLabelType.selected;
-}
-
-NavigationRailLabelType _NavigationRailLabelType_all$() {
-  return NavigationRailLabelType.all;
-}
-
-List<NavigationRailLabelType> _NavigationRailLabelType_values$() {
-  return NavigationRailLabelType.values;
-}
+Function _NavigationRailLabelType_none$(m.Scope scope$) =>
+    () => NavigationRailLabelType.none;
+Function _NavigationRailLabelType_selected$(m.Scope scope$) =>
+    () => NavigationRailLabelType.selected;
+Function _NavigationRailLabelType_all$(m.Scope scope$) =>
+    () => NavigationRailLabelType.all;
+Function _NavigationRailLabelType_values$(m.Scope scope$) =>
+    () => NavigationRailLabelType.values;

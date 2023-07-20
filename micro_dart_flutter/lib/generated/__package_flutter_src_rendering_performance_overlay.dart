@@ -188,25 +188,15 @@ Function _RenderPerformanceOverlay_paint$(
   RenderPerformanceOverlay target$,
 ) =>
     target$.paint;
-PerformanceOverlayOption
-    _PerformanceOverlayOption_displayRasterizerStatistics$() {
-  return PerformanceOverlayOption.displayRasterizerStatistics;
-}
-
-PerformanceOverlayOption
-    _PerformanceOverlayOption_visualizeRasterizerStatistics$() {
-  return PerformanceOverlayOption.visualizeRasterizerStatistics;
-}
-
-PerformanceOverlayOption _PerformanceOverlayOption_displayEngineStatistics$() {
-  return PerformanceOverlayOption.displayEngineStatistics;
-}
-
-PerformanceOverlayOption
-    _PerformanceOverlayOption_visualizeEngineStatistics$() {
-  return PerformanceOverlayOption.visualizeEngineStatistics;
-}
-
-List<PerformanceOverlayOption> _PerformanceOverlayOption_values$() {
-  return PerformanceOverlayOption.values;
-}
+Function _PerformanceOverlayOption_displayRasterizerStatistics$(
+        m.Scope scope$) =>
+    () => PerformanceOverlayOption.displayRasterizerStatistics;
+Function _PerformanceOverlayOption_visualizeRasterizerStatistics$(
+        m.Scope scope$) =>
+    () => PerformanceOverlayOption.visualizeRasterizerStatistics;
+Function _PerformanceOverlayOption_displayEngineStatistics$(m.Scope scope$) =>
+    () => PerformanceOverlayOption.displayEngineStatistics;
+Function _PerformanceOverlayOption_visualizeEngineStatistics$(m.Scope scope$) =>
+    () => PerformanceOverlayOption.visualizeEngineStatistics;
+Function _PerformanceOverlayOption_values$(m.Scope scope$) =>
+    () => PerformanceOverlayOption.values;

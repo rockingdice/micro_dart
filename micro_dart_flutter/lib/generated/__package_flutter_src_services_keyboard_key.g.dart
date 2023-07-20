@@ -915,1838 +915,910 @@ Function _LogicalKeyboardKey_keyId$(
     () {
       return target$.keyId;
     };
-int _LogicalKeyboardKey_valueMask$() {
-  return LogicalKeyboardKey.valueMask;
-}
-
-int _LogicalKeyboardKey_planeMask$() {
-  return LogicalKeyboardKey.planeMask;
-}
-
-int _LogicalKeyboardKey_unicodePlane$() {
-  return LogicalKeyboardKey.unicodePlane;
-}
-
-int _LogicalKeyboardKey_unprintablePlane$() {
-  return LogicalKeyboardKey.unprintablePlane;
-}
-
-int _LogicalKeyboardKey_flutterPlane$() {
-  return LogicalKeyboardKey.flutterPlane;
-}
-
-int _LogicalKeyboardKey_startOfPlatformPlanes$() {
-  return LogicalKeyboardKey.startOfPlatformPlanes;
-}
-
-int _LogicalKeyboardKey_androidPlane$() {
-  return LogicalKeyboardKey.androidPlane;
-}
-
-int _LogicalKeyboardKey_fuchsiaPlane$() {
-  return LogicalKeyboardKey.fuchsiaPlane;
-}
-
-int _LogicalKeyboardKey_iosPlane$() {
-  return LogicalKeyboardKey.iosPlane;
-}
-
-int _LogicalKeyboardKey_macosPlane$() {
-  return LogicalKeyboardKey.macosPlane;
-}
-
-int _LogicalKeyboardKey_gtkPlane$() {
-  return LogicalKeyboardKey.gtkPlane;
-}
-
-int _LogicalKeyboardKey_windowsPlane$() {
-  return LogicalKeyboardKey.windowsPlane;
-}
-
-int _LogicalKeyboardKey_webPlane$() {
-  return LogicalKeyboardKey.webPlane;
-}
-
-int _LogicalKeyboardKey_glfwPlane$() {
-  return LogicalKeyboardKey.glfwPlane;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_space$() {
-  return LogicalKeyboardKey.space;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_exclamation$() {
-  return LogicalKeyboardKey.exclamation;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_quote$() {
-  return LogicalKeyboardKey.quote;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numberSign$() {
-  return LogicalKeyboardKey.numberSign;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_dollar$() {
-  return LogicalKeyboardKey.dollar;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_percent$() {
-  return LogicalKeyboardKey.percent;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_ampersand$() {
-  return LogicalKeyboardKey.ampersand;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_quoteSingle$() {
-  return LogicalKeyboardKey.quoteSingle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_parenthesisLeft$() {
-  return LogicalKeyboardKey.parenthesisLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_parenthesisRight$() {
-  return LogicalKeyboardKey.parenthesisRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_asterisk$() {
-  return LogicalKeyboardKey.asterisk;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_add$() {
-  return LogicalKeyboardKey.add;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_comma$() {
-  return LogicalKeyboardKey.comma;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_minus$() {
-  return LogicalKeyboardKey.minus;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_period$() {
-  return LogicalKeyboardKey.period;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_slash$() {
-  return LogicalKeyboardKey.slash;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit0$() {
-  return LogicalKeyboardKey.digit0;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit1$() {
-  return LogicalKeyboardKey.digit1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit2$() {
-  return LogicalKeyboardKey.digit2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit3$() {
-  return LogicalKeyboardKey.digit3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit4$() {
-  return LogicalKeyboardKey.digit4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit5$() {
-  return LogicalKeyboardKey.digit5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit6$() {
-  return LogicalKeyboardKey.digit6;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit7$() {
-  return LogicalKeyboardKey.digit7;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit8$() {
-  return LogicalKeyboardKey.digit8;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_digit9$() {
-  return LogicalKeyboardKey.digit9;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colon$() {
-  return LogicalKeyboardKey.colon;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_semicolon$() {
-  return LogicalKeyboardKey.semicolon;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_less$() {
-  return LogicalKeyboardKey.less;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_equal$() {
-  return LogicalKeyboardKey.equal;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_greater$() {
-  return LogicalKeyboardKey.greater;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_question$() {
-  return LogicalKeyboardKey.question;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_at$() {
-  return LogicalKeyboardKey.at;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_bracketLeft$() {
-  return LogicalKeyboardKey.bracketLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_backslash$() {
-  return LogicalKeyboardKey.backslash;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_bracketRight$() {
-  return LogicalKeyboardKey.bracketRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_caret$() {
-  return LogicalKeyboardKey.caret;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_underscore$() {
-  return LogicalKeyboardKey.underscore;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_backquote$() {
-  return LogicalKeyboardKey.backquote;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyA$() {
-  return LogicalKeyboardKey.keyA;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyB$() {
-  return LogicalKeyboardKey.keyB;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyC$() {
-  return LogicalKeyboardKey.keyC;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyD$() {
-  return LogicalKeyboardKey.keyD;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyE$() {
-  return LogicalKeyboardKey.keyE;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyF$() {
-  return LogicalKeyboardKey.keyF;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyG$() {
-  return LogicalKeyboardKey.keyG;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyH$() {
-  return LogicalKeyboardKey.keyH;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyI$() {
-  return LogicalKeyboardKey.keyI;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyJ$() {
-  return LogicalKeyboardKey.keyJ;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyK$() {
-  return LogicalKeyboardKey.keyK;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyL$() {
-  return LogicalKeyboardKey.keyL;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyM$() {
-  return LogicalKeyboardKey.keyM;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyN$() {
-  return LogicalKeyboardKey.keyN;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyO$() {
-  return LogicalKeyboardKey.keyO;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyP$() {
-  return LogicalKeyboardKey.keyP;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyQ$() {
-  return LogicalKeyboardKey.keyQ;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyR$() {
-  return LogicalKeyboardKey.keyR;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyS$() {
-  return LogicalKeyboardKey.keyS;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyT$() {
-  return LogicalKeyboardKey.keyT;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyU$() {
-  return LogicalKeyboardKey.keyU;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyV$() {
-  return LogicalKeyboardKey.keyV;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyW$() {
-  return LogicalKeyboardKey.keyW;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyX$() {
-  return LogicalKeyboardKey.keyX;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyY$() {
-  return LogicalKeyboardKey.keyY;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_keyZ$() {
-  return LogicalKeyboardKey.keyZ;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_braceLeft$() {
-  return LogicalKeyboardKey.braceLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_bar$() {
-  return LogicalKeyboardKey.bar;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_braceRight$() {
-  return LogicalKeyboardKey.braceRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tilde$() {
-  return LogicalKeyboardKey.tilde;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_unidentified$() {
-  return LogicalKeyboardKey.unidentified;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_backspace$() {
-  return LogicalKeyboardKey.backspace;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tab$() {
-  return LogicalKeyboardKey.tab;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_enter$() {
-  return LogicalKeyboardKey.enter;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_escape$() {
-  return LogicalKeyboardKey.escape;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_delete$() {
-  return LogicalKeyboardKey.delete;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_accel$() {
-  return LogicalKeyboardKey.accel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_altGraph$() {
-  return LogicalKeyboardKey.altGraph;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_capsLock$() {
-  return LogicalKeyboardKey.capsLock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_fn$() {
-  return LogicalKeyboardKey.fn;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_fnLock$() {
-  return LogicalKeyboardKey.fnLock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hyper$() {
-  return LogicalKeyboardKey.hyper;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numLock$() {
-  return LogicalKeyboardKey.numLock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_scrollLock$() {
-  return LogicalKeyboardKey.scrollLock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_superKey$() {
-  return LogicalKeyboardKey.superKey;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_symbol$() {
-  return LogicalKeyboardKey.symbol;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_symbolLock$() {
-  return LogicalKeyboardKey.symbolLock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_shiftLevel5$() {
-  return LogicalKeyboardKey.shiftLevel5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_arrowDown$() {
-  return LogicalKeyboardKey.arrowDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_arrowLeft$() {
-  return LogicalKeyboardKey.arrowLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_arrowRight$() {
-  return LogicalKeyboardKey.arrowRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_arrowUp$() {
-  return LogicalKeyboardKey.arrowUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_end$() {
-  return LogicalKeyboardKey.end;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_home$() {
-  return LogicalKeyboardKey.home;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pageDown$() {
-  return LogicalKeyboardKey.pageDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pageUp$() {
-  return LogicalKeyboardKey.pageUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_clear$() {
-  return LogicalKeyboardKey.clear;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_copy$() {
-  return LogicalKeyboardKey.copy;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_crSel$() {
-  return LogicalKeyboardKey.crSel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_cut$() {
-  return LogicalKeyboardKey.cut;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_eraseEof$() {
-  return LogicalKeyboardKey.eraseEof;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_exSel$() {
-  return LogicalKeyboardKey.exSel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_insert$() {
-  return LogicalKeyboardKey.insert;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_paste$() {
-  return LogicalKeyboardKey.paste;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_redo$() {
-  return LogicalKeyboardKey.redo;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_undo$() {
-  return LogicalKeyboardKey.undo;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_accept$() {
-  return LogicalKeyboardKey.accept;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_again$() {
-  return LogicalKeyboardKey.again;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_attn$() {
-  return LogicalKeyboardKey.attn;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_cancel$() {
-  return LogicalKeyboardKey.cancel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_contextMenu$() {
-  return LogicalKeyboardKey.contextMenu;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_execute$() {
-  return LogicalKeyboardKey.execute;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_find$() {
-  return LogicalKeyboardKey.find;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_help$() {
-  return LogicalKeyboardKey.help;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pause$() {
-  return LogicalKeyboardKey.pause;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_play$() {
-  return LogicalKeyboardKey.play;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_props$() {
-  return LogicalKeyboardKey.props;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_select$() {
-  return LogicalKeyboardKey.select;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_zoomIn$() {
-  return LogicalKeyboardKey.zoomIn;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_zoomOut$() {
-  return LogicalKeyboardKey.zoomOut;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_brightnessDown$() {
-  return LogicalKeyboardKey.brightnessDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_brightnessUp$() {
-  return LogicalKeyboardKey.brightnessUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_camera$() {
-  return LogicalKeyboardKey.camera;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_eject$() {
-  return LogicalKeyboardKey.eject;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_logOff$() {
-  return LogicalKeyboardKey.logOff;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_power$() {
-  return LogicalKeyboardKey.power;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_powerOff$() {
-  return LogicalKeyboardKey.powerOff;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_printScreen$() {
-  return LogicalKeyboardKey.printScreen;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hibernate$() {
-  return LogicalKeyboardKey.hibernate;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_standby$() {
-  return LogicalKeyboardKey.standby;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_wakeUp$() {
-  return LogicalKeyboardKey.wakeUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_allCandidates$() {
-  return LogicalKeyboardKey.allCandidates;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_alphanumeric$() {
-  return LogicalKeyboardKey.alphanumeric;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_codeInput$() {
-  return LogicalKeyboardKey.codeInput;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_compose$() {
-  return LogicalKeyboardKey.compose;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_convert$() {
-  return LogicalKeyboardKey.convert;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_finalMode$() {
-  return LogicalKeyboardKey.finalMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_groupFirst$() {
-  return LogicalKeyboardKey.groupFirst;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_groupLast$() {
-  return LogicalKeyboardKey.groupLast;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_groupNext$() {
-  return LogicalKeyboardKey.groupNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_groupPrevious$() {
-  return LogicalKeyboardKey.groupPrevious;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_modeChange$() {
-  return LogicalKeyboardKey.modeChange;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_nextCandidate$() {
-  return LogicalKeyboardKey.nextCandidate;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_nonConvert$() {
-  return LogicalKeyboardKey.nonConvert;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_previousCandidate$() {
-  return LogicalKeyboardKey.previousCandidate;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_process$() {
-  return LogicalKeyboardKey.process;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_singleCandidate$() {
-  return LogicalKeyboardKey.singleCandidate;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hangulMode$() {
-  return LogicalKeyboardKey.hangulMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hanjaMode$() {
-  return LogicalKeyboardKey.hanjaMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_junjaMode$() {
-  return LogicalKeyboardKey.junjaMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_eisu$() {
-  return LogicalKeyboardKey.eisu;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hankaku$() {
-  return LogicalKeyboardKey.hankaku;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hiragana$() {
-  return LogicalKeyboardKey.hiragana;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_hiraganaKatakana$() {
-  return LogicalKeyboardKey.hiraganaKatakana;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_kanaMode$() {
-  return LogicalKeyboardKey.kanaMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_kanjiMode$() {
-  return LogicalKeyboardKey.kanjiMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_katakana$() {
-  return LogicalKeyboardKey.katakana;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_romaji$() {
-  return LogicalKeyboardKey.romaji;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_zenkaku$() {
-  return LogicalKeyboardKey.zenkaku;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_zenkakuHankaku$() {
-  return LogicalKeyboardKey.zenkakuHankaku;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f1$() {
-  return LogicalKeyboardKey.f1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f2$() {
-  return LogicalKeyboardKey.f2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f3$() {
-  return LogicalKeyboardKey.f3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f4$() {
-  return LogicalKeyboardKey.f4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f5$() {
-  return LogicalKeyboardKey.f5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f6$() {
-  return LogicalKeyboardKey.f6;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f7$() {
-  return LogicalKeyboardKey.f7;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f8$() {
-  return LogicalKeyboardKey.f8;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f9$() {
-  return LogicalKeyboardKey.f9;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f10$() {
-  return LogicalKeyboardKey.f10;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f11$() {
-  return LogicalKeyboardKey.f11;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f12$() {
-  return LogicalKeyboardKey.f12;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f13$() {
-  return LogicalKeyboardKey.f13;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f14$() {
-  return LogicalKeyboardKey.f14;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f15$() {
-  return LogicalKeyboardKey.f15;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f16$() {
-  return LogicalKeyboardKey.f16;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f17$() {
-  return LogicalKeyboardKey.f17;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f18$() {
-  return LogicalKeyboardKey.f18;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f19$() {
-  return LogicalKeyboardKey.f19;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f20$() {
-  return LogicalKeyboardKey.f20;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f21$() {
-  return LogicalKeyboardKey.f21;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f22$() {
-  return LogicalKeyboardKey.f22;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f23$() {
-  return LogicalKeyboardKey.f23;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_f24$() {
-  return LogicalKeyboardKey.f24;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft1$() {
-  return LogicalKeyboardKey.soft1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft2$() {
-  return LogicalKeyboardKey.soft2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft3$() {
-  return LogicalKeyboardKey.soft3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft4$() {
-  return LogicalKeyboardKey.soft4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft5$() {
-  return LogicalKeyboardKey.soft5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft6$() {
-  return LogicalKeyboardKey.soft6;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft7$() {
-  return LogicalKeyboardKey.soft7;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_soft8$() {
-  return LogicalKeyboardKey.soft8;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_close$() {
-  return LogicalKeyboardKey.close;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mailForward$() {
-  return LogicalKeyboardKey.mailForward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mailReply$() {
-  return LogicalKeyboardKey.mailReply;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mailSend$() {
-  return LogicalKeyboardKey.mailSend;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaPlayPause$() {
-  return LogicalKeyboardKey.mediaPlayPause;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaStop$() {
-  return LogicalKeyboardKey.mediaStop;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaTrackNext$() {
-  return LogicalKeyboardKey.mediaTrackNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaTrackPrevious$() {
-  return LogicalKeyboardKey.mediaTrackPrevious;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_newKey$() {
-  return LogicalKeyboardKey.newKey;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_open$() {
-  return LogicalKeyboardKey.open;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_print$() {
-  return LogicalKeyboardKey.print;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_save$() {
-  return LogicalKeyboardKey.save;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_spellCheck$() {
-  return LogicalKeyboardKey.spellCheck;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioVolumeDown$() {
-  return LogicalKeyboardKey.audioVolumeDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioVolumeUp$() {
-  return LogicalKeyboardKey.audioVolumeUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioVolumeMute$() {
-  return LogicalKeyboardKey.audioVolumeMute;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchApplication2$() {
-  return LogicalKeyboardKey.launchApplication2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchCalendar$() {
-  return LogicalKeyboardKey.launchCalendar;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchMail$() {
-  return LogicalKeyboardKey.launchMail;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchMediaPlayer$() {
-  return LogicalKeyboardKey.launchMediaPlayer;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchMusicPlayer$() {
-  return LogicalKeyboardKey.launchMusicPlayer;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchApplication1$() {
-  return LogicalKeyboardKey.launchApplication1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchScreenSaver$() {
-  return LogicalKeyboardKey.launchScreenSaver;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchSpreadsheet$() {
-  return LogicalKeyboardKey.launchSpreadsheet;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchWebBrowser$() {
-  return LogicalKeyboardKey.launchWebBrowser;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchWebCam$() {
-  return LogicalKeyboardKey.launchWebCam;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchWordProcessor$() {
-  return LogicalKeyboardKey.launchWordProcessor;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchContacts$() {
-  return LogicalKeyboardKey.launchContacts;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchPhone$() {
-  return LogicalKeyboardKey.launchPhone;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchAssistant$() {
-  return LogicalKeyboardKey.launchAssistant;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_launchControlPanel$() {
-  return LogicalKeyboardKey.launchControlPanel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserBack$() {
-  return LogicalKeyboardKey.browserBack;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserFavorites$() {
-  return LogicalKeyboardKey.browserFavorites;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserForward$() {
-  return LogicalKeyboardKey.browserForward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserHome$() {
-  return LogicalKeyboardKey.browserHome;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserRefresh$() {
-  return LogicalKeyboardKey.browserRefresh;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserSearch$() {
-  return LogicalKeyboardKey.browserSearch;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_browserStop$() {
-  return LogicalKeyboardKey.browserStop;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioBalanceLeft$() {
-  return LogicalKeyboardKey.audioBalanceLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioBalanceRight$() {
-  return LogicalKeyboardKey.audioBalanceRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioBassBoostDown$() {
-  return LogicalKeyboardKey.audioBassBoostDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioBassBoostUp$() {
-  return LogicalKeyboardKey.audioBassBoostUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioFaderFront$() {
-  return LogicalKeyboardKey.audioFaderFront;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioFaderRear$() {
-  return LogicalKeyboardKey.audioFaderRear;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioSurroundModeNext$() {
-  return LogicalKeyboardKey.audioSurroundModeNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_avrInput$() {
-  return LogicalKeyboardKey.avrInput;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_avrPower$() {
-  return LogicalKeyboardKey.avrPower;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_channelDown$() {
-  return LogicalKeyboardKey.channelDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_channelUp$() {
-  return LogicalKeyboardKey.channelUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF0Red$() {
-  return LogicalKeyboardKey.colorF0Red;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF1Green$() {
-  return LogicalKeyboardKey.colorF1Green;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF2Yellow$() {
-  return LogicalKeyboardKey.colorF2Yellow;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF3Blue$() {
-  return LogicalKeyboardKey.colorF3Blue;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF4Grey$() {
-  return LogicalKeyboardKey.colorF4Grey;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_colorF5Brown$() {
-  return LogicalKeyboardKey.colorF5Brown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_closedCaptionToggle$() {
-  return LogicalKeyboardKey.closedCaptionToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_dimmer$() {
-  return LogicalKeyboardKey.dimmer;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_displaySwap$() {
-  return LogicalKeyboardKey.displaySwap;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_exit$() {
-  return LogicalKeyboardKey.exit;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteClear0$() {
-  return LogicalKeyboardKey.favoriteClear0;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteClear1$() {
-  return LogicalKeyboardKey.favoriteClear1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteClear2$() {
-  return LogicalKeyboardKey.favoriteClear2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteClear3$() {
-  return LogicalKeyboardKey.favoriteClear3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteRecall0$() {
-  return LogicalKeyboardKey.favoriteRecall0;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteRecall1$() {
-  return LogicalKeyboardKey.favoriteRecall1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteRecall2$() {
-  return LogicalKeyboardKey.favoriteRecall2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteRecall3$() {
-  return LogicalKeyboardKey.favoriteRecall3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteStore0$() {
-  return LogicalKeyboardKey.favoriteStore0;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteStore1$() {
-  return LogicalKeyboardKey.favoriteStore1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteStore2$() {
-  return LogicalKeyboardKey.favoriteStore2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_favoriteStore3$() {
-  return LogicalKeyboardKey.favoriteStore3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_guide$() {
-  return LogicalKeyboardKey.guide;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_guideNextDay$() {
-  return LogicalKeyboardKey.guideNextDay;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_guidePreviousDay$() {
-  return LogicalKeyboardKey.guidePreviousDay;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_info$() {
-  return LogicalKeyboardKey.info;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_instantReplay$() {
-  return LogicalKeyboardKey.instantReplay;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_link$() {
-  return LogicalKeyboardKey.link;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_listProgram$() {
-  return LogicalKeyboardKey.listProgram;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_liveContent$() {
-  return LogicalKeyboardKey.liveContent;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lock$() {
-  return LogicalKeyboardKey.lock;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaApps$() {
-  return LogicalKeyboardKey.mediaApps;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaFastForward$() {
-  return LogicalKeyboardKey.mediaFastForward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaLast$() {
-  return LogicalKeyboardKey.mediaLast;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaPause$() {
-  return LogicalKeyboardKey.mediaPause;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaPlay$() {
-  return LogicalKeyboardKey.mediaPlay;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaRecord$() {
-  return LogicalKeyboardKey.mediaRecord;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaRewind$() {
-  return LogicalKeyboardKey.mediaRewind;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaSkip$() {
-  return LogicalKeyboardKey.mediaSkip;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_nextFavoriteChannel$() {
-  return LogicalKeyboardKey.nextFavoriteChannel;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_nextUserProfile$() {
-  return LogicalKeyboardKey.nextUserProfile;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_onDemand$() {
-  return LogicalKeyboardKey.onDemand;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pInPDown$() {
-  return LogicalKeyboardKey.pInPDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pInPMove$() {
-  return LogicalKeyboardKey.pInPMove;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pInPToggle$() {
-  return LogicalKeyboardKey.pInPToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pInPUp$() {
-  return LogicalKeyboardKey.pInPUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_playSpeedDown$() {
-  return LogicalKeyboardKey.playSpeedDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_playSpeedReset$() {
-  return LogicalKeyboardKey.playSpeedReset;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_playSpeedUp$() {
-  return LogicalKeyboardKey.playSpeedUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_randomToggle$() {
-  return LogicalKeyboardKey.randomToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_rcLowBattery$() {
-  return LogicalKeyboardKey.rcLowBattery;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_recordSpeedNext$() {
-  return LogicalKeyboardKey.recordSpeedNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_rfBypass$() {
-  return LogicalKeyboardKey.rfBypass;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_scanChannelsToggle$() {
-  return LogicalKeyboardKey.scanChannelsToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_screenModeNext$() {
-  return LogicalKeyboardKey.screenModeNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_settings$() {
-  return LogicalKeyboardKey.settings;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_splitScreenToggle$() {
-  return LogicalKeyboardKey.splitScreenToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_stbInput$() {
-  return LogicalKeyboardKey.stbInput;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_stbPower$() {
-  return LogicalKeyboardKey.stbPower;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_subtitle$() {
-  return LogicalKeyboardKey.subtitle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_teletext$() {
-  return LogicalKeyboardKey.teletext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tv$() {
-  return LogicalKeyboardKey.tv;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInput$() {
-  return LogicalKeyboardKey.tvInput;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvPower$() {
-  return LogicalKeyboardKey.tvPower;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_videoModeNext$() {
-  return LogicalKeyboardKey.videoModeNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_wink$() {
-  return LogicalKeyboardKey.wink;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_zoomToggle$() {
-  return LogicalKeyboardKey.zoomToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_dvr$() {
-  return LogicalKeyboardKey.dvr;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaAudioTrack$() {
-  return LogicalKeyboardKey.mediaAudioTrack;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaSkipBackward$() {
-  return LogicalKeyboardKey.mediaSkipBackward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaSkipForward$() {
-  return LogicalKeyboardKey.mediaSkipForward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaStepBackward$() {
-  return LogicalKeyboardKey.mediaStepBackward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaStepForward$() {
-  return LogicalKeyboardKey.mediaStepForward;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaTopMenu$() {
-  return LogicalKeyboardKey.mediaTopMenu;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_navigateIn$() {
-  return LogicalKeyboardKey.navigateIn;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_navigateNext$() {
-  return LogicalKeyboardKey.navigateNext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_navigateOut$() {
-  return LogicalKeyboardKey.navigateOut;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_navigatePrevious$() {
-  return LogicalKeyboardKey.navigatePrevious;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_pairing$() {
-  return LogicalKeyboardKey.pairing;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mediaClose$() {
-  return LogicalKeyboardKey.mediaClose;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioBassBoostToggle$() {
-  return LogicalKeyboardKey.audioBassBoostToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioTrebleDown$() {
-  return LogicalKeyboardKey.audioTrebleDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_audioTrebleUp$() {
-  return LogicalKeyboardKey.audioTrebleUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_microphoneToggle$() {
-  return LogicalKeyboardKey.microphoneToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_microphoneVolumeDown$() {
-  return LogicalKeyboardKey.microphoneVolumeDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_microphoneVolumeUp$() {
-  return LogicalKeyboardKey.microphoneVolumeUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_microphoneVolumeMute$() {
-  return LogicalKeyboardKey.microphoneVolumeMute;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_speechCorrectionList$() {
-  return LogicalKeyboardKey.speechCorrectionList;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_speechInputToggle$() {
-  return LogicalKeyboardKey.speechInputToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_appSwitch$() {
-  return LogicalKeyboardKey.appSwitch;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_call$() {
-  return LogicalKeyboardKey.call;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_cameraFocus$() {
-  return LogicalKeyboardKey.cameraFocus;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_endCall$() {
-  return LogicalKeyboardKey.endCall;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_goBack$() {
-  return LogicalKeyboardKey.goBack;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_goHome$() {
-  return LogicalKeyboardKey.goHome;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_headsetHook$() {
-  return LogicalKeyboardKey.headsetHook;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lastNumberRedial$() {
-  return LogicalKeyboardKey.lastNumberRedial;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_notification$() {
-  return LogicalKeyboardKey.notification;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_mannerMode$() {
-  return LogicalKeyboardKey.mannerMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_voiceDial$() {
-  return LogicalKeyboardKey.voiceDial;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tv3DMode$() {
-  return LogicalKeyboardKey.tv3DMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvAntennaCable$() {
-  return LogicalKeyboardKey.tvAntennaCable;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvAudioDescription$() {
-  return LogicalKeyboardKey.tvAudioDescription;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvAudioDescriptionMixDown$() {
-  return LogicalKeyboardKey.tvAudioDescriptionMixDown;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvAudioDescriptionMixUp$() {
-  return LogicalKeyboardKey.tvAudioDescriptionMixUp;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvContentsMenu$() {
-  return LogicalKeyboardKey.tvContentsMenu;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvDataService$() {
-  return LogicalKeyboardKey.tvDataService;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputComponent1$() {
-  return LogicalKeyboardKey.tvInputComponent1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputComponent2$() {
-  return LogicalKeyboardKey.tvInputComponent2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputComposite1$() {
-  return LogicalKeyboardKey.tvInputComposite1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputComposite2$() {
-  return LogicalKeyboardKey.tvInputComposite2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputHDMI1$() {
-  return LogicalKeyboardKey.tvInputHDMI1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputHDMI2$() {
-  return LogicalKeyboardKey.tvInputHDMI2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputHDMI3$() {
-  return LogicalKeyboardKey.tvInputHDMI3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputHDMI4$() {
-  return LogicalKeyboardKey.tvInputHDMI4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvInputVGA1$() {
-  return LogicalKeyboardKey.tvInputVGA1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvMediaContext$() {
-  return LogicalKeyboardKey.tvMediaContext;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvNetwork$() {
-  return LogicalKeyboardKey.tvNetwork;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvNumberEntry$() {
-  return LogicalKeyboardKey.tvNumberEntry;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvRadioService$() {
-  return LogicalKeyboardKey.tvRadioService;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvSatellite$() {
-  return LogicalKeyboardKey.tvSatellite;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvSatelliteBS$() {
-  return LogicalKeyboardKey.tvSatelliteBS;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvSatelliteCS$() {
-  return LogicalKeyboardKey.tvSatelliteCS;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvSatelliteToggle$() {
-  return LogicalKeyboardKey.tvSatelliteToggle;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvTerrestrialAnalog$() {
-  return LogicalKeyboardKey.tvTerrestrialAnalog;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvTerrestrialDigital$() {
-  return LogicalKeyboardKey.tvTerrestrialDigital;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_tvTimer$() {
-  return LogicalKeyboardKey.tvTimer;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_key11$() {
-  return LogicalKeyboardKey.key11;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_key12$() {
-  return LogicalKeyboardKey.key12;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_suspend$() {
-  return LogicalKeyboardKey.suspend;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_resume$() {
-  return LogicalKeyboardKey.resume;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_sleep$() {
-  return LogicalKeyboardKey.sleep;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_abort$() {
-  return LogicalKeyboardKey.abort;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lang1$() {
-  return LogicalKeyboardKey.lang1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lang2$() {
-  return LogicalKeyboardKey.lang2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lang3$() {
-  return LogicalKeyboardKey.lang3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lang4$() {
-  return LogicalKeyboardKey.lang4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_lang5$() {
-  return LogicalKeyboardKey.lang5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_intlBackslash$() {
-  return LogicalKeyboardKey.intlBackslash;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_intlRo$() {
-  return LogicalKeyboardKey.intlRo;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_intlYen$() {
-  return LogicalKeyboardKey.intlYen;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_controlLeft$() {
-  return LogicalKeyboardKey.controlLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_controlRight$() {
-  return LogicalKeyboardKey.controlRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_shiftLeft$() {
-  return LogicalKeyboardKey.shiftLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_shiftRight$() {
-  return LogicalKeyboardKey.shiftRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_altLeft$() {
-  return LogicalKeyboardKey.altLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_altRight$() {
-  return LogicalKeyboardKey.altRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_metaLeft$() {
-  return LogicalKeyboardKey.metaLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_metaRight$() {
-  return LogicalKeyboardKey.metaRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_control$() {
-  return LogicalKeyboardKey.control;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_shift$() {
-  return LogicalKeyboardKey.shift;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_alt$() {
-  return LogicalKeyboardKey.alt;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_meta$() {
-  return LogicalKeyboardKey.meta;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadEnter$() {
-  return LogicalKeyboardKey.numpadEnter;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadParenLeft$() {
-  return LogicalKeyboardKey.numpadParenLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadParenRight$() {
-  return LogicalKeyboardKey.numpadParenRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadMultiply$() {
-  return LogicalKeyboardKey.numpadMultiply;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadAdd$() {
-  return LogicalKeyboardKey.numpadAdd;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadComma$() {
-  return LogicalKeyboardKey.numpadComma;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadSubtract$() {
-  return LogicalKeyboardKey.numpadSubtract;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadDecimal$() {
-  return LogicalKeyboardKey.numpadDecimal;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadDivide$() {
-  return LogicalKeyboardKey.numpadDivide;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad0$() {
-  return LogicalKeyboardKey.numpad0;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad1$() {
-  return LogicalKeyboardKey.numpad1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad2$() {
-  return LogicalKeyboardKey.numpad2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad3$() {
-  return LogicalKeyboardKey.numpad3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad4$() {
-  return LogicalKeyboardKey.numpad4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad5$() {
-  return LogicalKeyboardKey.numpad5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad6$() {
-  return LogicalKeyboardKey.numpad6;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad7$() {
-  return LogicalKeyboardKey.numpad7;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad8$() {
-  return LogicalKeyboardKey.numpad8;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpad9$() {
-  return LogicalKeyboardKey.numpad9;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_numpadEqual$() {
-  return LogicalKeyboardKey.numpadEqual;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton1$() {
-  return LogicalKeyboardKey.gameButton1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton2$() {
-  return LogicalKeyboardKey.gameButton2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton3$() {
-  return LogicalKeyboardKey.gameButton3;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton4$() {
-  return LogicalKeyboardKey.gameButton4;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton5$() {
-  return LogicalKeyboardKey.gameButton5;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton6$() {
-  return LogicalKeyboardKey.gameButton6;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton7$() {
-  return LogicalKeyboardKey.gameButton7;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton8$() {
-  return LogicalKeyboardKey.gameButton8;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton9$() {
-  return LogicalKeyboardKey.gameButton9;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton10$() {
-  return LogicalKeyboardKey.gameButton10;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton11$() {
-  return LogicalKeyboardKey.gameButton11;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton12$() {
-  return LogicalKeyboardKey.gameButton12;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton13$() {
-  return LogicalKeyboardKey.gameButton13;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton14$() {
-  return LogicalKeyboardKey.gameButton14;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton15$() {
-  return LogicalKeyboardKey.gameButton15;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButton16$() {
-  return LogicalKeyboardKey.gameButton16;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonA$() {
-  return LogicalKeyboardKey.gameButtonA;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonB$() {
-  return LogicalKeyboardKey.gameButtonB;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonC$() {
-  return LogicalKeyboardKey.gameButtonC;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonLeft1$() {
-  return LogicalKeyboardKey.gameButtonLeft1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonLeft2$() {
-  return LogicalKeyboardKey.gameButtonLeft2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonMode$() {
-  return LogicalKeyboardKey.gameButtonMode;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonRight1$() {
-  return LogicalKeyboardKey.gameButtonRight1;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonRight2$() {
-  return LogicalKeyboardKey.gameButtonRight2;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonSelect$() {
-  return LogicalKeyboardKey.gameButtonSelect;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonStart$() {
-  return LogicalKeyboardKey.gameButtonStart;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonThumbLeft$() {
-  return LogicalKeyboardKey.gameButtonThumbLeft;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonThumbRight$() {
-  return LogicalKeyboardKey.gameButtonThumbRight;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonX$() {
-  return LogicalKeyboardKey.gameButtonX;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonY$() {
-  return LogicalKeyboardKey.gameButtonY;
-}
-
-LogicalKeyboardKey _LogicalKeyboardKey_gameButtonZ$() {
-  return LogicalKeyboardKey.gameButtonZ;
-}
-
+Function _LogicalKeyboardKey_valueMask$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.valueMask;
+Function _LogicalKeyboardKey_planeMask$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.planeMask;
+Function _LogicalKeyboardKey_unicodePlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.unicodePlane;
+Function _LogicalKeyboardKey_unprintablePlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.unprintablePlane;
+Function _LogicalKeyboardKey_flutterPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.flutterPlane;
+Function _LogicalKeyboardKey_startOfPlatformPlanes$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.startOfPlatformPlanes;
+Function _LogicalKeyboardKey_androidPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.androidPlane;
+Function _LogicalKeyboardKey_fuchsiaPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.fuchsiaPlane;
+Function _LogicalKeyboardKey_iosPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.iosPlane;
+Function _LogicalKeyboardKey_macosPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.macosPlane;
+Function _LogicalKeyboardKey_gtkPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gtkPlane;
+Function _LogicalKeyboardKey_windowsPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.windowsPlane;
+Function _LogicalKeyboardKey_webPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.webPlane;
+Function _LogicalKeyboardKey_glfwPlane$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.glfwPlane;
+Function _LogicalKeyboardKey_space$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.space;
+Function _LogicalKeyboardKey_exclamation$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.exclamation;
+Function _LogicalKeyboardKey_quote$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.quote;
+Function _LogicalKeyboardKey_numberSign$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numberSign;
+Function _LogicalKeyboardKey_dollar$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.dollar;
+Function _LogicalKeyboardKey_percent$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.percent;
+Function _LogicalKeyboardKey_ampersand$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.ampersand;
+Function _LogicalKeyboardKey_quoteSingle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.quoteSingle;
+Function _LogicalKeyboardKey_parenthesisLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.parenthesisLeft;
+Function _LogicalKeyboardKey_parenthesisRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.parenthesisRight;
+Function _LogicalKeyboardKey_asterisk$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.asterisk;
+Function _LogicalKeyboardKey_add$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.add;
+Function _LogicalKeyboardKey_comma$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.comma;
+Function _LogicalKeyboardKey_minus$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.minus;
+Function _LogicalKeyboardKey_period$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.period;
+Function _LogicalKeyboardKey_slash$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.slash;
+Function _LogicalKeyboardKey_digit0$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit0;
+Function _LogicalKeyboardKey_digit1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit1;
+Function _LogicalKeyboardKey_digit2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit2;
+Function _LogicalKeyboardKey_digit3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit3;
+Function _LogicalKeyboardKey_digit4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit4;
+Function _LogicalKeyboardKey_digit5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit5;
+Function _LogicalKeyboardKey_digit6$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit6;
+Function _LogicalKeyboardKey_digit7$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit7;
+Function _LogicalKeyboardKey_digit8$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit8;
+Function _LogicalKeyboardKey_digit9$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.digit9;
+Function _LogicalKeyboardKey_colon$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colon;
+Function _LogicalKeyboardKey_semicolon$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.semicolon;
+Function _LogicalKeyboardKey_less$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.less;
+Function _LogicalKeyboardKey_equal$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.equal;
+Function _LogicalKeyboardKey_greater$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.greater;
+Function _LogicalKeyboardKey_question$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.question;
+Function _LogicalKeyboardKey_at$(m.Scope scope$) => () => LogicalKeyboardKey.at;
+Function _LogicalKeyboardKey_bracketLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.bracketLeft;
+Function _LogicalKeyboardKey_backslash$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.backslash;
+Function _LogicalKeyboardKey_bracketRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.bracketRight;
+Function _LogicalKeyboardKey_caret$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.caret;
+Function _LogicalKeyboardKey_underscore$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.underscore;
+Function _LogicalKeyboardKey_backquote$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.backquote;
+Function _LogicalKeyboardKey_keyA$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyA;
+Function _LogicalKeyboardKey_keyB$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyB;
+Function _LogicalKeyboardKey_keyC$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyC;
+Function _LogicalKeyboardKey_keyD$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyD;
+Function _LogicalKeyboardKey_keyE$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyE;
+Function _LogicalKeyboardKey_keyF$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyF;
+Function _LogicalKeyboardKey_keyG$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyG;
+Function _LogicalKeyboardKey_keyH$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyH;
+Function _LogicalKeyboardKey_keyI$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyI;
+Function _LogicalKeyboardKey_keyJ$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyJ;
+Function _LogicalKeyboardKey_keyK$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyK;
+Function _LogicalKeyboardKey_keyL$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyL;
+Function _LogicalKeyboardKey_keyM$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyM;
+Function _LogicalKeyboardKey_keyN$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyN;
+Function _LogicalKeyboardKey_keyO$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyO;
+Function _LogicalKeyboardKey_keyP$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyP;
+Function _LogicalKeyboardKey_keyQ$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyQ;
+Function _LogicalKeyboardKey_keyR$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyR;
+Function _LogicalKeyboardKey_keyS$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyS;
+Function _LogicalKeyboardKey_keyT$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyT;
+Function _LogicalKeyboardKey_keyU$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyU;
+Function _LogicalKeyboardKey_keyV$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyV;
+Function _LogicalKeyboardKey_keyW$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyW;
+Function _LogicalKeyboardKey_keyX$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyX;
+Function _LogicalKeyboardKey_keyY$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyY;
+Function _LogicalKeyboardKey_keyZ$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.keyZ;
+Function _LogicalKeyboardKey_braceLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.braceLeft;
+Function _LogicalKeyboardKey_bar$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.bar;
+Function _LogicalKeyboardKey_braceRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.braceRight;
+Function _LogicalKeyboardKey_tilde$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tilde;
+Function _LogicalKeyboardKey_unidentified$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.unidentified;
+Function _LogicalKeyboardKey_backspace$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.backspace;
+Function _LogicalKeyboardKey_tab$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tab;
+Function _LogicalKeyboardKey_enter$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.enter;
+Function _LogicalKeyboardKey_escape$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.escape;
+Function _LogicalKeyboardKey_delete$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.delete;
+Function _LogicalKeyboardKey_accel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.accel;
+Function _LogicalKeyboardKey_altGraph$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.altGraph;
+Function _LogicalKeyboardKey_capsLock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.capsLock;
+Function _LogicalKeyboardKey_fn$(m.Scope scope$) => () => LogicalKeyboardKey.fn;
+Function _LogicalKeyboardKey_fnLock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.fnLock;
+Function _LogicalKeyboardKey_hyper$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hyper;
+Function _LogicalKeyboardKey_numLock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numLock;
+Function _LogicalKeyboardKey_scrollLock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.scrollLock;
+Function _LogicalKeyboardKey_superKey$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.superKey;
+Function _LogicalKeyboardKey_symbol$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.symbol;
+Function _LogicalKeyboardKey_symbolLock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.symbolLock;
+Function _LogicalKeyboardKey_shiftLevel5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.shiftLevel5;
+Function _LogicalKeyboardKey_arrowDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.arrowDown;
+Function _LogicalKeyboardKey_arrowLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.arrowLeft;
+Function _LogicalKeyboardKey_arrowRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.arrowRight;
+Function _LogicalKeyboardKey_arrowUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.arrowUp;
+Function _LogicalKeyboardKey_end$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.end;
+Function _LogicalKeyboardKey_home$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.home;
+Function _LogicalKeyboardKey_pageDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pageDown;
+Function _LogicalKeyboardKey_pageUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pageUp;
+Function _LogicalKeyboardKey_clear$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.clear;
+Function _LogicalKeyboardKey_copy$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.copy;
+Function _LogicalKeyboardKey_crSel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.crSel;
+Function _LogicalKeyboardKey_cut$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.cut;
+Function _LogicalKeyboardKey_eraseEof$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.eraseEof;
+Function _LogicalKeyboardKey_exSel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.exSel;
+Function _LogicalKeyboardKey_insert$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.insert;
+Function _LogicalKeyboardKey_paste$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.paste;
+Function _LogicalKeyboardKey_redo$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.redo;
+Function _LogicalKeyboardKey_undo$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.undo;
+Function _LogicalKeyboardKey_accept$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.accept;
+Function _LogicalKeyboardKey_again$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.again;
+Function _LogicalKeyboardKey_attn$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.attn;
+Function _LogicalKeyboardKey_cancel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.cancel;
+Function _LogicalKeyboardKey_contextMenu$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.contextMenu;
+Function _LogicalKeyboardKey_execute$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.execute;
+Function _LogicalKeyboardKey_find$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.find;
+Function _LogicalKeyboardKey_help$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.help;
+Function _LogicalKeyboardKey_pause$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pause;
+Function _LogicalKeyboardKey_play$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.play;
+Function _LogicalKeyboardKey_props$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.props;
+Function _LogicalKeyboardKey_select$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.select;
+Function _LogicalKeyboardKey_zoomIn$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.zoomIn;
+Function _LogicalKeyboardKey_zoomOut$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.zoomOut;
+Function _LogicalKeyboardKey_brightnessDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.brightnessDown;
+Function _LogicalKeyboardKey_brightnessUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.brightnessUp;
+Function _LogicalKeyboardKey_camera$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.camera;
+Function _LogicalKeyboardKey_eject$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.eject;
+Function _LogicalKeyboardKey_logOff$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.logOff;
+Function _LogicalKeyboardKey_power$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.power;
+Function _LogicalKeyboardKey_powerOff$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.powerOff;
+Function _LogicalKeyboardKey_printScreen$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.printScreen;
+Function _LogicalKeyboardKey_hibernate$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hibernate;
+Function _LogicalKeyboardKey_standby$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.standby;
+Function _LogicalKeyboardKey_wakeUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.wakeUp;
+Function _LogicalKeyboardKey_allCandidates$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.allCandidates;
+Function _LogicalKeyboardKey_alphanumeric$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.alphanumeric;
+Function _LogicalKeyboardKey_codeInput$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.codeInput;
+Function _LogicalKeyboardKey_compose$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.compose;
+Function _LogicalKeyboardKey_convert$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.convert;
+Function _LogicalKeyboardKey_finalMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.finalMode;
+Function _LogicalKeyboardKey_groupFirst$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.groupFirst;
+Function _LogicalKeyboardKey_groupLast$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.groupLast;
+Function _LogicalKeyboardKey_groupNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.groupNext;
+Function _LogicalKeyboardKey_groupPrevious$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.groupPrevious;
+Function _LogicalKeyboardKey_modeChange$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.modeChange;
+Function _LogicalKeyboardKey_nextCandidate$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.nextCandidate;
+Function _LogicalKeyboardKey_nonConvert$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.nonConvert;
+Function _LogicalKeyboardKey_previousCandidate$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.previousCandidate;
+Function _LogicalKeyboardKey_process$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.process;
+Function _LogicalKeyboardKey_singleCandidate$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.singleCandidate;
+Function _LogicalKeyboardKey_hangulMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hangulMode;
+Function _LogicalKeyboardKey_hanjaMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hanjaMode;
+Function _LogicalKeyboardKey_junjaMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.junjaMode;
+Function _LogicalKeyboardKey_eisu$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.eisu;
+Function _LogicalKeyboardKey_hankaku$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hankaku;
+Function _LogicalKeyboardKey_hiragana$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hiragana;
+Function _LogicalKeyboardKey_hiraganaKatakana$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.hiraganaKatakana;
+Function _LogicalKeyboardKey_kanaMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.kanaMode;
+Function _LogicalKeyboardKey_kanjiMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.kanjiMode;
+Function _LogicalKeyboardKey_katakana$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.katakana;
+Function _LogicalKeyboardKey_romaji$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.romaji;
+Function _LogicalKeyboardKey_zenkaku$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.zenkaku;
+Function _LogicalKeyboardKey_zenkakuHankaku$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.zenkakuHankaku;
+Function _LogicalKeyboardKey_f1$(m.Scope scope$) => () => LogicalKeyboardKey.f1;
+Function _LogicalKeyboardKey_f2$(m.Scope scope$) => () => LogicalKeyboardKey.f2;
+Function _LogicalKeyboardKey_f3$(m.Scope scope$) => () => LogicalKeyboardKey.f3;
+Function _LogicalKeyboardKey_f4$(m.Scope scope$) => () => LogicalKeyboardKey.f4;
+Function _LogicalKeyboardKey_f5$(m.Scope scope$) => () => LogicalKeyboardKey.f5;
+Function _LogicalKeyboardKey_f6$(m.Scope scope$) => () => LogicalKeyboardKey.f6;
+Function _LogicalKeyboardKey_f7$(m.Scope scope$) => () => LogicalKeyboardKey.f7;
+Function _LogicalKeyboardKey_f8$(m.Scope scope$) => () => LogicalKeyboardKey.f8;
+Function _LogicalKeyboardKey_f9$(m.Scope scope$) => () => LogicalKeyboardKey.f9;
+Function _LogicalKeyboardKey_f10$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f10;
+Function _LogicalKeyboardKey_f11$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f11;
+Function _LogicalKeyboardKey_f12$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f12;
+Function _LogicalKeyboardKey_f13$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f13;
+Function _LogicalKeyboardKey_f14$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f14;
+Function _LogicalKeyboardKey_f15$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f15;
+Function _LogicalKeyboardKey_f16$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f16;
+Function _LogicalKeyboardKey_f17$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f17;
+Function _LogicalKeyboardKey_f18$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f18;
+Function _LogicalKeyboardKey_f19$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f19;
+Function _LogicalKeyboardKey_f20$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f20;
+Function _LogicalKeyboardKey_f21$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f21;
+Function _LogicalKeyboardKey_f22$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f22;
+Function _LogicalKeyboardKey_f23$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f23;
+Function _LogicalKeyboardKey_f24$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.f24;
+Function _LogicalKeyboardKey_soft1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft1;
+Function _LogicalKeyboardKey_soft2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft2;
+Function _LogicalKeyboardKey_soft3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft3;
+Function _LogicalKeyboardKey_soft4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft4;
+Function _LogicalKeyboardKey_soft5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft5;
+Function _LogicalKeyboardKey_soft6$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft6;
+Function _LogicalKeyboardKey_soft7$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft7;
+Function _LogicalKeyboardKey_soft8$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.soft8;
+Function _LogicalKeyboardKey_close$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.close;
+Function _LogicalKeyboardKey_mailForward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mailForward;
+Function _LogicalKeyboardKey_mailReply$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mailReply;
+Function _LogicalKeyboardKey_mailSend$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mailSend;
+Function _LogicalKeyboardKey_mediaPlayPause$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaPlayPause;
+Function _LogicalKeyboardKey_mediaStop$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaStop;
+Function _LogicalKeyboardKey_mediaTrackNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaTrackNext;
+Function _LogicalKeyboardKey_mediaTrackPrevious$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaTrackPrevious;
+Function _LogicalKeyboardKey_newKey$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.newKey;
+Function _LogicalKeyboardKey_open$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.open;
+Function _LogicalKeyboardKey_print$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.print;
+Function _LogicalKeyboardKey_save$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.save;
+Function _LogicalKeyboardKey_spellCheck$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.spellCheck;
+Function _LogicalKeyboardKey_audioVolumeDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioVolumeDown;
+Function _LogicalKeyboardKey_audioVolumeUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioVolumeUp;
+Function _LogicalKeyboardKey_audioVolumeMute$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioVolumeMute;
+Function _LogicalKeyboardKey_launchApplication2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchApplication2;
+Function _LogicalKeyboardKey_launchCalendar$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchCalendar;
+Function _LogicalKeyboardKey_launchMail$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchMail;
+Function _LogicalKeyboardKey_launchMediaPlayer$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchMediaPlayer;
+Function _LogicalKeyboardKey_launchMusicPlayer$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchMusicPlayer;
+Function _LogicalKeyboardKey_launchApplication1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchApplication1;
+Function _LogicalKeyboardKey_launchScreenSaver$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchScreenSaver;
+Function _LogicalKeyboardKey_launchSpreadsheet$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchSpreadsheet;
+Function _LogicalKeyboardKey_launchWebBrowser$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchWebBrowser;
+Function _LogicalKeyboardKey_launchWebCam$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchWebCam;
+Function _LogicalKeyboardKey_launchWordProcessor$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchWordProcessor;
+Function _LogicalKeyboardKey_launchContacts$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchContacts;
+Function _LogicalKeyboardKey_launchPhone$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchPhone;
+Function _LogicalKeyboardKey_launchAssistant$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchAssistant;
+Function _LogicalKeyboardKey_launchControlPanel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.launchControlPanel;
+Function _LogicalKeyboardKey_browserBack$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserBack;
+Function _LogicalKeyboardKey_browserFavorites$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserFavorites;
+Function _LogicalKeyboardKey_browserForward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserForward;
+Function _LogicalKeyboardKey_browserHome$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserHome;
+Function _LogicalKeyboardKey_browserRefresh$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserRefresh;
+Function _LogicalKeyboardKey_browserSearch$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserSearch;
+Function _LogicalKeyboardKey_browserStop$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.browserStop;
+Function _LogicalKeyboardKey_audioBalanceLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioBalanceLeft;
+Function _LogicalKeyboardKey_audioBalanceRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioBalanceRight;
+Function _LogicalKeyboardKey_audioBassBoostDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioBassBoostDown;
+Function _LogicalKeyboardKey_audioBassBoostUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioBassBoostUp;
+Function _LogicalKeyboardKey_audioFaderFront$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioFaderFront;
+Function _LogicalKeyboardKey_audioFaderRear$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioFaderRear;
+Function _LogicalKeyboardKey_audioSurroundModeNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioSurroundModeNext;
+Function _LogicalKeyboardKey_avrInput$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.avrInput;
+Function _LogicalKeyboardKey_avrPower$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.avrPower;
+Function _LogicalKeyboardKey_channelDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.channelDown;
+Function _LogicalKeyboardKey_channelUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.channelUp;
+Function _LogicalKeyboardKey_colorF0Red$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF0Red;
+Function _LogicalKeyboardKey_colorF1Green$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF1Green;
+Function _LogicalKeyboardKey_colorF2Yellow$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF2Yellow;
+Function _LogicalKeyboardKey_colorF3Blue$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF3Blue;
+Function _LogicalKeyboardKey_colorF4Grey$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF4Grey;
+Function _LogicalKeyboardKey_colorF5Brown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.colorF5Brown;
+Function _LogicalKeyboardKey_closedCaptionToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.closedCaptionToggle;
+Function _LogicalKeyboardKey_dimmer$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.dimmer;
+Function _LogicalKeyboardKey_displaySwap$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.displaySwap;
+Function _LogicalKeyboardKey_exit$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.exit;
+Function _LogicalKeyboardKey_favoriteClear0$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteClear0;
+Function _LogicalKeyboardKey_favoriteClear1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteClear1;
+Function _LogicalKeyboardKey_favoriteClear2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteClear2;
+Function _LogicalKeyboardKey_favoriteClear3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteClear3;
+Function _LogicalKeyboardKey_favoriteRecall0$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteRecall0;
+Function _LogicalKeyboardKey_favoriteRecall1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteRecall1;
+Function _LogicalKeyboardKey_favoriteRecall2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteRecall2;
+Function _LogicalKeyboardKey_favoriteRecall3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteRecall3;
+Function _LogicalKeyboardKey_favoriteStore0$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteStore0;
+Function _LogicalKeyboardKey_favoriteStore1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteStore1;
+Function _LogicalKeyboardKey_favoriteStore2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteStore2;
+Function _LogicalKeyboardKey_favoriteStore3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.favoriteStore3;
+Function _LogicalKeyboardKey_guide$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.guide;
+Function _LogicalKeyboardKey_guideNextDay$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.guideNextDay;
+Function _LogicalKeyboardKey_guidePreviousDay$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.guidePreviousDay;
+Function _LogicalKeyboardKey_info$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.info;
+Function _LogicalKeyboardKey_instantReplay$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.instantReplay;
+Function _LogicalKeyboardKey_link$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.link;
+Function _LogicalKeyboardKey_listProgram$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.listProgram;
+Function _LogicalKeyboardKey_liveContent$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.liveContent;
+Function _LogicalKeyboardKey_lock$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lock;
+Function _LogicalKeyboardKey_mediaApps$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaApps;
+Function _LogicalKeyboardKey_mediaFastForward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaFastForward;
+Function _LogicalKeyboardKey_mediaLast$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaLast;
+Function _LogicalKeyboardKey_mediaPause$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaPause;
+Function _LogicalKeyboardKey_mediaPlay$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaPlay;
+Function _LogicalKeyboardKey_mediaRecord$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaRecord;
+Function _LogicalKeyboardKey_mediaRewind$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaRewind;
+Function _LogicalKeyboardKey_mediaSkip$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaSkip;
+Function _LogicalKeyboardKey_nextFavoriteChannel$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.nextFavoriteChannel;
+Function _LogicalKeyboardKey_nextUserProfile$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.nextUserProfile;
+Function _LogicalKeyboardKey_onDemand$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.onDemand;
+Function _LogicalKeyboardKey_pInPDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pInPDown;
+Function _LogicalKeyboardKey_pInPMove$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pInPMove;
+Function _LogicalKeyboardKey_pInPToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pInPToggle;
+Function _LogicalKeyboardKey_pInPUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pInPUp;
+Function _LogicalKeyboardKey_playSpeedDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.playSpeedDown;
+Function _LogicalKeyboardKey_playSpeedReset$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.playSpeedReset;
+Function _LogicalKeyboardKey_playSpeedUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.playSpeedUp;
+Function _LogicalKeyboardKey_randomToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.randomToggle;
+Function _LogicalKeyboardKey_rcLowBattery$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.rcLowBattery;
+Function _LogicalKeyboardKey_recordSpeedNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.recordSpeedNext;
+Function _LogicalKeyboardKey_rfBypass$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.rfBypass;
+Function _LogicalKeyboardKey_scanChannelsToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.scanChannelsToggle;
+Function _LogicalKeyboardKey_screenModeNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.screenModeNext;
+Function _LogicalKeyboardKey_settings$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.settings;
+Function _LogicalKeyboardKey_splitScreenToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.splitScreenToggle;
+Function _LogicalKeyboardKey_stbInput$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.stbInput;
+Function _LogicalKeyboardKey_stbPower$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.stbPower;
+Function _LogicalKeyboardKey_subtitle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.subtitle;
+Function _LogicalKeyboardKey_teletext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.teletext;
+Function _LogicalKeyboardKey_tv$(m.Scope scope$) => () => LogicalKeyboardKey.tv;
+Function _LogicalKeyboardKey_tvInput$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInput;
+Function _LogicalKeyboardKey_tvPower$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvPower;
+Function _LogicalKeyboardKey_videoModeNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.videoModeNext;
+Function _LogicalKeyboardKey_wink$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.wink;
+Function _LogicalKeyboardKey_zoomToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.zoomToggle;
+Function _LogicalKeyboardKey_dvr$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.dvr;
+Function _LogicalKeyboardKey_mediaAudioTrack$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaAudioTrack;
+Function _LogicalKeyboardKey_mediaSkipBackward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaSkipBackward;
+Function _LogicalKeyboardKey_mediaSkipForward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaSkipForward;
+Function _LogicalKeyboardKey_mediaStepBackward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaStepBackward;
+Function _LogicalKeyboardKey_mediaStepForward$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaStepForward;
+Function _LogicalKeyboardKey_mediaTopMenu$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaTopMenu;
+Function _LogicalKeyboardKey_navigateIn$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.navigateIn;
+Function _LogicalKeyboardKey_navigateNext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.navigateNext;
+Function _LogicalKeyboardKey_navigateOut$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.navigateOut;
+Function _LogicalKeyboardKey_navigatePrevious$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.navigatePrevious;
+Function _LogicalKeyboardKey_pairing$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.pairing;
+Function _LogicalKeyboardKey_mediaClose$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mediaClose;
+Function _LogicalKeyboardKey_audioBassBoostToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioBassBoostToggle;
+Function _LogicalKeyboardKey_audioTrebleDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioTrebleDown;
+Function _LogicalKeyboardKey_audioTrebleUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.audioTrebleUp;
+Function _LogicalKeyboardKey_microphoneToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.microphoneToggle;
+Function _LogicalKeyboardKey_microphoneVolumeDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.microphoneVolumeDown;
+Function _LogicalKeyboardKey_microphoneVolumeUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.microphoneVolumeUp;
+Function _LogicalKeyboardKey_microphoneVolumeMute$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.microphoneVolumeMute;
+Function _LogicalKeyboardKey_speechCorrectionList$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.speechCorrectionList;
+Function _LogicalKeyboardKey_speechInputToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.speechInputToggle;
+Function _LogicalKeyboardKey_appSwitch$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.appSwitch;
+Function _LogicalKeyboardKey_call$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.call;
+Function _LogicalKeyboardKey_cameraFocus$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.cameraFocus;
+Function _LogicalKeyboardKey_endCall$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.endCall;
+Function _LogicalKeyboardKey_goBack$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.goBack;
+Function _LogicalKeyboardKey_goHome$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.goHome;
+Function _LogicalKeyboardKey_headsetHook$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.headsetHook;
+Function _LogicalKeyboardKey_lastNumberRedial$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lastNumberRedial;
+Function _LogicalKeyboardKey_notification$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.notification;
+Function _LogicalKeyboardKey_mannerMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.mannerMode;
+Function _LogicalKeyboardKey_voiceDial$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.voiceDial;
+Function _LogicalKeyboardKey_tv3DMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tv3DMode;
+Function _LogicalKeyboardKey_tvAntennaCable$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvAntennaCable;
+Function _LogicalKeyboardKey_tvAudioDescription$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvAudioDescription;
+Function _LogicalKeyboardKey_tvAudioDescriptionMixDown$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvAudioDescriptionMixDown;
+Function _LogicalKeyboardKey_tvAudioDescriptionMixUp$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvAudioDescriptionMixUp;
+Function _LogicalKeyboardKey_tvContentsMenu$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvContentsMenu;
+Function _LogicalKeyboardKey_tvDataService$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvDataService;
+Function _LogicalKeyboardKey_tvInputComponent1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputComponent1;
+Function _LogicalKeyboardKey_tvInputComponent2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputComponent2;
+Function _LogicalKeyboardKey_tvInputComposite1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputComposite1;
+Function _LogicalKeyboardKey_tvInputComposite2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputComposite2;
+Function _LogicalKeyboardKey_tvInputHDMI1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputHDMI1;
+Function _LogicalKeyboardKey_tvInputHDMI2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputHDMI2;
+Function _LogicalKeyboardKey_tvInputHDMI3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputHDMI3;
+Function _LogicalKeyboardKey_tvInputHDMI4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputHDMI4;
+Function _LogicalKeyboardKey_tvInputVGA1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvInputVGA1;
+Function _LogicalKeyboardKey_tvMediaContext$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvMediaContext;
+Function _LogicalKeyboardKey_tvNetwork$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvNetwork;
+Function _LogicalKeyboardKey_tvNumberEntry$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvNumberEntry;
+Function _LogicalKeyboardKey_tvRadioService$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvRadioService;
+Function _LogicalKeyboardKey_tvSatellite$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvSatellite;
+Function _LogicalKeyboardKey_tvSatelliteBS$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvSatelliteBS;
+Function _LogicalKeyboardKey_tvSatelliteCS$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvSatelliteCS;
+Function _LogicalKeyboardKey_tvSatelliteToggle$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvSatelliteToggle;
+Function _LogicalKeyboardKey_tvTerrestrialAnalog$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvTerrestrialAnalog;
+Function _LogicalKeyboardKey_tvTerrestrialDigital$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvTerrestrialDigital;
+Function _LogicalKeyboardKey_tvTimer$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.tvTimer;
+Function _LogicalKeyboardKey_key11$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.key11;
+Function _LogicalKeyboardKey_key12$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.key12;
+Function _LogicalKeyboardKey_suspend$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.suspend;
+Function _LogicalKeyboardKey_resume$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.resume;
+Function _LogicalKeyboardKey_sleep$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.sleep;
+Function _LogicalKeyboardKey_abort$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.abort;
+Function _LogicalKeyboardKey_lang1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lang1;
+Function _LogicalKeyboardKey_lang2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lang2;
+Function _LogicalKeyboardKey_lang3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lang3;
+Function _LogicalKeyboardKey_lang4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lang4;
+Function _LogicalKeyboardKey_lang5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.lang5;
+Function _LogicalKeyboardKey_intlBackslash$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.intlBackslash;
+Function _LogicalKeyboardKey_intlRo$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.intlRo;
+Function _LogicalKeyboardKey_intlYen$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.intlYen;
+Function _LogicalKeyboardKey_controlLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.controlLeft;
+Function _LogicalKeyboardKey_controlRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.controlRight;
+Function _LogicalKeyboardKey_shiftLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.shiftLeft;
+Function _LogicalKeyboardKey_shiftRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.shiftRight;
+Function _LogicalKeyboardKey_altLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.altLeft;
+Function _LogicalKeyboardKey_altRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.altRight;
+Function _LogicalKeyboardKey_metaLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.metaLeft;
+Function _LogicalKeyboardKey_metaRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.metaRight;
+Function _LogicalKeyboardKey_control$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.control;
+Function _LogicalKeyboardKey_shift$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.shift;
+Function _LogicalKeyboardKey_alt$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.alt;
+Function _LogicalKeyboardKey_meta$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.meta;
+Function _LogicalKeyboardKey_numpadEnter$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadEnter;
+Function _LogicalKeyboardKey_numpadParenLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadParenLeft;
+Function _LogicalKeyboardKey_numpadParenRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadParenRight;
+Function _LogicalKeyboardKey_numpadMultiply$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadMultiply;
+Function _LogicalKeyboardKey_numpadAdd$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadAdd;
+Function _LogicalKeyboardKey_numpadComma$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadComma;
+Function _LogicalKeyboardKey_numpadSubtract$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadSubtract;
+Function _LogicalKeyboardKey_numpadDecimal$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadDecimal;
+Function _LogicalKeyboardKey_numpadDivide$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadDivide;
+Function _LogicalKeyboardKey_numpad0$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad0;
+Function _LogicalKeyboardKey_numpad1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad1;
+Function _LogicalKeyboardKey_numpad2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad2;
+Function _LogicalKeyboardKey_numpad3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad3;
+Function _LogicalKeyboardKey_numpad4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad4;
+Function _LogicalKeyboardKey_numpad5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad5;
+Function _LogicalKeyboardKey_numpad6$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad6;
+Function _LogicalKeyboardKey_numpad7$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad7;
+Function _LogicalKeyboardKey_numpad8$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad8;
+Function _LogicalKeyboardKey_numpad9$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpad9;
+Function _LogicalKeyboardKey_numpadEqual$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.numpadEqual;
+Function _LogicalKeyboardKey_gameButton1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton1;
+Function _LogicalKeyboardKey_gameButton2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton2;
+Function _LogicalKeyboardKey_gameButton3$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton3;
+Function _LogicalKeyboardKey_gameButton4$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton4;
+Function _LogicalKeyboardKey_gameButton5$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton5;
+Function _LogicalKeyboardKey_gameButton6$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton6;
+Function _LogicalKeyboardKey_gameButton7$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton7;
+Function _LogicalKeyboardKey_gameButton8$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton8;
+Function _LogicalKeyboardKey_gameButton9$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton9;
+Function _LogicalKeyboardKey_gameButton10$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton10;
+Function _LogicalKeyboardKey_gameButton11$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton11;
+Function _LogicalKeyboardKey_gameButton12$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton12;
+Function _LogicalKeyboardKey_gameButton13$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton13;
+Function _LogicalKeyboardKey_gameButton14$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton14;
+Function _LogicalKeyboardKey_gameButton15$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton15;
+Function _LogicalKeyboardKey_gameButton16$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButton16;
+Function _LogicalKeyboardKey_gameButtonA$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonA;
+Function _LogicalKeyboardKey_gameButtonB$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonB;
+Function _LogicalKeyboardKey_gameButtonC$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonC;
+Function _LogicalKeyboardKey_gameButtonLeft1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonLeft1;
+Function _LogicalKeyboardKey_gameButtonLeft2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonLeft2;
+Function _LogicalKeyboardKey_gameButtonMode$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonMode;
+Function _LogicalKeyboardKey_gameButtonRight1$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonRight1;
+Function _LogicalKeyboardKey_gameButtonRight2$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonRight2;
+Function _LogicalKeyboardKey_gameButtonSelect$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonSelect;
+Function _LogicalKeyboardKey_gameButtonStart$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonStart;
+Function _LogicalKeyboardKey_gameButtonThumbLeft$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonThumbLeft;
+Function _LogicalKeyboardKey_gameButtonThumbRight$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonThumbRight;
+Function _LogicalKeyboardKey_gameButtonX$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonX;
+Function _LogicalKeyboardKey_gameButtonY$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonY;
+Function _LogicalKeyboardKey_gameButtonZ$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.gameButtonZ;
 Function _LogicalKeyboardKey_keyLabel$(
   m.Scope scope$,
   LogicalKeyboardKey target$,
@@ -2782,10 +1854,8 @@ Function _LogicalKeyboardKey_synonyms$(
     () {
       return target$.synonyms;
     };
-Iterable<LogicalKeyboardKey> _LogicalKeyboardKey_knownLogicalKeys$() {
-  return LogicalKeyboardKey.knownLogicalKeys;
-}
-
+Function _LogicalKeyboardKey_knownLogicalKeys$(m.Scope scope$) =>
+    () => LogicalKeyboardKey.knownLogicalKeys;
 Function _LogicalKeyboardKey__$(m.Scope scope$) => (int keyId) {
       return LogicalKeyboardKey(keyId);
     };
@@ -2822,1082 +1892,544 @@ Function _PhysicalKeyboardKey_usbHidUsage$(
     () {
       return target$.usbHidUsage;
     };
-PhysicalKeyboardKey _PhysicalKeyboardKey_hyper$() {
-  return PhysicalKeyboardKey.hyper;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_superKey$() {
-  return PhysicalKeyboardKey.superKey;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_fn$() {
-  return PhysicalKeyboardKey.fn;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_fnLock$() {
-  return PhysicalKeyboardKey.fnLock;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_suspend$() {
-  return PhysicalKeyboardKey.suspend;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_resume$() {
-  return PhysicalKeyboardKey.resume;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_turbo$() {
-  return PhysicalKeyboardKey.turbo;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_privacyScreenToggle$() {
-  return PhysicalKeyboardKey.privacyScreenToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_microphoneMuteToggle$() {
-  return PhysicalKeyboardKey.microphoneMuteToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_sleep$() {
-  return PhysicalKeyboardKey.sleep;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_wakeUp$() {
-  return PhysicalKeyboardKey.wakeUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_displayToggleIntExt$() {
-  return PhysicalKeyboardKey.displayToggleIntExt;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton1$() {
-  return PhysicalKeyboardKey.gameButton1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton2$() {
-  return PhysicalKeyboardKey.gameButton2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton3$() {
-  return PhysicalKeyboardKey.gameButton3;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton4$() {
-  return PhysicalKeyboardKey.gameButton4;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton5$() {
-  return PhysicalKeyboardKey.gameButton5;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton6$() {
-  return PhysicalKeyboardKey.gameButton6;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton7$() {
-  return PhysicalKeyboardKey.gameButton7;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton8$() {
-  return PhysicalKeyboardKey.gameButton8;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton9$() {
-  return PhysicalKeyboardKey.gameButton9;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton10$() {
-  return PhysicalKeyboardKey.gameButton10;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton11$() {
-  return PhysicalKeyboardKey.gameButton11;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton12$() {
-  return PhysicalKeyboardKey.gameButton12;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton13$() {
-  return PhysicalKeyboardKey.gameButton13;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton14$() {
-  return PhysicalKeyboardKey.gameButton14;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton15$() {
-  return PhysicalKeyboardKey.gameButton15;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButton16$() {
-  return PhysicalKeyboardKey.gameButton16;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonA$() {
-  return PhysicalKeyboardKey.gameButtonA;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonB$() {
-  return PhysicalKeyboardKey.gameButtonB;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonC$() {
-  return PhysicalKeyboardKey.gameButtonC;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonLeft1$() {
-  return PhysicalKeyboardKey.gameButtonLeft1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonLeft2$() {
-  return PhysicalKeyboardKey.gameButtonLeft2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonMode$() {
-  return PhysicalKeyboardKey.gameButtonMode;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonRight1$() {
-  return PhysicalKeyboardKey.gameButtonRight1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonRight2$() {
-  return PhysicalKeyboardKey.gameButtonRight2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonSelect$() {
-  return PhysicalKeyboardKey.gameButtonSelect;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonStart$() {
-  return PhysicalKeyboardKey.gameButtonStart;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonThumbLeft$() {
-  return PhysicalKeyboardKey.gameButtonThumbLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonThumbRight$() {
-  return PhysicalKeyboardKey.gameButtonThumbRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonX$() {
-  return PhysicalKeyboardKey.gameButtonX;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonY$() {
-  return PhysicalKeyboardKey.gameButtonY;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_gameButtonZ$() {
-  return PhysicalKeyboardKey.gameButtonZ;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_usbReserved$() {
-  return PhysicalKeyboardKey.usbReserved;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_usbErrorRollOver$() {
-  return PhysicalKeyboardKey.usbErrorRollOver;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_usbPostFail$() {
-  return PhysicalKeyboardKey.usbPostFail;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_usbErrorUndefined$() {
-  return PhysicalKeyboardKey.usbErrorUndefined;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyA$() {
-  return PhysicalKeyboardKey.keyA;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyB$() {
-  return PhysicalKeyboardKey.keyB;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyC$() {
-  return PhysicalKeyboardKey.keyC;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyD$() {
-  return PhysicalKeyboardKey.keyD;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyE$() {
-  return PhysicalKeyboardKey.keyE;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyF$() {
-  return PhysicalKeyboardKey.keyF;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyG$() {
-  return PhysicalKeyboardKey.keyG;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyH$() {
-  return PhysicalKeyboardKey.keyH;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyI$() {
-  return PhysicalKeyboardKey.keyI;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyJ$() {
-  return PhysicalKeyboardKey.keyJ;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyK$() {
-  return PhysicalKeyboardKey.keyK;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyL$() {
-  return PhysicalKeyboardKey.keyL;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyM$() {
-  return PhysicalKeyboardKey.keyM;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyN$() {
-  return PhysicalKeyboardKey.keyN;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyO$() {
-  return PhysicalKeyboardKey.keyO;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyP$() {
-  return PhysicalKeyboardKey.keyP;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyQ$() {
-  return PhysicalKeyboardKey.keyQ;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyR$() {
-  return PhysicalKeyboardKey.keyR;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyS$() {
-  return PhysicalKeyboardKey.keyS;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyT$() {
-  return PhysicalKeyboardKey.keyT;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyU$() {
-  return PhysicalKeyboardKey.keyU;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyV$() {
-  return PhysicalKeyboardKey.keyV;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyW$() {
-  return PhysicalKeyboardKey.keyW;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyX$() {
-  return PhysicalKeyboardKey.keyX;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyY$() {
-  return PhysicalKeyboardKey.keyY;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyZ$() {
-  return PhysicalKeyboardKey.keyZ;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit1$() {
-  return PhysicalKeyboardKey.digit1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit2$() {
-  return PhysicalKeyboardKey.digit2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit3$() {
-  return PhysicalKeyboardKey.digit3;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit4$() {
-  return PhysicalKeyboardKey.digit4;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit5$() {
-  return PhysicalKeyboardKey.digit5;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit6$() {
-  return PhysicalKeyboardKey.digit6;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit7$() {
-  return PhysicalKeyboardKey.digit7;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit8$() {
-  return PhysicalKeyboardKey.digit8;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit9$() {
-  return PhysicalKeyboardKey.digit9;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_digit0$() {
-  return PhysicalKeyboardKey.digit0;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_enter$() {
-  return PhysicalKeyboardKey.enter;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_escape$() {
-  return PhysicalKeyboardKey.escape;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_backspace$() {
-  return PhysicalKeyboardKey.backspace;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_tab$() {
-  return PhysicalKeyboardKey.tab;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_space$() {
-  return PhysicalKeyboardKey.space;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_minus$() {
-  return PhysicalKeyboardKey.minus;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_equal$() {
-  return PhysicalKeyboardKey.equal;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_bracketLeft$() {
-  return PhysicalKeyboardKey.bracketLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_bracketRight$() {
-  return PhysicalKeyboardKey.bracketRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_backslash$() {
-  return PhysicalKeyboardKey.backslash;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_semicolon$() {
-  return PhysicalKeyboardKey.semicolon;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_quote$() {
-  return PhysicalKeyboardKey.quote;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_backquote$() {
-  return PhysicalKeyboardKey.backquote;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_comma$() {
-  return PhysicalKeyboardKey.comma;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_period$() {
-  return PhysicalKeyboardKey.period;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_slash$() {
-  return PhysicalKeyboardKey.slash;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_capsLock$() {
-  return PhysicalKeyboardKey.capsLock;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f1$() {
-  return PhysicalKeyboardKey.f1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f2$() {
-  return PhysicalKeyboardKey.f2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f3$() {
-  return PhysicalKeyboardKey.f3;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f4$() {
-  return PhysicalKeyboardKey.f4;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f5$() {
-  return PhysicalKeyboardKey.f5;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f6$() {
-  return PhysicalKeyboardKey.f6;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f7$() {
-  return PhysicalKeyboardKey.f7;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f8$() {
-  return PhysicalKeyboardKey.f8;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f9$() {
-  return PhysicalKeyboardKey.f9;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f10$() {
-  return PhysicalKeyboardKey.f10;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f11$() {
-  return PhysicalKeyboardKey.f11;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f12$() {
-  return PhysicalKeyboardKey.f12;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_printScreen$() {
-  return PhysicalKeyboardKey.printScreen;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_scrollLock$() {
-  return PhysicalKeyboardKey.scrollLock;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_pause$() {
-  return PhysicalKeyboardKey.pause;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_insert$() {
-  return PhysicalKeyboardKey.insert;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_home$() {
-  return PhysicalKeyboardKey.home;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_pageUp$() {
-  return PhysicalKeyboardKey.pageUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_delete$() {
-  return PhysicalKeyboardKey.delete;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_end$() {
-  return PhysicalKeyboardKey.end;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_pageDown$() {
-  return PhysicalKeyboardKey.pageDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_arrowRight$() {
-  return PhysicalKeyboardKey.arrowRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_arrowLeft$() {
-  return PhysicalKeyboardKey.arrowLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_arrowDown$() {
-  return PhysicalKeyboardKey.arrowDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_arrowUp$() {
-  return PhysicalKeyboardKey.arrowUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numLock$() {
-  return PhysicalKeyboardKey.numLock;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadDivide$() {
-  return PhysicalKeyboardKey.numpadDivide;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMultiply$() {
-  return PhysicalKeyboardKey.numpadMultiply;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadSubtract$() {
-  return PhysicalKeyboardKey.numpadSubtract;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadAdd$() {
-  return PhysicalKeyboardKey.numpadAdd;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadEnter$() {
-  return PhysicalKeyboardKey.numpadEnter;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad1$() {
-  return PhysicalKeyboardKey.numpad1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad2$() {
-  return PhysicalKeyboardKey.numpad2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad3$() {
-  return PhysicalKeyboardKey.numpad3;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad4$() {
-  return PhysicalKeyboardKey.numpad4;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad5$() {
-  return PhysicalKeyboardKey.numpad5;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad6$() {
-  return PhysicalKeyboardKey.numpad6;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad7$() {
-  return PhysicalKeyboardKey.numpad7;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad8$() {
-  return PhysicalKeyboardKey.numpad8;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad9$() {
-  return PhysicalKeyboardKey.numpad9;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpad0$() {
-  return PhysicalKeyboardKey.numpad0;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadDecimal$() {
-  return PhysicalKeyboardKey.numpadDecimal;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_intlBackslash$() {
-  return PhysicalKeyboardKey.intlBackslash;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_contextMenu$() {
-  return PhysicalKeyboardKey.contextMenu;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_power$() {
-  return PhysicalKeyboardKey.power;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadEqual$() {
-  return PhysicalKeyboardKey.numpadEqual;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f13$() {
-  return PhysicalKeyboardKey.f13;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f14$() {
-  return PhysicalKeyboardKey.f14;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f15$() {
-  return PhysicalKeyboardKey.f15;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f16$() {
-  return PhysicalKeyboardKey.f16;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f17$() {
-  return PhysicalKeyboardKey.f17;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f18$() {
-  return PhysicalKeyboardKey.f18;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f19$() {
-  return PhysicalKeyboardKey.f19;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f20$() {
-  return PhysicalKeyboardKey.f20;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f21$() {
-  return PhysicalKeyboardKey.f21;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f22$() {
-  return PhysicalKeyboardKey.f22;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f23$() {
-  return PhysicalKeyboardKey.f23;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_f24$() {
-  return PhysicalKeyboardKey.f24;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_open$() {
-  return PhysicalKeyboardKey.open;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_help$() {
-  return PhysicalKeyboardKey.help;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_select$() {
-  return PhysicalKeyboardKey.select;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_again$() {
-  return PhysicalKeyboardKey.again;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_undo$() {
-  return PhysicalKeyboardKey.undo;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_cut$() {
-  return PhysicalKeyboardKey.cut;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_copy$() {
-  return PhysicalKeyboardKey.copy;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_paste$() {
-  return PhysicalKeyboardKey.paste;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_find$() {
-  return PhysicalKeyboardKey.find;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_audioVolumeMute$() {
-  return PhysicalKeyboardKey.audioVolumeMute;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_audioVolumeUp$() {
-  return PhysicalKeyboardKey.audioVolumeUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_audioVolumeDown$() {
-  return PhysicalKeyboardKey.audioVolumeDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadComma$() {
-  return PhysicalKeyboardKey.numpadComma;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_intlRo$() {
-  return PhysicalKeyboardKey.intlRo;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_kanaMode$() {
-  return PhysicalKeyboardKey.kanaMode;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_intlYen$() {
-  return PhysicalKeyboardKey.intlYen;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_convert$() {
-  return PhysicalKeyboardKey.convert;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_nonConvert$() {
-  return PhysicalKeyboardKey.nonConvert;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lang1$() {
-  return PhysicalKeyboardKey.lang1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lang2$() {
-  return PhysicalKeyboardKey.lang2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lang3$() {
-  return PhysicalKeyboardKey.lang3;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lang4$() {
-  return PhysicalKeyboardKey.lang4;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lang5$() {
-  return PhysicalKeyboardKey.lang5;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_abort$() {
-  return PhysicalKeyboardKey.abort;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_props$() {
-  return PhysicalKeyboardKey.props;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadParenLeft$() {
-  return PhysicalKeyboardKey.numpadParenLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadParenRight$() {
-  return PhysicalKeyboardKey.numpadParenRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadBackspace$() {
-  return PhysicalKeyboardKey.numpadBackspace;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMemoryStore$() {
-  return PhysicalKeyboardKey.numpadMemoryStore;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMemoryRecall$() {
-  return PhysicalKeyboardKey.numpadMemoryRecall;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMemoryClear$() {
-  return PhysicalKeyboardKey.numpadMemoryClear;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMemoryAdd$() {
-  return PhysicalKeyboardKey.numpadMemoryAdd;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadMemorySubtract$() {
-  return PhysicalKeyboardKey.numpadMemorySubtract;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadSignChange$() {
-  return PhysicalKeyboardKey.numpadSignChange;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadClear$() {
-  return PhysicalKeyboardKey.numpadClear;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_numpadClearEntry$() {
-  return PhysicalKeyboardKey.numpadClearEntry;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_controlLeft$() {
-  return PhysicalKeyboardKey.controlLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_shiftLeft$() {
-  return PhysicalKeyboardKey.shiftLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_altLeft$() {
-  return PhysicalKeyboardKey.altLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_metaLeft$() {
-  return PhysicalKeyboardKey.metaLeft;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_controlRight$() {
-  return PhysicalKeyboardKey.controlRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_shiftRight$() {
-  return PhysicalKeyboardKey.shiftRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_altRight$() {
-  return PhysicalKeyboardKey.altRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_metaRight$() {
-  return PhysicalKeyboardKey.metaRight;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_info$() {
-  return PhysicalKeyboardKey.info;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_closedCaptionToggle$() {
-  return PhysicalKeyboardKey.closedCaptionToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessUp$() {
-  return PhysicalKeyboardKey.brightnessUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessDown$() {
-  return PhysicalKeyboardKey.brightnessDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessToggle$() {
-  return PhysicalKeyboardKey.brightnessToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessMinimum$() {
-  return PhysicalKeyboardKey.brightnessMinimum;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessMaximum$() {
-  return PhysicalKeyboardKey.brightnessMaximum;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_brightnessAuto$() {
-  return PhysicalKeyboardKey.brightnessAuto;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_kbdIllumUp$() {
-  return PhysicalKeyboardKey.kbdIllumUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_kbdIllumDown$() {
-  return PhysicalKeyboardKey.kbdIllumDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaLast$() {
-  return PhysicalKeyboardKey.mediaLast;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchPhone$() {
-  return PhysicalKeyboardKey.launchPhone;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_programGuide$() {
-  return PhysicalKeyboardKey.programGuide;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_exit$() {
-  return PhysicalKeyboardKey.exit;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_channelUp$() {
-  return PhysicalKeyboardKey.channelUp;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_channelDown$() {
-  return PhysicalKeyboardKey.channelDown;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaPlay$() {
-  return PhysicalKeyboardKey.mediaPlay;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaPause$() {
-  return PhysicalKeyboardKey.mediaPause;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaRecord$() {
-  return PhysicalKeyboardKey.mediaRecord;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaFastForward$() {
-  return PhysicalKeyboardKey.mediaFastForward;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaRewind$() {
-  return PhysicalKeyboardKey.mediaRewind;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaTrackNext$() {
-  return PhysicalKeyboardKey.mediaTrackNext;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaTrackPrevious$() {
-  return PhysicalKeyboardKey.mediaTrackPrevious;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaStop$() {
-  return PhysicalKeyboardKey.mediaStop;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_eject$() {
-  return PhysicalKeyboardKey.eject;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaPlayPause$() {
-  return PhysicalKeyboardKey.mediaPlayPause;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_speechInputToggle$() {
-  return PhysicalKeyboardKey.speechInputToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_bassBoost$() {
-  return PhysicalKeyboardKey.bassBoost;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mediaSelect$() {
-  return PhysicalKeyboardKey.mediaSelect;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchWordProcessor$() {
-  return PhysicalKeyboardKey.launchWordProcessor;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchSpreadsheet$() {
-  return PhysicalKeyboardKey.launchSpreadsheet;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchMail$() {
-  return PhysicalKeyboardKey.launchMail;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchContacts$() {
-  return PhysicalKeyboardKey.launchContacts;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchCalendar$() {
-  return PhysicalKeyboardKey.launchCalendar;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchApp2$() {
-  return PhysicalKeyboardKey.launchApp2;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchApp1$() {
-  return PhysicalKeyboardKey.launchApp1;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchInternetBrowser$() {
-  return PhysicalKeyboardKey.launchInternetBrowser;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_logOff$() {
-  return PhysicalKeyboardKey.logOff;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_lockScreen$() {
-  return PhysicalKeyboardKey.lockScreen;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchControlPanel$() {
-  return PhysicalKeyboardKey.launchControlPanel;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_selectTask$() {
-  return PhysicalKeyboardKey.selectTask;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchDocuments$() {
-  return PhysicalKeyboardKey.launchDocuments;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_spellCheck$() {
-  return PhysicalKeyboardKey.spellCheck;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchKeyboardLayout$() {
-  return PhysicalKeyboardKey.launchKeyboardLayout;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchScreenSaver$() {
-  return PhysicalKeyboardKey.launchScreenSaver;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchAudioBrowser$() {
-  return PhysicalKeyboardKey.launchAudioBrowser;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_launchAssistant$() {
-  return PhysicalKeyboardKey.launchAssistant;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_newKey$() {
-  return PhysicalKeyboardKey.newKey;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_close$() {
-  return PhysicalKeyboardKey.close;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_save$() {
-  return PhysicalKeyboardKey.save;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_print$() {
-  return PhysicalKeyboardKey.print;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserSearch$() {
-  return PhysicalKeyboardKey.browserSearch;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserHome$() {
-  return PhysicalKeyboardKey.browserHome;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserBack$() {
-  return PhysicalKeyboardKey.browserBack;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserForward$() {
-  return PhysicalKeyboardKey.browserForward;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserStop$() {
-  return PhysicalKeyboardKey.browserStop;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserRefresh$() {
-  return PhysicalKeyboardKey.browserRefresh;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_browserFavorites$() {
-  return PhysicalKeyboardKey.browserFavorites;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_zoomIn$() {
-  return PhysicalKeyboardKey.zoomIn;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_zoomOut$() {
-  return PhysicalKeyboardKey.zoomOut;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_zoomToggle$() {
-  return PhysicalKeyboardKey.zoomToggle;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_redo$() {
-  return PhysicalKeyboardKey.redo;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mailReply$() {
-  return PhysicalKeyboardKey.mailReply;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mailForward$() {
-  return PhysicalKeyboardKey.mailForward;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_mailSend$() {
-  return PhysicalKeyboardKey.mailSend;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_keyboardLayoutSelect$() {
-  return PhysicalKeyboardKey.keyboardLayoutSelect;
-}
-
-PhysicalKeyboardKey _PhysicalKeyboardKey_showAllWindows$() {
-  return PhysicalKeyboardKey.showAllWindows;
-}
-
+Function _PhysicalKeyboardKey_hyper$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.hyper;
+Function _PhysicalKeyboardKey_superKey$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.superKey;
+Function _PhysicalKeyboardKey_fn$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.fn;
+Function _PhysicalKeyboardKey_fnLock$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.fnLock;
+Function _PhysicalKeyboardKey_suspend$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.suspend;
+Function _PhysicalKeyboardKey_resume$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.resume;
+Function _PhysicalKeyboardKey_turbo$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.turbo;
+Function _PhysicalKeyboardKey_privacyScreenToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.privacyScreenToggle;
+Function _PhysicalKeyboardKey_microphoneMuteToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.microphoneMuteToggle;
+Function _PhysicalKeyboardKey_sleep$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.sleep;
+Function _PhysicalKeyboardKey_wakeUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.wakeUp;
+Function _PhysicalKeyboardKey_displayToggleIntExt$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.displayToggleIntExt;
+Function _PhysicalKeyboardKey_gameButton1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton1;
+Function _PhysicalKeyboardKey_gameButton2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton2;
+Function _PhysicalKeyboardKey_gameButton3$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton3;
+Function _PhysicalKeyboardKey_gameButton4$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton4;
+Function _PhysicalKeyboardKey_gameButton5$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton5;
+Function _PhysicalKeyboardKey_gameButton6$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton6;
+Function _PhysicalKeyboardKey_gameButton7$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton7;
+Function _PhysicalKeyboardKey_gameButton8$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton8;
+Function _PhysicalKeyboardKey_gameButton9$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton9;
+Function _PhysicalKeyboardKey_gameButton10$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton10;
+Function _PhysicalKeyboardKey_gameButton11$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton11;
+Function _PhysicalKeyboardKey_gameButton12$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton12;
+Function _PhysicalKeyboardKey_gameButton13$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton13;
+Function _PhysicalKeyboardKey_gameButton14$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton14;
+Function _PhysicalKeyboardKey_gameButton15$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton15;
+Function _PhysicalKeyboardKey_gameButton16$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButton16;
+Function _PhysicalKeyboardKey_gameButtonA$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonA;
+Function _PhysicalKeyboardKey_gameButtonB$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonB;
+Function _PhysicalKeyboardKey_gameButtonC$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonC;
+Function _PhysicalKeyboardKey_gameButtonLeft1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonLeft1;
+Function _PhysicalKeyboardKey_gameButtonLeft2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonLeft2;
+Function _PhysicalKeyboardKey_gameButtonMode$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonMode;
+Function _PhysicalKeyboardKey_gameButtonRight1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonRight1;
+Function _PhysicalKeyboardKey_gameButtonRight2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonRight2;
+Function _PhysicalKeyboardKey_gameButtonSelect$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonSelect;
+Function _PhysicalKeyboardKey_gameButtonStart$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonStart;
+Function _PhysicalKeyboardKey_gameButtonThumbLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonThumbLeft;
+Function _PhysicalKeyboardKey_gameButtonThumbRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonThumbRight;
+Function _PhysicalKeyboardKey_gameButtonX$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonX;
+Function _PhysicalKeyboardKey_gameButtonY$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonY;
+Function _PhysicalKeyboardKey_gameButtonZ$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.gameButtonZ;
+Function _PhysicalKeyboardKey_usbReserved$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.usbReserved;
+Function _PhysicalKeyboardKey_usbErrorRollOver$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.usbErrorRollOver;
+Function _PhysicalKeyboardKey_usbPostFail$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.usbPostFail;
+Function _PhysicalKeyboardKey_usbErrorUndefined$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.usbErrorUndefined;
+Function _PhysicalKeyboardKey_keyA$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyA;
+Function _PhysicalKeyboardKey_keyB$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyB;
+Function _PhysicalKeyboardKey_keyC$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyC;
+Function _PhysicalKeyboardKey_keyD$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyD;
+Function _PhysicalKeyboardKey_keyE$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyE;
+Function _PhysicalKeyboardKey_keyF$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyF;
+Function _PhysicalKeyboardKey_keyG$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyG;
+Function _PhysicalKeyboardKey_keyH$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyH;
+Function _PhysicalKeyboardKey_keyI$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyI;
+Function _PhysicalKeyboardKey_keyJ$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyJ;
+Function _PhysicalKeyboardKey_keyK$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyK;
+Function _PhysicalKeyboardKey_keyL$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyL;
+Function _PhysicalKeyboardKey_keyM$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyM;
+Function _PhysicalKeyboardKey_keyN$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyN;
+Function _PhysicalKeyboardKey_keyO$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyO;
+Function _PhysicalKeyboardKey_keyP$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyP;
+Function _PhysicalKeyboardKey_keyQ$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyQ;
+Function _PhysicalKeyboardKey_keyR$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyR;
+Function _PhysicalKeyboardKey_keyS$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyS;
+Function _PhysicalKeyboardKey_keyT$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyT;
+Function _PhysicalKeyboardKey_keyU$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyU;
+Function _PhysicalKeyboardKey_keyV$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyV;
+Function _PhysicalKeyboardKey_keyW$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyW;
+Function _PhysicalKeyboardKey_keyX$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyX;
+Function _PhysicalKeyboardKey_keyY$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyY;
+Function _PhysicalKeyboardKey_keyZ$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyZ;
+Function _PhysicalKeyboardKey_digit1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit1;
+Function _PhysicalKeyboardKey_digit2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit2;
+Function _PhysicalKeyboardKey_digit3$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit3;
+Function _PhysicalKeyboardKey_digit4$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit4;
+Function _PhysicalKeyboardKey_digit5$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit5;
+Function _PhysicalKeyboardKey_digit6$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit6;
+Function _PhysicalKeyboardKey_digit7$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit7;
+Function _PhysicalKeyboardKey_digit8$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit8;
+Function _PhysicalKeyboardKey_digit9$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit9;
+Function _PhysicalKeyboardKey_digit0$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.digit0;
+Function _PhysicalKeyboardKey_enter$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.enter;
+Function _PhysicalKeyboardKey_escape$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.escape;
+Function _PhysicalKeyboardKey_backspace$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.backspace;
+Function _PhysicalKeyboardKey_tab$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.tab;
+Function _PhysicalKeyboardKey_space$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.space;
+Function _PhysicalKeyboardKey_minus$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.minus;
+Function _PhysicalKeyboardKey_equal$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.equal;
+Function _PhysicalKeyboardKey_bracketLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.bracketLeft;
+Function _PhysicalKeyboardKey_bracketRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.bracketRight;
+Function _PhysicalKeyboardKey_backslash$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.backslash;
+Function _PhysicalKeyboardKey_semicolon$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.semicolon;
+Function _PhysicalKeyboardKey_quote$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.quote;
+Function _PhysicalKeyboardKey_backquote$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.backquote;
+Function _PhysicalKeyboardKey_comma$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.comma;
+Function _PhysicalKeyboardKey_period$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.period;
+Function _PhysicalKeyboardKey_slash$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.slash;
+Function _PhysicalKeyboardKey_capsLock$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.capsLock;
+Function _PhysicalKeyboardKey_f1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f1;
+Function _PhysicalKeyboardKey_f2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f2;
+Function _PhysicalKeyboardKey_f3$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f3;
+Function _PhysicalKeyboardKey_f4$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f4;
+Function _PhysicalKeyboardKey_f5$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f5;
+Function _PhysicalKeyboardKey_f6$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f6;
+Function _PhysicalKeyboardKey_f7$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f7;
+Function _PhysicalKeyboardKey_f8$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f8;
+Function _PhysicalKeyboardKey_f9$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f9;
+Function _PhysicalKeyboardKey_f10$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f10;
+Function _PhysicalKeyboardKey_f11$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f11;
+Function _PhysicalKeyboardKey_f12$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f12;
+Function _PhysicalKeyboardKey_printScreen$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.printScreen;
+Function _PhysicalKeyboardKey_scrollLock$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.scrollLock;
+Function _PhysicalKeyboardKey_pause$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.pause;
+Function _PhysicalKeyboardKey_insert$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.insert;
+Function _PhysicalKeyboardKey_home$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.home;
+Function _PhysicalKeyboardKey_pageUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.pageUp;
+Function _PhysicalKeyboardKey_delete$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.delete;
+Function _PhysicalKeyboardKey_end$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.end;
+Function _PhysicalKeyboardKey_pageDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.pageDown;
+Function _PhysicalKeyboardKey_arrowRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.arrowRight;
+Function _PhysicalKeyboardKey_arrowLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.arrowLeft;
+Function _PhysicalKeyboardKey_arrowDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.arrowDown;
+Function _PhysicalKeyboardKey_arrowUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.arrowUp;
+Function _PhysicalKeyboardKey_numLock$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numLock;
+Function _PhysicalKeyboardKey_numpadDivide$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadDivide;
+Function _PhysicalKeyboardKey_numpadMultiply$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMultiply;
+Function _PhysicalKeyboardKey_numpadSubtract$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadSubtract;
+Function _PhysicalKeyboardKey_numpadAdd$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadAdd;
+Function _PhysicalKeyboardKey_numpadEnter$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadEnter;
+Function _PhysicalKeyboardKey_numpad1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad1;
+Function _PhysicalKeyboardKey_numpad2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad2;
+Function _PhysicalKeyboardKey_numpad3$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad3;
+Function _PhysicalKeyboardKey_numpad4$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad4;
+Function _PhysicalKeyboardKey_numpad5$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad5;
+Function _PhysicalKeyboardKey_numpad6$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad6;
+Function _PhysicalKeyboardKey_numpad7$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad7;
+Function _PhysicalKeyboardKey_numpad8$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad8;
+Function _PhysicalKeyboardKey_numpad9$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad9;
+Function _PhysicalKeyboardKey_numpad0$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpad0;
+Function _PhysicalKeyboardKey_numpadDecimal$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadDecimal;
+Function _PhysicalKeyboardKey_intlBackslash$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.intlBackslash;
+Function _PhysicalKeyboardKey_contextMenu$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.contextMenu;
+Function _PhysicalKeyboardKey_power$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.power;
+Function _PhysicalKeyboardKey_numpadEqual$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadEqual;
+Function _PhysicalKeyboardKey_f13$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f13;
+Function _PhysicalKeyboardKey_f14$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f14;
+Function _PhysicalKeyboardKey_f15$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f15;
+Function _PhysicalKeyboardKey_f16$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f16;
+Function _PhysicalKeyboardKey_f17$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f17;
+Function _PhysicalKeyboardKey_f18$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f18;
+Function _PhysicalKeyboardKey_f19$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f19;
+Function _PhysicalKeyboardKey_f20$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f20;
+Function _PhysicalKeyboardKey_f21$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f21;
+Function _PhysicalKeyboardKey_f22$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f22;
+Function _PhysicalKeyboardKey_f23$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f23;
+Function _PhysicalKeyboardKey_f24$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.f24;
+Function _PhysicalKeyboardKey_open$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.open;
+Function _PhysicalKeyboardKey_help$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.help;
+Function _PhysicalKeyboardKey_select$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.select;
+Function _PhysicalKeyboardKey_again$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.again;
+Function _PhysicalKeyboardKey_undo$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.undo;
+Function _PhysicalKeyboardKey_cut$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.cut;
+Function _PhysicalKeyboardKey_copy$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.copy;
+Function _PhysicalKeyboardKey_paste$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.paste;
+Function _PhysicalKeyboardKey_find$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.find;
+Function _PhysicalKeyboardKey_audioVolumeMute$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.audioVolumeMute;
+Function _PhysicalKeyboardKey_audioVolumeUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.audioVolumeUp;
+Function _PhysicalKeyboardKey_audioVolumeDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.audioVolumeDown;
+Function _PhysicalKeyboardKey_numpadComma$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadComma;
+Function _PhysicalKeyboardKey_intlRo$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.intlRo;
+Function _PhysicalKeyboardKey_kanaMode$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.kanaMode;
+Function _PhysicalKeyboardKey_intlYen$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.intlYen;
+Function _PhysicalKeyboardKey_convert$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.convert;
+Function _PhysicalKeyboardKey_nonConvert$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.nonConvert;
+Function _PhysicalKeyboardKey_lang1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lang1;
+Function _PhysicalKeyboardKey_lang2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lang2;
+Function _PhysicalKeyboardKey_lang3$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lang3;
+Function _PhysicalKeyboardKey_lang4$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lang4;
+Function _PhysicalKeyboardKey_lang5$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lang5;
+Function _PhysicalKeyboardKey_abort$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.abort;
+Function _PhysicalKeyboardKey_props$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.props;
+Function _PhysicalKeyboardKey_numpadParenLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadParenLeft;
+Function _PhysicalKeyboardKey_numpadParenRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadParenRight;
+Function _PhysicalKeyboardKey_numpadBackspace$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadBackspace;
+Function _PhysicalKeyboardKey_numpadMemoryStore$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMemoryStore;
+Function _PhysicalKeyboardKey_numpadMemoryRecall$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMemoryRecall;
+Function _PhysicalKeyboardKey_numpadMemoryClear$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMemoryClear;
+Function _PhysicalKeyboardKey_numpadMemoryAdd$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMemoryAdd;
+Function _PhysicalKeyboardKey_numpadMemorySubtract$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadMemorySubtract;
+Function _PhysicalKeyboardKey_numpadSignChange$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadSignChange;
+Function _PhysicalKeyboardKey_numpadClear$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadClear;
+Function _PhysicalKeyboardKey_numpadClearEntry$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.numpadClearEntry;
+Function _PhysicalKeyboardKey_controlLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.controlLeft;
+Function _PhysicalKeyboardKey_shiftLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.shiftLeft;
+Function _PhysicalKeyboardKey_altLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.altLeft;
+Function _PhysicalKeyboardKey_metaLeft$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.metaLeft;
+Function _PhysicalKeyboardKey_controlRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.controlRight;
+Function _PhysicalKeyboardKey_shiftRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.shiftRight;
+Function _PhysicalKeyboardKey_altRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.altRight;
+Function _PhysicalKeyboardKey_metaRight$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.metaRight;
+Function _PhysicalKeyboardKey_info$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.info;
+Function _PhysicalKeyboardKey_closedCaptionToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.closedCaptionToggle;
+Function _PhysicalKeyboardKey_brightnessUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessUp;
+Function _PhysicalKeyboardKey_brightnessDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessDown;
+Function _PhysicalKeyboardKey_brightnessToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessToggle;
+Function _PhysicalKeyboardKey_brightnessMinimum$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessMinimum;
+Function _PhysicalKeyboardKey_brightnessMaximum$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessMaximum;
+Function _PhysicalKeyboardKey_brightnessAuto$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.brightnessAuto;
+Function _PhysicalKeyboardKey_kbdIllumUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.kbdIllumUp;
+Function _PhysicalKeyboardKey_kbdIllumDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.kbdIllumDown;
+Function _PhysicalKeyboardKey_mediaLast$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaLast;
+Function _PhysicalKeyboardKey_launchPhone$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchPhone;
+Function _PhysicalKeyboardKey_programGuide$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.programGuide;
+Function _PhysicalKeyboardKey_exit$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.exit;
+Function _PhysicalKeyboardKey_channelUp$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.channelUp;
+Function _PhysicalKeyboardKey_channelDown$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.channelDown;
+Function _PhysicalKeyboardKey_mediaPlay$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaPlay;
+Function _PhysicalKeyboardKey_mediaPause$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaPause;
+Function _PhysicalKeyboardKey_mediaRecord$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaRecord;
+Function _PhysicalKeyboardKey_mediaFastForward$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaFastForward;
+Function _PhysicalKeyboardKey_mediaRewind$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaRewind;
+Function _PhysicalKeyboardKey_mediaTrackNext$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaTrackNext;
+Function _PhysicalKeyboardKey_mediaTrackPrevious$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaTrackPrevious;
+Function _PhysicalKeyboardKey_mediaStop$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaStop;
+Function _PhysicalKeyboardKey_eject$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.eject;
+Function _PhysicalKeyboardKey_mediaPlayPause$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaPlayPause;
+Function _PhysicalKeyboardKey_speechInputToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.speechInputToggle;
+Function _PhysicalKeyboardKey_bassBoost$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.bassBoost;
+Function _PhysicalKeyboardKey_mediaSelect$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mediaSelect;
+Function _PhysicalKeyboardKey_launchWordProcessor$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchWordProcessor;
+Function _PhysicalKeyboardKey_launchSpreadsheet$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchSpreadsheet;
+Function _PhysicalKeyboardKey_launchMail$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchMail;
+Function _PhysicalKeyboardKey_launchContacts$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchContacts;
+Function _PhysicalKeyboardKey_launchCalendar$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchCalendar;
+Function _PhysicalKeyboardKey_launchApp2$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchApp2;
+Function _PhysicalKeyboardKey_launchApp1$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchApp1;
+Function _PhysicalKeyboardKey_launchInternetBrowser$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchInternetBrowser;
+Function _PhysicalKeyboardKey_logOff$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.logOff;
+Function _PhysicalKeyboardKey_lockScreen$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.lockScreen;
+Function _PhysicalKeyboardKey_launchControlPanel$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchControlPanel;
+Function _PhysicalKeyboardKey_selectTask$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.selectTask;
+Function _PhysicalKeyboardKey_launchDocuments$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchDocuments;
+Function _PhysicalKeyboardKey_spellCheck$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.spellCheck;
+Function _PhysicalKeyboardKey_launchKeyboardLayout$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchKeyboardLayout;
+Function _PhysicalKeyboardKey_launchScreenSaver$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchScreenSaver;
+Function _PhysicalKeyboardKey_launchAudioBrowser$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchAudioBrowser;
+Function _PhysicalKeyboardKey_launchAssistant$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.launchAssistant;
+Function _PhysicalKeyboardKey_newKey$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.newKey;
+Function _PhysicalKeyboardKey_close$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.close;
+Function _PhysicalKeyboardKey_save$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.save;
+Function _PhysicalKeyboardKey_print$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.print;
+Function _PhysicalKeyboardKey_browserSearch$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserSearch;
+Function _PhysicalKeyboardKey_browserHome$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserHome;
+Function _PhysicalKeyboardKey_browserBack$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserBack;
+Function _PhysicalKeyboardKey_browserForward$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserForward;
+Function _PhysicalKeyboardKey_browserStop$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserStop;
+Function _PhysicalKeyboardKey_browserRefresh$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserRefresh;
+Function _PhysicalKeyboardKey_browserFavorites$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.browserFavorites;
+Function _PhysicalKeyboardKey_zoomIn$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.zoomIn;
+Function _PhysicalKeyboardKey_zoomOut$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.zoomOut;
+Function _PhysicalKeyboardKey_zoomToggle$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.zoomToggle;
+Function _PhysicalKeyboardKey_redo$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.redo;
+Function _PhysicalKeyboardKey_mailReply$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mailReply;
+Function _PhysicalKeyboardKey_mailForward$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mailForward;
+Function _PhysicalKeyboardKey_mailSend$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.mailSend;
+Function _PhysicalKeyboardKey_keyboardLayoutSelect$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.keyboardLayoutSelect;
+Function _PhysicalKeyboardKey_showAllWindows$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.showAllWindows;
 Function _PhysicalKeyboardKey_debugName$(
   m.Scope scope$,
   PhysicalKeyboardKey target$,
@@ -3912,10 +2444,8 @@ Function _PhysicalKeyboardKey_hashCode$(
     () {
       return target$.hashCode;
     };
-Iterable<PhysicalKeyboardKey> _PhysicalKeyboardKey_knownPhysicalKeys$() {
-  return PhysicalKeyboardKey.knownPhysicalKeys;
-}
-
+Function _PhysicalKeyboardKey_knownPhysicalKeys$(m.Scope scope$) =>
+    () => PhysicalKeyboardKey.knownPhysicalKeys;
 Function _PhysicalKeyboardKey__$(m.Scope scope$) => (int usbHidUsage) {
       return PhysicalKeyboardKey(usbHidUsage);
     };

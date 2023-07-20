@@ -377,10 +377,7 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-AsciiCodec _ascii$() {
-  return ascii;
-}
-
+Function _ascii$(m.Scope scope$) => () => ascii;
 Function AsciiCodec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -391,18 +388,27 @@ Function AsciiCodec_is$(
   dynamic target$,
 ) =>
     () => target$ is AsciiCodec;
-String _AsciiCodec_name$(AsciiCodec target$) {
-  return target$.name;
-}
-
-AsciiEncoder _AsciiCodec_encoder$(AsciiCodec target$) {
-  return target$.encoder;
-}
-
-AsciiDecoder _AsciiCodec_decoder$(AsciiCodec target$) {
-  return target$.decoder;
-}
-
+Function _AsciiCodec_name$(
+  m.Scope scope$,
+  AsciiCodec target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _AsciiCodec_encoder$(
+  m.Scope scope$,
+  AsciiCodec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _AsciiCodec_decoder$(
+  m.Scope scope$,
+  AsciiCodec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _AsciiCodec__$(m.Scope scope$) => ({bool? allowInvalid}) {
       return AsciiCodec(allowInvalid: allowInvalid ?? false);
     };
@@ -447,14 +453,8 @@ Function _AsciiDecoder_startChunkedConversion$(
   AsciiDecoder target$,
 ) =>
     target$.startChunkedConversion;
-Base64Codec _base64$() {
-  return base64;
-}
-
-Base64Codec _base64Url$() {
-  return base64Url;
-}
-
+Function _base64$(m.Scope scope$) => () => base64;
+Function _base64Url$(m.Scope scope$) => () => base64Url;
 Function Base64Codec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -465,14 +465,20 @@ Function Base64Codec_is$(
   dynamic target$,
 ) =>
     () => target$ is Base64Codec;
-Base64Encoder _Base64Codec_encoder$(Base64Codec target$) {
-  return target$.encoder;
-}
-
-Base64Decoder _Base64Codec_decoder$(Base64Codec target$) {
-  return target$.decoder;
-}
-
+Function _Base64Codec_encoder$(
+  m.Scope scope$,
+  Base64Codec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _Base64Codec_decoder$(
+  m.Scope scope$,
+  Base64Codec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _Base64Codec__$(m.Scope scope$) => () {
       return Base64Codec();
     };
@@ -605,18 +611,27 @@ Function Codec_is$<S, T>(
   dynamic target$,
 ) =>
     () => target$ is Codec<S, T>;
-Converter<S, T> _Codec_encoder$<S, T>(Codec<S, T> target$) {
-  return target$.encoder;
-}
-
-Converter<T, S> _Codec_decoder$<S, T>(Codec<S, T> target$) {
-  return target$.decoder;
-}
-
-Codec<T, S> _Codec_inverted$<S, T>(Codec<S, T> target$) {
-  return target$.inverted;
-}
-
+Function _Codec_encoder$<S, T>(
+  m.Scope scope$,
+  Codec<S, T> target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _Codec_decoder$<S, T>(
+  m.Scope scope$,
+  Codec<S, T> target$,
+) =>
+    () {
+      return target$.decoder;
+    };
+Function _Codec_inverted$<S, T>(
+  m.Scope scope$,
+  Codec<S, T> target$,
+) =>
+    () {
+      return target$.inverted;
+    };
 Function _Codec_encode$<S, T>(
   m.Scope scope$,
   Codec<S, T> target$,
@@ -679,28 +694,34 @@ Function Encoding_is$(
   dynamic target$,
 ) =>
     () => target$ is Encoding;
-Converter<String, List<int>> _Encoding_encoder$(Encoding target$) {
-  return target$.encoder;
-}
-
-Converter<List<int>, String> _Encoding_decoder$(Encoding target$) {
-  return target$.decoder;
-}
-
-String _Encoding_name$(Encoding target$) {
-  return target$.name;
-}
-
+Function _Encoding_encoder$(
+  m.Scope scope$,
+  Encoding target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _Encoding_decoder$(
+  m.Scope scope$,
+  Encoding target$,
+) =>
+    () {
+      return target$.decoder;
+    };
+Function _Encoding_name$(
+  m.Scope scope$,
+  Encoding target$,
+) =>
+    () {
+      return target$.name;
+    };
 Function _Encoding_decodeStream$(
   m.Scope scope$,
   Encoding target$,
 ) =>
     target$.decodeStream;
 Function _Encoding_getByName$(m.Scope scope$) => Encoding.getByName;
-HtmlEscape _htmlEscape$() {
-  return htmlEscape;
-}
-
+Function _htmlEscape$(m.Scope scope$) => () => htmlEscape;
 Function HtmlEscapeMode_as$(
   m.Scope scope$,
   dynamic target$,
@@ -711,38 +732,42 @@ Function HtmlEscapeMode_is$(
   dynamic target$,
 ) =>
     () => target$ is HtmlEscapeMode;
-bool _HtmlEscapeMode_escapeLtGt$(HtmlEscapeMode target$) {
-  return target$.escapeLtGt;
-}
-
-bool _HtmlEscapeMode_escapeQuot$(HtmlEscapeMode target$) {
-  return target$.escapeQuot;
-}
-
-bool _HtmlEscapeMode_escapeApos$(HtmlEscapeMode target$) {
-  return target$.escapeApos;
-}
-
-bool _HtmlEscapeMode_escapeSlash$(HtmlEscapeMode target$) {
-  return target$.escapeSlash;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_unknown$() {
-  return HtmlEscapeMode.unknown;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_attribute$() {
-  return HtmlEscapeMode.attribute;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_sqAttribute$() {
-  return HtmlEscapeMode.sqAttribute;
-}
-
-HtmlEscapeMode _HtmlEscapeMode_element$() {
-  return HtmlEscapeMode.element;
-}
-
+Function _HtmlEscapeMode_escapeLtGt$(
+  m.Scope scope$,
+  HtmlEscapeMode target$,
+) =>
+    () {
+      return target$.escapeLtGt;
+    };
+Function _HtmlEscapeMode_escapeQuot$(
+  m.Scope scope$,
+  HtmlEscapeMode target$,
+) =>
+    () {
+      return target$.escapeQuot;
+    };
+Function _HtmlEscapeMode_escapeApos$(
+  m.Scope scope$,
+  HtmlEscapeMode target$,
+) =>
+    () {
+      return target$.escapeApos;
+    };
+Function _HtmlEscapeMode_escapeSlash$(
+  m.Scope scope$,
+  HtmlEscapeMode target$,
+) =>
+    () {
+      return target$.escapeSlash;
+    };
+Function _HtmlEscapeMode_unknown$(m.Scope scope$) =>
+    () => HtmlEscapeMode.unknown;
+Function _HtmlEscapeMode_attribute$(m.Scope scope$) =>
+    () => HtmlEscapeMode.attribute;
+Function _HtmlEscapeMode_sqAttribute$(m.Scope scope$) =>
+    () => HtmlEscapeMode.sqAttribute;
+Function _HtmlEscapeMode_element$(m.Scope scope$) =>
+    () => HtmlEscapeMode.element;
 Function _HtmlEscapeMode__$(m.Scope scope$) => ({
       String? name,
       bool? escapeLtGt,
@@ -773,10 +798,13 @@ Function HtmlEscape_is$(
   dynamic target$,
 ) =>
     () => target$ is HtmlEscape;
-HtmlEscapeMode _HtmlEscape_mode$(HtmlEscape target$) {
-  return target$.mode;
-}
-
+Function _HtmlEscape_mode$(
+  m.Scope scope$,
+  HtmlEscape target$,
+) =>
+    () {
+      return target$.mode;
+    };
 Function _HtmlEscape__$(m.Scope scope$) => ([HtmlEscapeMode? mode]) {
       if (mode == null) {
         return HtmlEscape();
@@ -793,10 +821,7 @@ Function _HtmlEscape_startChunkedConversion$(
   HtmlEscape target$,
 ) =>
     target$.startChunkedConversion;
-JsonCodec _json$() {
-  return json;
-}
-
+Function _json$(m.Scope scope$) => () => json;
 Function JsonUnsupportedObjectError_as$(
   m.Scope scope$,
   dynamic target$,
@@ -807,20 +832,27 @@ Function JsonUnsupportedObjectError_is$(
   dynamic target$,
 ) =>
     () => target$ is JsonUnsupportedObjectError;
-Object? _JsonUnsupportedObjectError_unsupportedObject$(
-    JsonUnsupportedObjectError target$) {
-  return target$.unsupportedObject;
-}
-
-Object? _JsonUnsupportedObjectError_cause$(JsonUnsupportedObjectError target$) {
-  return target$.cause;
-}
-
-String? _JsonUnsupportedObjectError_partialResult$(
-    JsonUnsupportedObjectError target$) {
-  return target$.partialResult;
-}
-
+Function _JsonUnsupportedObjectError_unsupportedObject$(
+  m.Scope scope$,
+  JsonUnsupportedObjectError target$,
+) =>
+    () {
+      return target$.unsupportedObject;
+    };
+Function _JsonUnsupportedObjectError_cause$(
+  m.Scope scope$,
+  JsonUnsupportedObjectError target$,
+) =>
+    () {
+      return target$.cause;
+    };
+Function _JsonUnsupportedObjectError_partialResult$(
+  m.Scope scope$,
+  JsonUnsupportedObjectError target$,
+) =>
+    () {
+      return target$.partialResult;
+    };
 Function _JsonUnsupportedObjectError__$(m.Scope scope$) => (
       Object? unsupportedObject, {
       Object? cause,
@@ -865,14 +897,20 @@ Function JsonCodec_is$(
   dynamic target$,
 ) =>
     () => target$ is JsonCodec;
-JsonEncoder _JsonCodec_encoder$(JsonCodec target$) {
-  return target$.encoder;
-}
-
-JsonDecoder _JsonCodec_decoder$(JsonCodec target$) {
-  return target$.decoder;
-}
-
+Function _JsonCodec_encoder$(
+  m.Scope scope$,
+  JsonCodec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _JsonCodec_decoder$(
+  m.Scope scope$,
+  JsonCodec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _JsonCodec__$(m.Scope scope$) => ({
       m.FunctionPointer? reviver,
       m.FunctionPointer? toEncodable,
@@ -975,10 +1013,13 @@ Function JsonEncoder_is$(
   dynamic target$,
 ) =>
     () => target$ is JsonEncoder;
-String? _JsonEncoder_indent$(JsonEncoder target$) {
-  return target$.indent;
-}
-
+Function _JsonEncoder_indent$(
+  m.Scope scope$,
+  JsonEncoder target$,
+) =>
+    () {
+      return target$.indent;
+    };
 Function _JsonEncoder__$(m.Scope scope$) => ([m.FunctionPointer? toEncodable]) {
       if (toEncodable == null) {
         return JsonEncoder();
@@ -1168,10 +1209,7 @@ Function _jsonDecode$(m.Scope scope$) => (
         reviver: reviver == null ? null : reviverProxy,
       );
     };
-Latin1Codec _latin1$() {
-  return latin1;
-}
-
+Function _latin1$(m.Scope scope$) => () => latin1;
 Function Latin1Codec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1182,18 +1220,27 @@ Function Latin1Codec_is$(
   dynamic target$,
 ) =>
     () => target$ is Latin1Codec;
-String _Latin1Codec_name$(Latin1Codec target$) {
-  return target$.name;
-}
-
-Latin1Encoder _Latin1Codec_encoder$(Latin1Codec target$) {
-  return target$.encoder;
-}
-
-Latin1Decoder _Latin1Codec_decoder$(Latin1Codec target$) {
-  return target$.decoder;
-}
-
+Function _Latin1Codec_name$(
+  m.Scope scope$,
+  Latin1Codec target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _Latin1Codec_encoder$(
+  m.Scope scope$,
+  Latin1Codec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _Latin1Codec_decoder$(
+  m.Scope scope$,
+  Latin1Codec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _Latin1Codec__$(m.Scope scope$) => ({bool? allowInvalid}) {
       return Latin1Codec(allowInvalid: allowInvalid ?? false);
     };
@@ -1342,18 +1389,11 @@ Function _ClosableStringSink_close$(
   ClosableStringSink target$,
 ) =>
     target$.close;
-int _unicodeReplacementCharacterRune$() {
-  return unicodeReplacementCharacterRune;
-}
-
-int _unicodeBomCharacterRune$() {
-  return unicodeBomCharacterRune;
-}
-
-Utf8Codec _utf8$() {
-  return utf8;
-}
-
+Function _unicodeReplacementCharacterRune$(m.Scope scope$) =>
+    () => unicodeReplacementCharacterRune;
+Function _unicodeBomCharacterRune$(m.Scope scope$) =>
+    () => unicodeBomCharacterRune;
+Function _utf8$(m.Scope scope$) => () => utf8;
 Function Utf8Codec_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1364,18 +1404,27 @@ Function Utf8Codec_is$(
   dynamic target$,
 ) =>
     () => target$ is Utf8Codec;
-String _Utf8Codec_name$(Utf8Codec target$) {
-  return target$.name;
-}
-
-Utf8Encoder _Utf8Codec_encoder$(Utf8Codec target$) {
-  return target$.encoder;
-}
-
-Utf8Decoder _Utf8Codec_decoder$(Utf8Codec target$) {
-  return target$.decoder;
-}
-
+Function _Utf8Codec_name$(
+  m.Scope scope$,
+  Utf8Codec target$,
+) =>
+    () {
+      return target$.name;
+    };
+Function _Utf8Codec_encoder$(
+  m.Scope scope$,
+  Utf8Codec target$,
+) =>
+    () {
+      return target$.encoder;
+    };
+Function _Utf8Codec_decoder$(
+  m.Scope scope$,
+  Utf8Codec target$,
+) =>
+    () {
+      return target$.decoder;
+    };
 Function _Utf8Codec__$(m.Scope scope$) => ({bool? allowMalformed}) {
       return Utf8Codec(allowMalformed: allowMalformed ?? false);
     };

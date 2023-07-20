@@ -471,26 +471,11 @@ Function _MediaQuery_updateShouldNotifyDependent$(
   MediaQuery target$,
 ) =>
     target$.updateShouldNotifyDependent;
-Orientation _Orientation_portrait$() {
-  return Orientation.portrait;
-}
-
-Orientation _Orientation_landscape$() {
-  return Orientation.landscape;
-}
-
-List<Orientation> _Orientation_values$() {
-  return Orientation.values;
-}
-
-NavigationMode _NavigationMode_traditional$() {
-  return NavigationMode.traditional;
-}
-
-NavigationMode _NavigationMode_directional$() {
-  return NavigationMode.directional;
-}
-
-List<NavigationMode> _NavigationMode_values$() {
-  return NavigationMode.values;
-}
+Function _Orientation_portrait$(m.Scope scope$) => () => Orientation.portrait;
+Function _Orientation_landscape$(m.Scope scope$) => () => Orientation.landscape;
+Function _Orientation_values$(m.Scope scope$) => () => Orientation.values;
+Function _NavigationMode_traditional$(m.Scope scope$) =>
+    () => NavigationMode.traditional;
+Function _NavigationMode_directional$(m.Scope scope$) =>
+    () => NavigationMode.directional;
+Function _NavigationMode_values$(m.Scope scope$) => () => NavigationMode.values;

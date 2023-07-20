@@ -19,29 +19,12 @@ const libraryMirror = m.LibraryMirror(
   {
     'ImageConfiguration.empty': _ImageConfiguration_empty$,
     'ImageConfiguration.': _ImageConfiguration__$,
-    'ImageProvider.obtainCacheStatus': _ImageProvider_obtainCacheStatus$,
-    'ImageProvider.resolveStreamForKey': _ImageProvider_resolveStreamForKey$,
-    'ImageProvider.loadImage': _ImageProvider_loadImage$,
     'AssetBundleImageKey.': _AssetBundleImageKey__$,
-    'AssetBundleImageProvider.loadImage': _AssetBundleImageProvider_loadImage$,
-    'AssetBundleImageProvider.loadBuffer':
-        _AssetBundleImageProvider_loadBuffer$,
-    'AssetBundleImageProvider.load': _AssetBundleImageProvider_load$,
     'ResizeImage.': _ResizeImage__$,
     'ResizeImage.resizeIfNeeded': _ResizeImage_resizeIfNeeded$,
-    'ResizeImage.loadImage': _ResizeImage_loadImage$,
     'NetworkImage.': _NetworkImage__$,
-    'NetworkImage.load': _NetworkImage_load$,
-    'NetworkImage.loadBuffer': _NetworkImage_loadBuffer$,
-    'NetworkImage.loadImage': _NetworkImage_loadImage$,
     'FileImage.': _FileImage__$,
-    'FileImage.load': _FileImage_load$,
-    'FileImage.loadBuffer': _FileImage_loadBuffer$,
-    'FileImage.loadImage': _FileImage_loadImage$,
     'MemoryImage.': _MemoryImage__$,
-    'MemoryImage.load': _MemoryImage_load$,
-    'MemoryImage.loadBuffer': _MemoryImage_loadBuffer$,
-    'MemoryImage.loadImage': _MemoryImage_loadImage$,
     'ExactAssetImage.': _ExactAssetImage__$,
     'NetworkImageLoadException.': _NetworkImageLoadException__$,
     'ResizeImagePolicy.exact': _ResizeImagePolicy_exact$,
@@ -75,8 +58,11 @@ const libraryMirror = m.LibraryMirror(
         '#is': ImageProvider_is$,
         'resolve': _ImageProvider_resolve$,
         'createStream': _ImageProvider_createStream$,
+        'obtainCacheStatus': _ImageProvider_obtainCacheStatus$,
+        'resolveStreamForKey': _ImageProvider_resolveStreamForKey$,
         'evict': _ImageProvider_evict$,
         'obtainKey': _ImageProvider_obtainKey$,
+        'loadImage': _ImageProvider_loadImage$,
         'toString': _ImageProvider_toString$,
       },
       {},
@@ -100,6 +86,9 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': AssetBundleImageProvider_as$,
         '#is': AssetBundleImageProvider_is$,
+        'loadImage': _AssetBundleImageProvider_loadImage$,
+        'loadBuffer': _AssetBundleImageProvider_loadBuffer$,
+        'load': _AssetBundleImageProvider_load$,
       },
       {},
     ),
@@ -123,6 +112,7 @@ const libraryMirror = m.LibraryMirror(
         'height': _ResizeImage_height$,
         'policy': _ResizeImage_policy$,
         'allowUpscaling': _ResizeImage_allowUpscaling$,
+        'loadImage': _ResizeImage_loadImage$,
         'obtainKey': _ResizeImage_obtainKey$,
       },
       {},
@@ -135,6 +125,9 @@ const libraryMirror = m.LibraryMirror(
         'url': _NetworkImage_url$,
         'scale': _NetworkImage_scale$,
         'headers': _NetworkImage_headers$,
+        'load': _NetworkImage_load$,
+        'loadBuffer': _NetworkImage_loadBuffer$,
+        'loadImage': _NetworkImage_loadImage$,
       },
       {},
     ),
@@ -147,6 +140,9 @@ const libraryMirror = m.LibraryMirror(
         'scale': _FileImage_scale$,
         'hashCode': _FileImage_hashCode$,
         'obtainKey': _FileImage_obtainKey$,
+        'load': _FileImage_load$,
+        'loadBuffer': _FileImage_loadBuffer$,
+        'loadImage': _FileImage_loadImage$,
         '==': _FileImage_eq$$,
         'toString': _FileImage_toString$,
       },
@@ -161,6 +157,9 @@ const libraryMirror = m.LibraryMirror(
         'scale': _MemoryImage_scale$,
         'hashCode': _MemoryImage_hashCode$,
         'obtainKey': _MemoryImage_obtainKey$,
+        'load': _MemoryImage_load$,
+        'loadBuffer': _MemoryImage_loadBuffer$,
+        'loadImage': _MemoryImage_loadImage$,
         '==': _MemoryImage_eq$$,
         'toString': _MemoryImage_toString$,
       },
@@ -253,10 +252,8 @@ Function _ImageConfiguration_platform$(
     () {
       return target$.platform;
     };
-ImageConfiguration _ImageConfiguration_empty$() {
-  return ImageConfiguration.empty;
-}
-
+Function _ImageConfiguration_empty$(m.Scope scope$) =>
+    () => ImageConfiguration.empty;
 Function _ImageConfiguration_hashCode$(
   m.Scope scope$,
   ImageConfiguration target$,
@@ -1185,14 +1182,8 @@ Function _NetworkImageLoadException_toString$(
   NetworkImageLoadException target$,
 ) =>
     target$.toString;
-ResizeImagePolicy _ResizeImagePolicy_exact$() {
-  return ResizeImagePolicy.exact;
-}
-
-ResizeImagePolicy _ResizeImagePolicy_fit$() {
-  return ResizeImagePolicy.fit;
-}
-
-List<ResizeImagePolicy> _ResizeImagePolicy_values$() {
-  return ResizeImagePolicy.values;
-}
+Function _ResizeImagePolicy_exact$(m.Scope scope$) =>
+    () => ResizeImagePolicy.exact;
+Function _ResizeImagePolicy_fit$(m.Scope scope$) => () => ResizeImagePolicy.fit;
+Function _ResizeImagePolicy_values$(m.Scope scope$) =>
+    () => ResizeImagePolicy.values;

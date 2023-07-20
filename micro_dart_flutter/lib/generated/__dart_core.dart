@@ -15,9 +15,12 @@ import 'dart:convert'
 import 'dart:math' show Random;
 import 'dart:typed_data' show Uint8List;
 
+part '../proxy/proxy__dart_core.dart';
+
 const libraryMirror = m.LibraryMirror(
   'dart:core',
   {
+    '_Enum.': __Enum__$,
     'deprecated': _deprecated$,
     'override': _override$,
     'Deprecated.': _Deprecated__$,
@@ -1134,14 +1137,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Deprecated _deprecated$() {
-  return deprecated;
-}
-
-Object _override$() {
-  return override;
-}
-
+Function _deprecated$(m.Scope scope$) => () => deprecated;
+Function _override$(m.Scope scope$) => () => override;
 Function Deprecated_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1160,7 +1157,7 @@ Function _Deprecated_message$(
       return target$.message;
     };
 Function _Deprecated__$(m.Scope scope$) => (String message) {
-      return Deprecated(message);
+      return $Deprecated(message);
     };
 Function _Deprecated_toString$(
   m.Scope scope$,
@@ -1213,18 +1210,9 @@ Function BigInt_is$(
   dynamic target$,
 ) =>
     () => target$ is BigInt;
-BigInt _BigInt_zero$() {
-  return BigInt.zero;
-}
-
-BigInt _BigInt_one$() {
-  return BigInt.one;
-}
-
-BigInt _BigInt_two$() {
-  return BigInt.two;
-}
-
+Function _BigInt_zero$(m.Scope scope$) => () => BigInt.zero;
+Function _BigInt_one$(m.Scope scope$) => () => BigInt.one;
+Function _BigInt_two$(m.Scope scope$) => () => BigInt.two;
 Function _BigInt_bitLength$(
   m.Scope scope$,
   BigInt target$,
@@ -1487,90 +1475,28 @@ Function DateTime_is$(
   dynamic target$,
 ) =>
     () => target$ is DateTime;
-int _DateTime_monday$() {
-  return DateTime.monday;
-}
-
-int _DateTime_tuesday$() {
-  return DateTime.tuesday;
-}
-
-int _DateTime_wednesday$() {
-  return DateTime.wednesday;
-}
-
-int _DateTime_thursday$() {
-  return DateTime.thursday;
-}
-
-int _DateTime_friday$() {
-  return DateTime.friday;
-}
-
-int _DateTime_saturday$() {
-  return DateTime.saturday;
-}
-
-int _DateTime_sunday$() {
-  return DateTime.sunday;
-}
-
-int _DateTime_daysPerWeek$() {
-  return DateTime.daysPerWeek;
-}
-
-int _DateTime_january$() {
-  return DateTime.january;
-}
-
-int _DateTime_february$() {
-  return DateTime.february;
-}
-
-int _DateTime_march$() {
-  return DateTime.march;
-}
-
-int _DateTime_april$() {
-  return DateTime.april;
-}
-
-int _DateTime_may$() {
-  return DateTime.may;
-}
-
-int _DateTime_june$() {
-  return DateTime.june;
-}
-
-int _DateTime_july$() {
-  return DateTime.july;
-}
-
-int _DateTime_august$() {
-  return DateTime.august;
-}
-
-int _DateTime_september$() {
-  return DateTime.september;
-}
-
-int _DateTime_october$() {
-  return DateTime.october;
-}
-
-int _DateTime_november$() {
-  return DateTime.november;
-}
-
-int _DateTime_december$() {
-  return DateTime.december;
-}
-
-int _DateTime_monthsPerYear$() {
-  return DateTime.monthsPerYear;
-}
-
+Function _DateTime_monday$(m.Scope scope$) => () => DateTime.monday;
+Function _DateTime_tuesday$(m.Scope scope$) => () => DateTime.tuesday;
+Function _DateTime_wednesday$(m.Scope scope$) => () => DateTime.wednesday;
+Function _DateTime_thursday$(m.Scope scope$) => () => DateTime.thursday;
+Function _DateTime_friday$(m.Scope scope$) => () => DateTime.friday;
+Function _DateTime_saturday$(m.Scope scope$) => () => DateTime.saturday;
+Function _DateTime_sunday$(m.Scope scope$) => () => DateTime.sunday;
+Function _DateTime_daysPerWeek$(m.Scope scope$) => () => DateTime.daysPerWeek;
+Function _DateTime_january$(m.Scope scope$) => () => DateTime.january;
+Function _DateTime_february$(m.Scope scope$) => () => DateTime.february;
+Function _DateTime_march$(m.Scope scope$) => () => DateTime.march;
+Function _DateTime_april$(m.Scope scope$) => () => DateTime.april;
+Function _DateTime_may$(m.Scope scope$) => () => DateTime.may;
+Function _DateTime_june$(m.Scope scope$) => () => DateTime.june;
+Function _DateTime_july$(m.Scope scope$) => () => DateTime.july;
+Function _DateTime_august$(m.Scope scope$) => () => DateTime.august;
+Function _DateTime_september$(m.Scope scope$) => () => DateTime.september;
+Function _DateTime_october$(m.Scope scope$) => () => DateTime.october;
+Function _DateTime_november$(m.Scope scope$) => () => DateTime.november;
+Function _DateTime_december$(m.Scope scope$) => () => DateTime.december;
+Function _DateTime_monthsPerYear$(m.Scope scope$) =>
+    () => DateTime.monthsPerYear;
 Function _DateTime_isUtc$(
   m.Scope scope$,
   DateTime target$,
@@ -1848,26 +1774,12 @@ Function double_is$(
   dynamic target$,
 ) =>
     () => target$ is double;
-double _double_nan$() {
-  return double.nan;
-}
-
-double _double_infinity$() {
-  return double.infinity;
-}
-
-double _double_negativeInfinity$() {
-  return double.negativeInfinity;
-}
-
-double _double_minPositive$() {
-  return double.minPositive;
-}
-
-double _double_maxFinite$() {
-  return double.maxFinite;
-}
-
+Function _double_nan$(m.Scope scope$) => () => double.nan;
+Function _double_infinity$(m.Scope scope$) => () => double.infinity;
+Function _double_negativeInfinity$(m.Scope scope$) =>
+    () => double.negativeInfinity;
+Function _double_minPositive$(m.Scope scope$) => () => double.minPositive;
+Function _double_maxFinite$(m.Scope scope$) => () => double.maxFinite;
 Function _double_sign$(
   m.Scope scope$,
   double target$,
@@ -1977,70 +1889,36 @@ Function Duration_is$(
   dynamic target$,
 ) =>
     () => target$ is Duration;
-int _Duration_microsecondsPerMillisecond$() {
-  return Duration.microsecondsPerMillisecond;
-}
-
-int _Duration_millisecondsPerSecond$() {
-  return Duration.millisecondsPerSecond;
-}
-
-int _Duration_secondsPerMinute$() {
-  return Duration.secondsPerMinute;
-}
-
-int _Duration_minutesPerHour$() {
-  return Duration.minutesPerHour;
-}
-
-int _Duration_hoursPerDay$() {
-  return Duration.hoursPerDay;
-}
-
-int _Duration_microsecondsPerSecond$() {
-  return Duration.microsecondsPerSecond;
-}
-
-int _Duration_microsecondsPerMinute$() {
-  return Duration.microsecondsPerMinute;
-}
-
-int _Duration_microsecondsPerHour$() {
-  return Duration.microsecondsPerHour;
-}
-
-int _Duration_microsecondsPerDay$() {
-  return Duration.microsecondsPerDay;
-}
-
-int _Duration_millisecondsPerMinute$() {
-  return Duration.millisecondsPerMinute;
-}
-
-int _Duration_millisecondsPerHour$() {
-  return Duration.millisecondsPerHour;
-}
-
-int _Duration_millisecondsPerDay$() {
-  return Duration.millisecondsPerDay;
-}
-
-int _Duration_secondsPerHour$() {
-  return Duration.secondsPerHour;
-}
-
-int _Duration_secondsPerDay$() {
-  return Duration.secondsPerDay;
-}
-
-int _Duration_minutesPerDay$() {
-  return Duration.minutesPerDay;
-}
-
-Duration _Duration_zero$() {
-  return Duration.zero;
-}
-
+Function _Duration_microsecondsPerMillisecond$(m.Scope scope$) =>
+    () => Duration.microsecondsPerMillisecond;
+Function _Duration_millisecondsPerSecond$(m.Scope scope$) =>
+    () => Duration.millisecondsPerSecond;
+Function _Duration_secondsPerMinute$(m.Scope scope$) =>
+    () => Duration.secondsPerMinute;
+Function _Duration_minutesPerHour$(m.Scope scope$) =>
+    () => Duration.minutesPerHour;
+Function _Duration_hoursPerDay$(m.Scope scope$) => () => Duration.hoursPerDay;
+Function _Duration_microsecondsPerSecond$(m.Scope scope$) =>
+    () => Duration.microsecondsPerSecond;
+Function _Duration_microsecondsPerMinute$(m.Scope scope$) =>
+    () => Duration.microsecondsPerMinute;
+Function _Duration_microsecondsPerHour$(m.Scope scope$) =>
+    () => Duration.microsecondsPerHour;
+Function _Duration_microsecondsPerDay$(m.Scope scope$) =>
+    () => Duration.microsecondsPerDay;
+Function _Duration_millisecondsPerMinute$(m.Scope scope$) =>
+    () => Duration.millisecondsPerMinute;
+Function _Duration_millisecondsPerHour$(m.Scope scope$) =>
+    () => Duration.millisecondsPerHour;
+Function _Duration_millisecondsPerDay$(m.Scope scope$) =>
+    () => Duration.millisecondsPerDay;
+Function _Duration_secondsPerHour$(m.Scope scope$) =>
+    () => Duration.secondsPerHour;
+Function _Duration_secondsPerDay$(m.Scope scope$) =>
+    () => Duration.secondsPerDay;
+Function _Duration_minutesPerDay$(m.Scope scope$) =>
+    () => Duration.minutesPerDay;
+Function _Duration_zero$(m.Scope scope$) => () => Duration.zero;
 Function _Duration_inDays$(
   m.Scope scope$,
   Duration target$,
@@ -4554,14 +4432,8 @@ Function StackTrace_is$(
   dynamic target$,
 ) =>
     () => target$ is StackTrace;
-dynamic _StackTrace_empty$() {
-  return StackTrace.empty;
-}
-
-StackTrace _StackTrace_current$() {
-  return StackTrace.current;
-}
-
+Function _StackTrace_empty$(m.Scope scope$) => () => StackTrace.empty;
+Function _StackTrace_current$(m.Scope scope$) => () => StackTrace.current;
 Function _StackTrace_fromString_$(m.Scope scope$) => StackTrace.fromString;
 Function _StackTrace_toString$(
   m.Scope scope$,
@@ -5097,14 +4969,8 @@ Function Symbol_is$(
   dynamic target$,
 ) =>
     () => target$ is Symbol;
-Symbol _Symbol_unaryMinus$() {
-  return Symbol.unaryMinus;
-}
-
-Symbol _Symbol_empty$() {
-  return Symbol.empty;
-}
-
+Function _Symbol_unaryMinus$(m.Scope scope$) => () => Symbol.unaryMinus;
+Function _Symbol_empty$(m.Scope scope$) => () => Symbol.empty;
 Function _Symbol_hashCode$(
   m.Scope scope$,
   Symbol target$,
@@ -5157,10 +5023,7 @@ Function Uri_is$(
   dynamic target$,
 ) =>
     () => target$ is Uri;
-Uri _Uri_base$() {
-  return Uri.base;
-}
-
+Function _Uri_base$(m.Scope scope$) => () => Uri.base;
 Function _Uri_scheme$(
   m.Scope scope$,
   Uri target$,

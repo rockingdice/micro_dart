@@ -8,10 +8,7 @@ import 'package:flutter/src/gestures/events.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/pointer_signal_resolver.dart',
-  {
-    'PointerSignalResolver.': _PointerSignalResolver__$,
-    'PointerSignalResolver.register': _PointerSignalResolver_register$,
-  },
+  {'PointerSignalResolver.': _PointerSignalResolver__$},
   {},
   {
     'PointerSignalResolver': m.ClassMirror(
@@ -19,6 +16,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': PointerSignalResolver_as$,
         '#is': PointerSignalResolver_is$,
+        'register': _PointerSignalResolver_register$,
         'resolve': _PointerSignalResolver_resolve$,
       },
       {},

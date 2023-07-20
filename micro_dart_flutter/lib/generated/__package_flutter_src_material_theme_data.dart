@@ -1158,26 +1158,15 @@ Function VisualDensity_is$(
   dynamic target$,
 ) =>
     () => target$ is VisualDensity;
-double _VisualDensity_minimumDensity$() {
-  return VisualDensity.minimumDensity;
-}
-
-double _VisualDensity_maximumDensity$() {
-  return VisualDensity.maximumDensity;
-}
-
-VisualDensity _VisualDensity_standard$() {
-  return VisualDensity.standard;
-}
-
-VisualDensity _VisualDensity_comfortable$() {
-  return VisualDensity.comfortable;
-}
-
-VisualDensity _VisualDensity_compact$() {
-  return VisualDensity.compact;
-}
-
+Function _VisualDensity_minimumDensity$(m.Scope scope$) =>
+    () => VisualDensity.minimumDensity;
+Function _VisualDensity_maximumDensity$(m.Scope scope$) =>
+    () => VisualDensity.maximumDensity;
+Function _VisualDensity_standard$(m.Scope scope$) =>
+    () => VisualDensity.standard;
+Function _VisualDensity_comfortable$(m.Scope scope$) =>
+    () => VisualDensity.comfortable;
+Function _VisualDensity_compact$(m.Scope scope$) => () => VisualDensity.compact;
 Function _VisualDensity_horizontal$(
   m.Scope scope$,
   VisualDensity target$,
@@ -1192,10 +1181,8 @@ Function _VisualDensity_vertical$(
     () {
       return target$.vertical;
     };
-VisualDensity _VisualDensity_adaptivePlatformDensity$() {
-  return VisualDensity.adaptivePlatformDensity;
-}
-
+Function _VisualDensity_adaptivePlatformDensity$(m.Scope scope$) =>
+    () => VisualDensity.adaptivePlatformDensity;
 Function _VisualDensity_baseSizeAdjustment$(
   m.Scope scope$,
   VisualDensity target$,
@@ -1247,14 +1234,9 @@ Function _VisualDensity_toStringShort$(
   VisualDensity target$,
 ) =>
     target$.toStringShort;
-MaterialTapTargetSize _MaterialTapTargetSize_padded$() {
-  return MaterialTapTargetSize.padded;
-}
-
-MaterialTapTargetSize _MaterialTapTargetSize_shrinkWrap$() {
-  return MaterialTapTargetSize.shrinkWrap;
-}
-
-List<MaterialTapTargetSize> _MaterialTapTargetSize_values$() {
-  return MaterialTapTargetSize.values;
-}
+Function _MaterialTapTargetSize_padded$(m.Scope scope$) =>
+    () => MaterialTapTargetSize.padded;
+Function _MaterialTapTargetSize_shrinkWrap$(m.Scope scope$) =>
+    () => MaterialTapTargetSize.shrinkWrap;
+Function _MaterialTapTargetSize_values$(m.Scope scope$) =>
+    () => MaterialTapTargetSize.values;

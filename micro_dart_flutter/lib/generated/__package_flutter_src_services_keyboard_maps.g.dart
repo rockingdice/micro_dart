@@ -37,102 +37,28 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-Map<int, LogicalKeyboardKey> _kAndroidToLogicalKey$() {
-  return kAndroidToLogicalKey;
-}
-
-Map<int, PhysicalKeyboardKey> _kAndroidToPhysicalKey$() {
-  return kAndroidToPhysicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kAndroidNumPadMap$() {
-  return kAndroidNumPadMap;
-}
-
-Map<int, LogicalKeyboardKey> _kFuchsiaToLogicalKey$() {
-  return kFuchsiaToLogicalKey;
-}
-
-Map<int, PhysicalKeyboardKey> _kFuchsiaToPhysicalKey$() {
-  return kFuchsiaToPhysicalKey;
-}
-
-Map<int, PhysicalKeyboardKey> _kMacOsToPhysicalKey$() {
-  return kMacOsToPhysicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kMacOsNumPadMap$() {
-  return kMacOsNumPadMap;
-}
-
-Map<int, LogicalKeyboardKey> _kMacOsFunctionKeyMap$() {
-  return kMacOsFunctionKeyMap;
-}
-
-Map<int, LogicalKeyboardKey> _kMacOsToLogicalKey$() {
-  return kMacOsToLogicalKey;
-}
-
-Map<int, PhysicalKeyboardKey> _kIosToPhysicalKey$() {
-  return kIosToPhysicalKey;
-}
-
-Map<String, LogicalKeyboardKey> _kIosSpecialLogicalMap$() {
-  return kIosSpecialLogicalMap;
-}
-
-Map<int, LogicalKeyboardKey> _kIosNumPadMap$() {
-  return kIosNumPadMap;
-}
-
-Map<int, LogicalKeyboardKey> _kIosToLogicalKey$() {
-  return kIosToLogicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kGlfwToLogicalKey$() {
-  return kGlfwToLogicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kGlfwNumpadMap$() {
-  return kGlfwNumpadMap;
-}
-
-Map<int, LogicalKeyboardKey> _kGtkToLogicalKey$() {
-  return kGtkToLogicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kGtkNumpadMap$() {
-  return kGtkNumpadMap;
-}
-
-Map<int, PhysicalKeyboardKey> _kLinuxToPhysicalKey$() {
-  return kLinuxToPhysicalKey;
-}
-
-Map<String, LogicalKeyboardKey> _kWebToLogicalKey$() {
-  return kWebToLogicalKey;
-}
-
-Map<String, PhysicalKeyboardKey> _kWebToPhysicalKey$() {
-  return kWebToPhysicalKey;
-}
-
-Map<String, LogicalKeyboardKey> _kWebNumPadMap$() {
-  return kWebNumPadMap;
-}
-
-Map<String, List<LogicalKeyboardKey?>> _kWebLocationMap$() {
-  return kWebLocationMap;
-}
-
-Map<int, LogicalKeyboardKey> _kWindowsToLogicalKey$() {
-  return kWindowsToLogicalKey;
-}
-
-Map<int, PhysicalKeyboardKey> _kWindowsToPhysicalKey$() {
-  return kWindowsToPhysicalKey;
-}
-
-Map<int, LogicalKeyboardKey> _kWindowsNumPadMap$() {
-  return kWindowsNumPadMap;
-}
+Function _kAndroidToLogicalKey$(m.Scope scope$) => () => kAndroidToLogicalKey;
+Function _kAndroidToPhysicalKey$(m.Scope scope$) => () => kAndroidToPhysicalKey;
+Function _kAndroidNumPadMap$(m.Scope scope$) => () => kAndroidNumPadMap;
+Function _kFuchsiaToLogicalKey$(m.Scope scope$) => () => kFuchsiaToLogicalKey;
+Function _kFuchsiaToPhysicalKey$(m.Scope scope$) => () => kFuchsiaToPhysicalKey;
+Function _kMacOsToPhysicalKey$(m.Scope scope$) => () => kMacOsToPhysicalKey;
+Function _kMacOsNumPadMap$(m.Scope scope$) => () => kMacOsNumPadMap;
+Function _kMacOsFunctionKeyMap$(m.Scope scope$) => () => kMacOsFunctionKeyMap;
+Function _kMacOsToLogicalKey$(m.Scope scope$) => () => kMacOsToLogicalKey;
+Function _kIosToPhysicalKey$(m.Scope scope$) => () => kIosToPhysicalKey;
+Function _kIosSpecialLogicalMap$(m.Scope scope$) => () => kIosSpecialLogicalMap;
+Function _kIosNumPadMap$(m.Scope scope$) => () => kIosNumPadMap;
+Function _kIosToLogicalKey$(m.Scope scope$) => () => kIosToLogicalKey;
+Function _kGlfwToLogicalKey$(m.Scope scope$) => () => kGlfwToLogicalKey;
+Function _kGlfwNumpadMap$(m.Scope scope$) => () => kGlfwNumpadMap;
+Function _kGtkToLogicalKey$(m.Scope scope$) => () => kGtkToLogicalKey;
+Function _kGtkNumpadMap$(m.Scope scope$) => () => kGtkNumpadMap;
+Function _kLinuxToPhysicalKey$(m.Scope scope$) => () => kLinuxToPhysicalKey;
+Function _kWebToLogicalKey$(m.Scope scope$) => () => kWebToLogicalKey;
+Function _kWebToPhysicalKey$(m.Scope scope$) => () => kWebToPhysicalKey;
+Function _kWebNumPadMap$(m.Scope scope$) => () => kWebNumPadMap;
+Function _kWebLocationMap$(m.Scope scope$) => () => kWebLocationMap;
+Function _kWindowsToLogicalKey$(m.Scope scope$) => () => kWindowsToLogicalKey;
+Function _kWindowsToPhysicalKey$(m.Scope scope$) => () => kWindowsToPhysicalKey;
+Function _kWindowsNumPadMap$(m.Scope scope$) => () => kWindowsNumPadMap;

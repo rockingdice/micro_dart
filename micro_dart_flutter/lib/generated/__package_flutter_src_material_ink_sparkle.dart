@@ -42,15 +42,10 @@ Function InkSparkle_is$(
   dynamic target$,
 ) =>
     () => target$ is InkSparkle;
-InteractiveInkFeatureFactory _InkSparkle_splashFactory$() {
-  return InkSparkle.splashFactory;
-}
-
-InteractiveInkFeatureFactory
-    _InkSparkle_constantTurbulenceSeedSplashFactory$() {
-  return InkSparkle.constantTurbulenceSeedSplashFactory;
-}
-
+Function _InkSparkle_splashFactory$(m.Scope scope$) =>
+    () => InkSparkle.splashFactory;
+Function _InkSparkle_constantTurbulenceSeedSplashFactory$(m.Scope scope$) =>
+    () => InkSparkle.constantTurbulenceSeedSplashFactory;
 Function _InkSparkle__$(m.Scope scope$) => ({
       required MaterialInkController controller,
       required RenderBox referenceBox,

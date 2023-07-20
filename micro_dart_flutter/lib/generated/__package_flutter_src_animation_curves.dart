@@ -822,174 +822,50 @@ Function Curves_is$(
   dynamic target$,
 ) =>
     () => target$ is Curves;
-Curve _Curves_linear$() {
-  return Curves.linear;
-}
-
-Curve _Curves_decelerate$() {
-  return Curves.decelerate;
-}
-
-Cubic _Curves_fastLinearToSlowEaseIn$() {
-  return Curves.fastLinearToSlowEaseIn;
-}
-
-ThreePointCubic _Curves_fastEaseInToSlowEaseOut$() {
-  return Curves.fastEaseInToSlowEaseOut;
-}
-
-Cubic _Curves_ease$() {
-  return Curves.ease;
-}
-
-Cubic _Curves_easeIn$() {
-  return Curves.easeIn;
-}
-
-Cubic _Curves_easeInToLinear$() {
-  return Curves.easeInToLinear;
-}
-
-Cubic _Curves_easeInSine$() {
-  return Curves.easeInSine;
-}
-
-Cubic _Curves_easeInQuad$() {
-  return Curves.easeInQuad;
-}
-
-Cubic _Curves_easeInCubic$() {
-  return Curves.easeInCubic;
-}
-
-Cubic _Curves_easeInQuart$() {
-  return Curves.easeInQuart;
-}
-
-Cubic _Curves_easeInQuint$() {
-  return Curves.easeInQuint;
-}
-
-Cubic _Curves_easeInExpo$() {
-  return Curves.easeInExpo;
-}
-
-Cubic _Curves_easeInCirc$() {
-  return Curves.easeInCirc;
-}
-
-Cubic _Curves_easeInBack$() {
-  return Curves.easeInBack;
-}
-
-Cubic _Curves_easeOut$() {
-  return Curves.easeOut;
-}
-
-Cubic _Curves_linearToEaseOut$() {
-  return Curves.linearToEaseOut;
-}
-
-Cubic _Curves_easeOutSine$() {
-  return Curves.easeOutSine;
-}
-
-Cubic _Curves_easeOutQuad$() {
-  return Curves.easeOutQuad;
-}
-
-Cubic _Curves_easeOutCubic$() {
-  return Curves.easeOutCubic;
-}
-
-Cubic _Curves_easeOutQuart$() {
-  return Curves.easeOutQuart;
-}
-
-Cubic _Curves_easeOutQuint$() {
-  return Curves.easeOutQuint;
-}
-
-Cubic _Curves_easeOutExpo$() {
-  return Curves.easeOutExpo;
-}
-
-Cubic _Curves_easeOutCirc$() {
-  return Curves.easeOutCirc;
-}
-
-Cubic _Curves_easeOutBack$() {
-  return Curves.easeOutBack;
-}
-
-Cubic _Curves_easeInOut$() {
-  return Curves.easeInOut;
-}
-
-Cubic _Curves_easeInOutSine$() {
-  return Curves.easeInOutSine;
-}
-
-Cubic _Curves_easeInOutQuad$() {
-  return Curves.easeInOutQuad;
-}
-
-Cubic _Curves_easeInOutCubic$() {
-  return Curves.easeInOutCubic;
-}
-
-ThreePointCubic _Curves_easeInOutCubicEmphasized$() {
-  return Curves.easeInOutCubicEmphasized;
-}
-
-Cubic _Curves_easeInOutQuart$() {
-  return Curves.easeInOutQuart;
-}
-
-Cubic _Curves_easeInOutQuint$() {
-  return Curves.easeInOutQuint;
-}
-
-Cubic _Curves_easeInOutExpo$() {
-  return Curves.easeInOutExpo;
-}
-
-Cubic _Curves_easeInOutCirc$() {
-  return Curves.easeInOutCirc;
-}
-
-Cubic _Curves_easeInOutBack$() {
-  return Curves.easeInOutBack;
-}
-
-Cubic _Curves_fastOutSlowIn$() {
-  return Curves.fastOutSlowIn;
-}
-
-Cubic _Curves_slowMiddle$() {
-  return Curves.slowMiddle;
-}
-
-Curve _Curves_bounceIn$() {
-  return Curves.bounceIn;
-}
-
-Curve _Curves_bounceOut$() {
-  return Curves.bounceOut;
-}
-
-Curve _Curves_bounceInOut$() {
-  return Curves.bounceInOut;
-}
-
-ElasticInCurve _Curves_elasticIn$() {
-  return Curves.elasticIn;
-}
-
-ElasticOutCurve _Curves_elasticOut$() {
-  return Curves.elasticOut;
-}
-
-ElasticInOutCurve _Curves_elasticInOut$() {
-  return Curves.elasticInOut;
-}
+Function _Curves_linear$(m.Scope scope$) => () => Curves.linear;
+Function _Curves_decelerate$(m.Scope scope$) => () => Curves.decelerate;
+Function _Curves_fastLinearToSlowEaseIn$(m.Scope scope$) =>
+    () => Curves.fastLinearToSlowEaseIn;
+Function _Curves_fastEaseInToSlowEaseOut$(m.Scope scope$) =>
+    () => Curves.fastEaseInToSlowEaseOut;
+Function _Curves_ease$(m.Scope scope$) => () => Curves.ease;
+Function _Curves_easeIn$(m.Scope scope$) => () => Curves.easeIn;
+Function _Curves_easeInToLinear$(m.Scope scope$) => () => Curves.easeInToLinear;
+Function _Curves_easeInSine$(m.Scope scope$) => () => Curves.easeInSine;
+Function _Curves_easeInQuad$(m.Scope scope$) => () => Curves.easeInQuad;
+Function _Curves_easeInCubic$(m.Scope scope$) => () => Curves.easeInCubic;
+Function _Curves_easeInQuart$(m.Scope scope$) => () => Curves.easeInQuart;
+Function _Curves_easeInQuint$(m.Scope scope$) => () => Curves.easeInQuint;
+Function _Curves_easeInExpo$(m.Scope scope$) => () => Curves.easeInExpo;
+Function _Curves_easeInCirc$(m.Scope scope$) => () => Curves.easeInCirc;
+Function _Curves_easeInBack$(m.Scope scope$) => () => Curves.easeInBack;
+Function _Curves_easeOut$(m.Scope scope$) => () => Curves.easeOut;
+Function _Curves_linearToEaseOut$(m.Scope scope$) =>
+    () => Curves.linearToEaseOut;
+Function _Curves_easeOutSine$(m.Scope scope$) => () => Curves.easeOutSine;
+Function _Curves_easeOutQuad$(m.Scope scope$) => () => Curves.easeOutQuad;
+Function _Curves_easeOutCubic$(m.Scope scope$) => () => Curves.easeOutCubic;
+Function _Curves_easeOutQuart$(m.Scope scope$) => () => Curves.easeOutQuart;
+Function _Curves_easeOutQuint$(m.Scope scope$) => () => Curves.easeOutQuint;
+Function _Curves_easeOutExpo$(m.Scope scope$) => () => Curves.easeOutExpo;
+Function _Curves_easeOutCirc$(m.Scope scope$) => () => Curves.easeOutCirc;
+Function _Curves_easeOutBack$(m.Scope scope$) => () => Curves.easeOutBack;
+Function _Curves_easeInOut$(m.Scope scope$) => () => Curves.easeInOut;
+Function _Curves_easeInOutSine$(m.Scope scope$) => () => Curves.easeInOutSine;
+Function _Curves_easeInOutQuad$(m.Scope scope$) => () => Curves.easeInOutQuad;
+Function _Curves_easeInOutCubic$(m.Scope scope$) => () => Curves.easeInOutCubic;
+Function _Curves_easeInOutCubicEmphasized$(m.Scope scope$) =>
+    () => Curves.easeInOutCubicEmphasized;
+Function _Curves_easeInOutQuart$(m.Scope scope$) => () => Curves.easeInOutQuart;
+Function _Curves_easeInOutQuint$(m.Scope scope$) => () => Curves.easeInOutQuint;
+Function _Curves_easeInOutExpo$(m.Scope scope$) => () => Curves.easeInOutExpo;
+Function _Curves_easeInOutCirc$(m.Scope scope$) => () => Curves.easeInOutCirc;
+Function _Curves_easeInOutBack$(m.Scope scope$) => () => Curves.easeInOutBack;
+Function _Curves_fastOutSlowIn$(m.Scope scope$) => () => Curves.fastOutSlowIn;
+Function _Curves_slowMiddle$(m.Scope scope$) => () => Curves.slowMiddle;
+Function _Curves_bounceIn$(m.Scope scope$) => () => Curves.bounceIn;
+Function _Curves_bounceOut$(m.Scope scope$) => () => Curves.bounceOut;
+Function _Curves_bounceInOut$(m.Scope scope$) => () => Curves.bounceInOut;
+Function _Curves_elasticIn$(m.Scope scope$) => () => Curves.elasticIn;
+Function _Curves_elasticOut$(m.Scope scope$) => () => Curves.elasticOut;
+Function _Curves_elasticInOut$(m.Scope scope$) => () => Curves.elasticInOut;

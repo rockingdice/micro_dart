@@ -646,10 +646,8 @@ Function CopySelectionTextIntent_is$(
   dynamic target$,
 ) =>
     () => target$ is CopySelectionTextIntent;
-CopySelectionTextIntent _CopySelectionTextIntent_copy$() {
-  return CopySelectionTextIntent.copy;
-}
-
+Function _CopySelectionTextIntent_copy$(m.Scope scope$) =>
+    () => CopySelectionTextIntent.copy;
 Function _CopySelectionTextIntent_cause$(
   m.Scope scope$,
   CopySelectionTextIntent target$,

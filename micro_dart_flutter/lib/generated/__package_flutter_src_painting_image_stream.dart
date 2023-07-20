@@ -15,11 +15,6 @@ const libraryMirror = m.LibraryMirror(
     'ImageStreamListener.': _ImageStreamListener__$,
     'ImageChunkEvent.': _ImageChunkEvent__$,
     'ImageStream.': _ImageStream__$,
-    'ImageStreamCompleter.addOnLastListenerRemovedCallback':
-        _ImageStreamCompleter_addOnLastListenerRemovedCallback$,
-    'ImageStreamCompleter.removeOnLastListenerRemovedCallback':
-        _ImageStreamCompleter_removeOnLastListenerRemovedCallback$,
-    'ImageStreamCompleter.reportError': _ImageStreamCompleter_reportError$,
     'OneFrameImageStreamCompleter.': _OneFrameImageStreamCompleter__$,
     'MultiFrameImageStreamCompleter.': _MultiFrameImageStreamCompleter__$,
   },
@@ -100,7 +95,12 @@ const libraryMirror = m.LibraryMirror(
         'addListener': _ImageStreamCompleter_addListener$,
         'keepAlive': _ImageStreamCompleter_keepAlive$,
         'removeListener': _ImageStreamCompleter_removeListener$,
+        'addOnLastListenerRemovedCallback':
+            _ImageStreamCompleter_addOnLastListenerRemovedCallback$,
+        'removeOnLastListenerRemovedCallback':
+            _ImageStreamCompleter_removeOnLastListenerRemovedCallback$,
         'setImage': _ImageStreamCompleter_setImage$,
+        'reportError': _ImageStreamCompleter_reportError$,
         'reportImageChunkEvent': _ImageStreamCompleter_reportImageChunkEvent$,
         'debugFillProperties': _ImageStreamCompleter_debugFillProperties$,
       },

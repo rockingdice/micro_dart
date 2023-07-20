@@ -148,10 +148,8 @@ Function PlaceholderDimensions_is$(
   dynamic target$,
 ) =>
     () => target$ is PlaceholderDimensions;
-PlaceholderDimensions _PlaceholderDimensions_empty$() {
-  return PlaceholderDimensions.empty;
-}
-
+Function _PlaceholderDimensions_empty$(m.Scope scope$) =>
+    () => PlaceholderDimensions.empty;
 Function _PlaceholderDimensions_size$(
   m.Scope scope$,
   PlaceholderDimensions target$,
@@ -569,34 +567,12 @@ Function _TextPainter_dispose$(
   TextPainter target$,
 ) =>
     target$.dispose;
-TextOverflow _TextOverflow_clip$() {
-  return TextOverflow.clip;
-}
-
-TextOverflow _TextOverflow_fade$() {
-  return TextOverflow.fade;
-}
-
-TextOverflow _TextOverflow_ellipsis$() {
-  return TextOverflow.ellipsis;
-}
-
-TextOverflow _TextOverflow_visible$() {
-  return TextOverflow.visible;
-}
-
-List<TextOverflow> _TextOverflow_values$() {
-  return TextOverflow.values;
-}
-
-TextWidthBasis _TextWidthBasis_parent$() {
-  return TextWidthBasis.parent;
-}
-
-TextWidthBasis _TextWidthBasis_longestLine$() {
-  return TextWidthBasis.longestLine;
-}
-
-List<TextWidthBasis> _TextWidthBasis_values$() {
-  return TextWidthBasis.values;
-}
+Function _TextOverflow_clip$(m.Scope scope$) => () => TextOverflow.clip;
+Function _TextOverflow_fade$(m.Scope scope$) => () => TextOverflow.fade;
+Function _TextOverflow_ellipsis$(m.Scope scope$) => () => TextOverflow.ellipsis;
+Function _TextOverflow_visible$(m.Scope scope$) => () => TextOverflow.visible;
+Function _TextOverflow_values$(m.Scope scope$) => () => TextOverflow.values;
+Function _TextWidthBasis_parent$(m.Scope scope$) => () => TextWidthBasis.parent;
+Function _TextWidthBasis_longestLine$(m.Scope scope$) =>
+    () => TextWidthBasis.longestLine;
+Function _TextWidthBasis_values$(m.Scope scope$) => () => TextWidthBasis.values;

@@ -126,20 +126,11 @@ Function _ViewportOffset_debugFillDescription$(
   ViewportOffset target$,
 ) =>
     target$.debugFillDescription;
-ScrollDirection _ScrollDirection_idle$() {
-  return ScrollDirection.idle;
-}
-
-ScrollDirection _ScrollDirection_forward$() {
-  return ScrollDirection.forward;
-}
-
-ScrollDirection _ScrollDirection_reverse$() {
-  return ScrollDirection.reverse;
-}
-
-List<ScrollDirection> _ScrollDirection_values$() {
-  return ScrollDirection.values;
-}
-
+Function _ScrollDirection_idle$(m.Scope scope$) => () => ScrollDirection.idle;
+Function _ScrollDirection_forward$(m.Scope scope$) =>
+    () => ScrollDirection.forward;
+Function _ScrollDirection_reverse$(m.Scope scope$) =>
+    () => ScrollDirection.reverse;
+Function _ScrollDirection_values$(m.Scope scope$) =>
+    () => ScrollDirection.values;
 Function _flipScrollDirection$(m.Scope scope$) => flipScrollDirection;

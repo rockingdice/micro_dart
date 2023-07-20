@@ -360,42 +360,32 @@ Function _WidgetsApp_useInheritedMediaQuery$(
     () {
       return target$.useInheritedMediaQuery;
     };
-bool _WidgetsApp_showPerformanceOverlayOverride$() {
-  return WidgetsApp.showPerformanceOverlayOverride;
-}
-
+Function _WidgetsApp_showPerformanceOverlayOverride$(m.Scope scope$) =>
+    () => WidgetsApp.showPerformanceOverlayOverride;
 void _WidgetsApp_showPerformanceOverlayOverride_set$(bool other$) {
   WidgetsApp.showPerformanceOverlayOverride = other$;
 }
 
-bool _WidgetsApp_debugShowWidgetInspectorOverride$() {
-  return WidgetsApp.debugShowWidgetInspectorOverride;
-}
-
+Function _WidgetsApp_debugShowWidgetInspectorOverride$(m.Scope scope$) =>
+    () => WidgetsApp.debugShowWidgetInspectorOverride;
 void _WidgetsApp_debugShowWidgetInspectorOverride_set$(bool other$) {
   WidgetsApp.debugShowWidgetInspectorOverride = other$;
 }
 
-bool _WidgetsApp_debugAllowBannerOverride$() {
-  return WidgetsApp.debugAllowBannerOverride;
-}
-
+Function _WidgetsApp_debugAllowBannerOverride$(m.Scope scope$) =>
+    () => WidgetsApp.debugAllowBannerOverride;
 void _WidgetsApp_debugAllowBannerOverride_set$(bool other$) {
   WidgetsApp.debugAllowBannerOverride = other$;
 }
 
-Map<Type, Action<Intent>> _WidgetsApp_defaultActions$() {
-  return WidgetsApp.defaultActions;
-}
-
+Function _WidgetsApp_defaultActions$(m.Scope scope$) =>
+    () => WidgetsApp.defaultActions;
 void _WidgetsApp_defaultActions_set$(Map<Type, Action<Intent>> other$) {
   WidgetsApp.defaultActions = other$;
 }
 
-Map<ShortcutActivator, Intent> _WidgetsApp_defaultShortcuts$() {
-  return WidgetsApp.defaultShortcuts;
-}
-
+Function _WidgetsApp_defaultShortcuts$(m.Scope scope$) =>
+    () => WidgetsApp.defaultShortcuts;
 Function _WidgetsApp__$(m.Scope scope$) => ({
       Key? key,
       GlobalKey<NavigatorState>? navigatorKey,

@@ -17,7 +17,6 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/gestures/multidrag.dart',
   {
-    'MultiDragPointerState.accepted': _MultiDragPointerState_accepted$,
     'ImmediateMultiDragGestureRecognizer.':
         _ImmediateMultiDragGestureRecognizer__$,
     'HorizontalMultiDragGestureRecognizer.':
@@ -40,6 +39,7 @@ const libraryMirror = m.LibraryMirror(
         'resolve': _MultiDragPointerState_resolve$,
         'checkForResolutionAfterMove':
             _MultiDragPointerState_checkForResolutionAfterMove$,
+        'accepted': _MultiDragPointerState_accepted$,
         'rejected': _MultiDragPointerState_rejected$,
         'dispose': _MultiDragPointerState_dispose$,
       },

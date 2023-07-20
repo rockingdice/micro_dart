@@ -745,15 +745,9 @@ Function _GridView_buildChildLayout$(
   GridView target$,
 ) =>
     target$.buildChildLayout;
-ScrollViewKeyboardDismissBehavior _ScrollViewKeyboardDismissBehavior_manual$() {
-  return ScrollViewKeyboardDismissBehavior.manual;
-}
-
-ScrollViewKeyboardDismissBehavior _ScrollViewKeyboardDismissBehavior_onDrag$() {
-  return ScrollViewKeyboardDismissBehavior.onDrag;
-}
-
-List<ScrollViewKeyboardDismissBehavior>
-    _ScrollViewKeyboardDismissBehavior_values$() {
-  return ScrollViewKeyboardDismissBehavior.values;
-}
+Function _ScrollViewKeyboardDismissBehavior_manual$(m.Scope scope$) =>
+    () => ScrollViewKeyboardDismissBehavior.manual;
+Function _ScrollViewKeyboardDismissBehavior_onDrag$(m.Scope scope$) =>
+    () => ScrollViewKeyboardDismissBehavior.onDrag;
+Function _ScrollViewKeyboardDismissBehavior_values$(m.Scope scope$) =>
+    () => ScrollViewKeyboardDismissBehavior.values;

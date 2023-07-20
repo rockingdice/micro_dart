@@ -76,15 +76,6 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-
-const double _kHeight = 12.0;
-const Color _kColor = Color(0xA0B71C1C);
-const TextStyle _kTextStyle = TextStyle(
-  color: Color(0xFFFFFFFF),
-  fontSize: _kHeight * 0.85,
-  fontWeight: FontWeight.w900,
-  height: 1.0,
-);
 Function BannerPainter_as$(
   m.Scope scope$,
   dynamic target$,
@@ -146,18 +137,12 @@ Function _BannerPainter__$(m.Scope scope$) => ({
       TextStyle? textStyle,
     }) {
       return BannerPainter(
-        color: color ?? const Color(0xA0B71C1C),
+        color: color ?? _kColor,
         layoutDirection: layoutDirection,
         location: location,
         message: message,
         textDirection: textDirection,
-        textStyle: textStyle ??
-            const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 12.0 * 0.85,
-              fontWeight: FontWeight.w900,
-              height: 1.0,
-            ),
+        textStyle: textStyle ?? _kTextStyle,
       );
     };
 Function _BannerPainter_dispose$(
@@ -306,22 +291,26 @@ Function _CheckedModeBanner_debugFillProperties$(
   CheckedModeBanner target$,
 ) =>
     target$.debugFillProperties;
-BannerLocation _BannerLocation_topStart$() {
-  return BannerLocation.topStart;
-}
+Function _BannerLocation_topStart$(m.Scope scope$) =>
+    () => BannerLocation.topStart;
+Function _BannerLocation_topEnd$(m.Scope scope$) => () => BannerLocation.topEnd;
+Function _BannerLocation_bottomStart$(m.Scope scope$) =>
+    () => BannerLocation.bottomStart;
+Function _BannerLocation_bottomEnd$(m.Scope scope$) =>
+    () => BannerLocation.bottomEnd;
+Function _BannerLocation_values$(m.Scope scope$) => () => BannerLocation.values;
+const double _kOffset =
+    40.0; // distance to bottom of banner, at a 45 degree angle inwards
+const double _kHeight = 12.0; // height of banner
+const double _kBottomOffset =
+    _kOffset + 0.707 * _kHeight; // offset plus sqrt(2)/2 * banner height
+const Rect _kRect =
+    Rect.fromLTWH(-_kOffset, _kOffset - _kHeight, _kOffset * 2.0, _kHeight);
 
-BannerLocation _BannerLocation_topEnd$() {
-  return BannerLocation.topEnd;
-}
-
-BannerLocation _BannerLocation_bottomStart$() {
-  return BannerLocation.bottomStart;
-}
-
-BannerLocation _BannerLocation_bottomEnd$() {
-  return BannerLocation.bottomEnd;
-}
-
-List<BannerLocation> _BannerLocation_values$() {
-  return BannerLocation.values;
-}
+const Color _kColor = Color(0xA0B71C1C);
+const TextStyle _kTextStyle = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontSize: _kHeight * 0.85,
+  fontWeight: FontWeight.w900,
+  height: 1.0,
+);

@@ -322,46 +322,21 @@ Function _RenderWrap_debugFillProperties$(
   RenderWrap target$,
 ) =>
     target$.debugFillProperties;
-WrapAlignment _WrapAlignment_start$() {
-  return WrapAlignment.start;
-}
-
-WrapAlignment _WrapAlignment_end$() {
-  return WrapAlignment.end;
-}
-
-WrapAlignment _WrapAlignment_center$() {
-  return WrapAlignment.center;
-}
-
-WrapAlignment _WrapAlignment_spaceBetween$() {
-  return WrapAlignment.spaceBetween;
-}
-
-WrapAlignment _WrapAlignment_spaceAround$() {
-  return WrapAlignment.spaceAround;
-}
-
-WrapAlignment _WrapAlignment_spaceEvenly$() {
-  return WrapAlignment.spaceEvenly;
-}
-
-List<WrapAlignment> _WrapAlignment_values$() {
-  return WrapAlignment.values;
-}
-
-WrapCrossAlignment _WrapCrossAlignment_start$() {
-  return WrapCrossAlignment.start;
-}
-
-WrapCrossAlignment _WrapCrossAlignment_end$() {
-  return WrapCrossAlignment.end;
-}
-
-WrapCrossAlignment _WrapCrossAlignment_center$() {
-  return WrapCrossAlignment.center;
-}
-
-List<WrapCrossAlignment> _WrapCrossAlignment_values$() {
-  return WrapCrossAlignment.values;
-}
+Function _WrapAlignment_start$(m.Scope scope$) => () => WrapAlignment.start;
+Function _WrapAlignment_end$(m.Scope scope$) => () => WrapAlignment.end;
+Function _WrapAlignment_center$(m.Scope scope$) => () => WrapAlignment.center;
+Function _WrapAlignment_spaceBetween$(m.Scope scope$) =>
+    () => WrapAlignment.spaceBetween;
+Function _WrapAlignment_spaceAround$(m.Scope scope$) =>
+    () => WrapAlignment.spaceAround;
+Function _WrapAlignment_spaceEvenly$(m.Scope scope$) =>
+    () => WrapAlignment.spaceEvenly;
+Function _WrapAlignment_values$(m.Scope scope$) => () => WrapAlignment.values;
+Function _WrapCrossAlignment_start$(m.Scope scope$) =>
+    () => WrapCrossAlignment.start;
+Function _WrapCrossAlignment_end$(m.Scope scope$) =>
+    () => WrapCrossAlignment.end;
+Function _WrapCrossAlignment_center$(m.Scope scope$) =>
+    () => WrapCrossAlignment.center;
+Function _WrapCrossAlignment_values$(m.Scope scope$) =>
+    () => WrapCrossAlignment.values;

@@ -113,82 +113,38 @@ Function _Typography_tall$(
     () {
       return target$.tall;
     };
-TextTheme _Typography_blackMountainView$() {
-  return Typography.blackMountainView;
-}
-
-TextTheme _Typography_whiteMountainView$() {
-  return Typography.whiteMountainView;
-}
-
-TextTheme _Typography_blackRedmond$() {
-  return Typography.blackRedmond;
-}
-
-TextTheme _Typography_whiteRedmond$() {
-  return Typography.whiteRedmond;
-}
-
-TextTheme _Typography_blackHelsinki$() {
-  return Typography.blackHelsinki;
-}
-
-TextTheme _Typography_whiteHelsinki$() {
-  return Typography.whiteHelsinki;
-}
-
-TextTheme _Typography_blackCupertino$() {
-  return Typography.blackCupertino;
-}
-
-TextTheme _Typography_whiteCupertino$() {
-  return Typography.whiteCupertino;
-}
-
-TextTheme _Typography_blackRedwoodCity$() {
-  return Typography.blackRedwoodCity;
-}
-
-TextTheme _Typography_whiteRedwoodCity$() {
-  return Typography.whiteRedwoodCity;
-}
-
-TextTheme _Typography_englishLike2014$() {
-  return Typography.englishLike2014;
-}
-
-TextTheme _Typography_englishLike2018$() {
-  return Typography.englishLike2018;
-}
-
-TextTheme _Typography_dense2014$() {
-  return Typography.dense2014;
-}
-
-TextTheme _Typography_dense2018$() {
-  return Typography.dense2018;
-}
-
-TextTheme _Typography_tall2014$() {
-  return Typography.tall2014;
-}
-
-TextTheme _Typography_tall2018$() {
-  return Typography.tall2018;
-}
-
-TextTheme _Typography_englishLike2021$() {
-  return Typography.englishLike2021;
-}
-
-TextTheme _Typography_dense2021$() {
-  return Typography.dense2021;
-}
-
-TextTheme _Typography_tall2021$() {
-  return Typography.tall2021;
-}
-
+Function _Typography_blackMountainView$(m.Scope scope$) =>
+    () => Typography.blackMountainView;
+Function _Typography_whiteMountainView$(m.Scope scope$) =>
+    () => Typography.whiteMountainView;
+Function _Typography_blackRedmond$(m.Scope scope$) =>
+    () => Typography.blackRedmond;
+Function _Typography_whiteRedmond$(m.Scope scope$) =>
+    () => Typography.whiteRedmond;
+Function _Typography_blackHelsinki$(m.Scope scope$) =>
+    () => Typography.blackHelsinki;
+Function _Typography_whiteHelsinki$(m.Scope scope$) =>
+    () => Typography.whiteHelsinki;
+Function _Typography_blackCupertino$(m.Scope scope$) =>
+    () => Typography.blackCupertino;
+Function _Typography_whiteCupertino$(m.Scope scope$) =>
+    () => Typography.whiteCupertino;
+Function _Typography_blackRedwoodCity$(m.Scope scope$) =>
+    () => Typography.blackRedwoodCity;
+Function _Typography_whiteRedwoodCity$(m.Scope scope$) =>
+    () => Typography.whiteRedwoodCity;
+Function _Typography_englishLike2014$(m.Scope scope$) =>
+    () => Typography.englishLike2014;
+Function _Typography_englishLike2018$(m.Scope scope$) =>
+    () => Typography.englishLike2018;
+Function _Typography_dense2014$(m.Scope scope$) => () => Typography.dense2014;
+Function _Typography_dense2018$(m.Scope scope$) => () => Typography.dense2018;
+Function _Typography_tall2014$(m.Scope scope$) => () => Typography.tall2014;
+Function _Typography_tall2018$(m.Scope scope$) => () => Typography.tall2018;
+Function _Typography_englishLike2021$(m.Scope scope$) =>
+    () => Typography.englishLike2021;
+Function _Typography_dense2021$(m.Scope scope$) => () => Typography.dense2021;
+Function _Typography_tall2021$(m.Scope scope$) => () => Typography.tall2021;
 Function _Typography_hashCode$(
   m.Scope scope$,
   Typography target$,
@@ -237,18 +193,8 @@ Function _Typography_debugFillProperties$(
   Typography target$,
 ) =>
     target$.debugFillProperties;
-ScriptCategory _ScriptCategory_englishLike$() {
-  return ScriptCategory.englishLike;
-}
-
-ScriptCategory _ScriptCategory_dense$() {
-  return ScriptCategory.dense;
-}
-
-ScriptCategory _ScriptCategory_tall$() {
-  return ScriptCategory.tall;
-}
-
-List<ScriptCategory> _ScriptCategory_values$() {
-  return ScriptCategory.values;
-}
+Function _ScriptCategory_englishLike$(m.Scope scope$) =>
+    () => ScriptCategory.englishLike;
+Function _ScriptCategory_dense$(m.Scope scope$) => () => ScriptCategory.dense;
+Function _ScriptCategory_tall$(m.Scope scope$) => () => ScriptCategory.tall;
+Function _ScriptCategory_values$(m.Scope scope$) => () => ScriptCategory.values;

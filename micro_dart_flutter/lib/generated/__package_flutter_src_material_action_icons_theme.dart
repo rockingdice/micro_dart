@@ -12,7 +12,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/action_icons_theme.dart',
   {
     'ActionIconThemeData.': _ActionIconThemeData__$,
-    'ActionIconThemeData.copyWith': _ActionIconThemeData_copyWith$,
     'ActionIconThemeData.lerp': _ActionIconThemeData_lerp$,
     'ActionIconTheme.': _ActionIconTheme__$,
     'ActionIconTheme.of': _ActionIconTheme_of$,
@@ -31,6 +30,7 @@ const libraryMirror = m.LibraryMirror(
         'endDrawerButtonIconBuilder':
             _ActionIconThemeData_endDrawerButtonIconBuilder$,
         'hashCode': _ActionIconThemeData_hashCode$,
+        'copyWith': _ActionIconThemeData_copyWith$,
         '==': _ActionIconThemeData_eq$$,
         'debugFillProperties': _ActionIconThemeData_debugFillProperties$,
       },

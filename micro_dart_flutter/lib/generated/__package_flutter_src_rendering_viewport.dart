@@ -22,10 +22,6 @@ const libraryMirror = m.LibraryMirror(
     'RenderAbstractViewport.maybeOf': _RenderAbstractViewport_maybeOf$,
     'RenderAbstractViewport.of': _RenderAbstractViewport_of$,
     'RevealedOffset.': _RevealedOffset__$,
-    'RenderViewportBase.visitChildrenForSemantics':
-        _RenderViewportBase_visitChildrenForSemantics$,
-    'RenderViewportBase.layoutChildSequence':
-        _RenderViewportBase_layoutChildSequence$,
     'RenderViewportBase.showInViewport': _RenderViewportBase_showInViewport$,
     'RenderViewport.useTwoPaneSemantics': _RenderViewport_useTwoPaneSemantics$,
     'RenderViewport.excludeFromScrolling':
@@ -77,6 +73,8 @@ const libraryMirror = m.LibraryMirror(
         'childrenInHitTestOrder': _RenderViewportBase_childrenInHitTestOrder$,
         'describeSemanticsConfiguration':
             _RenderViewportBase_describeSemanticsConfiguration$,
+        'visitChildrenForSemantics':
+            _RenderViewportBase_visitChildrenForSemantics$,
         'attach': _RenderViewportBase_attach$,
         'detach': _RenderViewportBase_detach$,
         'debugThrowIfNotCheckingIntrinsics':
@@ -89,6 +87,7 @@ const libraryMirror = m.LibraryMirror(
             _RenderViewportBase_computeMinIntrinsicHeight$,
         'computeMaxIntrinsicHeight':
             _RenderViewportBase_computeMaxIntrinsicHeight$,
+        'layoutChildSequence': _RenderViewportBase_layoutChildSequence$,
         'describeApproximatePaintClip':
             _RenderViewportBase_describeApproximatePaintClip$,
         'describeSemanticsClip': _RenderViewportBase_describeSemanticsClip$,
@@ -201,10 +200,8 @@ Function RenderAbstractViewport_is$(
   dynamic target$,
 ) =>
     () => target$ is RenderAbstractViewport;
-double _RenderAbstractViewport_defaultCacheExtent$() {
-  return RenderAbstractViewport.defaultCacheExtent;
-}
-
+Function _RenderAbstractViewport_defaultCacheExtent$(m.Scope scope$) =>
+    () => RenderAbstractViewport.defaultCacheExtent;
 Function _RenderAbstractViewport_maybeOf$(m.Scope scope$) =>
     RenderAbstractViewport.maybeOf;
 Function _RenderAbstractViewport_of$(m.Scope scope$) =>
@@ -630,14 +627,10 @@ Function RenderViewport_is$(
   dynamic target$,
 ) =>
     () => target$ is RenderViewport;
-SemanticsTag _RenderViewport_useTwoPaneSemantics$() {
-  return RenderViewport.useTwoPaneSemantics;
-}
-
-SemanticsTag _RenderViewport_excludeFromScrolling$() {
-  return RenderViewport.excludeFromScrolling;
-}
-
+Function _RenderViewport_useTwoPaneSemantics$(m.Scope scope$) =>
+    () => RenderViewport.useTwoPaneSemantics;
+Function _RenderViewport_excludeFromScrolling$(m.Scope scope$) =>
+    () => RenderViewport.excludeFromScrolling;
 Function _RenderViewport_anchor$(
   m.Scope scope$,
   RenderViewport target$,
@@ -892,14 +885,9 @@ Function _RenderShrinkWrappingViewport_labelForChild$(
   RenderShrinkWrappingViewport target$,
 ) =>
     target$.labelForChild;
-CacheExtentStyle _CacheExtentStyle_pixel$() {
-  return CacheExtentStyle.pixel;
-}
-
-CacheExtentStyle _CacheExtentStyle_viewport$() {
-  return CacheExtentStyle.viewport;
-}
-
-List<CacheExtentStyle> _CacheExtentStyle_values$() {
-  return CacheExtentStyle.values;
-}
+Function _CacheExtentStyle_pixel$(m.Scope scope$) =>
+    () => CacheExtentStyle.pixel;
+Function _CacheExtentStyle_viewport$(m.Scope scope$) =>
+    () => CacheExtentStyle.viewport;
+Function _CacheExtentStyle_values$(m.Scope scope$) =>
+    () => CacheExtentStyle.values;

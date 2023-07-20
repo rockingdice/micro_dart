@@ -18,8 +18,6 @@ const libraryMirror = m.LibraryMirror(
         _cupertinoDesktopTextSelectionControls$,
     'CupertinoDesktopTextSelectionControls.':
         _CupertinoDesktopTextSelectionControls__$,
-    'CupertinoDesktopTextSelectionControls.buildHandle':
-        _CupertinoDesktopTextSelectionControls_buildHandle$,
   },
   {},
   {
@@ -29,6 +27,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': CupertinoDesktopTextSelectionControls_as$,
         '#is': CupertinoDesktopTextSelectionControls_is$,
         'getHandleSize': _CupertinoDesktopTextSelectionControls_getHandleSize$,
+        'buildHandle': _CupertinoDesktopTextSelectionControls_buildHandle$,
         'getHandleAnchor':
             _CupertinoDesktopTextSelectionControls_getHandleAnchor$,
       },
@@ -36,14 +35,10 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-TextSelectionControls _cupertinoDesktopTextSelectionHandleControls$() {
-  return cupertinoDesktopTextSelectionHandleControls;
-}
-
-TextSelectionControls _cupertinoDesktopTextSelectionControls$() {
-  return cupertinoDesktopTextSelectionControls;
-}
-
+Function _cupertinoDesktopTextSelectionHandleControls$(m.Scope scope$) =>
+    () => cupertinoDesktopTextSelectionHandleControls;
+Function _cupertinoDesktopTextSelectionControls$(m.Scope scope$) =>
+    () => cupertinoDesktopTextSelectionControls;
 Function CupertinoDesktopTextSelectionControls_as$(
   m.Scope scope$,
   dynamic target$,

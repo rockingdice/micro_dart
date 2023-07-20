@@ -93,18 +93,11 @@ Function TimeOfDay_is$(
   dynamic target$,
 ) =>
     () => target$ is TimeOfDay;
-int _TimeOfDay_hoursPerDay$() {
-  return TimeOfDay.hoursPerDay;
-}
-
-int _TimeOfDay_hoursPerPeriod$() {
-  return TimeOfDay.hoursPerPeriod;
-}
-
-int _TimeOfDay_minutesPerHour$() {
-  return TimeOfDay.minutesPerHour;
-}
-
+Function _TimeOfDay_hoursPerDay$(m.Scope scope$) => () => TimeOfDay.hoursPerDay;
+Function _TimeOfDay_hoursPerPeriod$(m.Scope scope$) =>
+    () => TimeOfDay.hoursPerPeriod;
+Function _TimeOfDay_minutesPerHour$(m.Scope scope$) =>
+    () => TimeOfDay.minutesPerHour;
 Function _TimeOfDay_hour$(
   m.Scope scope$,
   TimeOfDay target$,
@@ -211,60 +204,25 @@ Function _RestorableTimeOfDay_toPrimitives$(
   RestorableTimeOfDay target$,
 ) =>
     target$.toPrimitives;
-DayPeriod _DayPeriod_am$() {
-  return DayPeriod.am;
-}
-
-DayPeriod _DayPeriod_pm$() {
-  return DayPeriod.pm;
-}
-
-List<DayPeriod> _DayPeriod_values$() {
-  return DayPeriod.values;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_HH_colon_mm$() {
-  return TimeOfDayFormat.HH_colon_mm;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_HH_dot_mm$() {
-  return TimeOfDayFormat.HH_dot_mm;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_frenchCanadian$() {
-  return TimeOfDayFormat.frenchCanadian;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_H_colon_mm$() {
-  return TimeOfDayFormat.H_colon_mm;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_h_colon_mm_space_a$() {
-  return TimeOfDayFormat.h_colon_mm_space_a;
-}
-
-TimeOfDayFormat _TimeOfDayFormat_a_space_h_colon_mm$() {
-  return TimeOfDayFormat.a_space_h_colon_mm;
-}
-
-List<TimeOfDayFormat> _TimeOfDayFormat_values$() {
-  return TimeOfDayFormat.values;
-}
-
-HourFormat _HourFormat_HH$() {
-  return HourFormat.HH;
-}
-
-HourFormat _HourFormat_H$() {
-  return HourFormat.H;
-}
-
-HourFormat _HourFormat_h$() {
-  return HourFormat.h;
-}
-
-List<HourFormat> _HourFormat_values$() {
-  return HourFormat.values;
-}
-
+Function _DayPeriod_am$(m.Scope scope$) => () => DayPeriod.am;
+Function _DayPeriod_pm$(m.Scope scope$) => () => DayPeriod.pm;
+Function _DayPeriod_values$(m.Scope scope$) => () => DayPeriod.values;
+Function _TimeOfDayFormat_HH_colon_mm$(m.Scope scope$) =>
+    () => TimeOfDayFormat.HH_colon_mm;
+Function _TimeOfDayFormat_HH_dot_mm$(m.Scope scope$) =>
+    () => TimeOfDayFormat.HH_dot_mm;
+Function _TimeOfDayFormat_frenchCanadian$(m.Scope scope$) =>
+    () => TimeOfDayFormat.frenchCanadian;
+Function _TimeOfDayFormat_H_colon_mm$(m.Scope scope$) =>
+    () => TimeOfDayFormat.H_colon_mm;
+Function _TimeOfDayFormat_h_colon_mm_space_a$(m.Scope scope$) =>
+    () => TimeOfDayFormat.h_colon_mm_space_a;
+Function _TimeOfDayFormat_a_space_h_colon_mm$(m.Scope scope$) =>
+    () => TimeOfDayFormat.a_space_h_colon_mm;
+Function _TimeOfDayFormat_values$(m.Scope scope$) =>
+    () => TimeOfDayFormat.values;
+Function _HourFormat_HH$(m.Scope scope$) => () => HourFormat.HH;
+Function _HourFormat_H$(m.Scope scope$) => () => HourFormat.H;
+Function _HourFormat_h$(m.Scope scope$) => () => HourFormat.h;
+Function _HourFormat_values$(m.Scope scope$) => () => HourFormat.values;
 Function _hourFormat$(m.Scope scope$) => hourFormat;

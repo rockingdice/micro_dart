@@ -97,22 +97,14 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-double _kFloatingActionButtonMargin$() {
-  return kFloatingActionButtonMargin;
-}
-
-Duration _kFloatingActionButtonSegue$() {
-  return kFloatingActionButtonSegue;
-}
-
-double _kFloatingActionButtonTurnInterval$() {
-  return kFloatingActionButtonTurnInterval;
-}
-
-double _kMiniButtonOffsetAdjustment$() {
-  return kMiniButtonOffsetAdjustment;
-}
-
+Function _kFloatingActionButtonMargin$(m.Scope scope$) =>
+    () => kFloatingActionButtonMargin;
+Function _kFloatingActionButtonSegue$(m.Scope scope$) =>
+    () => kFloatingActionButtonSegue;
+Function _kFloatingActionButtonTurnInterval$(m.Scope scope$) =>
+    () => kFloatingActionButtonTurnInterval;
+Function _kMiniButtonOffsetAdjustment$(m.Scope scope$) =>
+    () => kMiniButtonOffsetAdjustment;
 Function FloatingActionButtonLocation_as$(
   m.Scope scope$,
   dynamic target$,
@@ -123,82 +115,44 @@ Function FloatingActionButtonLocation_is$(
   dynamic target$,
 ) =>
     () => target$ is FloatingActionButtonLocation;
-FloatingActionButtonLocation _FloatingActionButtonLocation_startTop$() {
-  return FloatingActionButtonLocation.startTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniStartTop$() {
-  return FloatingActionButtonLocation.miniStartTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_centerTop$() {
-  return FloatingActionButtonLocation.centerTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniCenterTop$() {
-  return FloatingActionButtonLocation.miniCenterTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_endTop$() {
-  return FloatingActionButtonLocation.endTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniEndTop$() {
-  return FloatingActionButtonLocation.miniEndTop;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_startFloat$() {
-  return FloatingActionButtonLocation.startFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniStartFloat$() {
-  return FloatingActionButtonLocation.miniStartFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_centerFloat$() {
-  return FloatingActionButtonLocation.centerFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniCenterFloat$() {
-  return FloatingActionButtonLocation.miniCenterFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_endFloat$() {
-  return FloatingActionButtonLocation.endFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniEndFloat$() {
-  return FloatingActionButtonLocation.miniEndFloat;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_startDocked$() {
-  return FloatingActionButtonLocation.startDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniStartDocked$() {
-  return FloatingActionButtonLocation.miniStartDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_centerDocked$() {
-  return FloatingActionButtonLocation.centerDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniCenterDocked$() {
-  return FloatingActionButtonLocation.miniCenterDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_endDocked$() {
-  return FloatingActionButtonLocation.endDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_miniEndDocked$() {
-  return FloatingActionButtonLocation.miniEndDocked;
-}
-
-FloatingActionButtonLocation _FloatingActionButtonLocation_endContained$() {
-  return FloatingActionButtonLocation.endContained;
-}
-
+Function _FloatingActionButtonLocation_startTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.startTop;
+Function _FloatingActionButtonLocation_miniStartTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniStartTop;
+Function _FloatingActionButtonLocation_centerTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.centerTop;
+Function _FloatingActionButtonLocation_miniCenterTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniCenterTop;
+Function _FloatingActionButtonLocation_endTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.endTop;
+Function _FloatingActionButtonLocation_miniEndTop$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniEndTop;
+Function _FloatingActionButtonLocation_startFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.startFloat;
+Function _FloatingActionButtonLocation_miniStartFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniStartFloat;
+Function _FloatingActionButtonLocation_centerFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.centerFloat;
+Function _FloatingActionButtonLocation_miniCenterFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniCenterFloat;
+Function _FloatingActionButtonLocation_endFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.endFloat;
+Function _FloatingActionButtonLocation_miniEndFloat$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniEndFloat;
+Function _FloatingActionButtonLocation_startDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.startDocked;
+Function _FloatingActionButtonLocation_miniStartDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniStartDocked;
+Function _FloatingActionButtonLocation_centerDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.centerDocked;
+Function _FloatingActionButtonLocation_miniCenterDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniCenterDocked;
+Function _FloatingActionButtonLocation_endDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.endDocked;
+Function _FloatingActionButtonLocation_miniEndDocked$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.miniEndDocked;
+Function _FloatingActionButtonLocation_endContained$(m.Scope scope$) =>
+    () => FloatingActionButtonLocation.endContained;
 Function _FloatingActionButtonLocation_getOffset$(
   m.Scope scope$,
   FloatingActionButtonLocation target$,
@@ -249,10 +203,8 @@ Function FloatingActionButtonAnimator_is$(
   dynamic target$,
 ) =>
     () => target$ is FloatingActionButtonAnimator;
-FloatingActionButtonAnimator _FloatingActionButtonAnimator_scaling$() {
-  return FloatingActionButtonAnimator.scaling;
-}
-
+Function _FloatingActionButtonAnimator_scaling$(m.Scope scope$) =>
+    () => FloatingActionButtonAnimator.scaling;
 Function _FloatingActionButtonAnimator_getOffset$(
   m.Scope scope$,
   FloatingActionButtonAnimator target$,

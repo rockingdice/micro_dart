@@ -150,62 +150,34 @@ Function AnimatedIcons_is$(
   dynamic target$,
 ) =>
     () => target$ is AnimatedIcons;
-AnimatedIconData _AnimatedIcons_add_event$() {
-  return AnimatedIcons.add_event;
-}
-
-AnimatedIconData _AnimatedIcons_arrow_menu$() {
-  return AnimatedIcons.arrow_menu;
-}
-
-AnimatedIconData _AnimatedIcons_close_menu$() {
-  return AnimatedIcons.close_menu;
-}
-
-AnimatedIconData _AnimatedIcons_ellipsis_search$() {
-  return AnimatedIcons.ellipsis_search;
-}
-
-AnimatedIconData _AnimatedIcons_event_add$() {
-  return AnimatedIcons.event_add;
-}
-
-AnimatedIconData _AnimatedIcons_home_menu$() {
-  return AnimatedIcons.home_menu;
-}
-
-AnimatedIconData _AnimatedIcons_list_view$() {
-  return AnimatedIcons.list_view;
-}
-
-AnimatedIconData _AnimatedIcons_menu_arrow$() {
-  return AnimatedIcons.menu_arrow;
-}
-
-AnimatedIconData _AnimatedIcons_menu_close$() {
-  return AnimatedIcons.menu_close;
-}
-
-AnimatedIconData _AnimatedIcons_menu_home$() {
-  return AnimatedIcons.menu_home;
-}
-
-AnimatedIconData _AnimatedIcons_pause_play$() {
-  return AnimatedIcons.pause_play;
-}
-
-AnimatedIconData _AnimatedIcons_play_pause$() {
-  return AnimatedIcons.play_pause;
-}
-
-AnimatedIconData _AnimatedIcons_search_ellipsis$() {
-  return AnimatedIcons.search_ellipsis;
-}
-
-AnimatedIconData _AnimatedIcons_view_list$() {
-  return AnimatedIcons.view_list;
-}
-
+Function _AnimatedIcons_add_event$(m.Scope scope$) =>
+    () => AnimatedIcons.add_event;
+Function _AnimatedIcons_arrow_menu$(m.Scope scope$) =>
+    () => AnimatedIcons.arrow_menu;
+Function _AnimatedIcons_close_menu$(m.Scope scope$) =>
+    () => AnimatedIcons.close_menu;
+Function _AnimatedIcons_ellipsis_search$(m.Scope scope$) =>
+    () => AnimatedIcons.ellipsis_search;
+Function _AnimatedIcons_event_add$(m.Scope scope$) =>
+    () => AnimatedIcons.event_add;
+Function _AnimatedIcons_home_menu$(m.Scope scope$) =>
+    () => AnimatedIcons.home_menu;
+Function _AnimatedIcons_list_view$(m.Scope scope$) =>
+    () => AnimatedIcons.list_view;
+Function _AnimatedIcons_menu_arrow$(m.Scope scope$) =>
+    () => AnimatedIcons.menu_arrow;
+Function _AnimatedIcons_menu_close$(m.Scope scope$) =>
+    () => AnimatedIcons.menu_close;
+Function _AnimatedIcons_menu_home$(m.Scope scope$) =>
+    () => AnimatedIcons.menu_home;
+Function _AnimatedIcons_pause_play$(m.Scope scope$) =>
+    () => AnimatedIcons.pause_play;
+Function _AnimatedIcons_play_pause$(m.Scope scope$) =>
+    () => AnimatedIcons.play_pause;
+Function _AnimatedIcons_search_ellipsis$(m.Scope scope$) =>
+    () => AnimatedIcons.search_ellipsis;
+Function _AnimatedIcons_view_list$(m.Scope scope$) =>
+    () => AnimatedIcons.view_list;
 Function AnimatedIconData_as$(
   m.Scope scope$,
   dynamic target$,

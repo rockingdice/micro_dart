@@ -44,22 +44,14 @@ Function CupertinoScrollbar_is$(
   dynamic target$,
 ) =>
     () => target$ is CupertinoScrollbar;
-double _CupertinoScrollbar_defaultThickness$() {
-  return CupertinoScrollbar.defaultThickness;
-}
-
-double _CupertinoScrollbar_defaultThicknessWhileDragging$() {
-  return CupertinoScrollbar.defaultThicknessWhileDragging;
-}
-
-Radius _CupertinoScrollbar_defaultRadius$() {
-  return CupertinoScrollbar.defaultRadius;
-}
-
-Radius _CupertinoScrollbar_defaultRadiusWhileDragging$() {
-  return CupertinoScrollbar.defaultRadiusWhileDragging;
-}
-
+Function _CupertinoScrollbar_defaultThickness$(m.Scope scope$) =>
+    () => CupertinoScrollbar.defaultThickness;
+Function _CupertinoScrollbar_defaultThicknessWhileDragging$(m.Scope scope$) =>
+    () => CupertinoScrollbar.defaultThicknessWhileDragging;
+Function _CupertinoScrollbar_defaultRadius$(m.Scope scope$) =>
+    () => CupertinoScrollbar.defaultRadius;
+Function _CupertinoScrollbar_defaultRadiusWhileDragging$(m.Scope scope$) =>
+    () => CupertinoScrollbar.defaultRadiusWhileDragging;
 Function _CupertinoScrollbar_thicknessWhileDragging$(
   m.Scope scope$,
   CupertinoScrollbar target$,

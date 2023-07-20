@@ -13,12 +13,7 @@ import 'package:flutter/src/painting/image_stream.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/_network_image_io.dart',
-  {
-    'NetworkImage.': _NetworkImage__$,
-    'NetworkImage.load': _NetworkImage_load$,
-    'NetworkImage.loadBuffer': _NetworkImage_loadBuffer$,
-    'NetworkImage.loadImage': _NetworkImage_loadImage$,
-  },
+  {'NetworkImage.': _NetworkImage__$},
   {},
   {
     'NetworkImage': m.ClassMirror(
@@ -31,6 +26,9 @@ const libraryMirror = m.LibraryMirror(
         'headers': _NetworkImage_headers$,
         'hashCode': _NetworkImage_hashCode$,
         'obtainKey': _NetworkImage_obtainKey$,
+        'load': _NetworkImage_load$,
+        'loadBuffer': _NetworkImage_loadBuffer$,
+        'loadImage': _NetworkImage_loadImage$,
         '==': _NetworkImage_eq$$,
         'toString': _NetworkImage_toString$,
       },

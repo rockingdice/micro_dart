@@ -251,10 +251,8 @@ Function UndoHistoryValue_is$(
   dynamic target$,
 ) =>
     () => target$ is UndoHistoryValue;
-UndoHistoryValue _UndoHistoryValue_empty$() {
-  return UndoHistoryValue.empty;
-}
-
+Function _UndoHistoryValue_empty$(m.Scope scope$) =>
+    () => UndoHistoryValue.empty;
 Function _UndoHistoryValue_canUndo$(
   m.Scope scope$,
   UndoHistoryValue target$,

@@ -37,10 +37,8 @@ Function NoSplash_is$(
   dynamic target$,
 ) =>
     () => target$ is NoSplash;
-InteractiveInkFeatureFactory _NoSplash_splashFactory$() {
-  return NoSplash.splashFactory;
-}
-
+Function _NoSplash_splashFactory$(m.Scope scope$) =>
+    () => NoSplash.splashFactory;
 Function _NoSplash__$(m.Scope scope$) => ({
       required MaterialInkController controller,
       required RenderBox referenceBox,

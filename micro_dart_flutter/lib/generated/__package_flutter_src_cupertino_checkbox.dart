@@ -125,10 +125,8 @@ Function _CupertinoCheckbox_shape$(
     () {
       return target$.shape;
     };
-double _CupertinoCheckbox_width$() {
-  return CupertinoCheckbox.width;
-}
-
+Function _CupertinoCheckbox_width$(m.Scope scope$) =>
+    () => CupertinoCheckbox.width;
 Function _CupertinoCheckbox__$(m.Scope scope$) => ({
       Key? key,
       required bool? value,

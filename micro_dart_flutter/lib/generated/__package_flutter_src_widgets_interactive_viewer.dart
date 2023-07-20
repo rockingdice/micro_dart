@@ -277,7 +277,7 @@ Function _InteractiveViewer__$(m.Scope scope$) => ({
         clipBehavior: clipBehavior ?? Clip.hardEdge,
         constrained: constrained ?? true,
         interactionEndFrictionCoefficient:
-            interactionEndFrictionCoefficient ?? 0.0000135,
+            interactionEndFrictionCoefficient ?? _kDrag,
         key: key,
         maxScale: maxScale ?? 2.5,
         minScale: minScale ?? 0.8,
@@ -295,8 +295,6 @@ Function _InteractiveViewer__$(m.Scope scope$) => ({
         transformationController: transformationController,
       );
     };
-
-const double _kDrag = 0.0000135;
 Function _InteractiveViewer_builder_$(m.Scope scope$) => ({
       Key? key,
       Clip? clipBehavior,
@@ -412,22 +410,10 @@ Function _TransformationController_toScene$(
   TransformationController target$,
 ) =>
     target$.toScene;
-PanAxis _PanAxis_horizontal$() {
-  return PanAxis.horizontal;
-}
+Function _PanAxis_horizontal$(m.Scope scope$) => () => PanAxis.horizontal;
+Function _PanAxis_vertical$(m.Scope scope$) => () => PanAxis.vertical;
+Function _PanAxis_aligned$(m.Scope scope$) => () => PanAxis.aligned;
+Function _PanAxis_free$(m.Scope scope$) => () => PanAxis.free;
+Function _PanAxis_values$(m.Scope scope$) => () => PanAxis.values;
 
-PanAxis _PanAxis_vertical$() {
-  return PanAxis.vertical;
-}
-
-PanAxis _PanAxis_aligned$() {
-  return PanAxis.aligned;
-}
-
-PanAxis _PanAxis_free$() {
-  return PanAxis.free;
-}
-
-List<PanAxis> _PanAxis_values$() {
-  return PanAxis.values;
-}
+const double _kDrag = 0.0000135;

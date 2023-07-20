@@ -54,10 +54,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Duration _kThemeAnimationDuration$() {
-  return kThemeAnimationDuration;
-}
-
+Function _kThemeAnimationDuration$(m.Scope scope$) =>
+    () => kThemeAnimationDuration;
 Function Theme_as$(
   m.Scope scope$,
   dynamic target$,

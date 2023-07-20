@@ -52,14 +52,10 @@ Function StackFrame_is$(
   dynamic target$,
 ) =>
     () => target$ is StackFrame;
-StackFrame _StackFrame_asynchronousSuspension$() {
-  return StackFrame.asynchronousSuspension;
-}
-
-StackFrame _StackFrame_stackOverFlowElision$() {
-  return StackFrame.stackOverFlowElision;
-}
-
+Function _StackFrame_asynchronousSuspension$(m.Scope scope$) =>
+    () => StackFrame.asynchronousSuspension;
+Function _StackFrame_stackOverFlowElision$(m.Scope scope$) =>
+    () => StackFrame.stackOverFlowElision;
 Function _StackFrame_source$(
   m.Scope scope$,
   StackFrame target$,

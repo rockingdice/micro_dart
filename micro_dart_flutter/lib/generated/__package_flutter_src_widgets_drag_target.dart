@@ -18,10 +18,7 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/drag_target.dart',
   {
     'Draggable.': _Draggable__$,
-    'Draggable.createRecognizer': _Draggable_createRecognizer$,
     'LongPressDraggable.': _LongPressDraggable__$,
-    'LongPressDraggable.createRecognizer':
-        _LongPressDraggable_createRecognizer$,
     'DraggableDetails.': _DraggableDetails__$,
     'DragTargetDetails.': _DragTargetDetails__$,
     'DragTarget.': _DragTarget__$,
@@ -54,6 +51,7 @@ const libraryMirror = m.LibraryMirror(
         'rootOverlay': _Draggable_rootOverlay$,
         'hitTestBehavior': _Draggable_hitTestBehavior$,
         'allowedButtonsFilter': _Draggable_allowedButtonsFilter$,
+        'createRecognizer': _Draggable_createRecognizer$,
         'createState': _Draggable_createState$,
       },
       {},
@@ -65,6 +63,7 @@ const libraryMirror = m.LibraryMirror(
         '#is': LongPressDraggable_is$,
         'hapticFeedbackOnStart': _LongPressDraggable_hapticFeedbackOnStart$,
         'delay': _LongPressDraggable_delay$,
+        'createRecognizer': _LongPressDraggable_createRecognizer$,
       },
       {},
     ),

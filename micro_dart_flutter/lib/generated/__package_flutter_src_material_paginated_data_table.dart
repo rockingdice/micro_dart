@@ -200,10 +200,8 @@ Function _PaginatedDataTable_rowsPerPage$(
     () {
       return target$.rowsPerPage;
     };
-int _PaginatedDataTable_defaultRowsPerPage$() {
-  return PaginatedDataTable.defaultRowsPerPage;
-}
-
+Function _PaginatedDataTable_defaultRowsPerPage$(m.Scope scope$) =>
+    () => PaginatedDataTable.defaultRowsPerPage;
 Function _PaginatedDataTable_availableRowsPerPage$(
   m.Scope scope$,
   PaginatedDataTable target$,

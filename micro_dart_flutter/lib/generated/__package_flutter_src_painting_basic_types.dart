@@ -54,70 +54,29 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-RenderComparison _RenderComparison_identical$() {
-  return RenderComparison.identical;
-}
-
-RenderComparison _RenderComparison_metadata$() {
-  return RenderComparison.metadata;
-}
-
-RenderComparison _RenderComparison_paint$() {
-  return RenderComparison.paint;
-}
-
-RenderComparison _RenderComparison_layout$() {
-  return RenderComparison.layout;
-}
-
-List<RenderComparison> _RenderComparison_values$() {
-  return RenderComparison.values;
-}
-
-Axis _Axis_horizontal$() {
-  return Axis.horizontal;
-}
-
-Axis _Axis_vertical$() {
-  return Axis.vertical;
-}
-
-List<Axis> _Axis_values$() {
-  return Axis.values;
-}
-
-VerticalDirection _VerticalDirection_up$() {
-  return VerticalDirection.up;
-}
-
-VerticalDirection _VerticalDirection_down$() {
-  return VerticalDirection.down;
-}
-
-List<VerticalDirection> _VerticalDirection_values$() {
-  return VerticalDirection.values;
-}
-
-AxisDirection _AxisDirection_up$() {
-  return AxisDirection.up;
-}
-
-AxisDirection _AxisDirection_right$() {
-  return AxisDirection.right;
-}
-
-AxisDirection _AxisDirection_down$() {
-  return AxisDirection.down;
-}
-
-AxisDirection _AxisDirection_left$() {
-  return AxisDirection.left;
-}
-
-List<AxisDirection> _AxisDirection_values$() {
-  return AxisDirection.values;
-}
-
+Function _RenderComparison_identical$(m.Scope scope$) =>
+    () => RenderComparison.identical;
+Function _RenderComparison_metadata$(m.Scope scope$) =>
+    () => RenderComparison.metadata;
+Function _RenderComparison_paint$(m.Scope scope$) =>
+    () => RenderComparison.paint;
+Function _RenderComparison_layout$(m.Scope scope$) =>
+    () => RenderComparison.layout;
+Function _RenderComparison_values$(m.Scope scope$) =>
+    () => RenderComparison.values;
+Function _Axis_horizontal$(m.Scope scope$) => () => Axis.horizontal;
+Function _Axis_vertical$(m.Scope scope$) => () => Axis.vertical;
+Function _Axis_values$(m.Scope scope$) => () => Axis.values;
+Function _VerticalDirection_up$(m.Scope scope$) => () => VerticalDirection.up;
+Function _VerticalDirection_down$(m.Scope scope$) =>
+    () => VerticalDirection.down;
+Function _VerticalDirection_values$(m.Scope scope$) =>
+    () => VerticalDirection.values;
+Function _AxisDirection_up$(m.Scope scope$) => () => AxisDirection.up;
+Function _AxisDirection_right$(m.Scope scope$) => () => AxisDirection.right;
+Function _AxisDirection_down$(m.Scope scope$) => () => AxisDirection.down;
+Function _AxisDirection_left$(m.Scope scope$) => () => AxisDirection.left;
+Function _AxisDirection_values$(m.Scope scope$) => () => AxisDirection.values;
 Function _flipAxis$(m.Scope scope$) => flipAxis;
 Function _axisDirectionToAxis$(m.Scope scope$) => axisDirectionToAxis;
 Function _textDirectionToAxisDirection$(m.Scope scope$) =>

@@ -13,9 +13,7 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/material/feedback.dart',
   {
     'Feedback.forTap': _Feedback_forTap$,
-    'Feedback.wrapForTap': _Feedback_wrapForTap$,
     'Feedback.forLongPress': _Feedback_forLongPress$,
-    'Feedback.wrapForLongPress': _Feedback_wrapForLongPress$,
   },
   {},
   {
@@ -24,6 +22,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': Feedback_as$,
         '#is': Feedback_is$,
+        'wrapForTap': _Feedback_wrapForTap$,
+        'wrapForLongPress': _Feedback_wrapForLongPress$,
       },
       {},
     )

@@ -53,14 +53,10 @@ Function _CupertinoThumbPainter_shadows$(
     () {
       return target$.shadows;
     };
-double _CupertinoThumbPainter_radius$() {
-  return CupertinoThumbPainter.radius;
-}
-
-double _CupertinoThumbPainter_extension$() {
-  return CupertinoThumbPainter.extension;
-}
-
+Function _CupertinoThumbPainter_radius$(m.Scope scope$) =>
+    () => CupertinoThumbPainter.radius;
+Function _CupertinoThumbPainter_extension$(m.Scope scope$) =>
+    () => CupertinoThumbPainter.extension;
 Function _CupertinoThumbPainter__$(m.Scope scope$) => ({
       Color? color,
       List? shadows,

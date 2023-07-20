@@ -201,42 +201,16 @@ Function _Alignment_y$(
     () {
       return target$.y;
     };
-Alignment _Alignment_topLeft$() {
-  return Alignment.topLeft;
-}
-
-Alignment _Alignment_topCenter$() {
-  return Alignment.topCenter;
-}
-
-Alignment _Alignment_topRight$() {
-  return Alignment.topRight;
-}
-
-Alignment _Alignment_centerLeft$() {
-  return Alignment.centerLeft;
-}
-
-Alignment _Alignment_center$() {
-  return Alignment.center;
-}
-
-Alignment _Alignment_centerRight$() {
-  return Alignment.centerRight;
-}
-
-Alignment _Alignment_bottomLeft$() {
-  return Alignment.bottomLeft;
-}
-
-Alignment _Alignment_bottomCenter$() {
-  return Alignment.bottomCenter;
-}
-
-Alignment _Alignment_bottomRight$() {
-  return Alignment.bottomRight;
-}
-
+Function _Alignment_topLeft$(m.Scope scope$) => () => Alignment.topLeft;
+Function _Alignment_topCenter$(m.Scope scope$) => () => Alignment.topCenter;
+Function _Alignment_topRight$(m.Scope scope$) => () => Alignment.topRight;
+Function _Alignment_centerLeft$(m.Scope scope$) => () => Alignment.centerLeft;
+Function _Alignment_center$(m.Scope scope$) => () => Alignment.center;
+Function _Alignment_centerRight$(m.Scope scope$) => () => Alignment.centerRight;
+Function _Alignment_bottomLeft$(m.Scope scope$) => () => Alignment.bottomLeft;
+Function _Alignment_bottomCenter$(m.Scope scope$) =>
+    () => Alignment.bottomCenter;
+Function _Alignment_bottomRight$(m.Scope scope$) => () => Alignment.bottomRight;
 Function _Alignment__$(m.Scope scope$) => (
       double x,
       double y,
@@ -341,42 +315,24 @@ Function _AlignmentDirectional_y$(
     () {
       return target$.y;
     };
-AlignmentDirectional _AlignmentDirectional_topStart$() {
-  return AlignmentDirectional.topStart;
-}
-
-AlignmentDirectional _AlignmentDirectional_topCenter$() {
-  return AlignmentDirectional.topCenter;
-}
-
-AlignmentDirectional _AlignmentDirectional_topEnd$() {
-  return AlignmentDirectional.topEnd;
-}
-
-AlignmentDirectional _AlignmentDirectional_centerStart$() {
-  return AlignmentDirectional.centerStart;
-}
-
-AlignmentDirectional _AlignmentDirectional_center$() {
-  return AlignmentDirectional.center;
-}
-
-AlignmentDirectional _AlignmentDirectional_centerEnd$() {
-  return AlignmentDirectional.centerEnd;
-}
-
-AlignmentDirectional _AlignmentDirectional_bottomStart$() {
-  return AlignmentDirectional.bottomStart;
-}
-
-AlignmentDirectional _AlignmentDirectional_bottomCenter$() {
-  return AlignmentDirectional.bottomCenter;
-}
-
-AlignmentDirectional _AlignmentDirectional_bottomEnd$() {
-  return AlignmentDirectional.bottomEnd;
-}
-
+Function _AlignmentDirectional_topStart$(m.Scope scope$) =>
+    () => AlignmentDirectional.topStart;
+Function _AlignmentDirectional_topCenter$(m.Scope scope$) =>
+    () => AlignmentDirectional.topCenter;
+Function _AlignmentDirectional_topEnd$(m.Scope scope$) =>
+    () => AlignmentDirectional.topEnd;
+Function _AlignmentDirectional_centerStart$(m.Scope scope$) =>
+    () => AlignmentDirectional.centerStart;
+Function _AlignmentDirectional_center$(m.Scope scope$) =>
+    () => AlignmentDirectional.center;
+Function _AlignmentDirectional_centerEnd$(m.Scope scope$) =>
+    () => AlignmentDirectional.centerEnd;
+Function _AlignmentDirectional_bottomStart$(m.Scope scope$) =>
+    () => AlignmentDirectional.bottomStart;
+Function _AlignmentDirectional_bottomCenter$(m.Scope scope$) =>
+    () => AlignmentDirectional.bottomCenter;
+Function _AlignmentDirectional_bottomEnd$(m.Scope scope$) =>
+    () => AlignmentDirectional.bottomEnd;
 Function _AlignmentDirectional__$(m.Scope scope$) => (
       double start,
       double y,
@@ -455,18 +411,11 @@ Function _TextAlignVertical_y$(
     () {
       return target$.y;
     };
-TextAlignVertical _TextAlignVertical_top$() {
-  return TextAlignVertical.top;
-}
-
-TextAlignVertical _TextAlignVertical_center$() {
-  return TextAlignVertical.center;
-}
-
-TextAlignVertical _TextAlignVertical_bottom$() {
-  return TextAlignVertical.bottom;
-}
-
+Function _TextAlignVertical_top$(m.Scope scope$) => () => TextAlignVertical.top;
+Function _TextAlignVertical_center$(m.Scope scope$) =>
+    () => TextAlignVertical.center;
+Function _TextAlignVertical_bottom$(m.Scope scope$) =>
+    () => TextAlignVertical.bottom;
 Function _TextAlignVertical__$(m.Scope scope$) => ({required double y}) {
       return TextAlignVertical(y: y);
     };

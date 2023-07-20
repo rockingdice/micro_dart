@@ -398,18 +398,11 @@ Function _FormFieldState_build$<T>(
   FormFieldState<T> target$,
 ) =>
     target$.build;
-AutovalidateMode _AutovalidateMode_disabled$() {
-  return AutovalidateMode.disabled;
-}
-
-AutovalidateMode _AutovalidateMode_always$() {
-  return AutovalidateMode.always;
-}
-
-AutovalidateMode _AutovalidateMode_onUserInteraction$() {
-  return AutovalidateMode.onUserInteraction;
-}
-
-List<AutovalidateMode> _AutovalidateMode_values$() {
-  return AutovalidateMode.values;
-}
+Function _AutovalidateMode_disabled$(m.Scope scope$) =>
+    () => AutovalidateMode.disabled;
+Function _AutovalidateMode_always$(m.Scope scope$) =>
+    () => AutovalidateMode.always;
+Function _AutovalidateMode_onUserInteraction$(m.Scope scope$) =>
+    () => AutovalidateMode.onUserInteraction;
+Function _AutovalidateMode_values$(m.Scope scope$) =>
+    () => AutovalidateMode.values;

@@ -10,10 +10,8 @@ const libraryMirror = m.LibraryMirror(
   {'debugSemanticsDisableAnimations': _debugSemanticsDisableAnimations_set$},
   {},
 );
-bool? _debugSemanticsDisableAnimations$() {
-  return debugSemanticsDisableAnimations;
-}
-
+Function _debugSemanticsDisableAnimations$(m.Scope scope$) =>
+    () => debugSemanticsDisableAnimations;
 void _debugSemanticsDisableAnimations_set$(bool? other$) {
   debugSemanticsDisableAnimations = other$;
 }

@@ -15,7 +15,6 @@ const libraryMirror = m.LibraryMirror(
   {
     'SnapshotController.': _SnapshotController__$,
     'SnapshotWidget.': _SnapshotWidget__$,
-    'SnapshotPainter.paint': _SnapshotPainter_paint$,
     'SnapshotMode.permissive': _SnapshotMode_permissive$,
     'SnapshotMode.normal': _SnapshotMode_normal$,
     'SnapshotMode.forced': _SnapshotMode_forced$,
@@ -53,6 +52,7 @@ const libraryMirror = m.LibraryMirror(
         '#as': SnapshotPainter_as$,
         '#is': SnapshotPainter_is$,
         'paintSnapshot': _SnapshotPainter_paintSnapshot$,
+        'paint': _SnapshotPainter_paint$,
         'shouldRepaint': _SnapshotPainter_shouldRepaint$,
       },
       {},
@@ -220,18 +220,8 @@ Function _SnapshotPainter_shouldRepaint$(
   SnapshotPainter target$,
 ) =>
     target$.shouldRepaint;
-SnapshotMode _SnapshotMode_permissive$() {
-  return SnapshotMode.permissive;
-}
-
-SnapshotMode _SnapshotMode_normal$() {
-  return SnapshotMode.normal;
-}
-
-SnapshotMode _SnapshotMode_forced$() {
-  return SnapshotMode.forced;
-}
-
-List<SnapshotMode> _SnapshotMode_values$() {
-  return SnapshotMode.values;
-}
+Function _SnapshotMode_permissive$(m.Scope scope$) =>
+    () => SnapshotMode.permissive;
+Function _SnapshotMode_normal$(m.Scope scope$) => () => SnapshotMode.normal;
+Function _SnapshotMode_forced$(m.Scope scope$) => () => SnapshotMode.forced;
+Function _SnapshotMode_values$(m.Scope scope$) => () => SnapshotMode.values;

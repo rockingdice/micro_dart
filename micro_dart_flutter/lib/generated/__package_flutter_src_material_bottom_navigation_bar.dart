@@ -304,34 +304,17 @@ Function _BottomNavigationBar_createState$(
   BottomNavigationBar target$,
 ) =>
     target$.createState;
-BottomNavigationBarType _BottomNavigationBarType_fixed$() {
-  return BottomNavigationBarType.fixed;
-}
-
-BottomNavigationBarType _BottomNavigationBarType_shifting$() {
-  return BottomNavigationBarType.shifting;
-}
-
-List<BottomNavigationBarType> _BottomNavigationBarType_values$() {
-  return BottomNavigationBarType.values;
-}
-
-BottomNavigationBarLandscapeLayout
-    _BottomNavigationBarLandscapeLayout_spread$() {
-  return BottomNavigationBarLandscapeLayout.spread;
-}
-
-BottomNavigationBarLandscapeLayout
-    _BottomNavigationBarLandscapeLayout_centered$() {
-  return BottomNavigationBarLandscapeLayout.centered;
-}
-
-BottomNavigationBarLandscapeLayout
-    _BottomNavigationBarLandscapeLayout_linear$() {
-  return BottomNavigationBarLandscapeLayout.linear;
-}
-
-List<BottomNavigationBarLandscapeLayout>
-    _BottomNavigationBarLandscapeLayout_values$() {
-  return BottomNavigationBarLandscapeLayout.values;
-}
+Function _BottomNavigationBarType_fixed$(m.Scope scope$) =>
+    () => BottomNavigationBarType.fixed;
+Function _BottomNavigationBarType_shifting$(m.Scope scope$) =>
+    () => BottomNavigationBarType.shifting;
+Function _BottomNavigationBarType_values$(m.Scope scope$) =>
+    () => BottomNavigationBarType.values;
+Function _BottomNavigationBarLandscapeLayout_spread$(m.Scope scope$) =>
+    () => BottomNavigationBarLandscapeLayout.spread;
+Function _BottomNavigationBarLandscapeLayout_centered$(m.Scope scope$) =>
+    () => BottomNavigationBarLandscapeLayout.centered;
+Function _BottomNavigationBarLandscapeLayout_linear$(m.Scope scope$) =>
+    () => BottomNavigationBarLandscapeLayout.linear;
+Function _BottomNavigationBarLandscapeLayout_values$(m.Scope scope$) =>
+    () => BottomNavigationBarLandscapeLayout.values;

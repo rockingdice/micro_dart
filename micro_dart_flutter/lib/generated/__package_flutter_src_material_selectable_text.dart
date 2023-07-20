@@ -68,10 +68,7 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-int _iOSHorizontalOffset$() {
-  return iOSHorizontalOffset;
-}
-
+Function _iOSHorizontalOffset$(m.Scope scope$) => () => iOSHorizontalOffset;
 Function SelectableText_as$(
   m.Scope scope$,
   dynamic target$,

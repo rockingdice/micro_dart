@@ -17,10 +17,6 @@ const libraryMirror = m.LibraryMirror(
         _BackgroundIsolateBinaryMessenger_instance$,
     'BackgroundIsolateBinaryMessenger.ensureInitialized':
         _BackgroundIsolateBinaryMessenger_ensureInitialized$,
-    'BackgroundIsolateBinaryMessenger.handlePlatformMessage':
-        _BackgroundIsolateBinaryMessenger_handlePlatformMessage$,
-    'BackgroundIsolateBinaryMessenger.setMessageHandler':
-        _BackgroundIsolateBinaryMessenger_setMessageHandler$,
   },
   {},
   {
@@ -29,7 +25,11 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': BackgroundIsolateBinaryMessenger_as$,
         '#is': BackgroundIsolateBinaryMessenger_is$,
+        'handlePlatformMessage':
+            _BackgroundIsolateBinaryMessenger_handlePlatformMessage$,
         'send': _BackgroundIsolateBinaryMessenger_send$,
+        'setMessageHandler':
+            _BackgroundIsolateBinaryMessenger_setMessageHandler$,
       },
       {},
     )
@@ -45,10 +45,8 @@ Function BackgroundIsolateBinaryMessenger_is$(
   dynamic target$,
 ) =>
     () => target$ is BackgroundIsolateBinaryMessenger;
-BinaryMessenger _BackgroundIsolateBinaryMessenger_instance$() {
-  return BackgroundIsolateBinaryMessenger.instance;
-}
-
+Function _BackgroundIsolateBinaryMessenger_instance$(m.Scope scope$) =>
+    () => BackgroundIsolateBinaryMessenger.instance;
 Function _BackgroundIsolateBinaryMessenger_ensureInitialized$(m.Scope scope$) =>
     BackgroundIsolateBinaryMessenger.ensureInitialized;
 Function _BackgroundIsolateBinaryMessenger_handlePlatformMessage$(

@@ -22,7 +22,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/decoration_image.dart',
   {
     'DecorationImage.': _DecorationImage__$,
-    'DecorationImage.createPainter': _DecorationImage_createPainter$,
     'ImageTilingInfo.': _ImageTilingInfo__$,
     'ImageRepeat.repeat': _ImageRepeat_repeat$,
     'ImageRepeat.repeatX': _ImageRepeat_repeatX$,
@@ -54,6 +53,7 @@ const libraryMirror = m.LibraryMirror(
         'invertColors': _DecorationImage_invertColors$,
         'isAntiAlias': _DecorationImage_isAntiAlias$,
         'hashCode': _DecorationImage_hashCode$,
+        'createPainter': _DecorationImage_createPainter$,
         '==': _DecorationImage_eq$$,
         'toString': _DecorationImage_toString$,
       },
@@ -336,26 +336,11 @@ Function _ImageTilingInfo_toString$(
   ImageTilingInfo target$,
 ) =>
     target$.toString;
-ImageRepeat _ImageRepeat_repeat$() {
-  return ImageRepeat.repeat;
-}
-
-ImageRepeat _ImageRepeat_repeatX$() {
-  return ImageRepeat.repeatX;
-}
-
-ImageRepeat _ImageRepeat_repeatY$() {
-  return ImageRepeat.repeatY;
-}
-
-ImageRepeat _ImageRepeat_noRepeat$() {
-  return ImageRepeat.noRepeat;
-}
-
-List<ImageRepeat> _ImageRepeat_values$() {
-  return ImageRepeat.values;
-}
-
+Function _ImageRepeat_repeat$(m.Scope scope$) => () => ImageRepeat.repeat;
+Function _ImageRepeat_repeatX$(m.Scope scope$) => () => ImageRepeat.repeatX;
+Function _ImageRepeat_repeatY$(m.Scope scope$) => () => ImageRepeat.repeatY;
+Function _ImageRepeat_noRepeat$(m.Scope scope$) => () => ImageRepeat.noRepeat;
+Function _ImageRepeat_values$(m.Scope scope$) => () => ImageRepeat.values;
 Function _debugFlushLastFrameImageSizeInfo$(m.Scope scope$) =>
     debugFlushLastFrameImageSizeInfo;
 Function _createTilingInfo$(m.Scope scope$) => createTilingInfo;

@@ -22,11 +22,8 @@ const libraryMirror = m.LibraryMirror(
     'RelativeRect.lerp': _RelativeRect_lerp$,
     'StackParentData.': _StackParentData__$,
     'RenderStack.': _RenderStack__$,
-    'RenderStack.getIntrinsicDimension': _RenderStack_getIntrinsicDimension$,
     'RenderStack.layoutPositionedChild': _RenderStack_layoutPositionedChild$,
     'RenderIndexedStack.': _RenderIndexedStack__$,
-    'RenderIndexedStack.visitChildrenForSemantics':
-        _RenderIndexedStack_visitChildrenForSemantics$,
     'StackFit.loose': _StackFit_loose$,
     'StackFit.expand': _StackFit_expand$,
     'StackFit.passthrough': _StackFit_passthrough$,
@@ -91,6 +88,7 @@ const libraryMirror = m.LibraryMirror(
         'fit': _RenderStack_fit$,
         'clipBehavior': _RenderStack_clipBehavior$,
         'setupParentData': _RenderStack_setupParentData$,
+        'getIntrinsicDimension': _RenderStack_getIntrinsicDimension$,
         'computeMinIntrinsicWidth': _RenderStack_computeMinIntrinsicWidth$,
         'computeMaxIntrinsicWidth': _RenderStack_computeMaxIntrinsicWidth$,
         'computeMinIntrinsicHeight': _RenderStack_computeMinIntrinsicHeight$,
@@ -120,6 +118,8 @@ const libraryMirror = m.LibraryMirror(
         '#as': RenderIndexedStack_as$,
         '#is': RenderIndexedStack_is$,
         'index': _RenderIndexedStack_index$,
+        'visitChildrenForSemantics':
+            _RenderIndexedStack_visitChildrenForSemantics$,
         'hitTestChildren': _RenderIndexedStack_hitTestChildren$,
         'paintStack': _RenderIndexedStack_paintStack$,
         'debugFillProperties': _RenderIndexedStack_debugFillProperties$,
@@ -144,10 +144,7 @@ Function RelativeRect_is$(
   dynamic target$,
 ) =>
     () => target$ is RelativeRect;
-RelativeRect _RelativeRect_fill$() {
-  return RelativeRect.fill;
-}
-
+Function _RelativeRect_fill$(m.Scope scope$) => () => RelativeRect.fill;
 Function _RelativeRect_left$(
   m.Scope scope$,
   RelativeRect target$,
@@ -603,18 +600,7 @@ Function _RenderIndexedStack_debugDescribeChildren$(
   RenderIndexedStack target$,
 ) =>
     target$.debugDescribeChildren;
-StackFit _StackFit_loose$() {
-  return StackFit.loose;
-}
-
-StackFit _StackFit_expand$() {
-  return StackFit.expand;
-}
-
-StackFit _StackFit_passthrough$() {
-  return StackFit.passthrough;
-}
-
-List<StackFit> _StackFit_values$() {
-  return StackFit.values;
-}
+Function _StackFit_loose$(m.Scope scope$) => () => StackFit.loose;
+Function _StackFit_expand$(m.Scope scope$) => () => StackFit.expand;
+Function _StackFit_passthrough$(m.Scope scope$) => () => StackFit.passthrough;
+Function _StackFit_values$(m.Scope scope$) => () => StackFit.values;

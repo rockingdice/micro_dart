@@ -29,32 +29,18 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-FoundationServiceExtensions _FoundationServiceExtensions_reassemble$() {
-  return FoundationServiceExtensions.reassemble;
-}
-
-FoundationServiceExtensions _FoundationServiceExtensions_exit$() {
-  return FoundationServiceExtensions.exit;
-}
-
-FoundationServiceExtensions
-    _FoundationServiceExtensions_connectedVmServiceUri$() {
-  return FoundationServiceExtensions.connectedVmServiceUri;
-}
-
-FoundationServiceExtensions
-    _FoundationServiceExtensions_activeDevToolsServerAddress$() {
-  return FoundationServiceExtensions.activeDevToolsServerAddress;
-}
-
-FoundationServiceExtensions _FoundationServiceExtensions_platformOverride$() {
-  return FoundationServiceExtensions.platformOverride;
-}
-
-FoundationServiceExtensions _FoundationServiceExtensions_brightnessOverride$() {
-  return FoundationServiceExtensions.brightnessOverride;
-}
-
-List<FoundationServiceExtensions> _FoundationServiceExtensions_values$() {
-  return FoundationServiceExtensions.values;
-}
+Function _FoundationServiceExtensions_reassemble$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.reassemble;
+Function _FoundationServiceExtensions_exit$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.exit;
+Function _FoundationServiceExtensions_connectedVmServiceUri$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.connectedVmServiceUri;
+Function _FoundationServiceExtensions_activeDevToolsServerAddress$(
+        m.Scope scope$) =>
+    () => FoundationServiceExtensions.activeDevToolsServerAddress;
+Function _FoundationServiceExtensions_platformOverride$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.platformOverride;
+Function _FoundationServiceExtensions_brightnessOverride$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.brightnessOverride;
+Function _FoundationServiceExtensions_values$(m.Scope scope$) =>
+    () => FoundationServiceExtensions.values;

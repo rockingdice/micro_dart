@@ -40,10 +40,8 @@ Function InkRipple_is$(
   dynamic target$,
 ) =>
     () => target$ is InkRipple;
-InteractiveInkFeatureFactory _InkRipple_splashFactory$() {
-  return InkRipple.splashFactory;
-}
-
+Function _InkRipple_splashFactory$(m.Scope scope$) =>
+    () => InkRipple.splashFactory;
 Function _InkRipple__$(m.Scope scope$) => ({
       required MaterialInkController controller,
       required RenderBox referenceBox,

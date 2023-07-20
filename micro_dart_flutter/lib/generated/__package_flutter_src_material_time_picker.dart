@@ -202,26 +202,16 @@ Function _TimePickerDialog_createState$(
   TimePickerDialog target$,
 ) =>
     target$.createState;
-TimePickerEntryMode _TimePickerEntryMode_dial$() {
-  return TimePickerEntryMode.dial;
-}
-
-TimePickerEntryMode _TimePickerEntryMode_input$() {
-  return TimePickerEntryMode.input;
-}
-
-TimePickerEntryMode _TimePickerEntryMode_dialOnly$() {
-  return TimePickerEntryMode.dialOnly;
-}
-
-TimePickerEntryMode _TimePickerEntryMode_inputOnly$() {
-  return TimePickerEntryMode.inputOnly;
-}
-
-List<TimePickerEntryMode> _TimePickerEntryMode_values$() {
-  return TimePickerEntryMode.values;
-}
-
+Function _TimePickerEntryMode_dial$(m.Scope scope$) =>
+    () => TimePickerEntryMode.dial;
+Function _TimePickerEntryMode_input$(m.Scope scope$) =>
+    () => TimePickerEntryMode.input;
+Function _TimePickerEntryMode_dialOnly$(m.Scope scope$) =>
+    () => TimePickerEntryMode.dialOnly;
+Function _TimePickerEntryMode_inputOnly$(m.Scope scope$) =>
+    () => TimePickerEntryMode.inputOnly;
+Function _TimePickerEntryMode_values$(m.Scope scope$) =>
+    () => TimePickerEntryMode.values;
 Function _showTimePicker$(m.Scope scope$) => ({
       required BuildContext context,
       required TimeOfDay initialTime,

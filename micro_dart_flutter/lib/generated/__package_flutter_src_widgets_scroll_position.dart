@@ -24,8 +24,6 @@ import 'package:flutter/src/widgets/view.dart';
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/scroll_position.dart',
   {
-    'ScrollPosition.hold': _ScrollPosition_hold$,
-    'ScrollPosition.drag': _ScrollPosition_drag$,
     'ScrollMetricsNotification.': _ScrollMetricsNotification__$,
     'ScrollPositionAlignmentPolicy.explicit':
         _ScrollPositionAlignmentPolicy_explicit$,
@@ -78,6 +76,8 @@ const libraryMirror = m.LibraryMirror(
         'jumpTo': _ScrollPosition_jumpTo$,
         'pointerScroll': _ScrollPosition_pointerScroll$,
         'moveTo': _ScrollPosition_moveTo$,
+        'hold': _ScrollPosition_hold$,
+        'drag': _ScrollPosition_drag$,
         'beginActivity': _ScrollPosition_beginActivity$,
         'didStartScroll': _ScrollPosition_didStartScroll$,
         'didUpdateScrollPositionBy': _ScrollPosition_didUpdateScrollPositionBy$,
@@ -453,20 +453,11 @@ Function _ScrollMetricsNotification_debugFillDescription$(
   ScrollMetricsNotification target$,
 ) =>
     target$.debugFillDescription;
-ScrollPositionAlignmentPolicy _ScrollPositionAlignmentPolicy_explicit$() {
-  return ScrollPositionAlignmentPolicy.explicit;
-}
-
-ScrollPositionAlignmentPolicy
-    _ScrollPositionAlignmentPolicy_keepVisibleAtEnd$() {
-  return ScrollPositionAlignmentPolicy.keepVisibleAtEnd;
-}
-
-ScrollPositionAlignmentPolicy
-    _ScrollPositionAlignmentPolicy_keepVisibleAtStart$() {
-  return ScrollPositionAlignmentPolicy.keepVisibleAtStart;
-}
-
-List<ScrollPositionAlignmentPolicy> _ScrollPositionAlignmentPolicy_values$() {
-  return ScrollPositionAlignmentPolicy.values;
-}
+Function _ScrollPositionAlignmentPolicy_explicit$(m.Scope scope$) =>
+    () => ScrollPositionAlignmentPolicy.explicit;
+Function _ScrollPositionAlignmentPolicy_keepVisibleAtEnd$(m.Scope scope$) =>
+    () => ScrollPositionAlignmentPolicy.keepVisibleAtEnd;
+Function _ScrollPositionAlignmentPolicy_keepVisibleAtStart$(m.Scope scope$) =>
+    () => ScrollPositionAlignmentPolicy.keepVisibleAtStart;
+Function _ScrollPositionAlignmentPolicy_values$(m.Scope scope$) =>
+    () => ScrollPositionAlignmentPolicy.values;

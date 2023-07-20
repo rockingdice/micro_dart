@@ -68,12 +68,6 @@ Function _PrimaryScrollController_automaticallyInheritForPlatforms$(
     () {
       return target$.automaticallyInheritForPlatforms;
     };
-
-const Set<TargetPlatform> _kMobilePlatforms = <TargetPlatform>{
-  TargetPlatform.android,
-  TargetPlatform.iOS,
-  TargetPlatform.fuchsia,
-};
 Function _PrimaryScrollController__$(m.Scope scope$) => ({
       Key? key,
       required ScrollController controller,
@@ -110,3 +104,9 @@ Function _PrimaryScrollController_debugFillProperties$(
   PrimaryScrollController target$,
 ) =>
     target$.debugFillProperties;
+
+const Set<TargetPlatform> _kMobilePlatforms = <TargetPlatform>{
+  TargetPlatform.android,
+  TargetPlatform.iOS,
+  TargetPlatform.fuchsia,
+};

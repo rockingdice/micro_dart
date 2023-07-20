@@ -24,22 +24,10 @@ const libraryMirror = m.LibraryMirror(
     'Router.withConfig': _Router_withConfig_$,
     'Router.of': _Router_of$,
     'Router.maybeOf': _Router_maybeOf$,
-    'Router.navigate': _Router_navigate$,
-    'Router.neglect': _Router_neglect$,
     'RootBackButtonDispatcher.': _RootBackButtonDispatcher__$,
-    'RootBackButtonDispatcher.addCallback':
-        _RootBackButtonDispatcher_addCallback$,
-    'RootBackButtonDispatcher.removeCallback':
-        _RootBackButtonDispatcher_removeCallback$,
     'ChildBackButtonDispatcher.': _ChildBackButtonDispatcher__$,
-    'ChildBackButtonDispatcher.removeCallback':
-        _ChildBackButtonDispatcher_removeCallback$,
     'BackButtonListener.': _BackButtonListener__$,
     'PlatformRouteInformationProvider.': _PlatformRouteInformationProvider__$,
-    'PlatformRouteInformationProvider.addListener':
-        _PlatformRouteInformationProvider_addListener$,
-    'PlatformRouteInformationProvider.removeListener':
-        _PlatformRouteInformationProvider_removeListener$,
     'RouteInformationReportingType.none': _RouteInformationReportingType_none$,
     'RouteInformationReportingType.neglect':
         _RouteInformationReportingType_neglect$,
@@ -82,6 +70,8 @@ const libraryMirror = m.LibraryMirror(
         'routerDelegate': _Router_routerDelegate$,
         'backButtonDispatcher': _Router_backButtonDispatcher$,
         'restorationScopeId': _Router_restorationScopeId$,
+        'navigate': _Router_navigate$,
+        'neglect': _Router_neglect$,
         'createState': _Router_createState$,
       },
       {},
@@ -106,6 +96,8 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': RootBackButtonDispatcher_as$,
         '#is': RootBackButtonDispatcher_is$,
+        'addCallback': _RootBackButtonDispatcher_addCallback$,
+        'removeCallback': _RootBackButtonDispatcher_removeCallback$,
         'didPopRoute': _RootBackButtonDispatcher_didPopRoute$,
       },
       {},
@@ -119,6 +111,7 @@ const libraryMirror = m.LibraryMirror(
         'notifiedByParent': _ChildBackButtonDispatcher_notifiedByParent$,
         'takePriority': _ChildBackButtonDispatcher_takePriority$,
         'deferTo': _ChildBackButtonDispatcher_deferTo$,
+        'removeCallback': _ChildBackButtonDispatcher_removeCallback$,
       },
       {},
     ),
@@ -178,6 +171,8 @@ const libraryMirror = m.LibraryMirror(
         'value': _PlatformRouteInformationProvider_value$,
         'routerReportsNewRouteInformation':
             _PlatformRouteInformationProvider_routerReportsNewRouteInformation$,
+        'addListener': _PlatformRouteInformationProvider_addListener$,
+        'removeListener': _PlatformRouteInformationProvider_removeListener$,
         'dispose': _PlatformRouteInformationProvider_dispose$,
         'didPushRouteInformation':
             _PlatformRouteInformationProvider_didPushRouteInformation$,
@@ -712,18 +707,11 @@ Function _PlatformRouteInformationProvider_didPushRoute$(
   PlatformRouteInformationProvider target$,
 ) =>
     target$.didPushRoute;
-RouteInformationReportingType _RouteInformationReportingType_none$() {
-  return RouteInformationReportingType.none;
-}
-
-RouteInformationReportingType _RouteInformationReportingType_neglect$() {
-  return RouteInformationReportingType.neglect;
-}
-
-RouteInformationReportingType _RouteInformationReportingType_navigate$() {
-  return RouteInformationReportingType.navigate;
-}
-
-List<RouteInformationReportingType> _RouteInformationReportingType_values$() {
-  return RouteInformationReportingType.values;
-}
+Function _RouteInformationReportingType_none$(m.Scope scope$) =>
+    () => RouteInformationReportingType.none;
+Function _RouteInformationReportingType_neglect$(m.Scope scope$) =>
+    () => RouteInformationReportingType.neglect;
+Function _RouteInformationReportingType_navigate$(m.Scope scope$) =>
+    () => RouteInformationReportingType.navigate;
+Function _RouteInformationReportingType_values$(m.Scope scope$) =>
+    () => RouteInformationReportingType.values;

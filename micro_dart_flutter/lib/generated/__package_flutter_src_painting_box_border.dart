@@ -381,14 +381,6 @@ Function _BorderDirectional_toString$(
   BorderDirectional target$,
 ) =>
     target$.toString;
-BoxShape _BoxShape_rectangle$() {
-  return BoxShape.rectangle;
-}
-
-BoxShape _BoxShape_circle$() {
-  return BoxShape.circle;
-}
-
-List<BoxShape> _BoxShape_values$() {
-  return BoxShape.values;
-}
+Function _BoxShape_rectangle$(m.Scope scope$) => () => BoxShape.rectangle;
+Function _BoxShape_circle$(m.Scope scope$) => () => BoxShape.circle;
+Function _BoxShape_values$(m.Scope scope$) => () => BoxShape.values;

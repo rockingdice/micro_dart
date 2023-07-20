@@ -14,15 +14,7 @@ import 'package:flutter/src/widgets/scrollable.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/scroll_aware_image_provider.dart',
-  {
-    'ScrollAwareImageProvider.': _ScrollAwareImageProvider__$,
-    'ScrollAwareImageProvider.resolveStreamForKey':
-        _ScrollAwareImageProvider_resolveStreamForKey$,
-    'ScrollAwareImageProvider.load': _ScrollAwareImageProvider_load$,
-    'ScrollAwareImageProvider.loadBuffer':
-        _ScrollAwareImageProvider_loadBuffer$,
-    'ScrollAwareImageProvider.loadImage': _ScrollAwareImageProvider_loadImage$,
-  },
+  {'ScrollAwareImageProvider.': _ScrollAwareImageProvider__$},
   {},
   {
     'ScrollAwareImageProvider': m.ClassMirror(
@@ -32,6 +24,10 @@ const libraryMirror = m.LibraryMirror(
         '#is': ScrollAwareImageProvider_is$,
         'context': _ScrollAwareImageProvider_context$,
         'imageProvider': _ScrollAwareImageProvider_imageProvider$,
+        'resolveStreamForKey': _ScrollAwareImageProvider_resolveStreamForKey$,
+        'load': _ScrollAwareImageProvider_load$,
+        'loadBuffer': _ScrollAwareImageProvider_loadBuffer$,
+        'loadImage': _ScrollAwareImageProvider_loadImage$,
         'obtainKey': _ScrollAwareImageProvider_obtainKey$,
       },
       {},

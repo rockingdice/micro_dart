@@ -141,18 +141,11 @@ Function _OverflowBar_debugFillProperties$(
   OverflowBar target$,
 ) =>
     target$.debugFillProperties;
-OverflowBarAlignment _OverflowBarAlignment_start$() {
-  return OverflowBarAlignment.start;
-}
-
-OverflowBarAlignment _OverflowBarAlignment_end$() {
-  return OverflowBarAlignment.end;
-}
-
-OverflowBarAlignment _OverflowBarAlignment_center$() {
-  return OverflowBarAlignment.center;
-}
-
-List<OverflowBarAlignment> _OverflowBarAlignment_values$() {
-  return OverflowBarAlignment.values;
-}
+Function _OverflowBarAlignment_start$(m.Scope scope$) =>
+    () => OverflowBarAlignment.start;
+Function _OverflowBarAlignment_end$(m.Scope scope$) =>
+    () => OverflowBarAlignment.end;
+Function _OverflowBarAlignment_center$(m.Scope scope$) =>
+    () => OverflowBarAlignment.center;
+Function _OverflowBarAlignment_values$(m.Scope scope$) =>
+    () => OverflowBarAlignment.values;

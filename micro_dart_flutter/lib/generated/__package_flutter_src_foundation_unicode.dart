@@ -42,50 +42,15 @@ Function Unicode_is$(
   dynamic target$,
 ) =>
     () => target$ is Unicode;
-String _Unicode_LRE$() {
-  return Unicode.LRE;
-}
-
-String _Unicode_RLE$() {
-  return Unicode.RLE;
-}
-
-String _Unicode_PDF$() {
-  return Unicode.PDF;
-}
-
-String _Unicode_LRO$() {
-  return Unicode.LRO;
-}
-
-String _Unicode_RLO$() {
-  return Unicode.RLO;
-}
-
-String _Unicode_LRI$() {
-  return Unicode.LRI;
-}
-
-String _Unicode_RLI$() {
-  return Unicode.RLI;
-}
-
-String _Unicode_FSI$() {
-  return Unicode.FSI;
-}
-
-String _Unicode_PDI$() {
-  return Unicode.PDI;
-}
-
-String _Unicode_LRM$() {
-  return Unicode.LRM;
-}
-
-String _Unicode_RLM$() {
-  return Unicode.RLM;
-}
-
-String _Unicode_ALM$() {
-  return Unicode.ALM;
-}
+Function _Unicode_LRE$(m.Scope scope$) => () => Unicode.LRE;
+Function _Unicode_RLE$(m.Scope scope$) => () => Unicode.RLE;
+Function _Unicode_PDF$(m.Scope scope$) => () => Unicode.PDF;
+Function _Unicode_LRO$(m.Scope scope$) => () => Unicode.LRO;
+Function _Unicode_RLO$(m.Scope scope$) => () => Unicode.RLO;
+Function _Unicode_LRI$(m.Scope scope$) => () => Unicode.LRI;
+Function _Unicode_RLI$(m.Scope scope$) => () => Unicode.RLI;
+Function _Unicode_FSI$(m.Scope scope$) => () => Unicode.FSI;
+Function _Unicode_PDI$(m.Scope scope$) => () => Unicode.PDI;
+Function _Unicode_LRM$(m.Scope scope$) => () => Unicode.LRM;
+Function _Unicode_RLM$(m.Scope scope$) => () => Unicode.RLM;
+Function _Unicode_ALM$(m.Scope scope$) => () => Unicode.ALM;

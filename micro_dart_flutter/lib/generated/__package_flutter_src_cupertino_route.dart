@@ -104,10 +104,8 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Color _kCupertinoModalBarrierColor$() {
-  return kCupertinoModalBarrierColor;
-}
-
+Function _kCupertinoModalBarrierColor$(m.Scope scope$) =>
+    () => kCupertinoModalBarrierColor;
 Function CupertinoPageRoute_as$<T>(
   m.Scope scope$,
   dynamic target$,

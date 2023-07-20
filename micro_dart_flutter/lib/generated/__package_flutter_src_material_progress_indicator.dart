@@ -241,10 +241,8 @@ Function RefreshProgressIndicator_is$(
   dynamic target$,
 ) =>
     () => target$ is RefreshProgressIndicator;
-double _RefreshProgressIndicator_defaultStrokeWidth$() {
-  return RefreshProgressIndicator.defaultStrokeWidth;
-}
-
+Function _RefreshProgressIndicator_defaultStrokeWidth$(m.Scope scope$) =>
+    () => RefreshProgressIndicator.defaultStrokeWidth;
 Function _RefreshProgressIndicator_backgroundColor$(
   m.Scope scope$,
   RefreshProgressIndicator target$,

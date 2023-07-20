@@ -73,36 +73,12 @@ Function _FittedSizes__$(m.Scope scope$) => (
         destination,
       );
     };
-BoxFit _BoxFit_fill$() {
-  return BoxFit.fill;
-}
-
-BoxFit _BoxFit_contain$() {
-  return BoxFit.contain;
-}
-
-BoxFit _BoxFit_cover$() {
-  return BoxFit.cover;
-}
-
-BoxFit _BoxFit_fitWidth$() {
-  return BoxFit.fitWidth;
-}
-
-BoxFit _BoxFit_fitHeight$() {
-  return BoxFit.fitHeight;
-}
-
-BoxFit _BoxFit_none$() {
-  return BoxFit.none;
-}
-
-BoxFit _BoxFit_scaleDown$() {
-  return BoxFit.scaleDown;
-}
-
-List<BoxFit> _BoxFit_values$() {
-  return BoxFit.values;
-}
-
+Function _BoxFit_fill$(m.Scope scope$) => () => BoxFit.fill;
+Function _BoxFit_contain$(m.Scope scope$) => () => BoxFit.contain;
+Function _BoxFit_cover$(m.Scope scope$) => () => BoxFit.cover;
+Function _BoxFit_fitWidth$(m.Scope scope$) => () => BoxFit.fitWidth;
+Function _BoxFit_fitHeight$(m.Scope scope$) => () => BoxFit.fitHeight;
+Function _BoxFit_none$(m.Scope scope$) => () => BoxFit.none;
+Function _BoxFit_scaleDown$(m.Scope scope$) => () => BoxFit.scaleDown;
+Function _BoxFit_values$(m.Scope scope$) => () => BoxFit.values;
 Function _applyBoxFit$(m.Scope scope$) => applyBoxFit;

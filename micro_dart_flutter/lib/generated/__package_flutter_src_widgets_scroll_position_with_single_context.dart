@@ -17,13 +17,7 @@ import 'package:flutter/src/widgets/scroll_position.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/scroll_position_with_single_context.dart',
-  {
-    'ScrollPositionWithSingleContext.': _ScrollPositionWithSingleContext__$,
-    'ScrollPositionWithSingleContext.hold':
-        _ScrollPositionWithSingleContext_hold$,
-    'ScrollPositionWithSingleContext.drag':
-        _ScrollPositionWithSingleContext_drag$,
-  },
+  {'ScrollPositionWithSingleContext.': _ScrollPositionWithSingleContext__$},
   {},
   {
     'ScrollPositionWithSingleContext': m.ClassMirror(
@@ -47,6 +41,8 @@ const libraryMirror = m.LibraryMirror(
         'animateTo': _ScrollPositionWithSingleContext_animateTo$,
         'jumpTo': _ScrollPositionWithSingleContext_jumpTo$,
         'pointerScroll': _ScrollPositionWithSingleContext_pointerScroll$,
+        'hold': _ScrollPositionWithSingleContext_hold$,
+        'drag': _ScrollPositionWithSingleContext_drag$,
         'dispose': _ScrollPositionWithSingleContext_dispose$,
         'debugFillDescription':
             _ScrollPositionWithSingleContext_debugFillDescription$,

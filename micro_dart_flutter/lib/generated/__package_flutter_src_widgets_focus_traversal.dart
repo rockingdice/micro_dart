@@ -766,34 +766,18 @@ Function _ExcludeFocusTraversal_build$(
   ExcludeFocusTraversal target$,
 ) =>
     target$.build;
-TraversalDirection _TraversalDirection_up$() {
-  return TraversalDirection.up;
-}
-
-TraversalDirection _TraversalDirection_right$() {
-  return TraversalDirection.right;
-}
-
-TraversalDirection _TraversalDirection_down$() {
-  return TraversalDirection.down;
-}
-
-TraversalDirection _TraversalDirection_left$() {
-  return TraversalDirection.left;
-}
-
-List<TraversalDirection> _TraversalDirection_values$() {
-  return TraversalDirection.values;
-}
-
-TraversalEdgeBehavior _TraversalEdgeBehavior_closedLoop$() {
-  return TraversalEdgeBehavior.closedLoop;
-}
-
-TraversalEdgeBehavior _TraversalEdgeBehavior_leaveFlutterView$() {
-  return TraversalEdgeBehavior.leaveFlutterView;
-}
-
-List<TraversalEdgeBehavior> _TraversalEdgeBehavior_values$() {
-  return TraversalEdgeBehavior.values;
-}
+Function _TraversalDirection_up$(m.Scope scope$) => () => TraversalDirection.up;
+Function _TraversalDirection_right$(m.Scope scope$) =>
+    () => TraversalDirection.right;
+Function _TraversalDirection_down$(m.Scope scope$) =>
+    () => TraversalDirection.down;
+Function _TraversalDirection_left$(m.Scope scope$) =>
+    () => TraversalDirection.left;
+Function _TraversalDirection_values$(m.Scope scope$) =>
+    () => TraversalDirection.values;
+Function _TraversalEdgeBehavior_closedLoop$(m.Scope scope$) =>
+    () => TraversalEdgeBehavior.closedLoop;
+Function _TraversalEdgeBehavior_leaveFlutterView$(m.Scope scope$) =>
+    () => TraversalEdgeBehavior.leaveFlutterView;
+Function _TraversalEdgeBehavior_values$(m.Scope scope$) =>
+    () => TraversalEdgeBehavior.values;

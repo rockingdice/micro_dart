@@ -27,17 +27,6 @@ const libraryMirror = m.LibraryMirror(
         _BindingBase_debugZoneErrorsAreFatal$,
     'BindingBase.checkInstance': _BindingBase_checkInstance$,
     'BindingBase.debugBindingType': _BindingBase_debugBindingType$,
-    'BindingBase.lockEvents': _BindingBase_lockEvents$,
-    'BindingBase.registerSignalServiceExtension':
-        _BindingBase_registerSignalServiceExtension$,
-    'BindingBase.registerBoolServiceExtension':
-        _BindingBase_registerBoolServiceExtension$,
-    'BindingBase.registerNumericServiceExtension':
-        _BindingBase_registerNumericServiceExtension$,
-    'BindingBase.registerStringServiceExtension':
-        _BindingBase_registerStringServiceExtension$,
-    'BindingBase.registerServiceExtension':
-        _BindingBase_registerServiceExtension$,
     'DebugReassembleConfig.': _DebugReassembleConfig__$,
   },
   {
@@ -57,10 +46,20 @@ const libraryMirror = m.LibraryMirror(
         'initInstances': _BindingBase_initInstances$,
         'debugCheckZone': _BindingBase_debugCheckZone$,
         'initServiceExtensions': _BindingBase_initServiceExtensions$,
+        'lockEvents': _BindingBase_lockEvents$,
         'unlocked': _BindingBase_unlocked$,
         'reassembleApplication': _BindingBase_reassembleApplication$,
         'performReassemble': _BindingBase_performReassemble$,
+        'registerSignalServiceExtension':
+            _BindingBase_registerSignalServiceExtension$,
+        'registerBoolServiceExtension':
+            _BindingBase_registerBoolServiceExtension$,
+        'registerNumericServiceExtension':
+            _BindingBase_registerNumericServiceExtension$,
         'postEvent': _BindingBase_postEvent$,
+        'registerStringServiceExtension':
+            _BindingBase_registerStringServiceExtension$,
+        'registerServiceExtension': _BindingBase_registerServiceExtension$,
         'toString': _BindingBase_toString$,
       },
       {},
@@ -86,18 +85,14 @@ Function BindingBase_is$(
   dynamic target$,
 ) =>
     () => target$ is BindingBase;
-DebugReassembleConfig? _BindingBase_debugReassembleConfig$() {
-  return BindingBase.debugReassembleConfig;
-}
-
+Function _BindingBase_debugReassembleConfig$(m.Scope scope$) =>
+    () => BindingBase.debugReassembleConfig;
 void _BindingBase_debugReassembleConfig_set$(DebugReassembleConfig? other$) {
   BindingBase.debugReassembleConfig = other$;
 }
 
-bool _BindingBase_debugZoneErrorsAreFatal$() {
-  return BindingBase.debugZoneErrorsAreFatal;
-}
-
+Function _BindingBase_debugZoneErrorsAreFatal$(m.Scope scope$) =>
+    () => BindingBase.debugZoneErrorsAreFatal;
 void _BindingBase_debugZoneErrorsAreFatal_set$(bool other$) {
   BindingBase.debugZoneErrorsAreFatal = other$;
 }

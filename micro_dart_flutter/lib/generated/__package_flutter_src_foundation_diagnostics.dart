@@ -394,50 +394,26 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-TextTreeConfiguration _sparseTextConfiguration$() {
-  return sparseTextConfiguration;
-}
-
-TextTreeConfiguration _dashedTextConfiguration$() {
-  return dashedTextConfiguration;
-}
-
-TextTreeConfiguration _denseTextConfiguration$() {
-  return denseTextConfiguration;
-}
-
-TextTreeConfiguration _transitionTextConfiguration$() {
-  return transitionTextConfiguration;
-}
-
-TextTreeConfiguration _errorTextConfiguration$() {
-  return errorTextConfiguration;
-}
-
-TextTreeConfiguration _whitespaceTextConfiguration$() {
-  return whitespaceTextConfiguration;
-}
-
-TextTreeConfiguration _flatTextConfiguration$() {
-  return flatTextConfiguration;
-}
-
-TextTreeConfiguration _singleLineTextConfiguration$() {
-  return singleLineTextConfiguration;
-}
-
-TextTreeConfiguration _errorPropertyTextConfiguration$() {
-  return errorPropertyTextConfiguration;
-}
-
-TextTreeConfiguration _shallowTextConfiguration$() {
-  return shallowTextConfiguration;
-}
-
-Object _kNoDefaultValue$() {
-  return kNoDefaultValue;
-}
-
+Function _sparseTextConfiguration$(m.Scope scope$) =>
+    () => sparseTextConfiguration;
+Function _dashedTextConfiguration$(m.Scope scope$) =>
+    () => dashedTextConfiguration;
+Function _denseTextConfiguration$(m.Scope scope$) =>
+    () => denseTextConfiguration;
+Function _transitionTextConfiguration$(m.Scope scope$) =>
+    () => transitionTextConfiguration;
+Function _errorTextConfiguration$(m.Scope scope$) =>
+    () => errorTextConfiguration;
+Function _whitespaceTextConfiguration$(m.Scope scope$) =>
+    () => whitespaceTextConfiguration;
+Function _flatTextConfiguration$(m.Scope scope$) => () => flatTextConfiguration;
+Function _singleLineTextConfiguration$(m.Scope scope$) =>
+    () => singleLineTextConfiguration;
+Function _errorPropertyTextConfiguration$(m.Scope scope$) =>
+    () => errorPropertyTextConfiguration;
+Function _shallowTextConfiguration$(m.Scope scope$) =>
+    () => shallowTextConfiguration;
+Function _kNoDefaultValue$(m.Scope scope$) => () => kNoDefaultValue;
 Function TextTreeConfiguration_as$(
   m.Scope scope$,
   dynamic target$,
@@ -1851,98 +1827,46 @@ Function _DiagnosticsSerializationDelegate_copyWith$(
   DiagnosticsSerializationDelegate target$,
 ) =>
     target$.copyWith;
-DiagnosticLevel _DiagnosticLevel_hidden$() {
-  return DiagnosticLevel.hidden;
-}
-
-DiagnosticLevel _DiagnosticLevel_fine$() {
-  return DiagnosticLevel.fine;
-}
-
-DiagnosticLevel _DiagnosticLevel_debug$() {
-  return DiagnosticLevel.debug;
-}
-
-DiagnosticLevel _DiagnosticLevel_info$() {
-  return DiagnosticLevel.info;
-}
-
-DiagnosticLevel _DiagnosticLevel_warning$() {
-  return DiagnosticLevel.warning;
-}
-
-DiagnosticLevel _DiagnosticLevel_hint$() {
-  return DiagnosticLevel.hint;
-}
-
-DiagnosticLevel _DiagnosticLevel_summary$() {
-  return DiagnosticLevel.summary;
-}
-
-DiagnosticLevel _DiagnosticLevel_error$() {
-  return DiagnosticLevel.error;
-}
-
-DiagnosticLevel _DiagnosticLevel_off$() {
-  return DiagnosticLevel.off;
-}
-
-List<DiagnosticLevel> _DiagnosticLevel_values$() {
-  return DiagnosticLevel.values;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_none$() {
-  return DiagnosticsTreeStyle.none;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_sparse$() {
-  return DiagnosticsTreeStyle.sparse;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_offstage$() {
-  return DiagnosticsTreeStyle.offstage;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_dense$() {
-  return DiagnosticsTreeStyle.dense;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_transition$() {
-  return DiagnosticsTreeStyle.transition;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_error$() {
-  return DiagnosticsTreeStyle.error;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_whitespace$() {
-  return DiagnosticsTreeStyle.whitespace;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_flat$() {
-  return DiagnosticsTreeStyle.flat;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_singleLine$() {
-  return DiagnosticsTreeStyle.singleLine;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_errorProperty$() {
-  return DiagnosticsTreeStyle.errorProperty;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_shallow$() {
-  return DiagnosticsTreeStyle.shallow;
-}
-
-DiagnosticsTreeStyle _DiagnosticsTreeStyle_truncateChildren$() {
-  return DiagnosticsTreeStyle.truncateChildren;
-}
-
-List<DiagnosticsTreeStyle> _DiagnosticsTreeStyle_values$() {
-  return DiagnosticsTreeStyle.values;
-}
-
+Function _DiagnosticLevel_hidden$(m.Scope scope$) =>
+    () => DiagnosticLevel.hidden;
+Function _DiagnosticLevel_fine$(m.Scope scope$) => () => DiagnosticLevel.fine;
+Function _DiagnosticLevel_debug$(m.Scope scope$) => () => DiagnosticLevel.debug;
+Function _DiagnosticLevel_info$(m.Scope scope$) => () => DiagnosticLevel.info;
+Function _DiagnosticLevel_warning$(m.Scope scope$) =>
+    () => DiagnosticLevel.warning;
+Function _DiagnosticLevel_hint$(m.Scope scope$) => () => DiagnosticLevel.hint;
+Function _DiagnosticLevel_summary$(m.Scope scope$) =>
+    () => DiagnosticLevel.summary;
+Function _DiagnosticLevel_error$(m.Scope scope$) => () => DiagnosticLevel.error;
+Function _DiagnosticLevel_off$(m.Scope scope$) => () => DiagnosticLevel.off;
+Function _DiagnosticLevel_values$(m.Scope scope$) =>
+    () => DiagnosticLevel.values;
+Function _DiagnosticsTreeStyle_none$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.none;
+Function _DiagnosticsTreeStyle_sparse$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.sparse;
+Function _DiagnosticsTreeStyle_offstage$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.offstage;
+Function _DiagnosticsTreeStyle_dense$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.dense;
+Function _DiagnosticsTreeStyle_transition$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.transition;
+Function _DiagnosticsTreeStyle_error$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.error;
+Function _DiagnosticsTreeStyle_whitespace$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.whitespace;
+Function _DiagnosticsTreeStyle_flat$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.flat;
+Function _DiagnosticsTreeStyle_singleLine$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.singleLine;
+Function _DiagnosticsTreeStyle_errorProperty$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.errorProperty;
+Function _DiagnosticsTreeStyle_shallow$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.shallow;
+Function _DiagnosticsTreeStyle_truncateChildren$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.truncateChildren;
+Function _DiagnosticsTreeStyle_values$(m.Scope scope$) =>
+    () => DiagnosticsTreeStyle.values;
 Function _shortHash$(m.Scope scope$) => shortHash;
 Function _describeIdentity$(m.Scope scope$) => describeIdentity;
 Function _describeEnum$(m.Scope scope$) => describeEnum;

@@ -11,7 +11,6 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/shared_app_data.dart',
   {
     'SharedAppData.': _SharedAppData__$,
-    'SharedAppData.getValue': _SharedAppData_getValue$,
     'SharedAppData.setValue': _SharedAppData_setValue$,
   },
   {},
@@ -23,6 +22,7 @@ const libraryMirror = m.LibraryMirror(
         '#is': SharedAppData_is$,
         'child': _SharedAppData_child$,
         'createState': _SharedAppData_createState$,
+        'getValue': _SharedAppData_getValue$,
       },
       {},
     )
@@ -59,12 +59,12 @@ Function _SharedAppData_createState$(
   SharedAppData target$,
 ) =>
     target$.createState;
-Function _SharedAppData_getValue$(m.Scope scope$) => (
+Function _SharedAppData_getValue$(m.Scope scope$) => <K extends Object, V>(
       BuildContext context,
-      Object key,
+      K key,
       m.FunctionPointer init,
     ) {
-      dynamic initProxy() => scope$.engine.callFunctionPointer(
+      V initProxy() => scope$.engine.callFunctionPointer(
             scope$,
             init,
             [],

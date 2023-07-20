@@ -19,10 +19,7 @@ const libraryMirror = m.LibraryMirror(
     )
   },
 );
-ServicesServiceExtensions _ServicesServiceExtensions_evict$() {
-  return ServicesServiceExtensions.evict;
-}
-
-List<ServicesServiceExtensions> _ServicesServiceExtensions_values$() {
-  return ServicesServiceExtensions.values;
-}
+Function _ServicesServiceExtensions_evict$(m.Scope scope$) =>
+    () => ServicesServiceExtensions.evict;
+Function _ServicesServiceExtensions_values$(m.Scope scope$) =>
+    () => ServicesServiceExtensions.values;

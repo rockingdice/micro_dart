@@ -376,78 +376,34 @@ Function _RenderFlex_debugFillProperties$(
   RenderFlex target$,
 ) =>
     target$.debugFillProperties;
-FlexFit _FlexFit_tight$() {
-  return FlexFit.tight;
-}
-
-FlexFit _FlexFit_loose$() {
-  return FlexFit.loose;
-}
-
-List<FlexFit> _FlexFit_values$() {
-  return FlexFit.values;
-}
-
-MainAxisSize _MainAxisSize_min$() {
-  return MainAxisSize.min;
-}
-
-MainAxisSize _MainAxisSize_max$() {
-  return MainAxisSize.max;
-}
-
-List<MainAxisSize> _MainAxisSize_values$() {
-  return MainAxisSize.values;
-}
-
-MainAxisAlignment _MainAxisAlignment_start$() {
-  return MainAxisAlignment.start;
-}
-
-MainAxisAlignment _MainAxisAlignment_end$() {
-  return MainAxisAlignment.end;
-}
-
-MainAxisAlignment _MainAxisAlignment_center$() {
-  return MainAxisAlignment.center;
-}
-
-MainAxisAlignment _MainAxisAlignment_spaceBetween$() {
-  return MainAxisAlignment.spaceBetween;
-}
-
-MainAxisAlignment _MainAxisAlignment_spaceAround$() {
-  return MainAxisAlignment.spaceAround;
-}
-
-MainAxisAlignment _MainAxisAlignment_spaceEvenly$() {
-  return MainAxisAlignment.spaceEvenly;
-}
-
-List<MainAxisAlignment> _MainAxisAlignment_values$() {
-  return MainAxisAlignment.values;
-}
-
-CrossAxisAlignment _CrossAxisAlignment_start$() {
-  return CrossAxisAlignment.start;
-}
-
-CrossAxisAlignment _CrossAxisAlignment_end$() {
-  return CrossAxisAlignment.end;
-}
-
-CrossAxisAlignment _CrossAxisAlignment_center$() {
-  return CrossAxisAlignment.center;
-}
-
-CrossAxisAlignment _CrossAxisAlignment_stretch$() {
-  return CrossAxisAlignment.stretch;
-}
-
-CrossAxisAlignment _CrossAxisAlignment_baseline$() {
-  return CrossAxisAlignment.baseline;
-}
-
-List<CrossAxisAlignment> _CrossAxisAlignment_values$() {
-  return CrossAxisAlignment.values;
-}
+Function _FlexFit_tight$(m.Scope scope$) => () => FlexFit.tight;
+Function _FlexFit_loose$(m.Scope scope$) => () => FlexFit.loose;
+Function _FlexFit_values$(m.Scope scope$) => () => FlexFit.values;
+Function _MainAxisSize_min$(m.Scope scope$) => () => MainAxisSize.min;
+Function _MainAxisSize_max$(m.Scope scope$) => () => MainAxisSize.max;
+Function _MainAxisSize_values$(m.Scope scope$) => () => MainAxisSize.values;
+Function _MainAxisAlignment_start$(m.Scope scope$) =>
+    () => MainAxisAlignment.start;
+Function _MainAxisAlignment_end$(m.Scope scope$) => () => MainAxisAlignment.end;
+Function _MainAxisAlignment_center$(m.Scope scope$) =>
+    () => MainAxisAlignment.center;
+Function _MainAxisAlignment_spaceBetween$(m.Scope scope$) =>
+    () => MainAxisAlignment.spaceBetween;
+Function _MainAxisAlignment_spaceAround$(m.Scope scope$) =>
+    () => MainAxisAlignment.spaceAround;
+Function _MainAxisAlignment_spaceEvenly$(m.Scope scope$) =>
+    () => MainAxisAlignment.spaceEvenly;
+Function _MainAxisAlignment_values$(m.Scope scope$) =>
+    () => MainAxisAlignment.values;
+Function _CrossAxisAlignment_start$(m.Scope scope$) =>
+    () => CrossAxisAlignment.start;
+Function _CrossAxisAlignment_end$(m.Scope scope$) =>
+    () => CrossAxisAlignment.end;
+Function _CrossAxisAlignment_center$(m.Scope scope$) =>
+    () => CrossAxisAlignment.center;
+Function _CrossAxisAlignment_stretch$(m.Scope scope$) =>
+    () => CrossAxisAlignment.stretch;
+Function _CrossAxisAlignment_baseline$(m.Scope scope$) =>
+    () => CrossAxisAlignment.baseline;
+Function _CrossAxisAlignment_values$(m.Scope scope$) =>
+    () => CrossAxisAlignment.values;

@@ -93,62 +93,34 @@ Function _RawKeyEventDataFuchsia_modifiers$(
     () {
       return target$.modifiers;
     };
-int _RawKeyEventDataFuchsia_modifierNone$() {
-  return RawKeyEventDataFuchsia.modifierNone;
-}
-
-int _RawKeyEventDataFuchsia_modifierCapsLock$() {
-  return RawKeyEventDataFuchsia.modifierCapsLock;
-}
-
-int _RawKeyEventDataFuchsia_modifierLeftShift$() {
-  return RawKeyEventDataFuchsia.modifierLeftShift;
-}
-
-int _RawKeyEventDataFuchsia_modifierRightShift$() {
-  return RawKeyEventDataFuchsia.modifierRightShift;
-}
-
-int _RawKeyEventDataFuchsia_modifierShift$() {
-  return RawKeyEventDataFuchsia.modifierShift;
-}
-
-int _RawKeyEventDataFuchsia_modifierLeftControl$() {
-  return RawKeyEventDataFuchsia.modifierLeftControl;
-}
-
-int _RawKeyEventDataFuchsia_modifierRightControl$() {
-  return RawKeyEventDataFuchsia.modifierRightControl;
-}
-
-int _RawKeyEventDataFuchsia_modifierControl$() {
-  return RawKeyEventDataFuchsia.modifierControl;
-}
-
-int _RawKeyEventDataFuchsia_modifierLeftAlt$() {
-  return RawKeyEventDataFuchsia.modifierLeftAlt;
-}
-
-int _RawKeyEventDataFuchsia_modifierRightAlt$() {
-  return RawKeyEventDataFuchsia.modifierRightAlt;
-}
-
-int _RawKeyEventDataFuchsia_modifierAlt$() {
-  return RawKeyEventDataFuchsia.modifierAlt;
-}
-
-int _RawKeyEventDataFuchsia_modifierLeftMeta$() {
-  return RawKeyEventDataFuchsia.modifierLeftMeta;
-}
-
-int _RawKeyEventDataFuchsia_modifierRightMeta$() {
-  return RawKeyEventDataFuchsia.modifierRightMeta;
-}
-
-int _RawKeyEventDataFuchsia_modifierMeta$() {
-  return RawKeyEventDataFuchsia.modifierMeta;
-}
-
+Function _RawKeyEventDataFuchsia_modifierNone$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierNone;
+Function _RawKeyEventDataFuchsia_modifierCapsLock$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierCapsLock;
+Function _RawKeyEventDataFuchsia_modifierLeftShift$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierLeftShift;
+Function _RawKeyEventDataFuchsia_modifierRightShift$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierRightShift;
+Function _RawKeyEventDataFuchsia_modifierShift$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierShift;
+Function _RawKeyEventDataFuchsia_modifierLeftControl$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierLeftControl;
+Function _RawKeyEventDataFuchsia_modifierRightControl$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierRightControl;
+Function _RawKeyEventDataFuchsia_modifierControl$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierControl;
+Function _RawKeyEventDataFuchsia_modifierLeftAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierLeftAlt;
+Function _RawKeyEventDataFuchsia_modifierRightAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierRightAlt;
+Function _RawKeyEventDataFuchsia_modifierAlt$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierAlt;
+Function _RawKeyEventDataFuchsia_modifierLeftMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierLeftMeta;
+Function _RawKeyEventDataFuchsia_modifierRightMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierRightMeta;
+Function _RawKeyEventDataFuchsia_modifierMeta$(m.Scope scope$) =>
+    () => RawKeyEventDataFuchsia.modifierMeta;
 Function _RawKeyEventDataFuchsia_keyLabel$(
   m.Scope scope$,
   RawKeyEventDataFuchsia target$,

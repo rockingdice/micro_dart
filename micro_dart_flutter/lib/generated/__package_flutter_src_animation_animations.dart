@@ -15,17 +15,8 @@ const libraryMirror = m.LibraryMirror(
     'kAlwaysCompleteAnimation': _kAlwaysCompleteAnimation$,
     'kAlwaysDismissedAnimation': _kAlwaysDismissedAnimation$,
     'AlwaysStoppedAnimation.': _AlwaysStoppedAnimation__$,
-    'AlwaysStoppedAnimation.addListener': _AlwaysStoppedAnimation_addListener$,
-    'AlwaysStoppedAnimation.removeListener':
-        _AlwaysStoppedAnimation_removeListener$,
-    'AlwaysStoppedAnimation.addStatusListener':
-        _AlwaysStoppedAnimation_addStatusListener$,
-    'AlwaysStoppedAnimation.removeStatusListener':
-        _AlwaysStoppedAnimation_removeStatusListener$,
     'ProxyAnimation.': _ProxyAnimation__$,
     'ReverseAnimation.': _ReverseAnimation__$,
-    'ReverseAnimation.addListener': _ReverseAnimation_addListener$,
-    'ReverseAnimation.removeListener': _ReverseAnimation_removeListener$,
     'CurvedAnimation.': _CurvedAnimation__$,
     'TrainHoppingAnimation.': _TrainHoppingAnimation__$,
     'AnimationMean.': _AnimationMean__$,
@@ -41,6 +32,10 @@ const libraryMirror = m.LibraryMirror(
         '#is': AlwaysStoppedAnimation_is$,
         'value': _AlwaysStoppedAnimation_value$,
         'status': _AlwaysStoppedAnimation_status$,
+        'addListener': _AlwaysStoppedAnimation_addListener$,
+        'removeListener': _AlwaysStoppedAnimation_removeListener$,
+        'addStatusListener': _AlwaysStoppedAnimation_addStatusListener$,
+        'removeStatusListener': _AlwaysStoppedAnimation_removeStatusListener$,
         'toStringDetails': _AlwaysStoppedAnimation_toStringDetails$,
       },
       {},
@@ -67,6 +62,8 @@ const libraryMirror = m.LibraryMirror(
         'parent': _ReverseAnimation_parent$,
         'status': _ReverseAnimation_status$,
         'value': _ReverseAnimation_value$,
+        'addListener': _ReverseAnimation_addListener$,
+        'removeListener': _ReverseAnimation_removeListener$,
         'didStartListening': _ReverseAnimation_didStartListening$,
         'didStopListening': _ReverseAnimation_didStopListening$,
         'toString': _ReverseAnimation_toString$,
@@ -149,14 +146,10 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-Animation<double> _kAlwaysCompleteAnimation$() {
-  return kAlwaysCompleteAnimation;
-}
-
-Animation<double> _kAlwaysDismissedAnimation$() {
-  return kAlwaysDismissedAnimation;
-}
-
+Function _kAlwaysCompleteAnimation$(m.Scope scope$) =>
+    () => kAlwaysCompleteAnimation;
+Function _kAlwaysDismissedAnimation$(m.Scope scope$) =>
+    () => kAlwaysDismissedAnimation;
 Function AlwaysStoppedAnimation_as$<T>(
   m.Scope scope$,
   dynamic target$,

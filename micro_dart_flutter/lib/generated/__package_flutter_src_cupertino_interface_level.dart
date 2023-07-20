@@ -75,15 +75,9 @@ Function _CupertinoUserInterfaceLevel_debugFillProperties$(
   CupertinoUserInterfaceLevel target$,
 ) =>
     target$.debugFillProperties;
-CupertinoUserInterfaceLevelData _CupertinoUserInterfaceLevelData_base$() {
-  return CupertinoUserInterfaceLevelData.base;
-}
-
-CupertinoUserInterfaceLevelData _CupertinoUserInterfaceLevelData_elevated$() {
-  return CupertinoUserInterfaceLevelData.elevated;
-}
-
-List<CupertinoUserInterfaceLevelData>
-    _CupertinoUserInterfaceLevelData_values$() {
-  return CupertinoUserInterfaceLevelData.values;
-}
+Function _CupertinoUserInterfaceLevelData_base$(m.Scope scope$) =>
+    () => CupertinoUserInterfaceLevelData.base;
+Function _CupertinoUserInterfaceLevelData_elevated$(m.Scope scope$) =>
+    () => CupertinoUserInterfaceLevelData.elevated;
+Function _CupertinoUserInterfaceLevelData_values$(m.Scope scope$) =>
+    () => CupertinoUserInterfaceLevelData.values;

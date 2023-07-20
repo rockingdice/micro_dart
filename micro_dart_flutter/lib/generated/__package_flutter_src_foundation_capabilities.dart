@@ -10,6 +10,4 @@ const libraryMirror = m.LibraryMirror(
   {},
   {},
 );
-bool _isCanvasKit$() {
-  return isCanvasKit;
-}
+Function _isCanvasKit$(m.Scope scope$) => () => isCanvasKit;

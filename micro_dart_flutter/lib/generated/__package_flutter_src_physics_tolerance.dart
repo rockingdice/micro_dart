@@ -37,10 +37,8 @@ Function Tolerance_is$(
   dynamic target$,
 ) =>
     () => target$ is Tolerance;
-Tolerance _Tolerance_defaultTolerance$() {
-  return Tolerance.defaultTolerance;
-}
-
+Function _Tolerance_defaultTolerance$(m.Scope scope$) =>
+    () => Tolerance.defaultTolerance;
 Function _Tolerance_distance$(
   m.Scope scope$,
   Tolerance target$,

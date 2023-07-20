@@ -285,54 +285,23 @@ Function _TextInputType_decimal$(
     () {
       return target$.decimal;
     };
-TextInputType _TextInputType_text$() {
-  return TextInputType.text;
-}
-
-TextInputType _TextInputType_multiline$() {
-  return TextInputType.multiline;
-}
-
-TextInputType _TextInputType_number$() {
-  return TextInputType.number;
-}
-
-TextInputType _TextInputType_phone$() {
-  return TextInputType.phone;
-}
-
-TextInputType _TextInputType_datetime$() {
-  return TextInputType.datetime;
-}
-
-TextInputType _TextInputType_emailAddress$() {
-  return TextInputType.emailAddress;
-}
-
-TextInputType _TextInputType_url$() {
-  return TextInputType.url;
-}
-
-TextInputType _TextInputType_visiblePassword$() {
-  return TextInputType.visiblePassword;
-}
-
-TextInputType _TextInputType_name$() {
-  return TextInputType.name;
-}
-
-TextInputType _TextInputType_streetAddress$() {
-  return TextInputType.streetAddress;
-}
-
-TextInputType _TextInputType_none$() {
-  return TextInputType.none;
-}
-
-List<TextInputType> _TextInputType_values$() {
-  return TextInputType.values;
-}
-
+Function _TextInputType_text$(m.Scope scope$) => () => TextInputType.text;
+Function _TextInputType_multiline$(m.Scope scope$) =>
+    () => TextInputType.multiline;
+Function _TextInputType_number$(m.Scope scope$) => () => TextInputType.number;
+Function _TextInputType_phone$(m.Scope scope$) => () => TextInputType.phone;
+Function _TextInputType_datetime$(m.Scope scope$) =>
+    () => TextInputType.datetime;
+Function _TextInputType_emailAddress$(m.Scope scope$) =>
+    () => TextInputType.emailAddress;
+Function _TextInputType_url$(m.Scope scope$) => () => TextInputType.url;
+Function _TextInputType_visiblePassword$(m.Scope scope$) =>
+    () => TextInputType.visiblePassword;
+Function _TextInputType_name$(m.Scope scope$) => () => TextInputType.name;
+Function _TextInputType_streetAddress$(m.Scope scope$) =>
+    () => TextInputType.streetAddress;
+Function _TextInputType_none$(m.Scope scope$) => () => TextInputType.none;
+Function _TextInputType_values$(m.Scope scope$) => () => TextInputType.values;
 Function _TextInputType_hashCode$(
   m.Scope scope$,
   TextInputType target$,
@@ -593,10 +562,8 @@ Function _TextEditingValue_composing$(
     () {
       return target$.composing;
     };
-TextEditingValue _TextEditingValue_empty$() {
-  return TextEditingValue.empty;
-}
-
+Function _TextEditingValue_empty$(m.Scope scope$) =>
+    () => TextEditingValue.empty;
 Function _TextEditingValue_isComposingRangeValid$(
   m.Scope scope$,
   TextEditingValue target$,
@@ -833,10 +800,8 @@ Function TextInput_is$(
   dynamic target$,
 ) =>
     () => target$ is TextInput;
-Map<String, ScribbleClient> _TextInput_scribbleClients$() {
-  return TextInput.scribbleClients;
-}
-
+Function _TextInput_scribbleClients$(m.Scope scope$) =>
+    () => TextInput.scribbleClients;
 Function _TextInput_scribbleInProgress$(
   m.Scope scope$,
   TextInput target$,
@@ -860,154 +825,72 @@ Function _TextInput_registerScribbleElement$(m.Scope scope$) =>
     TextInput.registerScribbleElement;
 Function _TextInput_unregisterScribbleElement$(m.Scope scope$) =>
     TextInput.unregisterScribbleElement;
-SmartDashesType _SmartDashesType_disabled$() {
-  return SmartDashesType.disabled;
-}
-
-SmartDashesType _SmartDashesType_enabled$() {
-  return SmartDashesType.enabled;
-}
-
-List<SmartDashesType> _SmartDashesType_values$() {
-  return SmartDashesType.values;
-}
-
-SmartQuotesType _SmartQuotesType_disabled$() {
-  return SmartQuotesType.disabled;
-}
-
-SmartQuotesType _SmartQuotesType_enabled$() {
-  return SmartQuotesType.enabled;
-}
-
-List<SmartQuotesType> _SmartQuotesType_values$() {
-  return SmartQuotesType.values;
-}
-
-TextInputAction _TextInputAction_none$() {
-  return TextInputAction.none;
-}
-
-TextInputAction _TextInputAction_unspecified$() {
-  return TextInputAction.unspecified;
-}
-
-TextInputAction _TextInputAction_done$() {
-  return TextInputAction.done;
-}
-
-TextInputAction _TextInputAction_go$() {
-  return TextInputAction.go;
-}
-
-TextInputAction _TextInputAction_search$() {
-  return TextInputAction.search;
-}
-
-TextInputAction _TextInputAction_send$() {
-  return TextInputAction.send;
-}
-
-TextInputAction _TextInputAction_next$() {
-  return TextInputAction.next;
-}
-
-TextInputAction _TextInputAction_previous$() {
-  return TextInputAction.previous;
-}
-
-TextInputAction _TextInputAction_continueAction$() {
-  return TextInputAction.continueAction;
-}
-
-TextInputAction _TextInputAction_join$() {
-  return TextInputAction.join;
-}
-
-TextInputAction _TextInputAction_route$() {
-  return TextInputAction.route;
-}
-
-TextInputAction _TextInputAction_emergencyCall$() {
-  return TextInputAction.emergencyCall;
-}
-
-TextInputAction _TextInputAction_newline$() {
-  return TextInputAction.newline;
-}
-
-List<TextInputAction> _TextInputAction_values$() {
-  return TextInputAction.values;
-}
-
-TextCapitalization _TextCapitalization_words$() {
-  return TextCapitalization.words;
-}
-
-TextCapitalization _TextCapitalization_sentences$() {
-  return TextCapitalization.sentences;
-}
-
-TextCapitalization _TextCapitalization_characters$() {
-  return TextCapitalization.characters;
-}
-
-TextCapitalization _TextCapitalization_none$() {
-  return TextCapitalization.none;
-}
-
-List<TextCapitalization> _TextCapitalization_values$() {
-  return TextCapitalization.values;
-}
-
-FloatingCursorDragState _FloatingCursorDragState_Start$() {
-  return FloatingCursorDragState.Start;
-}
-
-FloatingCursorDragState _FloatingCursorDragState_Update$() {
-  return FloatingCursorDragState.Update;
-}
-
-FloatingCursorDragState _FloatingCursorDragState_End$() {
-  return FloatingCursorDragState.End;
-}
-
-List<FloatingCursorDragState> _FloatingCursorDragState_values$() {
-  return FloatingCursorDragState.values;
-}
-
-SelectionChangedCause _SelectionChangedCause_tap$() {
-  return SelectionChangedCause.tap;
-}
-
-SelectionChangedCause _SelectionChangedCause_doubleTap$() {
-  return SelectionChangedCause.doubleTap;
-}
-
-SelectionChangedCause _SelectionChangedCause_longPress$() {
-  return SelectionChangedCause.longPress;
-}
-
-SelectionChangedCause _SelectionChangedCause_forcePress$() {
-  return SelectionChangedCause.forcePress;
-}
-
-SelectionChangedCause _SelectionChangedCause_keyboard$() {
-  return SelectionChangedCause.keyboard;
-}
-
-SelectionChangedCause _SelectionChangedCause_toolbar$() {
-  return SelectionChangedCause.toolbar;
-}
-
-SelectionChangedCause _SelectionChangedCause_drag$() {
-  return SelectionChangedCause.drag;
-}
-
-SelectionChangedCause _SelectionChangedCause_scribble$() {
-  return SelectionChangedCause.scribble;
-}
-
-List<SelectionChangedCause> _SelectionChangedCause_values$() {
-  return SelectionChangedCause.values;
-}
+Function _SmartDashesType_disabled$(m.Scope scope$) =>
+    () => SmartDashesType.disabled;
+Function _SmartDashesType_enabled$(m.Scope scope$) =>
+    () => SmartDashesType.enabled;
+Function _SmartDashesType_values$(m.Scope scope$) =>
+    () => SmartDashesType.values;
+Function _SmartQuotesType_disabled$(m.Scope scope$) =>
+    () => SmartQuotesType.disabled;
+Function _SmartQuotesType_enabled$(m.Scope scope$) =>
+    () => SmartQuotesType.enabled;
+Function _SmartQuotesType_values$(m.Scope scope$) =>
+    () => SmartQuotesType.values;
+Function _TextInputAction_none$(m.Scope scope$) => () => TextInputAction.none;
+Function _TextInputAction_unspecified$(m.Scope scope$) =>
+    () => TextInputAction.unspecified;
+Function _TextInputAction_done$(m.Scope scope$) => () => TextInputAction.done;
+Function _TextInputAction_go$(m.Scope scope$) => () => TextInputAction.go;
+Function _TextInputAction_search$(m.Scope scope$) =>
+    () => TextInputAction.search;
+Function _TextInputAction_send$(m.Scope scope$) => () => TextInputAction.send;
+Function _TextInputAction_next$(m.Scope scope$) => () => TextInputAction.next;
+Function _TextInputAction_previous$(m.Scope scope$) =>
+    () => TextInputAction.previous;
+Function _TextInputAction_continueAction$(m.Scope scope$) =>
+    () => TextInputAction.continueAction;
+Function _TextInputAction_join$(m.Scope scope$) => () => TextInputAction.join;
+Function _TextInputAction_route$(m.Scope scope$) => () => TextInputAction.route;
+Function _TextInputAction_emergencyCall$(m.Scope scope$) =>
+    () => TextInputAction.emergencyCall;
+Function _TextInputAction_newline$(m.Scope scope$) =>
+    () => TextInputAction.newline;
+Function _TextInputAction_values$(m.Scope scope$) =>
+    () => TextInputAction.values;
+Function _TextCapitalization_words$(m.Scope scope$) =>
+    () => TextCapitalization.words;
+Function _TextCapitalization_sentences$(m.Scope scope$) =>
+    () => TextCapitalization.sentences;
+Function _TextCapitalization_characters$(m.Scope scope$) =>
+    () => TextCapitalization.characters;
+Function _TextCapitalization_none$(m.Scope scope$) =>
+    () => TextCapitalization.none;
+Function _TextCapitalization_values$(m.Scope scope$) =>
+    () => TextCapitalization.values;
+Function _FloatingCursorDragState_Start$(m.Scope scope$) =>
+    () => FloatingCursorDragState.Start;
+Function _FloatingCursorDragState_Update$(m.Scope scope$) =>
+    () => FloatingCursorDragState.Update;
+Function _FloatingCursorDragState_End$(m.Scope scope$) =>
+    () => FloatingCursorDragState.End;
+Function _FloatingCursorDragState_values$(m.Scope scope$) =>
+    () => FloatingCursorDragState.values;
+Function _SelectionChangedCause_tap$(m.Scope scope$) =>
+    () => SelectionChangedCause.tap;
+Function _SelectionChangedCause_doubleTap$(m.Scope scope$) =>
+    () => SelectionChangedCause.doubleTap;
+Function _SelectionChangedCause_longPress$(m.Scope scope$) =>
+    () => SelectionChangedCause.longPress;
+Function _SelectionChangedCause_forcePress$(m.Scope scope$) =>
+    () => SelectionChangedCause.forcePress;
+Function _SelectionChangedCause_keyboard$(m.Scope scope$) =>
+    () => SelectionChangedCause.keyboard;
+Function _SelectionChangedCause_toolbar$(m.Scope scope$) =>
+    () => SelectionChangedCause.toolbar;
+Function _SelectionChangedCause_drag$(m.Scope scope$) =>
+    () => SelectionChangedCause.drag;
+Function _SelectionChangedCause_scribble$(m.Scope scope$) =>
+    () => SelectionChangedCause.scribble;
+Function _SelectionChangedCause_values$(m.Scope scope$) =>
+    () => SelectionChangedCause.values;

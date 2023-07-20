@@ -322,8 +322,9 @@ Function PopupMenuItemState_is$<T, W extends PopupMenuItem<T>>(
   dynamic target$,
 ) =>
     () => target$ is PopupMenuItemState<T, W>;
-Function _PopupMenuItemState__$(m.Scope scope$) => () {
-      return PopupMenuItemState();
+Function _PopupMenuItemState__$(m.Scope scope$) =>
+    <T, W extends PopupMenuItem<T>>() {
+      return PopupMenuItemState<T, W>();
     };
 Function _PopupMenuItemState_buildChild$<T, W extends PopupMenuItem<T>>(
   m.Scope scope$,
@@ -579,7 +580,7 @@ Function _PopupMenuButton__$(m.Scope scope$) => ({
       PopupMenuPosition? position,
       Clip? clipBehavior,
     }) {
-      List<PopupMenuEntry> itemBuilderProxy(
+      List<PopupMenuEntry<T>> itemBuilderProxy<T>(
               BuildContext itemBuilder_context$) =>
           scope$.engine.callFunctionPointer(
             scope$,

@@ -99,38 +99,14 @@ const libraryMirror = m.LibraryMirror(
     ),
   },
 );
-double _e$() {
-  return e;
-}
-
-double _ln10$() {
-  return ln10;
-}
-
-double _ln2$() {
-  return ln2;
-}
-
-double _log2e$() {
-  return log2e;
-}
-
-double _log10e$() {
-  return log10e;
-}
-
-double _pi$() {
-  return pi;
-}
-
-double _sqrt1_2$() {
-  return sqrt1_2;
-}
-
-double _sqrt2$() {
-  return sqrt2;
-}
-
+Function _e$(m.Scope scope$) => () => e;
+Function _ln10$(m.Scope scope$) => () => ln10;
+Function _ln2$(m.Scope scope$) => () => ln2;
+Function _log2e$(m.Scope scope$) => () => log2e;
+Function _log10e$(m.Scope scope$) => () => log10e;
+Function _pi$(m.Scope scope$) => () => pi;
+Function _sqrt1_2$(m.Scope scope$) => () => sqrt1_2;
+Function _sqrt2$(m.Scope scope$) => () => sqrt2;
 Function _min$<T extends num>(m.Scope scope$) => min<T>;
 Function _max$<T extends num>(m.Scope scope$) => max<T>;
 Function _atan2$(m.Scope scope$) => atan2;
