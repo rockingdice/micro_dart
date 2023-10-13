@@ -10,4 +10,18 @@ class FunctionPointer {
   String toString() {
     return "FunctionPointer($target, $isStatic,$isAsync, $offset)";
   }
+
+  @override
+  int get hashCode => Object.hash(target, isStatic, isAsync, offset);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is FunctionPointer) {
+      return hashCode == other.hashCode;
+    }
+    return false;
+  }
 }

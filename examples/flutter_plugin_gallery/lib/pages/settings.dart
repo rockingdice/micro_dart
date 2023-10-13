@@ -40,6 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
   late Animation<double> _staggerSettingsItemsAnimation;
 
   void onTapSetting(_ExpandableSetting settingId) {
+    print("onTapSetting $settingId");
     setState(() {
       if (_expandedSettingId == settingId) {
         _expandedSettingId = null;
@@ -84,35 +85,37 @@ class _SettingsPageState extends State<SettingsPage> {
   /// title and its name in the currently selected locale for a subtitle. If the
   /// native name can't be determined, it is omitted. If the locale can't be
   /// determined, the locale code is used.
-  DisplayOption _getLocaleDisplayOption(BuildContext context, Locale? locale) {
+  Map<String, String> _getLocaleDisplayOption(
+      BuildContext context, Locale? locale) {
     final localeCode = locale.toString();
 
-    return DisplayOption(localeCode);
+    return {"title": localeCode};
   }
 
   /// Create a sorted — by native name – map of supported locales to their
   /// intended display string, with a system option as the first element.
-  LinkedHashMap<Locale, DisplayOption> _getLocaleOptions() {
-    var localeOptions = LinkedHashMap.of({
-      systemLocaleOption: DisplayOption(
-        GalleryLocalizations.of(context)!.settingsSystemDefault +
+  Map<Locale, Map<String, String>> _getLocaleOptions() {
+    var localeOptions = {
+      systemLocaleOption: {
+        "title": GalleryLocalizations.of(context)!.settingsSystemDefault +
             (deviceLocale != null
-                ? ' - ${_getLocaleDisplayOption(context, deviceLocale).title}'
-                : ''),
-      ),
-    });
-    var supportedLocales =
-        List<Locale>.from(GalleryLocalizations.supportedLocales);
-    supportedLocales.removeWhere((locale) => locale == deviceLocale);
+                ? ' - ${_getLocaleDisplayOption(context, deviceLocale)["title"]}'
+                : '')
+      }
+    };
+    // var supportedLocales =
+    //     List<Locale>.from(GalleryLocalizations.supportedLocales);
+    // supportedLocales.removeWhere((locale) => locale == deviceLocale);
 
-    final displayLocales = Map<Locale, DisplayOption>.fromIterable(
-      supportedLocales,
-      value: (dynamic locale) =>
-          _getLocaleDisplayOption(context, locale as Locale?),
-    ).entries.toList()
-      ..sort((l1, l2) => compareAsciiUpperCase(l1.value.title, l2.value.title));
+    // final displayLocales = Map<Locale, Map<String, String>>.fromIterable(
+    //   supportedLocales,
+    //   value: (dynamic locale) =>
+    //       _getLocaleDisplayOption(context, locale as Locale?),
+    // ).entries.toList()
+    //   ..sort((l1, l2) =>
+    //       compareAsciiUpperCase(l1.value["title"]!, l2.value["title"]!));
 
-    localeOptions.addAll(LinkedHashMap.fromEntries(displayLocales));
+    // localeOptions.addAll(Map.fromEntries(displayLocales));
     return localeOptions;
   }
 
@@ -130,23 +133,23 @@ class _SettingsPageState extends State<SettingsPage> {
           context,
           useSentinel: true,
         ),
-        optionsMap: LinkedHashMap.of({
-          systemTextScaleFactorOption: DisplayOption(
-            localizations.settingsSystemDefault,
-          ),
-          0.8: DisplayOption(
-            localizations.settingsTextScalingSmall,
-          ),
-          1.0: DisplayOption(
-            localizations.settingsTextScalingNormal,
-          ),
-          2.0: DisplayOption(
-            localizations.settingsTextScalingLarge,
-          ),
-          3.0: DisplayOption(
-            localizations.settingsTextScalingHuge,
-          ),
-        }),
+        optionsMap: {
+          systemTextScaleFactorOption: {
+            "title": localizations.settingsSystemDefault,
+          },
+          0.8: {
+            "title": localizations.settingsTextScalingSmall,
+          },
+          1.0: {
+            "title": localizations.settingsTextScalingNormal,
+          },
+          2.0: {
+            "title": localizations.settingsTextScalingLarge,
+          },
+          3.0: {
+            "title": localizations.settingsTextScalingHuge,
+          },
+        },
         onOptionChanged: (newTextScale) => GalleryOptions.update(
           context,
           options.copyWith(textScaleFactor: newTextScale),
@@ -154,20 +157,20 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.textScale),
         isExpanded: _expandedSettingId == _ExpandableSetting.textScale,
       ),
-      SettingsListItem<CustomTextDirection?>(
+      SettingsListItem<String?>(
         title: localizations.settingsTextDirection,
         selectedOption: options.customTextDirection,
-        optionsMap: LinkedHashMap.of({
-          CustomTextDirection.localeBased: DisplayOption(
-            localizations.settingsTextDirectionLocaleBased,
-          ),
-          CustomTextDirection.ltr: DisplayOption(
-            localizations.settingsTextDirectionLTR,
-          ),
-          CustomTextDirection.rtl: DisplayOption(
-            localizations.settingsTextDirectionRTL,
-          ),
-        }),
+        optionsMap: {
+          "localeBased": {
+            "title": localizations.settingsTextDirectionLocaleBased,
+          },
+          "ltr": {
+            "title": localizations.settingsTextDirectionLTR,
+          },
+          "rtl": {
+            "title": localizations.settingsTextDirectionRTL,
+          },
+        },
         onOptionChanged: (newTextDirection) => GalleryOptions.update(
           context,
           options.copyWith(customTextDirection: newTextDirection),
@@ -196,13 +199,23 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsListItem<TargetPlatform?>(
         title: localizations.settingsPlatformMechanics,
         selectedOption: options.platform,
-        optionsMap: LinkedHashMap.of({
-          TargetPlatform.android: DisplayOption('Android'),
-          TargetPlatform.iOS: DisplayOption('iOS'),
-          TargetPlatform.macOS: DisplayOption('macOS'),
-          TargetPlatform.linux: DisplayOption('Linux'),
-          TargetPlatform.windows: DisplayOption('Windows'),
-        }),
+        optionsMap: {
+          TargetPlatform.android: {
+            "title": 'iOS',
+          },
+          TargetPlatform.iOS: {
+            "title": 'iOS',
+          },
+          TargetPlatform.macOS: {
+            "title": 'macOS',
+          },
+          TargetPlatform.linux: {
+            "title": 'Linux',
+          },
+          TargetPlatform.windows: {
+            "title": 'Windows',
+          },
+        },
         onOptionChanged: (newPlatform) => GalleryOptions.update(
           context,
           options.copyWith(platform: newPlatform),
@@ -213,17 +226,17 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsListItem<ThemeMode?>(
         title: localizations.settingsTheme,
         selectedOption: options.themeMode,
-        optionsMap: LinkedHashMap.of({
-          ThemeMode.system: DisplayOption(
-            localizations.settingsSystemDefault,
-          ),
-          ThemeMode.dark: DisplayOption(
-            localizations.settingsDarkTheme,
-          ),
-          ThemeMode.light: DisplayOption(
-            localizations.settingsLightTheme,
-          ),
-        }),
+        optionsMap: {
+          ThemeMode.system: {
+            "title": localizations.settingsSystemDefault,
+          },
+          ThemeMode.dark: {
+            "title": localizations.settingsDarkTheme,
+          },
+          ThemeMode.light: {
+            "title": localizations.settingsLightTheme,
+          },
+        },
         onOptionChanged: (newThemeMode) => GalleryOptions.update(
           context,
           options.copyWith(themeMode: newThemeMode),

@@ -9,9 +9,9 @@ import 'package:flutter_plugin_gallery/layout/adaptive.dart';
 import 'package:flutter_plugin_gallery/layout/text_scale.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/app.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/colors.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/model/app_state_model.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/model/product.dart';
-import 'package:flutter_example_gallery/sdudies/shirine/page_status.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/app_state_model.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/product.dart';
+import 'package:flutter_example_gallery/studies/shrine/page_status.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/triangle_category_indicator.dart';
 import 'package:scoped_model/scoped_model.dart';
 

@@ -93,14 +93,21 @@ void compileAssertInitializer(
 int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
     Constructor constructor) {
   context.lookupType(constructor.enclosingClass);
+
   var ref = constructor.getCallRef();
   //将参数压入当前作用域
   compileArguments(context, arguments, true);
+
+  var classtypeStirngs = arguments.types
+      .map((e) => compileDartType(context, e))
+      .map((e) => e?.ref.className ?? "")
+      .toList();
+
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(ref)) {
     op = OpCallDynamic.make(ref, true, false, false, false, true);
   } else {
-    op = OpCallExternal.make(ref, true);
+    op = OpCallExternal.make(ref, true, [], classtypeStirngs);
   }
 
   return context.pushOp(op);

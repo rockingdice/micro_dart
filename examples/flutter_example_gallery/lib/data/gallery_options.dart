@@ -9,11 +9,11 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:flutter_example_gallery/constants.dart';
 
-enum CustomTextDirection {
-  localeBased,
-  ltr,
-  rtl,
-}
+// enum CustomTextDirection {
+//   localeBased,
+//   ltr,
+//   rtl,
+// }
 
 // See http://en.wikipedia.org/wiki/Right-to-left
 const List<String> rtlLanguages = <String>[
@@ -49,7 +49,7 @@ class GalleryOptions {
 
   final ThemeMode themeMode;
   final double _textScaleFactor;
-  final CustomTextDirection customTextDirection;
+  final String customTextDirection;
   final Locale? _locale;
   final double timeDilation;
   final TargetPlatform? platform;
@@ -75,13 +75,13 @@ class GalleryOptions {
   /// null.
   TextDirection? resolvedTextDirection() {
     switch (customTextDirection) {
-      case CustomTextDirection.localeBased:
+      case "localeBased":
         final language = locale?.languageCode.toLowerCase();
         if (language == null) return null;
         return rtlLanguages.contains(language)
             ? TextDirection.rtl
             : TextDirection.ltr;
-      case CustomTextDirection.rtl:
+      case "rtl":
         return TextDirection.rtl;
       default:
         return TextDirection.ltr;
@@ -115,7 +115,7 @@ class GalleryOptions {
   GalleryOptions copyWith({
     ThemeMode? themeMode,
     double? textScaleFactor,
-    CustomTextDirection? customTextDirection,
+    String? customTextDirection,
     Locale? locale,
     double? timeDilation,
     TargetPlatform? platform,

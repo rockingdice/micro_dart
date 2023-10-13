@@ -46,7 +46,6 @@ const libraryMirror = m.LibraryMirror(
     'Timeline.startSync': _Timeline_startSync$,
     'Timeline.finishSync': _Timeline_finishSync$,
     'Timeline.instantSync': _Timeline_instantSync$,
-    'Timeline.timeSync': _Timeline_timeSync$,
     'TimelineTask.': _TimelineTask__$,
     'TimelineTask.withTaskId': _TimelineTask_withTaskId_$,
   },
@@ -117,6 +116,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': Timeline_as$,
         '#is': Timeline_is$,
+        'timeSync': _Timeline_timeSync$,
       },
       {},
     ),

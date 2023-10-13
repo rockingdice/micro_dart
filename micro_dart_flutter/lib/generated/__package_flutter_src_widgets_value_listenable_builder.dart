@@ -6,9 +6,14 @@ import 'package:flutter/src/widgets/value_listenable_builder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+part '../proxy/proxy__package_flutter_src_widgets_value_listenable_builder.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/value_listenable_builder.dart',
-  {'ValueListenableBuilder.': _ValueListenableBuilder__$},
+  {
+    'ValueListenableBuilder.': _ValueListenableBuilder__$,
+    ...globalSetters,
+  },
   {},
   {
     'ValueListenableBuilder': m.ClassMirror(

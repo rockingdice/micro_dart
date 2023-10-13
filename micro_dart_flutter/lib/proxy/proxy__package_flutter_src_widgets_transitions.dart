@@ -23,7 +23,7 @@ class $AnimatedWidget extends AnimatedWidget with m.InstanceBridge {
 
   @override
   Widget build(BuildContext context) {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("build", false, false), [context], {}, null);
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("build", false, false), [context], {}, null);
   }
 }

@@ -16,7 +16,9 @@ const libraryMirror = m.LibraryMirror(
     'sqrt1_2': _sqrt1_2$,
     'sqrt2': _sqrt2$,
     'min': _min$,
+    'min<double>': _min_double$,
     'max': _max$,
+    'max<double>': _max_double$,
     'atan2': _atan2$,
     'pow': _pow$,
     'sin': _sin$,
@@ -108,7 +110,9 @@ Function _pi$(m.Scope scope$) => () => pi;
 Function _sqrt1_2$(m.Scope scope$) => () => sqrt1_2;
 Function _sqrt2$(m.Scope scope$) => () => sqrt2;
 Function _min$<T extends num>(m.Scope scope$) => min<T>;
+Function _min_double$(m.Scope scope$) => min<double>;
 Function _max$<T extends num>(m.Scope scope$) => max<T>;
+Function _max_double$(m.Scope scope$) => max<double>;
 Function _atan2$(m.Scope scope$) => atan2;
 Function _pow$(m.Scope scope$) => pow;
 Function _sin$(m.Scope scope$) => sin;

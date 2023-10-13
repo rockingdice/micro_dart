@@ -7,10 +7,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_example_gallery/data/gallery_options.dart';
+import 'package:flutter_example_gallery/studies/shrine/page_status.dart';
+
 import 'package:flutter_plugin_gallery/layout/text_scale.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/category_menu_page.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/model/product.dart';
-import 'package:flutter_example_gallery/sdudies/shirine/page_status.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/product.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/supplemental/desktop_product_columns.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/supplemental/product_card.dart';

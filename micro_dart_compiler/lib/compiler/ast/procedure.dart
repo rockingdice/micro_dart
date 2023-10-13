@@ -61,8 +61,16 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
     if (procedure.function.returnType is VoidType) {
       hasReturn = false;
     }
-
-    op = OpCallExternal.make(ref, hasReturn);
+    var calltypeStirngs = arguments.types
+        .map((e) => compileDartType(context, e))
+        .map((e) => e?.ref.className ?? "")
+        .toList();
+    op = OpCallExternal.make(
+      ref,
+      hasReturn,
+      [],
+      calltypeStirngs,
+    );
   }
 
   return context.pushOp(op);

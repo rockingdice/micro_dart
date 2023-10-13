@@ -18,7 +18,7 @@ class OpIs implements Op {
   void run(Scope scope) {
     var instance = scope.popFrame();
     bool isType = false;
-    if (instance is InstanceImpl) {
+    if (instance is Instance) {
       var superType = scope.engine.types[_ref];
       if (superType == null) {
         throw Exception("$_ref is null");

@@ -2,6 +2,9 @@
 
 part of '../generated/__dart_core.dart';
 
+//'EnumName|get#name':_Enum_name$,
+Function _Enum_name$(m.Scope scope$) => ($_Enum target$) => target$.value;
+
 class $Deprecated extends Deprecated with m.InstanceBridge {
   $Deprecated(super.message);
 
@@ -20,6 +23,7 @@ class $Deprecated extends Deprecated with m.InstanceBridge {
   };
 }
 
+//'_Enum.': __Enum__$,
 Function __Enum__$(m.Scope scope$) => (int index, String value) {
       return $_Enum(index, value);
     };

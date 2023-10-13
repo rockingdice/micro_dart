@@ -219,9 +219,6 @@ extension ExtensionNamedNode on NamedNode {
     } else if (this.parent is Library) {
       libraryUri = (this.parent as Library).importUri.toString();
     }
-    if (thiz.isSetter) {
-      procedureName = "$procedureName:set";
-    }
 
     return CallRef(
         libraryUri, className, procedureName, thiz.isSetter, thiz.isStatic);

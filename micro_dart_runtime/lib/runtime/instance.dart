@@ -5,6 +5,7 @@ import 'type.dart';
 
 abstract class Instance {
   CType get type;
+
   set type(CType type);
 
   dynamic getParam(Scope scope, String name);
@@ -24,10 +25,7 @@ class InstanceImpl extends Instance {
 
   @override
   dynamic getParam(Scope scope, String name) {
-    if (params.containsKey(name)) {
-      return params[name];
-    }
-    return null;
+    return params[name];
   }
 
   @override

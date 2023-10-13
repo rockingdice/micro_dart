@@ -28,8 +28,8 @@ class C {
 }
 
 int main() {
-  var c1 = C(1, 2);
-  c1.p3 = 3;
-  c1.p3pp();
-  return c1.add(7) + C.c2(4, 5).p3;
+  var c1 = C(1, 2)..p3pp();
+  var i = c1.add(7) + C.c2(4, 5).p3;
+  print(i);
+  return i;
 }

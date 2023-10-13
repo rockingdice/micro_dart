@@ -9,6 +9,28 @@ class CallRef {
   final bool isSetter;
   final bool isStatic;
 
+  String nameWithTypes(List<String> types) {
+    if (types.isEmpty) {
+      return name;
+    }
+    var typeStr = types.join(",");
+    if (typeStr.isEmpty) {
+      return name;
+    }
+    return "$name<$typeStr>";
+  }
+
+  String classNameWithTypes(List<String> types) {
+    if (types.isEmpty) {
+      return className;
+    }
+    var typeStr = types.join(",");
+    if (typeStr.isEmpty) {
+      return name;
+    }
+    return "$className<$typeStr>";
+  }
+
   CallRef(
       this.library, this.className, this.name, this.isSetter, this.isStatic);
 
@@ -99,6 +121,10 @@ class ClassRef {
 
   const ClassRef(this.library, this.className);
 
+  String get callName {
+    return "$library@$className";
+  }
+
   factory ClassRef.fromList(List list, List<String> constatns) {
     return ClassRef(constatns[list[0]], constatns[list[1]]);
   }
@@ -136,7 +162,7 @@ class ClassRef {
 
   @override
   String toString() {
-    return "$library@$className";
+    return "ClassRef($library@$className)";
   }
 
   @override

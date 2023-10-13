@@ -28,9 +28,11 @@ library from "test:///main.dart" as main {
     }
   }
   static method main() → dart.core::int {
-    main::C c1 = new main::C::•(1, 2);
-    c1.{main::C::p3} = 3;
-    c1.{main::C::p3pp}(){() → void};
-    return c1.{main::C::add}(7){(dart.core::int) → dart.core::int}.{dart.core::num::+}(main::C::_(4, 5).{main::C::p3}{dart.core::int}){(dart.core::num) → dart.core::int};
+    main::C c1 = let final main::C #t1 = new main::C::•(1, 2) in block {
+      #t1.{main::C::p3pp}(){() → void};
+    } =>#t1;
+    dart.core::int i = c1.{main::C::add}(7){(dart.core::int) → dart.core::int}.{dart.core::num::+}(main::C::_(4, 5).{main::C::p3}{dart.core::int}){(dart.core::num) → dart.core::int};
+    dart.core::print(i);
+    return i;
   }
 }

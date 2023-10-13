@@ -139,33 +139,33 @@ class OpCallSuper implements Op {
     if (target is InstanceBridge) {
       function = target.superGetters[ref.name]!;
     } else {
-      function = scope.engine.getExternalFunction(ref)!;
+      function = scope.engine.getExternalFunction(ref, [], [])!;
     }
 
     if (_isGetter) {
-      scope.pushFrame(function(target));
+      scope.pushFrame(function(scope, target)());
       return;
     } else if (_isSetter) {
-      function(target, positionalArguments.first);
+      function(scope, target)(positionalArguments.first);
       return;
     }
 
     if (operator1.contains(_name)) {
-      scope.pushFrame(function(target));
+      scope.pushFrame(function(scope, target)());
       return;
     } else if (operator2.contains(_name)) {
       var other = positionalArguments.first;
-      scope.pushFrame(function(target, other));
+      scope.pushFrame(function(scope, target)(other));
       return;
     } else if (operator3.contains(_name)) {
       var first = positionalArguments.first;
       var second = positionalArguments[1];
-      scope.pushFrame(function(target, first, second));
+      scope.pushFrame(function(scope, target)(first, second));
       return;
     }
 
-    scope.pushFrame(
-        Function.apply(function(target), positionalArguments, namedArguments));
+    scope.pushFrame(Function.apply(
+        function(scope, target), positionalArguments, namedArguments));
   }
 
   @override

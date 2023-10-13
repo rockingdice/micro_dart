@@ -81,6 +81,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       _settingsPanelController.forward();
       _iconController.forward();
     }
+    print("_toggleSettings ${_isSettingsOpenNotifier.value}");
     _isSettingsOpenNotifier.value = !_isSettingsOpenNotifier.value;
   }
 
@@ -129,6 +130,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     final Widget settingsPage = ValueListenableBuilder<bool>(
       valueListenable: _isSettingsOpenNotifier,
       builder: (context, isSettingsOpen, child) {
+        print("builder1 $isSettingsOpen");
         return ExcludeSemantics(
           excluding: !isSettingsOpen,
           child: isSettingsOpen
@@ -180,6 +182,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
             ValueListenableBuilder<bool>(
               valueListenable: _isSettingsOpenNotifier,
               builder: (context, isSettingsOpen, child) {
+                print("builder2 $isSettingsOpen");
                 if (isSettingsOpen) {
                   return ExcludeSemantics(
                     child: Listener(
@@ -285,6 +288,7 @@ class _SettingsIcon extends AnimatedWidget {
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               onTap: () {
+                print("onTap");
                 toggleSettings();
                 SemanticsService.announce(
                   _settingsSemanticLabel(isSettingsOpenNotifier.value, context),

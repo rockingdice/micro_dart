@@ -26,22 +26,28 @@ CType? compileDartType(MicroCompilerContext context, DartType dartType) {
 }
 
 CType? compileDynamicType(MicroCompilerContext context, DynamicType dartType) {
+  //return CType(ClassRef("", "dynamic"));
   return null;
 }
 
 CType? compileInvalidType(MicroCompilerContext context, InvalidType dartType) {
+  //return CType(ClassRef("", "invalid"));
+
   return null;
 }
 
 CType? compileVoidType(MicroCompilerContext context, VoidType dartType) {
+  //return CType(ClassRef("", "void"));
   return null;
 }
 
 CType? compileNeverType(MicroCompilerContext context, NeverType dartType) {
+  //return CType(ClassRef("", "Never"));
   return null;
 }
 
 CType? compileNullType(MicroCompilerContext context, NullType dartType) {
+  //return CType(ClassRef("", "null"));
   return null;
 }
 
@@ -53,11 +59,12 @@ CType? compileInterfaceType(
 CType? compileFunctionType(
     MicroCompilerContext context, FunctionType dartType) {
   return null;
+  //return CType(ClassRef("", "Function"), isExternal: true);
 }
 
 CType? compileFutureOrType(
     MicroCompilerContext context, FutureOrType dartType) {
-  return null;
+  return CType(ClassRef("dart:async", "FutureOr"), isExternal: true);
 }
 
 CType? compileExtensionType(

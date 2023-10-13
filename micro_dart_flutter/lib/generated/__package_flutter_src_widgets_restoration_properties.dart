@@ -9,9 +9,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/editable_text.dart';
 import 'package:flutter/src/widgets/restoration.dart';
 
+part '../proxy/proxy__package_flutter_src_widgets_restoration_properties.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/restoration_properties.dart',
   {
+    ...globalSetters,
     'RestorableNum.': _RestorableNum__$,
     'RestorableDouble.': _RestorableDouble__$,
     'RestorableInt.': _RestorableInt__$,

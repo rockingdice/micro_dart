@@ -19,8 +19,6 @@ void main() async {
       mainSource, [], RegExp(r"package:flutter_plugin_gallery/+"), options,
       debug: false);
   if (astToJsonFlag) {
-    astToJson("${testCasePath}flutter_example",
-        RegExp(r"package:flutter_plugin_gallery/+"), program.component);
     writeComponentToText(program.component!,
         path: "${testCasePath}flutter_plugin_gallery.txt");
   }

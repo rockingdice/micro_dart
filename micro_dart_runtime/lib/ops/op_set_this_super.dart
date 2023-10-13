@@ -14,6 +14,7 @@ class OpSetThisSuper implements Op {
   @override
   void run(Scope scope) {
     var superInstance = scope.popFrame() as Instance;
+    print("set this super: ${superInstance.type}");
     var instance = scope.getParam("#this") as Instance;
     if (superInstance is InstanceImpl) {
       if (instance is InstanceImpl) {

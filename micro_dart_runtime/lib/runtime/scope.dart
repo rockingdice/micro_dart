@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'engine.dart';
 import 'exception.dart';
+import 'function_pointer.dart';
 
 /// 作用域
 class Scope {
@@ -26,6 +27,9 @@ class Scope {
 
   /// 参数集合
   final Map<String, dynamic> params = <String, dynamic>{};
+
+  final Map<FunctionPointer, dynamic> functionPointers =
+      <FunctionPointer, dynamic>{};
 
   dynamic returnValue;
 
@@ -156,8 +160,7 @@ class Scope {
         oldPointer = opPointer;
         final op = engine.ops[opPointer++];
         if (engine.debug) {
-          print(
-              "$deep:$oldPointer <$name> start:${op.toString()}:${toString()}");
+          print("$deep:$oldPointer <$name> start:${op.toString()}}");
           print("----------------");
         }
         var r = op.run(this);
@@ -169,7 +172,7 @@ class Scope {
       tryRelease();
     } catch (exception, _) {
       print(
-          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${toString()}");
+          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}}");
       print("----------------");
       rethrow;
     }
@@ -182,8 +185,7 @@ class Scope {
         oldPointer = opPointer;
         final op = engine.ops[opPointer++];
         if (engine.debug) {
-          print(
-              "$deep:$oldPointer <$name> start:${op.toString()}:${toString()}");
+          print("$deep:$oldPointer <$name> start:${op.toString()}}");
           print("----------------");
         }
         op.run(this);
@@ -193,7 +195,7 @@ class Scope {
     } catch (exception, _) {
       print("--------error start--------");
       print(
-          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${toString()}");
+          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${dump()}}");
       print("--------error end  --------");
       rethrow;
     }
@@ -201,10 +203,10 @@ class Scope {
 
   @override
   String toString() {
-    return "Scope($name,$params,$frames)";
+    return "Scope($hashCode,$name)";
   }
 
   String dump() {
-    return "Scope(released:$released,name:$name,params:$params,frames:$frames,parent:${parent?.dump()})";
+    return "Scope(hashCode:$hashCode,released:$released,name:$name,params:$params,frames:$frames,parent:${parent?.dump()})";
   }
 }

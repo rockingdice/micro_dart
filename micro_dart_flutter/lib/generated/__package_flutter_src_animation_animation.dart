@@ -32,6 +32,7 @@ const libraryMirror = m.LibraryMirror(
         'addStatusListener': _Animation_addStatusListener$,
         'removeStatusListener': _Animation_removeStatusListener$,
         'drive': _Animation_drive$,
+        'drive<double>': _Animation_drive_double$,
         'toString': _Animation_toString$,
         'toStringDetails': _Animation_toStringDetails$,
       },
@@ -157,6 +158,12 @@ Function _Animation_drive$<T, U>(
   Animation<T> target$,
 ) =>
     target$.drive<U>;
+
+Function _Animation_drive_double$<T>(
+  m.Scope scope$,
+  Animation<T> target$,
+) =>
+    target$.drive<double>;
 Function _Animation_toString$<T>(
   m.Scope scope$,
   Animation<T> target$,

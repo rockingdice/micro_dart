@@ -6,12 +6,15 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/src/foundation/diagnostics.dart';
 
+part '../proxy/proxy__package_flutter_src_foundation_key.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/key.dart',
   {
     'Key.': _Key__$,
     'UniqueKey.': _UniqueKey__$,
     'ValueKey.': _ValueKey__$,
+    ...globalSetters,
   },
   {},
   {

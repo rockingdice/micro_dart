@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:micro_dart_compiler/compiler/ast/ast.dart';
@@ -11,9 +10,9 @@ void astToJson(String fileName, RegExp pluginUri, Component? component) {
   }
 
   var map = _Visitor(pluginUri).visitComponent(component);
-  StringBuffer buffer = StringBuffer();
-  buffer.write(jsonEncode(map));
-  File("$fileName.json").writeAsStringSync('$buffer');
+  //StringBuffer buffer = StringBuffer();
+  //buffer.write(jsonEncode(map));
+  File("$fileName.json").writeAsStringSync('${map.toString()}');
   //writeComponentToText(component, path: "$fileName.txt", showMetadata: true);
 }
 
@@ -680,7 +679,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>> {
 
     return {
       "xtype": "InstanceConstantReference",
-      "classRef": node.classNode.getClassRef(),
+      "classRef": node.classNode.getClassRef().toString(),
       "fields": node.fieldValues.keys
           .map((key) => key.asField.acceptReference(this))
           .toList(),

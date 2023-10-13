@@ -10,12 +10,12 @@ import 'package:flutter/material.dart';
 final settingItemBorderRadius = BorderRadius.circular(10);
 const settingItemHeaderMargin = EdgeInsetsDirectional.fromSTEB(32, 0, 32, 8);
 
-class DisplayOption {
-  final String title;
-  final String? subtitle;
+// class DisplayOption {
+//   final String title;
+//   final String? subtitle;
 
-  DisplayOption(this.title, {this.subtitle});
-}
+//   DisplayOption(this.title, {this.subtitle});
+// }
 
 class ToggleSetting extends StatelessWidget {
   final String text;
@@ -89,7 +89,7 @@ class SettingsListItem<T> extends StatefulWidget {
     required this.isExpanded,
   });
 
-  final LinkedHashMap<T, DisplayOption> optionsMap;
+  final Map<T, Map> optionsMap;
   final String title;
   final T selectedOption;
   final ValueChanged<T> onOptionChanged;
@@ -116,7 +116,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
 
   // For ease of use. Correspond to the keys and values of `widget.optionsMap`.
   late Iterable<T?> _options;
-  late Iterable<DisplayOption> _displayOptions;
+  late Iterable<Map> _displayOptions;
 
   @override
   void initState() {
@@ -181,7 +181,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
-          subtitle: widget.optionsMap[widget.selectedOption]?.title ?? '',
+          subtitle: widget.optionsMap[widget.selectedOption]?["title"] ?? '',
           onTap: () => widget.onTapSetting(),
         ),
         Padding(
@@ -227,14 +227,14 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    displayOption.title,
+                    displayOption["title"],
                     style: theme.textTheme.bodyLarge!.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
-                  if (displayOption.subtitle != null)
+                  if (displayOption["subtitle"] != null)
                     Text(
-                      displayOption.subtitle!,
+                      displayOption["subtitle"]!,
                       style: theme.textTheme.bodyLarge!.copyWith(
                         fontSize: 12,
                         color: Theme.of(context)

@@ -5,16 +5,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_example_gallery/data/gallery_options.dart';
-import 'package:flutter_example_gallery/sdudies/shirine/supplemental/layout_cache.dart';
-import 'package:flutter_example_gallery/sdudies/shirine/page_status.dart';
+import 'package:flutter_example_gallery/studies/shrine/supplemental/layout_cache.dart';
+import 'package:flutter_example_gallery/studies/shrine/page_status.dart';
 import 'package:flutter_plugin_gallery/layout/adaptive.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/backdrop.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/category_menu_page.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/home.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/login.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/model/app_state_model.dart';
-import 'package:flutter_plugin_gallery/studies/shrine/model/product.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/app_state_model.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/product.dart';
 
 import 'package:flutter_plugin_gallery/studies/shrine/routes.dart' as routes;
 import 'package:flutter_plugin_gallery/studies/shrine/scrim.dart';
@@ -29,10 +29,10 @@ class ShrineApp extends StatefulWidget {
   static const String homeRoute = routes.homeRoute;
 
   @override
-  State<ShrineApp> createState() => _ShrineAppState();
+  State<ShrineApp> createState() => ShrineAppState();
 }
 
-class _ShrineAppState extends State<ShrineApp>
+class ShrineAppState extends State<ShrineApp>
     with TickerProviderStateMixin, RestorationMixin {
   // Controller to coordinate both the opening/closing of backdrop and sliding
   // of expanding bottom sheet
@@ -41,7 +41,7 @@ class _ShrineAppState extends State<ShrineApp>
   // Animation Controller for expanding/collapsing the cart menu.
   late AnimationController _expandingController;
 
-  final _RestorableAppStateModel _model = _RestorableAppStateModel();
+  final RestorableAppStateModel _model = RestorableAppStateModel();
   final RestorableDouble _expandingTabIndex = RestorableDouble(0);
   final RestorableDouble _tabIndex = RestorableDouble(1);
   final Map<String, List<List<int>>> _layouts = {};
@@ -183,13 +183,18 @@ class _ShrineAppState extends State<ShrineApp>
   }
 }
 
-class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
+class RestorableAppStateModel extends RestorableListenable<AppStateModel> {
   @override
-  AppStateModel createDefaultValue() => AppStateModel()..loadProducts();
+  AppStateModel createDefaultValue() {
+    var model = AppStateModel();
+    model.loadProducts();
+    return model;
+  }
 
   @override
   AppStateModel fromPrimitives(Object? data) {
-    final appState = AppStateModel()..loadProducts();
+    final appState = AppStateModel();
+    appState.loadProducts();
     final appData = Map<String, dynamic>.from(data as Map);
 
     // Reset selected category.

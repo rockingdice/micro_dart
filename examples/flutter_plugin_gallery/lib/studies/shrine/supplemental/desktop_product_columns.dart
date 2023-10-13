@@ -6,7 +6,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_plugin_gallery/studies/shrine/model/product.dart';
+import 'package:flutter_example_gallery/studies/shrine/model/product.dart';
 import 'package:flutter_plugin_gallery/studies/shrine/supplemental/product_card.dart';
 
 /// Height of the text below each product card.

@@ -116,11 +116,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
                       Text(_isAlphabetical
                           ? localizations.demoSharedYAxisAlphabeticalSortTitle
                           : localizations.demoSharedYAxisRecentSortTitle),
-                      RotationTransition(
-                        turns: Tween(begin: 0.0, end: 1.0)
-                            .animate(_controller.view),
-                        child: const Icon(Icons.arrow_drop_down),
-                      ),
+                      const Icon(Icons.arrow_drop_down),
                     ],
                   ),
                 ),

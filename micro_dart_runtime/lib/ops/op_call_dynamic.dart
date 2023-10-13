@@ -78,13 +78,21 @@ class OpCallDynamic implements Op {
 
   @override
   void run(Scope scope) {
-    var ref = _getKey(scope) ?? _ref;
-
-    if (scope.engine.declarations.containsKey(ref)) {
+    if (!_isStatic) {
+      var args = scope.getFrame() as List<dynamic>;
+      var instance = args.first as Instance;
+      var ref = scope.engine
+          .getCallRefByType(instance.type, _ref.name, _isSetter, _isStatic);
       int pointer = scope.engine.declarations[ref]!;
-      scope.engine.callPointer(scope, ref.callName, _hasArgs, pointer);
+      scope.engine.callPointer(scope, ref!.callName, _hasArgs, pointer);
+      return;
+    }
+
+    if (scope.engine.declarations.containsKey(_ref)) {
+      int pointer = scope.engine.declarations[_ref]!;
+      scope.engine.callPointer(scope, _ref.callName, _hasArgs, pointer);
     } else {
-      throw Exception("currently not support external function $ref");
+      throw Exception("currently not support external function $_ref");
     }
   }
 

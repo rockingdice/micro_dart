@@ -12,6 +12,7 @@ const libraryMirror = m.LibraryMirror(
   {
     'Animatable.fromCallback': _Animatable_fromCallback_$,
     'Tween.': _Tween__$,
+    'Tween.<double>': _Tween__double$,
     'ReverseTween.': _ReverseTween__$,
     'ColorTween.': _ColorTween__$,
     'SizeTween.': _SizeTween__$,
@@ -164,7 +165,9 @@ Function _Animatable_animate$<T>(
   m.Scope scope$,
   Animatable<T> target$,
 ) =>
-    target$.animate;
+    (Animation<double> parent) {
+      return target$.animate(parent);
+    };
 Function _Animatable_chain$<T>(
   m.Scope scope$,
   Animatable<T> target$,
@@ -209,10 +212,19 @@ void _Tween_end_set$<T extends Object?>(
       target$.end = other$;
     };
 Function _Tween__$(m.Scope scope$) => <T extends Object?>({
-      dynamic? begin,
-      dynamic? end,
+      T? begin,
+      T? end,
     }) {
       return Tween<T>(
+        begin: begin,
+        end: end,
+      );
+    };
+Function _Tween__double$(m.Scope scope$) => ({
+      double? begin,
+      double? end,
+    }) {
+      return Tween<double>(
         begin: begin,
         end: end,
       );

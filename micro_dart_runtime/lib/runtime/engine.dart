@@ -219,21 +219,21 @@ class MicroDartEngine {
     bool isMixin = false;
 
     if (superRef == type.superType) {
-      print("1");
+      //print("1");
       isSuper = true;
     } else if (superRef == type.mixinType) {
-      print("2 ${type} ${superRef}");
+      //print("2 ${type} ${superRef}");
       isMixin = true;
     } else if (type.implementTypes.contains(superRef)) {
-      print("3");
+      //print("3");
       isSuper = true;
     }
     if (!isSuper && !isMixin) {
-      print("4");
+      //print("4");
       return getCallRefBySuperType(
           getType(type.superType!), superRef, name, isSetter, isStatic);
     }
-    print("5");
+    //print("5");
     CType? superType;
 
     if (isSuper) {
@@ -241,11 +241,11 @@ class MicroDartEngine {
     } else if (isMixin) {
       superType = getType(type.mixinType!);
     }
-    print("6");
+    //print("6");
     var callback = getKeyByType2(superType!, name, isSetter, isStatic);
 
     if (callback == null) {
-      print("7");
+      //print("7");
       superType = getType(superRef);
       callback = getKeyByType2(superType, name, isSetter, isStatic);
     }
@@ -292,17 +292,19 @@ class MicroDartEngine {
     return scope.returnValue;
   }
 
-  dynamic callFunction(Instance instance, CallRef ref, List posational,
-      Map<String, dynamic> named, dynamic Function()? alse) {
+  dynamic callFunction(Scope scope, Instance instance, CallRef ref,
+      List posational, Map<String, dynamic> named, dynamic Function()? alse) {
     //获取当前操作数指针
     var pointer = declarations[ref];
+    var newScope =
+        scope.createFromParent(ref.callName, true, false, maxScopeDeep);
     if (pointer == null) {
       if (alse != null) {
         return alse();
       }
       return null;
     }
-    var scope = Scope(this, "_external_call_", true, false);
+
     List<dynamic> args = [instance];
     //设置初始参数
     for (int i = posational.length - 1; i >= 0; i--) {
@@ -314,11 +316,11 @@ class MicroDartEngine {
       args.add(key);
     });
     args.add(named.length);
-    scope.setScopeParam("#args", args);
+    newScope.setScopeParam("#args", args);
 
-    scope.call(pointer);
+    newScope.call(pointer);
 
-    return scope.returnValue;
+    return newScope.returnValue;
   }
 
   Future callStaticFunctionWaitClean(String importUri, String functionName,
@@ -439,10 +441,6 @@ class MicroDartEngine {
 
   dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
       List<dynamic> posational, Map<String, dynamic> named) {
-    if (scope.released) {
-      print(scope.dump());
-    }
-
     var newScope = scope.createFromParent(
         "_callFunctionPointer_", true, false, maxScopeDeep);
 
@@ -485,28 +483,46 @@ class MicroDartEngine {
     return completer.future;
   }
 
-  void setStaticParamExternal(String library, String name, dynamic other) {
-    var function = libraryMirrors[library]?.getters[name];
-    function!(other);
+  void setStaticParamExternal(
+      Scope scope, String library, String name, dynamic other) {
+    try {
+      libraryMirrors[library]!.getters[name]!(scope)(other);
+    } catch (e, s) {
+      print("setStaticParamExternal error $library@$name");
+      rethrow;
+    }
   }
 
-  dynamic getStaticParamExternal(String library, String name) {
-    var function = libraryMirrors[library]?.setters[name];
-    return function!();
+  dynamic getStaticParamExternal(Scope scope, String library, String name) {
+    try {
+      return libraryMirrors[library]!.setters[name]!(scope)();
+    } catch (e, s) {
+      print("getStaticParamExternal error $library@$name");
+      rethrow;
+    }
   }
 
   void setParamExternal(
-      ClassRef ref, String name, dynamic target, dynamic other) {
-    var function =
-        libraryMirrors[ref.library]?.classes[ref.className]?.setters[name];
-
-    function!(target, other);
+      Scope scope, ClassRef ref, String name, dynamic target, dynamic other) {
+    try {
+      libraryMirrors[ref.library]!.classes[ref.className]!.setters[name]!(
+          scope, target)(other);
+    } catch (e, s) {
+      print("setParamExternal error $ref@$name");
+      rethrow;
+    }
   }
 
-  dynamic getParamExternal(ClassRef ref, String name, dynamic target) {
-    var function =
-        libraryMirrors[ref.library]?.classes[ref.className]?.getters[name];
-    return function!(target);
+  dynamic getParamExternal(
+      Scope scope, ClassRef ref, String name, dynamic target) {
+    try {
+      return libraryMirrors[ref.library]!
+          .classes[ref.className]!
+          .getters[name]!(target)();
+    } catch (e, s) {
+      print("getParamExternal error $ref@$name");
+      rethrow;
+    }
   }
 
   bool hasExternalParam(ClassRef ref, String name, bool isSetter) {
@@ -528,7 +544,13 @@ class MicroDartEngine {
     var function = libraryMirrors[ref.library]
         ?.classes[ref.className]
         ?.getters[name]!(scope, target);
-    return Function.apply(function, positionalArguments, namedArgs);
+
+    try {
+      return Function.apply(function, positionalArguments, namedArgs);
+    } catch (e, s) {
+      print("callExternalFunction error $ref");
+      rethrow;
+    }
   }
 
   dynamic callExternalStaticFunction(ClassRef ref, String name, Scope scope,
@@ -539,18 +561,54 @@ class MicroDartEngine {
     return Function.apply(function, positionalArguments, namedArgs);
   }
 
-  Function? getExternalFunction(CallRef ref) {
+  Function? getExternalFunction(
+      CallRef ref, List<String> classTypes, List<String> callTypes) {
+    var className = ref.classNameWithTypes(classTypes);
+    var callName = ref.nameWithTypes(callTypes);
     if (ref.isStatic) {
       if (ref.isSetter) {
+        var result = libraryMirrors[ref.library]?.setters[callName];
+        if (result != null) {
+          return result;
+        } else {
+          print(
+              "getExternalFunction setters ${ref.library} callName:$callName not found");
+        }
         return libraryMirrors[ref.library]?.setters[ref.name];
+      }
+      var result = libraryMirrors[ref.library]?.getters[callName];
+      if (result != null) {
+        return result;
+      } else {
+        print(
+            "getExternalFunction getters ${ref.library} callName:$callName not found");
       }
       return libraryMirrors[ref.library]?.getters[ref.name];
     }
 
-    var clazz = libraryMirrors[ref.library]?.classes[ref.className];
+    var clazz = libraryMirrors[ref.library]?.classes[className];
+    if (clazz == null) {
+      print(
+          "getExternalFunction class ${ref.library} callName:$className not found");
+    }
+    clazz ??= libraryMirrors[ref.library]?.classes[ref.className];
 
     if (ref.isSetter) {
+      var result = clazz?.setters[callName];
+      if (result != null) {
+        return result;
+      } else {
+        print(
+            "getExternalFunction setters ${ref.library} $className callName:$callName not found");
+      }
       return clazz?.setters[ref.name];
+    }
+    var result = clazz?.getters[callName];
+    if (result != null) {
+      return result;
+    } else {
+      print(
+          "getExternalFunction getters ${ref.library} $className callName:$callName not found");
     }
     return clazz?.getters[ref.name];
   }

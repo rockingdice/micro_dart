@@ -4,6 +4,8 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart' as m;
 import 'dart:typed_data';
 
+part '../proxy/proxy__dart_typed_data.dart';
+
 const libraryMirror = m.LibraryMirror(
   'dart:typed_data',
   {
@@ -1326,7 +1328,7 @@ Function _Int8List_bytesPerElement$(m.Scope scope$) =>
 Function _Int8List__$(m.Scope scope$) => (int length) {
       return Int8List(length);
     };
-Function _Int8List_fromList_$(m.Scope scope$) => Int8List.fromList;
+
 Function _Int8List_view_$(m.Scope scope$) => Int8List.view;
 Function _Int8List_sublistView_$(m.Scope scope$) => Int8List.sublistView;
 Function _Int8List_sublist$(
@@ -1349,7 +1351,6 @@ Function _Uint8List_bytesPerElement$(m.Scope scope$) =>
 Function _Uint8List__$(m.Scope scope$) => (int length) {
       return Uint8List(length);
     };
-Function _Uint8List_fromList_$(m.Scope scope$) => Uint8List.fromList;
 Function _Uint8List_view_$(m.Scope scope$) => Uint8List.view;
 Function _Uint8List_sublistView_$(m.Scope scope$) => Uint8List.sublistView;
 Function _Uint8List_plus$$(

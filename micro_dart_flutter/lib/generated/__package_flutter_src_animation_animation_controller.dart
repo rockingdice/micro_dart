@@ -11,6 +11,9 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
+import 'package:micro_dart_runtime/runtime/mirrors.dart';
+
+part '../proxy/proxy__package_flutter_src_animation_animation_controller.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/animation/animation_controller.dart',
@@ -23,6 +26,7 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
   {
+    ...proxyClassMirrors,
     'AnimationController': m.ClassMirror(
       'AnimationController',
       {

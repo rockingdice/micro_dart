@@ -51,7 +51,7 @@ int compileCallFieldGet(MicroCompilerContext context, Field field) {
       context.pushOp(OpPushArgments.make(3));
     }
 
-    op = OpCallExternal.make(ref, true);
+    op = OpCallExternal.make(ref, true, [], []);
   }
 
   return context.pushOp(op);
@@ -68,10 +68,7 @@ int compileCallFieldSet(MicroCompilerContext context, Field field) {
       return context.pushOp(OpSetObjectProperty.make(field.name.text));
     }
   } else {
-    op = OpCallExternal.make(
-      ref.copyOfIsSetter(true),
-      false,
-    );
+    op = OpCallExternal.make(ref.copyOfIsSetter(true), false, [], []);
   }
 
   return context.pushOp(op);

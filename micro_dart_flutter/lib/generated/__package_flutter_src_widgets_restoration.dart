@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+part '../proxy/proxy_package_flutter_src_widgets_restoration.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/widgets/restoration.dart',
   {
@@ -20,6 +22,7 @@ const libraryMirror = m.LibraryMirror(
   },
   {},
   {
+    ...proxyClassMirrors,
     'RestorationScope': m.ClassMirror(
       'RestorationScope',
       {

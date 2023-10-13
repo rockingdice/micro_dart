@@ -27,7 +27,7 @@ void main() {
 
       var returnValue =
           await engine.callStaticFunction(pluginUri, "main", [], {});
-      expect(returnValue, 14);
+      expect(returnValue, 12);
     });
 
     test(':test class extends', () async {

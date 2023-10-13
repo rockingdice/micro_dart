@@ -21,6 +21,7 @@ class $InheritedWidget extends InheritedWidget with m.InstanceBridge {
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return $child!.engine.callFunction(
+        scope,
         this,
         type.getCallRef("updateShouldNotify", false, false),
         [oldWidget],
@@ -49,8 +50,8 @@ class $StatelessWidget extends StatelessWidget with m.InstanceBridge {
 
   @override
   Widget build(BuildContext context) {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("build", false, false), [context], {}, null);
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("build", false, false), [context], {}, null);
   }
 
   @override
@@ -73,8 +74,8 @@ class $StatefulWidget extends StatefulWidget with m.InstanceBridge {
 
   @override
   State<StatefulWidget> createState() {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("createState", false, false), [], {}, null);
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("createState", false, false), [], {}, null);
   }
 
   @override
@@ -85,7 +86,8 @@ Function _State__$(m.Scope scope$) => () {
       return $State();
     };
 
-class $State extends State with m.InstanceBridge, TickerProviderStateMixin {
+class $State extends State
+    with m.InstanceBridge, TickerProviderStateMixin, RestorationMixin {
   @override
   m.CType bridgeType = const m.CType(
       m.ClassRef("package:flutter/src/widgets/framework.dart", "State"),
@@ -93,14 +95,14 @@ class $State extends State with m.InstanceBridge, TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("build", false, false), [context], {}, null);
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("build", false, false), [context], {}, null);
   }
 
   @override
   void initState() {
     $child!.engine.callFunction(
-        this, type.getCallRef("initState", false, false), [], {}, () {
+        scope, this, type.getCallRef("initState", false, false), [], {}, () {
       return super.initState();
     });
   }
@@ -108,16 +110,15 @@ class $State extends State with m.InstanceBridge, TickerProviderStateMixin {
   @override
   void dispose() {
     $child!.engine.callFunction(
-        this, type.getCallRef("dispose", false, false), [], {}, () {
+        scope, this, type.getCallRef("dispose", false, false), [], {}, () {
       return super.dispose();
     });
   }
 
   @override
   void didUpdateWidget(covariant StatefulWidget oldWidget) {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("didUpdateWidget", false, false), [oldWidget], {},
-        () {
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("didUpdateWidget", false, false), [oldWidget], {}, () {
       super.didUpdateWidget(oldWidget);
     });
   }
@@ -128,4 +129,21 @@ class $State extends State with m.InstanceBridge, TickerProviderStateMixin {
     "dispose": (m.Scope scope, target) => super.dispose,
     "didUpdateWidget": (m.Scope scope, target) => super.didUpdateWidget,
   };
+
+  @override
+  String? get restorationId {
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("restorationId", false, false), [], {}, () {});
+  }
+
+  @override
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    return $child!.engine.callFunction(
+        scope,
+        this,
+        type.getCallRef("restoreState", false, false),
+        [oldBucket, initialRestore],
+        {},
+        () {});
+  }
 }

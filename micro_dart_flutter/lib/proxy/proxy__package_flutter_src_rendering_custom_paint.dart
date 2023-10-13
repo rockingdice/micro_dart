@@ -24,13 +24,14 @@ class $CustomPainter extends CustomPainter with m.InstanceBridge {
 
   @override
   void paint(Canvas canvas, Size size) {
-    return $child!.engine.callFunction(
-        this, type.getCallRef("paint", false, false), [canvas, size], {}, null);
+    return $child!.engine.callFunction(scope, this,
+        type.getCallRef("paint", false, false), [canvas, size], {}, null);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return $child!.engine.callFunction(
+        scope,
         this,
         type.getCallRef("shouldRepaint", false, false),
         [oldDelegate],
@@ -40,7 +41,8 @@ class $CustomPainter extends CustomPainter with m.InstanceBridge {
 
   SemanticsBuilderCallback? get semanticsBuilder {
     return $child!.engine.callFunction(
-        this, type.getCallRef("semanticsBuilder", false, false), [], {}, () {
+        scope, this, type.getCallRef("semanticsBuilder", false, false), [], {},
+        () {
       return super.semanticsBuilder;
     });
   }
@@ -48,6 +50,7 @@ class $CustomPainter extends CustomPainter with m.InstanceBridge {
   @override
   bool shouldRebuildSemantics(covariant CustomPainter oldDelegate) {
     return $child!.engine.callFunction(
+        scope,
         this,
         type.getCallRef("shouldRebuildSemantics", false, false),
         [oldDelegate],

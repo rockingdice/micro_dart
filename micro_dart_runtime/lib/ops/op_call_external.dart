@@ -4,19 +4,34 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 class OpCallExternal implements Op {
   OpCallExternal(MicroDartEngine engine)
       : _ref = CallRef.fromEngine(engine),
-        _hasReturn = engine.readUint8() == 1 ? true : false;
+        _hasReturn = engine.readUint8() == 1 ? true : false,
+        classTypes = engine.readStringList(),
+        callTypes = engine.readStringList();
 
   final CallRef _ref;
   final bool _hasReturn;
+  final List<String> classTypes;
+  final List<String> callTypes;
 
-  OpCallExternal.make(this._ref, this._hasReturn);
+  OpCallExternal.make(
+      this._ref, this._hasReturn, this.classTypes, this.callTypes);
 
   @override
-  int get opLen => Ops.lenBegin + CallRef.byteLen + Ops.lenI8 * 2;
+  int get opLen =>
+      Ops.lenBegin +
+      CallRef.byteLen +
+      Ops.lenI8 * 2 +
+      Ops.lenStrlist(classTypes) +
+      Ops.lenStrlist(callTypes);
 
   @override
-  List<int> bytes(ConstantPool pool) =>
-      [Ops.opCallExternal, ..._ref.bytes(pool), ...Ops.i8b(_hasReturn ? 1 : 0)];
+  List<int> bytes(ConstantPool pool) => [
+        Ops.opCallExternal,
+        ..._ref.bytes(pool),
+        ...Ops.i8b(_hasReturn ? 1 : 0),
+        ...Ops.strlist(classTypes, pool),
+        ...Ops.strlist(callTypes, pool)
+      ];
 
   @override
   void run(Scope scope) {
@@ -37,7 +52,8 @@ class OpCallExternal implements Op {
       positionalArguments[i] = value;
     }
 
-    var function = scope.engine.getExternalFunction(_ref);
+    var function =
+        scope.engine.getExternalFunction(_ref, classTypes, callTypes);
     if (function == null) {
       throw Exception("not found external function: $_ref");
     }
@@ -47,13 +63,19 @@ class OpCallExternal implements Op {
         Function.apply(function, positionalArguments);
         return;
       }
-      final instance = Function.apply(
-          function(scope),
-          positionalArguments,
-          namedArguments.map<Symbol, dynamic>(
-              (key, value) => MapEntry(Symbol(key), value)));
-      if (_hasReturn) {
-        scope.pushFrame(instance);
+
+      try {
+        final instance = Function.apply(
+            function(scope),
+            positionalArguments,
+            namedArguments.map<Symbol, dynamic>(
+                (key, value) => MapEntry(Symbol(key), value)));
+        if (_hasReturn) {
+          scope.pushFrame(instance);
+        }
+      } catch (e, s) {
+        print("call error:$_ref ");
+        rethrow;
       }
     } else {
       dynamic target = args.removeLast();
@@ -72,13 +94,18 @@ class OpCallExternal implements Op {
                 (key, value) => MapEntry(Symbol(key), value)));
         return;
       }
-      final instance = Function.apply(
-          function(scope, target),
-          positionalArguments,
-          namedArguments.map<Symbol, dynamic>(
-              (key, value) => MapEntry(Symbol(key), value)));
-      if (_hasReturn) {
-        scope.pushFrame(instance);
+      try {
+        final instance = Function.apply(
+            function(scope, target),
+            positionalArguments,
+            namedArguments.map<Symbol, dynamic>(
+                (key, value) => MapEntry(Symbol(key), value)));
+        if (_hasReturn) {
+          scope.pushFrame(instance);
+        }
+      } catch (e, s) {
+        print("call error:$_ref ");
+        rethrow;
       }
     }
   }

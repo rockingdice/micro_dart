@@ -9,13 +9,10 @@ import 'dart:io';
 import 'package:build/build.dart';
 import 'package:build_config/build_config.dart';
 import 'package:build_runner_core/build_runner_core.dart';
-import 'package:path/path.dart';
 
 import 'code_gen_mirror.dart';
-import 'generator.dart';
 import 'namedsystem.dart';
 import 'overwrite_strategy.dart';
-import 'package:code_builder/code_builder.dart' as cb;
 
 class GeneratorBuilder implements Builder {
   BuilderOptions builderOptions;
@@ -30,12 +27,15 @@ class GeneratorBuilder implements Builder {
 
   final flutterRegExp = RegExp(r'dart:+|package:flutter/+');
 
+  final skipRegExp =
+      RegExp(r'package:micro_dart_flutter/+|package:micro_dart_runtime/+');
+
   @override
   Future<void> build(BuildStep buildStep) async {
     var generateDirectory = Directory(generatePath);
 
     var gFile = Directory(overwriteStrategyPath);
-    print(absolute(gFile.absolute.path));
+    //print(absolute(gFile.absolute.path));
     if (!generateDirectory.existsSync()) {
       generateDirectory.createSync(recursive: true);
     }
@@ -65,6 +65,9 @@ class GeneratorBuilder implements Builder {
       if ((isMicroDartFlutter && flutterRegExp.hasMatch(element.identifier)) ||
           (!isMicroDartFlutter &&
               !flutterRegExp.hasMatch(element.identifier))) {
+        if (skipRegExp.hasMatch(element.identifier)) {
+          continue;
+        }
         var generator = CodeGenMirror(namedSystem, overwriteStrategy);
         generator.visitLibraryElement(element);
         if (generator.libraryName != null) {

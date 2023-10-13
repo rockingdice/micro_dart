@@ -3,10 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_example_gallery/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_plugin_gallery/constants.dart';
 import 'package:flutter_example_gallery/data/gallery_options.dart';
-import 'package:flutter_plugin_gallery/pages/backdrop.dart';
 import 'package:flutter_example_gallery/pages/splash.dart';
+import 'package:flutter_plugin_gallery/constants.dart';
+
+import 'package:flutter_plugin_gallery/pages/backdrop.dart';
 import 'package:flutter_plugin_gallery/routes.dart';
 import 'package:flutter_plugin_gallery/themes/gallery_theme_data.dart';
 
@@ -35,7 +36,7 @@ class GalleryApp extends StatelessWidget {
       initialModel: GalleryOptions(
         themeMode: ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
-        customTextDirection: CustomTextDirection.localeBased,
+        customTextDirection: "localeBased",
         locale: null,
         timeDilation: timeDilation,
         platform: defaultTargetPlatform,

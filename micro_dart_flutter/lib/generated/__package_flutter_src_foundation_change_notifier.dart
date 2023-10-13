@@ -9,6 +9,8 @@ import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter/src/foundation/diagnostics.dart';
 import 'package:flutter/src/foundation/memory_allocations.dart';
 
+part '../proxy/proxy__package_flutter_src_foundation_change_notifier.dart';
+
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/foundation/change_notifier.dart',
   {
@@ -17,6 +19,7 @@ const libraryMirror = m.LibraryMirror(
     'ChangeNotifier.debugAssertNotDisposed':
         _ChangeNotifier_debugAssertNotDisposed$,
     'ValueNotifier.': _ValueNotifier__$,
+    ...globalSetters
   },
   {},
   {

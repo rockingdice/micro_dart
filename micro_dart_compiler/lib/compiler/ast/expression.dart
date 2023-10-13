@@ -362,10 +362,11 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
       return context.pushOp(OpIs.make(type.classNode.getClassRef()));
     } else {
       return context.pushOp(OpCallExternal.make(
-        CallRef(type.classNode.stringLibraryUri, type.classNode.name, "#is",
-            false, false),
-        true,
-      ));
+          CallRef(type.classNode.stringLibraryUri, type.classNode.name, "#is",
+              false, false),
+          true,
+          [],
+          []));
     }
   } else {
     throw Exception(
@@ -474,10 +475,11 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushArgments.make(3));
       return context.pushOp(OpCallExternal.make(
-        CallRef(type.classNode.stringLibraryUri,
-            type.classNode.stringClassName!, "#as", false, false),
-        true,
-      ));
+          CallRef(type.classNode.stringLibraryUri,
+              type.classNode.stringClassName!, "#as", false, false),
+          true,
+          [],
+          []));
     }
   } else if (type is FunctionType) {
     print("AsExpression  not support : ${type.runtimeType.toString()}");
