@@ -1,4 +1,4 @@
 part of 'ast.dart';
 
-void compileRedirectingFactory(
-    MicroCompilerContext context, RedirectingFactory node) {}
+// void compileRedirectingFactory(
+//     MicroCompilerContext context, RedirectingFactory node) {}

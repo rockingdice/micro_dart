@@ -69,10 +69,10 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
       });
 
       //对类的构造工厂进行索引
-      clazz.redirectingFactories.forEach((redirectingFactory) {
-        var ref = redirectingFactory.getCallRef();
-        compilerContext.lookupDeclarationIndex(ref, redirectingFactory);
-      });
+      // clazz.redirectingFactories.forEach((redirectingFactory) {
+      //   var ref = redirectingFactory.getCallRef();
+      //   compilerContext.lookupDeclarationIndex(ref, redirectingFactory);
+      // });
       //对类中方法进行索引
       clazz.procedures.forEach((procedure) {
         if (procedure.isAbstract) {

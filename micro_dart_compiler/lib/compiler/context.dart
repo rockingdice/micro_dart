@@ -82,10 +82,10 @@ class MicroCompilerContext {
       String name = constructor.name.text;
       constructors.add(name);
     });
-    node.redirectingFactories.forEach((redirectingFactory) {
-      String name = redirectingFactory.name.text;
-      constructors.add(name);
-    });
+    // node.redirectingFactories.forEach((redirectingFactory) {
+    //   String name = redirectingFactory.name.text;
+    //   constructors.add(name);
+    // });
     node.procedures.forEach((procedure) {
       if (procedure.isAbstract || procedure.isStatic) {
         return;

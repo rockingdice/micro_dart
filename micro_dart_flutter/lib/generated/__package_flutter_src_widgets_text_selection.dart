@@ -258,7 +258,7 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': ClipboardStatusNotifier_as$,
         '#is': ClipboardStatusNotifier_is$,
-        'disposed': _ClipboardStatusNotifier_disposed$,
+        //       'disposed': _ClipboardStatusNotifier_disposed$,
         'update': _ClipboardStatusNotifier_update$,
         'addListener': _ClipboardStatusNotifier_addListener$,
         'removeListener': _ClipboardStatusNotifier_removeListener$,
@@ -1531,13 +1531,13 @@ Function ClipboardStatusNotifier_is$(
   dynamic target$,
 ) =>
     () => target$ is ClipboardStatusNotifier;
-Function _ClipboardStatusNotifier_disposed$(
-  m.Scope scope$,
-  ClipboardStatusNotifier target$,
-) =>
-    () {
-      return target$.disposed;
-    };
+// Function _ClipboardStatusNotifier_disposed$(
+//   m.Scope scope$,
+//   ClipboardStatusNotifier target$,
+// ) =>
+//     () {
+//       return target$.disposed;
+//     };
 Function _ClipboardStatusNotifier__$(m.Scope scope$) =>
     ({ClipboardStatus? value}) {
       return ClipboardStatusNotifier(value: value ?? ClipboardStatus.unknown);

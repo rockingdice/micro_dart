@@ -63,7 +63,6 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': RenderEditable_as$,
         '#is': RenderEditable_is$,
-        'onCaretChanged': _RenderEditable_onCaretChanged$,
         'ignorePointer': _RenderEditable_ignorePointer$,
         'textSelectionDelegate': _RenderEditable_textSelectionDelegate$,
         'floatingCursorAddedMargin': _RenderEditable_floatingCursorAddedMargin$,
@@ -170,7 +169,6 @@ const libraryMirror = m.LibraryMirror(
         'debugDescribeChildren': _RenderEditable_debugDescribeChildren$,
       },
       {
-        'onCaretChanged': _RenderEditable_onCaretChanged_set$,
         'ignorePointer': _RenderEditable_ignorePointer_set$,
         'textSelectionDelegate': _RenderEditable_textSelectionDelegate_set$,
         'floatingCursorAddedMargin':
@@ -326,28 +324,7 @@ Function RenderEditable_is$(
   dynamic target$,
 ) =>
     () => target$ is RenderEditable;
-Function _RenderEditable_onCaretChanged$(
-  m.Scope scope$,
-  RenderEditable target$,
-) =>
-    () {
-      return target$.onCaretChanged;
-    };
-Function _RenderEditable_onCaretChanged_set$(
-  m.Scope scope$,
-  RenderEditable target$,
-) =>
-    (m.FunctionPointer? _onCaretChanged) {
-      void _onCaretChangedProxy(Rect _onCaretChanged_caretRect$) =>
-          scope$.engine.callFunctionPointer(
-            scope$,
-            _onCaretChanged!,
-            [_onCaretChanged_caretRect$],
-            {},
-          );
-      target$.onCaretChanged =
-          (_onCaretChanged == null ? null : _onCaretChangedProxy);
-    };
+
 Function _RenderEditable_ignorePointer$(
   m.Scope scope$,
   RenderEditable target$,
@@ -1009,13 +986,6 @@ Function _RenderEditable__$(m.Scope scope$) => ({
       RenderEditablePainter? foregroundPainter,
       List? children,
     }) {
-      void onCaretChangedProxy(Rect onCaretChanged_caretRect$) =>
-          scope$.engine.callFunctionPointer(
-            scope$,
-            onCaretChanged!,
-            [onCaretChanged_caretRect$],
-            {},
-          );
       return RenderEditable(
         backgroundCursorColor: backgroundCursorColor,
         children: children == null ? null : List.from(children),
@@ -1041,7 +1011,6 @@ Function _RenderEditable__$(m.Scope scope$) => ({
         obscureText: obscureText ?? false,
         obscuringCharacter: obscuringCharacter ?? '•',
         offset: offset,
-        onCaretChanged: onCaretChanged == null ? null : onCaretChangedProxy,
         paintCursorAboveText: paintCursorAboveText ?? false,
         painter: painter,
         promptRectColor: promptRectColor,

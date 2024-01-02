@@ -128,6 +128,7 @@ Function _CupertinoAdaptiveTextSelectionToolbar_editable_$(m.Scope scope$) => ({
         onCut: onCut == null ? null : onCutProxy,
         onPaste: onPaste == null ? null : onPasteProxy,
         onSelectAll: onSelectAll == null ? null : onSelectAllProxy,
+        onLiveTextInput: () {},
       );
     };
 Function _CupertinoAdaptiveTextSelectionToolbar_editableText_$(

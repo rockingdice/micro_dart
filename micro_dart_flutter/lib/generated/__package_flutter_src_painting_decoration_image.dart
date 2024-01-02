@@ -22,14 +22,14 @@ const libraryMirror = m.LibraryMirror(
   'package:flutter/src/painting/decoration_image.dart',
   {
     'DecorationImage.': _DecorationImage__$,
-    'ImageTilingInfo.': _ImageTilingInfo__$,
+//    'ImageTilingInfo.': _ImageTilingInfo__$,
     'ImageRepeat.repeat': _ImageRepeat_repeat$,
     'ImageRepeat.repeatX': _ImageRepeat_repeatX$,
     'ImageRepeat.repeatY': _ImageRepeat_repeatY$,
     'ImageRepeat.noRepeat': _ImageRepeat_noRepeat$,
     'ImageRepeat.values': _ImageRepeat_values$,
     'debugFlushLastFrameImageSizeInfo': _debugFlushLastFrameImageSizeInfo$,
-    'createTilingInfo': _createTilingInfo$,
+    //  'createTilingInfo': _createTilingInfo$,
     'paintImage': _paintImage$,
   },
   {},
@@ -70,18 +70,18 @@ const libraryMirror = m.LibraryMirror(
       },
       {},
     ),
-    'ImageTilingInfo': m.ClassMirror(
-      'ImageTilingInfo',
-      {
-        '#as': ImageTilingInfo_as$,
-        '#is': ImageTilingInfo_is$,
-        'tmx': _ImageTilingInfo_tmx$,
-        'tmy': _ImageTilingInfo_tmy$,
-        'transform': _ImageTilingInfo_transform$,
-        'toString': _ImageTilingInfo_toString$,
-      },
-      {},
-    ),
+    // 'ImageTilingInfo': m.ClassMirror(
+    //   'ImageTilingInfo',
+    //   {
+    //     '#as': ImageTilingInfo_as$,
+    //     '#is': ImageTilingInfo_is$,
+    //     'tmx': _ImageTilingInfo_tmx$,
+    //     'tmy': _ImageTilingInfo_tmy$,
+    //     'transform': _ImageTilingInfo_transform$,
+    //     'toString': _ImageTilingInfo_toString$,
+    //   },
+    //   {},
+    // ),
     'ImageRepeat': m.ClassMirror(
       'ImageRepeat',
       {},
@@ -289,53 +289,53 @@ Function _DecorationImagePainter_toString$(
   DecorationImagePainter target$,
 ) =>
     target$.toString;
-Function ImageTilingInfo_as$(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ as ImageTilingInfo;
-Function ImageTilingInfo_is$(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ is ImageTilingInfo;
-Function _ImageTilingInfo_tmx$(
-  m.Scope scope$,
-  ImageTilingInfo target$,
-) =>
-    () {
-      return target$.tmx;
-    };
-Function _ImageTilingInfo_tmy$(
-  m.Scope scope$,
-  ImageTilingInfo target$,
-) =>
-    () {
-      return target$.tmy;
-    };
-Function _ImageTilingInfo_transform$(
-  m.Scope scope$,
-  ImageTilingInfo target$,
-) =>
-    () {
-      return target$.transform;
-    };
-Function _ImageTilingInfo__$(m.Scope scope$) => ({
-      required TileMode tmx,
-      required TileMode tmy,
-      required Matrix4 transform,
-    }) {
-      return ImageTilingInfo(
-        tmx: tmx,
-        tmy: tmy,
-        transform: transform,
-      );
-    };
-Function _ImageTilingInfo_toString$(
-  m.Scope scope$,
-  ImageTilingInfo target$,
-) =>
-    target$.toString;
+// Function ImageTilingInfo_as$(
+//   m.Scope scope$,
+//   dynamic target$,
+// ) =>
+//     () => target$ as ImageTilingInfo;
+// Function ImageTilingInfo_is$(
+//   m.Scope scope$,
+//   dynamic target$,
+// ) =>
+//     () => target$ is ImageTilingInfo;
+// Function _ImageTilingInfo_tmx$(
+//   m.Scope scope$,
+//   ImageTilingInfo target$,
+// ) =>
+//     () {
+//       return target$.tmx;
+//     };
+// Function _ImageTilingInfo_tmy$(
+//   m.Scope scope$,
+//   ImageTilingInfo target$,
+// ) =>
+//     () {
+//       return target$.tmy;
+//     };
+// Function _ImageTilingInfo_transform$(
+//   m.Scope scope$,
+//   ImageTilingInfo target$,
+// ) =>
+//     () {
+//       return target$.transform;
+//     };
+// Function _ImageTilingInfo__$(m.Scope scope$) => ({
+//       required TileMode tmx,
+//       required TileMode tmy,
+//       required Matrix4 transform,
+//     }) {
+//       return ImageTilingInfo(
+//         tmx: tmx,
+//         tmy: tmy,
+//         transform: transform,
+//       );
+//     };
+// Function _ImageTilingInfo_toString$(
+//   m.Scope scope$,
+//   ImageTilingInfo target$,
+// ) =>
+//     target$.toString;
 Function _ImageRepeat_repeat$(m.Scope scope$) => () => ImageRepeat.repeat;
 Function _ImageRepeat_repeatX$(m.Scope scope$) => () => ImageRepeat.repeatX;
 Function _ImageRepeat_repeatY$(m.Scope scope$) => () => ImageRepeat.repeatY;
@@ -343,5 +343,5 @@ Function _ImageRepeat_noRepeat$(m.Scope scope$) => () => ImageRepeat.noRepeat;
 Function _ImageRepeat_values$(m.Scope scope$) => () => ImageRepeat.values;
 Function _debugFlushLastFrameImageSizeInfo$(m.Scope scope$) =>
     debugFlushLastFrameImageSizeInfo;
-Function _createTilingInfo$(m.Scope scope$) => createTilingInfo;
+// Function _createTilingInfo$(m.Scope scope$) => createTilingInfo;
 Function _paintImage$(m.Scope scope$) => paintImage;

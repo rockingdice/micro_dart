@@ -311,7 +311,7 @@ const libraryMirror = m.LibraryMirror(
         'maxValueLength': _SemanticsNode_maxValueLength$,
         'currentValueLength': _SemanticsNode_currentValueLength$,
         'visitChildren': _SemanticsNode_visitChildren$,
-        'redepthChildren': _SemanticsNode_redepthChildren$,
+        //   'redepthChildren': _SemanticsNode_redepthChildren$,
         'attach': _SemanticsNode_attach$,
         'detach': _SemanticsNode_detach$,
         'isTagged': _SemanticsNode_isTagged$,
@@ -2299,11 +2299,11 @@ Function _SemanticsNode_visitChildren$(
           );
       target$.visitChildren(visitorProxy);
     };
-Function _SemanticsNode_redepthChildren$(
-  m.Scope scope$,
-  SemanticsNode target$,
-) =>
-    target$.redepthChildren;
+// Function _SemanticsNode_redepthChildren$(
+//   m.Scope scope$,
+//   SemanticsNode target$,
+// ) =>
+//     target$.redepthChildren;
 Function _SemanticsNode_attach$(
   m.Scope scope$,
   SemanticsNode target$,

@@ -49,9 +49,9 @@ extension ExtensionNamedNode on NamedNode {
     return (this is Constructor);
   }
 
-  bool get isRedirectingFactory {
-    return (this is RedirectingFactory);
-  }
+  // bool get isRedirectingFactory {
+  //   return (this is RedirectingFactory);
+  // }
 
   Class get asClass {
     return (this as Class);
@@ -69,9 +69,9 @@ extension ExtensionNamedNode on NamedNode {
     return (this as Constructor);
   }
 
-  RedirectingFactory get asRedirectingFactory {
-    return (this as RedirectingFactory);
-  }
+  // RedirectingFactory get asRedirectingFactory {
+  //   return (this as RedirectingFactory);
+  // }
 
   bool get nameNodeIsStatic {
     if (isField) {
@@ -80,8 +80,8 @@ extension ExtensionNamedNode on NamedNode {
       return asProcedure.isStatic;
     } else if (isConstructor) {
       return true;
-    } else if (isRedirectingFactory) {
-      return true;
+      // } else if (isRedirectingFactory) {
+      //   return true;
     } else if (isClass) {
       return true;
     }
@@ -95,9 +95,11 @@ extension ExtensionNamedNode on NamedNode {
       return getConstructorCallRef();
     } else if (isField) {
       return getFieldCallRef();
-    } else if (isRedirectingFactory) {
-      return getRedirectingFactoryCallRef();
-    } else if (isProcedure) {
+    }
+    //else if (isRedirectingFactory) {
+    //   return getRedirectingFactoryCallRef();
+    // }
+    else if (isProcedure) {
       return getProcedureCallRef();
     }
     throw Exception(
@@ -128,9 +130,13 @@ extension ExtensionNamedNode on NamedNode {
       } else if (this.parent is Library) {
         return (this.parent as Library).importUri.toString();
       }
-    } else if (isRedirectingFactory) {
-      return (this.parent!.parent as Library).importUri.toString();
-    } else if (isProcedure) {
+    }
+
+    // else if (isRedirectingFactory) {
+    //   return (this.parent!.parent as Library).importUri.toString();
+    // }
+
+    else if (isProcedure) {
       if (this.parent is Class) {
         return (this.parent!.parent as Library).importUri.toString();
       } else if (this.parent is Library) {
@@ -151,9 +157,13 @@ extension ExtensionNamedNode on NamedNode {
       } else if (this.parent is Library) {
         return null;
       }
-    } else if (isRedirectingFactory) {
-      return (this.parent as Class).name;
-    } else if (isProcedure) {
+    }
+
+    // else if (isRedirectingFactory) {
+    //   return (this.parent as Class).name;
+    // }
+
+    else if (isProcedure) {
       if (this.parent is Class) {
         return (this.parent as Class).name;
       } else if (this.parent is Library) {
@@ -170,9 +180,13 @@ extension ExtensionNamedNode on NamedNode {
       return this.asConstructor.name.text;
     } else if (isField) {
       return this.asField.name.text;
-    } else if (isRedirectingFactory) {
-      return asRedirectingFactory.name.text;
-    } else if (isProcedure) {
+    }
+
+    // else if (isRedirectingFactory) {
+    //   return asRedirectingFactory.name.text;
+    // }
+
+    else if (isProcedure) {
       return asProcedure.name.text;
     }
     throw Exception("not support ${this.runtimeType.toString()}");
@@ -196,14 +210,14 @@ extension ExtensionNamedNode on NamedNode {
     return CallRef(libraryUri, className, fieldName, false, thiz.isStatic);
   }
 
-  CallRef getRedirectingFactoryCallRef() {
-    var thiz = this.asRedirectingFactory;
-    String factoryName = thiz.name.text;
-    String className = (this.parent as Class).name;
-    String libraryUri = (this.parent!.parent as Library).importUri.toString();
+  // CallRef getRedirectingFactoryCallRef() {
+  //   var thiz = this.asRedirectingFactory;
+  //   String factoryName = thiz.name.text;
+  //   String className = (this.parent as Class).name;
+  //   String libraryUri = (this.parent!.parent as Library).importUri.toString();
 
-    return CallRef(libraryUri, className, factoryName, false, true);
-  }
+  //   return CallRef(libraryUri, className, factoryName, false, true);
+  // }
 
   CallRef getProcedureCallRef() {
     var thiz = this.asProcedure;
@@ -238,9 +252,11 @@ void compileNamedNode(MicroCompilerContext context, NamedNode node) {
     compileField(context, node);
   } else if (node is Constructor) {
     compileConstructor(context, node);
-  } else if (node is RedirectingFactory) {
-    compileRedirectingFactory(context, node);
   }
+
+  // else if (node is RedirectingFactory) {
+  //   compileRedirectingFactory(context, node);
+  // }
 }
 
 void compileFields(MicroCompilerContext context) {

@@ -12,7 +12,9 @@ import 'package:flutter/src/rendering/object.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/rendering/mouse_tracker.dart',
-  {'MouseTracker.': _MouseTracker__$},
+  {
+    //'MouseTracker.': _MouseTracker__$
+  },
   {},
   {
     'MouseTracker': m.ClassMirror(
@@ -46,26 +48,20 @@ Function _MouseTracker_mouseIsConnected$(
     () {
       return target$.mouseIsConnected;
     };
-Function _MouseTracker__$(m.Scope scope$) => () {
-      return MouseTracker();
-    };
+// Function _MouseTracker__$(m.Scope scope$) => (Offset offset,int ) {
+//       return MouseTracker();
+//     };
 Function _MouseTracker_updateWithEvent$(
   m.Scope scope$,
   MouseTracker target$,
 ) =>
     (
       PointerEvent event,
-      m.FunctionPointer getResult,
+      HitTestResult? hitTestResult,
     ) {
-      HitTestResult getResultProxy() => scope$.engine.callFunctionPointer(
-            scope$,
-            getResult,
-            [],
-            {},
-          );
       target$.updateWithEvent(
         event,
-        getResultProxy,
+        hitTestResult,
       );
     };
 Function _MouseTracker_updateAllDevices$(
@@ -73,14 +69,7 @@ Function _MouseTracker_updateAllDevices$(
   MouseTracker target$,
 ) =>
     (m.FunctionPointer hitTest) {
-      HitTestResult hitTestProxy(Offset hitTest_offset$) =>
-          scope$.engine.callFunctionPointer(
-            scope$,
-            hitTest,
-            [hitTest_offset$],
-            {},
-          );
-      target$.updateAllDevices(hitTestProxy);
+      target$.updateAllDevices();
     };
 Function _MouseTracker_debugDeviceActiveCursor$(
   m.Scope scope$,

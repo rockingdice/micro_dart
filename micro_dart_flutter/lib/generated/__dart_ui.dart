@@ -286,22 +286,8 @@ const libraryMirror = m.LibraryMirror(
     'PointerSignalKind.scrollInertiaCancel':
         _PointerSignalKind_scrollInertiaCancel$,
     'PointerSignalKind.scale': _PointerSignalKind_scale$,
-    'PointerSignalKind.stylusAuxiliaryAction':
-        _PointerSignalKind_stylusAuxiliaryAction$,
     'PointerSignalKind.unknown': _PointerSignalKind_unknown$,
     'PointerSignalKind.values': _PointerSignalKind_values$,
-    'PointerPreferredStylusAuxiliaryAction.ignore':
-        _PointerPreferredStylusAuxiliaryAction_ignore$,
-    'PointerPreferredStylusAuxiliaryAction.showColorPalette':
-        _PointerPreferredStylusAuxiliaryAction_showColorPalette$,
-    'PointerPreferredStylusAuxiliaryAction.switchEraser':
-        _PointerPreferredStylusAuxiliaryAction_switchEraser$,
-    'PointerPreferredStylusAuxiliaryAction.switchPrevious':
-        _PointerPreferredStylusAuxiliaryAction_switchPrevious$,
-    'PointerPreferredStylusAuxiliaryAction.unknown':
-        _PointerPreferredStylusAuxiliaryAction_unknown$,
-    'PointerPreferredStylusAuxiliaryAction.values':
-        _PointerPreferredStylusAuxiliaryAction_values$,
     'SemanticsAction.tap': _SemanticsAction_tap$,
     'SemanticsAction.longPress': _SemanticsAction_longPress$,
     'SemanticsAction.scrollLeft': _SemanticsAction_scrollLeft$,
@@ -588,14 +574,6 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': ShaderMaskEngineLayer_as$,
         '#is': ShaderMaskEngineLayer_is$,
-      },
-      {},
-    ),
-    'PhysicalShapeEngineLayer': m.ClassMirror(
-      'PhysicalShapeEngineLayer',
-      {
-        '#as': PhysicalShapeEngineLayer_as$,
-        '#is': PhysicalShapeEngineLayer_is$,
       },
       {},
     ),
@@ -1403,7 +1381,6 @@ const libraryMirror = m.LibraryMirror(
         'semanticsEnabled': _PlatformDispatcher_semanticsEnabled$,
         'onSemanticsEnabledChanged':
             _PlatformDispatcher_onSemanticsEnabledChanged$,
-        'onSemanticsAction': _PlatformDispatcher_onSemanticsAction$,
         'frameData': _PlatformDispatcher_frameData$,
         'onFrameDataChanged': _PlatformDispatcher_onFrameDataChanged$,
         'onError': _PlatformDispatcher_onError$,
@@ -1442,7 +1419,6 @@ const libraryMirror = m.LibraryMirror(
             _PlatformDispatcher_onSystemFontFamilyChanged_set$,
         'onSemanticsEnabledChanged':
             _PlatformDispatcher_onSemanticsEnabledChanged_set$,
-        'onSemanticsAction': _PlatformDispatcher_onSemanticsAction_set$,
         'onFrameDataChanged': _PlatformDispatcher_onFrameDataChanged_set$,
         'onError': _PlatformDispatcher_onError_set$,
       },
@@ -1604,8 +1580,6 @@ const libraryMirror = m.LibraryMirror(
         'panDeltaY': _PointerData_panDeltaY$,
         'scale': _PointerData_scale$,
         'rotation': _PointerData_rotation$,
-        'preferredStylusAuxiliaryAction':
-            _PointerData_preferredStylusAuxiliaryAction$,
         'toString': _PointerData_toString$,
         'toStringFull': _PointerData_toStringFull$,
       },
@@ -2288,16 +2262,7 @@ Function ShaderMaskEngineLayer_is$(
   dynamic target$,
 ) =>
     () => target$ is ShaderMaskEngineLayer;
-Function PhysicalShapeEngineLayer_as$(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ as PhysicalShapeEngineLayer;
-Function PhysicalShapeEngineLayer_is$(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ is PhysicalShapeEngineLayer;
+
 Function SceneBuilder_as$(
   m.Scope scope$,
   dynamic target$,
@@ -5665,35 +5630,7 @@ Function _PlatformDispatcher_onSemanticsEnabledChanged_set$(
       target$.onSemanticsEnabledChanged =
           (callback == null ? null : callbackProxy);
     };
-Function _PlatformDispatcher_onSemanticsAction$(
-  m.Scope scope$,
-  PlatformDispatcher target$,
-) =>
-    () {
-      return target$.onSemanticsAction;
-    };
-Function _PlatformDispatcher_onSemanticsAction_set$(
-  m.Scope scope$,
-  PlatformDispatcher target$,
-) =>
-    (m.FunctionPointer? callback) {
-      void callbackProxy(
-        int callback_nodeId$,
-        SemanticsAction callback_action$,
-        ByteData? callback_args$,
-      ) =>
-          scope$.engine.callFunctionPointer(
-            scope$,
-            callback!,
-            [
-              callback_nodeId$,
-              callback_action$,
-              callback_args$,
-            ],
-            {},
-          );
-      target$.onSemanticsAction = (callback == null ? null : callbackProxy);
-    };
+
 Function _PlatformDispatcher_frameData$(
   m.Scope scope$,
   PlatformDispatcher target$,
@@ -6461,13 +6398,7 @@ Function _PointerData_rotation$(
     () {
       return target$.rotation;
     };
-Function _PointerData_preferredStylusAuxiliaryAction$(
-  m.Scope scope$,
-  PointerData target$,
-) =>
-    () {
-      return target$.preferredStylusAuxiliaryAction;
-    };
+
 Function _PointerData__$(m.Scope scope$) => ({
       int? embedderId,
       Duration? timeStamp,
@@ -6504,7 +6435,6 @@ Function _PointerData__$(m.Scope scope$) => ({
       double? panDeltaY,
       double? scale,
       double? rotation,
-      PointerPreferredStylusAuxiliaryAction? preferredStylusAuxiliaryAction,
     }) {
       return PointerData(
         buttons: buttons ?? 0,
@@ -6526,8 +6456,6 @@ Function _PointerData__$(m.Scope scope$) => ({
         physicalY: physicalY ?? 0.0,
         platformData: platformData ?? 0,
         pointerIdentifier: pointerIdentifier ?? 0,
-        preferredStylusAuxiliaryAction: preferredStylusAuxiliaryAction ??
-            PointerPreferredStylusAuxiliaryAction.ignore,
         pressure: pressure ?? 0.0,
         pressureMax: pressureMax ?? 0.0,
         pressureMin: pressureMin ?? 0.0,
@@ -6613,26 +6541,11 @@ Function _PointerSignalKind_scrollInertiaCancel$(m.Scope scope$) =>
     () => PointerSignalKind.scrollInertiaCancel;
 Function _PointerSignalKind_scale$(m.Scope scope$) =>
     () => PointerSignalKind.scale;
-Function _PointerSignalKind_stylusAuxiliaryAction$(m.Scope scope$) =>
-    () => PointerSignalKind.stylusAuxiliaryAction;
+
 Function _PointerSignalKind_unknown$(m.Scope scope$) =>
     () => PointerSignalKind.unknown;
 Function _PointerSignalKind_values$(m.Scope scope$) =>
     () => PointerSignalKind.values;
-Function _PointerPreferredStylusAuxiliaryAction_ignore$(m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.ignore;
-Function _PointerPreferredStylusAuxiliaryAction_showColorPalette$(
-        m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.showColorPalette;
-Function _PointerPreferredStylusAuxiliaryAction_switchEraser$(m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.switchEraser;
-Function _PointerPreferredStylusAuxiliaryAction_switchPrevious$(
-        m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.switchPrevious;
-Function _PointerPreferredStylusAuxiliaryAction_unknown$(m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.unknown;
-Function _PointerPreferredStylusAuxiliaryAction_values$(m.Scope scope$) =>
-    () => PointerPreferredStylusAuxiliaryAction.values;
 Function SemanticsAction_as$(
   m.Scope scope$,
   dynamic target$,

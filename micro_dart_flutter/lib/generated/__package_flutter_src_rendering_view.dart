@@ -53,7 +53,7 @@ const libraryMirror = m.LibraryMirror(
         'performResize': _RenderView_performResize$,
         'performLayout': _RenderView_performLayout$,
         'hitTest': _RenderView_hitTest$,
-        'hitTestMouseTrackers': _RenderView_hitTestMouseTrackers$,
+        //   'hitTestMouseTrackers': _RenderView_hitTestMouseTrackers$,
         'paint': _RenderView_paint$,
         'applyPaintTransform': _RenderView_applyPaintTransform$,
         'compositeFrame': _RenderView_compositeFrame$,
@@ -225,11 +225,11 @@ Function _RenderView_hitTest$(
   RenderView target$,
 ) =>
     target$.hitTest;
-Function _RenderView_hitTestMouseTrackers$(
-  m.Scope scope$,
-  RenderView target$,
-) =>
-    target$.hitTestMouseTrackers;
+// Function _RenderView_hitTestMouseTrackers$(
+//   m.Scope scope$,
+//   RenderView target$,
+// ) =>
+//     target$.hitTestMouseTrackers;
 Function _RenderView_paint$(
   m.Scope scope$,
   RenderView target$,

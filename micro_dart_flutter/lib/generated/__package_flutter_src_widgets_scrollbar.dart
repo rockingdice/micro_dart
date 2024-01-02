@@ -100,7 +100,7 @@ const libraryMirror = m.LibraryMirror(
         'child': _RawScrollbar_child$,
         'controller': _RawScrollbar_controller$,
         'thumbVisibility': _RawScrollbar_thumbVisibility$,
-        'isAlwaysShown': _RawScrollbar_isAlwaysShown$,
+        //     'isAlwaysShown': _RawScrollbar_isAlwaysShown$,
         'shape': _RawScrollbar_shape$,
         'radius': _RawScrollbar_radius$,
         'thickness': _RawScrollbar_thickness$,
@@ -520,13 +520,13 @@ Function _RawScrollbar_thumbVisibility$(
     () {
       return target$.thumbVisibility;
     };
-Function _RawScrollbar_isAlwaysShown$(
-  m.Scope scope$,
-  RawScrollbar target$,
-) =>
-    () {
-      return target$.isAlwaysShown;
-    };
+// Function _RawScrollbar_isAlwaysShown$(
+//   m.Scope scope$,
+//   RawScrollbar target$,
+// ) =>
+//     () {
+//       return target$.isAlwaysShown;
+//     };
 Function _RawScrollbar_shape$(
   m.Scope scope$,
   RawScrollbar target$,
@@ -684,7 +684,7 @@ Function _RawScrollbar__$(m.Scope scope$) => ({
       double? mainAxisMargin,
       double? crossAxisMargin,
       EdgeInsets? padding,
-      bool? isAlwaysShown,
+      //   bool? isAlwaysShown,
     }) {
       bool notificationPredicateProxy(
               ScrollNotification notificationPredicate_notification$) =>
@@ -700,7 +700,7 @@ Function _RawScrollbar__$(m.Scope scope$) => ({
         crossAxisMargin: crossAxisMargin ?? 0.0,
         fadeDuration: fadeDuration ?? const Duration(milliseconds: 300),
         interactive: interactive,
-        isAlwaysShown: isAlwaysShown,
+        //  isAlwaysShown: isAlwaysShown,
         key: key,
         mainAxisMargin: mainAxisMargin ?? 0.0,
         minOverscrollLength: minOverscrollLength,

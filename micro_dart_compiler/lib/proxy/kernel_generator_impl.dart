@@ -40,6 +40,8 @@ import 'package:front_end/src/fasta/uri_translator.dart' show UriTranslator;
 
 import 'package:front_end/src/kernel_generator_impl.dart';
 
+import 'package:kernel/verifier.dart' as verifier;
+
 import 'kernel_target.dart';
 
 /// Implementation for the
@@ -152,10 +154,12 @@ Future<CompilerResult> _buildInternal(
   List<int>? summary = null;
   if (buildSummary) {
     if (options.verify) {
-      for (LocatedMessage error
-          in verifyComponent(summaryComponent, options.target)) {
+      List<LocatedMessage> errors = verifyComponent(
+          options.target, verifier.VerificationStage.outline, summaryComponent);
+      for (LocatedMessage error in errors) {
         options.report(error, Severity.error);
       }
+      assert(errors.isEmpty, "Verification errors found.");
     }
     if (options.debugDump) {
       printComponentText(summaryComponent,
@@ -298,8 +302,8 @@ Future<Map<Uri, ExecutorFactoryToken>> _compileMacros(
 
   Uri uri = _defaultDir.resolve('main.dart');
   MemoryFileSystem fs = new MemoryFileSystem(_defaultDir);
-  fs.entityForUri(uri).writeAsStringSync(bootstrapMacroIsolate(
-      macroDeclarations, SerializationMode.byteDataClient));
+  fs.entityForUri(uri).writeAsStringSync(
+      bootstrapMacroIsolate(macroDeclarations, SerializationMode.byteData));
 
   precompilationOptions
     ..fileSystem = new HybridFileSystem(fs, options.fileSystem);
@@ -310,8 +314,7 @@ Future<Map<Uri, ExecutorFactoryToken>> _compileMacros(
   Set<Uri> macroLibraries =
       neededPrecompilations.macroDeclarations.keys.toSet();
   ExecutorFactoryToken executorToken = macroExecutor.registerExecutorFactory(
-      () => isolatedExecutor.start(
-          SerializationMode.byteDataServer, precompiledUri),
+      () => isolatedExecutor.start(SerializationMode.byteData, precompiledUri),
       macroLibraries);
   return <Uri, ExecutorFactoryToken>{
     for (Uri library in macroLibraries) library: executorToken,

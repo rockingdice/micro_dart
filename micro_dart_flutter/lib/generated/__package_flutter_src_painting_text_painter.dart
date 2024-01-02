@@ -86,7 +86,6 @@ const libraryMirror = m.LibraryMirror(
         'textWidthBasis': _TextPainter_textWidthBasis$,
         'textHeightBehavior': _TextPainter_textHeightBehavior$,
         'inlinePlaceholderBoxes': _TextPainter_inlinePlaceholderBoxes$,
-        'inlinePlaceholderScales': _TextPainter_inlinePlaceholderScales$,
         'preferredLineHeight': _TextPainter_preferredLineHeight$,
         'minIntrinsicWidth': _TextPainter_minIntrinsicWidth$,
         'maxIntrinsicWidth': _TextPainter_maxIntrinsicWidth$,
@@ -394,13 +393,7 @@ Function _TextPainter_inlinePlaceholderBoxes$(
     () {
       return target$.inlinePlaceholderBoxes;
     };
-Function _TextPainter_inlinePlaceholderScales$(
-  m.Scope scope$,
-  TextPainter target$,
-) =>
-    () {
-      return target$.inlinePlaceholderScales;
-    };
+
 Function _TextPainter_preferredLineHeight$(
   m.Scope scope$,
   TextPainter target$,

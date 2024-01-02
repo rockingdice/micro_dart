@@ -32,7 +32,6 @@ const libraryMirror = m.LibraryMirror(
         'onPressed': _CupertinoTextSelectionToolbarButton_onPressed$,
         'buttonItem': _CupertinoTextSelectionToolbarButton_buttonItem$,
         'text': _CupertinoTextSelectionToolbarButton_text$,
-        'build': _CupertinoTextSelectionToolbarButton_build$,
       },
       {},
     )
@@ -114,8 +113,3 @@ Function _CupertinoTextSelectionToolbarButton_buttonItem_$(m.Scope scope$) =>
     CupertinoTextSelectionToolbarButton.buttonItem;
 Function _CupertinoTextSelectionToolbarButton_getButtonLabel$(m.Scope scope$) =>
     CupertinoTextSelectionToolbarButton.getButtonLabel;
-Function _CupertinoTextSelectionToolbarButton_build$(
-  m.Scope scope$,
-  CupertinoTextSelectionToolbarButton target$,
-) =>
-    target$.build;

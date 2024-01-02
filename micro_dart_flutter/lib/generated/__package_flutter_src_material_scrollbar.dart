@@ -23,10 +23,10 @@ const libraryMirror = m.LibraryMirror(
         'child': _Scrollbar_child$,
         'controller': _Scrollbar_controller$,
         'thumbVisibility': _Scrollbar_thumbVisibility$,
-        'isAlwaysShown': _Scrollbar_isAlwaysShown$,
+        //    'isAlwaysShown': _Scrollbar_isAlwaysShown$,
         'trackVisibility': _Scrollbar_trackVisibility$,
         'showTrackOnHover': _Scrollbar_showTrackOnHover$,
-        'hoverThickness': _Scrollbar_hoverThickness$,
+        //   'hoverThickness': _Scrollbar_hoverThickness$,
         'thickness': _Scrollbar_thickness$,
         'radius': _Scrollbar_radius$,
         'interactive': _Scrollbar_interactive$,
@@ -69,13 +69,13 @@ Function _Scrollbar_thumbVisibility$(
     () {
       return target$.thumbVisibility;
     };
-Function _Scrollbar_isAlwaysShown$(
-  m.Scope scope$,
-  Scrollbar target$,
-) =>
-    () {
-      return target$.isAlwaysShown;
-    };
+// Function _Scrollbar_isAlwaysShown$(
+//   m.Scope scope$,
+//   Scrollbar target$,
+// ) =>
+//     () {
+//       return target$.isAlwaysShown;
+//     };
 Function _Scrollbar_trackVisibility$(
   m.Scope scope$,
   Scrollbar target$,
@@ -90,13 +90,13 @@ Function _Scrollbar_showTrackOnHover$(
     () {
       return target$.showTrackOnHover;
     };
-Function _Scrollbar_hoverThickness$(
-  m.Scope scope$,
-  Scrollbar target$,
-) =>
-    () {
-      return target$.hoverThickness;
-    };
+// Function _Scrollbar_hoverThickness$(
+//   m.Scope scope$,
+//   Scrollbar target$,
+// ) =>
+//     () {
+//       return target$.hoverThickness;
+//     };
 Function _Scrollbar_thickness$(
   m.Scope scope$,
   Scrollbar target$,
@@ -158,9 +158,9 @@ Function _Scrollbar__$(m.Scope scope$) => ({
       return Scrollbar(
         child: child,
         controller: controller,
-        hoverThickness: hoverThickness,
+        //  hoverThickness: hoverThickness,
         interactive: interactive,
-        isAlwaysShown: isAlwaysShown,
+        //  isAlwaysShown: isAlwaysShown,
         key: key,
         notificationPredicate:
             notificationPredicate == null ? null : notificationPredicateProxy,

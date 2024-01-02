@@ -40,10 +40,12 @@ const libraryMirror = m.LibraryMirror(
       {
         '#as': TextParentData_as$,
         '#is': TextParentData_is$,
-        'scale': _TextParentData_scale$,
+        //    'scale': _TextParentData_scale$,
         'toString': _TextParentData_toString$,
       },
-      {'scale': _TextParentData_scale_set$},
+      {
+        // 'scale': _TextParentData_scale_set$
+      },
     ),
     'PlaceholderSpanIndexSemanticsTag': m.ClassMirror(
       'PlaceholderSpanIndexSemanticsTag',
@@ -134,20 +136,20 @@ Function TextParentData_is$(
   dynamic target$,
 ) =>
     () => target$ is TextParentData;
-Function _TextParentData_scale$(
-  m.Scope scope$,
-  TextParentData target$,
-) =>
-    () {
-      return target$.scale;
-    };
-void _TextParentData_scale_set$(
-  m.Scope scope$,
-  TextParentData target$,
-) =>
-    (dynamic other$) {
-      target$.scale = other$;
-    };
+// Function _TextParentData_scale$(
+//   m.Scope scope$,
+//   TextParentData target$,
+// ) =>
+//     () {
+//       return target$.scale;
+//     };
+// void _TextParentData_scale_set$(
+//   m.Scope scope$,
+//   TextParentData target$,
+// ) =>
+//     (dynamic other$) {
+//       target$.scale = other$;
+//     };
 Function _TextParentData__$(m.Scope scope$) => () {
       return TextParentData();
     };

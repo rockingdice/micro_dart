@@ -11,7 +11,9 @@ import 'package:flutter/src/semantics/debug.dart';
 
 const libraryMirror = m.LibraryMirror(
   'package:flutter/src/semantics/binding.dart',
-  {'SemanticsActionEvent.': _SemanticsActionEvent__$},
+  {
+    // 'SemanticsActionEvent.': _SemanticsActionEvent__$
+  },
   {},
   {
     'SemanticsActionEvent': m.ClassMirror(
@@ -67,17 +69,17 @@ Function _SemanticsActionEvent_arguments$(
     () {
       return target$.arguments;
     };
-Function _SemanticsActionEvent__$(m.Scope scope$) => ({
-      required SemanticsAction type,
-      required int nodeId,
-      Object? arguments,
-    }) {
-      return SemanticsActionEvent(
-        arguments: arguments,
-        nodeId: nodeId,
-        type: type,
-      );
-    };
+// Function _SemanticsActionEvent__$(m.Scope scope$) => ({
+//       required SemanticsAction type,
+//       required int nodeId,
+//       Object? arguments,
+//     }) {
+//       return SemanticsActionEvent(
+//         arguments: arguments,
+//         nodeId: nodeId,
+//         type: type,
+//       );
+//     };
 Function SemanticsHandle_as$(
   m.Scope scope$,
   dynamic target$,

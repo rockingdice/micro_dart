@@ -84,8 +84,8 @@ const libraryMirror = m.LibraryMirror(
         'markNeedsAddToScene': _Layer_markNeedsAddToScene$,
         'debugMarkClean': _Layer_debugMarkClean$,
         'updateSubtreeNeedsAddToScene': _Layer_updateSubtreeNeedsAddToScene$,
-        'dropChild': _Layer_dropChild$,
-        'adoptChild': _Layer_adoptChild$,
+        // 'dropChild': _Layer_dropChild$,
+        // 'adoptChild': _Layer_adoptChild$,
         'remove': _Layer_remove$,
         'findAnnotations': _Layer_findAnnotations$,
         'find': _Layer_find$,
@@ -619,16 +619,16 @@ Function _Layer_updateSubtreeNeedsAddToScene$(
   Layer target$,
 ) =>
     target$.updateSubtreeNeedsAddToScene;
-Function _Layer_dropChild$(
-  m.Scope scope$,
-  Layer target$,
-) =>
-    target$.dropChild;
-Function _Layer_adoptChild$(
-  m.Scope scope$,
-  Layer target$,
-) =>
-    target$.adoptChild;
+// Function _Layer_dropChild$(
+//   m.Scope scope$,
+//   Layer target$,
+// ) =>
+//     target$.dropChild;
+// Function _Layer_adoptChild$(
+//   m.Scope scope$,
+//   Layer target$,
+// ) =>
+//     target$.adoptChild;
 Function _Layer_remove$(
   m.Scope scope$,
   Layer target$,

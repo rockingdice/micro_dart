@@ -64,16 +64,16 @@ const libraryMirror = m.LibraryMirror(
         _WidgetInspectorServiceExtensions_getChildrenDetailsSubtree$,
     'WidgetInspectorServiceExtensions.getRootWidget':
         _WidgetInspectorServiceExtensions_getRootWidget$,
-    'WidgetInspectorServiceExtensions.getRootRenderObject':
-        _WidgetInspectorServiceExtensions_getRootRenderObject$,
+    // 'WidgetInspectorServiceExtensions.getRootRenderObject':
+    //     _WidgetInspectorServiceExtensions_getRootRenderObject$,
     'WidgetInspectorServiceExtensions.getRootWidgetSummaryTree':
         _WidgetInspectorServiceExtensions_getRootWidgetSummaryTree$,
     'WidgetInspectorServiceExtensions.getRootWidgetSummaryTreeWithPreviews':
         _WidgetInspectorServiceExtensions_getRootWidgetSummaryTreeWithPreviews$,
     'WidgetInspectorServiceExtensions.getDetailsSubtree':
         _WidgetInspectorServiceExtensions_getDetailsSubtree$,
-    'WidgetInspectorServiceExtensions.getSelectedRenderObject':
-        _WidgetInspectorServiceExtensions_getSelectedRenderObject$,
+    // 'WidgetInspectorServiceExtensions.getSelectedRenderObject':
+    //     _WidgetInspectorServiceExtensions_getSelectedRenderObject$,
     'WidgetInspectorServiceExtensions.getSelectedWidget':
         _WidgetInspectorServiceExtensions_getSelectedWidget$,
     'WidgetInspectorServiceExtensions.getSelectedSummaryWidget':
@@ -174,9 +174,9 @@ Function _WidgetInspectorServiceExtensions_getChildrenDetailsSubtree$(
     () => WidgetInspectorServiceExtensions.getChildrenDetailsSubtree;
 Function _WidgetInspectorServiceExtensions_getRootWidget$(m.Scope scope$) =>
     () => WidgetInspectorServiceExtensions.getRootWidget;
-Function _WidgetInspectorServiceExtensions_getRootRenderObject$(
-        m.Scope scope$) =>
-    () => WidgetInspectorServiceExtensions.getRootRenderObject;
+// Function _WidgetInspectorServiceExtensions_getRootRenderObject$(
+//         m.Scope scope$) =>
+//     () => WidgetInspectorServiceExtensions.getRootRenderObject;
 Function _WidgetInspectorServiceExtensions_getRootWidgetSummaryTree$(
         m.Scope scope$) =>
     () => WidgetInspectorServiceExtensions.getRootWidgetSummaryTree;
@@ -187,9 +187,9 @@ Function
             .getRootWidgetSummaryTreeWithPreviews;
 Function _WidgetInspectorServiceExtensions_getDetailsSubtree$(m.Scope scope$) =>
     () => WidgetInspectorServiceExtensions.getDetailsSubtree;
-Function _WidgetInspectorServiceExtensions_getSelectedRenderObject$(
-        m.Scope scope$) =>
-    () => WidgetInspectorServiceExtensions.getSelectedRenderObject;
+// Function _WidgetInspectorServiceExtensions_getSelectedRenderObject$(
+//         m.Scope scope$) =>
+//     () => WidgetInspectorServiceExtensions.getSelectedRenderObject;
 Function _WidgetInspectorServiceExtensions_getSelectedWidget$(m.Scope scope$) =>
     () => WidgetInspectorServiceExtensions.getSelectedWidget;
 Function _WidgetInspectorServiceExtensions_getSelectedSummaryWidget$(

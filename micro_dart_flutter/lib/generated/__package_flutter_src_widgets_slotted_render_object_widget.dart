@@ -12,44 +12,44 @@ const libraryMirror = m.LibraryMirror(
   {'SlottedRenderObjectElement.': _SlottedRenderObjectElement__$},
   {},
   {
-    'SlottedRenderObjectElement': m.ClassMirror(
-      'SlottedRenderObjectElement',
-      {
-        '#as': SlottedRenderObjectElement_as$,
-        '#is': SlottedRenderObjectElement_is$,
-        'renderObject': _SlottedRenderObjectElement_renderObject$,
-        'visitChildren': _SlottedRenderObjectElement_visitChildren$,
-        'forgetChild': _SlottedRenderObjectElement_forgetChild$,
-        'mount': _SlottedRenderObjectElement_mount$,
-        'update': _SlottedRenderObjectElement_update$,
-        'insertRenderObjectChild':
-            _SlottedRenderObjectElement_insertRenderObjectChild$,
-        'removeRenderObjectChild':
-            _SlottedRenderObjectElement_removeRenderObjectChild$,
-        'moveRenderObjectChild':
-            _SlottedRenderObjectElement_moveRenderObjectChild$,
-      },
-      {},
-    )
+    // 'SlottedRenderObjectElement': m.ClassMirror(
+    //   'SlottedRenderObjectElement',
+    //   {
+    //     '#as': SlottedRenderObjectElement_as$,
+    //     '#is': SlottedRenderObjectElement_is$,
+    //     'renderObject': _SlottedRenderObjectElement_renderObject$,
+    //     'visitChildren': _SlottedRenderObjectElement_visitChildren$,
+    //     'forgetChild': _SlottedRenderObjectElement_forgetChild$,
+    //     'mount': _SlottedRenderObjectElement_mount$,
+    //     'update': _SlottedRenderObjectElement_update$,
+    //     'insertRenderObjectChild':
+    //         _SlottedRenderObjectElement_insertRenderObjectChild$,
+    //     'removeRenderObjectChild':
+    //         _SlottedRenderObjectElement_removeRenderObjectChild$,
+    //     'moveRenderObjectChild':
+    //         _SlottedRenderObjectElement_moveRenderObjectChild$,
+    //   },
+    //   {},
+    // )
   },
 );
-Function SlottedRenderObjectElement_as$<S>(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ as SlottedRenderObjectElement<S>;
-Function SlottedRenderObjectElement_is$<S>(
-  m.Scope scope$,
-  dynamic target$,
-) =>
-    () => target$ is SlottedRenderObjectElement<S>;
-Function _SlottedRenderObjectElement_renderObject$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    () {
-      return target$.renderObject;
-    };
+// Function SlottedRenderObjectElement_as$<S>(
+//   m.Scope scope$,
+//   dynamic target$,
+// ) =>
+//     () => target$ as SlottedRenderObjectElement<S>;
+// Function SlottedRenderObjectElement_is$<S>(
+//   m.Scope scope$,
+//   dynamic target$,
+// ) =>
+//     () => target$ is SlottedRenderObjectElement<S>;
+// Function _SlottedRenderObjectElement_renderObject$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     () {
+//       return target$.renderObject;
+//     };
 Function _SlottedRenderObjectElement__$(m.Scope scope$) =>
     (SlottedMultiChildRenderObjectWidgetMixin widget) {
       return SlottedRenderObjectElement(widget);
@@ -68,33 +68,33 @@ Function _SlottedRenderObjectElement_visitChildren$(
           );
       target$.visitChildren(visitorProxy);
     };
-Function _SlottedRenderObjectElement_forgetChild$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.forgetChild;
-Function _SlottedRenderObjectElement_mount$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.mount;
-Function _SlottedRenderObjectElement_update$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.update;
-Function _SlottedRenderObjectElement_insertRenderObjectChild$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.insertRenderObjectChild;
-Function _SlottedRenderObjectElement_removeRenderObjectChild$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.removeRenderObjectChild;
-Function _SlottedRenderObjectElement_moveRenderObjectChild$<S>(
-  m.Scope scope$,
-  SlottedRenderObjectElement<S> target$,
-) =>
-    target$.moveRenderObjectChild;
+// Function _SlottedRenderObjectElement_forgetChild$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.forgetChild;
+// Function _SlottedRenderObjectElement_mount$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.mount;
+// Function _SlottedRenderObjectElement_update$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.update;
+// Function _SlottedRenderObjectElement_insertRenderObjectChild$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.insertRenderObjectChild;
+// Function _SlottedRenderObjectElement_removeRenderObjectChild$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.removeRenderObjectChild;
+// Function _SlottedRenderObjectElement_moveRenderObjectChild$<S>(
+//   m.Scope scope$,
+//   SlottedRenderObjectElement<S> target$,
+// ) =>
+//     target$.moveRenderObjectChild;

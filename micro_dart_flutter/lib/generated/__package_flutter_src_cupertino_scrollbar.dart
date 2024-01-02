@@ -77,7 +77,6 @@ Function _CupertinoScrollbar__$(m.Scope scope$) => ({
       Radius? radiusWhileDragging,
       m.FunctionPointer? notificationPredicate,
       ScrollbarOrientation? scrollbarOrientation,
-      bool? isAlwaysShown,
     }) {
       bool notificationPredicateProxy(
               ScrollNotification notificationPredicate_notification$) =>
@@ -90,7 +89,6 @@ Function _CupertinoScrollbar__$(m.Scope scope$) => ({
       return CupertinoScrollbar(
         child: child,
         controller: controller,
-        isAlwaysShown: isAlwaysShown,
         key: key,
         notificationPredicate:
             notificationPredicate == null ? null : notificationPredicateProxy,

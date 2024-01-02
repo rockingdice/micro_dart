@@ -28,7 +28,7 @@ const libraryMirror = m.LibraryMirror(
         'thickness': _ScrollbarThemeData_thickness$,
         'trackVisibility': _ScrollbarThemeData_trackVisibility$,
         'showTrackOnHover': _ScrollbarThemeData_showTrackOnHover$,
-        'isAlwaysShown': _ScrollbarThemeData_isAlwaysShown$,
+        //  'isAlwaysShown': _ScrollbarThemeData_isAlwaysShown$,
         'interactive': _ScrollbarThemeData_interactive$,
         'radius': _ScrollbarThemeData_radius$,
         'thumbColor': _ScrollbarThemeData_thumbColor$,
@@ -95,13 +95,13 @@ Function _ScrollbarThemeData_showTrackOnHover$(
     () {
       return target$.showTrackOnHover;
     };
-Function _ScrollbarThemeData_isAlwaysShown$(
-  m.Scope scope$,
-  ScrollbarThemeData target$,
-) =>
-    () {
-      return target$.isAlwaysShown;
-    };
+// Function _ScrollbarThemeData_isAlwaysShown$(
+//   m.Scope scope$,
+//   ScrollbarThemeData target$,
+// ) =>
+//     () {
+//       return target$.isAlwaysShown;
+//     };
 Function _ScrollbarThemeData_interactive$(
   m.Scope scope$,
   ScrollbarThemeData target$,
@@ -183,7 +183,7 @@ Function _ScrollbarThemeData__$(m.Scope scope$) => ({
       return ScrollbarThemeData(
         crossAxisMargin: crossAxisMargin,
         interactive: interactive,
-        isAlwaysShown: isAlwaysShown,
+        // isAlwaysShown: isAlwaysShown,
         mainAxisMargin: mainAxisMargin,
         minThumbLength: minThumbLength,
         radius: radius,

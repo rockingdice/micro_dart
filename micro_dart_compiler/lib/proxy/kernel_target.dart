@@ -15,6 +15,7 @@ import 'package:kernel/target/targets.dart' show DiagnosticReporter, Target;
 import 'package:kernel/transformations/value_class.dart' as valueClass;
 import 'package:kernel/type_algebra.dart' show Substitution;
 import 'package:kernel/type_environment.dart' show TypeEnvironment;
+import 'package:kernel/verifier.dart' as verifier;
 import 'package:package_config/package_config.dart' hide LanguageVersion;
 
 import 'package:front_end/src/api_prototype/experimental_flags.dart'
@@ -113,7 +114,8 @@ class KernelTargetProxy extends kt.KernelTarget {
   /// component.
   Future<kt.BuildResult> buildComponent(
       {required MacroApplications? macroApplications,
-      bool verify = false}) async {
+      bool verify = false,
+      bool allowVerificationErrorForTesting = false}) async {
     if (loader.roots.isEmpty) {
       return kt.BuildResult(macroApplications: macroApplications);
     }
@@ -170,7 +172,8 @@ class KernelTargetProxy extends kt.KernelTarget {
 
       if (verify) {
         benchmarker?.enterPhase(BenchmarkPhases.body_verify);
-        this.verify();
+        _verify(
+            allowVerificationErrorForTesting: allowVerificationErrorForTesting);
       }
 
       benchmarker?.enterPhase(BenchmarkPhases.body_installAllComponentProblems);
@@ -187,6 +190,24 @@ class KernelTargetProxy extends kt.KernelTarget {
       return kt.BuildResult(
           component: component, macroApplications: macroApplications);
     }, () => loader.currentUriForCrashReporting);
+  }
+
+  void _verify({required bool allowVerificationErrorForTesting}) {
+    // TODO(ahe): How to handle errors.
+    List<LocatedMessage> errors = verifyComponent(context.options.target,
+        verifier.VerificationStage.afterModularTransformations, component!,
+        skipPlatform: context.options.skipPlatformVerification);
+    assert(allowVerificationErrorForTesting || errors.isEmpty,
+        "Verification errors found.");
+    ClassHierarchy hierarchy =
+        new ClassHierarchy(component!, new CoreTypes(component!),
+            onAmbiguousSupertypes: (Class cls, Supertype a, Supertype b) {
+      // An error has already been reported.
+    });
+    verifyGetStaticType(
+        new TypeEnvironment(loader.coreTypes, hierarchy), component!,
+        skipPlatform: context.options.skipPlatformVerification);
+    ticker.logMs("Verified component");
   }
 
   /// Run all transformations that are needed when building a bundle of

@@ -5,7 +5,6 @@ library from "test:///main.dart" as main {
     field dart.core::int p1;
     field dart.core::int _p2;
     field dart.core::int p3 = 1;
-    static final field dynamic _redirecting# = <dynamic>[main::C::c2]/*isLegacy*/;
     constructor •(dart.core::int p1, dart.core::int _p2) → main::C
       : main::C::p1 = p1, main::C::_p2 = _p2, super dart.core::Object::•() {
       this.{main::C::p1} = 0;
@@ -13,7 +12,7 @@ library from "test:///main.dart" as main {
     constructor c1(dart.core::int p1, dart.core::int p2) → main::C
       : main::C::p1 = p1, main::C::_p2 = p2, super dart.core::Object::•()
       ;
-    static factory c2(dart.core::int a, dart.core::int b) → main::C
+    static factory c2(dart.core::int a, dart.core::int b) → main::C /* redirection-target: main::C::_ */
       return main::C::_(a, b);
     static factory _(dart.core::int a, dart.core::int b) → main::C
       return new main::C::c1(a, b);

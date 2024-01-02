@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_plugin_2/plugin_2.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 import 'package:micro_dart_flutter/generated/micro_dart.dart';
 

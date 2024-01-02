@@ -5,11 +5,11 @@ library from "test:///main.dart" as main {
     method test = main::Aext|test;
     tearoff test = main::Aext|get#test;
   }
-  static method Aext|test(lowered final dart.core::Deprecated #this) → dart.core::String {
+  static extension-member method Aext|test(lowered final dart.core::Deprecated #this) → dart.core::String {
     dart.core::print("test");
     return "test";
   }
-  static method Aext|get#test(lowered final dart.core::Deprecated #this) → () → dart.core::String
+  static extension-member method Aext|get#test(lowered final dart.core::Deprecated #this) → () → dart.core::String
     return () → dart.core::String => main::Aext|test(#this);
   static method main() → dart.core::String {
     dart.core::Deprecated a = new dart.core::Deprecated::•("d");
