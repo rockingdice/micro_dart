@@ -87,6 +87,7 @@ Function _CupertinoDesktopTextSelectionToolbarButton__$(m.Scope scope$) => ({
 Function _CupertinoDesktopTextSelectionToolbarButton_text_$(m.Scope scope$) =>
     ({
       Key? key,
+      required BuildContext context,
       required m.FunctionPointer onPressed,
       required String text,
     }) {
@@ -97,6 +98,7 @@ Function _CupertinoDesktopTextSelectionToolbarButton_text_$(m.Scope scope$) =>
             {},
           );
       return CupertinoDesktopTextSelectionToolbarButton.text(
+        context: context,
         key: key,
         onPressed: onPressedProxy,
         text: text,

@@ -57,11 +57,11 @@ Function _MouseTracker_updateWithEvent$(
 ) =>
     (
       PointerEvent event,
-      HitTestResult? hitTestResult,
+      ValueGetter<HitTestResult> getResult,
     ) {
       target$.updateWithEvent(
         event,
-        hitTestResult,
+        getResult,
       );
     };
 Function _MouseTracker_updateAllDevices$(
@@ -69,7 +69,15 @@ Function _MouseTracker_updateAllDevices$(
   MouseTracker target$,
 ) =>
     (m.FunctionPointer hitTest) {
-      target$.updateAllDevices();
+      HitTestResult hitTestProxy(Offset offset) =>
+          scope$.engine.callFunctionPointer(
+            scope$,
+            hitTest,
+            [hitTest],
+            {},
+          );
+
+      target$.updateAllDevices(hitTestProxy);
     };
 Function _MouseTracker_debugDeviceActiveCursor$(
   m.Scope scope$,

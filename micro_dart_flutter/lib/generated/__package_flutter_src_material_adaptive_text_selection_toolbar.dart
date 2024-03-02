@@ -133,7 +133,6 @@ Function _AdaptiveTextSelectionToolbar_editable_$(m.Scope scope$) => ({
         onCut: onCut == null ? null : onCutProxy,
         onPaste: onPaste == null ? null : onPasteProxy,
         onSelectAll: onSelectAll == null ? null : onSelectAllProxy,
-        onLiveTextInput: () {},
       );
     };
 Function _AdaptiveTextSelectionToolbar_editableText_$(m.Scope scope$) =>
