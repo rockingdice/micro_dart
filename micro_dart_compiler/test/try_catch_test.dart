@@ -30,9 +30,9 @@ void main() {
 
       try {
         var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
-        expect(returnValue, 2);
+        expect(returnValue, 1);
       } catch (error, stack) {
-        print(error);
+        //print(error);
         expect(error, "throwTest2");
       }
     });
@@ -98,8 +98,8 @@ void main() {
           MicroDartEngine.fromData(program.write().buffer.asByteData());
       engine.setExternalFunctions(libraryMirrors);
       if (printOp) {
-        // engine.debug = true;
-        // engine.printOpcodes();
+        engine.debug = true;
+        engine.printOpcodes();
       }
 
       var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});

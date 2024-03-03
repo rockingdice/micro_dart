@@ -215,6 +215,14 @@ const libraryMirror = m.LibraryMirror(
         'value': _RestorableEnum_value_set$,
       },
     ),
+    '_RestorablePrimitiveValue': m.ClassMirror(
+      '_RestorablePrimitiveValue',
+      {},
+      {
+        'values': _RestorableEnum_values_set$,
+        'value': _RestorablePrimitiveValue_value_set$,
+      },
+    ),
   },
 );
 Function RestorableValue_as$<T>(
@@ -614,6 +622,13 @@ void _RestorableEnum_values_set$<T extends Enum>(
 void _RestorableEnum_value_set$<T extends Enum>(
   m.Scope scope$,
   RestorableEnum target$,
+) =>
+    (dynamic other$) {
+      target$.value = other$;
+    };
+void _RestorablePrimitiveValue_value_set$(
+  m.Scope scope$,
+  dynamic target$,
 ) =>
     (dynamic other$) {
       target$.value = other$;

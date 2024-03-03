@@ -497,6 +497,7 @@ Function _MaterialApp__$(m.Scope scope$) => ({
             [onGenerateRoute_settings$],
             {},
           );
+
       String onGenerateTitleProxy(BuildContext onGenerateTitle_context$) =>
           scope$.engine.callFunctionPointer(
             scope$,
@@ -547,8 +548,17 @@ Function _MaterialApp__$(m.Scope scope$) => ({
         onGenerateTitle: onGenerateTitle == null ? null : onGenerateTitleProxy,
         onUnknownRoute: onUnknownRoute == null ? null : onUnknownRouteProxy,
         restorationScopeId: restorationScopeId,
-        routes:
-            routes == null ? const <String, WidgetBuilder>{} : Map.from(routes),
+        routes: routes == null
+            ? const <String, WidgetBuilder>{}
+            : routes.map<String, WidgetBuilder>(
+                (key, value) => new MapEntry(key, (builder_context$) {
+                      return scope$.engine.callFunctionPointer(
+                        scope$,
+                        value,
+                        [builder_context$],
+                        {},
+                      );
+                    })),
         scaffoldMessengerKey: scaffoldMessengerKey,
         scrollBehavior: scrollBehavior,
         shortcuts: shortcuts == null ? null : Map.from(shortcuts),

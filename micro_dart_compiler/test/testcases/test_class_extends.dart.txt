@@ -27,7 +27,7 @@ library from "test:///main.dart" as main {
     constructor •(dart.core::int a, dart.core::int c, dart.core::int e) → main::C
       : main::C::e = e, super main::B::c1(a, c)
       ;
-    @dart.core::override
+    @#C1
     method fn1(dart.core::int n) → dart.core::int {
       return super.{main::A::a}.{dart.core::num::+}(this.{main::A::b}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::B::c}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::B::d}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::C::e}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(this.{main::C::f}{dart.core::int}){(dart.core::num) → dart.core::int}.{dart.core::num::+}(super.{main::B::fn1}(n)){(dart.core::num) → dart.core::int};
     }
@@ -38,4 +38,7 @@ library from "test:///main.dart" as main {
     dart.core::print(r);
     return r;
   }
+}
+constants  {
+  #C1 = dart.core::_Override {}
 }

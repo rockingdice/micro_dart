@@ -24,10 +24,9 @@ class OpTryCatchFinally implements Op {
       ];
 
   @override
-  Future run(Scope scope) async {
+  void run(Scope scope) {
     try {
-      await scope.engine
-          .callPointerAsync(scope, "_try_", false, false, _tryOffset);
+      scope.engine.callPointer(scope, "_try_", false, _tryOffset);
     } catch (exception, stackTrace) {
       if (_catchOffset == -1) {
         return;
@@ -35,12 +34,10 @@ class OpTryCatchFinally implements Op {
       scope.pushFrame(exception);
       //这里的stackTrace需要重新定义
       scope.pushFrame(stackTrace);
-      await scope.engine
-          .callPointerAsync(scope, "_catch_", false, false, _catchOffset);
+      scope.engine.callPointer(scope, "_catch_", false, _catchOffset);
     } finally {
       if (_finallyOffset != -1) {
-        await scope.engine
-            .callPointerAsync(scope, "_finally_", false, false, _finallyOffset);
+        scope.engine.callPointer(scope, "_finally_", false, _finallyOffset);
       }
     }
   }

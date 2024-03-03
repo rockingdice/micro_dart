@@ -7,9 +7,20 @@ const proxyClassMirrors = {
       'dispose': _SingleTickerProviderStateMixin_dispose$,
     },
     {},
-  )
+  ),
+  'TickerProviderStateMixin': m.ClassMirror(
+    'TickerProviderStateMixin',
+    {
+      'dispose': _TickerProviderStateMixin_dispose$,
+    },
+    {},
+  ),
 };
 
 Function _SingleTickerProviderStateMixin_dispose$(
         m.Scope scope$, SingleTickerProviderStateMixin target$) =>
-    () => target$.dispose();
+    () => target$.dispose;
+
+Function _TickerProviderStateMixin_dispose$(
+        m.Scope scope$, TickerProviderStateMixin target$) =>
+    () => target$.dispose;

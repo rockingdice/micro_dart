@@ -399,6 +399,15 @@ const libraryMirror = m.LibraryMirror(
       },
       {},
     ),
+    '_Enum': m.ClassMirror(
+      '_Enum',
+      {
+        '#as': Enum_as$,
+        '#is': Enum_is$,
+        'index': _Enum_index$,
+      },
+      {},
+    ),
     'Error': m.ClassMirror(
       'Error',
       {

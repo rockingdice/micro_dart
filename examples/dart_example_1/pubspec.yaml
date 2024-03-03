@@ -1,0 +1,23 @@
+name: dart_example_1
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.0.5
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.8.0
+  micro_dart_runtime: 
+    path: ../../micro_dart_runtime
+  dart_plugin_1: 
+    path: ../dart_plugin_1
+  dart_plugin_2: 
+    path: ../dart_plugin_2
+  dart_plugin_3: 
+    path: ../dart_plugin_3
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0

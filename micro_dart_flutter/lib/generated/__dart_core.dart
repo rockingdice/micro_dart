@@ -399,6 +399,15 @@ const libraryMirror = m.LibraryMirror(
       },
       {},
     ),
+    '_Enum': m.ClassMirror(
+      '_Enum',
+      {
+        '#as': Enum_as$,
+        '#is': Enum_is$,
+        'index': __Enum_index$,
+      },
+      {},
+    ),
     'Error': m.ClassMirror(
       'Error',
       {
@@ -2070,7 +2079,15 @@ Function Enum_is$(
     () => target$ is Enum;
 Function _Enum_index$(
   m.Scope scope$,
-  Enum target$,
+  dynamic target$,
+) =>
+    () {
+      return target$.index;
+    };
+
+Function __Enum_index$(
+  m.Scope scope$,
+  $_Enum target$,
 ) =>
     () {
       return target$.index;

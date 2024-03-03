@@ -101,8 +101,10 @@ Future<CompilerResult> generateKernelInternal(
 
       dillTarget.buildOutlines();
 
+      //replase KernelTarget to KernelTargetProxy
       KernelTarget kernelTarget =
-          KernelTargetProxy(fs, false, dillTarget, uriTranslator);
+          new KernelTargetProxy(fs, false, dillTarget, uriTranslator);
+
       sourceLoader = kernelTarget.loader;
       kernelTarget.setEntryPoints(options.inputs);
       NeededPrecompilations? neededPrecompilations =
@@ -154,12 +156,10 @@ Future<CompilerResult> _buildInternal(
   List<int>? summary = null;
   if (buildSummary) {
     if (options.verify) {
-      List<LocatedMessage> errors = verifyComponent(
-          options.target, verifier.VerificationStage.outline, summaryComponent);
-      for (LocatedMessage error in errors) {
+      for (LocatedMessage error
+          in verifyComponent(summaryComponent, options.target)) {
         options.report(error, Severity.error);
       }
-      assert(errors.isEmpty, "Verification errors found.");
     }
     if (options.debugDump) {
       printComponentText(summaryComponent,
@@ -230,7 +230,7 @@ Future<CompilerResult> _buildInternal(
   // compilations where possible?
   buildResult.macroApplications?.close();
 
-  return InternalCompilerResult(
+  return new InternalCompilerResult(
       summary: summary,
       component: component,
       sdkComponent: sdkSummary,
@@ -302,8 +302,8 @@ Future<Map<Uri, ExecutorFactoryToken>> _compileMacros(
 
   Uri uri = _defaultDir.resolve('main.dart');
   MemoryFileSystem fs = new MemoryFileSystem(_defaultDir);
-  fs.entityForUri(uri).writeAsStringSync(
-      bootstrapMacroIsolate(macroDeclarations, SerializationMode.byteData));
+  fs.entityForUri(uri).writeAsStringSync(bootstrapMacroIsolate(
+      macroDeclarations, SerializationMode.byteDataClient));
 
   precompilationOptions
     ..fileSystem = new HybridFileSystem(fs, options.fileSystem);
@@ -314,7 +314,8 @@ Future<Map<Uri, ExecutorFactoryToken>> _compileMacros(
   Set<Uri> macroLibraries =
       neededPrecompilations.macroDeclarations.keys.toSet();
   ExecutorFactoryToken executorToken = macroExecutor.registerExecutorFactory(
-      () => isolatedExecutor.start(SerializationMode.byteData, precompiledUri),
+      () => isolatedExecutor.start(
+          SerializationMode.byteDataServer, precompiledUri),
       macroLibraries);
   return <Uri, ExecutorFactoryToken>{
     for (Uri library in macroLibraries) library: executorToken,

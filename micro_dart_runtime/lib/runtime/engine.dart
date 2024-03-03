@@ -26,7 +26,7 @@ class MicroDartEngine {
   int _fileOffset = 0;
 
   /// 全局作用域
-  final Map<CallRef, dynamic> globals = {};
+  final Map<String, dynamic> globals = {};
 
   //外部全局方法调用
   static Map<String, LibraryMirror> libraryMirrors = {};
@@ -41,15 +41,15 @@ class MicroDartEngine {
   }
 
   dynamic getGlobalParam(CallRef ref) {
-    return globals[ref];
+    return globals[ref.callName];
   }
 
   void setGlobalParam(CallRef ref, dynamic value) {
-    globals[ref] = value;
+    globals[ref.callName] = value;
   }
 
   bool hasGlobalParam(CallRef key) {
-    return globals.containsKey(key);
+    return globals.containsKey(key.callName);
   }
 
   void setExternalFunctions(Map<String, LibraryMirror> mirrors) {
@@ -219,21 +219,22 @@ class MicroDartEngine {
     bool isMixin = false;
 
     if (superRef == type.superType) {
-      //print("1");
+      print("getCallRefBySuperType 1 ${superRef}");
       isSuper = true;
     } else if (superRef == type.mixinType) {
-      //print("2 ${type} ${superRef}");
+      print("getCallRefBySuperType 2 ${type} ${superRef}");
       isMixin = true;
     } else if (type.implementTypes.contains(superRef)) {
-      //print("3");
+      print("getCallRefBySuperType 3 ${superRef}");
       isSuper = true;
     }
     if (!isSuper && !isMixin) {
-      //print("4");
-      return getCallRefBySuperType(
+      var t = getCallRefBySuperType(
           getType(type.superType!), superRef, name, isSetter, isStatic);
+      print("getCallRefBySuperType 4 $t");
+      return t;
     }
-    //print("5");
+
     CType? superType;
 
     if (isSuper) {
@@ -241,13 +242,15 @@ class MicroDartEngine {
     } else if (isMixin) {
       superType = getType(type.mixinType!);
     }
-    //print("6");
+    print("getCallRefBySuperType 6 $superType");
     var callback = getKeyByType2(superType!, name, isSetter, isStatic);
 
     if (callback == null) {
-      //print("7");
       superType = getType(superRef);
       callback = getKeyByType2(superType, name, isSetter, isStatic);
+      print("getCallRefBySuperType 7 $superType $callback");
+    } else {
+      print("getCallRefBySuperType 8 $callback");
     }
     return callback;
   }
@@ -289,6 +292,17 @@ class MicroDartEngine {
 
     scope.call(pointer);
 
+    return scope.returnValue;
+  }
+
+  T? callStaticFunction2<T>(String importUri, String functionName) {
+    var ref = CallRef(importUri, "", functionName, false, true);
+    //获取当前操作数指针
+    int pointer = declarations[ref]!;
+    var scope = Scope(this, "_root_", true, false);
+    List<dynamic> args = [0, 0];
+    scope.setScopeParam("#args", args);
+    scope.call(pointer);
     return scope.returnValue;
   }
 

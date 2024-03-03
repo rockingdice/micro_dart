@@ -50,11 +50,13 @@ class _DemoPageState extends State<DemoPage> {
     // page, we save it in a variable. The cost of running `slugToDemo` is
     // still only close to constant, as it's just iterating over all of the
     // demos.
-    slugToDemoMap = Demos.asSlugToDemoMap(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (slugToDemoMap == null) {
+      slugToDemoMap = Demos.asSlugToDemoMap(context);
+    }
     if (widget.slug == null || !slugToDemoMap.containsKey(widget.slug)) {
       // Return to root if invalid slug.
       Navigator.of(context).pop();

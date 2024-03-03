@@ -114,10 +114,9 @@ class KernelTargetProxy extends kt.KernelTarget {
   /// component.
   Future<kt.BuildResult> buildComponent(
       {required MacroApplications? macroApplications,
-      bool verify = false,
-      bool allowVerificationErrorForTesting = false}) async {
+      bool verify = false}) async {
     if (loader.roots.isEmpty) {
-      return kt.BuildResult(macroApplications: macroApplications);
+      return new kt.BuildResult(macroApplications: macroApplications);
     }
     return withCrashReporting<kt.BuildResult>(() async {
       ticker.logMs("Building component");
@@ -172,8 +171,7 @@ class KernelTargetProxy extends kt.KernelTarget {
 
       if (verify) {
         benchmarker?.enterPhase(BenchmarkPhases.body_verify);
-        _verify(
-            allowVerificationErrorForTesting: allowVerificationErrorForTesting);
+        this.verify();
       }
 
       benchmarker?.enterPhase(BenchmarkPhases.body_installAllComponentProblems);
@@ -187,27 +185,9 @@ class KernelTargetProxy extends kt.KernelTarget {
       // library builders. To avoid it we null it out here.
       sourceClasses = null;
       inlineClasses = null;
-      return kt.BuildResult(
+      return new kt.BuildResult(
           component: component, macroApplications: macroApplications);
     }, () => loader.currentUriForCrashReporting);
-  }
-
-  void _verify({required bool allowVerificationErrorForTesting}) {
-    // TODO(ahe): How to handle errors.
-    List<LocatedMessage> errors = verifyComponent(context.options.target,
-        verifier.VerificationStage.afterModularTransformations, component!,
-        skipPlatform: context.options.skipPlatformVerification);
-    assert(allowVerificationErrorForTesting || errors.isEmpty,
-        "Verification errors found.");
-    ClassHierarchy hierarchy =
-        new ClassHierarchy(component!, new CoreTypes(component!),
-            onAmbiguousSupertypes: (Class cls, Supertype a, Supertype b) {
-      // An error has already been reported.
-    });
-    verifyGetStaticType(
-        new TypeEnvironment(loader.coreTypes, hierarchy), component!,
-        skipPlatform: context.options.skipPlatformVerification);
-    ticker.logMs("Verified component");
   }
 
   /// Run all transformations that are needed when building a bundle of

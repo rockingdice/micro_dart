@@ -182,7 +182,6 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
             ValueListenableBuilder<bool>(
               valueListenable: _isSettingsOpenNotifier,
               builder: (context, isSettingsOpen, child) {
-                print("builder2 $isSettingsOpen");
                 if (isSettingsOpen) {
                   return ExcludeSemantics(
                     child: Listener(
@@ -225,11 +224,6 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
               ),
             ),
           ],
-          _SettingsIcon(
-            animationController: _iconController,
-            toggleSettings: _toggleSettings,
-            isSettingsOpenNotifier: _isSettingsOpenNotifier,
-          ),
         ],
       ),
     );

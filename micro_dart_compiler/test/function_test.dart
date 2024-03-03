@@ -56,7 +56,8 @@ void main() {
       String fileName = "test_function_global_field.dart";
       var file = File("$testCasePath$fileName");
       var sources = <String, String>{'main.dart': file.readAsStringSync()};
-      var program = await compileSource(pluginUriRegExp, options, sources);
+      var program =
+          await compileSource(pluginUriRegExp, options, sources, debug: true);
       if (astToJsonFlag) {
         astToJson(
             "$testCasePath/$fileName", pluginUriRegExp, program.component);

@@ -68,6 +68,12 @@ const libraryMirror = m.LibraryMirror(
       {},
       {},
     ),
+    '_AnimationController&Animation&AnimationEagerListenerMixin&AnimationLocalListenersMixin':
+        m.ClassMirror(
+      '_AnimationController&Animation&AnimationEagerListenerMixin&AnimationLocalListenersMixin',
+      {'addListener': _Animation_addListener$},
+      {},
+    ),
   },
 );
 Function AnimationController_as$(
@@ -274,3 +280,17 @@ Function _AnimationBehavior_preserve$(m.Scope scope$) =>
     () => AnimationBehavior.preserve;
 Function _AnimationBehavior_values$(m.Scope scope$) =>
     () => AnimationBehavior.values;
+
+Function _Animation_addListener$(
+  m.Scope scope$,
+  AnimationLocalListenersMixin target$,
+) =>
+    (m.FunctionPointer listener) {
+      void listenerProxy() => scope$.engine.callFunctionPointer(
+            scope$,
+            listener,
+            [],
+            {},
+          );
+      target$.addListener(listenerProxy);
+    };

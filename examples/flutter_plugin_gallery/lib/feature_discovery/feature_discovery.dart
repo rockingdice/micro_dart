@@ -227,7 +227,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
           overlay!.markNeedsBuild();
         });
       } else {
-        if (showOverlay && !FeatureDiscoveryController._of(ctx).isLocked) {
+        if (showOverlay) {
           final entry = OverlayEntry(
             builder: (_) => buildOverlay(ctx, getOverlayCenter(ctx)),
           );

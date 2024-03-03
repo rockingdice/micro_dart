@@ -112,7 +112,7 @@ class CallRef {
   }
 
   @override
-  int get hashCode => Object.hash(library, className, name);
+  int get hashCode => Object.hash(library, className, name, isSetter, isStatic);
 }
 
 class ClassRef {

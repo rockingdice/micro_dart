@@ -1,5 +1,8 @@
 abstract class Interface {
-  int get getter => 41;
+  int get getter {
+    print("getter4");
+    return 41;
+  }
 }
 
 mixin Mixin on Interface {
@@ -17,7 +20,10 @@ mixin Mixin2 on Interface {
 }
 
 class Super extends Interface {
-  int get getter => 42;
+  int get getter {
+    print("getter3");
+    return 42;
+  }
 }
 
 class Class extends Super with Mixin, Mixin2 {}

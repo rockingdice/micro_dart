@@ -42,6 +42,9 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
         return;
       }
       var ref = node.getCallRef();
+      if (debug) {
+        print("procedure add: ${node.getCallRef()}");
+      }
       compilerContext.lookupDeclarationIndex(ref, node);
     });
 

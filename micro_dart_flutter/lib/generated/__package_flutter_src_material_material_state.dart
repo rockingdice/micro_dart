@@ -15,6 +15,7 @@ const libraryMirror = m.LibraryMirror(
     'MaterialStateMouseCursor.textable': _MaterialStateMouseCursor_textable$,
     'MaterialStateProperty.resolveAs': _MaterialStateProperty_resolveAs$,
     'MaterialStateProperty.all': _MaterialStateProperty_all$,
+    'MaterialStateProperty.resolveWith': _MaterialStateProperty_resolveWith$,
     'MaterialStatePropertyAll.': _MaterialStatePropertyAll__$,
     'MaterialStatesController.': _MaterialStatesController__$,
     'MaterialState.hovered': _MaterialState_hovered$,
@@ -324,14 +325,14 @@ Function _MaterialStateProperty_resolveAs$<T>(m.Scope scope$) =>
     MaterialStateProperty.resolveAs<T>;
 Function _MaterialStateProperty_resolveWith$(m.Scope scope$) =>
     (m.FunctionPointer callback) {
-      dynamic callbackProxy(Set callback_states$) =>
+      Color callbackProxy(Set callback_states$) =>
           scope$.engine.callFunctionPointer(
             scope$,
             callback,
             [callback_states$],
             {},
           );
-      return MaterialStateProperty.resolveWith(callbackProxy);
+      return MaterialStateProperty.resolveWith<Color>(callbackProxy);
     };
 Function _MaterialStateProperty_all$<T>(m.Scope scope$) =>
     MaterialStateProperty.all<T>;

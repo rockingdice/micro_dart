@@ -25,10 +25,10 @@ library from "test:///main.dart" as main {
     method testA = main::Bext|testA;
     tearoff testA = main::Bext|get#testA;
   }
-  static extension-member method Bext|testA(lowered final main::A #this) → void {
+  static method Bext|testA(lowered final main::A #this) → void {
     dart.core::print("testA");
   }
-  static extension-member method Bext|get#testA(lowered final main::A #this) → () → void
+  static method Bext|get#testA(lowered final main::A #this) → () → void
     return () → void => main::Bext|testA(#this);
   static method main() → dart.core::int {
     main::B v1 = new main::B::c1(3, 2);

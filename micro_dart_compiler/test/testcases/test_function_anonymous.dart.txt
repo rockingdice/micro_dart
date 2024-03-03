@@ -7,6 +7,6 @@ library from "test:///main.dart" as main {
     };
   }
   static method main() → dart.core::int {
-    return main::r()() as{TypeError,ForDynamic} dart.core::int;
+    return main::r()() as{TypeError,ForDynamic,ForNonNullableByDefault} dart.core::int;
   }
 }

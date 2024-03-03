@@ -482,7 +482,10 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
           []));
     }
   } else if (type is FunctionType) {
-    print("AsExpression  not support : ${type.runtimeType.toString()}");
+    print(
+        "FunctionType  not support :  ${node.parent?.runtimeType.toString()} ${type.toStringInternal()}");
+    //throw Exception(
+    //    "FunctionType  not support :  ${node.parent?.runtimeType.toString()} ${type.toStringInternal()}");
   } else {
     throw Exception(
         "AsExpression  not support : ${type.runtimeType.toString()}");
@@ -751,10 +754,8 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
       return compileCallProcedure(context, Arguments.empty(), target, true);
     }
   } else if (constant is InstanceConstant) {
-    print("not support InstanceConstant: ${constant.classNode.name} ");
-    return -1;
-    //throw Exception(
-    //    "not support InstanceConstant: ${constant.classNode.name} ");
+    throw Exception(
+        "not support InstanceConstant: ${constant.classNode.name} ");
   }
   throw Exception("not support: ${constant.runtimeType.toString()} ");
 }
@@ -880,9 +881,6 @@ int compileInstanceConstant(
 
 int compileExternalInstanceConstant(
     MicroCompilerContext context, InstanceConstant constant) {
-  // print(
-  //     "currently not support External Instance Constant ${constant.classNode.getNamedName()}");
-  // return -1;
   throw Exception(
       "currently not support External Instance Constant ${constant.classNode.getClassRef()}");
 }

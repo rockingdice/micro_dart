@@ -5,8 +5,10 @@ library from "test:///main.dart" as main {
     synthetic constructor •() → main::Interface
       : super dart.core::Object::•()
       ;
-    get getter() → dart.core::int
+    get getter() → dart.core::int {
+      dart.core::print("getter4");
       return 41;
+    }
   }
   abstract class Mixin extends main::Interface /*isMixinDeclaration*/  {
     get getter() → dart.core::int {
@@ -24,8 +26,10 @@ library from "test:///main.dart" as main {
     synthetic constructor •() → main::Super
       : super main::Interface::•()
       ;
-    get getter() → dart.core::int
+    get getter() → dart.core::int {
+      dart.core::print("getter3");
       return 42;
+    }
   }
   abstract class _Class&Super&Mixin = main::Super with main::Mixin /*isAnonymousMixin*/  {
     synthetic constructor •() → main::_Class&Super&Mixin

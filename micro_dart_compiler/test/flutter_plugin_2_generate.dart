@@ -17,7 +17,7 @@ void main() async {
         path: "${testCasePath}plugin_2.txt");
   }
   var bytes = program.write().buffer.asByteData();
-  File("${flutterExamplePath}assets//micro_dart.data")
+  File("${flutterExamplePath}assets/micro_dart2.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
 
   var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());

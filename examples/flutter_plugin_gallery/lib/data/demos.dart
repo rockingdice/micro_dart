@@ -119,14 +119,32 @@ class Demos {
   static List<GalleryDemo> all(GalleryLocalizations localizations) =>
       studies(localizations).values.toList() +
       materialDemos(localizations) +
-      cupertinoDemos(localizations) +
-      otherDemos(localizations);
+      otherDemos(localizations) +
+      cupertinoDemos(localizations);
 
   static List<String> allDescriptions() =>
       all(GalleryLocalizationsEn()).map((demo) => demo.describe).toList();
 
   static Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
     return <String, GalleryDemo>{
+      'fortnightly': GalleryDemo(
+        title: 'Fortnightly',
+        subtitle: localizations.fortnightlyDescription,
+        category: GalleryDemoCategory.study,
+        studyId: 'fortnightly',
+      ),
+      'starterApp': GalleryDemo(
+        title: localizations.starterAppTitle,
+        subtitle: localizations.starterAppDescription,
+        category: GalleryDemoCategory.study,
+        studyId: 'starter',
+      ),
+      'reply': GalleryDemo(
+        title: 'Reply',
+        subtitle: localizations.replyDescription,
+        category: GalleryDemoCategory.study,
+        studyId: 'reply',
+      ),
       'shrine': GalleryDemo(
         title: 'Shrine',
         subtitle: localizations.shrineDescription,
@@ -144,24 +162,6 @@ class Demos {
         subtitle: localizations.craneDescription,
         category: GalleryDemoCategory.study,
         studyId: 'crane',
-      ),
-      'fortnightly': GalleryDemo(
-        title: 'Fortnightly',
-        subtitle: localizations.fortnightlyDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'fortnightly',
-      ),
-      'reply': GalleryDemo(
-        title: 'Reply',
-        subtitle: localizations.replyDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'reply',
-      ),
-      'starterApp': GalleryDemo(
-        title: localizations.starterAppTitle,
-        subtitle: localizations.starterAppDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'starter',
       ),
     };
   }
@@ -197,22 +197,6 @@ class Demos {
                 '$_docsBaseUrl/material/MaterialBanner-class.html',
             buildRoute: (_) => material_demos.BannerDemo(),
             code: CodeSegments.bannerDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
-        title: localizations.demoBottomAppBarTitle,
-        icon: GalleryIcons.bottomAppBar,
-        slug: 'bottom-app-bar',
-        subtitle: localizations.demoBottomAppBarSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoBottomAppBarTitle,
-            description: localizations.demoBottomAppBarDescription,
-            documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-            buildRoute: (_) => material_demos.BottomAppBarDemo(),
-            code: CodeSegments.bottomAppBarDemo,
           ),
         ],
         category: GalleryDemoCategory.material,
@@ -276,58 +260,6 @@ class Demos {
         category: GalleryDemoCategory.material,
       ),
       GalleryDemo(
-        title: localizations.demoButtonTitle,
-        icon: GalleryIcons.genericButtons,
-        slug: 'button',
-        subtitle: localizations.demoButtonSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoTextButtonTitle,
-            description: localizations.demoTextButtonDescription,
-            documentationUrl: '$_docsBaseUrl/material/TextButton-class.html',
-            buildRoute: (_) =>
-                material_demos.ButtonDemo(type: ButtonDemoType.text),
-            code: CodeSegments.buttonDemoText,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoElevatedButtonTitle,
-            description: localizations.demoElevatedButtonDescription,
-            documentationUrl:
-                '$_docsBaseUrl/material/ElevatedButton-class.html',
-            buildRoute: (_) =>
-                material_demos.ButtonDemo(type: ButtonDemoType.elevated),
-            code: CodeSegments.buttonDemoElevated,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoOutlinedButtonTitle,
-            description: localizations.demoOutlinedButtonDescription,
-            documentationUrl:
-                '$_docsBaseUrl/material/OutlinedButton-class.html',
-            buildRoute: (_) =>
-                material_demos.ButtonDemo(type: ButtonDemoType.outlined),
-            code: CodeSegments.buttonDemoOutlined,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoToggleButtonTitle,
-            description: localizations.demoToggleButtonDescription,
-            documentationUrl: '$_docsBaseUrl/material/ToggleButtons-class.html',
-            buildRoute: (_) =>
-                material_demos.ButtonDemo(type: ButtonDemoType.toggle),
-            code: CodeSegments.buttonDemoToggle,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoFloatingButtonTitle,
-            description: localizations.demoFloatingButtonDescription,
-            documentationUrl:
-                '$_docsBaseUrl/material/FloatingActionButton-class.html',
-            buildRoute: (_) =>
-                material_demos.ButtonDemo(type: ButtonDemoType.floating),
-            code: CodeSegments.buttonDemoFloating,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
         title: localizations.demoCardTitle,
         icon: GalleryIcons.cards,
         slug: 'card',
@@ -385,64 +317,6 @@ class Demos {
         category: GalleryDemoCategory.material,
       ),
       GalleryDemo(
-        title: localizations.demoDataTableTitle,
-        icon: GalleryIcons.dataTable,
-        slug: 'data-table',
-        subtitle: localizations.demoDataTableSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoDataTableTitle,
-            description: localizations.demoDataTableDescription,
-            documentationUrl: '$_docsBaseUrl/material/DataTable-class.html',
-            buildRoute: (context) => material_demos.DataTableDemo(),
-            code: CodeSegments.dataTableDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
-        title: localizations.demoDialogTitle,
-        icon: GalleryIcons.dialogs,
-        slug: 'dialog',
-        subtitle: localizations.demoDialogSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoAlertDialogTitle,
-            description: localizations.demoAlertDialogDescription,
-            documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
-            buildRoute: (context) =>
-                material_demos.DialogDemo(type: DialogDemoType.alert),
-            code: CodeSegments.dialogDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoAlertTitleDialogTitle,
-            description: localizations.demoAlertDialogDescription,
-            documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
-            buildRoute: (context) =>
-                material_demos.DialogDemo(type: DialogDemoType.alertTitle),
-            code: CodeSegments.dialogDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSimpleDialogTitle,
-            description: localizations.demoSimpleDialogDescription,
-            documentationUrl: '$_docsBaseUrl/material/SimpleDialog-class.html',
-            buildRoute: (context) =>
-                material_demos.DialogDemo(type: DialogDemoType.simple),
-            code: CodeSegments.dialogDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoFullscreenDialogTitle,
-            description: localizations.demoFullscreenDialogDescription,
-            documentationUrl:
-                '$_docsBaseUrl/widgets/PageRoute/fullscreenDialog.html',
-            buildRoute: (context) =>
-                material_demos.DialogDemo(type: DialogDemoType.fullscreen),
-            code: CodeSegments.dialogDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
         title: localizations.demoDividerTitle,
         icon: GalleryIcons.divider,
         slug: 'divider',
@@ -464,39 +338,6 @@ class Demos {
             buildRoute: (_) =>
                 material_demos.DividerDemo(type: DividerDemoType.vertical),
             code: CodeSegments.verticalDividerDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
-        title: localizations.demoGridListsTitle,
-        icon: GalleryIcons.gridOn,
-        slug: 'grid-lists',
-        subtitle: localizations.demoGridListsSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoGridListsImageOnlyTitle,
-            description: localizations.demoGridListsDescription,
-            documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
-            buildRoute: (context) =>
-                material_demos.GridListDemo(type: GridListDemoType.imageOnly),
-            code: CodeSegments.gridListsDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoGridListsHeaderTitle,
-            description: localizations.demoGridListsDescription,
-            documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
-            buildRoute: (context) =>
-                material_demos.GridListDemo(type: GridListDemoType.header),
-            code: CodeSegments.gridListsDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoGridListsFooterTitle,
-            description: localizations.demoGridListsDescription,
-            documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
-            buildRoute: (context) =>
-                material_demos.GridListDemo(type: GridListDemoType.footer),
-            code: CodeSegments.gridListsDemo,
           ),
         ],
         category: GalleryDemoCategory.material,
@@ -635,71 +476,6 @@ class Demos {
         category: GalleryDemoCategory.material,
       ),
       GalleryDemo(
-        title: localizations.demoProgressIndicatorTitle,
-        icon: GalleryIcons.progressActivity,
-        slug: 'progress-indicator',
-        subtitle: localizations.demoProgressIndicatorSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoCircularProgressIndicatorTitle,
-            description: localizations.demoCircularProgressIndicatorDescription,
-            documentationUrl:
-                '$_docsBaseUrl/material/CircularProgressIndicator-class.html',
-            buildRoute: (context) => material_demos.ProgressIndicatorDemo(
-              type: ProgressIndicatorDemoType.circular,
-            ),
-            code: CodeSegments.progressIndicatorsDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoLinearProgressIndicatorTitle,
-            description: localizations.demoLinearProgressIndicatorDescription,
-            documentationUrl:
-                '$_docsBaseUrl/material/LinearProgressIndicator-class.html',
-            buildRoute: (context) => material_demos.ProgressIndicatorDemo(
-              type: ProgressIndicatorDemoType.linear,
-            ),
-            code: CodeSegments.progressIndicatorsDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
-        title: localizations.demoSelectionControlsTitle,
-        icon: GalleryIcons.checkBox,
-        slug: 'selection-controls',
-        subtitle: localizations.demoSelectionControlsSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoSelectionControlsCheckboxTitle,
-            description: localizations.demoSelectionControlsCheckboxDescription,
-            documentationUrl: '$_docsBaseUrl/material/Checkbox-class.html',
-            buildRoute: (context) => material_demos.SelectionControlsDemo(
-              type: SelectionControlsDemoType.checkbox,
-            ),
-            code: CodeSegments.selectionControlsDemoCheckbox,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSelectionControlsRadioTitle,
-            description: localizations.demoSelectionControlsRadioDescription,
-            documentationUrl: '$_docsBaseUrl/material/Radio-class.html',
-            buildRoute: (context) => material_demos.SelectionControlsDemo(
-              type: SelectionControlsDemoType.radio,
-            ),
-            code: CodeSegments.selectionControlsDemoRadio,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSelectionControlsSwitchTitle,
-            description: localizations.demoSelectionControlsSwitchDescription,
-            documentationUrl: '$_docsBaseUrl/material/Switch-class.html',
-            buildRoute: (context) => material_demos.SelectionControlsDemo(
-              type: SelectionControlsDemoType.switches,
-            ),
-            code: CodeSegments.selectionControlsDemoSwitches,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
         title: localizations.demoSlidersTitle,
         icon: GalleryIcons.sliders,
         slug: 'sliders',
@@ -769,22 +545,6 @@ class Demos {
             buildRoute: (context) =>
                 material_demos.TabsDemo(type: TabsDemoType.nonScrollable),
             code: CodeSegments.tabsNonScrollableDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.material,
-      ),
-      GalleryDemo(
-        title: localizations.demoTextFieldTitle,
-        icon: GalleryIcons.textFieldsAlt,
-        slug: 'text-field',
-        subtitle: localizations.demoTextFieldSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoTextFieldTitle,
-            description: localizations.demoTextFieldDescription,
-            documentationUrl: '$_docsBaseUrl/material/TextField-class.html',
-            buildRoute: (context) => material_demos.TextFieldDemo(),
-            code: CodeSegments.textFieldDemo,
           ),
         ],
         category: GalleryDemoCategory.material,
@@ -1112,63 +872,6 @@ class Demos {
               restorationId: 'two_pane_single',
             ),
             code: CodeSegments.twoPaneDemo,
-          ),
-        ],
-        category: GalleryDemoCategory.other,
-      ),
-      GalleryDemo(
-        title: localizations.demoMotionTitle,
-        icon: GalleryIcons.animation,
-        slug: 'motion',
-        subtitle: localizations.demoMotionSubtitle,
-        configurations: [
-          GalleryDemoConfiguration(
-            title: localizations.demoContainerTransformTitle,
-            description: localizations.demoContainerTransformDescription,
-            documentationUrl: '$_docsAnimationsUrl/OpenContainer-class.html',
-            buildRoute: (_) =>
-                motion_demo_container.OpenContainerTransformDemo(),
-            code: CodeSegments.openContainerTransformDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSharedXAxisTitle,
-            description: localizations.demoSharedAxisDescription,
-            documentationUrl:
-                '$_docsAnimationsUrl/SharedAxisTransition-class.html',
-            buildRoute: (_) => const SharedXAxisTransitionDemo(),
-            code: CodeSegments.sharedXAxisTransitionDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSharedYAxisTitle,
-            description: localizations.demoSharedAxisDescription,
-            documentationUrl:
-                '$_docsAnimationsUrl/SharedAxisTransition-class.html',
-            buildRoute: (_) => const SharedYAxisTransitionDemo(),
-            code: CodeSegments.sharedYAxisTransitionDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoSharedZAxisTitle,
-            description: localizations.demoSharedAxisDescription,
-            documentationUrl:
-                '$_docsAnimationsUrl/SharedAxisTransition-class.html',
-            buildRoute: (_) => const SharedZAxisTransitionDemo(),
-            code: CodeSegments.sharedZAxisTransitionDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoFadeThroughTitle,
-            description: localizations.demoFadeThroughDescription,
-            documentationUrl:
-                '$_docsAnimationsUrl/FadeThroughTransition-class.html',
-            buildRoute: (_) => const FadeThroughTransitionDemo(),
-            code: CodeSegments.fadeThroughTransitionDemo,
-          ),
-          GalleryDemoConfiguration(
-            title: localizations.demoFadeScaleTitle,
-            description: localizations.demoFadeScaleDescription,
-            documentationUrl:
-                '$_docsAnimationsUrl/FadeScaleTransition-class.html',
-            buildRoute: (_) => const FadeScaleTransitionDemo(),
-            code: CodeSegments.fadeScaleTransitionDemo,
           ),
         ],
         category: GalleryDemoCategory.other,

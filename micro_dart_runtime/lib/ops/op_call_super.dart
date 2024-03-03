@@ -170,5 +170,5 @@ class OpCallSuper implements Op {
 
   @override
   String toString() =>
-      'CallSuper($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'OpCallSuper($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
 }

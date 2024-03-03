@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-//import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
+import 'package:flutter_plugin_gallery/flutter_plugin_gallery.dart';
 import 'package:micro_dart_flutter/micro_dart_flutter.dart' as mdf;
 import 'generated2/micro_dart.dart' as g;
 import 'all.dart';

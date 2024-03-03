@@ -40,7 +40,9 @@ Function _StatelessWidget__$(m.Scope scope$) => ({Key? key}) {
       );
     };
 
-class $StatelessWidget extends StatelessWidget with m.InstanceBridge {
+class $StatelessWidget extends StatelessWidget
+    with m.InstanceBridge
+    implements PreferredSizeWidget {
   $StatelessWidget({Key? key}) : super(key: key);
   @override
   m.CType bridgeType = const m.CType(
@@ -56,6 +58,10 @@ class $StatelessWidget extends StatelessWidget with m.InstanceBridge {
 
   @override
   late Map<String, Function> superGetters = {};
+
+  @override
+  Size get preferredSize => $child!.engine.callFunction(scope, this,
+      type.getCallRef("preferredSize", false, false), [], {}, null);
 }
 
 Function _StatefulWidget__$(m.Scope scope$) => ({Key? key}) {
