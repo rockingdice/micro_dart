@@ -65,6 +65,7 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
         .map((e) => compileDartType(context, e))
         .map((e) => e?.ref.className ?? "")
         .toList();
+    context.externalCallMethods.add(ref);
     op = OpCallExternal.make(
       ref,
       hasReturn,

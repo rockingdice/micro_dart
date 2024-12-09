@@ -1,0 +1,3731 @@
+{
+    "dart:core": {
+        "getters": [
+            "Duration.",
+            "DateTime.now",
+            "DateTime.utc",
+            "print",
+            "RegExp.",
+            "_Enum.",
+            "EnumName|get#name",
+            "Uri.parse",
+            "double.infinity",
+            "List.of",
+            "List.generate",
+            "List.from",
+            "Iterable.generate",
+            "Comparable.compare",
+            "DateTime.fromMillisecondsSinceEpoch",
+            "DateTime.",
+            "double.tryParse",
+            "StringBuffer.",
+            "List.filled",
+            "Object.hash"
+        ],
+        "classes": {
+            "String": {
+                "getters": [
+                    "+",
+                    "toUpperCase",
+                    "padLeft",
+                    "indexOf",
+                    "length",
+                    "substring",
+                    "#as",
+                    "isEmpty",
+                    "isNotEmpty",
+                    "toLowerCase",
+                    "contains"
+                ]
+            },
+            "_Enum": {
+                "getters": [
+                    "index",
+                    "_name",
+                    "toString"
+                ]
+            },
+            "num": {
+                "getters": [
+                    "<",
+                    "+",
+                    "/",
+                    "*",
+                    "-",
+                    ">",
+                    "toDouble",
+                    "clamp",
+                    "%",
+                    ">=",
+                    "toInt",
+                    "<=",
+                    "toStringAsFixed",
+                    "~/"
+                ]
+            },
+            "int": {
+                "getters": [
+                    "toString",
+                    "unary-",
+                    "#as",
+                    "toRadixString",
+                    "isEven"
+                ]
+            },
+            "List": {
+                "getters": [
+                    "add",
+                    "addAll",
+                    "+",
+                    "[]",
+                    "length",
+                    "indexOf",
+                    "#as",
+                    "indexWhere",
+                    "insert",
+                    "removeAt",
+                    "sublist",
+                    "sort",
+                    "[]="
+                ]
+            },
+            "Iterable": {
+                "getters": [
+                    "iterator",
+                    "first",
+                    "forEach",
+                    "toList",
+                    "map",
+                    "length",
+                    "elementAt",
+                    "firstWhere",
+                    "where",
+                    "any",
+                    "isEmpty",
+                    "isNotEmpty",
+                    "contains",
+                    "cast",
+                    "followedBy",
+                    "whereType",
+                    "expand",
+                    "reduce",
+                    "fold",
+                    "every",
+                    "join",
+                    "toSet",
+                    "take",
+                    "takeWhile",
+                    "skip",
+                    "skipWhile",
+                    "lastWhere",
+                    "singleWhere",
+                    "toString"
+                ]
+            },
+            "Iterator": {
+                "getters": [
+                    "moveNext",
+                    "current"
+                ]
+            },
+            "double": {
+                "getters": [
+                    "/",
+                    "+",
+                    "unary-",
+                    "-",
+                    "*",
+                    "abs",
+                    "round",
+                    "#as",
+                    "~/",
+                    "ceil",
+                    "floor"
+                ]
+            },
+            "Set": {
+                "getters": [
+                    "contains",
+                    "add",
+                    "remove",
+                    "difference"
+                ]
+            },
+            "bool": {
+                "getters": [
+                    "&",
+                    "#as"
+                ]
+            },
+            "RegExp": {
+                "getters": [
+                    "hasMatch",
+                    "firstMatch"
+                ]
+            },
+            "Match": {
+                "getters": [
+                    "groupCount",
+                    "group"
+                ]
+            },
+            "Map": {
+                "getters": [
+                    "[]=",
+                    "values",
+                    "[]",
+                    "containsKey",
+                    "#as",
+                    "forEach",
+                    "keys",
+                    "length"
+                ]
+            },
+            "Object": {
+                "getters": [
+                    "toString",
+                    "runtimeType"
+                ]
+            },
+            "DateTime": {
+                "getters": [
+                    "weekday",
+                    "subtract",
+                    "add",
+                    "year",
+                    "millisecondsSinceEpoch",
+                    "month"
+                ]
+            },
+            "Duration": {
+                "getters": [
+                    "inHours",
+                    "inMinutes",
+                    "inSeconds"
+                ]
+            },
+            "StringBuffer": {
+                "getters": [
+                    "write",
+                    "toString"
+                ]
+            }
+        }
+    },
+    "dart:typed_data": {
+        "getters": [
+            "Uint8List.fromList"
+        ]
+    },
+    "package:flutter/src/material/colors.dart": {
+        "getters": [
+            "Colors.black",
+            "Colors.white",
+            "Colors.transparent",
+            "Colors.red",
+            "Colors.grey",
+            "Colors.blueGrey",
+            "Colors.brown",
+            "Colors.deepOrange",
+            "Colors.deepOrangeAccent",
+            "Colors.orange",
+            "Colors.orangeAccent",
+            "Colors.amber",
+            "Colors.amberAccent",
+            "Colors.yellow",
+            "Colors.yellowAccent",
+            "Colors.lime",
+            "Colors.limeAccent",
+            "Colors.lightGreen",
+            "Colors.lightGreenAccent",
+            "Colors.green",
+            "Colors.greenAccent",
+            "Colors.teal",
+            "Colors.tealAccent",
+            "Colors.cyan",
+            "Colors.cyanAccent",
+            "Colors.lightBlue",
+            "Colors.lightBlueAccent",
+            "Colors.blue",
+            "Colors.blueAccent",
+            "Colors.indigo",
+            "Colors.indigoAccent",
+            "Colors.deepPurple",
+            "Colors.deepPurpleAccent",
+            "Colors.purple",
+            "Colors.purpleAccent",
+            "Colors.pink",
+            "Colors.pinkAccent",
+            "Colors.redAccent",
+            "Colors.black54",
+            "Colors.black38",
+            "Colors.black26",
+            "Colors.black45",
+            "Colors.white70",
+            "Colors.black12"
+        ]
+    },
+    "dart:ui": {
+        "classes": {
+            "Color": {
+                "getters": [
+                    "withOpacity",
+                    "withAlpha",
+                    "value"
+                ]
+            },
+            "Size": {
+                "getters": [
+                    "height",
+                    "aspectRatio",
+                    "width",
+                    "center",
+                    "shortestSide"
+                ]
+            },
+            "DisplayFeature": {
+                "getters": [
+                    "bounds"
+                ]
+            },
+            "Rect": {
+                "getters": [
+                    "right",
+                    "size",
+                    "translate",
+                    "left",
+                    "top",
+                    "bottom",
+                    "overlaps",
+                    "width",
+                    "center",
+                    "height",
+                    "topCenter"
+                ]
+            },
+            "Offset": {
+                "getters": [
+                    "dy",
+                    "*",
+                    "+",
+                    "dx",
+                    "-",
+                    "distance",
+                    "translate",
+                    "&",
+                    "/"
+                ]
+            },
+            "Paint": {
+                "setters": [
+                    "color",
+                    "shader",
+                    "style",
+                    "strokeWidth"
+                ]
+            },
+            "Canvas": {
+                "getters": [
+                    "save",
+                    "translate",
+                    "rotate",
+                    "drawPath",
+                    "restore",
+                    "drawVertices",
+                    "drawLine",
+                    "drawRRect",
+                    "drawArc",
+                    "drawRect"
+                ]
+            },
+            "Path": {
+                "getters": [
+                    "arcTo",
+                    "moveTo",
+                    "lineTo",
+                    "close",
+                    "addRect",
+                    "quadraticBezierTo",
+                    "arcToPoint",
+                    "addPolygon",
+                    "relativeMoveTo"
+                ]
+            },
+            "TextRange": {
+                "getters": [
+                    "end"
+                ]
+            },
+            "Locale": {
+                "getters": [
+                    "toString"
+                ]
+            },
+            "RRect": {
+                "getters": [
+                    "middleRect"
+                ]
+            }
+        },
+        "getters": [
+            "Color.",
+            "Brightness.light",
+            "Brightness.dark",
+            "FontWeight.w400",
+            "FontWeight.w500",
+            "FontWeight.w600",
+            "FontWeight.w700",
+            "Offset.",
+            "TextDirection.ltr",
+            "Clip.antiAlias",
+            "Radius.circular",
+            "Color.alphaBlend",
+            "TextAlign.end",
+            "TextAlign.start",
+            "Rect.fromPoints",
+            "Paint.",
+            "Rect.fromCircle",
+            "Path.",
+            "Clip.antiAliasWithSaveLayer",
+            "FontWeight.bold",
+            "FontWeight.normal",
+            "TextAlign.center",
+            "Offset.zero",
+            "Size.",
+            "BlendMode.color",
+            "Rect.fromLTWH",
+            "DisplayFeatureType.hinge",
+            "DisplayFeatureState.postureFlat",
+            "DisplayFeature.",
+            "Offset.fromDirection",
+            "FontWeight.w300",
+            "FontStyle.italic",
+            "TextDirection.rtl",
+            "Clip.none",
+            "lerpDouble",
+            "Size.fromHeight",
+            "Radius.zero",
+            "Size.fromRadius",
+            "PaintingStyle.stroke",
+            "VertexMode.triangleFan",
+            "Vertices.",
+            "TextAlign.right",
+            "Rect.fromLTRB",
+            "RRect.fromRectAndRadius"
+        ]
+    },
+    "package:flutter/src/material/color_scheme.dart": {
+        "getters": [
+            "ColorScheme.",
+            "ColorScheme.light",
+            "ColorScheme.dark"
+        ],
+        "classes": {
+            "ColorScheme": {
+                "getters": [
+                    "copyWith",
+                    "background",
+                    "onPrimary",
+                    "primary",
+                    "secondaryContainer",
+                    "brightness",
+                    "primaryContainer",
+                    "surface",
+                    "onBackground",
+                    "onSurface",
+                    "outline",
+                    "onSecondary",
+                    "secondary"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/text_style.dart": {
+        "getters": [
+            "TextStyle."
+        ],
+        "classes": {
+            "TextStyle": {
+                "getters": [
+                    "apply",
+                    "copyWith",
+                    "color",
+                    "fontSize"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/text_theme.dart": {
+        "getters": [
+            "TextTheme."
+        ],
+        "classes": {
+            "TextTheme": {
+                "getters": [
+                    "titleMedium",
+                    "headlineMedium",
+                    "headlineSmall",
+                    "labelSmall",
+                    "bodySmall",
+                    "labelLarge",
+                    "bodyLarge",
+                    "titleSmall",
+                    "bodyMedium",
+                    "copyWith",
+                    "apply",
+                    "titleLarge",
+                    "displaySmall",
+                    "displayMedium",
+                    "displayLarge"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/restoration_properties.dart": {
+        "getters": [
+            "RestorableBool.",
+            "RestorableInt.",
+            "RestorableDouble.",
+            "RestorableTextEditingController.",
+            "RestorableStringN.",
+            "RestorableIntN.",
+            "RestorableDateTime.",
+            "RestorableBoolN.",
+            "RestorableListenable."
+        ],
+        "classes": {
+            "RestorableValue": {
+                "getters": [
+                    "value"
+                ],
+                "setters": [
+                    "value"
+                ]
+            },
+            "_RestorablePrimitiveValue": {
+                "setters": [
+                    "value"
+                ]
+            },
+            "RestorableListenable": {
+                "getters": [
+                    "dispose",
+                    "value"
+                ]
+            },
+            "RestorableChangeNotifier": {
+                "getters": [
+                    "dispose"
+                ]
+            }
+        }
+    },
+    "package:animations/src/shared_axis_transition.dart": {
+        "getters": [
+            "SharedAxisTransitionType.scaled",
+            "SharedAxisPageTransitionsBuilder.",
+            "SharedAxisTransitionType.horizontal",
+            "SharedAxisTransition.",
+            "SharedAxisTransitionType.vertical"
+        ]
+    },
+    "package:flutter/src/widgets/framework.dart": {
+        "getters": [
+            "GlobalKey.",
+            "StatelessWidget.",
+            "StatefulWidget.",
+            "State.",
+            "ObjectKey."
+        ],
+        "classes": {
+            "State": {
+                "getters": [
+                    "initState",
+                    "widget",
+                    "context",
+                    "setState",
+                    "dispose",
+                    "didChangeDependencies",
+                    "mounted",
+                    "didUpdateWidget"
+                ]
+            },
+            "GlobalKey": {
+                "getters": [
+                    "currentContext",
+                    "currentState"
+                ]
+            },
+            "BuildContext": {
+                "getters": [
+                    "findRenderObject",
+                    "findAncestorStateOfType"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/icon_data.dart": {
+        "getters": [
+            "IconData."
+        ]
+    },
+    "package:flutter/src/material/icons.dart": {
+        "getters": [
+            "Icons.vertical_split",
+            "Icons.web_asset",
+            "Icons.credit_card",
+            "Icons.search",
+            "Icons.arrow_forward_ios",
+            "Icons.arrow_back_ios",
+            "Icons.info_outline",
+            "Icons.feedback",
+            "Icons.tune",
+            "Icons.info",
+            "Icons.code",
+            "Icons.library_books",
+            "Icons.fullscreen",
+            "Icons.settings",
+            "Icons.add",
+            "Icons.photo",
+            "Icons.photo_library",
+            "Icons.visibility",
+            "Icons.arrow_drop_down",
+            "Icons.help",
+            "Icons.security",
+            "Icons.notifications",
+            "Icons.person",
+            "Icons.replay",
+            "Icons.edit",
+            "Icons.close",
+            "Icons.keyboard_arrow_up",
+            "Icons.restaurant_menu",
+            "Icons.access_time",
+            "Icons.date_range",
+            "Icons.airplanemode_active",
+            "Icons.place",
+            "Icons.hotel",
+            "Icons.table_chart",
+            "Icons.money_off",
+            "Icons.attach_money",
+            "Icons.pie_chart",
+            "Icons.check_circle_outline",
+            "Icons.lock",
+            "Icons.arrow_left",
+            "Icons.arrow_drop_up",
+            "Icons.more_vert",
+            "Icons.reply_all",
+            "Icons.create",
+            "Icons.add_circle_outline",
+            "Icons.shopping_cart",
+            "Icons.favorite",
+            "Icons.share",
+            "Icons.menu",
+            "Icons.access_alarm",
+            "Icons.camera_enhance",
+            "Icons.alarm_on",
+            "Icons.account_circle",
+            "Icons.calendar_today",
+            "Icons.add_comment",
+            "Icons.format_underline",
+            "Icons.format_italic",
+            "Icons.format_bold",
+            "Icons.check_circle",
+            "Icons.brightness_5",
+            "Icons.directions_bike",
+            "Icons.add_circle",
+            "Icons.delete",
+            "Icons.link",
+            "Icons.person_add",
+            "Icons.comment",
+            "Icons.star_border",
+            "Icons.star",
+            "Icons.bookmark_border",
+            "Icons.book",
+            "Icons.favorite_border",
+            "Icons.visibility_off",
+            "Icons.email",
+            "Icons.phone",
+            "Icons.home",
+            "Icons.mic",
+            "Icons.keyboard_arrow_down",
+            "Icons.remove_circle_outline",
+            "Icons.check",
+            "Icons.not_interested",
+            "Icons.sort",
+            "Icons.chevron_right",
+            "Icons.add_shopping_cart"
+        ]
+    },
+    "package:animations/src/open_container.dart": {
+        "getters": [
+            "ContainerTransitionType.fade",
+            "ContainerTransitionType.fadeThrough",
+            "OpenContainer."
+        ]
+    },
+    "package:flutter/src/foundation/key.dart": {
+        "getters": [
+            "UniqueKey.",
+            "ValueKey."
+        ]
+    },
+    "package:flutter/src/widgets/scroll_view.dart": {
+        "getters": [
+            "ListView.",
+            "ListView.builder",
+            "CustomScrollView.",
+            "GridView.count",
+            "ListView.separated",
+            "GridView.builder"
+        ]
+    },
+    "package:flutter/src/widgets/interactive_viewer.dart": {
+        "getters": [
+            "TransformationController.",
+            "InteractiveViewer."
+        ],
+        "classes": {
+            "TransformationController": {
+                "getters": [
+                    "toScene"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/animation/curves.dart": {
+        "getters": [
+            "Curves.easeIn",
+            "Curves.easeInOutCubic",
+            "Cubic.",
+            "Curves.ease",
+            "Interval.",
+            "Curves.fastOutSlowIn",
+            "Curves.easeOut",
+            "Curves.easeInOut",
+            "Curves.linear",
+            "Curves.decelerate"
+        ],
+        "classes": {
+            "Curve": {
+                "getters": [
+                    "transform",
+                    "flipped"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/animation/tween.dart": {
+        "getters": [
+            "CurveTween.",
+            "Tween.",
+            "ColorTween."
+        ],
+        "classes": {
+            "Animatable": {
+                "getters": [
+                    "animate",
+                    "evaluate",
+                    "chain"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/border_radius.dart": {
+        "getters": [
+            "BorderRadius.circular",
+            "BorderRadiusDirectional.only",
+            "BorderRadius.all",
+            "BorderRadius.vertical",
+            "BorderRadius.zero",
+            "BorderRadius.only",
+            "BorderRadius.lerp"
+        ],
+        "classes": {
+            "BorderRadius": {
+                "getters": [
+                    "toRRect"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/edge_insets.dart": {
+        "getters": [
+            "EdgeInsetsDirectional.fromSTEB",
+            "EdgeInsets.only",
+            "EdgeInsetsDirectional.only",
+            "EdgeInsets.symmetric",
+            "EdgeInsets.all",
+            "EdgeInsets.zero",
+            "EdgeInsets.fromLTRB"
+        ],
+        "classes": {
+            "EdgeInsets": {
+                "getters": [
+                    "top",
+                    "bottom",
+                    "add"
+                ]
+            },
+            "EdgeInsetsGeometry": {
+                "getters": [
+                    "vertical"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/foundation/platform.dart": {
+        "getters": [
+            "defaultTargetPlatform",
+            "TargetPlatform.windows",
+            "TargetPlatform.linux",
+            "TargetPlatform.macOS",
+            "TargetPlatform.iOS",
+            "TargetPlatform.android",
+            "TargetPlatform.values"
+        ]
+    },
+    "package:flutter/src/material/typography.dart": {
+        "getters": [
+            "Typography.material2018"
+        ],
+        "classes": {
+            "Typography": {
+                "getters": [
+                    "black"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/theme_data.dart": {
+        "getters": [
+            "VisualDensity.standard",
+            "ThemeData.",
+            "ThemeData.dark",
+            "ThemeData.light"
+        ],
+        "classes": {
+            "ThemeData": {
+                "getters": [
+                    "copyWith",
+                    "colorScheme",
+                    "textTheme",
+                    "canvasColor",
+                    "cardColor",
+                    "brightness",
+                    "platform",
+                    "primaryTextTheme",
+                    "iconTheme",
+                    "navigationRailTheme",
+                    "bottomSheetTheme",
+                    "scaffoldBackgroundColor",
+                    "chipTheme",
+                    "disabledColor",
+                    "sliderTheme"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/icon_theme_data.dart": {
+        "getters": [
+            "IconThemeData."
+        ],
+        "classes": {
+            "IconThemeData": {
+                "getters": [
+                    "copyWith",
+                    "color"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/app_bar_theme.dart": {
+        "getters": [
+            "AppBarTheme."
+        ]
+    },
+    "package:flutter/src/material/bottom_app_bar_theme.dart": {
+        "getters": [
+            "BottomAppBarTheme."
+        ]
+    },
+    "package:flutter/src/material/material_state.dart": {
+        "getters": [
+            "MaterialState.disabled",
+            "MaterialState.selected",
+            "MaterialStateProperty.resolveWith"
+        ]
+    },
+    "package:flutter/src/material/checkbox_theme.dart": {
+        "getters": [
+            "CheckboxThemeData."
+        ]
+    },
+    "package:flutter/src/material/radio_theme.dart": {
+        "getters": [
+            "RadioThemeData."
+        ]
+    },
+    "package:flutter/src/material/snack_bar_theme.dart": {
+        "getters": [
+            "SnackBarBehavior.floating",
+            "SnackBarThemeData."
+        ]
+    },
+    "package:flutter/src/material/switch_theme.dart": {
+        "getters": [
+            "SwitchThemeData."
+        ]
+    },
+    "package:flutter/src/widgets/editable_text.dart": {
+        "getters": [
+            "TextEditingController."
+        ],
+        "classes": {
+            "TextEditingController": {
+                "getters": [
+                    "text"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/floating_action_button_location.dart": {
+        "getters": [
+            "FloatingActionButtonLocation.centerFloat",
+            "FloatingActionButtonLocation.endFloat",
+            "FloatingActionButtonLocation.centerDocked",
+            "FloatingActionButtonLocation.endDocked"
+        ]
+    },
+    "package:flutter/src/material/paginated_data_table.dart": {
+        "getters": [
+            "PaginatedDataTable.defaultRowsPerPage",
+            "PaginatedDataTable."
+        ]
+    },
+    "package:flutter/src/material/time.dart": {
+        "getters": [
+            "TimeOfDay.fromDateTime",
+            "RestorableTimeOfDay.",
+            "TimeOfDay."
+        ],
+        "classes": {
+            "TimeOfDay": {
+                "getters": [
+                    "minute",
+                    "hour",
+                    "format"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/form.dart": {
+        "getters": [
+            "AutovalidateMode.disabled",
+            "AutovalidateMode.always",
+            "AutovalidateMode.values",
+            "Form."
+        ],
+        "classes": {
+            "FormState": {
+                "getters": [
+                    "validate",
+                    "save"
+                ]
+            },
+            "FormFieldState": {
+                "getters": [
+                    "value"
+                ]
+            }
+        }
+    },
+    "dart:math": {
+        "getters": [
+            "pi",
+            "max",
+            "min",
+            "Random.",
+            "tan",
+            "sqrt",
+            "Point.",
+            "pow"
+        ],
+        "classes": {
+            "Random": {
+                "getters": [
+                    "nextInt"
+                ]
+            },
+            "Point": {
+                "getters": [
+                    "y",
+                    "x"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/app.dart": {
+        "getters": [
+            "ThemeMode.system",
+            "MaterialApp.",
+            "ThemeMode.light",
+            "ThemeMode.dark",
+            "MaterialScrollBehavior."
+        ]
+    },
+    "package:flutter/src/scheduler/binding.dart": {
+        "getters": [
+            "timeDilation",
+            "SchedulerBinding.instance"
+        ],
+        "classes": {
+            "SchedulerBinding": {
+                "getters": [
+                    "addPostFrameCallback"
+                ]
+            }
+        }
+    },
+    "package:flutter_example_gallery/data/gallery_options.dart": {
+        "getters": [
+            "GalleryOptions.",
+            "GalleryOptions.of",
+            "ModelBinding.",
+            "ApplyTextOptions.",
+            "deviceLocale",
+            "systemLocaleOption",
+            "GalleryOptions.update"
+        ],
+        "classes": {
+            "GalleryOptions": {
+                "getters": [
+                    "themeMode",
+                    "platform",
+                    "locale",
+                    "resolvedSystemUiOverlayStyle",
+                    "resolvedTextDirection",
+                    "textScaleFactor",
+                    "isTestMode",
+                    "timeDilation",
+                    "copyWith",
+                    "customTextDirection"
+                ]
+            }
+        },
+        "setters": [
+            "deviceLocale"
+        ]
+    },
+    "package:flutter/src/widgets/media_query.dart": {
+        "getters": [
+            "MediaQuery.of",
+            "MediaQuery.removePadding",
+            "MediaQueryData.",
+            "MediaQuery."
+        ],
+        "classes": {
+            "MediaQueryData": {
+                "getters": [
+                    "padding",
+                    "size",
+                    "platformBrightness",
+                    "viewPadding",
+                    "removePadding",
+                    "viewInsets"
+                ]
+            }
+        }
+    },
+    "package:dual_screen/src/media_query_extension.dart": {
+        "getters": [
+            "MediaQueryHinge|get#hinge"
+        ]
+    },
+    "package:flutter_example_gallery/gen_l10n/gallery_localizations.dart": {
+        "getters": [
+            "GalleryLocalizations.localizationsDelegates",
+            "GalleryLocalizations.supportedLocales",
+            "GalleryLocalizations.of"
+        ],
+        "classes": {
+            "GalleryLocalizations": {
+                "getters": [
+                    "settingsButtonCloseLabel",
+                    "settingsButtonLabel",
+                    "homeCategoryReference",
+                    "craneDescription",
+                    "rallyDescription",
+                    "shrineDescription",
+                    "replyDescription",
+                    "starterAppTitle",
+                    "starterAppDescription",
+                    "fortnightlyDescription",
+                    "demoTooltipTitle",
+                    "demoTooltipSubtitle",
+                    "demoTooltipDescription",
+                    "demoTabsTitle",
+                    "demoTabsSubtitle",
+                    "demoTabsNonScrollingTitle",
+                    "demoTabsDescription",
+                    "demoTabsScrollingTitle",
+                    "demoSnackbarsTitle",
+                    "demoSnackbarsSubtitle",
+                    "demoSnackbarsDescription",
+                    "demoSlidersTitle",
+                    "demoSlidersSubtitle",
+                    "demoCustomSlidersTitle",
+                    "demoCustomSlidersDescription",
+                    "demoRangeSlidersTitle",
+                    "demoRangeSlidersDescription",
+                    "demoSlidersDescription",
+                    "demoPickersTitle",
+                    "demoPickersSubtitle",
+                    "demoDateRangePickerTitle",
+                    "demoDateRangePickerDescription",
+                    "demoTimePickerTitle",
+                    "demoTimePickerDescription",
+                    "demoDatePickerTitle",
+                    "demoDatePickerDescription",
+                    "demoNavigationRailTitle",
+                    "demoNavigationRailSubtitle",
+                    "demoNavigationRailDescription",
+                    "demoNavigationDrawerTitle",
+                    "demoNavigationDrawerSubtitle",
+                    "demoNavigationDrawerDescription",
+                    "demoMenuTitle",
+                    "demoMenuSubtitle",
+                    "demoSimpleMenuTitle",
+                    "demoMenuDescription",
+                    "demoChecklistMenuTitle",
+                    "demoSectionedMenuTitle",
+                    "demoContextMenuTitle",
+                    "demoListsTitle",
+                    "demoListsSubtitle",
+                    "demoTwoLineListsTitle",
+                    "demoListsDescription",
+                    "demoOneLineListsTitle",
+                    "demoDividerTitle",
+                    "demoDividerSubtitle",
+                    "demoVerticalDividerTitle",
+                    "demoDividerDescription",
+                    "demoChipTitle",
+                    "demoChipSubtitle",
+                    "demoInputChipTitle",
+                    "demoInputChipDescription",
+                    "demoFilterChipTitle",
+                    "demoFilterChipDescription",
+                    "demoChoiceChipTitle",
+                    "demoChoiceChipDescription",
+                    "demoActionChipTitle",
+                    "demoActionChipDescription",
+                    "demoCardTitle",
+                    "demoCardSubtitle",
+                    "demoCardDescription",
+                    "demoBottomSheetTitle",
+                    "demoBottomSheetSubtitle",
+                    "demoBottomSheetModalTitle",
+                    "demoBottomSheetModalDescription",
+                    "demoBottomSheetPersistentTitle",
+                    "demoBottomSheetPersistentDescription",
+                    "demoBottomNavigationTitle",
+                    "demoBottomNavigationSubtitle",
+                    "demoBottomNavigationSelectedLabel",
+                    "demoBottomNavigationDescription",
+                    "demoBottomNavigationPersistentLabels",
+                    "demoBannerTitle",
+                    "demoBannerSubtitle",
+                    "demoBannerDescription",
+                    "demoAppBarTitle",
+                    "demoAppBarSubtitle",
+                    "demoAppBarDescription",
+                    "demoCupertinoSearchTextFieldTitle",
+                    "demoCupertinoSearchTextFieldSubtitle",
+                    "demoCupertinoSearchTextFieldDescription",
+                    "demoCupertinoTextFieldTitle",
+                    "demoCupertinoTextFieldSubtitle",
+                    "demoCupertinoTextFieldDescription",
+                    "demoCupertinoTabBarTitle",
+                    "demoCupertinoTabBarSubtitle",
+                    "demoCupertinoTabBarDescription",
+                    "demoSelectionControlsSwitchTitle",
+                    "demoCupertinoSwitchSubtitle",
+                    "demoCupertinoSwitchDescription",
+                    "demoCupertinoSliderTitle",
+                    "demoCupertinoSliderSubtitle",
+                    "demoCupertinoSliderDescription",
+                    "demoCupertinoSegmentedControlTitle",
+                    "demoCupertinoSegmentedControlSubtitle",
+                    "demoCupertinoSegmentedControlDescription",
+                    "demoCupertinoScrollbarTitle",
+                    "demoCupertinoScrollbarSubtitle",
+                    "demoCupertinoScrollbarDescription",
+                    "demoCupertinoPickerTitle",
+                    "demoCupertinoPickerSubtitle",
+                    "demoCupertinoPickerDescription",
+                    "demoCupertinoNavigationBarTitle",
+                    "demoCupertinoNavigationBarSubtitle",
+                    "demoCupertinoNavigationBarDescription",
+                    "demoCupertinoContextMenuTitle",
+                    "demoCupertinoContextMenuSubtitle",
+                    "demoCupertinoContextMenuDescription",
+                    "demoCupertinoButtonsTitle",
+                    "demoCupertinoButtonsSubtitle",
+                    "demoCupertinoButtonsDescription",
+                    "demoCupertinoAlertsTitle",
+                    "demoCupertinoAlertsSubtitle",
+                    "demoCupertinoActionSheetTitle",
+                    "demoCupertinoActionSheetDescription",
+                    "demoCupertinoAlertButtonsOnlyTitle",
+                    "demoCupertinoAlertDescription",
+                    "demoCupertinoAlertButtonsTitle",
+                    "demoCupertinoAlertWithTitleTitle",
+                    "demoCupertinoAlertTitle",
+                    "demoCupertinoActivityIndicatorTitle",
+                    "demoCupertinoActivityIndicatorSubtitle",
+                    "demoCupertinoActivityIndicatorDescription",
+                    "demo2dTransformationsTitle",
+                    "demo2dTransformationsSubtitle",
+                    "demo2dTransformationsDescription",
+                    "demoTypographyTitle",
+                    "demoTypographySubtitle",
+                    "demoTypographyDescription",
+                    "demoColorsTitle",
+                    "demoColorsSubtitle",
+                    "demoColorsDescription",
+                    "demoTwoPaneTitle",
+                    "demoTwoPaneSubtitle",
+                    "demoTwoPaneSmallScreenLabel",
+                    "demoTwoPaneSmallScreenDescription",
+                    "demoTwoPaneTabletLabel",
+                    "demoTwoPaneTabletDescription",
+                    "demoTwoPaneFoldableLabel",
+                    "demoTwoPaneFoldableDescription",
+                    "homeHeaderGallery",
+                    "homeHeaderCategories",
+                    "backToGallery",
+                    "settingsSystemDefault",
+                    "settingsSlowMotion",
+                    "settingsTheme",
+                    "settingsLightTheme",
+                    "settingsDarkTheme",
+                    "settingsPlatformMechanics",
+                    "settingsLocale",
+                    "settingsTextDirection",
+                    "settingsTextDirectionRTL",
+                    "settingsTextDirectionLTR",
+                    "settingsTextDirectionLocaleBased",
+                    "settingsTextScaling",
+                    "settingsTextScalingHuge",
+                    "settingsTextScalingLarge",
+                    "settingsTextScalingNormal",
+                    "settingsTextScalingSmall",
+                    "settingsTitle",
+                    "settingsAbout",
+                    "settingsFeedback",
+                    "settingsAttribution",
+                    "demoInvalidURL",
+                    "demoOptionsFeatureTitle",
+                    "demoOptionsFeatureDescription",
+                    "demoOptionsTooltip",
+                    "demoInfoTooltip",
+                    "demoCodeTooltip",
+                    "demoDocumentationTooltip",
+                    "demoFullscreenTooltip",
+                    "demo",
+                    "demoCodeViewerCopiedToClipboardMessage",
+                    "demoCodeViewerFailedToCopyToClipboardMessage",
+                    "demoCodeViewerCopyAll",
+                    "shrineTooltipSearch",
+                    "shrineMenuCaption",
+                    "colorsBlueGrey",
+                    "colorsGrey",
+                    "colorsBrown",
+                    "colorsDeepOrange",
+                    "colorsOrange",
+                    "colorsAmber",
+                    "colorsYellow",
+                    "colorsLime",
+                    "colorsLightGreen",
+                    "colorsGreen",
+                    "colorsTeal",
+                    "colorsCyan",
+                    "colorsLightBlue",
+                    "colorsBlue",
+                    "colorsIndigo",
+                    "colorsDeepPurple",
+                    "colorsPurple",
+                    "colorsPink",
+                    "colorsRed",
+                    "demoContainerTransformTypeFadeThrough",
+                    "demoContainerTransformTypeFade",
+                    "demoContainerTransformModalBottomSheetTitle",
+                    "demoContainerTransformDemoInstructions",
+                    "demoContainerTransformTitle",
+                    "demoMotionSmallPlaceholderSubtitle",
+                    "demoMotionPlaceholderSubtitle",
+                    "demoMotionListTileTitle",
+                    "demoMotionPlaceholderTitle",
+                    "demoMotionDetailsPageTitle",
+                    "demoFadeScaleDemoInstructions",
+                    "demoFadeScaleTitle",
+                    "demoFadeScaleHideFabButton",
+                    "demoFadeScaleShowFabButton",
+                    "demoFadeScaleShowAlertDialogButton",
+                    "demoFadeScaleAlertDialogHeader",
+                    "demoFadeScaleAlertDialogDiscardButton",
+                    "demoFadeScaleAlertDialogCancelButton",
+                    "demoFadeThroughDemoInstructions",
+                    "demoFadeThroughTitle",
+                    "demoFadeThroughSearchDestination",
+                    "demoFadeThroughPhotosDestination",
+                    "demoFadeThroughAlbumsDestination",
+                    "demoFadeThroughTextPlaceholder",
+                    "demoSharedXAxisDemoInstructions",
+                    "demoSharedXAxisTitle",
+                    "demoSharedXAxisNextButtonText",
+                    "demoSharedXAxisBackButtonText",
+                    "demoSharedXAxisCulinaryCourseTitle",
+                    "demoSharedXAxisDesignCourseTitle",
+                    "demoSharedXAxisIllustrationCourseTitle",
+                    "demoSharedXAxisBusinessCourseTitle",
+                    "demoSharedXAxisArtsAndCraftsCourseTitle",
+                    "demoSharedXAxisCoursePageSubtitle",
+                    "demoSharedXAxisCoursePageTitle",
+                    "demoSharedXAxisBundledCourseSubtitle",
+                    "demoSharedXAxisIndividualCourseSubtitle",
+                    "demoSharedXAxisCreateAccountButtonText",
+                    "demoSharedXAxisForgotEmailButtonText",
+                    "demoSharedXAxisSignInTextFieldLabel",
+                    "demoSharedXAxisSignInSubtitleText",
+                    "demoSharedXAxisSignInWelcomeText",
+                    "demoSharedYAxisDemoInstructions",
+                    "demoSharedYAxisTitle",
+                    "demoSharedYAxisAlphabeticalSortTitle",
+                    "demoSharedYAxisRecentSortTitle",
+                    "demoSharedYAxisAlbumCount",
+                    "demoSharedYAxisAlbumTileTitle",
+                    "demoSharedYAxisAlbumTileSubtitle",
+                    "demoSharedYAxisAlbumTileDurationUnit",
+                    "demoSharedZAxisDemoInstructions",
+                    "demoSharedZAxisTitle",
+                    "demoSharedZAxisHelpSettingLabel",
+                    "demoSharedZAxisPrivacySettingLabel",
+                    "demoSharedZAxisNotificationSettingLabel",
+                    "demoSharedZAxisProfileSettingLabel",
+                    "demoSharedZAxisSettingsPageTitle",
+                    "demoSharedZAxisBeefSandwichRecipeDescription",
+                    "demoSharedZAxisBeefSandwichRecipeTitle",
+                    "demoSharedZAxisCrabPlateRecipeDescription",
+                    "demoSharedZAxisCrabPlateRecipeTitle",
+                    "demoSharedZAxisShrimpPlateRecipeDescription",
+                    "demoSharedZAxisShrimpPlateRecipeTitle",
+                    "demoSharedZAxisDessertRecipeDescription",
+                    "demoSharedZAxisDessertRecipeTitle",
+                    "demoSharedZAxisSandwichRecipeDescription",
+                    "demoSharedZAxisSandwichRecipeTitle",
+                    "demoSharedZAxisBurgerRecipeDescription",
+                    "demoSharedZAxisBurgerRecipeTitle",
+                    "demoSharedZAxisSavedRecipesListTitle",
+                    "demoTwoPaneList",
+                    "demoTwoPaneItem",
+                    "demoTwoPaneDetails",
+                    "demoTwoPaneSelectItem",
+                    "demoTwoPaneItemDetails",
+                    "githubRepo",
+                    "aboutDialogDescription",
+                    "craneEatSubhead",
+                    "craneSleepSubhead",
+                    "craneFlySubhead",
+                    "craneEat",
+                    "craneSleep",
+                    "craneFly",
+                    "craneFormLocation",
+                    "craneFormTime",
+                    "craneFormDate",
+                    "craneFormDiners",
+                    "craneFormDates",
+                    "craneFormDestination",
+                    "craneFormOrigin",
+                    "craneFormTravelers",
+                    "fortnightlyMenuTech",
+                    "fortnightlyHeadlineFabrics",
+                    "fortnightlyMenuWorld",
+                    "fortnightlyHeadlineStocks",
+                    "fortnightlyMenuPolitics",
+                    "fortnightlyHeadlineArmy",
+                    "fortnightlyLatestUpdates",
+                    "fortnightlyHeadlineGasoline",
+                    "fortnightlyHeadlineWar",
+                    "fortnightlyHeadlineHealthcare",
+                    "fortnightlyMenuUS",
+                    "fortnightlyHeadlineBees",
+                    "fortnightlyHeadlineFeminists",
+                    "craneMinutes",
+                    "fortnightlyTrendingStocks",
+                    "fortnightlyTrendingGreenArmy",
+                    "fortnightlyTrendingHealthcareRevolution",
+                    "fortnightlyTrendingReform",
+                    "fortnightlyTrendingTechDesign",
+                    "fortnightlyMenuFrontPage",
+                    "fortnightlyMenuBusiness",
+                    "fortnightlyMenuScience",
+                    "fortnightlyMenuSports",
+                    "fortnightlyMenuTravel",
+                    "fortnightlyMenuCulture",
+                    "rallyTitleSettings",
+                    "rallyTitleBudgets",
+                    "rallyTitleBills",
+                    "rallyTitleAccounts",
+                    "rallyTitleOverview",
+                    "rallyLoginSignUp",
+                    "rallyLoginNoAccount",
+                    "rallyLoginLoginToRally",
+                    "rallyLoginUsername",
+                    "rallyLoginPassword",
+                    "rallyLoginLabelLogin",
+                    "rallyLoginButtonLogin",
+                    "rallyLoginRememberMe",
+                    "replyDraftsLabel",
+                    "replySpamLabel",
+                    "replyTrashLabel",
+                    "replySentLabel",
+                    "replyStarredLabel",
+                    "replyInboxLabel",
+                    "shrineTooltipOpenMenu",
+                    "shrineTooltipCloseMenu",
+                    "shrineTooltipSettings",
+                    "shrineLogoutButtonCaption",
+                    "shrineScreenReaderCart",
+                    "shrineLoginUsernameLabel",
+                    "shrineLoginPasswordLabel",
+                    "shrineNextButtonCaption",
+                    "shrineCancelButtonCaption",
+                    "starterAppGenericBody",
+                    "starterAppGenericSubtitle",
+                    "starterAppGenericHeadline",
+                    "starterAppGenericButton",
+                    "starterAppTooltipAdd",
+                    "starterAppGenericTitle",
+                    "starterAppTooltipSearch",
+                    "starterAppTooltipFavorite",
+                    "starterAppTooltipShare",
+                    "starterAppDrawerItem",
+                    "dialogDiscardTitle",
+                    "cupertinoAlertCancel",
+                    "cupertinoAlertDiscard",
+                    "cupertinoAlertLocationTitle",
+                    "cupertinoAlertLocationDescription",
+                    "cupertinoAlertAllow",
+                    "cupertinoAlertDontAllow",
+                    "cupertinoAlertFavoriteDessert",
+                    "cupertinoAlertDessertDescription",
+                    "cupertinoAlertApplePie",
+                    "cupertinoAlertTiramisu",
+                    "cupertinoAlertCheesecake",
+                    "cupertinoShowAlert",
+                    "dialogSelectedOption",
+                    "cupertinoAlertChocolateBrownie",
+                    "cupertinoButtonWithBackground",
+                    "cupertinoButton",
+                    "demoCupertinoContextMenuActionText",
+                    "demoCupertinoContextMenuActionTwo",
+                    "demoCupertinoContextMenuActionOne",
+                    "demoCupertinoPickerDate",
+                    "demoCupertinoPickerTime",
+                    "demoCupertinoPickerDateTime",
+                    "demoCupertinoPickerTimer",
+                    "localeName",
+                    "demoCupertinoPicker",
+                    "demoCupertinoSearchTextFieldPlaceholder",
+                    "demoCupertinoSliderDiscrete",
+                    "demoCupertinoSliderContinuous",
+                    "cupertinoTabBarProfileTab",
+                    "cupertinoTabBarChatTab",
+                    "cupertinoTabBarHomeTab",
+                    "demoCupertinoTextFieldPIN",
+                    "demoTextFieldEmail",
+                    "demoNavigationRailThird",
+                    "demoNavigationRailSecond",
+                    "demoNavigationRailFirst",
+                    "bannerDemoText",
+                    "signIn",
+                    "dismiss",
+                    "bannerDemoLeadingText",
+                    "bannerDemoMultipleText",
+                    "bannerDemoResetText",
+                    "demoBottomAppBarTitle",
+                    "bottomAppBarPositionFloatingCenter",
+                    "bottomAppBarPositionFloatingEnd",
+                    "bottomAppBarPositionDockedCenter",
+                    "bottomAppBarPositionDockedEnd",
+                    "bottomAppBarPosition",
+                    "bottomAppBarNotch",
+                    "demoFloatingButtonTitle",
+                    "buttonTextCreate",
+                    "bottomAppBar",
+                    "bottomNavigationCameraTab",
+                    "bottomNavigationAlarmTab",
+                    "bottomNavigationAccountTab",
+                    "bottomNavigationCalendarTab",
+                    "bottomNavigationCommentsTab",
+                    "bottomNavigationContentPlaceholder",
+                    "demoBottomSheetAddLabel",
+                    "demoBottomSheetItem",
+                    "demoBottomSheetHeader",
+                    "demoBottomSheetButtonText",
+                    "demoTextButtonTitle",
+                    "demoElevatedButtonTitle",
+                    "demoOutlinedButtonTitle",
+                    "demoToggleButtonTitle",
+                    "buttonText",
+                    "cardsDemoTravelDestinationTitle3",
+                    "cardsDemoTravelDestinationDescription3",
+                    "cardsDemoTravelDestinationCity1",
+                    "cardsDemoTravelDestinationLocation1",
+                    "cardsDemoTravelDestinationTitle2",
+                    "cardsDemoTravelDestinationDescription2",
+                    "cardsDemoTravelDestinationCity2",
+                    "cardsDemoTravelDestinationLocation2",
+                    "cardsDemoTravelDestinationTitle1",
+                    "cardsDemoTravelDestinationDescription1",
+                    "cardsDemoTappable",
+                    "selected",
+                    "notSelected",
+                    "deselect",
+                    "select",
+                    "selectable",
+                    "cardsDemoExplore",
+                    "cardsDemoExploreSemantics",
+                    "demoMenuShare",
+                    "cardsDemoShareSemantics",
+                    "chipTurnOnLights",
+                    "chipLarge",
+                    "chipMedium",
+                    "chipSmall",
+                    "chipFireplace",
+                    "chipWasher",
+                    "chipElevator",
+                    "chipBiking",
+                    "demoDataTableTitle",
+                    "dataTableHeader",
+                    "dataTableColumnIron",
+                    "dataTableColumnCalcium",
+                    "dataTableColumnSodium",
+                    "dataTableColumnProtein",
+                    "dataTableColumnCarbs",
+                    "dataTableColumnFat",
+                    "dataTableColumnCalories",
+                    "dataTableColumnDessert",
+                    "dataTableRowApplePie",
+                    "dataTableRowWithHoney",
+                    "dataTableRowDonut",
+                    "dataTableRowHoneycomb",
+                    "dataTableRowLollipop",
+                    "dataTableRowJellyBean",
+                    "dataTableRowGingerbread",
+                    "dataTableRowCupcake",
+                    "dataTableRowEclair",
+                    "dataTableRowIceCreamSandwich",
+                    "dataTableRowFrozenYogurt",
+                    "dataTableRowWithSugar",
+                    "demoAlertDialogTitle",
+                    "demoAlertTitleDialogTitle",
+                    "demoSimpleDialogTitle",
+                    "demoFullscreenDialogTitle",
+                    "dialogDiscard",
+                    "dialogCancel",
+                    "dialogLocationTitle",
+                    "dialogLocationDescription",
+                    "dialogAgree",
+                    "dialogDisagree",
+                    "dialogSetBackup",
+                    "dialogAddAccount",
+                    "dialogShow",
+                    "dialogFullscreenTitle",
+                    "dialogFullscreenSave",
+                    "dialogFullscreenDescription",
+                    "placePondicherry",
+                    "placeFisherman",
+                    "placeBeach",
+                    "placeTanjore",
+                    "placeMarket",
+                    "placeChettinad",
+                    "placeLunchPrep",
+                    "placeSilkMaker",
+                    "placeChennai",
+                    "placeScooters",
+                    "placeSaltFarm",
+                    "placeThanjavurTemple",
+                    "placeBronzeWorks",
+                    "placeFlowerMarket",
+                    "demoGridListsTitle",
+                    "demoListsSecondary",
+                    "demoMenuAnItemWithAContextMenuButton",
+                    "demoMenuSelected",
+                    "demoMenuContextMenuItemThree",
+                    "demoMenuADisabledMenuItem",
+                    "demoMenuContextMenuItemOne",
+                    "demoMenuAnItemWithASectionedMenu",
+                    "demoMenuRemove",
+                    "demoMenuGetLink",
+                    "demoMenuPreview",
+                    "demoMenuItemValueThree",
+                    "demoMenuItemValueTwo",
+                    "demoMenuItemValueOne",
+                    "demoMenuAnItemWithASimpleMenu",
+                    "demoMenuFour",
+                    "demoMenuThree",
+                    "demoMenuTwo",
+                    "demoMenuOne",
+                    "demoMenuChecked",
+                    "demoMenuAnItemWithAChecklistMenu",
+                    "demoNavigationDrawerUserName",
+                    "demoNavigationDrawerUserEmail",
+                    "demoNavigationDrawerToPageTwo",
+                    "demoNavigationDrawerToPageOne",
+                    "demoNavigationDrawerText",
+                    "demoPickersShowPicker",
+                    "demoCircularProgressIndicatorTitle",
+                    "demoLinearProgressIndicatorTitle",
+                    "loading",
+                    "demoSelectionControlsCheckboxTitle",
+                    "demoSelectionControlsRadioTitle",
+                    "demoSlidersDiscrete",
+                    "demoSlidersContinuousWithEditableNumericalValue",
+                    "demoSlidersEditableNumericalValue",
+                    "demoSlidersContinuous",
+                    "demoSlidersContinuousRangeSliderWithCustomTheme",
+                    "demoSlidersDiscreteSliderWithCustomTheme",
+                    "demoSnackbarsText",
+                    "demoSnackbarsActionButtonLabel",
+                    "demoSnackbarsAction",
+                    "demoSnackbarsButtonLabel",
+                    "demoTextFieldTitle",
+                    "demoTextFieldShowPasswordLabel",
+                    "demoTextFieldHidePasswordLabel",
+                    "demoTextFieldFormErrors",
+                    "demoTextFieldNameHasPhoneNumber",
+                    "demoTextFieldNameRequired",
+                    "demoTextFieldOnlyAlphabeticalChars",
+                    "demoTextFieldEnterUSPhoneNumber",
+                    "demoTextFieldEnterPassword",
+                    "demoTextFieldPasswordsDoNotMatch",
+                    "demoTextFieldRequiredField",
+                    "demoTextFieldSubmit",
+                    "demoTextFieldRetypePassword",
+                    "demoTextFieldNoMoreThan",
+                    "demoTextFieldPassword",
+                    "demoTextFieldSalary",
+                    "demoTextFieldUSD",
+                    "demoTextFieldTellUsAboutYourself",
+                    "demoTextFieldKeepItShort",
+                    "demoTextFieldLifeStory",
+                    "demoTextFieldYourEmailAddress",
+                    "demoTextFieldWhereCanWeReachYou",
+                    "demoTextFieldPhoneNumber",
+                    "demoTextFieldWhatDoPeopleCallYou",
+                    "demoTextFieldNameField",
+                    "demoTooltipInstructions",
+                    "craneFly13",
+                    "craneFly13SemanticLabel",
+                    "craneFly12",
+                    "craneFly12SemanticLabel",
+                    "craneFly11",
+                    "craneFly11SemanticLabel",
+                    "craneFly10",
+                    "craneFly10SemanticLabel",
+                    "craneFly9",
+                    "craneFly9SemanticLabel",
+                    "craneFly8",
+                    "craneFly8SemanticLabel",
+                    "craneFly7",
+                    "craneFly7SemanticLabel",
+                    "craneFly6",
+                    "craneFly6SemanticLabel",
+                    "craneFly5",
+                    "craneFly5SemanticLabel",
+                    "craneFly4",
+                    "craneFly4SemanticLabel",
+                    "craneFly3",
+                    "craneFly3SemanticLabel",
+                    "craneFly2",
+                    "craneFly2SemanticLabel",
+                    "craneFly1",
+                    "craneFly1SemanticLabel",
+                    "craneFly0",
+                    "craneFly0SemanticLabel",
+                    "craneSleep11",
+                    "craneSleep11SemanticLabel",
+                    "craneSleep10",
+                    "craneSleep10SemanticLabel",
+                    "craneSleep9",
+                    "craneSleep9SemanticLabel",
+                    "craneSleep8",
+                    "craneSleep8SemanticLabel",
+                    "craneSleep7",
+                    "craneSleep7SemanticLabel",
+                    "craneSleep6",
+                    "craneSleep6SemanticLabel",
+                    "craneSleep5",
+                    "craneSleep5SemanticLabel",
+                    "craneSleep4",
+                    "craneSleep4SemanticLabel",
+                    "craneSleep3",
+                    "craneSleep3SemanticLabel",
+                    "craneSleep2",
+                    "craneSleep2SemanticLabel",
+                    "craneSleep1",
+                    "craneSleep1SemanticLabel",
+                    "craneSleep0",
+                    "craneSleep0SemanticLabel",
+                    "craneEat10",
+                    "craneEat10SemanticLabel",
+                    "craneEat9",
+                    "craneEat9SemanticLabel",
+                    "craneEat8",
+                    "craneEat8SemanticLabel",
+                    "craneEat7",
+                    "craneEat7SemanticLabel",
+                    "craneEat6",
+                    "craneEat6SemanticLabel",
+                    "craneEat5",
+                    "craneEat5SemanticLabel",
+                    "craneEat4",
+                    "craneEat4SemanticLabel",
+                    "craneEat3",
+                    "craneEat3SemanticLabel",
+                    "craneEat2",
+                    "craneEat2SemanticLabel",
+                    "craneEat1",
+                    "craneEat1SemanticLabel",
+                    "craneEat0",
+                    "craneEat0SemanticLabel",
+                    "craneFlyStops",
+                    "craneSleepProperties",
+                    "craneEatRestaurants",
+                    "rallyAccountTotal",
+                    "rallyBillsDue",
+                    "rallyBudgetLeft",
+                    "rallyAccounts",
+                    "rallySeeAllAccounts",
+                    "rallyBills",
+                    "rallySeeAllBills",
+                    "rallyBudgets",
+                    "rallySeeAllBudgets",
+                    "rallyAlerts",
+                    "rallySeeAll",
+                    "shrineCartClearButtonCaption",
+                    "shrineCartItemCount",
+                    "shrineCartPageCaption",
+                    "shrineTooltipCloseCart",
+                    "shrineCartTaxCaption",
+                    "shrineCartShippingCaption",
+                    "shrineCartSubtotalCaption",
+                    "shrineCartTotalCaption",
+                    "shrineProductPrice",
+                    "shrineProductQuantity",
+                    "shrineScreenReaderRemoveProductButton",
+                    "shrineTooltipRemoveItem",
+                    "craneHours",
+                    "craneFlightDuration",
+                    "rallyAccountDataVacation",
+                    "rallyAccountDataCarSavings",
+                    "rallyAccountDataHomeSavings",
+                    "rallyAccountDataChecking",
+                    "rallyAccountDetailDataAccountOwner",
+                    "rallyAccountDetailDataNextStatement",
+                    "rallyAccountDetailDataInterestPaidLastYear",
+                    "rallyAccountDetailDataInterestYtd",
+                    "rallyAccountDetailDataInterestRate",
+                    "rallyAccountDetailDataAnnualPercentageYield",
+                    "rallyBillDetailAmountDue",
+                    "rallyBillDetailAmountPaid",
+                    "rallyBillDetailTotalAmount",
+                    "rallyBudgetCategoryClothing",
+                    "rallyBudgetCategoryRestaurants",
+                    "rallyBudgetCategoryGroceries",
+                    "rallyBudgetCategoryCoffeeShops",
+                    "rallyBudgetDetailAmountLeft",
+                    "rallyBudgetDetailAmountUsed",
+                    "rallyBudgetDetailTotalCap",
+                    "rallySettingsSignOut",
+                    "rallySettingsHelp",
+                    "rallySettingsFindAtms",
+                    "rallySettingsPaperlessSettings",
+                    "rallySettingsPersonalInformation",
+                    "rallySettingsNotifications",
+                    "rallySettingsPasscodeAndTouchId",
+                    "rallySettingsTaxDocuments",
+                    "rallySettingsManageAccounts",
+                    "rallyAlertsMessageUnassignedTransactions",
+                    "rallyAlertsMessageCheckingAccount",
+                    "rallyAlertsMessageATMFees",
+                    "rallyAlertsMessageSpentOnRestaurants",
+                    "rallyAlertsMessageHeadsUpShopping",
+                    "rallyAccountAmount",
+                    "rallyBillAmount",
+                    "rallyFinanceLeft",
+                    "rallyBudgetAmount",
+                    "shrineScreenReaderProductAddToCart"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/app.dart": {
+        "getters": [
+            "basicLocaleListResolution"
+        ]
+    },
+    "package:flutter/src/widgets/basic.dart": {
+        "getters": [
+            "Builder.",
+            "ExcludeSemantics.",
+            "Directionality.of",
+            "Align.",
+            "Semantics.",
+            "Listener.",
+            "Stack.",
+            "Padding.",
+            "SizedBox.",
+            "Positioned.",
+            "Wrap.",
+            "Expanded.",
+            "MouseRegion.",
+            "Row.",
+            "Flexible.",
+            "Column.",
+            "PositionedDirectional.",
+            "Transform.scale",
+            "Positioned.fill",
+            "MergeSemantics.",
+            "CustomPaint.",
+            "Center.",
+            "ClipRRect.",
+            "SizedBox.shrink",
+            "StatefulBuilder.",
+            "SizedBox.expand",
+            "ClipRect.",
+            "AspectRatio.",
+            "Opacity.",
+            "PhysicalShape.",
+            "OverflowBox.",
+            "RotatedBox.",
+            "ConstrainedBox.",
+            "IntrinsicHeight.",
+            "Transform.rotate",
+            "Transform.",
+            "FractionalTranslation.",
+            "IgnorePointer.",
+            "SliverPadding.",
+            "FittedBox.",
+            "IndexedStack.",
+            "ClipOval.",
+            "Semantics.fromProperties",
+            "RepaintBoundary."
+        ]
+    },
+    "package:flutter_example_gallery/pages/splash.dart": {
+        "getters": [
+            "SplashPage.",
+            "SplashPageAnimation.of",
+            "ToggleSplashNotification."
+        ],
+        "classes": {
+            "SplashPageAnimation": {
+                "getters": [
+                    "isFinished"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/ticker_provider.dart": {
+        "classes": {
+            "TickerProviderStateMixin": {
+                "getters": [
+                    "dispose",
+                    "_tickers",
+                    "_tickerModeNotifier",
+                    "createTicker",
+                    "_removeTicker",
+                    "activate",
+                    "_updateTickers",
+                    "_updateTickerModeNotifier",
+                    "debugFillProperties"
+                ]
+            },
+            "SingleTickerProviderStateMixin": {
+                "getters": [
+                    "dispose",
+                    "_ticker",
+                    "_tickerModeNotifier",
+                    "createTicker",
+                    "activate",
+                    "_updateTicker",
+                    "_updateTickerModeNotifier",
+                    "debugFillProperties"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/animation/animation_controller.dart": {
+        "getters": [
+            "AnimationController.",
+            "AnimationBehavior.preserve"
+        ],
+        "classes": {
+            "AnimationController": {
+                "getters": [
+                    "dispose",
+                    "reverse",
+                    "forward",
+                    "isAnimating",
+                    "value",
+                    "status",
+                    "reset",
+                    "animateTo",
+                    "stop",
+                    "view",
+                    "fling"
+                ],
+                "setters": [
+                    "value"
+                ]
+            },
+            "_AnimationController&Animation&AnimationEagerListenerMixin&AnimationLocalListenersMixin&AnimationLocalStatusListenersMixin": {
+                "getters": [
+                    "addStatusListener",
+                    "removeStatusListener"
+                ]
+            },
+            "_AnimationController&Animation&AnimationEagerListenerMixin&AnimationLocalListenersMixin": {
+                "getters": [
+                    "addListener"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/focus_manager.dart": {
+        "getters": [
+            "FocusNode.",
+            "KeyEventResult.handled",
+            "KeyEventResult.ignored"
+        ],
+        "classes": {
+            "FocusNode": {
+                "getters": [
+                    "dispose",
+                    "requestFocus"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/foundation/change_notifier.dart": {
+        "getters": [
+            "ValueNotifier."
+        ],
+        "classes": {
+            "ChangeNotifier": {
+                "getters": [
+                    "dispose",
+                    "addListener",
+                    "_count",
+                    "_listeners",
+                    "_notificationCallStackDepth",
+                    "_reentrantlyRemovedListeners",
+                    "_debugDisposed",
+                    "_creationDispatched",
+                    "_removeAt",
+                    "removeListener",
+                    "notifyListeners"
+                ]
+            },
+            "ValueNotifier": {
+                "getters": [
+                    "value"
+                ],
+                "setters": [
+                    "value"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/rendering/box.dart": {
+        "classes": {
+            "BoxConstraints": {
+                "getters": [
+                    "maxHeight",
+                    "biggest",
+                    "maxWidth"
+                ]
+            },
+            "RenderBox": {
+                "getters": [
+                    "#as",
+                    "localToGlobal",
+                    "size"
+                ]
+            }
+        },
+        "getters": [
+            "BoxConstraints."
+        ]
+    },
+    "package:flutter/src/rendering/stack.dart": {
+        "getters": [
+            "RelativeRect.fromLTRB",
+            "StackFit.expand",
+            "RelativeRect.fill"
+        ]
+    },
+    "package:flutter/src/widgets/transitions.dart": {
+        "getters": [
+            "RelativeRectTween.",
+            "PositionedTransition.",
+            "ScaleTransition.",
+            "AnimatedWidget.",
+            "AnimatedBuilder.",
+            "RotationTransition.",
+            "SizeTransition.",
+            "SlideTransition.",
+            "FadeTransition."
+        ],
+        "classes": {
+            "AnimatedWidget": {
+                "getters": [
+                    "listenable"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/animation/animations.dart": {
+        "getters": [
+            "CurvedAnimation.",
+            "ReverseAnimation.",
+            "AlwaysStoppedAnimation."
+        ],
+        "classes": {
+            "CurvedAnimation": {
+                "getters": [
+                    "value"
+                ]
+            },
+            "_CurvedAnimation&Animation&AnimationWithParentMixin": {
+                "getters": [
+                    "addStatusListener"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/services/raw_keyboard.dart": {
+        "classes": {
+            "RawKeyEvent": {
+                "getters": [
+                    "logicalKey"
+                ]
+            },
+            "RawKeyDownEvent": {
+                "getters": [
+                    "#is"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/services/keyboard_key.g.dart": {
+        "getters": [
+            "LogicalKeyboardKey.escape",
+            "LogicalKeyboardKey.space",
+            "LogicalKeyboardKey.enter",
+            "LogicalKeyboardKey.numpadEnter"
+        ]
+    },
+    "package:flutter/src/widgets/focus_scope.dart": {
+        "getters": [
+            "FocusScope.",
+            "ExcludeFocus.",
+            "Focus."
+        ]
+    },
+    "package:flutter/src/widgets/raw_keyboard_listener.dart": {
+        "getters": [
+            "RawKeyboardListener."
+        ]
+    },
+    "package:flutter/src/widgets/value_listenable_builder.dart": {
+        "getters": [
+            "ValueListenableBuilder."
+        ]
+    },
+    "package:flutter/src/widgets/focus_traversal.dart": {
+        "getters": [
+            "FocusTraversalGroup.",
+            "WidgetOrderTraversalPolicy.",
+            "ReadingOrderTraversalPolicy.",
+            "OrderedTraversalPolicy.",
+            "NumericFocusOrder.",
+            "FocusTraversalOrder."
+        ]
+    },
+    "package:flutter/src/semantics/semantics.dart": {
+        "getters": [
+            "OrdinalSortKey.",
+            "SemanticsProperties."
+        ]
+    },
+    "package:flutter/src/painting/alignment.dart": {
+        "getters": [
+            "Alignment.topRight",
+            "Alignment.topLeft",
+            "AlignmentDirectional.topEnd",
+            "AlignmentDirectional.centerStart",
+            "Alignment.topCenter",
+            "Alignment.center",
+            "AlignmentDirectional.centerEnd",
+            "AlignmentDirectional.bottomStart",
+            "AlignmentDirectional.topStart",
+            "Alignment.centerLeft",
+            "Alignment.centerRight",
+            "AlignmentDirectional.bottomEnd"
+        ]
+    },
+    "package:flutter/src/material/theme.dart": {
+        "getters": [
+            "Theme.of",
+            "Theme.",
+            "kThemeAnimationDuration"
+        ]
+    },
+    "package:flutter/src/widgets/container.dart": {
+        "getters": [
+            "Container.",
+            "DecoratedBox."
+        ]
+    },
+    "package:flutter/src/material/material.dart": {
+        "getters": [
+            "Material.",
+            "MaterialType.transparency"
+        ]
+    },
+    "package:flutter/src/widgets/modal_barrier.dart": {
+        "getters": [
+            "ModalBarrier."
+        ]
+    },
+    "package:flutter/src/widgets/annotated_region.dart": {
+        "getters": [
+            "AnnotatedRegion."
+        ]
+    },
+    "package:flutter/src/widgets/layout_builder.dart": {
+        "getters": [
+            "LayoutBuilder."
+        ]
+    },
+    "package:flutter/src/semantics/semantics_service.dart": {
+        "getters": [
+            "SemanticsService.announce"
+        ]
+    },
+    "package:flutter/src/material/ink_well.dart": {
+        "getters": [
+            "InkWell.",
+            "InkResponse."
+        ]
+    },
+    "package:flutter/src/widgets/navigator.dart": {
+        "classes": {
+            "RouteSettings": {
+                "getters": [
+                    "name",
+                    "arguments"
+                ]
+            },
+            "Route": {
+                "getters": [
+                    "settings"
+                ]
+            },
+            "NavigatorState": {
+                "getters": [
+                    "popUntil",
+                    "restorablePushNamed",
+                    "pop",
+                    "push",
+                    "canPop",
+                    "restorablePush"
+                ]
+            },
+            "RestorableRouteFuture": {
+                "getters": [
+                    "present"
+                ]
+            }
+        },
+        "getters": [
+            "Navigator.of",
+            "Navigator.maybePop",
+            "Navigator.",
+            "Navigator.pop",
+            "RestorableRouteFuture.",
+            "Navigator.restorablePush"
+        ]
+    },
+    "package:flutter/src/material/page.dart": {
+        "getters": [
+            "MaterialPageRoute."
+        ]
+    },
+    "package:flutter/src/widgets/routes.dart": {
+        "getters": [
+            "OverlayRoute."
+        ]
+    },
+    "package:flutter/src/widgets/overlay.dart": {
+        "getters": [
+            "OverlayEntry.",
+            "Overlay.of"
+        ],
+        "classes": {
+            "OverlayEntry": {
+                "getters": [
+                    "markNeedsBuild",
+                    "remove"
+                ]
+            },
+            "OverlayState": {
+                "getters": [
+                    "insert"
+                ]
+            }
+        }
+    },
+    "package:flutter_example_gallery/gen_l10n/gallery_localizations_en.dart": {
+        "getters": [
+            "GalleryLocalizationsEn."
+        ]
+    },
+    "package:flutter/src/painting/image_resolution.dart": {
+        "getters": [
+            "AssetImage."
+        ]
+    },
+    "package:flutter/src/rendering/wrap.dart": {
+        "getters": [
+            "WrapCrossAlignment.center",
+            "WrapAlignment.end",
+            "WrapAlignment.spaceBetween"
+        ]
+    },
+    "package:flutter/src/services/mouse_cursor.dart": {
+        "getters": [
+            "SystemMouseCursors.click",
+            "MouseCursor.defer"
+        ]
+    },
+    "package:url_launcher/src/url_launcher_uri.dart": {
+        "getters": [
+            "canLaunchUrl",
+            "launchUrl"
+        ]
+    },
+    "package:flutter/src/painting/image_provider.dart": {
+        "getters": [
+            "MemoryImage.",
+            "ExactAssetImage."
+        ],
+        "classes": {
+            "ImageConfiguration": {
+                "getters": [
+                    "size"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/fade_in_image.dart": {
+        "getters": [
+            "FadeInImage."
+        ]
+    },
+    "package:flutter/src/widgets/gesture_detector.dart": {
+        "getters": [
+            "GestureDetector."
+        ]
+    },
+    "package:flutter/src/rendering/flex.dart": {
+        "getters": [
+            "MainAxisSize.max",
+            "MainAxisAlignment.spaceBetween",
+            "CrossAxisAlignment.start",
+            "MainAxisAlignment.end",
+            "MainAxisSize.min",
+            "FlexFit.tight",
+            "CrossAxisAlignment.center",
+            "CrossAxisAlignment.stretch",
+            "MainAxisAlignment.center",
+            "MainAxisAlignment.spaceEvenly",
+            "MainAxisAlignment.start",
+            "FlexFit.loose",
+            "CrossAxisAlignment.end"
+        ]
+    },
+    "package:flutter/src/material/scaffold.dart": {
+        "getters": [
+            "Scaffold.",
+            "ScaffoldMessenger.",
+            "ScaffoldMessenger.of",
+            "Scaffold.of"
+        ],
+        "classes": {
+            "ScaffoldMessengerState": {
+                "getters": [
+                    "showSnackBar",
+                    "hideCurrentSnackBar"
+                ]
+            },
+            "ScaffoldState": {
+                "getters": [
+                    "showBottomSheet"
+                ]
+            },
+            "ScaffoldFeatureController": {
+                "getters": [
+                    "closed"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/selectable_text.dart": {
+        "getters": [
+            "SelectableText.",
+            "SelectableText.rich"
+        ]
+    },
+    "package:flutter/src/widgets/restoration.dart": {
+        "classes": {
+            "RestorationMixin": {
+                "getters": [
+                    "dispose",
+                    "_bucket",
+                    "_debugPropertiesWaitingForReregistration",
+                    "_firstRestorePending",
+                    "_currentParent",
+                    "didToggleBucket",
+                    "_properties",
+                    "registerForRestoration",
+                    "unregisterFromRestoration",
+                    "didUpdateRestorationId",
+                    "didUpdateWidget",
+                    "didChangeDependencies",
+                    "_doRestore",
+                    "_updateBucketIfNecessary",
+                    "_setNewBucketIfNecessary",
+                    "_updateProperty",
+                    "_unregister"
+                ]
+            },
+            "RestorableProperty": {
+                "getters": [
+                    "dispose"
+                ]
+            }
+        },
+        "getters": [
+            "RestorationScope.",
+            "RestorableProperty."
+        ]
+    },
+    "dart:async": {
+        "getters": [
+            "Timer.",
+            "Future.delayed"
+        ],
+        "classes": {
+            "Timer": {
+                "getters": [
+                    "cancel"
+                ]
+            },
+            "Future": {
+                "getters": [
+                    "then",
+                    "catchError",
+                    "whenComplete"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/gestures/drag_details.dart": {
+        "classes": {
+            "DragEndDetails": {
+                "getters": [
+                    "velocity"
+                ]
+            },
+            "DragUpdateDetails": {
+                "getters": [
+                    "primaryDelta"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/gestures/velocity_tracker.dart": {
+        "classes": {
+            "Velocity": {
+                "getters": [
+                    "pixelsPerSecond"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/notification_listener.dart": {
+        "classes": {
+            "Notification": {
+                "getters": [
+                    "dispatch"
+                ]
+            }
+        },
+        "getters": [
+            "NotificationListener."
+        ]
+    },
+    "package:flutter/src/widgets/safe_area.dart": {
+        "getters": [
+            "SafeArea."
+        ]
+    },
+    "package:flutter/src/widgets/page_storage.dart": {
+        "getters": [
+            "PageStorageKey."
+        ]
+    },
+    "package:flutter/src/material/divider.dart": {
+        "getters": [
+            "Divider.",
+            "VerticalDivider."
+        ]
+    },
+    "package:flutter/src/animation/animation.dart": {
+        "classes": {
+            "Animation": {
+                "getters": [
+                    "value",
+                    "removeListener",
+                    "addListener",
+                    "drive",
+                    "#as",
+                    "isCompleted",
+                    "isDismissed"
+                ]
+            }
+        },
+        "getters": [
+            "AnimationStatus.dismissed",
+            "AnimationStatus.completed",
+            "AnimationStatus.forward",
+            "AnimationStatus.reverse"
+        ]
+    },
+    "package:flutter/src/widgets/page_view.dart": {
+        "getters": [
+            "PageController.",
+            "PageView.builder"
+        ],
+        "classes": {
+            "PageController": {
+                "getters": [
+                    "page"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/scroll_controller.dart": {
+        "classes": {
+            "ScrollController": {
+                "getters": [
+                    "dispose",
+                    "position",
+                    "hasClients",
+                    "offset",
+                    "animateTo"
+                ]
+            }
+        },
+        "getters": [
+            "ScrollController."
+        ]
+    },
+    "package:flutter/src/widgets/scroll_position.dart": {
+        "classes": {
+            "ScrollPosition": {
+                "getters": [
+                    "haveDimensions",
+                    "maxScrollExtent"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/basic_types.dart": {
+        "getters": [
+            "Axis.horizontal",
+            "Axis.vertical"
+        ]
+    },
+    "package:flutter/src/widgets/scroll_physics.dart": {
+        "getters": [
+            "BouncingScrollPhysics.",
+            "NeverScrollableScrollPhysics.",
+            "ClampingScrollPhysics.",
+            "AlwaysScrollableScrollPhysics."
+        ]
+    },
+    "package:flutter/src/material/material_localizations.dart": {
+        "getters": [
+            "MaterialLocalizations.of"
+        ],
+        "classes": {
+            "MaterialLocalizations": {
+                "getters": [
+                    "nextPageTooltip",
+                    "previousPageTooltip",
+                    "backButtonTooltip",
+                    "closeButtonLabel",
+                    "viewLicensesButtonLabel",
+                    "closeButtonTooltip",
+                    "openAppDrawerTooltip"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/circle_border.dart": {
+        "getters": [
+            "CircleBorder."
+        ]
+    },
+    "package:flutter/src/widgets/icon.dart": {
+        "getters": [
+            "Icon."
+        ]
+    },
+    "package:flutter/src/material/tooltip.dart": {
+        "getters": [
+            "Tooltip."
+        ]
+    },
+    "package:flutter/src/painting/rounded_rectangle_border.dart": {
+        "getters": [
+            "RoundedRectangleBorder."
+        ]
+    },
+    "package:flutter/src/painting/box_fit.dart": {
+        "getters": [
+            "BoxFit.cover",
+            "BoxFit.fill",
+            "BoxFit.contain",
+            "BoxFit.fitWidth",
+            "BoxFit.scaleDown"
+        ]
+    },
+    "package:flutter/src/painting/text_painter.dart": {
+        "getters": [
+            "TextOverflow.visible",
+            "TextOverflow.ellipsis",
+            "TextPainter."
+        ],
+        "classes": {
+            "TextPainter": {
+                "getters": [
+                    "height",
+                    "width",
+                    "paint",
+                    "layout"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/text.dart": {
+        "getters": [
+            "Text.",
+            "DefaultTextStyle."
+        ]
+    },
+    "package:flutter/src/material/constants.dart": {
+        "getters": [
+            "kBottomNavigationBarHeight",
+            "kToolbarHeight"
+        ]
+    },
+    "package:flutter/src/material/action_buttons.dart": {
+        "getters": [
+            "BackButtonIcon.",
+            "BackButton."
+        ]
+    },
+    "package:flutter/src/widgets/icon_theme.dart": {
+        "getters": [
+            "IconTheme.",
+            "IconTheme.of"
+        ]
+    },
+    "package:flutter/src/material/floating_action_button.dart": {
+        "getters": [
+            "FloatingActionButton.extended",
+            "FloatingActionButton."
+        ]
+    },
+    "package:flutter/src/rendering/custom_paint.dart": {
+        "getters": [
+            "CustomPainter.",
+            "CustomPainterSemantics."
+        ]
+    },
+    "package:flutter/src/painting/gradient.dart": {
+        "getters": [
+            "LinearGradient."
+        ],
+        "classes": {
+            "LinearGradient": {
+                "getters": [
+                    "createShader"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/colors.dart": {
+        "classes": {
+            "ColorSwatch": {
+                "getters": [
+                    "[]"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/box_border.dart": {
+        "getters": [
+            "Border.all",
+            "BorderDirectional.",
+            "Border.",
+            "BoxShape.circle"
+        ]
+    },
+    "package:flutter/src/painting/box_decoration.dart": {
+        "getters": [
+            "BoxDecoration."
+        ]
+    },
+    "package:flutter/src/material/progress_indicator.dart": {
+        "getters": [
+            "CircularProgressIndicator.",
+            "LinearProgressIndicator."
+        ]
+    },
+    "package:url_launcher/src/url_launcher_string.dart": {
+        "getters": [
+            "canLaunchUrlString",
+            "launchUrlString"
+        ]
+    },
+    "package:flutter/src/material/dialog.dart": {
+        "getters": [
+            "SimpleDialog.",
+            "showDialog",
+            "AlertDialog.",
+            "DialogRoute.",
+            "SimpleDialogOption."
+        ]
+    },
+    "package:flutter/src/material/icon_button.dart": {
+        "getters": [
+            "IconButton."
+        ]
+    },
+    "package:flutter/src/material/app_bar.dart": {
+        "getters": [
+            "AppBar."
+        ],
+        "classes": {
+            "AppBar": {
+                "getters": [
+                    "preferredSize"
+                ]
+            }
+        }
+    },
+    "package:flutter_example_gallery/codeviewer/code_style.dart": {
+        "getters": [
+            "CodeStyle.",
+            "CodeStyle.of"
+        ],
+        "classes": {
+            "CodeStyle": {
+                "getters": [
+                    "baseStyle",
+                    "punctuationStyle",
+                    "classStyle",
+                    "keywordStyle",
+                    "stringStyle",
+                    "commentStyle",
+                    "numberStyle",
+                    "constantStyle"
+                ]
+            }
+        }
+    },
+    "package:dual_screen/src/two_pane.dart": {
+        "getters": [
+            "TwoPane.",
+            "TwoPanePriority.both",
+            "TwoPanePriority.start",
+            "TwoPanePriority.end"
+        ]
+    },
+    "package:flutter/src/widgets/animated_size.dart": {
+        "getters": [
+            "AnimatedSize."
+        ]
+    },
+    "package:flutter/src/widgets/single_child_scroll_view.dart": {
+        "getters": [
+            "SingleChildScrollView."
+        ]
+    },
+    "package:flutter/src/cupertino/theme.dart": {
+        "getters": [
+            "CupertinoThemeData.",
+            "CupertinoTheme.",
+            "CupertinoTheme.of"
+        ],
+        "classes": {
+            "CupertinoThemeData": {
+                "getters": [
+                    "copyWith",
+                    "textTheme"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/inline_span.dart": {
+        "classes": {
+            "InlineSpan": {
+                "getters": [
+                    "toPlainText"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/snack_bar.dart": {
+        "getters": [
+            "SnackBar.",
+            "SnackBarAction."
+        ]
+    },
+    "package:flutter/src/material/elevated_button.dart": {
+        "getters": [
+            "ElevatedButton.styleFrom",
+            "ElevatedButton.",
+            "_ElevatedButtonWithIcon."
+        ]
+    },
+    "package:flutter/src/services/clipboard.dart": {
+        "getters": [
+            "ClipboardData.",
+            "Clipboard.setData"
+        ]
+    },
+    "package:flutter/src/material/drawer.dart": {
+        "getters": [
+            "Drawer."
+        ]
+    },
+    "package:flutter/src/widgets/image.dart": {
+        "getters": [
+            "Image.asset",
+            "Image."
+        ]
+    },
+    "package:flutter/src/material/page_transitions_theme.dart": {
+        "getters": [
+            "PageTransitionsTheme."
+        ]
+    },
+    "package:flutter/src/services/system_chrome.dart": {
+        "getters": [
+            "SystemUiOverlayStyle.light",
+            "SystemUiOverlayStyle.dark"
+        ]
+    },
+    "package:flutter/src/material/input_border.dart": {
+        "getters": [
+            "InputBorder.none",
+            "OutlineInputBorder."
+        ],
+        "classes": {
+            "InputBorder": {
+                "getters": [
+                    "borderSide"
+                ]
+            },
+            "OutlineInputBorder": {
+                "getters": [
+                    "borderRadius",
+                    "gapPadding",
+                    "lerpFrom",
+                    "lerpTo"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/input_decorator.dart": {
+        "getters": [
+            "InputDecorationTheme.",
+            "InputDecoration.",
+            "InputDecoration.collapsed",
+            "FloatingLabelBehavior.never"
+        ]
+    },
+    "package:flutter/src/material/bottom_sheet_theme.dart": {
+        "getters": [
+            "BottomSheetThemeData."
+        ],
+        "classes": {
+            "BottomSheetThemeData": {
+                "getters": [
+                    "modalBackgroundColor",
+                    "backgroundColor"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/navigation_rail_theme.dart": {
+        "getters": [
+            "NavigationRailThemeData."
+        ],
+        "classes": {
+            "NavigationRailThemeData": {
+                "getters": [
+                    "backgroundColor",
+                    "unselectedLabelTextStyle"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/stadium_border.dart": {
+        "getters": [
+            "StadiumBorder."
+        ]
+    },
+    "package:flutter/src/material/chip_theme.dart": {
+        "getters": [
+            "ChipThemeData."
+        ],
+        "classes": {
+            "ChipThemeData": {
+                "getters": [
+                    "secondarySelectedColor"
+                ]
+            }
+        }
+    },
+    "package:animations/src/fade_through_transition.dart": {
+        "getters": [
+            "FadeThroughTransition."
+        ]
+    },
+    "package:flutter/src/widgets/pages.dart": {
+        "getters": [
+            "PageRouteBuilder."
+        ]
+    },
+    "package:provider/src/change_notifier_provider.dart": {
+        "getters": [
+            "ChangeNotifierProvider.value"
+        ]
+    },
+    "package:provider/src/provider.dart": {
+        "getters": [
+            "MultiProvider.",
+            "Provider.of"
+        ]
+    },
+    "dart:collection": {
+        "getters": [
+            "LinkedHashMap.from",
+            "LinkedHashSet.of",
+            "LinkedHashSet.from"
+        ]
+    },
+    "package:flutter_example_gallery/studies/shrine/page_status.dart": {
+        "getters": [
+            "PageStatus.",
+            "PageStatus.of",
+            "menuPageIsVisible",
+            "cartPageIsVisible",
+            "productPageIsVisible"
+        ],
+        "classes": {
+            "PageStatus": {
+                "getters": [
+                    "cartController",
+                    "menuController"
+                ]
+            }
+        }
+    },
+    "package:flutter_example_gallery/studies/shrine/supplemental/layout_cache.dart": {
+        "getters": [
+            "LayoutCache.",
+            "LayoutCache.of"
+        ]
+    },
+    "package:flutter/src/widgets/scroll_configuration.dart": {
+        "classes": {
+            "ScrollBehavior": {
+                "getters": [
+                    "copyWith"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/will_pop_scope.dart": {
+        "getters": [
+            "WillPopScope."
+        ]
+    },
+    "package:scoped_model/scoped_model.dart": {
+        "getters": [
+            "ScopedModel.",
+            "ScopedModelDescendant.",
+            "ScopedModel.of"
+        ]
+    },
+    "package:flutter_example_gallery/studies/shrine/model/app_state_model.dart": {
+        "getters": [
+            "AppStateModel."
+        ],
+        "classes": {
+            "AppStateModel": {
+                "getters": [
+                    "loadProducts",
+                    "setCategory",
+                    "addMultipleProductsToCart",
+                    "selectedCategory",
+                    "productsInCart",
+                    "totalCartQuantity",
+                    "getProductById",
+                    "getProducts",
+                    "removeItemFromCart",
+                    "clearCart",
+                    "tax",
+                    "shippingCost",
+                    "subtotalCost",
+                    "totalCost",
+                    "addProductToCart"
+                ]
+            }
+        }
+    },
+    "package:flutter_example_gallery/studies/shrine/model/product.dart": {
+        "getters": [
+            "categories"
+        ],
+        "classes": {
+            "Category": {
+                "getters": [
+                    "name"
+                ]
+            },
+            "Product": {
+                "getters": [
+                    "assetName",
+                    "assetPackage",
+                    "id",
+                    "name",
+                    "price",
+                    "assetAspectRatio"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/divider_theme.dart": {
+        "getters": [
+            "DividerThemeData."
+        ]
+    },
+    "package:flutter/src/painting/text_span.dart": {
+        "getters": [
+            "TextSpan."
+        ]
+    },
+    "package:flutter/src/material/scrollbar.dart": {
+        "getters": [
+            "Scrollbar."
+        ]
+    },
+    "package:flutter/src/material/tabs.dart": {
+        "getters": [
+            "Tab.",
+            "TabBar.",
+            "TabBarView."
+        ]
+    },
+    "package:flutter/src/material/tab_controller.dart": {
+        "getters": [
+            "DefaultTabController.",
+            "TabController."
+        ],
+        "classes": {
+            "TabController": {
+                "setters": [
+                    "index"
+                ],
+                "getters": [
+                    "index",
+                    "animation",
+                    "dispose",
+                    "animateTo"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/toggle_buttons.dart": {
+        "getters": [
+            "ToggleButtons."
+        ]
+    },
+    "package:flutter/src/material/bottom_sheet.dart": {
+        "getters": [
+            "showModalBottomSheet"
+        ]
+    },
+    "package:flutter/src/material/list_tile.dart": {
+        "getters": [
+            "ListTile."
+        ]
+    },
+    "package:animations/src/fade_scale_transition.dart": {
+        "getters": [
+            "FadeScaleTransition."
+        ]
+    },
+    "package:flutter/src/widgets/visibility.dart": {
+        "getters": [
+            "Visibility."
+        ]
+    },
+    "package:animations/src/modal.dart": {
+        "getters": [
+            "showModal"
+        ]
+    },
+    "package:flutter/src/material/text_button.dart": {
+        "getters": [
+            "TextButton.",
+            "TextButton.styleFrom",
+            "_TextButtonWithIcon."
+        ]
+    },
+    "package:animations/src/page_transition_switcher.dart": {
+        "getters": [
+            "PageTransitionSwitcher."
+        ]
+    },
+    "package:flutter/src/widgets/bottom_navigation_bar_item.dart": {
+        "getters": [
+            "BottomNavigationBarItem."
+        ],
+        "classes": {
+            "BottomNavigationBarItem": {
+                "getters": [
+                    "label",
+                    "icon"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/bottom_navigation_bar.dart": {
+        "getters": [
+            "BottomNavigationBar.",
+            "BottomNavigationBarType.fixed"
+        ]
+    },
+    "package:flutter/src/material/ink_decoration.dart": {
+        "getters": [
+            "Ink.image"
+        ]
+    },
+    "package:flutter/src/material/card.dart": {
+        "getters": [
+            "Card."
+        ]
+    },
+    "package:flutter/src/material/switch_list_tile.dart": {
+        "getters": [
+            "SwitchListTile."
+        ]
+    },
+    "package:flutter/src/material/text_field.dart": {
+        "getters": [
+            "TextField."
+        ]
+    },
+    "package:flutter/src/widgets/implicit_animations.dart": {
+        "getters": [
+            "Matrix4Tween.",
+            "EdgeInsetsGeometryTween.",
+            "BorderRadiusTween.",
+            "AnimatedPadding.",
+            "AnimatedContainer."
+        ]
+    },
+    "package:flutter/src/gestures/tap.dart": {
+        "classes": {
+            "TapUpDetails": {
+                "getters": [
+                    "globalPosition"
+                ]
+            }
+        },
+        "getters": [
+            "TapGestureRecognizer."
+        ]
+    },
+    "package:vector_math/vector_math_64.dart": {
+        "getters": [
+            "Matrix4.identity",
+            "Matrix4.rotationY",
+            "Vector3."
+        ],
+        "classes": {
+            "Matrix4": {
+                "getters": [
+                    "translate"
+                ]
+            },
+            "Vector3": {
+                "getters": [
+                    "x",
+                    "y",
+                    "z"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/rendering/proxy_box.dart": {
+        "getters": [
+            "HitTestBehavior.opaque",
+            "ShapeBorderClipper."
+        ]
+    },
+    "package:flutter/src/material/circle_avatar.dart": {
+        "getters": [
+            "CircleAvatar."
+        ]
+    },
+    "package:flutter/src/widgets/async.dart": {
+        "classes": {
+            "AsyncSnapshot": {
+                "getters": [
+                    "hasData",
+                    "data"
+                ]
+            }
+        },
+        "getters": [
+            "FutureBuilder."
+        ]
+    },
+    "package:flutter/src/material/about.dart": {
+        "getters": [
+            "LicensePage."
+        ]
+    },
+    "package:flutter/src/material/switch.dart": {
+        "getters": [
+            "Switch."
+        ]
+    },
+    "package:flutter/src/scheduler/ticker.dart": {
+        "classes": {
+            "TickerFuture": {
+                "getters": [
+                    "then"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/borders.dart": {
+        "getters": [
+            "BorderSide.",
+            "BorderStyle.none",
+            "BorderSide.lerp",
+            "BorderSide.strokeAlignOutside"
+        ],
+        "classes": {
+            "BorderSide": {
+                "getters": [
+                    "toPaint"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/radio_list_tile.dart": {
+        "getters": [
+            "RadioListTile."
+        ]
+    },
+    "package:flutter/src/foundation/assertions.dart": {
+        "getters": [
+            "FlutterError."
+        ]
+    },
+    "package:flutter/src/widgets/debug.dart": {
+        "getters": [
+            "debugCheckHasMediaQuery",
+            "debugCheckHasDirectionality"
+        ]
+    },
+    "package:flutter_staggered_grid_view/src/widgets/masonry_grid_view.dart": {
+        "getters": [
+            "MasonryGridView.count"
+        ]
+    },
+    "package:flutter/src/material/text_selection_theme.dart": {
+        "getters": [
+            "TextSelectionThemeData."
+        ]
+    },
+    "package:flutter/src/widgets/animated_switcher.dart": {
+        "getters": [
+            "AnimatedSwitcher."
+        ]
+    },
+    "package:intl/src/intl/number_format.dart": {
+        "getters": [
+            "NumberFormat.decimalPercentPattern",
+            "NumberFormat.simpleCurrency",
+            "NumberFormat.currency"
+        ],
+        "classes": {
+            "NumberFormat": {
+                "getters": [
+                    "format"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/services/autofill.dart": {
+        "getters": [
+            "AutofillHints.username"
+        ]
+    },
+    "package:flutter/src/services/text_input.dart": {
+        "getters": [
+            "TextInputAction.next",
+            "TextInputAction.done",
+            "TextInputType.number",
+            "TextInputType.emailAddress",
+            "TextInputType.phone",
+            "TextCapitalization.words",
+            "TextEditingValue."
+        ],
+        "classes": {
+            "TextEditingValue": {
+                "getters": [
+                    "text",
+                    "selection"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/outlined_button.dart": {
+        "getters": [
+            "OutlinedButton.styleFrom",
+            "OutlinedButton.",
+            "_OutlinedButtonWithIcon."
+        ]
+    },
+    "package:flutter/src/widgets/image_icon.dart": {
+        "getters": [
+            "ImageIcon."
+        ]
+    },
+    "package:flutter/src/material/navigation_rail.dart": {
+        "getters": [
+            "NavigationRailDestination.",
+            "NavigationRailLabelType.none",
+            "NavigationRail.",
+            "NavigationRail.extendedAnimation",
+            "NavigationRailLabelType.selected"
+        ]
+    },
+    "package:provider/src/consumer.dart": {
+        "getters": [
+            "Consumer."
+        ]
+    },
+    "package:flutter/src/material/curves.dart": {
+        "getters": [
+            "standardEasing"
+        ]
+    },
+    "package:flutter/src/widgets/scroll_notification.dart": {
+        "classes": {
+            "_ScrollNotification&LayoutChangedNotification&ViewportNotificationMixin": {
+                "getters": [
+                    "depth"
+                ]
+            },
+            "UserScrollNotification": {
+                "getters": [
+                    "#is",
+                    "direction"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/rendering/viewport_offset.dart": {
+        "getters": [
+            "ScrollDirection.forward",
+            "ScrollDirection.reverse",
+            "ScrollDirection.idle"
+        ]
+    },
+    "package:flutter/src/material/bottom_app_bar.dart": {
+        "getters": [
+            "BottomAppBar."
+        ]
+    },
+    "package:provider/src/selector.dart": {
+        "getters": [
+            "Selector."
+        ]
+    },
+    "package:flutter/src/material/popup_menu.dart": {
+        "getters": [
+            "PopupMenuItem.",
+            "PopupMenuButton.",
+            "CheckedPopupMenuItem.",
+            "PopupMenuDivider."
+        ]
+    },
+    "package:flutter/src/material/chip.dart": {
+        "getters": [
+            "Chip."
+        ]
+    },
+    "package:flutter/src/painting/beveled_rectangle_border.dart": {
+        "getters": [
+            "BeveledRectangleBorder."
+        ]
+    },
+    "package:flutter/src/animation/tween_sequence.dart": {
+        "getters": [
+            "TweenSequenceItem.",
+            "TweenSequence."
+        ]
+    },
+    "package:flutter/src/widgets/spacer.dart": {
+        "getters": [
+            "Spacer."
+        ]
+    },
+    "package:flutter/src/widgets/animated_scroll_view.dart": {
+        "getters": [
+            "AnimatedList."
+        ],
+        "classes": {
+            "_AnimatedScrollViewState": {
+                "getters": [
+                    "insertItem",
+                    "removeItem"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/painting/decoration_image.dart": {
+        "getters": [
+            "DecorationImage."
+        ]
+    },
+    "package:flutter/src/widgets/overflow_bar.dart": {
+        "getters": [
+            "OverflowBar."
+        ]
+    },
+    "package:flutter/src/widgets/preferred_size.dart": {
+        "getters": [
+            "PreferredSize."
+        ]
+    },
+    "package:flutter/src/cupertino/nav_bar.dart": {
+        "getters": [
+            "CupertinoNavigationBar.",
+            "CupertinoSliverNavigationBar."
+        ]
+    },
+    "package:flutter/src/cupertino/activity_indicator.dart": {
+        "getters": [
+            "CupertinoActivityIndicator."
+        ]
+    },
+    "package:flutter/src/cupertino/page_scaffold.dart": {
+        "getters": [
+            "CupertinoPageScaffold."
+        ]
+    },
+    "package:flutter/src/cupertino/dialog.dart": {
+        "getters": [
+            "CupertinoDialogAction.",
+            "CupertinoAlertDialog.",
+            "CupertinoActionSheetAction.",
+            "CupertinoActionSheet."
+        ]
+    },
+    "package:flutter/src/cupertino/route.dart": {
+        "getters": [
+            "CupertinoDialogRoute.",
+            "CupertinoModalPopupRoute.",
+            "CupertinoPageRoute.",
+            "showCupertinoModalPopup"
+        ]
+    },
+    "package:flutter/src/cupertino/button.dart": {
+        "getters": [
+            "CupertinoButton.filled",
+            "CupertinoButton."
+        ]
+    },
+    "package:flutter/src/cupertino/text_theme.dart": {
+        "classes": {
+            "CupertinoTextThemeData": {
+                "getters": [
+                    "textStyle"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/cupertino/context_menu_action.dart": {
+        "getters": [
+            "CupertinoContextMenuAction."
+        ]
+    },
+    "package:flutter/src/material/flutter_logo.dart": {
+        "getters": [
+            "FlutterLogo."
+        ]
+    },
+    "package:flutter/src/cupertino/context_menu.dart": {
+        "getters": [
+            "CupertinoContextMenu."
+        ]
+    },
+    "package:flutter/src/widgets/scroll_delegate.dart": {
+        "getters": [
+            "SliverChildBuilderDelegate."
+        ]
+    },
+    "package:flutter/src/widgets/sliver.dart": {
+        "getters": [
+            "SliverList."
+        ]
+    },
+    "package:intl/src/intl/date_format.dart": {
+        "getters": [
+            "DateFormat.WEEKDAY",
+            "DateFormat.",
+            "DateFormat.yMMMMd",
+            "DateFormat.jm",
+            "DateFormat.yMMMd",
+            "DateFormat.yMd",
+            "DateFormat.MMMd",
+            "DateFormat.yMMM"
+        ],
+        "classes": {
+            "DateFormat": {
+                "getters": [
+                    "format",
+                    "add_jm"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/cupertino/colors.dart": {
+        "getters": [
+            "CupertinoColors.systemBackground",
+            "CupertinoColors.inactiveGray",
+            "CupertinoColors.label"
+        ],
+        "classes": {
+            "CupertinoDynamicColor": {
+                "getters": [
+                    "resolveFrom"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/cupertino/date_picker.dart": {
+        "getters": [
+            "CupertinoDatePickerMode.date",
+            "CupertinoDatePicker.",
+            "CupertinoDatePickerMode.time",
+            "CupertinoDatePickerMode.dateAndTime",
+            "CupertinoTimerPicker."
+        ]
+    },
+    "package:flutter/src/cupertino/picker.dart": {
+        "getters": [
+            "CupertinoPicker."
+        ]
+    },
+    "package:flutter/src/cupertino/scrollbar.dart": {
+        "getters": [
+            "CupertinoScrollbar."
+        ]
+    },
+    "package:flutter/src/cupertino/search_field.dart": {
+        "getters": [
+            "CupertinoSearchTextField."
+        ]
+    },
+    "package:flutter/src/cupertino/sliding_segmented_control.dart": {
+        "getters": [
+            "CupertinoSlidingSegmentedControl."
+        ]
+    },
+    "package:flutter/src/cupertino/segmented_control.dart": {
+        "getters": [
+            "CupertinoSegmentedControl."
+        ]
+    },
+    "package:flutter/src/cupertino/slider.dart": {
+        "getters": [
+            "CupertinoSlider."
+        ]
+    },
+    "package:flutter/src/cupertino/switch.dart": {
+        "getters": [
+            "CupertinoSwitch."
+        ]
+    },
+    "package:flutter/src/cupertino/icons.dart": {
+        "getters": [
+            "CupertinoIcons.profile_circled",
+            "CupertinoIcons.conversation_bubble",
+            "CupertinoIcons.home",
+            "CupertinoIcons.padlock_solid"
+        ]
+    },
+    "package:flutter/src/cupertino/bottom_tab_bar.dart": {
+        "getters": [
+            "CupertinoTabBar."
+        ]
+    },
+    "package:flutter/src/cupertino/tab_view.dart": {
+        "getters": [
+            "CupertinoTabView."
+        ]
+    },
+    "package:flutter/src/cupertino/tab_scaffold.dart": {
+        "getters": [
+            "CupertinoTabScaffold."
+        ]
+    },
+    "package:flutter/src/cupertino/text_field.dart": {
+        "getters": [
+            "OverlayVisibilityMode.editing",
+            "CupertinoTextField."
+        ]
+    },
+    "package:flutter/src/material/banner.dart": {
+        "getters": [
+            "MaterialBanner."
+        ]
+    },
+    "package:flutter/src/painting/notched_shapes.dart": {
+        "getters": [
+            "CircularNotchedRectangle.",
+            "NotchedShape."
+        ]
+    },
+    "package:flutter/src/material/action_chip.dart": {
+        "getters": [
+            "ActionChip."
+        ]
+    },
+    "package:flutter/src/material/choice_chip.dart": {
+        "getters": [
+            "ChoiceChip."
+        ]
+    },
+    "package:flutter/src/material/filter_chip.dart": {
+        "getters": [
+            "FilterChip."
+        ]
+    },
+    "package:flutter/src/material/input_chip.dart": {
+        "getters": [
+            "InputChip."
+        ]
+    },
+    "package:flutter/src/material/data_table.dart": {
+        "getters": [
+            "DataColumn.",
+            "DataCell.",
+            "DataRow.byIndex"
+        ]
+    },
+    "package:flutter/src/material/data_table_source.dart": {
+        "getters": [
+            "DataTableSource."
+        ]
+    },
+    "package:flutter/src/material/grid_tile_bar.dart": {
+        "getters": [
+            "GridTileBar."
+        ]
+    },
+    "package:flutter/src/material/grid_tile.dart": {
+        "getters": [
+            "GridTile."
+        ]
+    },
+    "package:flutter/src/material/user_accounts_drawer_header.dart": {
+        "getters": [
+            "UserAccountsDrawerHeader."
+        ]
+    },
+    "package:flutter/src/material/date.dart": {
+        "classes": {
+            "DateTimeRange": {
+                "getters": [
+                    "start",
+                    "end"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/date_picker.dart": {
+        "getters": [
+            "DatePickerDialog.",
+            "DateRangePickerDialog."
+        ]
+    },
+    "package:flutter/src/material/time_picker.dart": {
+        "getters": [
+            "TimePickerDialog."
+        ]
+    },
+    "package:flutter/src/material/checkbox.dart": {
+        "getters": [
+            "Checkbox."
+        ]
+    },
+    "package:flutter/src/material/radio.dart": {
+        "getters": [
+            "Radio."
+        ]
+    },
+    "package:flutter/src/material/slider.dart": {
+        "getters": [
+            "Slider."
+        ]
+    },
+    "package:flutter/src/material/slider_theme.dart": {
+        "getters": [
+            "RangeValues.",
+            "RangeLabels.",
+            "RangeSliderThumbShape.",
+            "Thumb.start",
+            "Thumb.end",
+            "SliderComponentShape.",
+            "ShowValueIndicator.never",
+            "SliderThemeData.",
+            "SliderTheme."
+        ],
+        "classes": {
+            "RangeValues": {
+                "getters": [
+                    "end",
+                    "start"
+                ]
+            },
+            "SliderThemeData": {
+                "getters": [
+                    "disabledThumbColor",
+                    "thumbColor",
+                    "valueIndicatorColor",
+                    "copyWith"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/range_slider.dart": {
+        "getters": [
+            "RangeSlider."
+        ]
+    },
+    "package:flutter/src/rendering/object.dart": {
+        "classes": {
+            "PaintingContext": {
+                "getters": [
+                    "canvas"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/material/text_form_field.dart": {
+        "getters": [
+            "TextFormField."
+        ]
+    },
+    "package:flutter/src/services/text_formatter.dart": {
+        "getters": [
+            "MaxLengthEnforcement.none",
+            "FilteringTextInputFormatter.digitsOnly",
+            "TextInputFormatter."
+        ]
+    },
+    "package:flutter/src/services/text_editing.dart": {
+        "getters": [
+            "TextSelection.collapsed"
+        ]
+    },
+    "package:flutter/src/painting/decoration.dart": {
+        "getters": [
+            "Decoration.",
+            "BoxPainter."
+        ]
+    },
+    "package:flutter_plugin_gallery/studies/crane/model/destination.dart": {
+        "classes": {
+            "Destination": {
+                "getters": [
+                    "subtitle",
+                    "assetName"
+                ]
+            }
+        }
+    },
+    "package:flutter/src/widgets/localizations.dart": {
+        "getters": [
+            "Localizations.localeOf"
+        ]
+    },
+    "package:flutter/src/material/button.dart": {
+        "getters": [
+            "RawMaterialButton."
+        ]
+    },
+    "package:flutter/src/widgets/dismissible.dart": {
+        "getters": [
+            "DismissDirection.endToStart",
+            "DismissDirection.startToEnd",
+            "Dismissible."
+        ]
+    },
+    "package:flutter/src/rendering/sliver_grid.dart": {
+        "getters": [
+            "SliverGridDelegateWithFixedCrossAxisCount."
+        ]
+    }
+}

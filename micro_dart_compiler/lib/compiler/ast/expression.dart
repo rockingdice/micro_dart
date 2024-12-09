@@ -144,6 +144,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     if (type is InterfaceType) {
       return context.pushOp(OpPushType.make(type.classNode.getClassRef()));
     }
+  } else if (node is SwitchExpression) {
+    //return compileInstantiation(context, node);
   }
   throw Exception(
       "currently expression type  ${node.runtimeType.toString()} not support ");
@@ -361,12 +363,10 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
       //     "Currently IsExpression not support internal type  : ${type.runtimeType.toString()}");
       return context.pushOp(OpIs.make(type.classNode.getClassRef()));
     } else {
-      return context.pushOp(OpCallExternal.make(
-          CallRef(type.classNode.stringLibraryUri, type.classNode.name, "#is",
-              false, false),
-          true,
-          [],
-          []));
+      var isRef = CallRef(type.classNode.stringLibraryUri, type.classNode.name,
+          "#is", false, false);
+      context.externalCallMethods.add(isRef);
+      return context.pushOp(OpCallExternal.make(isRef, true, [], []));
     }
   } else {
     throw Exception(
@@ -474,12 +474,11 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushArgments.make(3));
-      return context.pushOp(OpCallExternal.make(
-          CallRef(type.classNode.stringLibraryUri,
-              type.classNode.stringClassName!, "#as", false, false),
-          true,
-          [],
-          []));
+
+      var asRef = CallRef(type.classNode.stringLibraryUri,
+          type.classNode.stringClassName!, "#as", false, false);
+      context.externalCallMethods.add(asRef);
+      return context.pushOp(OpCallExternal.make(asRef, true, [], []));
     }
   } else if (type is FunctionType) {
     print(

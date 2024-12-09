@@ -1,0 +1,12 @@
+{
+    "dart:async":{
+        "getters":["AsyncError.","AsyncError.defaultStackTrace"],
+        "setters":[],
+        "classes":{
+            "AsyncError":{
+                "getters":["#as","#is","error"],
+                "setters":[]
+            }
+        }
+    }
+}

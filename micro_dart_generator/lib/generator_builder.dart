@@ -11,6 +11,7 @@ import 'package:build_config/build_config.dart';
 import 'package:build_runner_core/build_runner_core.dart';
 
 import 'code_gen_mirror.dart';
+import 'external_methods.dart';
 import 'namedsystem.dart';
 import 'overwrite_strategy.dart';
 
@@ -22,6 +23,8 @@ class GeneratorBuilder implements Builder {
   GeneratorBuilder(this.builderOptions);
 
   static const String generatePath = "lib/generated";
+
+  static const String externalMethodPath = "micro_dart_external_methods.json";
 
   static const String overwriteStrategyPath = "overwrite_strategy.json";
 
@@ -35,7 +38,8 @@ class GeneratorBuilder implements Builder {
     var generateDirectory = Directory(generatePath);
 
     var gFile = Directory(overwriteStrategyPath);
-    //print(absolute(gFile.absolute.path));
+    var eFile = Directory(externalMethodPath);
+
     if (!generateDirectory.existsSync()) {
       generateDirectory.createSync(recursive: true);
     }
@@ -45,6 +49,14 @@ class GeneratorBuilder implements Builder {
 
     var overwriteStrategy =
         OverwriteStrategy.fromFile(File(gFile.absolute.path));
+
+    ExternalMethods? externalMethods;
+    if (File(eFile.absolute.path).existsSync()) {
+      externalMethods = ExternalMethods.fromFile(File(eFile.absolute.path));
+      print("external methods is: ${externalMethods.libraries}");
+    } else {
+      print("external methods not exists ${File(eFile.absolute.path).path}");
+    }
 
     var resolver = buildStep.resolver;
     var inputId = buildStep.inputId;
@@ -62,18 +74,19 @@ class GeneratorBuilder implements Builder {
         continue;
       }
 
-      if ((isMicroDartFlutter && flutterRegExp.hasMatch(element.identifier)) ||
-          (!isMicroDartFlutter &&
-              !flutterRegExp.hasMatch(element.identifier))) {
-        if (skipRegExp.hasMatch(element.identifier)) {
-          continue;
-        }
-        var generator = CodeGenMirror(namedSystem, overwriteStrategy);
-        generator.visitLibraryElement(element);
-        if (generator.libraryName != null) {
-          File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}")
-              .writeAsStringSync(generator.generate().toString());
-        }
+      if (skipRegExp.hasMatch(element.identifier)) {
+        continue;
+      }
+      if (externalMethods != null &&
+          !externalMethods.hasLibrary(element.identifier)) {
+        continue;
+      }
+      var generator =
+          CodeGenMirror(namedSystem, overwriteStrategy, externalMethods);
+      generator.visitLibraryElement(element);
+      if (generator.libraryName != null) {
+        File("$generatePath/${namedSystem.getLibraryNameFileName(element.identifier)}")
+            .writeAsStringSync(generator.generate().toString());
       }
     }
     await buildStep.writeAsString(

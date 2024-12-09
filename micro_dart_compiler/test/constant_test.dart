@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:micro_dart_runtime/generated/core.g.dart';
 
 import 'env.dart';
 import 'package:test/test.dart';

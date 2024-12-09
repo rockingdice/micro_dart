@@ -6,6 +6,7 @@ import 'package:micro_dart_compiler/micro_dart_compiler.dart';
 
 export 'package:micro_dart_compiler/micro_dart_compiler.dart';
 export 'package:micro_dart_runtime/micro_dart_runtime.dart';
+export 'package:micro_dart_proxy_core/generated/core.g.dart';
 
 export 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
 export 'package:micro_dart_compiler/compiler/ast/ast_to_text.dart';

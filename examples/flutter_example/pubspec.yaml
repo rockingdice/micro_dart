@@ -40,8 +40,6 @@ dependencies:
     path: ../../micro_dart_runtime
   micro_dart_flutter: 
     path: ../../micro_dart_flutter
-  flutter_plugin_2: 
-    path: ../flutter_plugin_2
 
 dev_dependencies:
   micro_dart_generator: 

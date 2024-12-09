@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -8,7 +9,7 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 /// 一个解释器可以执行多个运行时
 class MicroDartEngine {
   /// 执行字节码
-  final ByteData _data;
+  ByteData? _data;
 
   /// 操作集合
   final List<Op> ops = <Op>[];
@@ -17,7 +18,7 @@ class MicroDartEngine {
   final Map<CallRef, int> declarations = <CallRef, int>{};
 
   /// 静态变量
-  final List<String> constants = <String>[];
+  final List<String> constants = [];
 
   /// 类型
   final Map<ClassRef, CType> types = <ClassRef, CType>{};
@@ -41,15 +42,15 @@ class MicroDartEngine {
   }
 
   dynamic getGlobalParam(CallRef ref) {
-    return globals[ref.callName];
+    return globals[ref.fullName];
   }
 
   void setGlobalParam(CallRef ref, dynamic value) {
-    globals[ref.callName] = value;
+    globals[ref.fullName] = value;
   }
 
   bool hasGlobalParam(CallRef key) {
-    return globals.containsKey(key.callName);
+    return globals.containsKey(key.fullName);
   }
 
   void setExternalFunctions(Map<String, LibraryMirror> mirrors) {
@@ -57,48 +58,48 @@ class MicroDartEngine {
   }
 
   int readUint8() {
-    final i = _data.getUint8(_fileOffset);
+    final i = _data!.getUint8(_fileOffset);
     _fileOffset += 1;
     return i;
   }
 
   int readInt32() {
-    final i = _data.getInt32(_fileOffset);
+    final i = _data!.getInt32(_fileOffset);
     _fileOffset += 4;
     return i;
   }
 
   double readFloat32() {
-    final i = _data.getFloat32(_fileOffset);
+    final i = _data!.getFloat32(_fileOffset);
     _fileOffset += 4;
     return i;
   }
 
   double readFloat64() {
-    final i = _data.getFloat64(_fileOffset);
+    final i = _data!.getFloat64(_fileOffset);
     _fileOffset += 8;
     return i;
   }
 
   String readString() {
-    final offset = _data.getInt32(_fileOffset);
+    final offset = _data!.getInt32(_fileOffset);
     _fileOffset += 4;
     return constants[offset];
   }
 
   String readRealString() {
-    final len = _data.getInt32(_fileOffset);
+    final len = _data!.getInt32(_fileOffset);
     _fileOffset += 4;
     final codeUnits = List.filled(len, 0);
     for (var i = 0; i < len; i++) {
-      codeUnits[i] = _data.getUint8(_fileOffset + i);
+      codeUnits[i] = _data!.getUint8(_fileOffset + i);
     }
     _fileOffset += len;
     return utf8.decode(codeUnits);
   }
 
   List<String> readStringList() {
-    final len = _data.getInt32(_fileOffset);
+    final len = _data!.getInt32(_fileOffset);
     _fileOffset += 4;
     final List<String> result = [];
     for (int i = 0; i < len; i++) {
@@ -108,7 +109,7 @@ class MicroDartEngine {
   }
 
   int readInt16() {
-    final i = _data.getInt16(_fileOffset);
+    final i = _data!.getInt16(_fileOffset);
     _fileOffset += 2;
     return i;
   }
@@ -149,8 +150,8 @@ class MicroDartEngine {
     //types.addAll(Types.internalTypes);
 
     ///加载操作结合
-    while (_fileOffset < _data.lengthInBytes) {
-      final opId = _data.getUint8(_fileOffset);
+    while (_fileOffset < _data!.lengthInBytes) {
+      final opId = _data!.getUint8(_fileOffset);
       _fileOffset++;
       if (opLoaders[opId] == null) {
         var start = ops.length - 10;
@@ -164,6 +165,7 @@ class MicroDartEngine {
 
       ops.add(op);
     }
+    _data = null;
   }
 
   void printOpcodes() {

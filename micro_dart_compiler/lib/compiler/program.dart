@@ -15,9 +15,12 @@ class Program {
 
   final Map<ClassRef, CType> runtimeTypes;
 
+  final Set<CallRef> externalTypes;
+
   Program(
       {required this.rumtimeDeclarationOpIndexes,
       required this.runtimeTypes,
+      required this.externalTypes,
       required this.ops,
       required this.constantPool,
       this.component});
@@ -57,6 +60,47 @@ class Program {
     final encodedBlock = utf8.encode(json.encode(block));
     builder.add(Ops.i32b(encodedBlock.length));
     builder.add(encodedBlock);
+  }
+
+  String getExternalCallMethods() {
+    Map<String, dynamic> externalJson = {};
+    externalTypes.forEach((element) {
+      var library =
+          externalJson.putIfAbsent(element.library, () => <String, dynamic>{});
+      if (element.isStatic) {
+        if (element.isSetter) {
+          List<String> setters =
+              library.putIfAbsent("setters", () => <String>[]);
+          if (!setters.contains(element.callName)) {
+            setters.add(element.callName);
+          }
+        } else {
+          List<String> getters =
+              library.putIfAbsent("getters", () => <String>[]);
+          if (!getters.contains(element.name)) {
+            getters.add(element.name);
+          }
+        }
+      } else {
+        var classes = library.putIfAbsent("classes", () => <String, dynamic>{});
+        classes =
+            classes.putIfAbsent(element.className, () => <String, dynamic>{});
+        if (element.isSetter) {
+          List<String> setters =
+              classes.putIfAbsent("setters", () => <String>[]);
+          if (!setters.contains(element.name)) {
+            setters.add(element.name);
+          }
+        } else {
+          List<String> getters =
+              classes.putIfAbsent("getters", () => <String>[]);
+          if (!getters.contains(element.name)) {
+            getters.add(element.name);
+          }
+        }
+      }
+    });
+    return json.encode(externalJson);
   }
 
   void printOpcodes() {

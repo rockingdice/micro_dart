@@ -5,7 +5,7 @@ library from "test:///main.dart" as main {
     field dart.core::int p1;
     field dart.core::int _p2;
     field dart.core::int p3 = 1;
-    static final field dynamic _redirecting# = <dynamic>[#C1]/*isLegacy*/;
+    static final field dynamic _redirecting# = <dynamic>[main::C::c2]/*isLegacy*/;
     constructor •(dart.core::int p1, dart.core::int _p2) → main::C
       : main::C::p1 = p1, main::C::_p2 = _p2, super dart.core::Object::•() {
       this.{main::C::p1} = 0;
@@ -35,7 +35,4 @@ library from "test:///main.dart" as main {
     dart.core::print(i);
     return i;
   }
-}
-constants  {
-  #C1 = constructor-tearoff main::C::c2
 }

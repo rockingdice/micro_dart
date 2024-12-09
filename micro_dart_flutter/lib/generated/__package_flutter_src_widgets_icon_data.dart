@@ -92,12 +92,13 @@ Function _IconData__$(m.Scope scope$) => (
       String? fontPackage,
       bool? matchTextDirection,
     }) {
-      return IconData(
-        codePoint,
-        fontFamily: fontFamily,
-        fontPackage: fontPackage,
-        matchTextDirection: matchTextDirection ?? false,
-      );
+      return null;
+      // return IconData(
+      //   codePoint,
+      //   fontFamily: fontFamily,
+      //   fontPackage: fontPackage,
+      //   matchTextDirection: matchTextDirection ?? false,
+      // );
     };
 Function _IconData_eq$$(
   m.Scope scope$,

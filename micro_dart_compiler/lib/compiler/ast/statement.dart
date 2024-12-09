@@ -252,9 +252,9 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
-  context.pushOp(OpCallExternal.make(
-      CallRef("dart:core", "Iterable", "iterator", false, false),
-      true, [], []));
+  var ref = CallRef("dart:core", "Iterable", "iterator", false, false);
+  context.externalCallMethods.add(ref);
+  context.pushOp(OpCallExternal.make(ref, true, [], []));
 
   context.pushOp(OpSetScopeParam.make("#iterator"));
   int jumpStart = context.ops.length;
@@ -263,10 +263,11 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
+
+  ref = CallRef("dart:core", "Iterator", "moveNext", false, false);
+  context.externalCallMethods.add(ref);
   context.pushOp(
-    OpCallExternal.make(
-        CallRef("dart:core", "Iterator", "moveNext", false, false),
-        true, [], []),
+    OpCallExternal.make(ref, true, [], []),
   );
   int rewritePos = context.pushOp(OpJumpIfFalse.make(-1));
   context.pushOp(OpGetParam.make("#iterator"));
@@ -274,10 +275,10 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushArgments.make(3));
   //调用iterator的current方法
+  ref = CallRef("dart:core", "Iterator", "current", false, false);
+  context.externalCallMethods.add(ref);
   context.pushOp(
-    OpCallExternal.make(
-        CallRef("dart:core", "Iterator", "current", false, false),
-        true, [], []),
+    OpCallExternal.make(ref, true, [], []),
   );
   context.pushOp(OpSetScopeParam.make(node.variable.name!));
   compileStatement(context, node.body, newBlock: false);

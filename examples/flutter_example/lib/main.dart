@@ -15,6 +15,6 @@ void main() async {
 
   var engine = MicroDartEngine.fromData(data);
   engine.setExternalFunctions(libraryMirrors);
-  engine.debug = true;
+  engine.debug = false;
   runApp(engine.callStaticFunction(packegeUri, "createMyApp", [], {}));
 }

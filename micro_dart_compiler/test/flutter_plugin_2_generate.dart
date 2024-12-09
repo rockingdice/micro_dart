@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'env.dart';
-import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const String flutterPlugin1Path = "../examples/flutter_plugin_2/";
+const String flutterExamplePath = "../examples/flutter_example_2/";
 
 void main() async {
   Uri mainSource =
@@ -19,6 +19,8 @@ void main() async {
   var bytes = program.write().buffer.asByteData();
   File("${flutterExamplePath}assets/micro_dart2.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
+  File("${flutterExamplePath}micro_dart_external_methods.json")
+      .writeAsStringSync(program.getExternalCallMethods());
 
   var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
   engine.setExternalFunctions(libraryMirrors);

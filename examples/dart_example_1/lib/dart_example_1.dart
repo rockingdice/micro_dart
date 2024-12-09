@@ -2,20 +2,45 @@ import 'dart:math';
 
 int test1() {
   int j = 0;
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 10; i++) {
     j = j + i;
   }
-  print(j);
   return j;
 }
 
 int test2() {
   int j = 0;
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 10; i++) {
     j = j + Random.secure().nextInt(100);
   }
-  print(j);
   return j;
+}
+
+String test3() {
+  List list = [];
+  int j = Random.secure().nextInt(100);
+  for (int i = 0; i < 10; i++) {
+    list.add(i + j * 2);
+  }
+  return list.join();
+}
+
+String test4() {
+  Set set = {};
+  int j = Random.secure().nextInt(100);
+  for (int i = 0; i < 10; i++) {
+    set.add(i + j * 2);
+  }
+  return set.join();
+}
+
+String test5() {
+  Map map = {};
+  int j = Random.secure().nextInt(100);
+  for (int i = 0; i < 10; i++) {
+    map[i] = i + j * 2;
+  }
+  return map.values.join();
 }
 
 class A {
@@ -46,14 +71,12 @@ class C extends B {
   }
 }
 
-int test3() {
+int test6() {
   int j = 0;
   for (int i = 0; i < 10; i++) {
     var v1 = C(i, i + 1, i + 2);
-    var r = v1.fn1(4);
+    var r = v1.fn1(Random.secure().nextInt(100));
     j = j + r;
   }
-  print(j);
-
   return j;
 }

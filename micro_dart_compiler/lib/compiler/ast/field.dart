@@ -50,7 +50,7 @@ int compileCallFieldGet(MicroCompilerContext context, Field field) {
     } else {
       context.pushOp(OpPushArgments.make(3));
     }
-
+    context.externalCallMethods.add(ref);
     op = OpCallExternal.make(ref, true, [], []);
   }
 

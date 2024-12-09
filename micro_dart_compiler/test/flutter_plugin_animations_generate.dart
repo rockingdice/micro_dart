@@ -1,0 +1,28 @@
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'env.dart';
+
+const String flutterPluginGalleryPath = "../examples/animations/";
+const String flutterExampleGalleryPath = "../examples/flutter_animations_2/";
+
+void main() async {
+  Uri mainSource =
+      ensureFolderPath(flutterPluginGalleryPath).resolve('lib/main.dart');
+  var program = await compilePlugin(
+      mainSource, [], RegExp(r"package:animations/+"), options,
+      debug: true);
+  if (astToJsonFlag) {
+    writeComponentToText(program.component!,
+        path: "${testCasePath}animations.txt");
+  }
+  var bytes = program.write().buffer.asByteData();
+  File("${flutterExampleGalleryPath}assets/micro_dart.data")
+      .writeAsBytesSync(bytes.buffer.asUint8List());
+  File("${flutterExampleGalleryPath}micro_dart_external_methods.json")
+      .writeAsStringSync(program.getExternalCallMethods());
+
+  var engine = MicroDartEngine.fromData(ByteData.sublistView(
+      await File("${flutterExampleGalleryPath}assets/micro_dart.data")
+          .readAsBytes()));
+}

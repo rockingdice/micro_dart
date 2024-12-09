@@ -93,6 +93,7 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
   return Program(
     rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
     runtimeTypes: compilerContext.visibleTypes,
+    externalTypes: compilerContext.externalCallMethods,
     constantPool: compilerContext.constantPool,
     ops: compilerContext.offsetTracker.apply(),
     component: component,

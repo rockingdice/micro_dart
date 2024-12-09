@@ -14,6 +14,7 @@ class MicroCompilerContext {
 
   final Map<CallRef, int> compileDeclarationIndexes = <CallRef, int>{};
   final Map<CallRef, int> rumtimeDeclarationOpIndexes = {};
+  final Set<CallRef> externalCallMethods = {};
 
   final constantPool = ConstantPool();
 

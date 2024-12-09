@@ -36,28 +36,49 @@ library from "package:dart_example_1/dart_example_1.dart" as dar {
   }
   static method test1() → dart.core::int {
     dart.core::int j = 0;
-    for (dart.core::int i = 0; i.{dart.core::num::<}(100){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
+    for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
       j = j.{dart.core::num::+}(i){(dart.core::num) → dart.core::int};
     }
-    dart.core::print(j);
     return j;
   }
   static method test2() → dart.core::int {
     dart.core::int j = 0;
-    for (dart.core::int i = 0; i.{dart.core::num::<}(100){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
+    for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
       j = j.{dart.core::num::+}(dart.math::Random::secure().{dart.math::Random::nextInt}(100){(dart.core::int) → dart.core::int}){(dart.core::num) → dart.core::int};
     }
-    dart.core::print(j);
     return j;
   }
-  static method test3() → dart.core::int {
+  static method test3() → dart.core::String {
+    dart.core::List<dynamic> list = <dynamic>[];
+    dart.core::int j = dart.math::Random::secure().{dart.math::Random::nextInt}(100){(dart.core::int) → dart.core::int};
+    for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
+      list.{dart.core::List::add}(i.{dart.core::num::+}(j.{dart.core::num::*}(2){(dart.core::num) → dart.core::int}){(dart.core::num) → dart.core::int}){(dynamic) → void};
+    }
+    return list.{dart.core::Iterable::join}(){([dart.core::String]) → dart.core::String};
+  }
+  static method test4() → dart.core::String {
+    dart.core::Set<dynamic> set = <dynamic>{};
+    dart.core::int j = dart.math::Random::secure().{dart.math::Random::nextInt}(100){(dart.core::int) → dart.core::int};
+    for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
+      set.{dart.core::Set::add}(i.{dart.core::num::+}(j.{dart.core::num::*}(2){(dart.core::num) → dart.core::int}){(dart.core::num) → dart.core::int}){(dynamic) → dart.core::bool};
+    }
+    return set.{dart.core::Iterable::join}(){([dart.core::String]) → dart.core::String};
+  }
+  static method test5() → dart.core::String {
+    dart.core::Map<dynamic, dynamic> map = <dynamic, dynamic>{};
+    dart.core::int j = dart.math::Random::secure().{dart.math::Random::nextInt}(100){(dart.core::int) → dart.core::int};
+    for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
+      map.{dart.core::Map::[]=}(i, i.{dart.core::num::+}(j.{dart.core::num::*}(2){(dart.core::num) → dart.core::int}){(dart.core::num) → dart.core::int}){(dynamic, dynamic) → void};
+    }
+    return map.{dart.core::Map::values}{dart.core::Iterable<dynamic>}.{dart.core::Iterable::join}(){([dart.core::String]) → dart.core::String};
+  }
+  static method test6() → dart.core::int {
     dart.core::int j = 0;
     for (dart.core::int i = 0; i.{dart.core::num::<}(10){(dart.core::num) → dart.core::bool}; i = i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}) {
       dar::C v1 = new dar::C::•(i, i.{dart.core::num::+}(1){(dart.core::num) → dart.core::int}, i.{dart.core::num::+}(2){(dart.core::num) → dart.core::int});
-      dart.core::int r = v1.{dar::C::fn1}(4){(dart.core::int) → dart.core::int};
+      dart.core::int r = v1.{dar::C::fn1}(dart.math::Random::secure().{dart.math::Random::nextInt}(100){(dart.core::int) → dart.core::int}){(dart.core::int) → dart.core::int};
       j = j.{dart.core::num::+}(r){(dart.core::num) → dart.core::int};
     }
-    dart.core::print(j);
     return j;
   }
 }

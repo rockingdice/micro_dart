@@ -1,0 +1,1 @@
+{"dart:core":{"classes":{"num":{"getters":["<","+","*"]},"List":{"getters":["add"]},"Iterable":{"getters":["join"]},"Set":{"getters":["add"]},"Map":{"getters":["[]=","values"]}}},"dart:math":{"getters":["Random.secure"],"classes":{"Random":{"getters":["nextInt"]}}}}

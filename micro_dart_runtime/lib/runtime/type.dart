@@ -34,7 +34,16 @@ class CallRef {
   CallRef(
       this.library, this.className, this.name, this.isSetter, this.isStatic);
 
-  String get callName => "$library@$className@$name";
+  String get callName {
+    if (className.isEmpty) {
+      return name;
+    }
+    return "$className.$name";
+  }
+
+  String get fullName {
+    return "$library@$className@$name";
+  }
 
   CallRef copyOfIsSetter(bool isSetter) {
     return CallRef(library, className, name, isSetter, isStatic);

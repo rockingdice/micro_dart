@@ -272,6 +272,13 @@ packages:
       relative: true
     source: path
     version: "1.9.1"
+  micro_dart_proxy_core:
+    dependency: "direct dev"
+    description:
+      path: "../micro_dart_proxy_core"
+      relative: true
+    source: path
+    version: "1.0.0"
   micro_dart_runtime:
     dependency: "direct main"
     description:

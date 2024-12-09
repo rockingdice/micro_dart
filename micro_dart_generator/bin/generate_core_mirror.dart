@@ -12,7 +12,7 @@ void main(List<String> arguments) async {
   var rootPath = Directory(".").absolute.parent.parent.absolute.path;
   var overwriteStrategyPath =
       absolute(Directory(".").absolute.parent.path, "overwrite_strategy.json");
-  var runtimeDir = absolute(rootPath, "micro_dart_runtime");
+  var runtimeDir = absolute(rootPath, "micro_dart_proxy_core");
   final generateDir = Directory(join(runtimeDir, "lib/generated"));
   final libDir = Directory(join(runtimeDir, 'lib'));
 
@@ -52,7 +52,7 @@ void main(List<String> arguments) async {
           await collection.contexts[i].currentSession.getLibraryByUri(l);
 
       if (library is LibraryElementResult) {
-        var generator = CodeGenMirror(namedSystem, overwriteStrategy);
+        var generator = CodeGenMirror(namedSystem, overwriteStrategy, null);
 
         generator.visitLibraryElement(library.element);
         File("${generateDir.path}/${namedSystem.getLibraryNameFileName(library.element.identifier)}")

@@ -9,7 +9,7 @@ library from "package:flutter_plugin_2/plugin_2.dart" as plu {
       ;
     @dart.core::override
     method build(#lib1::BuildContext context) → #lib1::Widget {
-      return new #lib3::MaterialApp::•(title: "Flutter Demo", theme: #lib4::ThemeData::•(colorScheme: #lib5::ColorScheme::fromSeed(seedColor: #lib6::Colors::deepPurple), useMaterial3: true), home: const plu::MyHomePage::•(title: "Flutter Demo Home Page"));
+      return new #lib3::MaterialApp::•(title: "Flutter Demo", debugShowCheckedModeBanner: false, theme: #lib4::ThemeData::•(colorScheme: #lib5::ColorScheme::fromSeed(seedColor: #lib6::Colors::deepPurple), useMaterial3: true), home: const plu::MyHomePage::•(title: "Flutter Demo Home Page"));
     }
   }
   class MyHomePage extends #lib1::StatefulWidget /*hasConstConstructor*/  {

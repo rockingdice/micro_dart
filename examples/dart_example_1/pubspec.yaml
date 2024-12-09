@@ -11,12 +11,8 @@ dependencies:
   # path: ^1.8.0
   micro_dart_runtime: 
     path: ../../micro_dart_runtime
-  dart_plugin_1: 
-    path: ../dart_plugin_1
-  dart_plugin_2: 
-    path: ../dart_plugin_2
-  dart_plugin_3: 
-    path: ../dart_plugin_3
+  micro_dart_proxy_core: 
+    path: ../../micro_dart_proxy_core
 
 dev_dependencies:
   lints: ^2.0.0

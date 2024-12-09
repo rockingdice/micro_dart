@@ -73,27 +73,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.3"
-  dart_plugin_1:
-    dependency: "direct main"
-    description:
-      path: "../dart_plugin_1"
-      relative: true
-    source: path
-    version: "1.0.0"
-  dart_plugin_2:
-    dependency: "direct main"
-    description:
-      path: "../dart_plugin_2"
-      relative: true
-    source: path
-    version: "1.0.0"
-  dart_plugin_3:
-    dependency: "direct main"
-    description:
-      path: "../dart_plugin_3"
-      relative: true
-    source: path
-    version: "1.0.0"
   file:
     dependency: transitive
     description:
@@ -182,6 +161,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.9.1"
+  micro_dart_proxy_core:
+    dependency: "direct main"
+    description:
+      path: "../../micro_dart_proxy_core"
+      relative: true
+    source: path
+    version: "1.0.0"
   micro_dart_runtime:
     dependency: "direct main"
     description:

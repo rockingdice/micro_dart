@@ -6,6 +6,7 @@ import 'package:dart_style/dart_style.dart';
 
 import 'abs_visotor.dart';
 import 'code_gen_utils.dart';
+import 'external_methods.dart';
 import 'namedsystem.dart';
 import 'overwrite_strategy.dart';
 import 'extenation.dart';
@@ -34,7 +35,9 @@ class CodeGenMirror extends AbsVisitor {
 
   String? libraryName;
 
-  CodeGenMirror(this.namedSystem, this.overwriteStrategy);
+  ExternalMethods? externalMethods;
+
+  CodeGenMirror(this.namedSystem, this.overwriteStrategy, this.externalMethods);
 
   String generate() {
     List<cb.Expression> posational = [];
@@ -130,21 +133,21 @@ class CodeGenMirror extends AbsVisitor {
   }
 
   @override
-  void visitConstructorElement(ConstructorElement constructorElement) {
-    if (constructorElement.name.startsWith("_")) {
+  void visitConstructorElement(ConstructorElement element) {
+    if (element.name.startsWith("_")) {
       return;
     }
-    if (constructorElement.hasDeprecated) {
+    if (element.hasDeprecated) {
       return;
     }
-    if (overwriteStrategy.ingoreKeys.contains(constructorElement.key)) {
+    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
-    if (constructorElement.enclosingElement is EnumElement) {
+    if (element.enclosingElement is EnumElement) {
       return;
     }
-    var classElement = constructorElement.enclosingElement as ClassElement;
-    if (classElement.isAbstract && !constructorElement.isFactory) {
+    var classElement = element.enclosingElement as ClassElement;
+    if (classElement.isAbstract && !element.isFactory) {
       return;
     }
 
@@ -162,24 +165,30 @@ class CodeGenMirror extends AbsVisitor {
     //       cb.refer(constructorElement.proxyName!).expression;
     // });
 
-    var name = "${classElement.name}.${constructorElement.name}";
+    var name = "${classElement.name}.${element.name}";
 
-    if (hasFunctionTypeParams(constructorElement.type) ||
-        constructorElement.name.isEmpty) {
-      functionElementWithFunctionType(constructorElement, true,
-          (cb.Method method) {
+    if (externalMethods != null &&
+        !externalMethods!.hasStaticMethod(libraryName, name, false)) {
+      if (libraryName == "package:flutter/src/widgets/framework.dart") {
+        print(
+            "visitConstructorElement 1 $libraryName ${classElement.name} $name ");
+      }
+      return;
+    }
+
+    if (hasFunctionTypeParams(element.type) || element.name.isEmpty) {
+      functionElementWithFunctionType(element, true, (cb.Method method) {
         proxyGlobalMethods.add(method);
-        proxyGlobalGetterList[name] =
-            cb.refer(constructorElement.proxyName!).expression;
+        proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
       });
       return;
     }
 
     var method = cb.Method(((p0) {
-      p0.name = constructorElement.proxyName;
+      p0.name = element.proxyName;
       p0.returns = cb.refer("Function");
-      p0.types.addAll(constructorElement.typeParameters
-          .map<cb.TypeReference>((e) => cb.TypeReference(
+      p0.types.addAll(
+          element.typeParameters.map<cb.TypeReference>((e) => cb.TypeReference(
                 (p0) {
                   p0.symbol = e.name;
                   if (e.bound != null) {
@@ -197,7 +206,7 @@ class CodeGenMirror extends AbsVisitor {
       p0.body = cb.TypeReference(
         (p0) {
           p0.symbol = name;
-          p0.types.addAll(constructorElement.typeParameters
+          p0.types.addAll(element.typeParameters
               .map<cb.TypeReference>((e) => cb.TypeReference(
                     (p0) {
                       p0.symbol = e.name;
@@ -207,8 +216,7 @@ class CodeGenMirror extends AbsVisitor {
       ).code;
     }));
     proxyGlobalMethods.add(method);
-    proxyGlobalGetterList[name] =
-        cb.refer(constructorElement.proxyName!).expression;
+    proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
   }
 
   @override
@@ -223,6 +231,10 @@ class CodeGenMirror extends AbsVisitor {
       return;
     }
     if (overwriteStrategy.ingoreKeys.contains(element.key)) {
+      return;
+    }
+    if (externalMethods != null &&
+        !externalMethods!.hasClass(libraryName, element.displayName)) {
       return;
     }
     proxyClassList[element.displayName] = ClassItem(element.displayName);
@@ -257,14 +269,31 @@ class CodeGenMirror extends AbsVisitor {
     if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
+    if (externalMethods != null &&
+        !externalMethods!.hasClass(libraryName, element.displayName)) {
+      element.visitChildren(this);
+      //print(
+      //    "visitClassElement !hasClass $libraryName  ${element.displayName} ${externalMethods?.hasClass(libraryName, element.displayName)}");
+      return;
+    }
     proxyClassList[element.displayName] = ClassItem(element.displayName);
     final asKey = "${element.key}@#as";
     final isKey = "${element.key}@#is";
     if (!overwriteStrategy.ingoreKeys.contains(asKey)) {
-      writeTargetKeywordClassName(element, "#as");
+      if (externalMethods != null &&
+          !externalMethods!
+              .hasMethod(libraryName, element.displayName, "#as", false)) {
+      } else {
+        writeTargetKeywordClassName(element, "#as");
+      }
     }
     if (!overwriteStrategy.ingoreKeys.contains(isKey)) {
-      writeTargetKeywordClassName(element, "#is");
+      if (externalMethods != null &&
+          !externalMethods!
+              .hasMethod(libraryName, element.displayName, "#is", false)) {
+      } else {
+        writeTargetKeywordClassName(element, "#is");
+      }
     }
 
     element.visitChildren(this);
@@ -274,7 +303,7 @@ class CodeGenMirror extends AbsVisitor {
     var type = classElement.thisType;
     var classItem = proxyClassList[classElement.name];
     if (classItem == null) {
-      throw Exception("not found classItem ${classElement.name}");
+      return;
     }
     var proxyName =
         "${classElement.name}_${binaryOperatorList[keyeword]![0]}\$";
@@ -717,6 +746,14 @@ class CodeGenMirror extends AbsVisitor {
       return;
     }
 
+    if (externalMethods != null &&
+        !externalMethods!.hasStaticMethod(libraryName, element.name, false)) {
+      if (libraryName == "package:flutter/src/widgets/framework.dart") {
+        print("visitFunctionElement $libraryName ${element.name}");
+      }
+      return;
+    }
+
     if (hasFunctionTypeParams(element.type)) {
       functionElementWithFunctionType(element, true, (cb.Method method) {
         proxyGlobalMethods.add(method);
@@ -768,8 +805,7 @@ class CodeGenMirror extends AbsVisitor {
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
     if (classItem == null) {
-      throw Exception(
-          "not found classItem ${element.enclosingElement.displayName}");
+      return;
     }
 
     var method = cb.Method(((p0) {
@@ -867,8 +903,7 @@ class CodeGenMirror extends AbsVisitor {
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
     if (classItem == null) {
-      throw Exception(
-          "not found classItem ${element.enclosingElement.displayName}");
+      return;
     }
 
     var method = cb.Method(((p0) {
@@ -930,8 +965,7 @@ class CodeGenMirror extends AbsVisitor {
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
     if (classItem == null) {
-      throw Exception(
-          "not found classItem ${element.enclosingElement.displayName}");
+      return;
     }
 
     var method = cb.Method(((p0) {
@@ -1020,6 +1054,24 @@ class CodeGenMirror extends AbsVisitor {
     if (overwriteStrategy.ingoreKeys.contains(element.key)) {
       return;
     }
+    var classElement = element.enclosingElement as InterfaceElement;
+    if (externalMethods != null) {
+      if (element.isStatic) {
+        if (!externalMethods!
+            .hasStaticMethod(libraryName, element.getNameWithClass(), false)) {
+          if (libraryName == "package:flutter/src/widgets/framework.dart") {
+            print(
+                "visitMethodElement $libraryName ${element.getNameWithClass()}");
+          }
+          return;
+        }
+      } else {
+        if (!externalMethods!.hasMethod(libraryName,
+            element.enclosingElement.displayName, element.name, false)) {
+          return;
+        }
+      }
+    }
     var name = element.name;
     if (binaryOperatorList.containsKey(name)) {
       writeBinaryMethodElement(element);
@@ -1029,21 +1081,20 @@ class CodeGenMirror extends AbsVisitor {
       return;
     } else if (specialOperatorList.containsKey(name)) {
       writeSpecialMethodElement(element);
-
       return;
     }
-    var classElement = element.enclosingElement as InterfaceElement;
+
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
-    if (classItem == null) {
-      throw Exception(
-          "not found classItem ${element.enclosingElement.displayName}");
-    }
+
     if (hasFunctionTypeParams(element.type)) {
       functionElementWithFunctionType(element, element.isStatic,
           (cb.Method method) {
         proxyGlobalMethods.add(method);
         var name = element.name;
+        if (classItem == null) {
+          return;
+        }
         classItem.proxyGetterList[name] =
             cb.refer(element.proxyName!).expression;
       });
@@ -1115,6 +1166,9 @@ class CodeGenMirror extends AbsVisitor {
     if (element.isStatic) {
       proxyGlobalGetterList[name] = cb.refer(element.proxyName!).expression;
     } else {
+      if (classItem == null) {
+        return;
+      }
       classItem.proxyGetterList[element.name] =
           cb.refer(element.proxyName!).expression;
     }
@@ -1157,6 +1211,15 @@ class CodeGenMirror extends AbsVisitor {
   void writeStaticPropertyGetter(PropertyAccessorElement element) {
     var name = element.getNameWithClass();
 
+    if (externalMethods != null) {
+      if (!externalMethods!.hasStaticMethod(libraryName, name, false)) {
+        if (libraryName == "dart:core") {
+          print("visitFunctionElement $libraryName ${name}");
+        }
+        return;
+      }
+    }
+
     var method = cb.Method(((p0) {
       p0.name = element.proxyName;
       p0.returns = cb.refer("Function");
@@ -1182,6 +1245,17 @@ class CodeGenMirror extends AbsVisitor {
 
   void writeStaticPropertySetter(
       PropertyAccessorElement propertyAccessorElement) {
+    var name = propertyAccessorElement.getNameWithClass();
+
+    if (externalMethods != null) {
+      if (!externalMethods!.hasStaticMethod(libraryName, name, true)) {
+        if (libraryName == "dart:core") {
+          print("visitFunctionElement $libraryName ${name}");
+        }
+        return;
+      }
+    }
+
     if (hasFunctionTypeParams(propertyAccessorElement.type)) {
       functionElementWithFunctionType(propertyAccessorElement, true,
           (cb.Method method) {
@@ -1191,8 +1265,6 @@ class CodeGenMirror extends AbsVisitor {
       });
       return;
     }
-
-    var name = propertyAccessorElement.getNameWithClass();
 
     List<cb.Parameter> requiredParameters = [];
 
@@ -1238,10 +1310,16 @@ class CodeGenMirror extends AbsVisitor {
     var type = classElement.thisType;
     var classItem = proxyClassList[element.enclosingElement.displayName];
     if (classItem == null) {
-      throw Exception(
-          "not found classItem ${element.enclosingElement.displayName}");
+      return;
     }
     var name = "target\$.${element.displayName}";
+
+    if (externalMethods != null) {
+      if (!externalMethods!.hasMethod(libraryName,
+          element.enclosingElement.displayName, element.displayName, false)) {
+        return;
+      }
+    }
 
     var method = cb.Method(((p0) {
       p0.name = element.proxyName;
@@ -1316,10 +1394,19 @@ class CodeGenMirror extends AbsVisitor {
     var classItem =
         proxyClassList[propertyAccessorElement.enclosingElement.displayName];
     if (classItem == null) {
-      throw Exception(
-          "not found classItem ${propertyAccessorElement.enclosingElement.displayName}");
+      return;
     }
     var name = "target\$.${propertyAccessorElement.displayName}";
+
+    if (externalMethods != null) {
+      if (!externalMethods!.hasMethod(
+          libraryName,
+          propertyAccessorElement.enclosingElement.displayName,
+          propertyAccessorElement.displayName,
+          true)) {
+        return;
+      }
+    }
 
     if (hasFunctionTypeParams(propertyAccessorElement.type)) {
       functionElementWithFunctionType(propertyAccessorElement, false,

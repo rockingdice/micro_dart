@@ -77,7 +77,7 @@ mixin _DartTypeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitInterfaceType(InterfaceType node) {
     return {
       "xtype": "InterfaceType",
-      "classNode": node.classNode.getCallRef().callName,
+      "classNode": node.classNode.getCallRef().fullName,
       "typeArguments": visitList(node.typeArguments, this),
     };
   }

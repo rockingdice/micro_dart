@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:micro_dart_compiler/proxy/kernel_generator.dart';
 
 import 'env.dart';
-import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const String flutterPluginGalleryPath = "../examples/flutter_plugin_gallery/";
-const String flutterExampleGalleryPath = "../examples/flutter_example_gallery/";
+const String flutterExampleGalleryPath =
+    "../examples/flutter_example_gallery_2/";
 
 void main() async {
   Uri mainSource = ensureFolderPath(flutterPluginGalleryPath)
@@ -25,6 +25,8 @@ void main() async {
   var bytes = program.write().buffer.asByteData();
   File("${flutterExampleGalleryPath}assets/micro_dart.data")
       .writeAsBytesSync(bytes.buffer.asUint8List());
+  File("${flutterExampleGalleryPath}micro_dart_external_methods.json")
+      .writeAsStringSync(program.getExternalCallMethods());
 
   var engine = MicroDartEngine.fromData(ByteData.sublistView(
       await File("${flutterExampleGalleryPath}assets/micro_dart.data")

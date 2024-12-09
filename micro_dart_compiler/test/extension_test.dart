@@ -2,8 +2,6 @@ import 'dart:io';
 import 'env.dart';
 import 'package:test/test.dart';
 
-import 'package:micro_dart_runtime/generated/core.g.dart';
-
 void main() {
   group('Extension tests', () {
     test(':test extension', () async {

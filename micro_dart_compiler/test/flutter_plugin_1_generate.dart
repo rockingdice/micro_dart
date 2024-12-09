@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'env.dart';
-import 'package:micro_dart_runtime/generated/core.g.dart';
 
 const String flutterPlugin1Path = "../examples/flutter_plugin_1/";
 

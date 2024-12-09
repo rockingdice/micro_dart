@@ -107,6 +107,7 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   if (context.compileDeclarationIndexes.containsKey(ref)) {
     op = OpCallDynamic.make(ref, true, false, false, false, true);
   } else {
+    context.externalCallMethods.add(ref);
     op = OpCallExternal.make(ref, true, [], classtypeStirngs);
   }
 
