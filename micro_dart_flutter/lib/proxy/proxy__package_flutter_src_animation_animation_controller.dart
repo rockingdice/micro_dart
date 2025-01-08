@@ -62,5 +62,5 @@ Function __removeStatusListener$(m.Scope scope$, Animation target$) =>
         scope$.functionPointers[listener] = function;
       }
 
-      target$.removeStatusListener(listenerProxy);
+      target$.removeStatusListener(function);
     };
