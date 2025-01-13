@@ -59,6 +59,9 @@ export 'op_set_param.dart';
 export 'op_set_param_null.dart';
 export 'op_set_scope_param.dart';
 export 'op_set_scope_param_null.dart';
+export 'op_get_dynamic.dart';
+export 'op_set_dynamic.dart';
+export 'op_dynamic_invocation.dart';
 
 const List<String> operator1 = ["unary-", "unary+", "~", "#as", "#is"];
 const List<String> operator2 = [
@@ -153,6 +156,10 @@ class Ops {
   static const opPushConstantDouble = 65;
   static const opAs = 66;
   static const opPushType = 67;
+  static const opGetDynamic = 68;
+  static const opSetDynamic = 69;
+  static const opCallDynamicInvocation = 70;
+  static const opCallDynamicInvocationAsync = 71;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -328,4 +335,10 @@ final Map<int, OpLoader> opLoaders = {
       OpPushConstantDouble(engine),
   Ops.opAs: (MicroDartEngine engine) => OpAs(engine),
   Ops.opPushType: (MicroDartEngine engine) => OpPushType(engine),
+  Ops.opGetDynamic: (MicroDartEngine engine) => OpGetDynamic(engine),
+  Ops.opSetDynamic: (MicroDartEngine engine) => OpSetDynamic(engine),
+  Ops.opCallDynamicInvocation: (MicroDartEngine engine) =>
+      OpCallDynamicInvocation(engine),
+  Ops.opCallDynamicInvocationAsync: (MicroDartEngine engine) =>
+      OpCallDynamicInvocationAsync(engine),
 };

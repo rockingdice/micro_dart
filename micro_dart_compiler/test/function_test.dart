@@ -332,5 +332,27 @@ void main() {
 
       expect(returnValue, 41);
     });
+
+    test(':test dynamic Keyword', () async {
+      String fileName = "dynamic_keyword_test_case.dart";
+      var file = File("$testCasePath$fileName");
+      var sources = <String, String>{'main.dart': file.readAsStringSync()};
+      var program = await compileSource(pluginUriRegExp, options, sources);
+      if (true) {
+        astToJson("$testCasePath/$fileName", pluginUriRegExp, program.component);
+        writeComponentToText(program.component!,
+            path: "$testCasePath$fileName.txt");
+      }
+      var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
+      engine.setExternalFunctions(libraryMirrors);
+      if (printOp) {
+        engine.debug = true;
+        engine.printOpcodes();
+      }
+
+      var returnValue = engine.callStaticFunction(pluginUri, "main", [], {});
+
+      expect(returnValue, "1234678");
+    });
   });
 }

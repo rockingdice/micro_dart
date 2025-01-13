@@ -28,6 +28,7 @@ class OpReturn implements Op {
     } else {
       scope.returnValue = null;
     }
+    throw ProgramExit(0);
   }
 
   @override
