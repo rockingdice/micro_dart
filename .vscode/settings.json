@@ -1,3 +1,17 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.10.5"
+  "dart.flutterSdkPath": ".fvm/versions/3.10.5",
+  "workbench.colorCustomizations": {
+    "[Default High Contrast Light]": {},
+    "[Tomorrow Night Blue]": {
+      "tab.activeBackground": "#327be9",
+      "tab.inactiveBackground": "#0000ff",
+      "tab.activeBorder": "#ff0000",
+      "tab.unfocusedActiveBorder": "#000000"
+    },
+    "tab.activeBorder": "#ff0000",
+    "tab.unfocusedActiveBorder": "#000000",
+    "activityBar.background": "#312E15",
+    "titleBar.activeBackground": "#45411D",
+    "titleBar.activeForeground": "#FBFBF6"
+  }
 }

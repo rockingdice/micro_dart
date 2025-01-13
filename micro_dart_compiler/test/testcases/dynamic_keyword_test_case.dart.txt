@@ -1,0 +1,58 @@
+main = main::main;
+library from "test:///main.dart" as main {
+
+  class A extends dart.core::Object {
+    static field dart.core::int aaa = 0;
+    field dynamic a = () → Null {
+      main::A::aaa = 1;
+    };
+    synthetic constructor •() → main::A
+      : super dart.core::Object::•()
+      ;
+    method func1() → void {
+      this.{main::A::a} = 1;
+    }
+    method func2() → void {
+      this.{main::A::a} = "2";
+    }
+    method func3() → void {
+      this.{main::A::a} = () → Null {
+        this.{main::A::a} = "3";
+      };
+    }
+    method func4() → void {
+      this.{main::A::a} = () → dynamic {
+        this.{main::A::a} = () → Null {
+          this.{main::A::a} = 4;
+        };
+        return this.{main::A::a}{dynamic};
+      };
+      return this.{main::A::a}{dynamic};
+    }
+  }
+  static method main() → dart.core::String {
+    dart.core::String output = "";
+    dynamic ia;
+    ia = new main::A::•();
+    ia{dynamic}.func1();
+    output = output.{dart.core::String::+}(ia{dynamic}.a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    ia{dynamic}.func2();
+    output = output.{dart.core::String::+}(ia{dynamic}.a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    ia{dynamic}.func3();
+    ia{dynamic}.a();
+    output = output.{dart.core::String::+}(ia{dynamic}.a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    ia{dynamic}.func4();
+    ia{dynamic}.a(){dynamic}.call();
+    output = output.{dart.core::String::+}(ia{dynamic}.a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    dynamic a = 6;
+    output = output.{dart.core::String::+}(a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    a = "7";
+    output = output.{dart.core::String::+}(a.{dart.core::Object::toString}(){() → dart.core::String}){(dart.core::String) → dart.core::String};
+    a = (dart.core::int b, dart.core::int c) → Null {
+      output = output.{dart.core::String::+}("${b.{dart.core::num::+}(c){(dart.core::num) → dart.core::int}}"){(dart.core::String) → dart.core::String};
+    };
+    a{dynamic}.call(1, 7);
+    dart.core::print(output);
+    return output;
+  }
+}
