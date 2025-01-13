@@ -4,7 +4,7 @@ class FunctionPointer {
   final bool isAsync;
   final int offset;
 
-  const FunctionPointer(this.target, this.isStatic, this.isAsync, this.offset);
+  FunctionPointer(this.target, this.isStatic, this.isAsync, this.offset);
 
   @override
   String toString() {

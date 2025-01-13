@@ -259,7 +259,7 @@ abstract class Op {
 
 typedef OpLoader = Op Function(MicroDartEngine);
 final Map<int, OpLoader> opLoaders = {
-  Ops.opReturn: (MicroDartEngine engine) => OpReturn(engine),
+  Ops.opReturn: (MicroDartEngine engine) => OpReturn(),
   Ops.opPushConstantInt: (MicroDartEngine engine) => OpPushConstantInt(engine),
   Ops.opCall: (MicroDartEngine engine) => OpCall(engine),
   Ops.opPushNull: (MicroDartEngine engine) => OpPushNull(engine),

@@ -114,6 +114,15 @@ class MicroDartEngine {
     return i;
   }
 
+  void dispose() {
+    declarations.clear();
+    constants.clear();
+    types.clear();
+    ops.clear();
+    globals.clear();
+    _data = null;
+  }
+
   void _load() {
     declarations.clear();
     constants.clear();
@@ -176,6 +185,16 @@ class MicroDartEngine {
       i++;
     }
     print("------------end printOpcodes------------");
+  }
+
+  String getOpcodes() {
+    var i = 0;
+    StringBuffer buffer = StringBuffer();
+    for (final oo in ops) {
+      buffer.writeln('$i: $oo');
+      i++;
+    }
+    return buffer.toString();
   }
 
   CType getType(ClassRef ref) {

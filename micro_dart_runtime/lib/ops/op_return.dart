@@ -1,9 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpReturn implements Op {
-  OpReturn(MicroDartEngine engine);
+  static const OpReturn _instance = OpReturn._();
 
-  OpReturn.make();
+  const OpReturn._();
+
+  factory OpReturn() => _instance;
+  factory OpReturn.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;
