@@ -10,10 +10,11 @@ class OpCallSuperAsync extends OpCallSuper {
     bool isGetter,
     bool isSetter,
     bool isAsync,
+    bool isMixinDeclaration,
     int posationalLength,
     List<String> namedList,
-  ) : super.make(
-            s, name, isGetter, isSetter, isAsync, posationalLength, namedList);
+  ) : super.make(s, name, isGetter, isSetter, isAsync, isMixinDeclaration,
+            posationalLength, namedList);
 
   @override
   List<int> bytes(ConstantPool pool) => [
@@ -23,6 +24,7 @@ class OpCallSuperAsync extends OpCallSuper {
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
+        ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
         ...Ops.i32b(_posationalLength),
         ...Ops.strlist(_namedList, pool)
       ];
@@ -31,8 +33,8 @@ class OpCallSuperAsync extends OpCallSuper {
   Future run(Scope scope) async {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
-    var ref = scope.engine
-        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, true);
+    var ref = scope.engine.getCallRefBySuperType(
+        instance.type, _super, _name, _isSetter, true, _isMixinDeclaration);
 
     if (scope.engine.declarations.containsKey(ref)) {
       //表示这是一个内部引用
@@ -46,7 +48,7 @@ class OpCallSuperAsync extends OpCallSuper {
 
   @override
   String toString() =>
-      'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_posationalLength,$_namedList)';
 }
 
 class OpCallSuper implements Op {
@@ -56,6 +58,7 @@ class OpCallSuper implements Op {
         _isGetter = engine.readUint8() == 1 ? true : false,
         _isSetter = engine.readUint8() == 1 ? true : false,
         _isAsync = engine.readUint8() == 1 ? true : false,
+        _isMixinDeclaration = engine.readUint8() == 1 ? true : false,
         _posationalLength = engine.readInt32(),
         _namedList = engine.readStringList();
 
@@ -66,6 +69,7 @@ class OpCallSuper implements Op {
   final bool _isGetter;
   final bool _isSetter;
   final bool _isAsync;
+  final bool _isMixinDeclaration;
 
   OpCallSuper.make(
     this._super,
@@ -73,6 +77,7 @@ class OpCallSuper implements Op {
     this._isGetter,
     this._isSetter,
     this._isAsync,
+    this._isMixinDeclaration,
     this._posationalLength,
     this._namedList,
   );
@@ -82,7 +87,7 @@ class OpCallSuper implements Op {
       Ops.lenBegin +
       ClassRef.byteLen +
       Ops.lenStr(_name) +
-      Ops.lenI8 * 3 +
+      Ops.lenI8 * 4 +
       Ops.lenI32 +
       Ops.lenStrlist(_namedList);
 
@@ -94,6 +99,7 @@ class OpCallSuper implements Op {
         ...Ops.i8b(_isGetter ? 1 : 0),
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
+        ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
         ...Ops.i32b(_posationalLength),
         ...Ops.strlist(_namedList, pool)
       ];
@@ -102,8 +108,8 @@ class OpCallSuper implements Op {
   void run(Scope scope) {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
-    var ref = scope.engine
-        .getCallRefBySuperType(instance.type, _super, _name, _isSetter, false);
+    var ref = scope.engine.getCallRefBySuperType(
+        instance.type, _super, _name, _isSetter, false, _isMixinDeclaration);
 
     if (ref == null) {
       throw Exception(
@@ -170,5 +176,5 @@ class OpCallSuper implements Op {
 
   @override
   String toString() =>
-      'OpCallSuper($_super,$_name,$_isGetter,$_isSetter,$_posationalLength,$_namedList)';
+      'OpCallSuper($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_posationalLength,$_namedList)';
 }

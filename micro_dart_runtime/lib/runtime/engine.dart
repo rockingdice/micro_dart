@@ -180,8 +180,20 @@ class MicroDartEngine {
   void printOpcodes() {
     print("------------start printOpcodes------------");
     var i = 0;
+    var depth = 0;
     for (final oo in ops) {
-      print('$i: $oo');
+      if (oo is OpCallEnd) {
+        depth--;
+      }
+      var tabs = '';
+      for (var i = 0; i < depth; ++i) {
+        tabs += '  ';
+      }
+      if (oo is OpCallStart) {
+        depth++;
+      }
+      print('$tabs$i: $oo');
+
       i++;
     }
     print("------------end printOpcodes------------");
@@ -230,7 +242,7 @@ class MicroDartEngine {
   }
 
   CallRef? getCallRefBySuperType(CType type, ClassRef superRef, String name,
-      bool isSetter, bool isStatic) {
+      bool isSetter, bool isStatic, bool isMixinDeclaration) {
     //如果没有父类则直接返回null
     if (type.superType == null) {
       return null;
@@ -250,26 +262,38 @@ class MicroDartEngine {
       isSuper = true;
     }
     if (!isSuper && !isMixin) {
-      var t = getCallRefBySuperType(
-          getType(type.superType!), superRef, name, isSetter, isStatic);
+      var t = getCallRefBySuperType(getType(type.superType!), superRef, name,
+          isSetter, isStatic, isMixinDeclaration);
       print("getCallRefBySuperType 4 $t");
       return t;
     }
 
     CType? superType;
-
-    if (isSuper) {
+    if (isMixinDeclaration) {
+      //use super
       superType = getType(type.superType!);
-    } else if (isMixin) {
-      superType = getType(type.mixinType!);
+    } else {
+      if (isSuper) {
+        superType = getType(type.superType!);
+      } else if (isMixin) {
+        superType = getType(type.mixinType!);
+      }
     }
     print("getCallRefBySuperType 6 $superType");
     var callback = getKeyByType2(superType!, name, isSetter, isStatic);
 
     if (callback == null) {
-      superType = getType(superRef);
-      callback = getKeyByType2(superType, name, isSetter, isStatic);
-      print("getCallRefBySuperType 7 $superType $callback");
+      while (superType!.superType != null) {
+        //继续向上找superType直到null
+        superType = getType(superType!.superType!);
+        // superType = getType(superRef);
+        callback = getKeyByType2(superType, name, isSetter, isStatic);
+        if (callback != null) {
+          print("getCallRefBySuperType 7 $superType $callback");
+          break;
+        }
+      }
+      assert(callback != null, "Error: Don't find $name on $superType");
     } else {
       print("getCallRefBySuperType 8 $callback");
     }
@@ -280,9 +304,8 @@ class MicroDartEngine {
       CType type, String name, bool isSetter, bool isStatic) {
     if (type.isExternal) {
       return type.getCallRef(name, isSetter, isStatic);
-    } else if (type.isMixinDeclaration || type.isAnonymousMixin) {
-      return getCallRefByType(
-          getType(type.superType!), name, isSetter, isStatic);
+      // } else if (type.isMixinDeclaration || type.isAnonymousMixin) {
+      //   return getCallRefByType(getType(type.superType!), name, isSetter, isStatic);
     } else {
       var key = type.getCallRef(name, isSetter, isStatic);
       if (declarations.containsKey(key)) {
@@ -503,6 +526,94 @@ class MicroDartEngine {
       return newScope.returnValue;
     }
     return null;
+  }
+
+  void callDynamicFunction(Scope scope, String name, bool hasArgs) {
+    var args = (scope.popFrame() as List<dynamic>);
+    var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
+
+    dynamic callee = args.first;
+    int pointer = -1;
+    if (callee is InstanceImpl) {
+      if (callee.hasParam(scope, name)) {
+        //是成员变量
+        var member = callee.getParam(scope, name);
+        if (member is FunctionPointer) {
+          newScope.setScopeParam("#this", member.target);
+          pointer = member.offset;
+        } else {
+          throw Exception(
+              "cannot call dynamic [$name] as FunctionPointer, actual type: [${member.runtimeType}]");
+        }
+      } else {
+        //是成员函数
+        var ref = getCallRefByType(callee.type, name, false, false);
+        pointer = declarations[ref]!;
+      }
+    } else if (callee is FunctionPointer) {
+      newScope.setScopeParam("#this", callee.target);
+      pointer = callee.offset;
+    } else if (callee is InstanceBridge) {
+      // TODO: 继承外部类的实例
+      assert(false,
+          "unsupport type of dynamic invocation : ${callee.runtimeType}");
+    } else {
+      // TODO: 外部类型
+      assert(false,
+          "unsupport type of dynamic invocation : ${callee.runtimeType}");
+    }
+    if (hasArgs) {
+      newScope.setScopeParam("#args", args);
+    }
+
+    newScope.call(pointer);
+    if (newScope.hasReturn) {
+      scope.pushFrame(newScope.returnValue);
+    }
+  }
+
+  void callDynamicFunctionAsync(Scope scope, String name, bool hasArgs) async{
+    var args = (scope.popFrame() as List<dynamic>);
+    var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
+
+    dynamic callee = args.first;
+    int pointer = -1;
+    if (callee is InstanceImpl) {
+      if (callee.hasParam(scope, name)) {
+        //是成员变量
+        var member = callee.getParam(scope, name);
+        if (member is FunctionPointer) {
+          newScope.setScopeParam("#this", member.target);
+          pointer = member.offset;
+        } else {
+          throw Exception(
+              "cannot call dynamic [$name] as FunctionPointer, actual type: [${member.runtimeType}]");
+        }
+      } else {
+        //是成员函数
+        var ref = getCallRefByType(callee.type, name, false, false);
+        pointer = declarations[ref]!;
+      }
+    } else if (callee is FunctionPointer) {
+      newScope.setScopeParam("#this", callee.target);
+      pointer = callee.offset;
+    } else if (callee is InstanceBridge) {
+      // TODO: 继承外部类的实例
+      assert(false,
+          "unsupport type of dynamic invocation : ${callee.runtimeType}");
+    } else {
+      // TODO: 外部类型
+      assert(false,
+          "unsupport type of dynamic invocation : ${callee.runtimeType}");
+    }
+    if (hasArgs) {
+      newScope.setScopeParam("#args", args);
+    }
+
+    await newScope.callAsync(pointer);
+    if (newScope.hasReturn) {
+      scope.pushFrame(newScope.returnValue);
+    }
   }
 
   Future<T> _doAsync<T>(Scope scope, int pointer) {

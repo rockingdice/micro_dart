@@ -105,14 +105,12 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     //return compileRedirectingFactoryTearOff(context, node);
   } else if (node is TypedefTearOff) {
     //return compileTypedefTearOff(context, node);
-  }
-  // not support dynamic currently
-  else if (node is DynamicInvocation) {
-    //return compileDynamicInvocation(context, node);
+  } else if (node is DynamicInvocation) {
+    return compileDynamicInvocation(context, node);
   } else if (node is DynamicGet) {
-    //return compileDynamicGet(context, node);
+    return compileDynamicGet(context, node);
   } else if (node is DynamicSet) {
-    //return compileDynamicSet(context, node);
+    return compileDynamicSet(context, node);
   }
   //this means has an error
   else if (node is InvalidExpression) {
@@ -171,6 +169,7 @@ int compileSuperPropertySet(
           false,
           true,
           isAsync,
+          target.enclosingClass!.isMixinDeclaration,
           1, []));
     } else {
       return context.pushOp(OpCallSuper.make(
@@ -179,6 +178,7 @@ int compileSuperPropertySet(
           false,
           true,
           isAsync,
+          target.enclosingClass!.isMixinDeclaration,
           1, []));
     }
   } else if (target is Field) {
@@ -428,40 +428,27 @@ int compileStringConcatenation(
   return context.pushOp(OpStringConcat.make(node.expressions.length));
 }
 
-// int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
-//   compileExpression(context, node.receiver);
-//   compileExpression(context, node.value);
+int compileDynamicSet(MicroCompilerContext context, DynamicSet node) {
+  compileExpression(context, node.receiver);
+  compileExpression(context, node.value);
 
-//   int pos = context.pushOp(
-//       OpCallDynamic.make(node.name.text, false, false, true, false, true));
+  return context.pushOp(OpSetDynamic.make(node.name.text));
+}
 
-//   return pos;
-// }
+int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
+  compileExpression(context, node.receiver);
 
-// int compileDynamicGet(MicroCompilerContext context, DynamicGet node) {
-//   compileExpression(context, node.receiver);
+  return context.pushOp(OpGetDynamic.make(node.name.text));
+}
 
-//   int pos = context.pushOp(
-//       OpCallDynamic.make(node.name.text, false, true, false, false, true));
+int compileDynamicInvocation(
+    MicroCompilerContext context, DynamicInvocation node) {
+  compileExpression(context, node.receiver);
+  compileArguments(context, node.arguments, false);
 
-//   return pos;
-// }
-
-// int compileDynamicInvocation(
-//     MicroCompilerContext context, DynamicInvocation node) {
-//   compileExpression(context, node.receiver);
-//   compileArguments(context, node.arguments, false);
-
-//   int pos = context.pushOp(OpCallDynamic.make(
-//       node.name.text,
-//       false,
-//       false,
-//       false,
-//       false, //is async
-//       true));
-
-//   return pos;
-// }
+  int pos = context.pushOp(OpCallDynamicInvocation.make(node.name.text, false));
+  return pos;
+}
 
 int compileAsExpression(MicroCompilerContext context, AsExpression node) {
   int pos = compileExpression(context, node.operand);
@@ -559,22 +546,38 @@ int compileSuperPropertyGet(
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushArgments.make(3));
+    late String className;
+    //print("compiling node: ${context.compilingNode!.parent}");
+    bool isMixinDeclaration = false;
+    if (context.compilingNode!.parent is Class) {
+      Class clazz = context.compilingNode!.parent as Class;
+      isMixinDeclaration = clazz.isMixinDeclaration;
+      if (isMixinDeclaration) {
+        className = clazz.name;
+      } else {
+        className = target.stringClassName!;
+      }
+    } else {
+      assert(false, "Not Implemented !!");
+    }
     bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
     if (isAsync) {
       return context.pushOp(OpCallSuperAsync.make(
-          ClassRef(target.stringLibraryUri, target.stringClassName!),
+          ClassRef(target.stringLibraryUri, className),
           target.name.text,
           true,
           false,
           isAsync,
+          isMixinDeclaration,
           0, []));
     } else {
       return context.pushOp(OpCallSuper.make(
-          ClassRef(target.stringLibraryUri, target.stringClassName!),
+          ClassRef(target.stringLibraryUri, className),
           target.name.text,
           true,
           false,
           isAsync,
+          isMixinDeclaration,
           0, []));
     }
   } else if (target is Field) {
