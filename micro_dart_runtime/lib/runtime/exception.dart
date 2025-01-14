@@ -30,7 +30,7 @@ class RuntimeException implements Exception {
         '${stackTrace.toString().split("\n").take(3).join('\n')}\n\n'
         'RUNTIME STATE\n'
         '=============\n'
-        'Excpeiton on $scope\n'
+        'Exception on $scope\n'
         'TRACE:\n$buffer';
   }
 }

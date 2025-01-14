@@ -11,10 +11,10 @@ class OpCallSuperAsync extends OpCallSuper {
     bool isSetter,
     bool isAsync,
     bool isMixinDeclaration,
-    int posationalLength,
+    int positionalLength,
     List<String> namedList,
   ) : super.make(s, name, isGetter, isSetter, isAsync, isMixinDeclaration,
-            posationalLength, namedList);
+            positionalLength, namedList);
 
   @override
   List<int> bytes(ConstantPool pool) => [
@@ -25,7 +25,7 @@ class OpCallSuperAsync extends OpCallSuper {
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
         ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
-        ...Ops.i32b(_posationalLength),
+        ...Ops.i32b(_positionalLength),
         ...Ops.strlist(_namedList, pool)
       ];
 
@@ -48,7 +48,7 @@ class OpCallSuperAsync extends OpCallSuper {
 
   @override
   String toString() =>
-      'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_posationalLength,$_namedList)';
+      'OpCallSuperAsync($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_positionalLength,$_namedList)';
 }
 
 class OpCallSuper implements Op {
@@ -59,12 +59,12 @@ class OpCallSuper implements Op {
         _isSetter = engine.readUint8() == 1 ? true : false,
         _isAsync = engine.readUint8() == 1 ? true : false,
         _isMixinDeclaration = engine.readUint8() == 1 ? true : false,
-        _posationalLength = engine.readInt32(),
+        _positionalLength = engine.readInt32(),
         _namedList = engine.readStringList();
 
   final ClassRef _super;
   final String _name;
-  final int _posationalLength;
+  final int _positionalLength;
   final List<String> _namedList;
   final bool _isGetter;
   final bool _isSetter;
@@ -78,7 +78,7 @@ class OpCallSuper implements Op {
     this._isSetter,
     this._isAsync,
     this._isMixinDeclaration,
-    this._posationalLength,
+    this._positionalLength,
     this._namedList,
   );
 
@@ -100,7 +100,7 @@ class OpCallSuper implements Op {
         ...Ops.i8b(_isSetter ? 1 : 0),
         ...Ops.i8b(_isAsync ? 1 : 0),
         ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
-        ...Ops.i32b(_posationalLength),
+        ...Ops.i32b(_positionalLength),
         ...Ops.strlist(_namedList, pool)
       ];
 
@@ -130,8 +130,8 @@ class OpCallSuper implements Op {
     print("_callExternal $ref");
     //表示这是一个外部调用
     final List<dynamic> positionalArguments =
-        List.filled(_posationalLength, null);
-    for (int i = 0; i < _posationalLength; i++) {
+        List.filled(_positionalLength, null);
+    for (int i = 0; i < _positionalLength; i++) {
       positionalArguments[i] = scope.popFrame();
     }
     final Map<Symbol, dynamic> namedArguments = {};
@@ -176,5 +176,5 @@ class OpCallSuper implements Op {
 
   @override
   String toString() =>
-      'OpCallSuper($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_posationalLength,$_namedList)';
+      'OpCallSuper($_super,$_name,$_isGetter,$_isSetter,$_isMixinDeclaration,$_positionalLength,$_namedList)';
 }

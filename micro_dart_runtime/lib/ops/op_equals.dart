@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpEquals implements Op {
-  OpEquals(MicroDartEngine interpreter);
+  static const OpEquals _instance = OpEquals._();
 
-  OpEquals.make();
+  const OpEquals._();
+
+  factory OpEquals() => _instance;
+  factory OpEquals.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

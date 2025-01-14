@@ -1,9 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpSetThisSuper implements Op {
-  OpSetThisSuper(MicroDartEngine interpreter);
+  static const OpSetThisSuper _instance = OpSetThisSuper._();
 
-  OpSetThisSuper.make();
+  const OpSetThisSuper._();
+
+  factory OpSetThisSuper() => _instance;
+  factory OpSetThisSuper.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

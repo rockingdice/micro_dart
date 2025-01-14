@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:collection';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -178,7 +177,6 @@ class MicroDartEngine {
   }
 
   void printOpcodes() {
-    print("------------start printOpcodes------------");
     var i = 0;
     var depth = 0;
     for (final oo in ops) {
@@ -192,20 +190,51 @@ class MicroDartEngine {
       if (oo is OpCallStart) {
         depth++;
       }
-      print('$tabs$i: $oo');
+      print('$tabs$i : $oo');
 
       i++;
     }
-    print("------------end printOpcodes------------");
   }
 
   String getOpcodes() {
     var i = 0;
     StringBuffer buffer = StringBuffer();
     for (final oo in ops) {
-      buffer.writeln('$i: $oo');
+      buffer.writeln('$i : $oo');
       i++;
     }
+    return buffer.toString();
+  }
+
+  String getConstants() {
+    var i = 0;
+    StringBuffer buffer = StringBuffer();
+    for (final c in constants) {
+      buffer.writeln('$i : $c');
+      i++;
+    }
+    return buffer.toString();
+  }
+
+  String getTypes() {
+    StringBuffer buffer = StringBuffer();
+    var i = 0;
+    types.forEach((key, value) {
+      buffer.writeln('$i : $key : $value');
+      i++;
+    });
+
+    return buffer.toString();
+  }
+
+  String getDeclarations() {
+    StringBuffer buffer = StringBuffer();
+    var i = 0;
+    declarations.forEach((key, value) {
+      buffer.writeln('$i : $value : $key');
+      i++;
+    });
+
     return buffer.toString();
   }
 
@@ -316,17 +345,17 @@ class MicroDartEngine {
   }
 
   T? callStaticFunction<T>(String importUri, String functionName,
-      List posational, Map<String, dynamic> named) {
+      List positional, Map<String, dynamic> named) {
     var ref = CallRef(importUri, "", functionName, false, true);
     //获取当前操作数指针
     int pointer = declarations[ref]!;
     var scope = Scope(this, "_root_", true, false);
     List<dynamic> args = [];
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -351,7 +380,7 @@ class MicroDartEngine {
   }
 
   dynamic callFunction(Scope scope, Instance instance, CallRef ref,
-      List posational, Map<String, dynamic> named, dynamic Function()? alse) {
+      List positional, Map<String, dynamic> named, dynamic Function()? alse) {
     //获取当前操作数指针
     var pointer = declarations[ref];
     var newScope =
@@ -365,10 +394,10 @@ class MicroDartEngine {
 
     List<dynamic> args = [instance];
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -382,17 +411,17 @@ class MicroDartEngine {
   }
 
   Future callStaticFunctionWaitClean(String importUri, String functionName,
-      List posational, Map<String, dynamic> named) async {
+      List positional, Map<String, dynamic> named) async {
     var ref = CallRef(importUri, "", functionName, false, true);
     //获取当前操作数指针
     int pointer = declarations[ref]!;
     var scope = Scope(this, "_root_", true, false);
     List<dynamic> args = [];
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -410,17 +439,17 @@ class MicroDartEngine {
   }
 
   Future<T> callStaticFunctionAsync<T>(String importUri, String functionName,
-      List posational, Map<String, dynamic> named) async {
+      List positional, Map<String, dynamic> named) async {
     var ref = CallRef(importUri, "", functionName, false, true);
     //获取当前操作数指针
     int pointer = declarations[ref]!;
     var scope = Scope(this, "_root_", true, true);
     List<dynamic> args = [];
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -433,24 +462,24 @@ class MicroDartEngine {
   }
 
   Future callPointerAsync(
-      Scope scope, String name, bool hasArgs, bool isAsync, int poniter) async {
+      Scope scope, String name, bool hasArgs, bool isAsync, int pointer) async {
     var newScope = scope.createFromParent(name, hasArgs, isAsync, maxScopeDeep);
     if (hasArgs) {
       newScope.setScopeParam("#args", (scope.popFrame() as List<dynamic>));
     }
 
     if (isAsync) {
-      var future = _doAsync(newScope, poniter);
+      var future = _doAsync(newScope, pointer);
       scope.pushFrame(future);
     } else {
-      await newScope.callAsync(poniter);
+      await newScope.callAsync(pointer);
       if (newScope.hasReturn) {
         scope.pushFrame(newScope.returnValue);
       }
     }
   }
 
-  void callPointer(Scope scope, String name, bool hasArgs, int poniter,
+  void callPointer(Scope scope, String name, bool hasArgs, int pointer,
       {Instance? thiz}) {
     var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
     if (hasArgs) {
@@ -459,7 +488,7 @@ class MicroDartEngine {
     if (thiz != null) {
       newScope.setScopeParam("#this", thiz);
     }
-    newScope.call(poniter);
+    newScope.call(pointer);
     if (newScope.hasReturn) {
       scope.pushFrame(newScope.returnValue);
     }
@@ -468,7 +497,7 @@ class MicroDartEngine {
   Future<dynamic> callFunctionPointerAsync(
       Scope scope,
       FunctionPointer functionPointer,
-      List<dynamic> posational,
+      List<dynamic> positional,
       Map<String, dynamic> named) async {
     var newScope =
         scope.createFromParent("_anonymous_", true, true, maxScopeDeep);
@@ -477,10 +506,10 @@ class MicroDartEngine {
       args.add(functionPointer.target);
     }
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -498,7 +527,7 @@ class MicroDartEngine {
   }
 
   dynamic callFunctionPointer(Scope scope, FunctionPointer functionPointer,
-      List<dynamic> posational, Map<String, dynamic> named) {
+      List<dynamic> positional, Map<String, dynamic> named) {
     var newScope = scope.createFromParent(
         "_callFunctionPointer_", true, false, maxScopeDeep);
 
@@ -507,10 +536,10 @@ class MicroDartEngine {
       args.add(functionPointer.target);
     }
     //设置初始参数
-    for (int i = posational.length - 1; i >= 0; i--) {
-      args.add(posational[i]);
+    for (int i = positional.length - 1; i >= 0; i--) {
+      args.add(positional[i]);
     }
-    args.add(posational.length);
+    args.add(positional.length);
     named.forEach((key, value) {
       args.add(value);
       args.add(key);
@@ -572,7 +601,7 @@ class MicroDartEngine {
     }
   }
 
-  void callDynamicFunctionAsync(Scope scope, String name, bool hasArgs) async{
+  void callDynamicFunctionAsync(Scope scope, String name, bool hasArgs) async {
     var args = (scope.popFrame() as List<dynamic>);
     var newScope = scope.createFromParent(name, hasArgs, false, maxScopeDeep);
 

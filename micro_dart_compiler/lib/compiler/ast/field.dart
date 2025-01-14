@@ -5,12 +5,12 @@ int compileField(MicroCompilerContext context, Field node) {
   compileDartType(context, node.type);
   var ref = node.getCallRef();
 
-  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
-    return context.rumtimeDeclarationOpIndexes[ref]!;
+  if (context.runtimeDeclarationOpIndexes[ref] != null) {
+    return context.runtimeDeclarationOpIndexes[ref]!;
   }
 
   int pos = context.callStart(ref);
-  context.rumtimeDeclarationOpIndexes[ref] = pos;
+  context.runtimeDeclarationOpIndexes[ref] = pos;
 
   if (node.initializer != null) {
     compileExpression(context, node.initializer!);
@@ -27,7 +27,7 @@ int compileCallFieldGet(MicroCompilerContext context, Field field) {
 
   Op? op;
   if (context.compileDeclarationIndexes.containsKey(ref)) {
-    int opOffset = context.rumtimeDeclarationOpIndexes[ref] ?? -1;
+    int opOffset = context.runtimeDeclarationOpIndexes[ref] ?? -1;
     if (field.isStatic) {
       int pos = context.pushOp(OpGetGlobalParam.make(ref, opOffset));
       if (opOffset == -1) {
@@ -46,9 +46,9 @@ int compileCallFieldGet(MicroCompilerContext context, Field field) {
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushConstantInt.make(0));
     if (field.isStatic) {
-      context.pushOp(OpPushArgments.make(2));
+      context.pushOp(OpPushArguments.make(2));
     } else {
-      context.pushOp(OpPushArgments.make(3));
+      context.pushOp(OpPushArguments.make(3));
     }
     context.externalCallMethods.add(ref);
     op = OpCallExternal.make(ref, true, [], []);

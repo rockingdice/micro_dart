@@ -13,7 +13,7 @@ void astToJson(String fileName, RegExp pluginUri, Component? component) {
   var map = _Visitor(pluginUri).visitComponent(component);
   StringBuffer buffer = StringBuffer();
   buffer.write(jsonEncode(map));
-  File("$fileName.json").writeAsStringSync('${buffer.toString()}');
+  File("$fileName").writeAsStringSync('${buffer.toString()}');
 }
 
 List<R>? visitList<R>(List<Node>? nodes, Visitor<R> visitor) {

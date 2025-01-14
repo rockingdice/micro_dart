@@ -11,18 +11,25 @@ import 'package:micro_dart_compiler/micro_dart_compiler.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 
 final ArgParser argParser = ArgParser(allowTrailingOptions: true)
-  ..addOption('out', help: 'data out path default is ./YourPackageName.data')
-  ..addOption('json-ast-out', help: 'json ast out path')
-  ..addOption('ast-out', help: 'ast out path')
-  ..addOption('op-out', help: 'op out path')
-  ..addOption('external-methods-out', help: 'external methods out path ')
+  ..addOption('out', help: 'data out path,default is ./YourPackageName.data')
+  ..addOption('json-ast-out', help: 'json ast out path,it is optional ')
+  ..addOption('ast-out', help: 'ast out path,it is optional')
+  ..addOption('op-out', help: 'op out path,it is optional')
+  ..addOption('constants-out', help: 'constant out path,it is optional')
+  ..addOption('external-methods-out',
+      help: 'external methods out path,it is optional ')
+  ..addOption('types-out', help: 'types out path,it is optional')
+  ..addOption('declarations-out', help: 'declarations out path,it is optional')
   ..addFlag('verbose',
-      help: 'Enables verbose output from the compiler.', defaultsTo: false);
+      help: 'verbose output from the compiler', defaultsTo: false);
 
 String usage = '''
-Usage: micro_dart [--out|--json-ast-out|--ast-out|--external-methods-out] [--verbose] [lib/main.dart]
+Usage: micro_dart [--out|--json-ast-out|--ast-out|--external-methods-out|--op-out|--constants-out|--types-out|--declarations-out] [--verbose] [lib/main.dart]
 
-Example: dart run micro_dart.dart.snapshot --out examples/flutter_plugin_2/assets/micro_dart.data --verbose examples/flutter_plugin_2/lib/plugin_2.dart 
+Example1: dart run micro_dart.dart.snapshot --out micro_dart.data examples/flutter_plugin_2/lib/plugin_2.dart 
+
+Example2: dart run micro_dart.dart.snapshot --out micro_dart.data --json-ast-out json-ast-out.txt --ast-out ast-out.txt --external-methods-out external-methods-out.txt --op-out op-out.txt --constants-out constants-out.txt --types-out types-out.txt --declarations-out declarations-out.txt --verbose examples/flutter_plugin_2/lib/plugin_2.dart 
+
 Options:
 ${argParser.usage}
 ''';
@@ -62,6 +69,9 @@ Future<int> main(List<String> args) async {
   String? astOut = options["ast-out"];
   String? externalMethodsOut = options["external-methods-out"];
   String? opOut = options["op-out"];
+  String? constantOut = options["constants-out"];
+  String? typesOut = options["types-out"];
+  String? declarationsOut = options["declarations-out"];
 
   RegExp regExp = RegExp(compileRegex);
 
@@ -82,6 +92,8 @@ Future<int> main(List<String> args) async {
     print("ast-out: $astOut");
     print("external-methods-out: $externalMethodsOut");
     print("op-out: $opOut");
+    print("types-out: $typesOut");
+    print("declarations-out: $declarationsOut");
   }
 
   String sdkSummaryPath = sdkSummary.toFilePath(windows: Platform.isWindows);
@@ -111,15 +123,35 @@ Future<int> main(List<String> args) async {
   if (astOut != null) {
     writeComponentToText(program.component!, path: astOut);
   }
+
   if (externalMethodsOut != null) {
     File(externalMethodsOut)
         .writeAsStringSync(program.getExternalCallMethods());
   }
 
-  if (opOut != null) {
+  if (opOut != null ||
+      constantOut != null ||
+      typesOut != null ||
+      declarationsOut != null) {
     var engine = MicroDartEngine.fromData(bytes);
-    File(opOut).writeAsStringSync(engine.getOpcodes());
+
+    if (opOut != null) {
+      File(opOut).writeAsStringSync(engine.getOpcodes());
+    }
+
+    if (constantOut != null) {
+      File(constantOut).writeAsStringSync(engine.getConstants());
+    }
+
+    if (typesOut != null) {
+      File(typesOut).writeAsStringSync(engine.getTypes());
+    }
+
+    if (declarationsOut != null) {
+      File(declarationsOut).writeAsStringSync(engine.getDeclarations());
+    }
   }
+
   return 0;
 }
 

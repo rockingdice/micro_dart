@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///方法调用的开始指令
 class OpCallEndAsync extends OpCallEnd {
-  OpCallEndAsync(MicroDartEngine engine) : super(engine);
+  static const OpCallEndAsync _instance = OpCallEndAsync._();
 
-  OpCallEndAsync.make() : super.make();
+  const OpCallEndAsync._() : super._();
+
+  factory OpCallEndAsync() => _instance;
+  factory OpCallEndAsync.make() => _instance;
 
   @override
   List<int> bytes(ConstantPool pool) => [Ops.opCallEndAsync];
@@ -19,9 +22,12 @@ class OpCallEndAsync extends OpCallEnd {
 }
 
 class OpCallEnd implements Op {
-  OpCallEnd(MicroDartEngine engine);
+  static const OpCallEnd _instance = OpCallEnd._();
 
-  OpCallEnd.make();
+  const OpCallEnd._();
+
+  factory OpCallEnd() => _instance;
+  factory OpCallEnd.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

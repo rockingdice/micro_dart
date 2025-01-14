@@ -1,5 +1,5 @@
 {
-    "ingoreKeys":[
+    "ignoreKeys":[
         "dart:core@Record",
         "package:flutter/src/widgets/routes.dart@FocusTrap",
         "dart:html",
@@ -17,7 +17,7 @@
         "dart:ffi@VarArgs@#as",
         "dart:ffi@VarArgs@#is"
     ],
-    "libraryIngoreImports":{
+    "libraryIgnoreImports":{
         "dart:ui": [
             "dart:ffi", 
             "dart:convert"

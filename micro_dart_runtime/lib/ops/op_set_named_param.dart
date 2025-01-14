@@ -1,6 +1,6 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
-@Deprecated("Deprecated use OpFillArguements")
+@Deprecated("Deprecated use OpFillArguments")
 class SetNamedParam implements Op {
   SetNamedParam(MicroDartEngine engine) : _name = engine.readString();
 

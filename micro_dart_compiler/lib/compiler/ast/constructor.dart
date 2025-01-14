@@ -4,22 +4,22 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
   context.startCompileNode(node);
   var ref = node.getCallRef();
 
-  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
-    return context.rumtimeDeclarationOpIndexes[ref]!;
+  if (context.runtimeDeclarationOpIndexes[ref] != null) {
+    return context.runtimeDeclarationOpIndexes[ref]!;
   }
   //开启一个作用域
   int pos = context.callStart(ref);
-  context.rumtimeDeclarationOpIndexes[ref] = pos;
-  List<String> posationalNames = [];
+  context.runtimeDeclarationOpIndexes[ref] = pos;
+  List<String> positionalNames = [];
   //参数初始化
   node.function.positionalParameters.forEach((element) {
     compileVariableDeclaration(context, element);
-    posationalNames.add(element.name!);
+    positionalNames.add(element.name!);
   });
   node.function.namedParameters.forEach((element) {
     compileVariableDeclaration(context, element);
   });
-  context.pushOp(OpPopArgments.make(posationalNames, false, true));
+  context.pushOp(OpPopArguments.make(positionalNames, false, true));
   context.pushOp(OpCreateInstance.make(
       ClassRef(node.stringLibraryUri, node.stringClassName!)));
   context.pushOp(OpSetScopeParam.make("#this"));
@@ -98,7 +98,7 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
   //将参数压入当前作用域
   compileArguments(context, arguments, true);
 
-  var classtypeStirngs = arguments.types
+  var classTypeStrings = arguments.types
       .map((e) => compileDartType(context, e))
       .map((e) => e?.ref.className ?? "")
       .toList();
@@ -108,7 +108,7 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
     op = OpCallDynamic.make(ref, true, false, false, false, true);
   } else {
     context.externalCallMethods.add(ref);
-    op = OpCallExternal.make(ref, true, [], classtypeStirngs);
+    op = OpCallExternal.make(ref, true, [], classTypeStrings);
   }
 
   return context.pushOp(op);

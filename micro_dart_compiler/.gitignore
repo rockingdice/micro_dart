@@ -4,3 +4,13 @@
 
 # Conventional directory for build output.
 build/
+
+.flutter-plugins
+.flutter-plugins-dependencies
+
+pubspec.lock
+
+test/testcases/**/_*.txt
+test/testcases/**/_*.json
+test/testcases2/**/_*.txt
+test/testcases2/**/_*.json

@@ -32,8 +32,7 @@ class OpCallDynamicAsync extends OpCallDynamic {
   }
 
   @override
-  String toString() =>
-      'OpCallDynamicAsync($_ref,$_isStatic,$_isGetter,$_isSetter)';
+  String toString() => 'OpCallAsync($_ref,$_isStatic,$_isGetter,$_isSetter)';
 }
 
 ///调用外部方法
@@ -108,5 +107,5 @@ class OpCallDynamic implements Op {
   }
 
   @override
-  String toString() => 'CallDynamic($_ref,$_isStatic,$_isGetter,$_isSetter)';
+  String toString() => 'OpCall($_ref,$_isStatic,$_isGetter,$_isSetter)';
 }
