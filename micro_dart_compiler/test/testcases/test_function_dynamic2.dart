@@ -21,7 +21,7 @@ class B extends A {
     _i = c;
   }
 
-  int func4() {
+  dynamic func4() {
     return 4;
   }
 }
@@ -32,5 +32,7 @@ dynamic main() {
   b.func3 = 4;
   dynamic c = b.func3;
   dynamic d = b.func4;
-  return c + d + a.func1();
+  dynamic r = c + d() + a.func1();
+  print(r);
+  return r;
 }

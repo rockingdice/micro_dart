@@ -82,22 +82,22 @@ void compileTryCatch(MicroCompilerContext context, TryCatch node,
   int catchPos = context.callStart(CallRef.name("_catch_"));
   context.pushOp(OpSetParamFromParent.make("#stackTrace"));
   context.pushOp(OpSetParamFromParent.make("#exception"));
-  node.catches.forEach((catchh) {
+  node.catches.forEach((catch1) {
     context.pushOp(OpGetParam.make("#exception"));
     context.pushOp(OpIs.make(
-        context.lookupType((catchh.guard as InterfaceType).classNode).ref));
+        context.lookupType((catch1.guard as InterfaceType).classNode).ref));
     int jumpPos = context.pushOp(OpJumpIfFalse.make(-1));
-    if (catchh.exception != null) {
-      compileStatement(context, catchh.exception!, newBlock: false);
+    if (catch1.exception != null) {
+      compileStatement(context, catch1.exception!, newBlock: false);
       context.pushOp(OpGetParam.make("#exception"));
-      context.pushOp(OpSetScopeParam.make(catchh.exception!.name!));
+      context.pushOp(OpSetScopeParam.make(catch1.exception!.name!));
     }
-    if (catchh.stackTrace != null) {
-      compileStatement(context, catchh.stackTrace!, newBlock: false);
+    if (catch1.stackTrace != null) {
+      compileStatement(context, catch1.stackTrace!, newBlock: false);
       context.pushOp(OpGetParam.make("#stackTrace"));
-      context.pushOp(OpSetScopeParam.make(catchh.stackTrace!.name!));
+      context.pushOp(OpSetScopeParam.make(catch1.stackTrace!.name!));
     }
-    compileStatement(context, catchh.body, newBlock: false);
+    compileStatement(context, catch1.body, newBlock: false);
     context.rewriteOp(OpJumpIfFalse.make(context.ops.length), jumpPos);
   });
   context.callEnd();
@@ -174,17 +174,17 @@ void compilePatternSwitchStatement(
     rewriteJumpIndex[element] = rewritePos;
   });
 
-  node.cases.forEach((casee) {
-    jumpStart[casee] = context.ops.length;
-    compileStatement(context, casee.body, newBlock: false);
-    jumpEnd[casee] = context.ops.length;
-    if (casee.isDefault) {
-      rewriteJumpIndex[casee]?.forEach((index) {
-        context.rewriteOp(OpJump.make(jumpStart[casee]!), index);
+  node.cases.forEach((case1) {
+    jumpStart[case1] = context.ops.length;
+    compileStatement(context, case1.body, newBlock: false);
+    jumpEnd[case1] = context.ops.length;
+    if (case1.isDefault) {
+      rewriteJumpIndex[case1]?.forEach((index) {
+        context.rewriteOp(OpJump.make(jumpStart[case1]!), index);
       });
     } else {
-      rewriteJumpIndex[casee]?.forEach((index) {
-        context.rewriteOp(OpJumpIfEqual.make(jumpStart[casee]!), index);
+      rewriteJumpIndex[case1]?.forEach((index) {
+        context.rewriteOp(OpJumpIfEqual.make(jumpStart[case1]!), index);
       });
     }
   });
@@ -230,17 +230,17 @@ void compileSwitchStatement(
     rewriteJumpIndex[element] = rewritePos;
   });
 
-  node.cases.forEach((casee) {
-    jumpStart[casee] = context.ops.length;
-    compileStatement(context, casee.body, newBlock: false);
-    jumpEnd[casee] = context.ops.length;
-    if (casee.isDefault) {
-      rewriteJumpIndex[casee]?.forEach((index) {
-        context.rewriteOp(OpJump.make(jumpStart[casee]!), index);
+  node.cases.forEach((case1) {
+    jumpStart[case1] = context.ops.length;
+    compileStatement(context, case1.body, newBlock: false);
+    jumpEnd[case1] = context.ops.length;
+    if (case1.isDefault) {
+      rewriteJumpIndex[case1]?.forEach((index) {
+        context.rewriteOp(OpJump.make(jumpStart[case1]!), index);
       });
     } else {
-      rewriteJumpIndex[casee]?.forEach((index) {
-        context.rewriteOp(OpJumpIfEqual.make(jumpStart[casee]!), index);
+      rewriteJumpIndex[case1]?.forEach((index) {
+        context.rewriteOp(OpJumpIfEqual.make(jumpStart[case1]!), index);
       });
     }
   });
@@ -251,7 +251,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   compileExpression(context, node.iterable);
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
-  context.pushOp(OpPushArgments.make(3));
+  context.pushOp(OpPushArguments.make(3));
   var ref = CallRef("dart:core", "Iterable", "iterator", false, false);
   context.externalCallMethods.add(ref);
   context.pushOp(OpCallExternal.make(ref, true, [], []));
@@ -262,7 +262,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   //调用iterator 的moveNext方法
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
-  context.pushOp(OpPushArgments.make(3));
+  context.pushOp(OpPushArguments.make(3));
 
   ref = CallRef("dart:core", "Iterator", "moveNext", false, false);
   context.externalCallMethods.add(ref);
@@ -273,7 +273,7 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpGetParam.make("#iterator"));
   context.pushOp(OpPushConstantInt.make(0));
   context.pushOp(OpPushConstantInt.make(0));
-  context.pushOp(OpPushArgments.make(3));
+  context.pushOp(OpPushArguments.make(3));
   //调用iterator的current方法
   ref = CallRef("dart:core", "Iterator", "current", false, false);
   context.externalCallMethods.add(ref);
@@ -345,7 +345,7 @@ void compileFunctionDeclaration(
     MicroCompilerContext context, FunctionDeclaration node) {
   var ref = node.getCallRef();
   //表示该方法已经编译过了,直接返回
-  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
+  if (context.runtimeDeclarationOpIndexes[ref] != null) {
     return;
   }
 

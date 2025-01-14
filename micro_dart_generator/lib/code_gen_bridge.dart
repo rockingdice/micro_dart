@@ -2,10 +2,10 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart' as cb;
 import 'package:dart_style/dart_style.dart';
 
-import 'abs_visotor.dart';
-import 'namedsystem.dart';
+import 'abs_visitor.dart';
+import 'named_system.dart';
 import 'overwrite_strategy.dart';
-import 'extenation.dart';
+import 'extensions.dart';
 
 class CodeGenBridge extends AbsVisitor {
   final OverwriteStrategy overwriteStrategy;
@@ -39,7 +39,7 @@ class CodeGenBridge extends AbsVisitor {
     if (element.name.startsWith("_")) {
       return;
     }
-    if (overwriteStrategy.ingoreKeys.contains(element.identifier)) {
+    if (overwriteStrategy.ignoreKeys.contains(element.identifier)) {
       return;
     }
     namedSystem.getLibraryName(element.identifier);
@@ -62,25 +62,25 @@ class CodeGenBridge extends AbsVisitor {
       return;
     }
 
-    if (overwriteStrategy.libraryIngoreImports[element.library.identifier]
+    if (overwriteStrategy.libraryIgnoreImports[element.library.identifier]
             ?.contains(element.importedLibrary!.identifier) ??
         false) {
       return;
     }
 
     if (!namedSystem.isCoreLibrary(element.importedLibrary!.identifier)) {
-      Set<String> showlist = {};
-      Set<String> hidelist = {};
+      Set<String> showList = {};
+      Set<String> hideList = {};
       for (var element in element.combinators) {
         if (element is ShowElementCombinator) {
-          showlist.addAll(element.shownNames);
+          showList.addAll(element.shownNames);
         } else if (element is HideElementCombinator) {
-          hidelist.addAll(element.hiddenNames);
+          hideList.addAll(element.hiddenNames);
         }
       }
 
       importList.add(cb.Directive.import(element.importedLibrary!.identifier,
-          show: showlist.toList(), hide: hidelist.toList()));
+          show: showList.toList(), hide: hideList.toList()));
     }
   }
 
@@ -97,7 +97,7 @@ class CodeGenBridge extends AbsVisitor {
       return;
     }
 
-    if (overwriteStrategy.ingoreKeys.contains(element.key)) {
+    if (overwriteStrategy.ignoreKeys.contains(element.key)) {
       return;
     }
     if (!element.isFinal && !element.isInterface) {
@@ -173,7 +173,7 @@ class CodeGenBridge extends AbsVisitor {
             p0.name = element.name;
           }
           p0.factory = element.isFactory;
-          List<cb.Reference> posational = [];
+          List<cb.Reference> positional = [];
           Map<String, cb.Reference> named = {};
           for (var element in element.parameters) {
             if (element.isOptional) {
@@ -183,7 +183,7 @@ class CodeGenBridge extends AbsVisitor {
                   p0.named = true;
                   named[element.name] = cb.refer(element.name);
                 } else {
-                  posational.add(cb.refer(element.name));
+                  positional.add(cb.refer(element.name));
                 }
 
                 if (element.hasDefaultValue) {
@@ -198,7 +198,7 @@ class CodeGenBridge extends AbsVisitor {
                   p0.named = true;
                   named[element.name] = cb.refer(element.name);
                 } else {
-                  posational.add(cb.refer(element.name));
+                  positional.add(cb.refer(element.name));
                 }
 
                 if (element.hasDefaultValue) {
@@ -217,11 +217,11 @@ class CodeGenBridge extends AbsVisitor {
                 p0.initializers.add(cb
                     .refer("super")
                     .property(element.name)
-                    .call(posational, named)
+                    .call(positional, named)
                     .code);
               } else {
                 p0.initializers
-                    .add(cb.refer("super").call(posational, named).code);
+                    .add(cb.refer("super").call(positional, named).code);
               }
             }
           }

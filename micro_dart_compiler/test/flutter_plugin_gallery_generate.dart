@@ -1,6 +1,10 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:kernel/kernel.dart';
+import 'package:micro_dart_compiler/compiler/compiler.dart';
 import 'package:micro_dart_compiler/proxy/kernel_generator.dart';
+import 'package:micro_dart_compiler/util.dart';
+import 'package:micro_dart_runtime/runtime/engine.dart';
 
 import 'env.dart';
 
@@ -14,13 +18,13 @@ void main() async {
   var result =
       await kernelForProgramInternal(mainSource, options, requireMain: false);
   writeComponentToText(result!.component!,
-      path: "${testCasePath}flutter_plugin_gallery.txt");
+      path: "${testCasePath1}flutter_plugin_gallery.txt");
   var program = await compilePlugin(
       mainSource, [], RegExp(r"package:flutter_plugin_gallery/+"), options,
       debug: false);
   if (astToJsonFlag) {
     writeComponentToText(program.component!,
-        path: "${testCasePath}flutter_plugin_gallery.txt");
+        path: "${testCasePath1}flutter_plugin_gallery.txt");
   }
   var bytes = program.write().buffer.asByteData();
   File("${flutterExampleGalleryPath}assets/micro_dart.data")

@@ -1,5 +1,5 @@
 {
-    "ingoreKeys":[
+    "ignoreKeys":[
         "dart:core@Record",
         "dart:ffi@VarArgs@#as",
         "dart:ffi@VarArgs@#is",
@@ -17,7 +17,7 @@
         "dart:js_util",
         "dart:js_interop"
     ],
-    "libraryIngoreImports":{
+    "libraryIgnoreImports":{
         "dart:ui": [
             "dart:ffi", 
             "dart:convert"

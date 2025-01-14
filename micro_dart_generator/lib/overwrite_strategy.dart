@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 
 class OverwriteStrategy {
-  final List<dynamic> ingoreKeys;
-  final Map<String, dynamic> libraryIngoreImports;
+  final List<dynamic> ignoreKeys;
+  final Map<String, dynamic> libraryIgnoreImports;
   final Map<String, dynamic> libraryAddImports;
   final Map<String, dynamic> defaultValueCodeOverwrites;
   final Map<String, dynamic> keyOverwrites;
 
   OverwriteStrategy(
-      this.ingoreKeys,
-      this.libraryIngoreImports,
+      this.ignoreKeys,
+      this.libraryIgnoreImports,
       this.libraryAddImports,
       this.defaultValueCodeOverwrites,
       this.keyOverwrites);
@@ -25,7 +25,7 @@ class OverwriteStrategy {
 
   factory OverwriteStrategy.fromJsonMap(Map<String, dynamic> map) {
     return OverwriteStrategy(
-        map["ingoreKeys"],
+        map["ignoreKeys"],
         map["libraryIngoreImports"],
         map["libraryAddImports"],
         map["defaultValueCodeOverwrites"],

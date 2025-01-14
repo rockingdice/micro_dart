@@ -4,9 +4,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpAwait implements Op {
-  OpAwait(MicroDartEngine interpreter);
+  static const OpAwait _instance = OpAwait._();
 
-  OpAwait.make();
+  const OpAwait._();
+
+  factory OpAwait() => _instance;
+  factory OpAwait.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpAssert implements Op {
-  OpAssert(MicroDartEngine interpreter);
+  static const OpAssert _instance = OpAssert._();
 
-  OpAssert.make();
+  const OpAssert._();
+
+  factory OpAssert() => _instance;
+  factory OpAssert.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

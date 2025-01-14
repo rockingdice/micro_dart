@@ -1,6 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:kernel/kernel.dart';
+import 'package:micro_dart_compiler/compiler/compiler.dart';
+import 'package:micro_dart_compiler/util.dart';
+import 'package:micro_dart_runtime/runtime/engine.dart';
+
 import 'env.dart';
 
 const String flutterPluginGalleryPath = "../examples/animations/";
@@ -14,7 +19,7 @@ void main() async {
       debug: true);
   if (astToJsonFlag) {
     writeComponentToText(program.component!,
-        path: "${testCasePath}animations.txt");
+        path: "${testCasePath1}animations.txt");
   }
   var bytes = program.write().buffer.asByteData();
   File("${flutterExampleGalleryPath}assets/micro_dart.data")
