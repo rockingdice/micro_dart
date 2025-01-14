@@ -703,13 +703,12 @@ int compileConstructorInvocation(
 
 int compileInstanceInvocation(
     MicroCompilerContext context, InstanceInvocation node) {
-  var procedure = node.interfaceTarget;
-  var arguments = node.arguments;
-
+  
   compileExpression(context, node.receiver);
-  int p = compileCallProcedure(context, arguments, procedure, false);
+  compileArguments(context, node.arguments, false);
 
-  return p;
+  int pos = context.pushOp(OpCallDynamicInvocation.make(node.name.text, false));
+  return pos;
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {
