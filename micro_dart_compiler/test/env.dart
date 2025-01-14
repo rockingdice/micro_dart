@@ -48,7 +48,7 @@ Future<dynamic> singleFileTest(
 }) async {
   var file = File("$testCasePath$fileName");
   var sources = <String, String>{'main.dart': file.readAsStringSync()};
-  var program = await compileSource(pluginUriRegExp, options, sources);
+  var program = await compileSource(pluginUriRegExp, options, sources, debug: true);
 
   if (astOut) {
     writeComponentToText(program.component!,

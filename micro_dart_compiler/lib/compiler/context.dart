@@ -130,6 +130,9 @@ class MicroCompilerContext {
   int pushOp(Op op) {
     ops.add(op);
     int p = ops.length - 1;
+    if (debug) {
+      print("$p: ${op.toString()} → ${StackTrace.current}");
+    }
 
     return p;
   }

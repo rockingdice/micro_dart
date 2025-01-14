@@ -2,9 +2,51 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Test All",
+            "label": "Test 1",
             "type": "shell",
-            "command": "fvm dart compile jit-snapshot --verbose ./test/test_all.dart",
+            "command": "fvm dart compile jit-snapshot --verbose ./test/test1/test_all.dart",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+              "cwd": "${workspaceFolder}/micro_dart_compiler"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test 2",
+            "type": "shell",
+            "command": "fvm dart compile jit-snapshot --verbose ./test/test2/test_all.dart",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+              "cwd": "${workspaceFolder}/micro_dart_compiler"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test 22",
+            "type": "shell",
+            "command": "fvm dart compile jit-snapshot --verbose ./test/test2/dynamic_test.dart",
             "group": {
                 "kind": "build",
                 "isDefault": true

@@ -13,5 +13,9 @@
     "activityBar.background": "#312E15",
     "titleBar.activeBackground": "#45411D",
     "titleBar.activeForeground": "#FBFBF6"
-  }
+  },
+  "editor.rulers": [        
+      80
+  ],
+  "dart.lineLength": 80,
 }

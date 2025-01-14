@@ -12,7 +12,8 @@ void astToJson(String fileName, RegExp pluginUri, Component? component) {
 
   var map = _Visitor(pluginUri).visitComponent(component);
   StringBuffer buffer = StringBuffer();
-  buffer.write(jsonEncode(map));
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  buffer.write(encoder.convert(map));
   File("$fileName").writeAsStringSync('${buffer.toString()}');
 }
 
@@ -84,10 +85,7 @@ mixin _DartTypeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
 
   @override
   Map<String, dynamic>? visitFutureOrType(FutureOrType node) {
-    return {
-      "xtype": "FutureOrType",
-      "typeArgument": node.typeArgument.accept(this)
-    };
+    return {"xtype": "FutureOrType", "typeArgument": node.typeArgument.accept(this)};
   }
 
   @override
@@ -150,12 +148,9 @@ mixin _DartTypeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic> visitInlineType(InlineType node) =>
-      defaultDartType(node);
-  Map<String, dynamic> visitIntersectionType(IntersectionType node) =>
-      defaultDartType(node);
-  Map<String, dynamic> visitRecordType(RecordType node) =>
-      defaultDartType(node);
+  Map<String, dynamic> visitInlineType(InlineType node) => defaultDartType(node);
+  Map<String, dynamic> visitIntersectionType(IntersectionType node) => defaultDartType(node);
+  Map<String, dynamic> visitRecordType(RecordType node) => defaultDartType(node);
 }
 
 mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
@@ -229,12 +224,7 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
       "xtype": "MapConstant",
       "keyType": node.keyType.accept(this),
       "valueType": node.valueType.accept(this),
-      "entries": node.entries
-          .map((e) => {
-                "key": e.key.acceptReference(this),
-                "value": e.value.acceptReference(this)
-              })
-          .toList(),
+      "entries": node.entries.map((e) => {"key": e.key.acceptReference(this), "value": e.value.acceptReference(this)}).toList(),
     };
   }
 
@@ -242,26 +232,17 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitListConstant(ListConstant node) {
     //print("visitListConstant: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "ListConstant",
-      "typeArgument": node.typeArgument.accept(this),
-      "entries": node.entries.map((e) => e.acceptReference(this)).toList()
-    };
+    return {"xtype": "ListConstant", "typeArgument": node.typeArgument.accept(this), "entries": node.entries.map((e) => e.acceptReference(this)).toList()};
   }
 
   @override
   Map<String, dynamic>? visitSetConstant(SetConstant node) {
     //print("visitSetConstant: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "SetConstant",
-      "typeArgument": node.typeArgument.accept(this),
-      "entries": node.entries.map((e) => e.acceptReference(this)).toList()
-    };
+    return {"xtype": "SetConstant", "typeArgument": node.typeArgument.accept(this), "entries": node.entries.map((e) => e.acceptReference(this)).toList()};
   }
 
-  Map<String, dynamic> visitRecordConstant(RecordConstant node) =>
-      defaultConstant(node);
+  Map<String, dynamic> visitRecordConstant(RecordConstant node) => defaultConstant(node);
   @override
   Map<String, dynamic>? visitInstanceConstant(InstanceConstant node) {
     //print("visitInstanceConstant: ${node.toString()}");
@@ -270,11 +251,8 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     return {
       "xtype": "InstanceConstant",
       "classReference": node.classReference.asClass.acceptReference(this),
-      "fieldValueKeys": node.fieldValues.keys
-          .map((e) => e.asField.acceptReference(this))
-          .toList(),
-      "fieldValueValues":
-          node.fieldValues.values.map((e) => e.acceptReference(this)).toList(),
+      "fieldValueKeys": node.fieldValues.keys.map((e) => e.asField.acceptReference(this)).toList(),
+      "fieldValueValues": node.fieldValues.values.map((e) => e.acceptReference(this)).toList(),
     };
   }
 
@@ -290,8 +268,7 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitTypedefTearOffConstant(
-      TypedefTearOffConstant node) {
+  Map<String, dynamic>? visitTypedefTearOffConstant(TypedefTearOffConstant node) {
     //print("visitTypedefTearOffConstant: ${node.toString()}");
     //node.visitChildren(this);
     return {
@@ -306,15 +283,11 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitStaticTearOffConstant(StaticTearOffConstant node) {
     //print("visitStaticTearOffConstant: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "StaticTearOffConstant",
-      "target": node.target.accept(this)
-    };
+    return {"xtype": "StaticTearOffConstant", "target": node.target.accept(this)};
   }
 
   @override
-  Map<String, dynamic>? visitConstructorTearOffConstant(
-      ConstructorTearOffConstant node) {
+  Map<String, dynamic>? visitConstructorTearOffConstant(ConstructorTearOffConstant node) {
     return {
       "xtype": "ConstructorTearOffConstant",
       "target": node.target.name.text,
@@ -322,14 +295,10 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitRedirectingFactoryTearOffConstant(
-      RedirectingFactoryTearOffConstant node) {
+  Map<String, dynamic>? visitRedirectingFactoryTearOffConstant(RedirectingFactoryTearOffConstant node) {
     //print("visitRedirectingFactoryTearOffConstant: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "RedirectingFactoryTearOffConstant",
-      "target": node.target.acceptReference(this)
-    };
+    return {"xtype": "RedirectingFactoryTearOffConstant", "target": node.target.acceptReference(this)};
   }
 
   @override
@@ -355,11 +324,7 @@ mixin _ConstantVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
 
 mixin _MemberReferenceVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic> defaultMemberReference(Member node) {
-    return {
-      "xtype": "Member",
-      "name": node.name.text,
-      "runtimeType": node.runtimeType.toString()
-    };
+    return {"xtype": "Member", "name": node.name.text, "runtimeType": node.runtimeType.toString()};
   }
 
   @override
@@ -405,11 +370,8 @@ mixin _MemberReferenceVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
       "isStatic": node.isStatic,
       "isGetter": node.isGetter,
       "isSetter": node.isSetter,
-      "positionalParameters": node.function.positionalParameters
-          .map((e) => e.accept(this))
-          .toList(),
-      "namedParameters":
-          node.function.namedParameters.map((e) => e.accept(this)).toList(),
+      "positionalParameters": node.function.positionalParameters.map((e) => e.accept(this)).toList(),
+      "namedParameters": node.function.namedParameters.map((e) => e.accept(this)).toList(),
     };
   }
 }
@@ -420,21 +382,14 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   Map<String, dynamic> defaultBasicLiteral(BasicLiteral node) {
-    return {
-      "xtype": "BasicLiteral",
-      "value": node.value,
-      "runtimeType": node.runtimeType.toString()
-    };
+    return {"xtype": "BasicLiteral", "value": node.value, "runtimeType": node.runtimeType.toString()};
   }
 
   @override
   Map<String, dynamic>? visitInvalidExpression(InvalidExpression node) {
     //print("visitInvalidExpression: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "InvalidExpression",
-      "expression": node.expression?.accept(this)
-    };
+    return {"xtype": "InvalidExpression", "expression": node.expression?.accept(this)};
   }
 
   @override
@@ -539,20 +494,14 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitAbstractSuperPropertyGet(
-      AbstractSuperPropertyGet node) {
+  Map<String, dynamic>? visitAbstractSuperPropertyGet(AbstractSuperPropertyGet node) {
     //print("visitAbstractSuperPropertyGet: ${node.name.text}");
     //node.visitChildren(this);
-    return {
-      "xtype": "AbstractSuperPropertyGet",
-      "interfaceTarget": node.interfaceTarget.acceptReference(this),
-      "name": node.name.accept(this)
-    };
+    return {"xtype": "AbstractSuperPropertyGet", "interfaceTarget": node.interfaceTarget.acceptReference(this), "name": node.name.accept(this)};
   }
 
   @override
-  Map<String, dynamic>? visitAbstractSuperPropertySet(
-      AbstractSuperPropertySet node) {
+  Map<String, dynamic>? visitAbstractSuperPropertySet(AbstractSuperPropertySet node) {
     //print("visitAbstractSuperPropertySet: ${node.name.text}");
     // node.visitChildren(this);
     return {
@@ -567,11 +516,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitSuperPropertyGet(SuperPropertyGet node) {
     //print("visitSuperPropertyGet: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "SuperPropertyGet",
-      "interfaceTarget": node.interfaceTarget.acceptReference(this),
-      "name": node.name.accept(this)
-    };
+    return {"xtype": "SuperPropertyGet", "interfaceTarget": node.interfaceTarget.acceptReference(this), "name": node.name.accept(this)};
   }
 
   @override
@@ -600,11 +545,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitStaticSet(StaticSet node) {
     //print("visitStaticSet: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "StaticSet",
-      "target": node.target.acceptReference(this),
-      "value": node.value.accept(this)
-    };
+    return {"xtype": "StaticSet", "target": node.target.acceptReference(this), "value": node.value.accept(this)};
   }
 
   @override
@@ -618,8 +559,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitLocalFunctionInvocation(
-      LocalFunctionInvocation node) {
+  Map<String, dynamic>? visitLocalFunctionInvocation(LocalFunctionInvocation node) {
     //print("visitLocalFunctionInvocation: ${node.toString()}");
     //node.visitChildren(this);
     return {
@@ -677,8 +617,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitInstanceGetterInvocation(
-      InstanceGetterInvocation node) {
+  Map<String, dynamic>? visitInstanceGetterInvocation(InstanceGetterInvocation node) {
     //print("visitInstanceGetterInvocation: ${node.toString()}");
     //node.visitChildren(this);
 
@@ -714,8 +653,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitAbstractSuperMethodInvocation(
-      AbstractSuperMethodInvocation node) {
+  Map<String, dynamic>? visitAbstractSuperMethodInvocation(AbstractSuperMethodInvocation node) {
     //print("visitAbstractSuperMethodInvocation: ${node.name.text}");
     //node.visitChildren(this);
     return {
@@ -754,12 +692,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
 
   @override
   Map<String, dynamic>? visitConstructorInvocation(ConstructorInvocation node) {
-    return {
-      "xtype": "ConstructorInvocation",
-      "target": node.target.acceptReference(this),
-      "arguments": node.arguments.accept(this),
-      "isConst": node.isConst
-    };
+    return {"xtype": "ConstructorInvocation", "target": node.target.acceptReference(this), "arguments": node.arguments.accept(this), "isConst": node.isConst};
   }
 
   @override
@@ -811,32 +744,21 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitStringConcatenation: ${node.toString()}");
     //node.visitChildren(this);
 
-    return <String, dynamic>{
-      "xtype": "StringConcatenation",
-      "expressions": visitList(node.expressions, this)
-    };
+    return <String, dynamic>{"xtype": "StringConcatenation", "expressions": visitList(node.expressions, this)};
   }
 
   @override
   Map<String, dynamic>? visitListConcatenation(ListConcatenation node) {
     //print("visitListConcatenation: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "ListConcatenation",
-      "typeArgument": node.typeArgument.accept(this),
-      "lists": visitList(node.lists, this)
-    };
+    return {"xtype": "ListConcatenation", "typeArgument": node.typeArgument.accept(this), "lists": visitList(node.lists, this)};
   }
 
   @override
   Map<String, dynamic>? visitSetConcatenation(SetConcatenation node) {
     //print("visitSetConcatenation: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "SetConcatenation",
-      "typeArgument": node.typeArgument.accept(this),
-      "sets": visitList(node.sets, this)
-    };
+    return {"xtype": "SetConcatenation", "typeArgument": node.typeArgument.accept(this), "sets": visitList(node.sets, this)};
   }
 
   @override
@@ -889,11 +811,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitAsExpression(AsExpression node) {
     //print("visitAsExpression: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "AsExpression",
-      "operand": node.operand.accept(this),
-      "type": node.type.accept(this)
-    };
+    return {"xtype": "AsExpression", "operand": node.operand.accept(this), "type": node.type.accept(this)};
   }
 
   @override
@@ -941,24 +859,14 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitListLiteral(ListLiteral node) {
     //print("visitListLiteral: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "ListLiteral",
-      "isConst": node.isConst,
-      "typeArgument": node.typeArgument.accept(this),
-      "expressions": visitList(node.expressions, this)
-    };
+    return {"xtype": "ListLiteral", "isConst": node.isConst, "typeArgument": node.typeArgument.accept(this), "expressions": visitList(node.expressions, this)};
   }
 
   @override
   Map<String, dynamic>? visitSetLiteral(SetLiteral node) {
     //print("visitSetLiteral: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "SetLiteral",
-      "isConst": node.isConst,
-      "typeArgument": node.typeArgument.accept(this),
-      "expressions": visitList(node.expressions, this)
-    };
+    return {"xtype": "SetLiteral", "isConst": node.isConst, "typeArgument": node.typeArgument.accept(this), "expressions": visitList(node.expressions, this)};
   }
 
   @override
@@ -974,8 +882,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic> visitRecordLiteral(RecordLiteral node) =>
-      defaultExpression(node);
+  Map<String, dynamic> visitRecordLiteral(RecordLiteral node) => defaultExpression(node);
 
   @override
   Map<String, dynamic>? visitAwaitExpression(AwaitExpression node) {
@@ -988,10 +895,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitFunctionExpression(FunctionExpression node) {
     //print("visitFunctionExpression: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "FunctionExpression",
-      "function": node.function.accept(this)
-    };
+    return {"xtype": "FunctionExpression", "function": node.function.accept(this)};
   }
 
   @override
@@ -999,11 +903,7 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitConstantExpression: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "ConstantExpression",
-      "constant": node.constant.acceptReference(this),
-      "type": node.type.accept(this)
-    };
+    return {"xtype": "ConstantExpression", "constant": node.constant.acceptReference(this), "type": node.type.accept(this)};
   }
 
   @override
@@ -1113,15 +1013,11 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic>? visitRedirectingFactoryTearOff(
-      RedirectingFactoryTearOff node) {
+  Map<String, dynamic>? visitRedirectingFactoryTearOff(RedirectingFactoryTearOff node) {
     //print("visitRedirectingFactoryTearOff: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "RedirectingFactoryTearOff",
-      "target": node.target.acceptReference(this)
-    };
+    return {"xtype": "RedirectingFactoryTearOff", "target": node.target.acceptReference(this)};
   }
 
   @override
@@ -1136,50 +1032,31 @@ mixin _ExpressionVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic> visitRecordIndexGet(RecordIndexGet node) =>
-      defaultExpression(node);
-  Map<String, dynamic> visitRecordNameGet(RecordNameGet node) =>
-      defaultExpression(node);
-  Map<String, dynamic> visitSwitchExpression(SwitchExpression node) =>
-      defaultExpression(node);
-  Map<String, dynamic> visitPatternAssignment(PatternAssignment node) =>
-      defaultExpression(node);
+  Map<String, dynamic> visitRecordIndexGet(RecordIndexGet node) => defaultExpression(node);
+  Map<String, dynamic> visitRecordNameGet(RecordNameGet node) => defaultExpression(node);
+  Map<String, dynamic> visitSwitchExpression(SwitchExpression node) => defaultExpression(node);
+  Map<String, dynamic> visitPatternAssignment(PatternAssignment node) => defaultExpression(node);
 }
 
 mixin _PatternVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic> defaultPattern(Pattern node);
   Map<String, dynamic> visitAndPattern(AndPattern node) => defaultPattern(node);
-  Map<String, dynamic> visitAssignedVariablePattern(
-          AssignedVariablePattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitCastPattern(CastPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitConstantPattern(ConstantPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitInvalidPattern(InvalidPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitListPattern(ListPattern node) =>
-      defaultPattern(node);
+  Map<String, dynamic> visitAssignedVariablePattern(AssignedVariablePattern node) => defaultPattern(node);
+  Map<String, dynamic> visitCastPattern(CastPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitConstantPattern(ConstantPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitInvalidPattern(InvalidPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitListPattern(ListPattern node) => defaultPattern(node);
   Map<String, dynamic> visitMapPattern(MapPattern node) => defaultPattern(node);
-  Map<String, dynamic> visitNamedPattern(NamedPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitNullAssertPattern(NullAssertPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitNullCheckPattern(NullCheckPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitObjectPattern(ObjectPattern node) =>
-      defaultPattern(node);
+  Map<String, dynamic> visitNamedPattern(NamedPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitNullAssertPattern(NullAssertPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitNullCheckPattern(NullCheckPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitObjectPattern(ObjectPattern node) => defaultPattern(node);
   Map<String, dynamic> visitOrPattern(OrPattern node) => defaultPattern(node);
-  Map<String, dynamic> visitRecordPattern(RecordPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitRelationalPattern(RelationalPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitRestPattern(RestPattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitVariablePattern(VariablePattern node) =>
-      defaultPattern(node);
-  Map<String, dynamic> visitWildcardPattern(WildcardPattern node) =>
-      defaultPattern(node);
+  Map<String, dynamic> visitRecordPattern(RecordPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitRelationalPattern(RelationalPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitRestPattern(RestPattern node) => defaultPattern(node);
+  Map<String, dynamic> visitVariablePattern(VariablePattern node) => defaultPattern(node);
+  Map<String, dynamic> visitWildcardPattern(WildcardPattern node) => defaultPattern(node);
 }
 
 mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
@@ -1191,10 +1068,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitExpressionStatement(ExpressionStatement node) {
     //print("visitExpressionStatement: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "ExpressionStatement",
-      "expression": node.expression.accept(this)
-    };
+    return {"xtype": "ExpressionStatement", "expression": node.expression.accept(this)};
   }
 
   @override
@@ -1209,10 +1083,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitAssertBlock: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "AssertBlock",
-      "statements": visitList(node.statements, this)
-    };
+    return {"xtype": "AssertBlock", "statements": visitList(node.statements, this)};
   }
 
   @override
@@ -1263,11 +1134,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitDoStatement(DoStatement node) {
     //print("visitDoStatement: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "DoStatement",
-      "body": node.body.accept(this),
-      "condition": node.condition.accept(this)
-    };
+    return {"xtype": "DoStatement", "body": node.body.accept(this), "condition": node.condition.accept(this)};
   }
 
   @override
@@ -1301,55 +1168,33 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitSwitchStatement: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "SwitchStatement",
-      "expression": node.expression.accept(this),
-      "cases": visitList(node.cases, this)
-    };
+    return {"xtype": "SwitchStatement", "expression": node.expression.accept(this), "cases": visitList(node.cases, this)};
   }
 
   @override
-  Map<String, dynamic>? visitPatternSwitchStatement(
-      PatternSwitchStatement node) {
-    return {
-      "xtype": "PatternSwitchStatement",
-      "expression": node.expression.accept(this),
-      "cases": visitList(node.cases, this)
-    };
+  Map<String, dynamic>? visitPatternSwitchStatement(PatternSwitchStatement node) {
+    return {"xtype": "PatternSwitchStatement", "expression": node.expression.accept(this), "cases": visitList(node.cases, this)};
   }
 
   @override
-  Map<String, dynamic>? visitContinueSwitchStatement(
-      ContinueSwitchStatement node) {
-    return {
-      "xtype": "ContinueSwitchStatement",
-      "target": node.target.accept(this)
-    };
+  Map<String, dynamic>? visitContinueSwitchStatement(ContinueSwitchStatement node) {
+    return {"xtype": "ContinueSwitchStatement", "target": node.target.accept(this)};
   }
 
   @override
   Map<String, dynamic>? visitIfStatement(IfStatement node) {
     //print("visitIfStatement: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "IfStatement",
-      "condition": node.condition.accept(this),
-      "then": node.then.accept(this),
-      "otherwise": node.otherwise?.accept(this)
-    };
+    return {"xtype": "IfStatement", "condition": node.condition.accept(this), "then": node.then.accept(this), "otherwise": node.otherwise?.accept(this)};
   }
 
-  Map<String, dynamic> visitIfCaseStatement(IfCaseStatement node) =>
-      defaultStatement(node);
+  Map<String, dynamic> visitIfCaseStatement(IfCaseStatement node) => defaultStatement(node);
   @override
   Map<String, dynamic>? visitReturnStatement(ReturnStatement node) {
     //print("visitReturnStatement: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "ReturnStatement",
-      "expression": node.expression?.accept(this)
-    };
+    return {"xtype": "ReturnStatement", "expression": node.expression?.accept(this)};
   }
 
   @override
@@ -1357,11 +1202,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitTryCatch: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "TryCatch",
-      "body": node.body.accept(this),
-      "catches": visitList(node.catches, this)
-    };
+    return {"xtype": "TryCatch", "body": node.body.accept(this), "catches": visitList(node.catches, this)};
   }
 
   @override
@@ -1379,11 +1220,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic>? visitYieldStatement(YieldStatement node) {
     //print("visitYieldStatement: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "YieldStatement",
-      "isYieldStar": node.isYieldStar,
-      "expression": node.expression.accept(this)
-    };
+    return {"xtype": "YieldStatement", "isYieldStar": node.isYieldStar, "expression": node.expression.accept(this)};
   }
 
   @override
@@ -1407,9 +1244,7 @@ mixin _StatementVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic> visitPatternVariableDeclaration(
-          PatternVariableDeclaration node) =>
-      defaultStatement(node);
+  Map<String, dynamic> visitPatternVariableDeclaration(PatternVariableDeclaration node) => defaultStatement(node);
   @override
   Map<String, dynamic>? visitFunctionDeclaration(FunctionDeclaration node) {
     //print("visitFunctionDeclaration: ${node.toString()}");
@@ -1505,11 +1340,7 @@ mixin _MemberVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
 
 mixin _InitializerVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
   Map<String, dynamic> defaultInitializer(Initializer node) {
-    return {
-      "xtype": "Initializer",
-      "isSynthetic": node.isSynthetic,
-      "runtimeType": node.runtimeType.toString()
-    };
+    return {"xtype": "Initializer", "isSynthetic": node.isSynthetic, "runtimeType": node.runtimeType.toString()};
   }
 
   @override
@@ -1524,34 +1355,21 @@ mixin _InitializerVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitFieldInitializer: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "FieldInitializer",
-      "field": node.field.acceptReference(this),
-      "value": node.value.accept(this)
-    };
+    return {"xtype": "FieldInitializer", "field": node.field.acceptReference(this), "value": node.value.accept(this)};
   }
 
   @override
   Map<String, dynamic>? visitSuperInitializer(SuperInitializer node) {
     //print("visitSuperInitializer: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "SuperInitializer",
-      "target": node.target.acceptReference(this),
-      "arguments": node.arguments.accept(this)
-    };
+    return {"xtype": "SuperInitializer", "target": node.target.acceptReference(this), "arguments": node.arguments.accept(this)};
   }
 
   @override
-  Map<String, dynamic>? visitRedirectingInitializer(
-      RedirectingInitializer node) {
+  Map<String, dynamic>? visitRedirectingInitializer(RedirectingInitializer node) {
     //print("visitRedirectingInitializer: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "RedirectingInitializer",
-      "target": node.target.acceptReference(this),
-      "arguments": node.arguments.accept(this)
-    };
+    return {"xtype": "RedirectingInitializer", "target": node.target.acceptReference(this), "arguments": node.arguments.accept(this)};
   }
 
   @override
@@ -1559,20 +1377,14 @@ mixin _InitializerVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     //print("visitLocalInitializer: ${node.toString()}");
     //node.visitChildren(this);
 
-    return {
-      "xtype": "LocalInitializer",
-      "variable": node.variable.accept(this)
-    };
+    return {"xtype": "LocalInitializer", "variable": node.variable.accept(this)};
   }
 
   @override
   Map<String, dynamic>? visitAssertInitializer(AssertInitializer node) {
     //print("visitAssertInitializer: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "AssertInitializer",
-      "statement": node.statement.accept(this)
-    };
+    return {"xtype": "AssertInitializer", "statement": node.statement.accept(this)};
   }
 }
 
@@ -1588,8 +1400,7 @@ mixin _TreeNodeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
       "languageVersion.minor": node.languageVersion.minor,
       "importUri": node.importUri.toString(),
       "isSynthetic": node.isSynthetic,
-      "nonNullableByDefaultCompiledMode":
-          node.nonNullableByDefaultCompiledMode.name,
+      "nonNullableByDefaultCompiledMode": node.nonNullableByDefaultCompiledMode.name,
       "isNonNullableByDefault": node.isNonNullableByDefault,
       "isUnsupported": node.isUnsupported,
       "problemsAsJson": node.problemsAsJson,
@@ -1604,8 +1415,7 @@ mixin _TreeNodeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic>? visitLibraryDependency(LibraryDependency node) =>
-      defaultTreeNode(node);
+  Map<String, dynamic>? visitLibraryDependency(LibraryDependency node) => defaultTreeNode(node);
   @override
   Map<String, dynamic>? visitCombinator(Combinator node) {
     return {
@@ -1615,13 +1425,10 @@ mixin _TreeNodeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic>? visitLibraryPart(LibraryPart node) =>
-      defaultTreeNode(node);
+  Map<String, dynamic>? visitLibraryPart(LibraryPart node) => defaultTreeNode(node);
   Map<String, dynamic>? visitTypedef(Typedef node) => defaultTreeNode(node);
-  Map<String, dynamic>? visitTypeParameter(TypeParameter node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitFunctionNode(FunctionNode node) =>
-      defaultTreeNode(node);
+  Map<String, dynamic>? visitTypeParameter(TypeParameter node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitFunctionNode(FunctionNode node) => defaultTreeNode(node);
   @override
   Map<String, dynamic>? visitArguments(Arguments node) {
     //print("visitArguments: ${node.toString()}");
@@ -1634,14 +1441,10 @@ mixin _TreeNodeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic>? visitNamedExpression(NamedExpression node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitSwitchCase(SwitchCase node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitPatternSwitchCase(PatternSwitchCase node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitSwitchExpressionCase(SwitchExpressionCase node) =>
-      defaultTreeNode(node);
+  Map<String, dynamic>? visitNamedExpression(NamedExpression node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitSwitchCase(SwitchCase node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitPatternSwitchCase(PatternSwitchCase node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitSwitchExpressionCase(SwitchExpressionCase node) => defaultTreeNode(node);
   @override
   Map<String, dynamic>? visitCatch(Catch node) {
     return {
@@ -1653,14 +1456,10 @@ mixin _TreeNodeVisitor on RecursiveResultVisitor<Map<String, dynamic>> {
     };
   }
 
-  Map<String, dynamic>? visitMapLiteralEntry(MapLiteralEntry node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitMapPatternEntry(MapPatternEntry node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitMapPatternRestEntry(MapPatternRestEntry node) =>
-      defaultTreeNode(node);
-  Map<String, dynamic>? visitPatternGuard(PatternGuard node) =>
-      defaultTreeNode(node);
+  Map<String, dynamic>? visitMapLiteralEntry(MapLiteralEntry node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitMapPatternEntry(MapPatternEntry node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitMapPatternRestEntry(MapPatternRestEntry node) => defaultTreeNode(node);
+  Map<String, dynamic>? visitPatternGuard(PatternGuard node) => defaultTreeNode(node);
 
   Map<String, dynamic>? visitComponent(Component node) {
     var acceptLibraties = <Library>[];
@@ -1719,8 +1518,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   }
 
   @override
-  Map<String, dynamic>? visitConstructorTearOffConstantReference(
-      ConstructorTearOffConstant node) {
+  Map<String, dynamic>? visitConstructorTearOffConstantReference(ConstructorTearOffConstant node) {
     return {
       "xtype": "ConstructorTearOffConstantReference",
       "target": node.target.name.text,
@@ -1749,10 +1547,8 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
       "xtype": "Extension",
       "typeParameters": visitList(node.typeParameters, this),
       "onType": node.onType.accept(this),
-      "showHideClause.shownSupertypes":
-          visitList(node.showHideClause?.shownSupertypes, this),
-      "showHideClause.hiddenSupertypes":
-          visitList(node.showHideClause?.hiddenSupertypes, this),
+      "showHideClause.shownSupertypes": visitList(node.showHideClause?.shownSupertypes, this),
+      "showHideClause.hiddenSupertypes": visitList(node.showHideClause?.hiddenSupertypes, this),
     };
   }
 
@@ -1776,18 +1572,13 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
     return {
       "xtype": "InstanceConstantReference",
       "classRef": node.classNode.getClassRef().toString(),
-      "fields": node.fieldValues.keys
-          .map((key) => key.asField.acceptReference(this))
-          .toList(),
-      "values": node.fieldValues.values
-          .map((key) => key.acceptReference(this))
-          .toList()
+      "fields": node.fieldValues.keys.map((key) => key.asField.acceptReference(this)).toList(),
+      "values": node.fieldValues.values.map((key) => key.acceptReference(this)).toList()
     };
   }
 
   @override
-  Map<String, dynamic>? visitInstantiationConstantReference(
-      InstantiationConstant node) {
+  Map<String, dynamic>? visitInstantiationConstantReference(InstantiationConstant node) {
     //print("visitInstantiationConstantReference: ${node.toString()}");
     //node.visitChildren(this);
     return {"xtype": "InstantiationConstantReference"};
@@ -1807,11 +1598,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   Map<String, dynamic>? visitLibraryPart(LibraryPart node) {
     //print("visitLibraryPart: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "LibraryPart",
-      "partUri": node.partUri,
-      "annotations": visitList(node.annotations, this)
-    };
+    return {"xtype": "LibraryPart", "partUri": node.partUri, "annotations": visitList(node.annotations, this)};
   }
 
   @override
@@ -1832,11 +1619,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   Map<String, dynamic>? visitMapLiteralEntry(MapLiteralEntry node) {
     //print("visitMapLiteralEntry: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "MapLiteralEntry",
-      "key": node.key.accept(this),
-      "value": node.value.accept(this)
-    };
+    return {"xtype": "MapLiteralEntry", "key": node.key.accept(this), "value": node.value.accept(this)};
   }
 
   @override
@@ -1908,8 +1691,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   // }
 
   @override
-  Map<String, dynamic>? visitRedirectingFactoryTearOffConstantReference(
-      RedirectingFactoryTearOffConstant node) {
+  Map<String, dynamic>? visitRedirectingFactoryTearOffConstantReference(RedirectingFactoryTearOffConstant node) {
     //print("visitRedirectingFactoryTearOffConstantReference: ${node.toString()}");
     //node.visitChildren(this);
     return {"xtype": "RedirectingFactoryTearOffConstantReference"};
@@ -1924,14 +1706,10 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   }
 
   @override
-  Map<String, dynamic>? visitStaticTearOffConstantReference(
-      StaticTearOffConstant node) {
+  Map<String, dynamic>? visitStaticTearOffConstantReference(StaticTearOffConstant node) {
     //print("visitStaticTearOffConstantReference: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "StaticTearOffConstantReference",
-      "target": node.target.acceptReference(this)
-    };
+    return {"xtype": "StaticTearOffConstantReference", "target": node.target.acceptReference(this)};
   }
 
   @override
@@ -1945,11 +1723,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   Map<String, dynamic>? visitSupertype(Supertype node) {
     //print("visitSupertype: ${node.toString()}");
     //node.visitChildren(this);
-    return {
-      "xtype": "Supertype",
-      "classNode": node.classNode.acceptReference(this),
-      "typeArguments": visitList(node.typeArguments, this)
-    };
+    return {"xtype": "Supertype", "classNode": node.classNode.acceptReference(this), "typeArguments": visitList(node.typeArguments, this)};
   }
 
   @override
@@ -1967,11 +1741,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
 
   @override
   Map<String, dynamic>? visitPatternSwitchCase(PatternSwitchCase node) {
-    return {
-      "xtype": "PatternSwitchCase",
-      "body": node.body.accept(this),
-      "patternGuards": visitList(node.patternGuards, this)
-    };
+    return {"xtype": "PatternSwitchCase", "body": node.body.accept(this), "patternGuards": visitList(node.patternGuards, this)};
   }
 
   @override
@@ -1999,8 +1769,7 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   }
 
   @override
-  Map<String, dynamic>? visitTypeLiteralConstantReference(
-      TypeLiteralConstant node) {
+  Map<String, dynamic>? visitTypeLiteralConstantReference(TypeLiteralConstant node) {
     //print("visitTypeLiteralConstantReference: ${node.toString()}");
     //node.visitChildren(this);
     return {"xtype": "TypeLiteralConstantReference"};
@@ -2038,16 +1807,14 @@ class _Visitor extends RecursiveResultVisitor<Map<String, dynamic>>
   }
 
   @override
-  Map<String, dynamic>? visitTypedefTearOffConstantReference(
-      TypedefTearOffConstant node) {
+  Map<String, dynamic>? visitTypedefTearOffConstantReference(TypedefTearOffConstant node) {
     //print("visitTypedefTearOffConstantReference: ${node.toString()}");
     //node.visitChildren(this);
     return {"xtype": "TypedefTearOffConstantReference"};
   }
 
   @override
-  Map<String, dynamic>? visitUnevaluatedConstantReference(
-      UnevaluatedConstant node) {
+  Map<String, dynamic>? visitUnevaluatedConstantReference(UnevaluatedConstant node) {
     //print("visitUnevaluatedConstantReference: ${node.toString()}");
     //node.visitChildren(this);
     return {"xtype": "UnevaluatedConstantReference"};

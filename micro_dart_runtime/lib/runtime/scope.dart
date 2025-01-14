@@ -192,13 +192,14 @@ class Scope {
       }
     } on ProgramExit catch (_) {
       tryRelease();
-    } catch (exception, _) {
-      print("--------error start--------");
-      print(
-          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${dump()}}");
-      print("--------error end  --------");
-      rethrow;
     }
+    //  catch (exception, _) {
+    //   print("--------error start--------");
+    //   print(
+    //       "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}:${dump()}}");
+    //   print("--------error end  --------");
+    //   rethrow;
+    // }
   }
 
   @override

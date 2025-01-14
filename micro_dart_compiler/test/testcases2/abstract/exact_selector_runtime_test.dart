@@ -16,21 +16,21 @@ var a = [false, true, new Object(), new Bar()];
 
 test1() {
   var a1 = returnFoo();
-  print(a1);
+  // print(a1);
   return a1;
 }
 
 test2() {
   var a1 = returnFoo();
-  print(a1);
+  // print(a1);
   var a2 = a1.test2();
-  print(a2 == 42);
+  // print(a2 == 42);
   return a2 == 42;
 }
 
 test3() {
   bool b = a[2] == 42;
-  print(b);
+  // print(b);
   return b;
 }
 
