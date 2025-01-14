@@ -159,7 +159,7 @@ int compileSuperPropertySet(
   compileExpression(context, node.value);
   context.pushOp(OpPushConstantInt.make(1));
   context.pushOp(OpPushConstantInt.make(0));
-  context.pushOp(OpPushArgments.make(4));
+  context.pushOp(OpPushArguments.make(4));
   if (target is Procedure) {
     bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
     if (isAsync) {
@@ -213,7 +213,7 @@ int compileConstructorTearOff(
 
 int compileStaticTearOff(MicroCompilerContext context, StaticTearOff node) {
   var ref = node.target.getCallRef();
-  int opOffset = context.rumtimeDeclarationOpIndexes[ref] ?? -1;
+  int opOffset = context.runtimeDeclarationOpIndexes[ref] ?? -1;
   bool isAsync = (node.target.function.asyncMarker == AsyncMarker.Async);
   int pos = context
       .pushOp(OpPushPointer.make(opOffset, node.target.isStatic, isAsync));
@@ -391,8 +391,12 @@ int compileFunctionTearOff(MicroCompilerContext context, FunctionTearOff node) {
 
 int compileEqualsCall(MicroCompilerContext context, EqualsCall node) {
   compileExpression(context, node.left);
-  compileExpression(context, node.right);
-  return context.pushOp(OpEquals.make());
+  //compileExpression(context, node.right);
+
+  return compileCallProcedure(
+      context, Arguments([node.right]), node.interfaceTarget, false);
+
+  //return context.pushOp(OpEquals.make());
 }
 
 int compileLet(MicroCompilerContext context, Let node) {
@@ -406,7 +410,7 @@ int compileInstanceTearOff(MicroCompilerContext context, InstanceTearOff node) {
   if (context.compileDeclarations.contains(node.interfaceTarget)) {
     compileExpression(context, node.receiver);
     var ref = node.interfaceTarget.getCallRef();
-    int opOffset = context.rumtimeDeclarationOpIndexes[ref] ?? -1;
+    int opOffset = context.runtimeDeclarationOpIndexes[ref] ?? -1;
     bool isAsync =
         (node.interfaceTarget.function.asyncMarker == AsyncMarker.Async);
     int pos =
@@ -460,7 +464,7 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
       //这里表示它是一个外部类
       context.pushOp(OpPushConstantInt.make(0));
       context.pushOp(OpPushConstantInt.make(0));
-      context.pushOp(OpPushArgments.make(3));
+      context.pushOp(OpPushArguments.make(3));
 
       var asRef = CallRef(type.classNode.stringLibraryUri,
           type.classNode.stringClassName!, "#as", false, false);
@@ -545,7 +549,8 @@ int compileSuperPropertyGet(
   if (target is Procedure) {
     context.pushOp(OpPushConstantInt.make(0));
     context.pushOp(OpPushConstantInt.make(0));
-    context.pushOp(OpPushArgments.make(3));
+    context.pushOp(OpPushArguments.make(3));
+
     late String className;
     //print("compiling node: ${context.compilingNode!.parent}");
     bool isMixinDeclaration = false;
@@ -646,7 +651,7 @@ int compileInstanceGet(MicroCompilerContext context, InstanceGet node) {
   } else if (target is Field) {
     compileExpression(context, node.receiver);
     return compileCallFieldGet(context, target);
-    //int opOffset = context.rumtimeDeclarationOpIndexes[target.getNamedName()]!;
+    //int opOffset = context.runtimeDeclarationOpIndexes[target.getNamedName()]!;
     // if (opOffset == -1) {
     //   throw Exception("object ${target.getNamedName()} not found ");
     // }
@@ -732,7 +737,7 @@ int compileConstant(MicroCompilerContext context, Constant constant) {
   } else if (constant is StaticTearOffConstant) {
     if (context.compileDeclarations.contains(constant.target)) {
       var ref = constant.target.getCallRef();
-      int opOffset = context.rumtimeDeclarationOpIndexes[ref]!;
+      int opOffset = context.runtimeDeclarationOpIndexes[ref]!;
       bool isAsync =
           (constant.target.function.asyncMarker == AsyncMarker.Async);
       int pos = context.pushOp(OpPushPointer.make(opOffset, true, isAsync));

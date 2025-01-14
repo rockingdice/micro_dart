@@ -23,7 +23,7 @@ class Scope {
   /// 帧集合
   final List<dynamic> frames = [];
 
-  final List<Scope> childs = [];
+  final List<Scope> children = [];
 
   /// 参数集合
   final Map<String, dynamic> params = <String, dynamic>{};
@@ -39,7 +39,7 @@ class Scope {
     if (maxScopeDeep > 0 && deep > maxScopeDeep) {
       throw Exception("scope too deep > $maxScopeDeep");
     }
-    parent?.childs.add(this);
+    parent?.children.add(this);
   }
 
   Scope createFromParent(
@@ -86,11 +86,11 @@ class Scope {
     frames.add(object);
   }
 
-  dynamic popFrame({int posation = -1}) {
-    if (posation == -1) {
+  dynamic popFrame({int position = -1}) {
+    if (position == -1) {
       return frames.removeLast();
     }
-    return frames.removeAt(posation);
+    return frames.removeAt(position);
   }
 
   void insertFrame(int index, dynamic element) {
@@ -111,11 +111,11 @@ class Scope {
     frames.addAll(list);
   }
 
-  dynamic getFrame({int posation = -1}) {
-    if (posation == -1) {
+  dynamic getFrame({int position = -1}) {
+    if (position == -1) {
       return frames.last;
     }
-    return frames[posation];
+    return frames[position];
   }
 
   Iterable<dynamic> take(int count) {
@@ -129,8 +129,8 @@ class Scope {
 //如果是异步,可能会阻止清理
   void tryRelease() {
     markNeedRelease = true;
-    if (childs.isEmpty) {
-      parent?.childs.remove(this);
+    if (children.isEmpty) {
+      parent?.children.remove(this);
       parent?.checkRelease();
       _clean();
       return;

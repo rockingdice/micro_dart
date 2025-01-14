@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpConditional implements Op {
-  OpConditional(MicroDartEngine interpreter);
+  static const OpConditional _instance = OpConditional._();
 
-  OpConditional.make();
+  const OpConditional._();
+
+  factory OpConditional() => _instance;
+  factory OpConditional.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

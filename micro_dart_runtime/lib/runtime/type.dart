@@ -2,6 +2,50 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class CTypes {}
 
+abstract class MDartType {}
+
+class MDynamicType extends MDartType {
+  @override
+  final int hashCode = 54321;
+
+  @override
+  bool operator ==(Object other) {
+    return other is MDynamicType && hashCode == other.hashCode;
+  }
+}
+
+class MInvalidType extends MDartType {
+  @override
+  final int hashCode = 12345;
+
+  @override
+  bool operator ==(Object other) {
+    return other is MInvalidType && hashCode == other.hashCode;
+  }
+}
+
+class MVoidType extends MDartType {
+  @override
+  final int hashCode = 123121;
+
+  @override
+  bool operator ==(Object other) {
+    return other is MVoidType && hashCode == other.hashCode;
+  }
+}
+
+class MNeverType extends MDartType {}
+
+class MNullType extends MDartType {
+  @override
+  final int hashCode = 123121;
+
+  @override
+  bool operator ==(Object other) {
+    return other is MDynamicType && hashCode == other.hashCode;
+  }
+}
+
 class CallRef {
   final String library;
   final String className;
@@ -134,8 +178,8 @@ class ClassRef {
     return "$library@$className";
   }
 
-  factory ClassRef.fromList(List list, List<String> constatns) {
-    return ClassRef(constatns[list[0]], constatns[list[1]]);
+  factory ClassRef.fromList(List list, List<String> constants) {
+    return ClassRef(constants[list[0]], constants[list[1]]);
   }
 
   List<int> toList(ConstantPool pool) {
@@ -178,7 +222,7 @@ class ClassRef {
   int get hashCode => Object.hash(library, className);
 }
 
-String getMetchodName(String name, {bool isSetter = false}) {
+String getMethodName(String name, {bool isSetter = false}) {
   if (isSetter) {
     name = "$name:set";
   }

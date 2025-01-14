@@ -38,19 +38,19 @@ class OffsetTracker {
     var source = this.context.ops;
 
     _globalParamOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final offset = context.runtimeDeclarationOpIndexes[value.ref]!;
       final newOp = OpGetGlobalParam.make(value.ref, offset);
       source[index] = newOp;
     });
 
     _objectParamOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final offset = context.runtimeDeclarationOpIndexes[value.ref]!;
       final newOp = OpGetObjectProperty.make(value.ref.name, offset);
       source[index] = newOp;
     });
 
     _callPointerOffsets.forEach((index, value) {
-      final offset = context.rumtimeDeclarationOpIndexes[value.ref]!;
+      final offset = context.runtimeDeclarationOpIndexes[value.ref]!;
       final newOp =
           OpPushPointer.make(offset, value.ref.isStatic, value.isAsync);
       source[index] = newOp;

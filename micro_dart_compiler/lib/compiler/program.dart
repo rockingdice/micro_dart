@@ -8,7 +8,7 @@ class Program {
   final Component? component;
 
   /// Global bytecode offsets of the program's top-level declarations.
-  final Map<CallRef, int> rumtimeDeclarationOpIndexes;
+  final Map<CallRef, int> runtimeDeclarationOpIndexes;
 
   final List<Op> ops;
   final ConstantPool constantPool;
@@ -18,7 +18,7 @@ class Program {
   final Set<CallRef> externalTypes;
 
   Program(
-      {required this.rumtimeDeclarationOpIndexes,
+      {required this.runtimeDeclarationOpIndexes,
       required this.runtimeTypes,
       required this.externalTypes,
       required this.ops,
@@ -44,10 +44,10 @@ class Program {
 
     _writeMetaBlock(
         builder,
-        rumtimeDeclarationOpIndexes.keys
+        runtimeDeclarationOpIndexes.keys
             .map<List>((e) => e.toList(constantPool))
             .toList());
-    _writeMetaBlock(builder, rumtimeDeclarationOpIndexes.values.toList());
+    _writeMetaBlock(builder, runtimeDeclarationOpIndexes.values.toList());
 
     _writeMetaBlock(builder, constantPool.pool);
 
@@ -104,12 +104,10 @@ class Program {
   }
 
   void printOpcodes() {
-    print("------------start printOpcodes------------");
     var i = 0;
     for (final oo in ops) {
       print('$i: $oo');
       i++;
     }
-    print("------------end printOpcodes------------");
   }
 }

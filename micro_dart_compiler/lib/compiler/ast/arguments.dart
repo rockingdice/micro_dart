@@ -15,10 +15,10 @@ void compileArguments(
         OpPushConstant.make(context.constantPool.addOrGet(element.name)));
   });
   context.pushOp(OpPushConstantInt.make(pLength));
-  int argmentLength =
+  int argumentLength =
       arguments.positional.length + arguments.named.length * 2 + 2;
   if (!isStatic) {
-    argmentLength++;
+    argumentLength++;
   }
-  context.pushOp(OpPushArgments.make(argmentLength));
+  context.pushOp(OpPushArguments.make(argumentLength));
 }

@@ -1,9 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpPushNull implements Op {
-  OpPushNull(MicroDartEngine exec);
+  static const OpPushNull _instance = OpPushNull._();
 
-  OpPushNull.make();
+  const OpPushNull._();
+
+  factory OpPushNull() => _instance;
+  factory OpPushNull.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

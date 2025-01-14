@@ -1,5 +1,12 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:kernel/kernel.dart';
+import 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
+import 'package:micro_dart_compiler/compiler/compiler.dart';
+import 'package:micro_dart_compiler/util.dart';
+import 'package:micro_dart_proxy_core/generated/core.g.dart';
+import 'package:micro_dart_runtime/runtime/engine.dart';
+
 import 'env.dart';
 
 const String flutterPlugin1Path = "../examples/flutter_plugin_1/";
@@ -10,10 +17,10 @@ void main() async {
   var program = await compilePlugin(
       mainSource, [], RegExp(r"package:flutter_plugin_1/+"), options);
   if (astToJsonFlag) {
-    astToJson("${testCasePath}flutter_example",
+    astToJson("${testCasePath1}flutter_example",
         RegExp(r"package:flutter_plugin_1/+"), program.component);
     writeComponentToText(program.component!,
-        path: "${testCasePath}plugin_1.txt");
+        path: "${testCasePath1}plugin_1.txt");
   }
   var bytes = program.write().buffer.asByteData();
   File("${flutterExamplePath}assets//micro_dart1.data")

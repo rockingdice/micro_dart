@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpNot implements Op {
-  OpNot(MicroDartEngine interpreter);
+  static const OpNot _instance = OpNot._();
 
-  OpNot.make();
+  const OpNot._();
+
+  factory OpNot() => _instance;
+  factory OpNot.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;

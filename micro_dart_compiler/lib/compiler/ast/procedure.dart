@@ -4,8 +4,8 @@ int compileProcedure(MicroCompilerContext context, Procedure node) {
   compileDartType(context, node.function.returnType);
   var ref = node.getCallRef();
   //表示该方法已经编译过了,直接返回
-  if (context.rumtimeDeclarationOpIndexes[ref] != null) {
-    return context.rumtimeDeclarationOpIndexes[ref]!;
+  if (context.runtimeDeclarationOpIndexes[ref] != null) {
+    return context.runtimeDeclarationOpIndexes[ref]!;
   }
   return compileFunction(
       context, node.function, ref, node.isGetter, node.isStatic);
@@ -15,20 +15,20 @@ int compileFunction(MicroCompilerContext context, FunctionNode function,
     CallRef ref, bool isGetter, bool isStatic) {
   //开启一个作用域
   int pos = context.callStart(ref);
-  context.rumtimeDeclarationOpIndexes[ref] = pos;
+  context.runtimeDeclarationOpIndexes[ref] = pos;
 
-  List<String> posationalNames = [];
+  List<String> positionalNames = [];
 
   //参数初始化
   function.positionalParameters.forEach((element) {
     compileStatement(context, element);
-    posationalNames.add(element.name!);
+    positionalNames.add(element.name!);
   });
   function.namedParameters.forEach((element) {
     compileStatement(context, element);
   });
 
-  context.pushOp(OpPopArgments.make(posationalNames, isGetter, isStatic));
+  context.pushOp(OpPopArguments.make(positionalNames, isGetter, isStatic));
   var b = function.body;
 
   //编译body
@@ -61,7 +61,7 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
     if (procedure.function.returnType is VoidType) {
       hasReturn = false;
     }
-    var calltypeStirngs = arguments.types
+    var callTypeStrings = arguments.types
         .map((e) => compileDartType(context, e))
         .map((e) => e?.ref.className ?? "")
         .toList();
@@ -70,7 +70,7 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
       ref,
       hasReturn,
       [],
-      calltypeStirngs,
+      callTypeStrings,
     );
   }
 
@@ -80,7 +80,7 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
 int compileCallLocalFunction(
     MicroCompilerContext context, Arguments arguments, CallRef ref,
     {DeferredOrOffsetKind kind = DeferredOrOffsetKind.Procedure,
-    int posationalLengh = 0,
+    int positionalLength = 0,
     List<String> namedList = const [],
     required String className,
     required String libraryUri,

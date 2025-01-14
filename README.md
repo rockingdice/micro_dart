@@ -1,4 +1,6 @@
 
+ [中文](README_cn.md)
+
 # **This project is still in the development stage and there are still many bugs. It is not recommended to use it in the project. Currently, it only serves as a learning reference**
 
 # Introduce

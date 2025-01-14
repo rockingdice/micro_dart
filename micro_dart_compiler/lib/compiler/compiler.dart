@@ -91,7 +91,7 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
   compileContext(compilerContext);
 
   return Program(
-    rumtimeDeclarationOpIndexes: compilerContext.rumtimeDeclarationOpIndexes,
+    runtimeDeclarationOpIndexes: compilerContext.runtimeDeclarationOpIndexes,
     runtimeTypes: compilerContext.visibleTypes,
     externalTypes: compilerContext.externalCallMethods,
     constantPool: compilerContext.constantPool,

@@ -4,7 +4,7 @@ import 'package:analyzer/dart/analysis/analysis_context_collection.dart';
 import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/file_system/physical_file_system.dart';
 import 'package:micro_dart_generator/code_gen_mirror.dart';
-import 'package:micro_dart_generator/namedsystem.dart';
+import 'package:micro_dart_generator/named_system.dart';
 import 'package:micro_dart_generator/overwrite_strategy.dart';
 import 'package:path/path.dart';
 

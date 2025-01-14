@@ -13,7 +13,7 @@ class MicroCompilerContext {
   final List<int> compileClassIndexes = [];
 
   final Map<CallRef, int> compileDeclarationIndexes = <CallRef, int>{};
-  final Map<CallRef, int> rumtimeDeclarationOpIndexes = {};
+  final Map<CallRef, int> runtimeDeclarationOpIndexes = {};
   final Set<CallRef> externalCallMethods = {};
 
   final constantPool = ConstantPool();

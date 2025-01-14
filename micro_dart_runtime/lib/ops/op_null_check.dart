@@ -2,9 +2,12 @@ import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用方法
 class OpNullCheck implements Op {
-  OpNullCheck(MicroDartEngine interpreter);
+  static const OpNullCheck _instance = OpNullCheck._();
 
-  OpNullCheck.make();
+  const OpNullCheck._();
+
+  factory OpNullCheck() => _instance;
+  factory OpNullCheck.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin + Ops.lenI8;

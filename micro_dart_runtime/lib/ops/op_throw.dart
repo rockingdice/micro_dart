@@ -1,9 +1,12 @@
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class OpThrow implements Op {
-  OpThrow(MicroDartEngine interpreter);
+  static const OpThrow _instance = OpThrow._();
 
-  OpThrow.make();
+  const OpThrow._();
+
+  factory OpThrow() => _instance;
+  factory OpThrow.make() => _instance;
 
   @override
   int get opLen => Ops.lenBegin;
