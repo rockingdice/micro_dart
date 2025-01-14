@@ -406,9 +406,6 @@ void compileReturnStatement(
     MicroCompilerContext context, ReturnStatement node) {
   if (node.expression != null) {
     compileExpression(context, node.expression!);
-    context.pushOp(OpReturn.make());
-    context.callEnd();
-  } else {
-    context.callEnd();
   }
+  context.pushOp(OpReturn.make());
 }

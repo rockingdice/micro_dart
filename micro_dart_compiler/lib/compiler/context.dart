@@ -67,7 +67,8 @@ class MicroCompilerContext {
       mixinType = mixinClazz.getClassRef();
     }
     bool isExternal = true;
-    if (compileDeclarationIndexes.containsKey(ref)) {
+    if (compileDeclarations.contains(node) ||
+        compileDeclarationIndexes.containsKey(ref)) {
       isExternal = false;
     }
 
@@ -152,6 +153,7 @@ class MicroCompilerContext {
     return position;
   }
 
+  NamedNode? compilingNode;
   void startCompileNode(NamedNode node) {
     if (debug) {
       print("start compile: ${node.getCallRef()}");
