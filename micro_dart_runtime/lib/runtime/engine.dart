@@ -577,6 +577,13 @@ class MicroDartEngine {
       } else {
         //是成员函数
         var ref = getCallRefByType(callee.type, name, false, false);
+        if (ref == null) {
+          //没找到，看看有没有noSuchMethod，如果有调用之
+          ref = getCallRefByType(callee.type, "noSuchMethod", false, false);
+          if (ref == null) {
+            throw Exception("no such method : ${callee.runtimeType}.$name");
+          }
+        }
         pointer = declarations[ref]!;
       }
     } else if (callee is FunctionPointer) {
