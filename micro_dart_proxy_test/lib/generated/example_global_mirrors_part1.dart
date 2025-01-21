@@ -68,6 +68,11 @@ const Map<String, Function> globalGetterMirrors = {
   'Object.hashAll': _Object_hashAll$,
   'Object.hashAllUnordered': _Object_hashAllUnordered$,
   'Deprecated.': _Deprecated__$,
+  'bool.fromEnvironment': _bool_fromEnvironment_$,
+  'bool.hasEnvironment': _bool_hasEnvironment_$,
+  'bool.parse': _bool_parse$,
+  'bool.tryParse': _bool_tryParse$,
+  'AssertionError.': _AssertionError__$,
 };
 const Map<String, Function> globalSetterMirrors = {};
 const Map<String, m.ClassMirror> classMirrors = {
@@ -444,6 +449,29 @@ const Map<String, m.ClassMirror> classMirrors = {
     },
     {},
   ),
+  'bool': m.ClassMirror(
+    'bool',
+    {
+      '#as': bool_as$,
+      '#is': bool_is$,
+      'hashCode': _bool_hashCode$,
+      '&': _bool_bit_and$$,
+      '|': _bool_bit_or$$,
+      '^': _bool_bit_xor$$,
+      'toString': _bool_toString$,
+    },
+    {},
+  ),
+  'AssertionError': m.ClassMirror(
+    'AssertionError',
+    {
+      '#as': AssertionError_as$,
+      '#is': AssertionError_is$,
+      'message': _AssertionError_message$,
+      'toString': _AssertionError_toString$,
+    },
+    {},
+  ),
 };
 const Map<Type, String> refTypeMirrors = {
   num: 'num',
@@ -456,6 +484,7 @@ const Map<Type, String> refTypeMirrors = {
   Future: 'Future',
   FutureOr: 'FutureOr',
   String: 'String',
+  bool: 'bool',
 };
 
 Function num_as$(
@@ -2606,5 +2635,76 @@ Function _Deprecated__$(m.Scope scope$) => (String message) {
 Function _Deprecated_toString$(
   m.Scope scope$,
   Deprecated target$,
+) =>
+    target$.toString;
+
+Function bool_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as bool;
+Function bool_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is bool;
+Function _bool_hashCode$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    () {
+      return target$.hashCode;
+    };
+Function _bool_fromEnvironment_$(m.Scope scope$) => bool.fromEnvironment;
+Function _bool_hasEnvironment_$(m.Scope scope$) => bool.hasEnvironment;
+Function _bool_parse$(m.Scope scope$) => bool.parse;
+Function _bool_tryParse$(m.Scope scope$) => bool.tryParse;
+Function _bool_bit_and$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ & other$;
+Function _bool_bit_or$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ | other$;
+Function _bool_bit_xor$$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    (bool other$) => target$ ^ other$;
+Function _bool_toString$(
+  m.Scope scope$,
+  bool target$,
+) =>
+    target$.toString;
+
+Function AssertionError_as$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ as AssertionError;
+Function AssertionError_is$(
+  m.Scope scope$,
+  dynamic target$,
+) =>
+    () => target$ is AssertionError;
+Function _AssertionError_message$(
+  m.Scope scope$,
+  AssertionError target$,
+) =>
+    () {
+      return target$.message;
+    };
+Function _AssertionError__$(m.Scope scope$) => ([Object? message]) {
+      if (message == null) {
+        return AssertionError();
+      }
+      return AssertionError(message!);
+    };
+Function _AssertionError_toString$(
+  m.Scope scope$,
+  AssertionError target$,
 ) =>
     target$.toString;

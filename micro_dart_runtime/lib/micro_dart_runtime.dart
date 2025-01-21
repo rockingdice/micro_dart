@@ -8,4 +8,3 @@ export 'runtime/bridge.dart';
 export 'ops/ops.dart';
 export 'runtime/mirrors.dart';
 export 'constant_pool.dart';
-export 'runtime/external_mirrors.dart';

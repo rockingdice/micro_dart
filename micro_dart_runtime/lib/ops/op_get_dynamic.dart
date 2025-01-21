@@ -25,11 +25,7 @@ class OpGetDynamic implements Op {
           scope, _name, false, scope.engine.declarations[ref]!,
           thiz: o);
     }
-
-    // var function = ExternalMirror.findClassMemberGetter(ref.className, _name);
-
-    // var v = o.getParam(scope, _name);
-    // scope.pushFrame(v);
+ 
   }
 
   @override

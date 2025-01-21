@@ -100,7 +100,7 @@ class OpCallStaticInvocation implements Op {
         var value = args.removeLast();
         positionalArguments[i] = value;
       }
-      var function = ExternalMirror.findStaticGetter(_ref.name);
+      var function = scope.engine.reflection.findStaticGetter(_ref.name);
       if (function == null) {
         throw Exception(
             "not found external function: ${_ref.name} for type: ${_ref.className}");

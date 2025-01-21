@@ -32,7 +32,7 @@ class OpGetStatic implements Op {
       }
     } else {
       //外部getter
-      var function = ExternalMirror.findStaticGetter(_ref.name);
+      var function = scope.engine.reflection.findStaticGetter(_ref.name);
       if (function == null) {
         throw Exception(
             "not found external function: ${_ref.className} ${_ref.name}");

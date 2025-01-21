@@ -21,7 +21,7 @@ class OpSetStatic implements Op {
       scope.engine.setGlobalParam(_ref, value);
     } else {
       //外部getter
-      var function = ExternalMirror.findStaticSetter(_ref.name);
+      var function = scope.engine.reflection.findStaticSetter(_ref.name);
       if (function == null) {
         throw Exception(
             "not found external function: ${_ref.className} ${_ref.name}");

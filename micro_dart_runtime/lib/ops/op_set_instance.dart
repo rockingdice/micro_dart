@@ -24,19 +24,7 @@ class OpSetInstance implements Op {
   void run(Scope scope) {
     var instance = scope.popFrame() as Instance;
     var val = scope.popFrame();
-    instance.setField(scope, _ref.name, val);
-    // if (instance.hasField(scope, _ref.name)) {
-    //   //内部setter
-    //   instance.setField(scope, _ref.name, val);
-    // } else {
-    //   //外部setter
-    //   var function = ExternalMirror.findStaticSetter(_ref.name);
-    //   if (function == null) {
-    //     throw Exception(
-    //         "not found external function: ${_ref.name} for type: ${_ref.className}");
-    //   }
-    //   Function.apply(function(scope, val), [], <Symbol, dynamic>{});
-    // }
+    instance.setField(scope, _ref.name, val); 
   }
 
   @override

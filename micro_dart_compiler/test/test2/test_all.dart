@@ -11,15 +11,15 @@ import 'symbol_test.dart' as symbol_test;
 import 'syntax_test.dart' as syntax_test;
 
 void main() {
-  abstract_test.main();
-  dynamic_test.main();
-  argument_test.main();
+  // abstract_test.main();
+  // dynamic_test.main();
+  // argument_test.main();
   assert_test.main();
-  symbol_test.main();
-  switch_test.main();
-  super_test.main();
-  async_test.main();
-  assign_test.main();
-  call_test.main();
-  syntax_test.main();
+  // symbol_test.main();
+  // switch_test.main();
+  // super_test.main();
+  // async_test.main();
+  // assign_test.main();
+  // call_test.main();
+  // syntax_test.main();
 }

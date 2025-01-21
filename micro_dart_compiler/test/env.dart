@@ -47,7 +47,7 @@ Future<MicroDartEngine> singleFileTestEngine(
   bool debug = true,
   bool isAsync = false,
   bool waitClean = false,
-  Map<String, LibraryMirror> testLibraryMirrors = libraryMirrors,
+  MicroDartReflection reflection = m.microDartReflection,
 }) async {
   var file = File("$testCasePath$fileName");
   var sources = <String, String>{'main.dart': file.readAsStringSync()};
@@ -68,7 +68,7 @@ Future<MicroDartEngine> singleFileTestEngine(
   }
 
   var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
-  engine.setExternalFunctions(testLibraryMirrors);
+  engine.setReflection(reflection);
 
   if (opOut) {
     File("${testCasePath}_$fileName.op.txt")
@@ -130,8 +130,8 @@ Future<dynamic> singleFileTest(
   bool declarationsOut = true,
   bool debug = true,
   bool isAsync = false,
-  bool waitClean = false,
-  // Map<String, LibraryMirror> testLibraryMirrors = libraryMirrors,
+  bool waitClean = false,  
+  MicroDartReflection reflection = m.microDartReflection,
   ResultCallback? resultCallback,
 }) async {
   var file = File("$testCasePath$fileName");
@@ -155,11 +155,8 @@ Future<dynamic> singleFileTest(
   }
 
   var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
-  ExternalMirror.globalGetterMirrors = m.globalGetterMirrors;
-  ExternalMirror.globalSetterMirrors = m.globalSetterMirrors;
-  ExternalMirror.classMirrors = m.classMirrors;
-  ExternalMirror.refTypeMirrors = m.refTypeMirrors;
-
+  engine.setReflection(reflection);
+  
   if (opOut) {
     File("${testCasePath}_$fileName.op.txt")
         .writeAsStringSync(engine.getOpcodes());

@@ -115,7 +115,7 @@ class OpCallInstanceInvocation implements Op {
       }
 
       var function =
-          ExternalMirror.findClassMemberGetter(_ref.className, _ref.name)!;
+          scope.engine.reflection.findClassMemberGetter(_ref.className, _ref.name)!;
 
       final instance = Function.apply(
           // isGlobalFunc ? function(scope) :

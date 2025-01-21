@@ -21,3 +21,6 @@ const Map<Type, String> refTypeMirrors = {
   ...l1.refTypeMirrors,
   ...l2.refTypeMirrors,
 };
+
+const MicroDartReflection microDartReflection = MicroDartReflection(
+    globalGetterMirrors, globalSetterMirrors, classMirrors, refTypeMirrors);

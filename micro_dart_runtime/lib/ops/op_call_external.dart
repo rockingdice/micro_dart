@@ -60,15 +60,15 @@ class OpCallExternal implements Op {
 
     // var function =
     //     scope.engine.getExternalFunction(_ref, classTypes, callTypes);
-    Function? function = ExternalMirror.findStaticGetter(_ref.name);
+    Function? function = scope.engine.reflection.findStaticGetter(_ref.name);
     if (function == null) {
       //非外部静态函数，查找外部成员函数
       if (_hasSetter) {
         function =
-            ExternalMirror.findClassMemberSetter(_ref.className, _ref.name);
+            scope.engine.reflection.findClassMemberSetter(_ref.className, _ref.name);
       } else {
         function =
-            ExternalMirror.findClassMemberGetter(_ref.className, _ref.name);
+            scope.engine.reflection.findClassMemberGetter(_ref.className, _ref.name);
       }
     }
 

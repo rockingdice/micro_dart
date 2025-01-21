@@ -139,7 +139,7 @@ class MicroCompilerContext {
           "$p: ${op.toString()} → ${StackTrace.current.toString().split('\n').getRange(0, 4).join('\n')}");
     }
 
-    if (p > 500) {
+    if (p > 5000) {
       assert(false, 'loop guard!');
       exit(0);
     }

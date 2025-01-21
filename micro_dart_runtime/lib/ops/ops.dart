@@ -224,6 +224,12 @@ class Ops {
     return [x.getUint8(0), x.getUint8(1), x.getUint8(2), x.getUint8(3)];
   }
 
+  static List<int> i64b(int i64) {
+    final x = ByteData(8);
+    x.setInt64(0, i64);
+    return [x.getUint8(0), x.getUint8(1), x.getUint8(2), x.getUint8(3), x.getUint8(4), x.getUint8(5), x.getUint8(6), x.getUint8(7)];
+  }
+
   static List<int> f32b(double f32) {
     final x = ByteData(4);
     x.setFloat32(0, f32);

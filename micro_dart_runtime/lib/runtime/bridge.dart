@@ -26,7 +26,7 @@ abstract mixin class InstanceBridge<T> implements Instance {
     }
     //如果内部类都没找到，应该找外部类
 
-    var function = ExternalMirror.findClassMemberGetter(
+    var function = scope.engine.reflection.findClassMemberGetter(
         bridgeType.ref.className, name);
     if (function == null) {
       throw Exception(
@@ -43,8 +43,6 @@ abstract mixin class InstanceBridge<T> implements Instance {
         namedArguments.map<Symbol, dynamic>(
             (key, value) => MapEntry(Symbol(key), value)));
     return instance;
-    //这里需要考虑是父类属性的问题
-    // return scope.engine.getMemberParamExternal(scope, type.ref, name, this);
   }
 
   @override
@@ -52,7 +50,9 @@ abstract mixin class InstanceBridge<T> implements Instance {
     if ($child != null && type.hasParam(name, scope.engine)) {
       return $child!.hasField(scope, name);
     }
-    return scope.engine.hasExternalParam(type.ref, name, false);
+    
+    var clazz = scope.engine.reflection.findClass(type.ref.className);    
+    return clazz?.getters[name] == null;    
   }
 
   @override
@@ -64,7 +64,7 @@ abstract mixin class InstanceBridge<T> implements Instance {
 
     //外部方法
     var function =
-        ExternalMirror.findClassMemberSetter(bridgeType.ref.className, name);
+        scope.engine.reflection.findClassMemberSetter(bridgeType.ref.className, name);
     if (function == null) {
       throw Exception(
           "not found external function: ${bridgeType.ref.className} $name");
@@ -79,8 +79,5 @@ abstract mixin class InstanceBridge<T> implements Instance {
         [value],
         namedArguments.map<Symbol, dynamic>(
             (key, value) => MapEntry(Symbol(key), value)));
-
-    //这里需要考虑是父类属性的问题
-    // scope.engine.setMemberParamExternal(scope, type.ref, name, this, value);
   }
 }
