@@ -28,6 +28,9 @@ class A {
     return a;
   }
 
+  int get func => aaa;
+  void set func(int a) => aaa = a;
+
   // void func5() {
   //   func1();
   //   a += 4;
@@ -48,6 +51,8 @@ String main() {
   ia.func4();
   ia.a()();
   output += ia.a.toString();
+  ia.func = 5;
+  output += ia.func.toString();
   // ia.func5();
   // output += ia.a.toString();
 

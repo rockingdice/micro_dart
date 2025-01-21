@@ -254,7 +254,8 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   context.pushOp(OpPushArguments.make(3));
   var ref = CallRef("dart:core", "Iterable", "iterator", false, false);
   context.externalCallMethods.add(ref);
-  context.pushOp(OpCallExternal.make(ref, true, [], []));
+  context.pushOp(OpCallExternal.make(ref, true, false, false, [], []));
+  // context.pushOp(OpCallDynamicInvocation.make(ref.name, false));
 
   context.pushOp(OpSetScopeParam.make("#iterator"));
   int jumpStart = context.ops.length;
@@ -267,8 +268,10 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   ref = CallRef("dart:core", "Iterator", "moveNext", false, false);
   context.externalCallMethods.add(ref);
   context.pushOp(
-    OpCallExternal.make(ref, true, [], []),
+    OpCallExternal.make(ref, true, false, false, [], []),
   );
+  // context.pushOp(OpCallDynamicInvocation.make(ref.name, false));
+
   int rewritePos = context.pushOp(OpJumpIfFalse.make(-1));
   context.pushOp(OpGetParam.make("#iterator"));
   context.pushOp(OpPushConstantInt.make(0));
@@ -278,8 +281,10 @@ void compileForInStatement(MicroCompilerContext context, ForInStatement node) {
   ref = CallRef("dart:core", "Iterator", "current", false, false);
   context.externalCallMethods.add(ref);
   context.pushOp(
-    OpCallExternal.make(ref, true, [], []),
+    OpCallExternal.make(ref, true, false, false, [], []),
   );
+  // context.pushOp(OpCallDynamicInvocation.make(ref.name, false));
+
   context.pushOp(OpSetScopeParam.make(node.variable.name!));
   compileStatement(context, node.body, newBlock: false);
   context.pushOp(OpJump.make(jumpStart));

@@ -26,7 +26,7 @@ class OpIs implements Op {
       isType = instance.type.isType(superType, scope.engine);
     } else {
       isType = scope.engine
-          .callExternalFunction(_ref, "#is", scope, instance, [], {});
+          .callMemberFunctionExternal(_ref, "#is", scope, instance, [], {});
     }
 
     scope.pushFrame(isType);

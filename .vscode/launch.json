@@ -24,12 +24,12 @@
             ]
         },
         {
-            "name": "Test All",
+            "name": "Test 1",
             "request": "launch",
             "type": "dart",
-            "program": "${workspaceFolder}/test/test_all.dart",
+            "program": "test/test1/test_all.dart",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/micro_dart_compiler",
             "vmAdditionalArgs": [
               
             ],
@@ -41,9 +41,23 @@
             "name": "Test 2",
             "request": "launch",
             "type": "dart",
-            "program": "test/test2/dynamic_test.dart",
+            "program": "test/test2/test_all.dart",
             "args": [],
             "cwd": "${workspaceFolder}/micro_dart_compiler",
+            "vmAdditionalArgs": [
+              
+            ],
+            "toolArgs": [
+                
+            ]
+        },
+        {
+            "name": "Generator",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/generate_core_mirror.dart",
+            "args": [],
+            "cwd": "${workspaceFolder}/micro_dart_generator",
             "vmAdditionalArgs": [
               
             ],

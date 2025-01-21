@@ -17,12 +17,12 @@ class OpGetObjectPropertyAsync extends OpGetObjectProperty {
   Future run(Scope scope) async {
     var instance = scope.popFrame() as Instance;
 
-    if (!instance.hasParam(scope, _name)) {
+    if (!instance.hasField(scope, _name)) {
       scope.setScopeParam("#this", instance);
       return scope.engine
           .callPointerAsync(scope, _name, false, false, _location);
     } else {
-      scope.pushFrame(instance.getParam(scope, _name));
+      scope.pushFrame(instance.getField(scope, _name));
     }
   }
 
@@ -54,8 +54,8 @@ class OpGetObjectProperty implements Op {
   void run(Scope scope) {
     var instance = scope.popFrame() as Instance;
 
-    if (instance.hasParam(scope, _name)) {
-      scope.pushFrame(instance.getParam(scope, _name));
+    if (instance.hasField(scope, _name)) {
+      scope.pushFrame(instance.getField(scope, _name));
     } else {
       //scope.setScopeParam("#this", instance);
       scope.engine.callPointer(scope, _name, false, _location, thiz: instance);

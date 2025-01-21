@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:kernel/ast.dart';
 import 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
 import 'package:micro_dart_compiler/compiler/ast/ast_to_text.dart';
 import 'package:micro_dart_compiler/micro_dart_compiler.dart';
-import 'package:micro_dart_proxy_core/generated/core.g.dart';
+// import 'package:micro_dart_proxy_core/generated/core.g.dart';
+import 'package:micro_dart_proxy_test/generated/all_mirrors.dart' as m;
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 import 'package:path/path.dart' as path;
 
@@ -16,13 +18,15 @@ const String testCasePath2 = "test/testcases2/";
 const String flutterExamplePath = "../examples/flutter_example/";
 final String flutterPatchedSdk =
     "${path.dirname(path.dirname(path.dirname(Platform.resolvedExecutable)))}/artifacts/engine/common/flutter_patched_sdk/";
+
 final Uri sdkRoot = ensureFolderPath(flutterPatchedSdk);
 final Uri sdkSummary = sdkRoot.resolve('platform_strong.dill');
 final CompilerOptions options = CompilerOptions()
   ..sdkRoot = sdkRoot
   ..sdkSummary = sdkSummary
   ..verbose = false
-  ..nnbdMode = NnbdMode.Strong;
+  ..nnbdMode = NnbdMode.Strong
+  ..packagesFileUri = Uri.base.resolve('.dart_tool/package_config.json');
 
 const bool astToJsonFlag = true;
 const bool printOp = true;
@@ -43,12 +47,14 @@ Future<dynamic> singleFileTest(
   bool debug = true,
   bool isAsync = false,
   bool waitClean = false,
-  Map<String, LibraryMirror> testLibraryMirrors = libraryMirrors,
+  // Map<String, LibraryMirror> testLibraryMirrors = libraryMirrors,
   ResultCallback? resultCallback,
 }) async {
   var file = File("$testCasePath$fileName");
+  print(file.path);
   var sources = <String, String>{'main.dart': file.readAsStringSync()};
-  var program = await compileSource(pluginUriRegExp, options, sources, debug: true);
+  var program =
+      await compileSource(pluginUriRegExp, options, sources, debug: true);
 
   if (astOut) {
     writeComponentToText(program.component!,
@@ -65,7 +71,10 @@ Future<dynamic> singleFileTest(
   }
 
   var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
-  engine.setExternalFunctions(testLibraryMirrors);
+  ExternalMirror.globalGetterMirrors = m.globalGetterMirrors;
+  ExternalMirror.globalSetterMirrors = m.globalSetterMirrors;
+  ExternalMirror.classMirrors = m.classMirrors;
+  ExternalMirror.refTypeMirrors = m.refTypeMirrors;
 
   if (opOut) {
     File("${testCasePath}_$fileName.op.txt")

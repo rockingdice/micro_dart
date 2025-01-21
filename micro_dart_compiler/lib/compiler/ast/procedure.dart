@@ -44,37 +44,29 @@ int compileCallProcedure(MicroCompilerContext context, Arguments arguments,
   var ref = procedure.getCallRef();
 
   compileArguments(context, arguments, isStatic);
-
-  Op? op;
-
-  if (context.compileDeclarationIndexes.containsKey(ref)) {
-    bool isAsync = (procedure.function.asyncMarker == AsyncMarker.Async);
-
-    //这是一个内部方法
-    if (isAsync) {
-      op = OpCallDynamicAsync.make(ref, true, false, false, isAsync, true);
-    } else {
-      op = OpCallDynamic.make(ref, true, false, false, isAsync, true);
-    }
+  if (isStatic) {
+    //如果是静态函数，不需要实例的情况，也就不需要找super的方法，直接找内部/外部引用即可
+    return context.pushOp(OpCallStaticInvocation.make(
+        ref,
+        procedure.isGetter,
+        procedure.isSetter,        
+        procedure.function.asyncMarker == AsyncMarker.Async,
+        true));
   } else {
-    bool hasReturn = true;
-    if (procedure.function.returnType is VoidType) {
-      hasReturn = false;
+    //如果是成员函数，需要实例的类型，逐层递归查找父类型的方法，然后确定内部/外部引用
+    bool isMixinDeclaration = false;
+    if (procedure.enclosingClass != null) {
+      isMixinDeclaration = procedure.enclosingClass!.isMixinDeclaration;
     }
-    var callTypeStrings = arguments.types
-        .map((e) => compileDartType(context, e))
-        .map((e) => e?.ref.className ?? "")
-        .toList();
-    context.externalCallMethods.add(ref);
-    op = OpCallExternal.make(
-      ref,
-      hasReturn,
-      [],
-      callTypeStrings,
-    );
+    return context.pushOp(OpCallInstanceInvocation.make(
+        ref,
+        procedure.isGetter,
+        procedure.isSetter,
+        isMixinDeclaration,
+        procedure.function.asyncMarker == AsyncMarker.Async,
+        true));
   }
-
-  return context.pushOp(op);
+ 
 }
 
 int compileCallLocalFunction(

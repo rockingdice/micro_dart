@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
 import 'package:micro_dart_compiler/compiler/compiler.dart';
-import 'package:micro_dart_proxy_core/generated/core.g.dart';
+// import 'package:micro_dart_proxy_core/generated/core.g.dart';
 import 'package:micro_dart_runtime/runtime/engine.dart';
 
 import '../env.dart';

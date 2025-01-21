@@ -16,12 +16,17 @@ dependencies:
   micro_dart_runtime: 
     path: ../micro_dart_runtime
  
+  micro_dart_proxy_test:
+    path: ../micro_dart_proxy_test
 dev_dependencies:
   test: 1.21.4
-  micro_dart_proxy_core: 
-    path: ../micro_dart_proxy_core
-
+  # micro_dart_proxy_core: 
+  #   path: ../micro_dart_proxy_core
+  # micro_dart_proxy_test:
+  #   path: ../micro_dart_proxy_test
  
+  micro_dart_proxy_test:
+    path: ../micro_dart_proxy_test
   
 dependency_overrides:
   _fe_analyzer_shared:
@@ -58,5 +63,7 @@ dependency_overrides:
     path: ../../dart_sdk/sdk/third_party/pkg/test/pkgs/test
   micro_dart_runtime:
     path: ../micro_dart_runtime
-  micro_dart_proxy_core: 
-    path: ../micro_dart_proxy_core
+  micro_dart_proxy_test:
+    path: ../micro_dart_proxy_test
+  # micro_dart_proxy_core: 
+  #   path: ../micro_dart_proxy_core

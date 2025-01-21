@@ -25,10 +25,10 @@ class OverwriteStrategy {
 
   factory OverwriteStrategy.fromJsonMap(Map<String, dynamic> map) {
     return OverwriteStrategy(
-        map["ignoreKeys"],
-        map["libraryIngoreImports"],
-        map["libraryAddImports"],
-        map["defaultValueCodeOverwrites"],
-        map["keyOverwrites"]);
+        map["ignoreKeys"] ?? [],
+        map["libraryIngoreImports"] ?? {},
+        map["libraryAddImports"] ?? {},
+        map["defaultValueCodeOverwrites"] ?? {},
+        map["keyOverwrites"] ?? {});
   }
 }

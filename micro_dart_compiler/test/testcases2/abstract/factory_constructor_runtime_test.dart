@@ -1,10 +1,10 @@
-abstract class A {
+class A {
   A._();
 
-  factory A() {
+  static A make() {
     return B();
   }
-  method(); // Abstract.
+  String method(){return "";} // Abstract.
   factory A.make1() {
     return B();
   }
@@ -25,7 +25,7 @@ class B extends A {
 }
 
 main() {
-  var a1 = A();
+  var a1 = A.make();
   var a2 = A.make1();
   var r1 = a1.method();
   var r2 = a2.method();

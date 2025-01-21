@@ -18,4 +18,8 @@
       80
   ],
   "dart.lineLength": 80,
+  "search.useIgnoreFiles": true,
+  "search.exclude": {
+    "**/examples": true,
+  }
 }

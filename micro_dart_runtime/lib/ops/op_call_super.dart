@@ -34,7 +34,7 @@ class OpCallSuperAsync extends OpCallSuper {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
     var ref = scope.engine.getCallRefBySuperType(
-        instance.type, _super, _name, _isSetter, true, _isMixinDeclaration);
+        instance.type, _super, _name, _isSetter, _isMixinDeclaration);
 
     if (scope.engine.declarations.containsKey(ref)) {
       //表示这是一个内部引用
@@ -109,7 +109,7 @@ class OpCallSuper implements Op {
     var args = scope.getFrame() as List<dynamic>;
     var instance = args.first as Instance;
     var ref = scope.engine.getCallRefBySuperType(
-        instance.type, _super, _name, _isSetter, false, _isMixinDeclaration);
+        instance.type, _super, _name, _isSetter, _isMixinDeclaration);
 
     if (ref == null) {
       throw Exception(
@@ -145,7 +145,8 @@ class OpCallSuper implements Op {
     if (target is InstanceBridge) {
       function = target.superGetters[ref.name]!;
     } else {
-      function = scope.engine.getExternalFunction(ref, [], [])!;
+      assert(false, "Not Implemented Yet!");
+      // function = scope.engine.getExternalFunction(ref, [], [])!;
     }
 
     if (_isGetter) {

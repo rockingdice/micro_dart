@@ -83,10 +83,12 @@ class Scope {
 
   //插入帧
   void pushFrame(dynamic object) {
+    print('pushFrame: $object -> $frames');
     frames.add(object);
   }
 
   dynamic popFrame({int position = -1}) {
+    print('popFrame: $frames');
     if (position == -1) {
       return frames.removeLast();
     }
@@ -170,12 +172,13 @@ class Scope {
       }
     } on ProgramExit catch (_) {
       tryRelease();
-    } catch (exception, _) {
-      print(
-          "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}}");
-      print("----------------");
-      rethrow;
     }
+    //  catch (exception, _) {
+    //   print(
+    //       "$deep:$oldPointer <$name> start:${engine.ops[oldPointer].toString()}}");
+    //   print("----------------");
+    //   rethrow;
+    // }
   }
 
   void call(int pointer) {

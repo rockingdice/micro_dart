@@ -2,7 +2,9 @@ import 'dart:io';
 import 'package:kernel/kernel.dart';
 import 'package:micro_dart_compiler/compiler/ast/ast_to_json.dart';
 import 'package:micro_dart_compiler/compiler/compiler.dart';
-import 'package:micro_dart_proxy_core/generated/core.g.dart';
+// import 'package:micro_dart_proxy_core/generated/core.g.dart';
+
+import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 import 'package:micro_dart_runtime/runtime/engine.dart';
 
 import '../env.dart';
@@ -27,7 +29,7 @@ void main() {
 
       var engine =
           MicroDartEngine.fromData(program.write().buffer.asByteData());
-      engine.setExternalFunctions(libraryMirrors);
+      engine.setMirrors(libraryMirrors, classMirrors, refTypeMirrors);
       if (printOp) {
         engine.debug = true;
         engine.printOpcodes();

@@ -17,12 +17,12 @@ void main() {
         expect(returnValue, "01234");
       });
     });
-  });
 
-  test(':list concat test', () async {
-    String fileName = "test_list_concat.dart";
-    await singleFileTest(fileName, resultCallback: (returnValue) {
-      expect(returnValue, "0123");
+    test(':list concat test', () async {
+      String fileName = "test_list_concat.dart";
+      await singleFileTest(fileName, resultCallback: (returnValue) {
+        expect(returnValue, "0123");
+      });
     });
   });
 }

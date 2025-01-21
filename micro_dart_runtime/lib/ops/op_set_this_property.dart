@@ -19,7 +19,7 @@ class OpSetThisProperty implements Op {
   void run(Scope scope) {
     var val = scope.popFrame();
     var instance = scope.getParam("#this") as Instance;
-    instance.setParam(scope, _name, val);
+    instance.setField(scope, _name, val);
   }
 
   @override

@@ -18,7 +18,7 @@ class OpSetDynamic implements Op {
   void run(Scope scope) {
     var value = scope.popFrame();
     var o = scope.popFrame() as InstanceImpl;
-    o.setParam(scope, _name, value);
+    o.setField(scope, _name, value);
   }
 
   @override

@@ -8,9 +8,9 @@ abstract class Instance {
 
   set type(CType type);
 
-  dynamic getParam(Scope scope, String name);
-  void setParam(Scope scope, String name, dynamic value);
-  bool hasParam(Scope scope, String name);
+  dynamic getField(Scope scope, String name);
+  void setField(Scope scope, String name, dynamic value);
+  bool hasField(Scope scope, String name);
 }
 
 class InstanceImpl extends Instance {
@@ -24,17 +24,17 @@ class InstanceImpl extends Instance {
   InstanceImpl(this.engine, this.type);
 
   @override
-  dynamic getParam(Scope scope, String name) {
+  dynamic getField(Scope scope, String name) {
     return params[name];
   }
 
   @override
-  void setParam(Scope scope, String name, dynamic value) {
+  void setField(Scope scope, String name, dynamic value) {
     params[name] = value;
   }
 
   @override
-  bool hasParam(Scope scope, String name) {
+  bool hasField(Scope scope, String name) {
     if (params.containsKey(name)) {
       return true;
     }

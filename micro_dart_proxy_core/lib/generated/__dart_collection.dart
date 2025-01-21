@@ -703,7 +703,6 @@ Function _LinkedHashMap__$(m.Scope scope$) => ({
 Function _LinkedHashMap_identity_$(m.Scope scope$) => LinkedHashMap.identity;
 Function _LinkedHashMap_from_$(m.Scope scope$) => LinkedHashMap.from;
 Function _LinkedHashMap_of_$(m.Scope scope$) => LinkedHashMap.of;
-
 Function _LinkedHashMap_fromIterable_$(m.Scope scope$) => (
       Iterable iterable, {
       m.FunctionPointer? key,

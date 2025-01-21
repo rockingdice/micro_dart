@@ -24,52 +24,45 @@ int compileField(MicroCompilerContext context, Field node) {
 
 int compileCallFieldGet(MicroCompilerContext context, Field field) {
   var ref = field.getCallRef();
-
-  Op? op;
-  if (context.compileDeclarationIndexes.containsKey(ref)) {
-    int opOffset = context.runtimeDeclarationOpIndexes[ref] ?? -1;
-    if (field.isStatic) {
-      int pos = context.pushOp(OpGetGlobalParam.make(ref, opOffset));
-      if (opOffset == -1) {
-        context.offsetTracker.setGlobalParamOffset(pos, ref);
-      }
-      return pos;
-    } else {
-      int pos =
-          context.pushOp(OpGetObjectProperty.make(field.name.text, opOffset));
-      if (opOffset == -1) {
-        context.offsetTracker.setObjectParamOffset(pos, ref);
-      }
-      return pos;
-    }
+ 
+  if (field.isStatic) {
+    //如果是静态函数，不需要实例的情况，也就不需要找super的方法，直接找内部/外部引用即可
+    return context.pushOp(OpGetStatic.make(ref));
   } else {
-    context.pushOp(OpPushConstantInt.make(0));
-    context.pushOp(OpPushConstantInt.make(0));
-    if (field.isStatic) {
-      context.pushOp(OpPushArguments.make(2));
-    } else {
-      context.pushOp(OpPushArguments.make(3));
+    //如果是成员函数，需要实例的类型，逐层递归查找父类型的方法，然后确定内部/外部引用
+    bool isMixinDeclaration = false;
+    if (field.enclosingClass != null) {
+      isMixinDeclaration = field.enclosingClass!.isMixinDeclaration;
     }
-    context.externalCallMethods.add(ref);
-    op = OpCallExternal.make(ref, true, [], []);
-  }
-
-  return context.pushOp(op);
+    return context.pushOp(OpGetInstance.make(ref, isMixinDeclaration));
+  } 
 }
 
 int compileCallFieldSet(MicroCompilerContext context, Field field) {
   var ref = field.getCallRef();
 
-  Op? op;
-  if (context.compileDeclarationIndexes.containsKey(ref)) {
-    if (field.isStatic) {
-      return context.pushOp(OpSetGlobalParam.make(ref.copyOfIsSetter(true)));
-    } else {
-      return context.pushOp(OpSetObjectProperty.make(field.name.text));
-    }
+  if (field.isStatic) {
+    //如果是静态函数，不需要实例的情况，也就不需要找super的方法，直接找内部/外部引用即可
+    return context.pushOp(OpSetStatic.make(ref));
   } else {
-    op = OpCallExternal.make(ref.copyOfIsSetter(true), false, [], []);
-  }
+    //如果是成员函数，需要实例的类型，逐层递归查找父类型的方法，然后确定内部/外部引用
+    bool isMixinDeclaration = false;
+    if (field.enclosingClass != null) {
+      isMixinDeclaration = field.enclosingClass!.isMixinDeclaration;
+    }
+    return context.pushOp(OpSetInstance.make(ref, isMixinDeclaration));
+  } 
+  // Op? op;
+  // if (context.compileDeclarationIndexes.containsKey(ref)) {
+  //   if (field.isStatic) {
+  //     return context.pushOp(OpSetGlobalParam.make(ref.copyOfIsSetter(true)));
+  //   } else {
+  //     return context.pushOp(OpSetObjectProperty.make(field.name.text));
+  //   }
+  // } else {
+  //   // op = OpCallExternal.make(ref.copyOfIsSetter(true), false, [], []);
+  //   op = OpSetDynamic.make(ref.name);
+  // }
 
-  return context.pushOp(op);
+  // return context.pushOp(op);
 }

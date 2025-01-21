@@ -15,15 +15,11 @@ import 'dart:convert'
 import 'dart:math' show Random;
 import 'dart:typed_data' show Uint8List;
 
-part '../proxy/proxy__dart_core.dart';
-
 const libraryMirror = m.LibraryMirror(
   'dart:core',
   {
     'deprecated': _deprecated$,
     'override': _override$,
-    '_Enum.': __Enum__$,
-    'EnumName|get#name': _Enum_name$,
     'Deprecated.': _Deprecated__$,
     'pragma.': _pragma__$,
     'BigInt.zero': _BigInt_zero$,
@@ -392,15 +388,6 @@ const libraryMirror = m.LibraryMirror(
     ),
     'Enum': m.ClassMirror(
       'Enum',
-      {
-        '#as': Enum_as$,
-        '#is': Enum_is$,
-        'index': _Enum_index$,
-      },
-      {},
-    ),
-    '_Enum': m.ClassMirror(
-      '_Enum',
       {
         '#as': Enum_as$,
         '#is': Enum_is$,
@@ -1167,7 +1154,7 @@ Function _Deprecated_message$(
       return target$.message;
     };
 Function _Deprecated__$(m.Scope scope$) => (String message) {
-      return $Deprecated(message);
+      return Deprecated(message);
     };
 Function _Deprecated_toString$(
   m.Scope scope$,

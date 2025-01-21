@@ -1,6 +1,7 @@
 class Foo {
   @override
   noSuchMethod(im) => 42;
+  test4() => 43;
 }
 
 returnFoo() {
@@ -17,7 +18,7 @@ var a = [false, true, new Object(), new Bar()];
 test1() {
   var a1 = returnFoo();
   // print(a1);
-  return a1;
+  return a1.test4() == 43;
 }
 
 test2() {

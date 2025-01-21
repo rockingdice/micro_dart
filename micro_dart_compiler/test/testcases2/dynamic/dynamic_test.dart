@@ -98,7 +98,8 @@ String main() {
   var b14 = m3 is! Iface<num, String>;
 
   F1<int> f1 = (dynamic s, int i) => s[i]; // is dynamic Function(dynamic, int).
-
+  bool instanceIsF1_int_(dynamic target) => target is F1<int>;
+  print("${instanceIsF1_int_(f1)}");
   var b15 = f1 is F1<int>;
 
   // "dynamic" is not a reserved word or built-in identifier.

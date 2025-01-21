@@ -59,11 +59,15 @@ Program compileComponent(RegExp pluginUri, Component component, bool debug) {
       var ref = clazz.getCallRef();
       int p = compilerContext.lookupDeclarationIndex(ref, clazz);
       compilerContext.compileClassIndexes.add(p);
+      List<int> fieldsIndices = [];
+      compilerContext.compileClassFieldsIndexes[ref] = fieldsIndices;
+
       //对类中的参数进行索引
       clazz.fields.forEach((field) {
         var ref = field.getCallRef();
         int p = compilerContext.lookupDeclarationIndex(ref, field);
         compilerContext.compileFieldIndexes.add(p);
+        fieldsIndices.add(p);
       });
       //对类的构造函数进行索引
       clazz.constructors.forEach((constructor) {

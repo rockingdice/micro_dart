@@ -141,6 +141,8 @@ int compileExpression(MicroCompilerContext context, Expression node) {
     //not common;need update
     if (type is InterfaceType) {
       return context.pushOp(OpPushType.make(type.classNode.getClassRef()));
+    } else if (type is DynamicType) {
+      return context.pushOp(OpPushType.make(ClassRef('dart:core', 'dynamic')));
     }
   } else if (node is SwitchExpression) {
     //return compileInstantiation(context, node);
@@ -366,8 +368,13 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
       var isRef = CallRef(type.classNode.stringLibraryUri, type.classNode.name,
           "#is", false, false);
       context.externalCallMethods.add(isRef);
-      return context.pushOp(OpCallExternal.make(isRef, true, [], []));
+      // return context.pushOp(OpCallExternal.make(isRef, true, [], []));
+      return context.pushOp(OpCallDynamicInvocation.make(isRef.name, false));
     }
+  } else if (type is FunctionType) {
+    //TODO: 使用统一的#is方法来检查
+    throw Exception(
+        "IsExpression type not support : ${type.runtimeType.toString()}");
   } else {
     throw Exception(
         "IsExpression type not support : ${type.runtimeType.toString()}");
@@ -469,7 +476,8 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
       var asRef = CallRef(type.classNode.stringLibraryUri,
           type.classNode.stringClassName!, "#as", false, false);
       context.externalCallMethods.add(asRef);
-      return context.pushOp(OpCallExternal.make(asRef, true, [], []));
+      // return context.pushOp(OpCallExternal.make(asRef, true, [], []));
+      return context.pushOp(OpCallDynamicInvocation.make(asRef.name, false));
     }
   } else if (type is FunctionType) {
     print(
@@ -594,13 +602,56 @@ int compileSuperPropertyGet(
 
 int compileSuperMethodInvocation(
     MicroCompilerContext context, SuperMethodInvocation node) {
-  var procedure = node.interfaceTarget;
+  var target = node.interfaceTarget;
   var arguments = node.arguments;
 
   context.pushOp(OpGetParam.make("#this"));
-  int p = compileCallProcedure(context, arguments, procedure, false);
 
-  return p;
+  compileArguments(context, arguments, false);
+  // int p = compileCallProcedure(context, arguments, procedure, false);
+
+  // return p;
+
+  // context.pushOp(OpPushConstantInt.make(0));
+  // context.pushOp(OpPushConstantInt.make(0));
+  // context.pushOp(OpPushArguments.make(3));
+
+  late String className;
+  //print("compiling node: ${context.compilingNode!.parent}");
+  bool isMixinDeclaration = false;
+  if (context.compilingNode!.parent is Class) {
+    Class clazz = context.compilingNode!.parent as Class;
+    isMixinDeclaration = clazz.isMixinDeclaration;
+    if (isMixinDeclaration) {
+      className = clazz.name;
+    } else {
+      className = target.stringClassName!;
+    }
+  } else {
+    assert(false, "Not Implemented !!");
+  }
+  bool isAsync = (target.function.asyncMarker == AsyncMarker.Async);
+  if (isAsync) {
+    return context.pushOp(OpCallSuperAsync.make(
+        ClassRef(target.stringLibraryUri, className),
+        target.name.text,
+        true,
+        false,
+        isAsync,
+        isMixinDeclaration,
+        0, []));
+  } else {
+    return context.pushOp(OpCallSuper.make(
+        ClassRef(target.stringLibraryUri, className),
+        target.name.text,
+        true,
+        false,
+        isAsync,
+        isMixinDeclaration,
+        0, []));
+  }
+
+  // return -1;
 }
 
 int compileThisExpression(MicroCompilerContext context, ThisExpression node) {
@@ -703,12 +754,18 @@ int compileConstructorInvocation(
 
 int compileInstanceInvocation(
     MicroCompilerContext context, InstanceInvocation node) {
-  
-  compileExpression(context, node.receiver);
-  compileArguments(context, node.arguments, false);
+  // compileExpression(context, node.receiver);
+  // compileArguments(context, node.arguments, false);
 
-  int pos = context.pushOp(OpCallDynamicInvocation.make(node.name.text, false));
-  return pos;
+  // int pos = context.pushOp(OpCallDynamicInvocation.make(node.name.text, false));
+  // return pos;
+
+  var procedure = node.interfaceTarget;
+  var arguments = node.arguments;
+  compileExpression(context, node.receiver);
+  int p = compileCallProcedure(context, arguments, procedure, false);
+
+  return p;
 }
 
 int compileIntLiteral(MicroCompilerContext context, IntLiteral node) {

@@ -23,7 +23,7 @@ class OpReturnField implements Op {
       scope.returnValue = value;
     } else {
       Instance instance = scope.getParam("#this") as Instance;
-      instance.setParam(scope, _ref.name, value);
+      instance.setField(scope, _ref.name, value);
       scope.returnValue = value;
     }
   }

@@ -10,5 +10,5 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-export 'package:micro_dart_flutter/generated/micro_dart.dart';
+// export 'package:micro_dart_flutter/generated/micro_dart.dart';
 export 'package:micro_dart_runtime/micro_dart_runtime.dart';

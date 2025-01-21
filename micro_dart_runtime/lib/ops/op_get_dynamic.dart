@@ -17,8 +17,19 @@ class OpGetDynamic implements Op {
   @override
   void run(Scope scope) {
     var o = scope.popFrame() as InstanceImpl;
-    var v = o.getParam(scope, _name);
-    scope.pushFrame(v);
+    if (o.hasField(scope, _name)) {
+      scope.pushFrame(o.getField(scope, _name));
+    } else {
+      var ref = o.type.getCallRef(_name, false, false);
+      scope.engine.callPointer(
+          scope, _name, false, scope.engine.declarations[ref]!,
+          thiz: o);
+    }
+
+    // var function = ExternalMirror.findClassMemberGetter(ref.className, _name);
+
+    // var v = o.getParam(scope, _name);
+    // scope.pushFrame(v);
   }
 
   @override

@@ -24,10 +24,21 @@ int compileConstructor(MicroCompilerContext context, Constructor node) {
       ClassRef(node.stringLibraryUri, node.stringClassName!)));
   context.pushOp(OpSetScopeParam.make("#this"));
 
-  //filed初始化
+  //field初始化
+  var classRef = node.enclosingClass.getCallRef();
+  context.compileClassFieldsIndexes[classRef]!.forEach((index) {
+    var field = context.compileDeclarations[index] as Field;
+    if (field.isInstanceMember) {
+      context.pushOp(OpCallDynamic.make(
+          field.getCallRef(), true, false, false, false, false));
+    
+    }
+  });
+  
   node.initializers.forEach((element) {
     compileInitializer(context, element);
   });
+
   //编译body
 
   var b = node.function.body;
@@ -108,7 +119,8 @@ int compileCallConstructor(MicroCompilerContext context, Arguments arguments,
     op = OpCallDynamic.make(ref, true, false, false, false, true);
   } else {
     context.externalCallMethods.add(ref);
-    op = OpCallExternal.make(ref, true, [], classTypeStrings);
+    op = OpCallExternal.make(ref, true, false, false, [], classTypeStrings);
+    // op = OpCallDynamicInvocation.make(ref.name, false);
   }
 
   return context.pushOp(op);

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:kernel/ast.dart';
 import 'package:kernel/core_types.dart';
 import 'package:micro_dart_compiler/compiler/offset_tracker.dart';
@@ -13,6 +15,8 @@ class MicroCompilerContext {
   final List<int> compileClassIndexes = [];
 
   final Map<CallRef, int> compileDeclarationIndexes = <CallRef, int>{};
+  final Map<CallRef, List<int>> compileClassFieldsIndexes =
+      <CallRef, List<int>>{};
   final Map<CallRef, int> runtimeDeclarationOpIndexes = {};
   final Set<CallRef> externalCallMethods = {};
 
@@ -131,9 +135,14 @@ class MicroCompilerContext {
     ops.add(op);
     int p = ops.length - 1;
     if (debug) {
-      print("$p: ${op.toString()} → ${StackTrace.current}");
+      print(
+          "$p: ${op.toString()} → ${StackTrace.current.toString().split('\n').getRange(0, 4).join('\n')}");
     }
 
+    if (p > 500) {
+      assert(false, 'loop guard!');
+      exit(0);
+    }
     return p;
   }
 

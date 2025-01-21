@@ -60,7 +60,13 @@ export 'op_set_scope_param.dart';
 export 'op_set_scope_param_null.dart';
 export 'op_get_dynamic.dart';
 export 'op_set_dynamic.dart';
-export 'op_dynamic_invocation.dart';
+export 'op_invocation_dynamic.dart';
+export 'op_invocation_instance.dart';
+export 'op_invocation_static.dart';
+export 'op_get_instance.dart';
+export 'op_get_static.dart';
+export 'op_set_instance.dart';
+export 'op_set_static.dart';
 
 const List<String> operator1 = ["unary-", "unary+", "~", "#as", "#is"];
 const List<String> operator2 = [
@@ -160,6 +166,14 @@ class Ops {
   static const opSetDynamic = 69;
   static const opCallDynamicInvocation = 70;
   static const opCallDynamicInvocationAsync = 71;
+  static const opCallInstanceInvocation = 72;
+  static const opCallInstanceInvocationAsync = 73;
+  static const opCallStaticInvocation = 74;
+  static const opCallStaticInvocationAsync = 75;
+  static const opGetInstance = 76;
+  static const opGetStatic = 77;
+  static const opSetInstance = 78;
+  static const opSetStatic = 79;
 
   static const lenBegin = 1;
   static const lenI8 = 1;
@@ -341,4 +355,20 @@ final Map<int, OpLoader> opLoaders = {
       OpCallDynamicInvocation(engine),
   Ops.opCallDynamicInvocationAsync: (MicroDartEngine engine) =>
       OpCallDynamicInvocationAsync(engine),
+  Ops.opCallInstanceInvocation: (MicroDartEngine engine) =>
+      OpCallInstanceInvocation(engine),
+  Ops.opCallInstanceInvocationAsync: (MicroDartEngine engine) =>
+      OpCallInstanceInvocationAsync(engine),
+  Ops.opCallStaticInvocation: (MicroDartEngine engine) =>
+      OpCallStaticInvocation(engine),
+  Ops.opCallStaticInvocationAsync: (MicroDartEngine engine) =>
+      OpCallStaticInvocationAsync(engine),
+  Ops.opGetInstance: (MicroDartEngine engine) =>
+      OpGetInstance(engine),
+  Ops.opGetStatic: (MicroDartEngine engine) =>
+      OpGetStatic(engine),
+  Ops.opSetInstance: (MicroDartEngine engine) =>
+      OpSetInstance(engine),
+  Ops.opSetStatic: (MicroDartEngine engine) =>
+      OpSetStatic(engine),
 };
