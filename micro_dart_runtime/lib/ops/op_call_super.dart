@@ -1,3 +1,4 @@
+import 'package:micro_dart_runtime/flags.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 ///调用外部方法
@@ -17,17 +18,7 @@ class OpCallSuperAsync extends OpCallSuper {
             positionalLength, namedList);
 
   @override
-  List<int> bytes(ConstantPool pool) => [
-        Ops.opCallSuperAsync,
-        ..._super.bytes(pool),
-        ...Ops.str(_name, pool),
-        ...Ops.i8b(_isGetter ? 1 : 0),
-        ...Ops.i8b(_isSetter ? 1 : 0),
-        ...Ops.i8b(_isAsync ? 1 : 0),
-        ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
-        ...Ops.i32b(_positionalLength),
-        ...Ops.strlist(_namedList, pool)
-      ];
+  int get opIndex => Ops.opCallSuperAsync;
 
   @override
   Future run(Scope scope) async {
@@ -55,10 +46,7 @@ class OpCallSuper implements Op {
   OpCallSuper(MicroDartEngine engine)
       : _super = ClassRef.fromEngine(engine),
         _name = engine.readString(),
-        _isGetter = engine.readUint8() == 1 ? true : false,
-        _isSetter = engine.readUint8() == 1 ? true : false,
-        _isAsync = engine.readUint8() == 1 ? true : false,
-        _isMixinDeclaration = engine.readUint8() == 1 ? true : false,
+        _flags = engine.readInt32(),
         _positionalLength = engine.readInt32(),
         _namedList = engine.readStringList();
 
@@ -66,21 +54,26 @@ class OpCallSuper implements Op {
   final String _name;
   final int _positionalLength;
   final List<String> _namedList;
-  final bool _isGetter;
-  final bool _isSetter;
-  final bool _isAsync;
-  final bool _isMixinDeclaration;
+  final int _flags;
+  bool get _isGetter => Flags.isGetter(_flags);
+  bool get _isSetter => Flags.isSetter(_flags);
+  bool get _isAsync => Flags.isAsync(_flags);
+  bool get _isMixinDeclaration => Flags.isMixinDeclaration(_flags);
 
   OpCallSuper.make(
     this._super,
     this._name,
-    this._isGetter,
-    this._isSetter,
-    this._isAsync,
-    this._isMixinDeclaration,
+    bool _isGetter,
+    bool _isSetter,
+    bool _isAsync,
+    bool _isMixinDeclaration,
     this._positionalLength,
     this._namedList,
-  );
+  ) : _flags = Flags.generateFlags(
+            isGetter: _isGetter,
+            isSetter: _isSetter,
+            isAsync: _isAsync,
+            isMixinDeclaration: _isMixinDeclaration);
 
   @override
   int get opLen =>
@@ -91,15 +84,14 @@ class OpCallSuper implements Op {
       Ops.lenI32 +
       Ops.lenStrlist(_namedList);
 
+  int get opIndex => Ops.opCallSuper;
+
   @override
   List<int> bytes(ConstantPool pool) => [
-        Ops.opCallSuper,
+        opIndex,
         ..._super.bytes(pool),
         ...Ops.str(_name, pool),
-        ...Ops.i8b(_isGetter ? 1 : 0),
-        ...Ops.i8b(_isSetter ? 1 : 0),
-        ...Ops.i8b(_isAsync ? 1 : 0),
-        ...Ops.i8b(_isMixinDeclaration ? 1 : 0),
+        ...Ops.i32b(_flags),
         ...Ops.i32b(_positionalLength),
         ...Ops.strlist(_namedList, pool)
       ];

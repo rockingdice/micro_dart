@@ -1,6 +1,6 @@
 class C<T> {
   String f() {
-    return T.runtimeType.toString();
+    return T.toString();
   }
 }
 

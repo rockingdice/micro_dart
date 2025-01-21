@@ -14,10 +14,10 @@ Function _Listenable__$(m.Scope scope$) => (bool _value) {
 
 class $Listenable extends Listenable with m.InstanceBridge {
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/foundation/change_notifier.dart", "Listenable"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef(
+        "package:flutter/src/foundation/change_notifier.dart", "Listenable"),
+  );
 
   @override
   late Map<String, Function> superGetters = {};

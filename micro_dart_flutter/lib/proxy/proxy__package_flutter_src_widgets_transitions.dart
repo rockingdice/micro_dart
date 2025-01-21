@@ -13,10 +13,10 @@ class $AnimatedWidget extends AnimatedWidget with m.InstanceBridge {
       : super(key: key, listenable: listenable);
 
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/widgets/transitions.dart", "AnimatedWidget"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef(
+        "package:flutter/src/widgets/transitions.dart", "AnimatedWidget"),
+  );
 
   @override
   late Map<String, Function> superGetters = {};

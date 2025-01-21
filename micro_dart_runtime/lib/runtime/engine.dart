@@ -75,6 +75,12 @@ class MicroDartEngine {
     return i;
   }
 
+  int readUInt32() {
+    final i = _data!.getUint32(_fileOffset);
+    _fileOffset += 4;
+    return i;
+  }
+
   double readFloat32() {
     final i = _data!.getFloat32(_fileOffset);
     _fileOffset += 4;
@@ -398,17 +404,19 @@ class MicroDartEngine {
     return scope.returnValue;
   }
 
-  dynamic callFunction(Scope scope, Instance instance, CallRef ref,
-      List positional, Map<String, dynamic> named, dynamic Function()? alse) {
+  dynamic callFunction(
+      Scope scope,
+      Instance instance,
+      CallRef ref,
+      List positional,
+      Map<String, dynamic> named,
+      dynamic Function()? otherwise) {
     //获取当前操作数指针
     var pointer = declarations[ref];
     var newScope =
         scope.createFromParent(ref.callName, true, false, maxScopeDeep);
     if (pointer == null) {
-      if (alse != null) {
-        return alse();
-      }
-      return null;
+      return otherwise?.call();
     }
 
     List<dynamic> args = [instance];

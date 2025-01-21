@@ -50,10 +50,10 @@ class OpCallExternal implements Op {
       var value = args.removeLast();
       namedArguments[key] = value;
     }
-    int posationalLength = args.removeLast() as int;
+    int positionalLength = args.removeLast() as int;
     final List<dynamic> positionalArguments =
-        List.filled(posationalLength, null, growable: false);
-    for (int i = 0; i < posationalLength; i++) {
+        List.filled(positionalLength, null, growable: false);
+    for (int i = 0; i < positionalLength; i++) {
       var value = args.removeLast();
       positionalArguments[i] = value;
     }

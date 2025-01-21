@@ -19,8 +19,12 @@ class OpAwait implements Op {
 
   @override
   Future run(Scope scope) async {
-    final instance = scope.popFrame() as Future;
-    scope.pushFrame(await instance);
+    final instance = scope.popFrame();
+    if (instance is Future) {
+      scope.pushFrame(await instance);
+    } else {
+      scope.pushFrame(instance);
+    }
   }
 
   @override

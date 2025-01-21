@@ -179,6 +179,7 @@ class Ops {
   static const lenI8 = 1;
   static const lenI16 = 2;
   static const lenI32 = 4;
+  static const lenU32 = 4;
   static const lenF32 = 4;
   static const lenI64 = 8;
   static const lenF64 = 8;

@@ -33,6 +33,90 @@ const bool printOp = true;
 
 typedef ResultCallback = void Function(dynamic returnValue);
 
+Future<MicroDartEngine> singleFileTestEngine(
+  String fileName, {
+  String functionName = "main",
+  String testCasePath = testCasePath1,
+  bool astOut = true,
+  bool jsonAstOut = true,
+  bool opOut = true,
+  bool constantOut = true,
+  bool externalMethodsOut = false,
+  bool typesOut = true,
+  bool declarationsOut = true,
+  bool debug = true,
+  bool isAsync = false,
+  bool waitClean = false,
+  Map<String, LibraryMirror> testLibraryMirrors = libraryMirrors,
+}) async {
+  var file = File("$testCasePath$fileName");
+  var sources = <String, String>{'main.dart': file.readAsStringSync()};
+  var program = await compileSource(pluginUriRegExp, options, sources);
+
+  if (astOut) {
+    writeComponentToText(program.component!,
+        path: "${testCasePath}_$fileName.ast.txt");
+  }
+  if (jsonAstOut) {
+    astToJson(
+        "${testCasePath}_$fileName.json", pluginUriRegExp, program.component);
+  }
+
+  if (externalMethodsOut) {
+    File("${testCasePath}_$fileName.externalMethods.txt")
+        .writeAsStringSync(program.getExternalCallMethods());
+  }
+
+  var engine = MicroDartEngine.fromData(program.write().buffer.asByteData());
+  engine.setExternalFunctions(testLibraryMirrors);
+
+  if (opOut) {
+    File("${testCasePath}_$fileName.op.txt")
+        .writeAsStringSync(engine.getOpcodes());
+  }
+
+  if (constantOut) {
+    File("${testCasePath}_$fileName.constant.txt")
+        .writeAsStringSync(engine.getConstants());
+  }
+
+  if (typesOut) {
+    File("${testCasePath}_$fileName.types.txt")
+        .writeAsStringSync(engine.getTypes());
+  }
+
+  if (declarationsOut) {
+    File("${testCasePath}_$fileName.declarations.txt")
+        .writeAsStringSync(engine.getDeclarations());
+  }
+
+  if (debug) {
+    engine.debug = true;
+  }
+
+  return engine;
+}
+
+Future<dynamic> run(
+  MicroDartEngine engine, {
+  String functionName = "main",
+  bool isAsync = false,
+  bool waitClean = false,
+  ResultCallback? resultCallback,
+}) async {
+  var returnValue = isAsync
+      ? await await engine
+          .callStaticFunctionAsync(pluginUri, functionName, [], {})
+      : waitClean
+          ? await engine
+              .callStaticFunctionWaitClean(pluginUri, functionName, [], {})
+          : engine.callStaticFunction(pluginUri, functionName, [], {});
+
+  resultCallback?.call(returnValue);
+
+  return returnValue;
+}
+
 Future<dynamic> singleFileTest(
   String fileName, {
   String functionName = "main",
@@ -101,10 +185,12 @@ Future<dynamic> singleFileTest(
   }
 
   var returnValue = isAsync
-      ? await await engine.callStaticFunctionAsync(pluginUri, "main", [], {})
+      ? await await engine
+          .callStaticFunctionAsync(pluginUri, functionName, [], {})
       : waitClean
-          ? await engine.callStaticFunctionWaitClean(pluginUri, "main", [], {})
-          : engine.callStaticFunction(pluginUri, "main", [], {});
+          ? await engine
+              .callStaticFunctionWaitClean(pluginUri, functionName, [], {})
+          : engine.callStaticFunction(pluginUri, functionName, [], {});
 
   resultCallback?.call(returnValue);
 
