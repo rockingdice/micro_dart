@@ -1,57 +1,15 @@
+import 'package:micro_dart_runtime/flags.dart';
 import 'package:micro_dart_runtime/micro_dart_runtime.dart';
 
 class CTypes {}
-
-abstract class MDartType {}
-
-class MDynamicType extends MDartType {
-  @override
-  final int hashCode = 54321;
-
-  @override
-  bool operator ==(Object other) {
-    return other is MDynamicType && hashCode == other.hashCode;
-  }
-}
-
-class MInvalidType extends MDartType {
-  @override
-  final int hashCode = 12345;
-
-  @override
-  bool operator ==(Object other) {
-    return other is MInvalidType && hashCode == other.hashCode;
-  }
-}
-
-class MVoidType extends MDartType {
-  @override
-  final int hashCode = 123121;
-
-  @override
-  bool operator ==(Object other) {
-    return other is MVoidType && hashCode == other.hashCode;
-  }
-}
-
-class MNeverType extends MDartType {}
-
-class MNullType extends MDartType {
-  @override
-  final int hashCode = 123121;
-
-  @override
-  bool operator ==(Object other) {
-    return other is MDynamicType && hashCode == other.hashCode;
-  }
-}
 
 class CallRef {
   final String library;
   final String className;
   final String name;
-  final bool isSetter;
-  final bool isStatic;
+  final int flags;
+  bool get isSetter => Flags.isSetter(flags);
+  bool get isStatic => Flags.isStatic(flags);
 
   String nameWithTypes(List<String> types) {
     if (types.isEmpty) {
@@ -75,8 +33,13 @@ class CallRef {
     return "$className<$typeStr>";
   }
 
-  CallRef(
-      this.library, this.className, this.name, this.isSetter, this.isStatic);
+  CallRef._(this.library, this.className, this.name, this.flags);
+
+  factory CallRef(String library, String className, String name, bool isSetter,
+      bool isStatic) {
+    return CallRef._(library, className, name,
+        Flags.generateFlags(isSetter: isSetter, isStatic: isStatic));
+  }
 
   String get callName {
     if (className.isEmpty) {
@@ -89,32 +52,22 @@ class CallRef {
     return "$library@$className@$name";
   }
 
-  CallRef copyOfIsSetter(bool isSetter) {
-    return CallRef(library, className, name, isSetter, isStatic);
+  CallRef copyOfIsSetter(bool newIsSetter) {
+    return CallRef(library, className, name, newIsSetter, isStatic);
   }
 
-  CallRef copyOfIsStatic(bool isStatic) {
-    return CallRef(library, className, name, isSetter, isStatic);
+  CallRef copyOfIsStatic(bool newIsStatic) {
+    return CallRef(library, className, name, isSetter, newIsStatic);
   }
 
   factory CallRef.name(String name) {
-    return CallRef(
-      "",
-      "",
-      name,
-      false,
-      false,
-    );
+    return CallRef._(
+        "", "", name, Flags.generateFlags(isSetter: false, isStatic: false));
   }
 
   factory CallRef.fromList(List list, List<String> constants) {
-    return CallRef(
-      constants[list[0]],
-      constants[list[1]],
-      constants[list[2]],
-      list[3] == 1 ? true : false,
-      list[4] == 1 ? true : false,
-    );
+    return CallRef._(
+        constants[list[0]], constants[list[1]], constants[list[2]], list[3]);
   }
 
   List toList(ConstantPool pool) {
@@ -122,18 +75,16 @@ class CallRef {
       pool.addOrGet(library),
       pool.addOrGet(className),
       pool.addOrGet(name),
-      isSetter ? 1 : 0,
-      isStatic ? 1 : 0,
+      flags
     ];
   }
 
   factory CallRef.fromEngine(MicroDartEngine engine) {
-    return CallRef(
+    return CallRef._(
         engine.constants[engine.readInt32()],
         engine.constants[engine.readInt32()],
         engine.constants[engine.readInt32()],
-        engine.readUint8() == 1 ? true : false,
-        engine.readUint8() == 1 ? true : false);
+        engine.readUInt32());
   }
 
   static const int byteLen = Ops.lenI32 * 3 + Ops.lenI8 * 2;
@@ -143,8 +94,7 @@ class CallRef {
       ...Ops.i32b(pool.addOrGet(library)),
       ...Ops.i32b(pool.addOrGet(className)),
       ...Ops.i32b(pool.addOrGet(name)),
-      ...Ops.u8b(isSetter ? 1 : 0),
-      ...Ops.u8b(isStatic ? 1 : 0),
+      ...Ops.i32b(flags)
     ];
   }
 
@@ -237,58 +187,84 @@ class CType {
   final List<String> getters;
   final List<String> setters;
   final List<String> constructors;
-  final bool isExternal;
-  final bool isAnonymousMixin;
-  final bool isMixinDeclaration;
 
-  const CType(this.ref,
+  final int flags;
+  bool get isExternal => Flags.isExternal(flags);
+  bool get isAnonymousMixin => Flags.isAnonymousMixin(flags);
+  bool get isMixinDeclaration => Flags.isMixinDeclaration(flags);
+
+  const CType._(this.ref,
       {this.superType,
       this.mixinType,
       this.implementTypes = const [],
       this.getters = const [],
       this.setters = const [],
       this.constructors = const [],
-      this.isExternal = false,
-      this.isAnonymousMixin = false,
-      this.isMixinDeclaration = false});
+      this.flags = 0});
 
-  CType copyWithGetters(List<String> getters) {
-    return CType(ref,
+  const CType.external(this.ref,
+      {this.superType,
+      this.mixinType,
+      this.implementTypes = const [],
+      this.getters = const [],
+      this.setters = const [],
+      this.constructors = const [],
+      this.flags = Flags.external});
+
+  factory CType(ClassRef ref,
+      {ClassRef? superType,
+      ClassRef? mixinType,
+      List<ClassRef> implementTypes = const [],
+      List<String> getters = const [],
+      List<String> setters = const [],
+      List<String> constructors = const [],
+      bool isExternal = false,
+      bool isAnonymousMixin = false,
+      bool isMixinDeclaration = false}) {
+    return CType._(ref,
         superType: superType,
         mixinType: mixinType,
         implementTypes: implementTypes,
         getters: getters,
         setters: setters,
         constructors: constructors,
-        isExternal: isExternal,
-        isAnonymousMixin: isAnonymousMixin,
-        isMixinDeclaration: isMixinDeclaration);
+        flags: Flags.generateFlags(
+            isExternal: isExternal,
+            isAnonymousMixin: isAnonymousMixin,
+            isMixinDeclaration: isMixinDeclaration));
   }
 
-  CType copyWithSetters(List<String> setters) {
-    return CType(ref,
+  CType copyWithGetters(List<String> newGetters) {
+    return CType._(ref,
         superType: superType,
         mixinType: mixinType,
         implementTypes: implementTypes,
         getters: getters,
-        setters: setters,
+        setters: newGetters,
         constructors: constructors,
-        isExternal: isExternal,
-        isAnonymousMixin: isAnonymousMixin,
-        isMixinDeclaration: isMixinDeclaration);
+        flags: flags);
   }
 
-  CType copyWithConstructors(List<String> constructors) {
-    return CType(ref,
+  CType copyWithSetters(List<String> newSetters) {
+    return CType._(ref,
+        superType: superType,
+        mixinType: mixinType,
+        implementTypes: implementTypes,
+        getters: getters,
+        setters: newSetters,
+        constructors: constructors,
+        flags: flags);
+  }
+
+  CType copyWithConstructors(List<String> newConstructors) {
+    return CType._(ref,
         superType: superType,
         mixinType: mixinType,
         implementTypes: implementTypes,
         getters: getters,
         setters: setters,
-        constructors: constructors,
-        isExternal: isExternal,
-        isAnonymousMixin: isAnonymousMixin,
-        isMixinDeclaration: isMixinDeclaration);
+        constructors: newConstructors,
+        flags: flags);
   }
 
   bool isType(CType cType, MicroDartEngine engine) {
@@ -321,14 +297,12 @@ class CType {
       getters.map<int>((e) => pool.addOrGet(e)).toList(),
       setters.map<int>((e) => pool.addOrGet(e)).toList(),
       constructors.map<int>((e) => pool.addOrGet(e)).toList(),
-      isExternal,
-      isAnonymousMixin,
-      isMixinDeclaration,
+      flags
     ];
   }
 
   factory CType.fromList(List list, List<String> constants) {
-    return CType(
+    return CType._(
       ClassRef.fromList(list[0], constants),
       superType: list[1] == null ? null : ClassRef.fromList(list[1], constants),
       mixinType: list[2] == null ? null : ClassRef.fromList(list[2], constants),
@@ -338,9 +312,7 @@ class CType {
       getters: (list[4] as List).map<String>((e) => constants[e]).toList(),
       setters: (list[5] as List).map<String>((e) => constants[e]).toList(),
       constructors: (list[6] as List).map<String>((e) => constants[e]).toList(),
-      isExternal: list[7],
-      isAnonymousMixin: list[8],
-      isMixinDeclaration: list[9],
+      flags: list[7],
     );
   }
 
@@ -360,20 +332,11 @@ class CType {
     return "CType($ref,$superType,$mixinType)";
   }
 
-  CallRef getCallRef(String name, bool isSetter, bool isStatic) {
-    return CallRef(ref.library, ref.className, name, isSetter, isStatic);
+  CallRef getCallRef(String name, bool newIsSetter, bool newIsStatic) {
+    return CallRef(ref.library, ref.className, name, newIsSetter, newIsStatic);
   }
 
   @override
-  int get hashCode => Object.hash(
-      ref,
-      superType,
-      mixinType,
-      implementTypes,
-      getters,
-      setters,
-      constructors,
-      isExternal,
-      isAnonymousMixin,
-      isMixinDeclaration);
+  int get hashCode => Object.hash(ref, superType, mixinType, implementTypes,
+      getters, setters, constructors, flags);
 }

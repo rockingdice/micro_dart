@@ -10,10 +10,10 @@ class $CustomPainter extends CustomPainter with m.InstanceBridge {
   $CustomPainter({Listenable? repaint}) : super(repaint: repaint);
 
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/rendering/custom_paint.dart", "CustomPainter"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef(
+        "package:flutter/src/rendering/custom_paint.dart", "CustomPainter"),
+  );
 
   @override
   late Map<String, Function> superGetters = {

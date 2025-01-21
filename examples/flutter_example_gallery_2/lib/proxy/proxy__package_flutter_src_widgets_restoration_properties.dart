@@ -35,10 +35,10 @@ Function _RestorableListenable__$(m.Scope scope$) => () {
 
 class $RestorableListenable extends RestorableListenable with m.InstanceBridge {
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef("package:flutter/src/widgets/restoration_properties.dart",
-          "RestorableListenable"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:flutter/src/widgets/restoration_properties.dart",
+        "RestorableListenable"),
+  );
 
   @override
   late Map<String, Function> superGetters = {};

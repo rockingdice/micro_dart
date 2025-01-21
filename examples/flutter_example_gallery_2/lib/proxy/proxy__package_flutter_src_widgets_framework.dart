@@ -20,10 +20,9 @@ class $InheritedWidget extends InheritedWidget with m.InstanceBridge {
       : super(key: key, child: child);
 
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/widgets/framework.dart", "InheritedWidget"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:flutter/src/widgets/framework.dart", "InheritedWidget"),
+  );
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
@@ -52,10 +51,9 @@ class $StatelessWidget extends StatelessWidget
     implements PreferredSizeWidget {
   $StatelessWidget({Key? key}) : super(key: key);
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/widgets/framework.dart", "StatelessWidget"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:flutter/src/widgets/framework.dart", "StatelessWidget"),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +78,9 @@ Function _StatefulWidget__$(m.Scope scope$) => ({Key? key}) {
 class $StatefulWidget extends StatefulWidget with m.InstanceBridge {
   $StatefulWidget({Key? key}) : super(key: key);
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef(
-          "package:flutter/src/widgets/framework.dart", "StatefulWidget"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:flutter/src/widgets/framework.dart", "StatefulWidget"),
+  );
 
   @override
   State<StatefulWidget> createState() {
@@ -102,9 +99,9 @@ Function _State__$(m.Scope scope$) => () {
 class $State extends State
     with m.InstanceBridge, TickerProviderStateMixin, RestorationMixin {
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef("package:flutter/src/widgets/framework.dart", "State"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:flutter/src/widgets/framework.dart", "State"),
+  );
 
   @override
   Widget build(BuildContext context) {
