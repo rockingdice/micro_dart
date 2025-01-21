@@ -368,6 +368,9 @@ int compileIsExpression(MicroCompilerContext context, IsExpression node) {
       context.externalCallMethods.add(isRef);
       return context.pushOp(OpCallExternal.make(isRef, true, [], []));
     }
+  } else if (type is FunctionType) {
+    throw Exception(
+        "IsExpression type not support : ${type.runtimeType.toString()}");
   } else {
     throw Exception(
         "IsExpression type not support : ${type.runtimeType.toString()}");
@@ -476,6 +479,11 @@ int compileAsExpression(MicroCompilerContext context, AsExpression node) {
         "FunctionType  not support :  ${node.parent?.runtimeType.toString()} ${type.toStringInternal()}");
     //throw Exception(
     //    "FunctionType  not support :  ${node.parent?.runtimeType.toString()} ${type.toStringInternal()}");
+  } else if (type is FutureOrType) {
+    // print(
+    //     "FutureOrType  not support :  ${node.parent?.runtimeType.toString()} ${type.toStringInternal()}");
+    throw Exception(
+        "AsExpression  not support : ${type.runtimeType.toString()}");
   } else {
     throw Exception(
         "AsExpression  not support : ${type.runtimeType.toString()}");

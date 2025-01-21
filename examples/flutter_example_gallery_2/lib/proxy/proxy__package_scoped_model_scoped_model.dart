@@ -10,9 +10,9 @@ Function _Model__$(m.Scope scope$) => () {
 
 class $Model extends Model with m.InstanceBridge {
   @override
-  m.CType bridgeType = const m.CType(
-      m.ClassRef("package:scoped_model/scoped_model.dart", "Model"),
-      isExternal: true);
+  m.CType bridgeType = const m.CType.external(
+    m.ClassRef("package:scoped_model/scoped_model.dart", "Model"),
+  );
 
   @override
   late Map<String, Function> superGetters = {};
